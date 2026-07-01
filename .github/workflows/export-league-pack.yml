@@ -1,0 +1,54 @@
+name: Export League Pack
+
+on:
+  workflow_dispatch:
+    inputs:
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      season:
+        description: "Season year"
+        required: true
+        default: "2025"
+      players:
+        description: "Optional derived players snapshot path"
+        required: false
+        default: ""
+      clubs:
+        description: "Optional derived clubs snapshot path"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  export-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Export league pack
+        run: |
+          COMMAND="npm run export:league-pack -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}"
+          if [ -n "${{ github.event.inputs.players }}" ]; then
+            COMMAND="$COMMAND --players='${{ github.event.inputs.players }}'"
+          fi
+          if [ -n "${{ github.event.inputs.clubs }}" ]; then
+            COMMAND="$COMMAND --clubs='${{ github.event.inputs.clubs }}'"
+          fi
+          eval "$COMMAND"
+      - name: Commit league pack
+        run: |
+          if [ -z "$(git status --porcelain exports/league-packs)" ]; then
+            echo "No league pack changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add exports/league-packs
+          git commit -m "Export league pack"
+          git push
