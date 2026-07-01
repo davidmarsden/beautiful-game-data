@@ -1,0 +1,44 @@
+name: Import API-Football Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      season:
+        description: "Season year"
+        required: true
+        default: "2025"
+      maxPages:
+        description: "Maximum player pages"
+        required: true
+        default: "1"
+
+permissions:
+  contents: write
+
+jobs:
+  import-players:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Import players
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: npm run import:api-football:players -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }} --maxPages=${{ github.event.inputs.maxPages }}
+      - name: Commit imported data
+        run: |
+          if [ -z "$(git status --porcelain providers/api-football)" ]; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add providers/api-football
+          git commit -m "Import API-Football data"
+          git push
