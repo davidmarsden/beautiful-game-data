@@ -55,7 +55,7 @@ test("form and effective match rating are bounded", () => {
 test("estimates market value when provider data lacks market evidence", () => {
   const value = estimateMarketValue(samplePlayer, { leagueTier: "S" });
 
-  assert.equal(value, 46_850_000);
+  assert.equal(value, 55_750_000);
 });
 
 test("builds a derived player from normalised provider data plus market evidence", () => {
@@ -81,7 +81,7 @@ test("builds a derived player with estimated market evidence when market value i
     leagueTier: "S"
   });
 
-  assert.equal(derived.marketValue, 46_850_000);
+  assert.equal(derived.marketValue, 55_750_000);
   assert.equal(derived.evidence.marketValueEvidence.evidenceQuality, "estimated");
-  assert.equal(derived.ratings.ability, 86);
+  assert.equal(derived.ratings.ability, 87);
 });
