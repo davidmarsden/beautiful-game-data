@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildDerivedPlayers } from "../derived/players/index.js";
@@ -22,8 +22,35 @@ function requireArg(args, name) {
   return args[name];
 }
 
+function decodeGitHubBlobUrl(value) {
+  try {
+    const url = new URL(value);
+    const marker = "/blob/main/";
+    const index = url.pathname.indexOf(marker);
+    if (url.hostname !== "github.com" || index === -1) return null;
+    return decodeURIComponent(url.pathname.slice(index + marker.length));
+  } catch {
+    return null;
+  }
+}
+
 function inputPathFromArg(value) {
-  return path.isAbsolute(value) ? value : path.join(repoRoot, value);
+  const decodedPath = decodeGitHubBlobUrl(value) ?? value;
+  return path.isAbsolute(decodedPath) ? decodedPath : path.join(repoRoot, decodedPath);
+}
+
+async function latestSnapshotPath({ league, season }) {
+  const folder = path.join(repoRoot, "providers", "api-football", String(season), `league-${league}`);
+  const files = await readdir(folder);
+  const playerFiles = files
+    .filter((file) => file.startsWith("players-") && file.endsWith(".json"))
+    .sort();
+
+  if (!playerFiles.length) {
+    throw new Error(`No player snapshots found in ${path.relative(repoRoot, folder)}.`);
+  }
+
+  return path.join(folder, playerFiles.at(-1));
 }
 
 function outputPathFromInput(inputPath) {
@@ -34,7 +61,12 @@ function outputPathFromInput(inputPath) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const inputPath = inputPathFromArg(requireArg(args, "snapshot"));
+  const inputPath = args.snapshot
+    ? inputPathFromArg(args.snapshot)
+    : await latestSnapshotPath({
+        league: requireArg(args, "league"),
+        season: requireArg(args, "season")
+      });
   const leagueTier = args.leagueTier ?? "S";
   const outputPath = args.output ? inputPathFromArg(args.output) : outputPathFromInput(inputPath);
 
@@ -63,6 +95,7 @@ async function main() {
   await writeFile(outputPath, `${JSON.stringify(derivedSnapshot, null, 2)}\n`, "utf8");
 
   console.log(`Derived ${derivedRows.length} players.`);
+  console.log(`Input ${path.relative(repoRoot, inputPath)}`);
   console.log(`Wrote ${path.relative(repoRoot, outputPath)}`);
 }
 
