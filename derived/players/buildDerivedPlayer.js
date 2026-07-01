@@ -2,6 +2,7 @@ import { abilityFromMarketValue } from "../ratings/ability.js";
 import { effectiveMatchRating, formFromOutput } from "../ratings/form.js";
 import { potentialBand } from "../ratings/potential.js";
 import { reputationFromCareerStature } from "../ratings/reputation.js";
+import { marketEvidence } from "./estimateMarketValue.js";
 
 function roleFromPosition(position) {
   const value = String(position ?? "").toLowerCase();
@@ -18,8 +19,12 @@ function outputPer90(player) {
 
 export function buildDerivedPlayer(input) {
   const player = input.player;
-  const marketValue = input.marketValue;
   const leagueTier = input.leagueTier ?? "S";
+  const estimatedMarket = marketEvidence(player, { leagueTier });
+  const marketValue = input.marketValue ?? estimatedMarket.marketValue;
+  const marketValueEvidence = input.marketValue
+    ? { evidenceQuality: "provided", method: "input-market-value" }
+    : estimatedMarket;
   const peakAbility = input.peakAbility;
   const caps = input.caps ?? 0;
   const valueGrowthPercent = input.valueGrowthPercent ?? 0;
@@ -71,7 +76,8 @@ export function buildDerivedPlayer(input) {
       assists: player.assists ?? 0,
       leagueTier,
       caps,
-      valueGrowthPercent
+      valueGrowthPercent,
+      marketValueEvidence
     }
   };
 }
