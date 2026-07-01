@@ -1,10 +1,26 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { buildDerivedPlayer } from "../derived/players/index.js";
+import { estimateMarketValue } from "../derived/players/estimateMarketValue.js";
 import { abilityFromMarketValue } from "../derived/ratings/ability.js";
 import { effectiveMatchRating, formFromOutput } from "../derived/ratings/form.js";
 import { potentialBand } from "../derived/ratings/potential.js";
 import { reputationFromCareerStature } from "../derived/ratings/reputation.js";
+
+const samplePlayer = {
+  provider: "api-football",
+  providerPlayerId: "123",
+  name: "Example Player",
+  age: 21,
+  nationality: "England",
+  position: "Attacker",
+  team: { providerTeamId: "50", name: "Example FC" },
+  league: { providerLeagueId: "39", name: "Premier League", country: "England", season: 2025 },
+  appearances: 10,
+  minutes: 900,
+  goals: 9,
+  assists: 1
+};
 
 test("ability uses published market value anchors", () => {
   assert.equal(abilityFromMarketValue(250_000_000), 99);
@@ -36,22 +52,15 @@ test("form and effective match rating are bounded", () => {
   assert.equal(effectiveMatchRating({ ability: 80, form }), 82);
 });
 
+test("estimates market value when provider data lacks market evidence", () => {
+  const value = estimateMarketValue(samplePlayer, { leagueTier: "S" });
+
+  assert.equal(value, 46_850_000);
+});
+
 test("builds a derived player from normalised provider data plus market evidence", () => {
   const derived = buildDerivedPlayer({
-    player: {
-      provider: "api-football",
-      providerPlayerId: "123",
-      name: "Example Player",
-      age: 21,
-      nationality: "England",
-      position: "Attacker",
-      team: { providerTeamId: "50", name: "Example FC" },
-      league: { providerLeagueId: "39", name: "Premier League", country: "England", season: 2025 },
-      appearances: 10,
-      minutes: 900,
-      goals: 9,
-      assists: 1
-    },
+    player: samplePlayer,
     marketValue: 20_000_000,
     leagueTier: "S",
     caps: 12,
@@ -64,4 +73,15 @@ test("builds a derived player from normalised provider data plus market evidence
   assert.equal(derived.ratings.effectiveMatchRating, 82);
   assert.equal(derived.ratings.reputation, 74);
   assert.equal(derived.ratings.potential.upper > derived.ratings.ability, true);
+});
+
+test("builds a derived player with estimated market evidence when market value is absent", () => {
+  const derived = buildDerivedPlayer({
+    player: samplePlayer,
+    leagueTier: "S"
+  });
+
+  assert.equal(derived.marketValue, 46_850_000);
+  assert.equal(derived.evidence.marketValueEvidence.evidenceQuality, "estimated");
+  assert.equal(derived.ratings.ability, 86);
 });
