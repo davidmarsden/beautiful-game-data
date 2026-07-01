@@ -8,7 +8,8 @@
     "import:api-football:players": "node scripts/import-api-football-players.js",
     "import:api-football:league": "node scripts/import-api-football-league.js",
     "derive:players": "node scripts/derive-players-from-snapshot.js",
-    "derive:clubs": "node scripts/derive-clubs-from-league.js"
+    "derive:clubs": "node scripts/derive-clubs-from-league.js",
+    "export:league-pack": "node scripts/export-league-pack.js"
   },
   "engines": {
     "node": ">=20"
