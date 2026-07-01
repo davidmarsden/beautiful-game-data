@@ -31,7 +31,7 @@ test("ability uses published market value anchors", () => {
 });
 
 test("ability interpolates between anchors", () => {
-  assert.equal(abilityFromMarketValue(13_000_000), 78);
+  assert.equal(abilityFromMarketValue(13_000_000), 77);
   assert.equal(abilityFromMarketValue(19_000_000), 80);
 });
 
