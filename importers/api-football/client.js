@@ -45,4 +45,16 @@ export class ApiFootballClient {
   teamsByLeagueSeason({ leagueId, season }) {
     return this.request("/teams", { league: leagueId, season });
   }
+
+  fixturesByLeagueSeason({ leagueId, season }) {
+    return this.request("/fixtures", { league: leagueId, season });
+  }
+
+  standingsByLeagueSeason({ leagueId, season }) {
+    return this.request("/standings", { league: leagueId, season });
+  }
+
+  coachesByTeam({ teamId }) {
+    return this.request("/coachs", { team: teamId });
+  }
 }
