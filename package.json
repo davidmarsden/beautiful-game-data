@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "import:api-football:players": "node scripts/import-api-football-players.js"
+    "import:api-football:players": "node scripts/import-api-football-players.js",
+    "derive:players": "node scripts/derive-players-from-snapshot.js"
   },
   "engines": {
     "node": ">=20"
