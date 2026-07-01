@@ -65,3 +65,25 @@ test("client builds requests with API key", async () => {
   assert.equal(calls[0].url.searchParams.get("league"), "39");
   assert.equal(calls[0].options.headers["x-apisports-key"], "secret");
 });
+
+test("client exposes complete league endpoints", async () => {
+  const calls = [];
+  const client = new ApiFootballClient({
+    apiKey: "secret",
+    fetchImpl: async (url) => {
+      calls.push(url);
+      return { ok: true, async json() { return { response: [] }; } };
+    }
+  });
+
+  await client.teamsByLeagueSeason({ leagueId: 39, season: 2025 });
+  await client.fixturesByLeagueSeason({ leagueId: 39, season: 2025 });
+  await client.standingsByLeagueSeason({ leagueId: 39, season: 2025 });
+  await client.coachesByTeam({ teamId: 50 });
+
+  assert.equal(calls[0].pathname, "/teams");
+  assert.equal(calls[1].pathname, "/fixtures");
+  assert.equal(calls[2].pathname, "/standings");
+  assert.equal(calls[3].pathname, "/coachs");
+  assert.equal(calls[3].searchParams.get("team"), "50");
+});
