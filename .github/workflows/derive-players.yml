@@ -3,13 +3,22 @@ name: Derive Players
 on:
   workflow_dispatch:
     inputs:
-      snapshot:
-        description: "Path to provider players snapshot"
+      league:
+        description: "API-Football league id"
         required: true
+        default: "39"
+      season:
+        description: "Season year"
+        required: true
+        default: "2025"
       leagueTier:
         description: "League tier: S, A, B, C or D"
         required: true
         default: "S"
+      snapshot:
+        description: "Optional exact snapshot path or GitHub file URL"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -23,7 +32,12 @@ jobs:
         with:
           node-version: 20
       - name: Derive players
-        run: npm run derive:players -- --snapshot=${{ github.event.inputs.snapshot }} --leagueTier=${{ github.event.inputs.leagueTier }}
+        run: |
+          if [ -n "${{ github.event.inputs.snapshot }}" ]; then
+            npm run derive:players -- --snapshot='${{ github.event.inputs.snapshot }}' --leagueTier=${{ github.event.inputs.leagueTier }}
+          else
+            npm run derive:players -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }} --leagueTier=${{ github.event.inputs.leagueTier }}
+          fi
       - name: Commit derived players
         run: |
           if [ -z "$(git status --porcelain derived/players)" ]; then
