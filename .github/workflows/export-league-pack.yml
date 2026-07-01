@@ -31,6 +31,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Derive missing players
+        run: |
+          if [ -z "${{ github.event.inputs.players }}" ] && ! ls derived/players/*.json >/dev/null 2>&1; then
+            npm run derive:players -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }} --leagueTier=S
+          else
+            echo "Derived players already available or explicitly supplied."
+          fi
+      - name: Derive missing clubs
+        run: |
+          if [ -z "${{ github.event.inputs.clubs }}" ] && ! ls derived/clubs/*.json >/dev/null 2>&1; then
+            npm run derive:clubs -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}
+          else
+            echo "Derived clubs already available or explicitly supplied."
+          fi
       - name: Export league pack
         run: |
           COMMAND="npm run export:league-pack -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}"
@@ -41,14 +55,14 @@ jobs:
             COMMAND="$COMMAND --clubs='${{ github.event.inputs.clubs }}'"
           fi
           eval "$COMMAND"
-      - name: Commit league pack
+      - name: Commit league pack and derived data
         run: |
-          if [ -z "$(git status --porcelain exports/league-packs)" ]; then
-            echo "No league pack changes."
+          if [ -z "$(git status --porcelain derived exports/league-packs)" ]; then
+            echo "No data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add exports/league-packs
+          git add derived exports/league-packs
           git commit -m "Export league pack"
           git push
