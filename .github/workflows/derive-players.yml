@@ -1,0 +1,37 @@
+name: Derive Players
+
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot:
+        description: "Path to provider players snapshot"
+        required: true
+      leagueTier:
+        description: "League tier: S, A, B, C or D"
+        required: true
+        default: "S"
+
+permissions:
+  contents: write
+
+jobs:
+  derive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Derive players
+        run: npm run derive:players -- --snapshot=${{ github.event.inputs.snapshot }} --leagueTier=${{ github.event.inputs.leagueTier }}
+      - name: Commit derived players
+        run: |
+          if [ -z "$(git status --porcelain derived/players)" ]; then
+            echo "No derived player changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add derived/players
+          git commit -m "Derive players from snapshot"
+          git push
