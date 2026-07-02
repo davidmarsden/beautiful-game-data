@@ -1,0 +1,45 @@
+name: Import API Football Pro League
+
+on:
+  workflow_dispatch:
+    inputs:
+      league:
+        description: "League id"
+        required: true
+        default: "39"
+      season:
+        description: "Season starting year"
+        required: true
+        default: "2024"
+      requestDelayMs:
+        description: "Delay between requests"
+        required: true
+        default: "250"
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run harvest
+        env:
+          API_FOOTBALL_REQUEST_DELAY_MS: ${{ github.event.inputs.requestDelayMs }}
+        run: npm run import:api-football:pro-league -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}
+      - name: Commit harvest
+        run: |
+          if [ -z "$(git status --porcelain providers/api-football)" ]; then
+            echo "No provider data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add providers/api-football
+          git commit -m "Import API Football Pro league harvest"
+          git push
