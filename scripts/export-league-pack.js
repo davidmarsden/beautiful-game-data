@@ -25,15 +25,33 @@ function repoPath(value) {
   return path.isAbsolute(value) ? value : path.join(repoRoot, value);
 }
 
-async function latestJson(folder) {
-  const files = await readdir(folder);
-  const jsonFiles = files.filter((file) => file.endsWith(".json")).sort();
-  if (!jsonFiles.length) throw new Error(`No JSON files found in ${path.relative(repoRoot, folder)}.`);
-  return path.join(folder, jsonFiles.at(-1));
-}
-
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+function snapshotMatchesLeagueSeason(snapshot, { league, season }) {
+  const source = snapshot.meta?.source ?? {};
+  const input = String(source.input ?? source.players ?? source.leagueFolder ?? "");
+  return (
+    String(source.league) === String(league) && String(source.season) === String(season)
+  ) || input.includes(`providers/api-football/${season}/league-${league}`);
+}
+
+async function latestMatchingJson(folder, { league, season, label }) {
+  const files = (await readdir(folder)).filter((file) => file.endsWith(".json")).sort();
+  const matches = [];
+
+  for (const file of files) {
+    const filePath = path.join(folder, file);
+    const snapshot = await readJson(filePath);
+    if (snapshotMatchesLeagueSeason(snapshot, { league, season })) matches.push(filePath);
+  }
+
+  if (!matches.length) {
+    throw new Error(`No ${label} snapshot found for league ${league}, season ${season}.`);
+  }
+
+  return matches.at(-1);
 }
 
 async function main() {
@@ -42,8 +60,12 @@ async function main() {
   const season = requireArg(args, "season");
 
   const leagueFolder = repoPath(args.leagueFolder ?? `providers/api-football/${season}/league-${league}`);
-  const playersPath = args.players ? repoPath(args.players) : await latestJson(path.join(repoRoot, "derived", "players"));
-  const clubsPath = args.clubs ? repoPath(args.clubs) : await latestJson(path.join(repoRoot, "derived", "clubs"));
+  const playersPath = args.players
+    ? repoPath(args.players)
+    : await latestMatchingJson(path.join(repoRoot, "derived", "players"), { league, season, label: "derived players" });
+  const clubsPath = args.clubs
+    ? repoPath(args.clubs)
+    : await latestMatchingJson(path.join(repoRoot, "derived", "clubs"), { league, season, label: "derived clubs" });
 
   const playersSnapshot = await readJson(playersPath);
   const clubsSnapshot = await readJson(clubsPath);
@@ -72,6 +94,8 @@ async function main() {
   await writeFile(outputPath, `${JSON.stringify(pack, null, 2)}\n`, "utf8");
 
   console.log(`Exported league pack.`);
+  console.log(`Using players ${path.relative(repoRoot, playersPath)}`);
+  console.log(`Using clubs ${path.relative(repoRoot, clubsPath)}`);
   console.log(JSON.stringify(pack.meta.counts, null, 2));
   console.log(`Wrote ${path.relative(repoRoot, outputPath)}`);
 }
