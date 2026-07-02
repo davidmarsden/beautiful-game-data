@@ -26,12 +26,41 @@ function repoPath(value) {
   return path.isAbsolute(value) ? value : path.join(repoRoot, value);
 }
 
-async function latestDerivedPlayersPath() {
-  const folder = path.join(repoRoot, "derived", "players");
-  const files = await readdir(folder);
-  const snapshots = files.filter((file) => file.endsWith(".json")).sort();
-  if (!snapshots.length) throw new Error("No derived player snapshots found.");
-  return path.join(folder, snapshots.at(-1));
+async function readSnapshot(filePath) {
+  return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+function snapshotMatchesLeagueSeason(snapshot, { league, season }) {
+  const source = snapshot.meta?.source ?? {};
+  const input = String(source.input ?? source.players ?? source.leagueFolder ?? "");
+  return (
+    String(source.league) === String(league) && String(source.season) === String(season)
+  ) || input.includes(`providers/api-football/${season}/league-${league}`);
+}
+
+async function latestMatchingSnapshotPath(folder, matcher, label) {
+  const files = (await readdir(folder)).filter((file) => file.endsWith(".json")).sort();
+  const matches = [];
+
+  for (const file of files) {
+    const filePath = path.join(folder, file);
+    const snapshot = await readSnapshot(filePath);
+    if (matcher(snapshot)) matches.push(filePath);
+  }
+
+  if (!matches.length) {
+    throw new Error(`No ${label} snapshot found for requested league/season.`);
+  }
+
+  return matches.at(-1);
+}
+
+async function latestDerivedPlayersPath({ league, season }) {
+  return latestMatchingSnapshotPath(
+    path.join(repoRoot, "derived", "players"),
+    (snapshot) => snapshotMatchesLeagueSeason(snapshot, { league, season }),
+    "derived players"
+  );
 }
 
 function standingRows(standingsSnapshot) {
@@ -44,16 +73,12 @@ function coachRowsForTeam(coachesSnapshot, teamId) {
   return teamCoaches?.rows ?? [];
 }
 
-async function readSnapshot(filePath) {
-  return JSON.parse(await readFile(filePath, "utf8"));
-}
-
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const season = requireArg(args, "season");
   const league = requireArg(args, "league");
   const leagueFolder = repoPath(args.leagueFolder ?? `providers/api-football/${season}/league-${league}`);
-  const derivedPlayersPath = args.players ? repoPath(args.players) : await latestDerivedPlayersPath();
+  const derivedPlayersPath = args.players ? repoPath(args.players) : await latestDerivedPlayersPath({ league, season });
 
   const teamsSnapshot = await readSnapshot(path.join(leagueFolder, "teams.json"));
   const standingsSnapshot = await readSnapshot(path.join(leagueFolder, "standings.json"));
@@ -97,6 +122,7 @@ async function main() {
   await writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
 
   console.log(`Derived ${clubs.length} clubs.`);
+  console.log(`Using players ${path.relative(repoRoot, derivedPlayersPath)}`);
   console.log(`Wrote ${path.relative(repoRoot, outputPath)}`);
 }
 
