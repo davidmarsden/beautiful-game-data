@@ -1,0 +1,5980 @@
+{
+  "meta": {
+    "provider": "beautiful-game-data",
+    "version": "derived-clubs-v0.1",
+    "source": {
+      "league": "39",
+      "season": "2024",
+      "leagueFolder": "providers/api-football/2024/league-39",
+      "players": "derived/players/players-derived-2026-07-02T19-17-56-035Z.json"
+    },
+    "createdAt": "2026-07-02T19:19:08.215Z",
+    "rowCount": 20
+  },
+  "rows": [
+    {
+      "id": "provider:api-football:33",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "33"
+      },
+      "name": "Manchester United",
+      "country": "England",
+      "founded": 1878,
+      "national": false,
+      "venue": {
+        "id": 556,
+        "name": "Old Trafford",
+        "address": "Sir Matt Busby Way",
+        "city": "Manchester",
+        "capacity": 76212,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/556.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:908",
+          "provider:api-football:284242",
+          "provider:api-football:74",
+          "provider:api-football:742",
+          "provider:api-football:739",
+          "provider:api-football:897",
+          "provider:api-football:330636",
+          "provider:api-football:153434",
+          "provider:api-football:284307",
+          "provider:api-football:284391",
+          "provider:api-football:303016",
+          "provider:api-football:303017",
+          "provider:api-football:365664",
+          "provider:api-football:889",
+          "provider:api-football:284324",
+          "provider:api-football:402329",
+          "provider:api-football:532",
+          "provider:api-football:545",
+          "provider:api-football:747",
+          "provider:api-football:886",
+          "provider:api-football:891",
+          "provider:api-football:1485",
+          "provider:api-football:2467",
+          "provider:api-football:2931",
+          "provider:api-football:2935",
+          "provider:api-football:19220",
+          "provider:api-football:37145",
+          "provider:api-football:51494",
+          "provider:api-football:70100",
+          "provider:api-football:157997",
+          "provider:api-football:284322",
+          "provider:api-football:328101",
+          "provider:api-football:342970",
+          "provider:api-football:382452",
+          "provider:api-football:403064",
+          "provider:api-football:9971",
+          "provider:api-football:288006",
+          "provider:api-football:389309",
+          "provider:api-football:180560",
+          "provider:api-football:284539",
+          "provider:api-football:378981",
+          "provider:api-football:396483",
+          "provider:api-football:407026",
+          "provider:api-football:396729",
+          "provider:api-football:402330",
+          "provider:api-football:402331",
+          "provider:api-football:404017",
+          "provider:api-football:404769",
+          "provider:api-football:406098",
+          "provider:api-football:418210",
+          "provider:api-football:440159",
+          "provider:api-football:440160",
+          "provider:api-football:288112",
+          "provider:api-football:328098",
+          "provider:api-football:282133",
+          "provider:api-football:284400",
+          "provider:api-football:303010",
+          "provider:api-football:284361",
+          "provider:api-football:344229",
+          "provider:api-football:362270",
+          "provider:api-football:18772",
+          "provider:api-football:284363",
+          "provider:api-football:383770",
+          "provider:api-football:389031",
+          "provider:api-football:547",
+          "provider:api-football:70078",
+          "provider:api-football:163054",
+          "provider:api-football:174",
+          "provider:api-football:903",
+          "provider:api-football:284382",
+          "provider:api-football:298062",
+          "provider:api-football:526",
+          "provider:api-football:50132"
+        ],
+        "size": 73,
+        "averageAge": 23.3,
+        "overall": 82.8,
+        "startingStrength": 84,
+        "depth": 80.6,
+        "attack": 83.4,
+        "midfield": 82.1,
+        "defence": 82.5,
+        "goalkeeper": 81.5
+      },
+      "leagueContext": {
+        "rank": 15,
+        "points": 42,
+        "goalsDiff": -10,
+        "form": "WLLLD"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 1993,
+            "name": "E. ten Hag",
+            "firstname": "Erik",
+            "lastname": "ten Hag",
+            "age": 55,
+            "birth": {
+              "date": "1970-02-02",
+              "place": "Haaksbergen",
+              "country": "Netherlands"
+            },
+            "nationality": "Netherlands",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/1993.png",
+            "team": {
+              "id": 33,
+              "name": "Manchester United",
+              "logo": "https://media.api-sports.io/football/teams/33.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 33,
+                  "name": "Manchester United",
+                  "logo": "https://media.api-sports.io/football/teams/33.png"
+                },
+                "start": "2022-06-01",
+                "end": "2024-10-01"
+              },
+              {
+                "team": {
+                  "id": 194,
+                  "name": "Ajax",
+                  "logo": "https://media.api-sports.io/football/teams/194.png"
+                },
+                "start": "2018-01-01",
+                "end": "2022-05-01"
+              },
+              {
+                "team": {
+                  "id": 207,
+                  "name": "Utrecht",
+                  "logo": "https://media.api-sports.io/football/teams/207.png"
+                },
+                "start": "2015-07-01",
+                "end": "2017-12-01"
+              },
+              {
+                "team": {
+                  "id": 4674,
+                  "name": "Bayern München II",
+                  "logo": "https://media.api-sports.io/football/teams/4674.png"
+                },
+                "start": "2013-06-01",
+                "end": "2015-07-01"
+              },
+              {
+                "team": {
+                  "id": 410,
+                  "name": "Go Ahead Eagles",
+                  "logo": "https://media.api-sports.io/football/teams/410.png"
+                },
+                "start": "2012-07-01",
+                "end": "2013-06-01"
+              }
+            ]
+          },
+          {
+            "id": 4720,
+            "name": "Ruben Amorim",
+            "firstname": "Ruben Filipe",
+            "lastname": "Marques Diogo Amorim",
+            "age": 40,
+            "birth": {
+              "date": "1985-01-27",
+              "place": "Lisboa",
+              "country": "Portugal"
+            },
+            "nationality": "Portugal",
+            "height": "182 cm",
+            "weight": "72 kg",
+            "photo": "https://media.api-sports.io/football/coachs/4720.png",
+            "team": {
+              "id": 33,
+              "name": "Manchester United",
+              "logo": "https://media.api-sports.io/football/teams/33.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 33,
+                  "name": "Manchester United",
+                  "logo": "https://media.api-sports.io/football/teams/33.png"
+                },
+                "start": "2024-11-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 228,
+                  "name": "Sporting Lisbon",
+                  "logo": "https://media.api-sports.io/football/teams/228.png"
+                },
+                "start": "2020-03-01",
+                "end": "2024-11-01"
+              },
+              {
+                "team": {
+                  "id": 217,
+                  "name": "Sporting Braga",
+                  "logo": "https://media.api-sports.io/football/teams/217.png"
+                },
+                "start": "2019-12-01",
+                "end": "2020-03-01"
+              },
+              {
+                "team": {
+                  "id": 246,
+                  "name": "Sporting Braga II",
+                  "logo": "https://media.api-sports.io/football/teams/246.png"
+                },
+                "start": "2019-09-01",
+                "end": "2019-12-01"
+              }
+            ]
+          },
+          {
+            "id": 25762,
+            "name": "Michael Carrick",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/25762.png",
+            "team": {
+              "id": 33,
+              "name": "Manchester United",
+              "logo": "https://media.api-sports.io/football/teams/33.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 33,
+                  "name": "Manchester United",
+                  "logo": "https://media.api-sports.io/football/teams/33.png"
+                },
+                "start": "2025-08-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "E. ten Hag"
+      },
+      "reputation": 84,
+      "financialPower": 93,
+      "youthStrength": 77,
+      "managerSlot": {
+        "clubId": "provider:api-football:33",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:34",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "34"
+      },
+      "name": "Newcastle",
+      "country": "England",
+      "founded": 1892,
+      "national": false,
+      "venue": {
+        "id": 562,
+        "name": "St. James' Park",
+        "address": "St. James&apos; Street",
+        "city": "Newcastle upon Tyne",
+        "capacity": 52758,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/562.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:1972",
+          "provider:api-football:18892",
+          "provider:api-football:18903",
+          "provider:api-football:138908",
+          "provider:api-football:383685",
+          "provider:api-football:365988",
+          "provider:api-football:402524",
+          "provider:api-football:284291",
+          "provider:api-football:284305",
+          "provider:api-football:313671",
+          "provider:api-football:322304",
+          "provider:api-football:340919",
+          "provider:api-football:344233",
+          "provider:api-football:352210",
+          "provider:api-football:382344",
+          "provider:api-football:382345",
+          "provider:api-football:18873",
+          "provider:api-football:18899",
+          "provider:api-football:2864",
+          "provider:api-football:169",
+          "provider:api-football:2806",
+          "provider:api-football:2855",
+          "provider:api-football:10135",
+          "provider:api-football:18737",
+          "provider:api-football:18894",
+          "provider:api-football:18911",
+          "provider:api-football:18941",
+          "provider:api-football:18961",
+          "provider:api-football:31146",
+          "provider:api-football:38734",
+          "provider:api-football:44912",
+          "provider:api-football:158694",
+          "provider:api-football:318056",
+          "provider:api-football:328105",
+          "provider:api-football:723",
+          "provider:api-football:1463",
+          "provider:api-football:18778",
+          "provider:api-football:19163",
+          "provider:api-football:138787",
+          "provider:api-football:315237",
+          "provider:api-football:401389",
+          "provider:api-football:18901",
+          "provider:api-football:18886",
+          "provider:api-football:2939",
+          "provider:api-football:284278",
+          "provider:api-football:284373",
+          "provider:api-football:284375",
+          "provider:api-football:349987",
+          "provider:api-football:337934",
+          "provider:api-football:138906",
+          "provider:api-football:328104",
+          "provider:api-football:394165",
+          "provider:api-football:293164",
+          "provider:api-football:384585",
+          "provider:api-football:2507",
+          "provider:api-football:19076",
+          "provider:api-football:171058"
+        ],
+        "size": 57,
+        "averageAge": 25.6,
+        "overall": 82.8,
+        "startingStrength": 85.2,
+        "depth": 77.6,
+        "attack": 78.7,
+        "midfield": 86.2,
+        "defence": 77.8,
+        "goalkeeper": 77.5
+      },
+      "leagueContext": {
+        "rank": 5,
+        "points": 66,
+        "goalsDiff": 21,
+        "form": "LLWDW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 5,
+            "name": "E. Howe",
+            "firstname": "Edward John Frank",
+            "lastname": "Howe",
+            "age": 48,
+            "birth": {
+              "date": "1977-11-29",
+              "place": "Amersham",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/5.png",
+            "team": {
+              "id": 34,
+              "name": "Newcastle United",
+              "logo": "https://media.api-sports.io/football/teams/34.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 34,
+                  "name": "Newcastle United",
+                  "logo": "https://media.api-sports.io/football/teams/34.png"
+                },
+                "start": "2021-11-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 35,
+                  "name": "AFC Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png"
+                },
+                "start": "2012-10-01",
+                "end": "2020-08-01"
+              },
+              {
+                "team": {
+                  "id": 44,
+                  "name": "Burnley",
+                  "logo": "https://media.api-sports.io/football/teams/44.png"
+                },
+                "start": "2011-01-01",
+                "end": "2012-10-01"
+              },
+              {
+                "team": {
+                  "id": 35,
+                  "name": "AFC Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png"
+                },
+                "start": "2008-12-01",
+                "end": "2011-01-01"
+              }
+            ]
+          },
+          {
+            "id": 84,
+            "name": "G. Jones",
+            "firstname": "Graeme Anthony",
+            "lastname": "Jones",
+            "age": 55,
+            "birth": {
+              "date": "1970-03-13",
+              "place": "Gateshead",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/84.png",
+            "team": {
+              "id": 34,
+              "name": "Newcastle",
+              "logo": "https://media.api-sports.io/football/teams/34.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 34,
+                  "name": "Newcastle",
+                  "logo": "https://media.api-sports.io/football/teams/34.png"
+                },
+                "start": "2021-10-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 1359,
+                  "name": "Luton",
+                  "logo": "https://media.api-sports.io/football/teams/1359.png"
+                },
+                "start": "2019-08-01",
+                "end": "2020-03-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "E. Howe"
+      },
+      "reputation": 85,
+      "financialPower": 93,
+      "youthStrength": 74,
+      "managerSlot": {
+        "clubId": "provider:api-football:34",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:35",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "35"
+      },
+      "name": "Bournemouth",
+      "country": "England",
+      "founded": 1899,
+      "national": false,
+      "venue": {
+        "id": 504,
+        "name": "Vitality Stadium",
+        "address": "Dean Court, Kings Park",
+        "city": "Bournemouth, Dorset",
+        "capacity": 12000,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/504.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19263",
+          "provider:api-football:19356",
+          "provider:api-football:19804",
+          "provider:api-football:30765",
+          "provider:api-football:94360",
+          "provider:api-football:2273",
+          "provider:api-football:18860",
+          "provider:api-football:284797",
+          "provider:api-football:206254",
+          "provider:api-football:18866",
+          "provider:api-football:18869",
+          "provider:api-football:51051",
+          "provider:api-football:151756",
+          "provider:api-football:394710",
+          "provider:api-football:792",
+          "provider:api-football:1125",
+          "provider:api-football:1150",
+          "provider:api-football:2734",
+          "provider:api-football:6610",
+          "provider:api-football:18870",
+          "provider:api-football:18872",
+          "provider:api-football:19245",
+          "provider:api-football:19281",
+          "provider:api-football:20093",
+          "provider:api-football:31057",
+          "provider:api-football:37161",
+          "provider:api-football:84082",
+          "provider:api-football:152856",
+          "provider:api-football:304853",
+          "provider:api-football:359942",
+          "provider:api-football:363333",
+          "provider:api-football:402432",
+          "provider:api-football:402434",
+          "provider:api-football:196855",
+          "provider:api-football:296458",
+          "provider:api-football:298060",
+          "provider:api-football:449224",
+          "provider:api-football:130416",
+          "provider:api-football:18815",
+          "provider:api-football:19229",
+          "provider:api-football:382166",
+          "provider:api-football:334725",
+          "provider:api-football:382170",
+          "provider:api-football:161671",
+          "provider:api-football:19070",
+          "provider:api-football:361497",
+          "provider:api-football:47499",
+          "provider:api-football:382160"
+        ],
+        "size": 48,
+        "averageAge": 25.2,
+        "overall": 84.3,
+        "startingStrength": 85.5,
+        "depth": 81.5,
+        "attack": 86.4,
+        "midfield": 83.4,
+        "defence": 83.1,
+        "goalkeeper": 78
+      },
+      "leagueContext": {
+        "rank": 9,
+        "points": 56,
+        "goalsDiff": 12,
+        "form": "WLLWD"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 85,
+            "name": "J. Woodgate",
+            "firstname": "Jonathan",
+            "lastname": "Woodgate",
+            "age": 45,
+            "birth": {
+              "date": "1980-01-22",
+              "place": "Nunthorpe",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": "183 cm",
+            "weight": "80 kg",
+            "photo": "https://media.api-sports.io/football/coachs/85.png",
+            "team": {
+              "id": 35,
+              "name": "AFC Bournemouth",
+              "logo": "https://media.api-sports.io/football/teams/35.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 35,
+                  "name": "AFC Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png"
+                },
+                "start": "2021-02-01",
+                "end": "2021-06-01"
+              },
+              {
+                "team": {
+                  "id": 70,
+                  "name": "Middlesbrough",
+                  "logo": "https://media.api-sports.io/football/teams/70.png"
+                },
+                "start": "2019-06-01",
+                "end": "2020-06-01"
+              }
+            ]
+          },
+          {
+            "id": 2108,
+            "name": "Andoni Iraola",
+            "firstname": "Andoni",
+            "lastname": "Iraola Sagarna",
+            "age": 43,
+            "birth": {
+              "date": "1982-06-22",
+              "place": "Usurbil",
+              "country": "Spain"
+            },
+            "nationality": "Spain",
+            "height": "178 cm",
+            "weight": "77 kg",
+            "photo": "https://media.api-sports.io/football/coachs/2108.png",
+            "team": {
+              "id": 35,
+              "name": "AFC Bournemouth",
+              "logo": "https://media.api-sports.io/football/teams/35.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 35,
+                  "name": "AFC Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png"
+                },
+                "start": "2023-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 728,
+                  "name": "Rayo Vallecano",
+                  "logo": "https://media.api-sports.io/football/teams/728.png"
+                },
+                "start": "2020-08-01",
+                "end": "2023-06-01"
+              },
+              {
+                "team": {
+                  "id": 799,
+                  "name": "Mirandes",
+                  "logo": "https://media.api-sports.io/football/teams/799.png"
+                },
+                "start": "2019-07-01",
+                "end": "2020-07-01"
+              },
+              {
+                "team": {
+                  "id": 614,
+                  "name": "AEK Larnaca",
+                  "logo": "https://media.api-sports.io/football/teams/614.png"
+                },
+                "start": "2018-07-01",
+                "end": "2019-01-01"
+              }
+            ]
+          },
+          {
+            "id": 12777,
+            "name": "J. Tindall",
+            "firstname": "Jason",
+            "lastname": "Tindall",
+            "age": 48,
+            "birth": {
+              "date": "1977-11-15",
+              "place": "Mile End",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": "185 cm",
+            "weight": "74 kg",
+            "photo": "https://media.api-sports.io/football/coachs/12777.png",
+            "team": {
+              "id": 35,
+              "name": "Bournemouth",
+              "logo": "https://media.api-sports.io/football/teams/35.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 35,
+                  "name": "Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png"
+                },
+                "start": "2020-09-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "J. Woodgate"
+      },
+      "reputation": 86,
+      "financialPower": 94,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:35",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:36",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "36"
+      },
+      "name": "Fulham",
+      "country": "England",
+      "founded": 1879,
+      "national": false,
+      "venue": {
+        "id": 535,
+        "name": "Craven Cottage",
+        "address": "Stevenage Road",
+        "city": "London",
+        "capacity": 29589,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/535.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:105",
+          "provider:api-football:19145",
+          "provider:api-football:19657",
+          "provider:api-football:138822",
+          "provider:api-football:19004",
+          "provider:api-football:126690",
+          "provider:api-football:129705",
+          "provider:api-football:153420",
+          "provider:api-football:284470",
+          "provider:api-football:297635",
+          "provider:api-football:335116",
+          "provider:api-football:727",
+          "provider:api-football:41104",
+          "provider:api-football:131",
+          "provider:api-football:657",
+          "provider:api-football:899",
+          "provider:api-football:1438",
+          "provider:api-football:1934",
+          "provider:api-football:2729",
+          "provider:api-football:2823",
+          "provider:api-football:2920",
+          "provider:api-football:18753",
+          "provider:api-football:18814",
+          "provider:api-football:19025",
+          "provider:api-football:19221",
+          "provider:api-football:19480",
+          "provider:api-football:19549",
+          "provider:api-football:152967",
+          "provider:api-football:195106",
+          "provider:api-football:359386",
+          "provider:api-football:389315",
+          "provider:api-football:1455",
+          "provider:api-football:2887",
+          "provider:api-football:284559",
+          "provider:api-football:384981",
+          "provider:api-football:19312",
+          "provider:api-football:284475",
+          "provider:api-football:191971",
+          "provider:api-football:946",
+          "provider:api-football:19023",
+          "provider:api-football:327738",
+          "provider:api-football:2294",
+          "provider:api-football:104"
+        ],
+        "size": 43,
+        "averageAge": 27,
+        "overall": 82.2,
+        "startingStrength": 83.5,
+        "depth": 77.7,
+        "attack": 84.2,
+        "midfield": 79,
+        "defence": 82.4,
+        "goalkeeper": 78.5
+      },
+      "leagueContext": {
+        "rank": 11,
+        "points": 54,
+        "goalsDiff": 0,
+        "form": "LWLLW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 10,
+            "name": "Marco Silva",
+            "firstname": "Marco Alexandre",
+            "lastname": "Saraiva da Silva",
+            "age": 48,
+            "birth": {
+              "date": "1977-07-12",
+              "place": "Lisboa",
+              "country": "Portugal"
+            },
+            "nationality": "Portugal",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/10.png",
+            "team": {
+              "id": 36,
+              "name": "Fulham",
+              "logo": "https://media.api-sports.io/football/teams/36.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 36,
+                  "name": "Fulham",
+                  "logo": "https://media.api-sports.io/football/teams/36.png"
+                },
+                "start": "2021-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 45,
+                  "name": "Everton",
+                  "logo": "https://media.api-sports.io/football/teams/45.png"
+                },
+                "start": "2018-05-01",
+                "end": "2019-12-01"
+              },
+              {
+                "team": {
+                  "id": 38,
+                  "name": "Watford",
+                  "logo": "https://media.api-sports.io/football/teams/38.png"
+                },
+                "start": "2017-05-01",
+                "end": "2018-01-01"
+              },
+              {
+                "team": {
+                  "id": 64,
+                  "name": "Hull City",
+                  "logo": "https://media.api-sports.io/football/teams/64.png"
+                },
+                "start": "2017-01-01",
+                "end": "2017-05-01"
+              },
+              {
+                "team": {
+                  "id": 553,
+                  "name": "Olympiakos",
+                  "logo": "https://media.api-sports.io/football/teams/553.png"
+                },
+                "start": "2015-07-01",
+                "end": "2016-06-01"
+              },
+              {
+                "team": {
+                  "id": 228,
+                  "name": "Sporting Lisbon",
+                  "logo": "https://media.api-sports.io/football/teams/228.png"
+                },
+                "start": "2014-07-01",
+                "end": "2015-07-01"
+              },
+              {
+                "team": {
+                  "id": 230,
+                  "name": "Estoril",
+                  "logo": "https://media.api-sports.io/football/teams/230.png"
+                },
+                "start": "2012-07-01",
+                "end": "2014-05-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Marco Silva"
+      },
+      "reputation": 83,
+      "financialPower": 92,
+      "youthStrength": 73,
+      "managerSlot": {
+        "clubId": "provider:api-football:36",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:39",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "39"
+      },
+      "name": "Wolves",
+      "country": "England",
+      "founded": 1877,
+      "national": false,
+      "venue": {
+        "id": 600,
+        "name": "Molineux Stadium",
+        "address": "Waterloo Road",
+        "city": "Wolverhampton, West Midlands",
+        "capacity": 34624,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/600.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:338856",
+          "provider:api-football:18744",
+          "provider:api-football:144741",
+          "provider:api-football:402504",
+          "provider:api-football:1165",
+          "provider:api-football:19143",
+          "provider:api-football:21138",
+          "provider:api-football:82855",
+          "provider:api-football:285",
+          "provider:api-football:1590",
+          "provider:api-football:3080",
+          "provider:api-football:18742",
+          "provider:api-football:19341",
+          "provider:api-football:20665",
+          "provider:api-football:41606",
+          "provider:api-football:135068",
+          "provider:api-football:135334",
+          "provider:api-football:195103",
+          "provider:api-football:195717",
+          "provider:api-football:265784",
+          "provider:api-football:280687",
+          "provider:api-football:282770",
+          "provider:api-football:449245",
+          "provider:api-football:2032",
+          "provider:api-football:7722",
+          "provider:api-football:24888",
+          "provider:api-football:129791",
+          "provider:api-football:385726",
+          "provider:api-football:456206",
+          "provider:api-football:144732",
+          "provider:api-football:284357",
+          "provider:api-football:328118",
+          "provider:api-football:284236",
+          "provider:api-football:389302",
+          "provider:api-football:284259",
+          "provider:api-football:284359",
+          "provider:api-football:380653",
+          "provider:api-football:388777",
+          "provider:api-football:408893",
+          "provider:api-football:149564",
+          "provider:api-football:284262",
+          "provider:api-football:303322",
+          "provider:api-football:2056",
+          "provider:api-football:19147",
+          "provider:api-football:436879",
+          "provider:api-football:401098",
+          "provider:api-football:925",
+          "provider:api-football:283272",
+          "provider:api-football:157912",
+          "provider:api-football:1605",
+          "provider:api-football:195962",
+          "provider:api-football:282126",
+          "provider:api-football:171035",
+          "provider:api-football:204033",
+          "provider:api-football:303019",
+          "provider:api-football:130",
+          "provider:api-football:18947",
+          "provider:api-football:398933"
+        ],
+        "size": 58,
+        "averageAge": 24.3,
+        "overall": 83.5,
+        "startingStrength": 85,
+        "depth": 81,
+        "attack": 83.8,
+        "midfield": 83.8,
+        "defence": 83.1,
+        "goalkeeper": 77.5
+      },
+      "leagueContext": {
+        "rank": 16,
+        "points": 42,
+        "goalsDiff": -15,
+        "form": "DLLLW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 55,
+            "name": "Vítor Pereira",
+            "firstname": "Vítor Manuel",
+            "lastname": "de Oliveira Lopes Pereira",
+            "age": 57,
+            "birth": {
+              "date": "1968-07-26",
+              "place": "Espinho",
+              "country": "Portugal"
+            },
+            "nationality": "Portugal",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/55.png",
+            "team": {
+              "id": 39,
+              "name": "Wolverhampton Wanderers",
+              "logo": "https://media.api-sports.io/football/teams/39.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 39,
+                  "name": "Wolverhampton Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/39.png"
+                },
+                "start": "2024-12-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 2940,
+                  "name": "Al Shabab",
+                  "logo": "https://media.api-sports.io/football/teams/2940.png"
+                },
+                "start": "2024-02-01",
+                "end": "2024-12-01"
+              },
+              {
+                "team": {
+                  "id": 127,
+                  "name": "Flamengo",
+                  "logo": "https://media.api-sports.io/football/teams/127.png"
+                },
+                "start": "2022-12-01",
+                "end": "2023-04-01"
+              },
+              {
+                "team": {
+                  "id": 131,
+                  "name": "Corinthians",
+                  "logo": "https://media.api-sports.io/football/teams/131.png"
+                },
+                "start": "2022-02-01",
+                "end": "2022-11-01"
+              },
+              {
+                "team": {
+                  "id": 611,
+                  "name": "Fenerbahce",
+                  "logo": "https://media.api-sports.io/football/teams/611.png"
+                },
+                "start": "2021-07-01",
+                "end": "2021-12-01"
+              },
+              {
+                "team": {
+                  "id": 836,
+                  "name": "Shanghai Port",
+                  "logo": "https://media.api-sports.io/football/teams/836.png"
+                },
+                "start": "2017-12-01",
+                "end": "2020-12-01"
+              },
+              {
+                "team": {
+                  "id": 786,
+                  "name": "1860 München",
+                  "logo": "https://media.api-sports.io/football/teams/786.png"
+                },
+                "start": "2017-01-01",
+                "end": "2017-05-01"
+              },
+              {
+                "team": {
+                  "id": 611,
+                  "name": "Fenerbahce",
+                  "logo": "https://media.api-sports.io/football/teams/611.png"
+                },
+                "start": "2015-06-01",
+                "end": "2016-08-01"
+              },
+              {
+                "team": {
+                  "id": 553,
+                  "name": "Olympiakos",
+                  "logo": "https://media.api-sports.io/football/teams/553.png"
+                },
+                "start": "2015-01-01",
+                "end": "2015-06-01"
+              },
+              {
+                "team": {
+                  "id": 2929,
+                  "name": "Al Ahli",
+                  "logo": "https://media.api-sports.io/football/teams/2929.png"
+                },
+                "start": "2013-06-01",
+                "end": "2014-05-01"
+              },
+              {
+                "team": {
+                  "id": 212,
+                  "name": "Porto",
+                  "logo": "https://media.api-sports.io/football/teams/212.png"
+                },
+                "start": "2011-06-01",
+                "end": "2013-06-01"
+              },
+              {
+                "team": {
+                  "id": 227,
+                  "name": "Santa Clara",
+                  "logo": "https://media.api-sports.io/football/teams/227.png"
+                },
+                "start": "2008-07-01",
+                "end": "2010-06-01"
+              }
+            ]
+          },
+          {
+            "id": 9473,
+            "name": "S. Davis",
+            "firstname": "Steven Peter",
+            "lastname": "Davis",
+            "age": 60,
+            "birth": {
+              "date": "1965-07-26",
+              "place": "Birmingham",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/9473.png",
+            "team": {
+              "id": 39,
+              "name": "Wolverhampton Wanderers",
+              "logo": "https://media.api-sports.io/football/teams/39.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 39,
+                  "name": "Wolverhampton Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/39.png"
+                },
+                "start": "2022-10-01",
+                "end": "2022-11-01"
+              },
+              {
+                "team": {
+                  "id": 15387,
+                  "name": "Wolves U18",
+                  "logo": "https://media.api-sports.io/football/teams/15387.png"
+                },
+                "start": "2020-01-01",
+                "end": "2022-12-01"
+              },
+              {
+                "team": {
+                  "id": 1373,
+                  "name": "Leyton Orient",
+                  "logo": "https://media.api-sports.io/football/teams/1373.png"
+                },
+                "start": "2017-07-01",
+                "end": "2017-11-01"
+              },
+              {
+                "team": {
+                  "id": 1363,
+                  "name": "Crewe Alexandra",
+                  "logo": "https://media.api-sports.io/football/teams/1363.png"
+                },
+                "start": "2011-11-01",
+                "end": "2017-01-01"
+              }
+            ]
+          },
+          {
+            "id": 18151,
+            "name": "G. O'Neil",
+            "firstname": "Gary Paul",
+            "lastname": "O'Neil",
+            "age": 42,
+            "birth": {
+              "date": "1983-05-18",
+              "place": "Bromley",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": "173 cm",
+            "weight": "60 kg",
+            "photo": "https://media.api-sports.io/football/coachs/18151.png",
+            "team": {
+              "id": 39,
+              "name": "Wolverhampton Wanderers",
+              "logo": "https://media.api-sports.io/football/teams/39.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 39,
+                  "name": "Wolverhampton Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/39.png"
+                },
+                "start": "2023-08-01",
+                "end": "2024-12-01"
+              },
+              {
+                "team": {
+                  "id": 35,
+                  "name": "AFC Bournemouth",
+                  "logo": "https://media.api-sports.io/football/teams/35.png"
+                },
+                "start": "2022-08-01",
+                "end": "2023-06-01"
+              }
+            ]
+          },
+          {
+            "id": 25765,
+            "name": "Rob Edwards",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/25765.png",
+            "team": {
+              "id": 39,
+              "name": "Wolves",
+              "logo": "https://media.api-sports.io/football/teams/39.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 39,
+                  "name": "Wolves",
+                  "logo": "https://media.api-sports.io/football/teams/39.png"
+                },
+                "start": "2025-08-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Vítor Pereira"
+      },
+      "reputation": 84,
+      "financialPower": 94,
+      "youthStrength": 76,
+      "managerSlot": {
+        "clubId": "provider:api-football:39",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:40",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "40"
+      },
+      "name": "Liverpool",
+      "country": "England",
+      "founded": 1892,
+      "national": false,
+      "venue": {
+        "id": 550,
+        "name": "Anfield",
+        "address": "Anfield Road",
+        "city": "Liverpool",
+        "capacity": 61276,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/550.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:280683",
+          "provider:api-football:284287",
+          "provider:api-football:287111",
+          "provider:api-football:284366",
+          "provider:api-football:310186",
+          "provider:api-football:135525",
+          "provider:api-football:152976",
+          "provider:api-football:280",
+          "provider:api-football:284",
+          "provider:api-football:289",
+          "provider:api-football:290",
+          "provider:api-football:293",
+          "provider:api-football:542",
+          "provider:api-football:1145",
+          "provider:api-football:1600",
+          "provider:api-football:6716",
+          "provider:api-football:8500",
+          "provider:api-football:19035",
+          "provider:api-football:152654",
+          "provider:api-football:162904",
+          "provider:api-football:180317",
+          "provider:api-football:310187",
+          "provider:api-football:306",
+          "provider:api-football:1096",
+          "provider:api-football:30410",
+          "provider:api-football:314661",
+          "provider:api-football:343576",
+          "provider:api-football:397997",
+          "provider:api-football:452685",
+          "provider:api-football:281",
+          "provider:api-football:162590",
+          "provider:api-football:180866",
+          "provider:api-football:284247",
+          "provider:api-football:286764",
+          "provider:api-football:152979",
+          "provider:api-football:162687",
+          "provider:api-football:284367",
+          "provider:api-football:340246",
+          "provider:api-football:180316",
+          "provider:api-football:127472",
+          "provider:api-football:158693",
+          "provider:api-football:334729",
+          "provider:api-football:328107",
+          "provider:api-football:284286",
+          "provider:api-football:389032",
+          "provider:api-football:286",
+          "provider:api-football:507",
+          "provider:api-football:2678",
+          "provider:api-football:51617",
+          "provider:api-football:380657",
+          "provider:api-football:283",
+          "provider:api-football:18812",
+          "provider:api-football:2489",
+          "provider:api-football:158698",
+          "provider:api-football:287109",
+          "provider:api-football:247",
+          "provider:api-football:407032"
+        ],
+        "size": 57,
+        "averageAge": 24.4,
+        "overall": 84.6,
+        "startingStrength": 86.3,
+        "depth": 80.4,
+        "attack": 86.6,
+        "midfield": 86,
+        "defence": 82.3,
+        "goalkeeper": 79.5
+      },
+      "leagueContext": {
+        "rank": 1,
+        "points": 84,
+        "goalsDiff": 45,
+        "form": "DLDLW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 1,
+            "name": "J. Klopp",
+            "firstname": "Jürgen Norbert",
+            "lastname": "Klopp",
+            "age": 58,
+            "birth": {
+              "date": "1967-06-16",
+              "place": "Stuttgart",
+              "country": "Germany"
+            },
+            "nationality": "Germany",
+            "height": "191 cm",
+            "weight": "83 kg",
+            "photo": "https://media.api-sports.io/football/coachs/1.png",
+            "team": {
+              "id": 40,
+              "name": "Liverpool",
+              "logo": "https://media.api-sports.io/football/teams/40.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 40,
+                  "name": "Liverpool",
+                  "logo": "https://media.api-sports.io/football/teams/40.png"
+                },
+                "start": "2015-10-01",
+                "end": "2024-05-01"
+              },
+              {
+                "team": {
+                  "id": 165,
+                  "name": "Borussia Dortmund",
+                  "logo": "https://media.api-sports.io/football/teams/165.png"
+                },
+                "start": "2008-07-01",
+                "end": "2015-07-01"
+              },
+              {
+                "team": {
+                  "id": 164,
+                  "name": "Mainz",
+                  "logo": "https://media.api-sports.io/football/teams/164.png"
+                },
+                "start": "2001-02-01",
+                "end": "2008-06-01"
+              }
+            ]
+          },
+          {
+            "id": 2006,
+            "name": "A. Slot",
+            "firstname": "Arne",
+            "lastname": "Slot",
+            "age": 47,
+            "birth": {
+              "date": "1978-09-17",
+              "place": "Bergentheim",
+              "country": "Netherlands"
+            },
+            "nationality": "Netherlands",
+            "height": "185 cm",
+            "weight": "75 kg",
+            "photo": "https://media.api-sports.io/football/coachs/2006.png",
+            "team": {
+              "id": 40,
+              "name": "Liverpool",
+              "logo": "https://media.api-sports.io/football/teams/40.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 40,
+                  "name": "Liverpool",
+                  "logo": "https://media.api-sports.io/football/teams/40.png"
+                },
+                "start": "2024-06-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 209,
+                  "name": "Feyenoord",
+                  "logo": "https://media.api-sports.io/football/teams/209.png"
+                },
+                "start": "2021-07-01",
+                "end": "2024-05-01"
+              },
+              {
+                "team": {
+                  "id": 201,
+                  "name": "AZ",
+                  "logo": "https://media.api-sports.io/football/teams/201.png"
+                },
+                "start": "2019-06-01",
+                "end": "2020-12-01"
+              },
+              {
+                "team": {
+                  "id": 420,
+                  "name": "Cambuur",
+                  "logo": "https://media.api-sports.io/football/teams/420.png"
+                },
+                "start": "2016-10-01",
+                "end": "2017-06-01"
+              }
+            ]
+          },
+          {
+            "id": 10952,
+            "name": "A. Bertoldi",
+            "firstname": "Alejandro Gabriel",
+            "lastname": "Bertoldi Delor",
+            "age": 40,
+            "birth": {
+              "date": "1977-06-23",
+              "place": "Montevideo",
+              "country": "Uruguay"
+            },
+            "nationality": "Uruguay",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/10952.png",
+            "team": {
+              "id": 40,
+              "name": "Liverpool",
+              "logo": "https://media.api-sports.io/football/teams/40.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 40,
+                  "name": "Liverpool",
+                  "logo": "https://media.api-sports.io/football/teams/40.png"
+                },
+                "start": "2017-03-23",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 2358,
+                  "name": "Liverpool Montevideo",
+                  "logo": "https://media.api-sports.io/football/teams/2358.png"
+                },
+                "start": "2017-03-01",
+                "end": "2017-09-01"
+              },
+              {
+                "team": {
+                  "id": null,
+                  "name": "Liverpool U20",
+                  "logo": null
+                },
+                "start": "2016-01-04",
+                "end": "2016-12-31"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "J. Klopp"
+      },
+      "reputation": 97,
+      "financialPower": 95,
+      "youthStrength": 76,
+      "managerSlot": {
+        "clubId": "provider:api-football:40",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "title-challenge",
+          "summary": "Compete for the title and qualify for elite competition.",
+          "sackRisk": "high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:41",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "41"
+      },
+      "name": "Southampton",
+      "country": "England",
+      "founded": 1885,
+      "national": false,
+      "venue": {
+        "id": 585,
+        "name": "St. Mary's Stadium",
+        "address": "Britannia Road",
+        "city": "Southampton, Hampshire",
+        "capacity": 32689,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/585.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19482",
+          "provider:api-football:18945",
+          "provider:api-football:303460",
+          "provider:api-football:354581",
+          "provider:api-football:30476",
+          "provider:api-football:1902",
+          "provider:api-football:350625",
+          "provider:api-football:304317",
+          "provider:api-football:20355",
+          "provider:api-football:270508",
+          "provider:api-football:171",
+          "provider:api-football:336585",
+          "provider:api-football:423803",
+          "provider:api-football:130421",
+          "provider:api-football:263177",
+          "provider:api-football:18918",
+          "provider:api-football:19485",
+          "provider:api-football:18935",
+          "provider:api-football:18940",
+          "provider:api-football:19248",
+          "provider:api-football:19587",
+          "provider:api-football:19719",
+          "provider:api-football:25061",
+          "provider:api-football:159420",
+          "provider:api-football:180919",
+          "provider:api-football:395809",
+          "provider:api-football:19573",
+          "provider:api-football:19733",
+          "provider:api-football:19825",
+          "provider:api-football:32887",
+          "provider:api-football:45078",
+          "provider:api-football:137302",
+          "provider:api-football:278085",
+          "provider:api-football:284356",
+          "provider:api-football:380691",
+          "provider:api-football:295",
+          "provider:api-football:284264",
+          "provider:api-football:304318",
+          "provider:api-football:322305",
+          "provider:api-football:358666",
+          "provider:api-football:412152",
+          "provider:api-football:190686",
+          "provider:api-football:334035",
+          "provider:api-football:2999",
+          "provider:api-football:40165",
+          "provider:api-football:19524",
+          "provider:api-football:199837",
+          "provider:api-football:19484",
+          "provider:api-football:105971",
+          "provider:api-football:15812"
+        ],
+        "size": 50,
+        "averageAge": 25,
+        "overall": 82.1,
+        "startingStrength": 82.9,
+        "depth": 80.3,
+        "attack": 81.1,
+        "midfield": 83.4,
+        "defence": 81.2,
+        "goalkeeper": 82.5
+      },
+      "leagueContext": {
+        "rank": 20,
+        "points": 12,
+        "goalsDiff": -60,
+        "form": "LLDLL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 600,
+            "name": "S. Rusk",
+            "firstname": "Simon Edward",
+            "lastname": "Rusk",
+            "age": 44,
+            "birth": {
+              "date": "1981-12-17",
+              "place": "Peterborough",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": "180 cm",
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/600.png",
+            "team": {
+              "id": 41,
+              "name": "Southampton",
+              "logo": "https://media.api-sports.io/football/teams/41.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 41,
+                  "name": "Southampton",
+                  "logo": "https://media.api-sports.io/football/teams/41.png"
+                },
+                "start": "2025-04-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 41,
+                  "name": "Southampton",
+                  "logo": "https://media.api-sports.io/football/teams/41.png"
+                },
+                "start": "2024-12-01",
+                "end": "2024-12-01"
+              },
+              {
+                "team": {
+                  "id": 7201,
+                  "name": "Southampton U21",
+                  "logo": "https://media.api-sports.io/football/teams/7201.png"
+                },
+                "start": "2024-08-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 10332,
+                  "name": "England U19",
+                  "logo": "https://media.api-sports.io/football/teams/10332.png"
+                },
+                "start": "2022-09-01",
+                "end": "2023-12-01"
+              },
+              {
+                "team": {
+                  "id": 4686,
+                  "name": "Stockport County",
+                  "logo": "https://media.api-sports.io/football/teams/4686.png"
+                },
+                "start": "2021-01-01",
+                "end": "2021-10-01"
+              },
+              {
+                "team": {
+                  "id": 7191,
+                  "name": "Brighton & Hove U21",
+                  "logo": "https://media.api-sports.io/football/teams/7191.png"
+                },
+                "start": "2017-07-01",
+                "end": "2021-01-01"
+              },
+              {
+                "team": {
+                  "id": 11917,
+                  "name": "Brighton U23",
+                  "logo": "https://media.api-sports.io/football/teams/11917.png"
+                },
+                "start": "2016-07-01",
+                "end": "2021-01-01"
+              }
+            ]
+          },
+          {
+            "id": 10665,
+            "name": "W. Still",
+            "firstname": "William",
+            "lastname": "Still",
+            "age": 33,
+            "birth": {
+              "date": "1992-10-14",
+              "place": "Braine-l'Alleud",
+              "country": "Belgium"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/10665.png",
+            "team": {
+              "id": 41,
+              "name": "Southampton",
+              "logo": "https://media.api-sports.io/football/teams/41.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 41,
+                  "name": "Southampton",
+                  "logo": "https://media.api-sports.io/football/teams/41.png"
+                },
+                "start": "2025-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 116,
+                  "name": "Lens",
+                  "logo": "https://media.api-sports.io/football/teams/116.png"
+                },
+                "start": "2024-06-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 93,
+                  "name": "Reims",
+                  "logo": "https://media.api-sports.io/football/teams/93.png"
+                },
+                "start": "2022-10-01",
+                "end": "2024-05-01"
+              },
+              {
+                "team": {
+                  "id": 263,
+                  "name": "Beerschot",
+                  "logo": "https://media.api-sports.io/football/teams/263.png"
+                },
+                "start": "2021-01-01",
+                "end": "2021-06-01"
+              },
+              {
+                "team": {
+                  "id": 1392,
+                  "name": "Lierse",
+                  "logo": "https://media.api-sports.io/football/teams/1392.png"
+                },
+                "start": "2017-10-01",
+                "end": "2017-12-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "S. Rusk"
+      },
+      "reputation": 83,
+      "financialPower": 92,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:41",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:42",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "42"
+      },
+      "name": "Arsenal",
+      "country": "England",
+      "founded": 1886,
+      "national": false,
+      "venue": {
+        "id": 494,
+        "name": "Emirates Stadium",
+        "address": "Hornsey Road",
+        "city": "London",
+        "capacity": 60383,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/494.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:190",
+          "provider:api-football:1452",
+          "provider:api-football:284502",
+          "provider:api-football:284540",
+          "provider:api-football:309501",
+          "provider:api-football:309505",
+          "provider:api-football:283026",
+          "provider:api-football:163068",
+          "provider:api-football:284571",
+          "provider:api-football:396206",
+          "provider:api-football:311520",
+          "provider:api-football:1161",
+          "provider:api-football:1468",
+          "provider:api-football:169295",
+          "provider:api-football:342243",
+          "provider:api-football:641",
+          "provider:api-football:643",
+          "provider:api-football:1427",
+          "provider:api-football:1460",
+          "provider:api-football:2937",
+          "provider:api-football:19959",
+          "provider:api-football:22090",
+          "provider:api-football:22224",
+          "provider:api-football:37127",
+          "provider:api-football:38746",
+          "provider:api-football:41725",
+          "provider:api-football:47311",
+          "provider:api-football:61431",
+          "provider:api-football:157052",
+          "provider:api-football:313236",
+          "provider:api-football:313245",
+          "provider:api-football:380697",
+          "provider:api-football:407033",
+          "provider:api-football:978",
+          "provider:api-football:1946",
+          "provider:api-football:127769",
+          "provider:api-football:284557",
+          "provider:api-football:153407",
+          "provider:api-football:284463",
+          "provider:api-football:339175",
+          "provider:api-football:348818",
+          "provider:api-football:313229",
+          "provider:api-football:309506",
+          "provider:api-football:278074",
+          "provider:api-football:645",
+          "provider:api-football:337933",
+          "provider:api-football:380696",
+          "provider:api-football:416697",
+          "provider:api-football:49",
+          "provider:api-football:1117",
+          "provider:api-football:2597",
+          "provider:api-football:912",
+          "provider:api-football:2289"
+        ],
+        "size": 53,
+        "averageAge": 24.3,
+        "overall": 84.6,
+        "startingStrength": 86,
+        "depth": 80.1,
+        "attack": 85.7,
+        "midfield": 85.2,
+        "defence": 83.6,
+        "goalkeeper": 61
+      },
+      "leagueContext": {
+        "rank": 2,
+        "points": 74,
+        "goalsDiff": 35,
+        "form": "WWDLD"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 587,
+            "name": "F. Ljungberg",
+            "firstname": "Karl Fredrik",
+            "lastname": "Ljungberg",
+            "age": 48,
+            "birth": {
+              "date": "1977-04-16",
+              "place": "Vittsjö",
+              "country": "Sweden"
+            },
+            "nationality": "Sweden",
+            "height": "176 cm",
+            "weight": "75 kg",
+            "photo": "https://media.api-sports.io/football/coachs/587.png",
+            "team": {
+              "id": 42,
+              "name": "Arsenal",
+              "logo": "https://media.api-sports.io/football/teams/42.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 42,
+                  "name": "Arsenal",
+                  "logo": "https://media.api-sports.io/football/teams/42.png"
+                },
+                "start": "2019-11-01",
+                "end": "2019-12-01"
+              },
+              {
+                "team": {
+                  "id": 15631,
+                  "name": "Arsenal U23",
+                  "logo": "https://media.api-sports.io/football/teams/15631.png"
+                },
+                "start": "2019-01-01",
+                "end": "2019-06-01"
+              },
+              {
+                "team": {
+                  "id": 7189,
+                  "name": "Arsenal U21",
+                  "logo": "https://media.api-sports.io/football/teams/7189.png"
+                },
+                "start": "2018-09-01",
+                "end": "2020-10-01"
+              }
+            ]
+          },
+          {
+            "id": 5594,
+            "name": "A. Wenger",
+            "firstname": "Arsène",
+            "lastname": "Wenger",
+            "age": 69,
+            "birth": {
+              "date": "1949-10-22",
+              "place": "Strasbourg",
+              "country": "France"
+            },
+            "nationality": "France",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/5594.png",
+            "team": {
+              "id": 42,
+              "name": "Arsenal",
+              "logo": "https://media.api-sports.io/football/teams/42.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 42,
+                  "name": "Arsenal",
+                  "logo": "https://media.api-sports.io/football/teams/42.png"
+                },
+                "start": "1996-09-30",
+                "end": "2018-05-23"
+              },
+              {
+                "team": {
+                  "id": 288,
+                  "name": "Nagoya Grampus",
+                  "logo": "https://media.api-sports.io/football/teams/288.png"
+                },
+                "start": "1995-07-01",
+                "end": "1996-06-30"
+              },
+              {
+                "team": {
+                  "id": 91,
+                  "name": "Monaco",
+                  "logo": "https://media.api-sports.io/football/teams/91.png"
+                },
+                "start": "1987-07-01",
+                "end": "1995-06-28"
+              },
+              {
+                "team": {
+                  "id": 102,
+                  "name": "Nancy",
+                  "logo": "https://media.api-sports.io/football/teams/102.png"
+                },
+                "start": "1984-07-01",
+                "end": "1987-06-30"
+              }
+            ]
+          },
+          {
+            "id": 7248,
+            "name": "Mikel Arteta",
+            "firstname": "Mikel",
+            "lastname": "Arteta Amatriain",
+            "age": 43,
+            "birth": {
+              "date": "1982-03-26",
+              "place": "San Sebastián",
+              "country": "Spain"
+            },
+            "nationality": "Spain",
+            "height": "175 cm",
+            "weight": "64 kg",
+            "photo": "https://media.api-sports.io/football/coachs/7248.png",
+            "team": {
+              "id": 42,
+              "name": "Arsenal",
+              "logo": "https://media.api-sports.io/football/teams/42.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 42,
+                  "name": "Arsenal",
+                  "logo": "https://media.api-sports.io/football/teams/42.png"
+                },
+                "start": "2019-12-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "F. Ljungberg"
+      },
+      "reputation": 91,
+      "financialPower": 95,
+      "youthStrength": 76,
+      "managerSlot": {
+        "clubId": "provider:api-football:42",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "title-challenge",
+          "summary": "Compete for the title and qualify for elite competition.",
+          "sackRisk": "high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:45",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "45"
+      },
+      "name": "Everton",
+      "country": "England",
+      "founded": 1878,
+      "national": false,
+      "venue": {
+        "id": 22033,
+        "name": "Hill Dickinson Stadium",
+        "address": "35 Regent Road, Bramley-Moore Dock, Vauxhall",
+        "city": "Liverpool, Merseyside",
+        "capacity": 52888,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/22033.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:83",
+          "provider:api-football:172",
+          "provider:api-football:18765",
+          "provider:api-football:19073",
+          "provider:api-football:20224",
+          "provider:api-football:153425",
+          "provider:api-football:298099",
+          "provider:api-football:162714",
+          "provider:api-football:2932",
+          "provider:api-football:138844",
+          "provider:api-football:895",
+          "provider:api-football:2165",
+          "provider:api-football:2934",
+          "provider:api-football:2936",
+          "provider:api-football:2990",
+          "provider:api-football:17661",
+          "provider:api-football:18592",
+          "provider:api-football:18758",
+          "provider:api-football:18929",
+          "provider:api-football:125743",
+          "provider:api-football:138417",
+          "provider:api-football:195993",
+          "provider:api-football:270139",
+          "provider:api-football:284385",
+          "provider:api-football:296664",
+          "provider:api-football:330412",
+          "provider:api-football:405360",
+          "provider:api-football:18766",
+          "provider:api-football:19128",
+          "provider:api-football:18858",
+          "provider:api-football:284326",
+          "provider:api-football:361676",
+          "provider:api-football:361679",
+          "provider:api-football:284266",
+          "provider:api-football:284280",
+          "provider:api-football:894",
+          "provider:api-football:18805",
+          "provider:api-football:297641",
+          "provider:api-football:328115",
+          "provider:api-football:301714",
+          "provider:api-football:284327",
+          "provider:api-football:297640",
+          "provider:api-football:394501",
+          "provider:api-football:20069",
+          "provider:api-football:18755",
+          "provider:api-football:15884",
+          "provider:api-football:19150",
+          "provider:api-football:167657"
+        ],
+        "size": 48,
+        "averageAge": 26,
+        "overall": 82.3,
+        "startingStrength": 83.7,
+        "depth": 77.7,
+        "attack": 84,
+        "midfield": 80.9,
+        "defence": 82,
+        "goalkeeper": 78.5
+      },
+      "leagueContext": {
+        "rank": 13,
+        "points": 48,
+        "goalsDiff": -2,
+        "form": "WWWDL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 5662,
+            "name": "D. Moyes",
+            "firstname": "David William",
+            "lastname": "Moyes",
+            "age": 62,
+            "birth": {
+              "date": "1963-04-25",
+              "place": "Glasgow",
+              "country": "Scotland"
+            },
+            "nationality": "Scotland",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/5662.png",
+            "team": {
+              "id": 45,
+              "name": "Everton",
+              "logo": "https://media.api-sports.io/football/teams/45.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 45,
+                  "name": "Everton",
+                  "logo": "https://media.api-sports.io/football/teams/45.png"
+                },
+                "start": "2025-01-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 48,
+                  "name": "West Ham United",
+                  "logo": "https://media.api-sports.io/football/teams/48.png"
+                },
+                "start": "2019-12-01",
+                "end": "2024-06-01"
+              },
+              {
+                "team": {
+                  "id": 48,
+                  "name": "West Ham United",
+                  "logo": "https://media.api-sports.io/football/teams/48.png"
+                },
+                "start": "2017-11-01",
+                "end": "2018-05-01"
+              },
+              {
+                "team": {
+                  "id": 746,
+                  "name": "Sunderland",
+                  "logo": "https://media.api-sports.io/football/teams/746.png"
+                },
+                "start": "2016-07-01",
+                "end": "2017-05-01"
+              },
+              {
+                "team": {
+                  "id": 548,
+                  "name": "Real Sociedad",
+                  "logo": "https://media.api-sports.io/football/teams/548.png"
+                },
+                "start": "2014-11-01",
+                "end": "2015-11-01"
+              },
+              {
+                "team": {
+                  "id": 33,
+                  "name": "Manchester United",
+                  "logo": "https://media.api-sports.io/football/teams/33.png"
+                },
+                "start": "2013-06-01",
+                "end": "2014-04-01"
+              },
+              {
+                "team": {
+                  "id": 45,
+                  "name": "Everton",
+                  "logo": "https://media.api-sports.io/football/teams/45.png"
+                },
+                "start": "2002-03-01",
+                "end": "2013-05-01"
+              },
+              {
+                "team": {
+                  "id": 59,
+                  "name": "Preston North End",
+                  "logo": "https://media.api-sports.io/football/teams/59.png"
+                },
+                "start": "1998-01-01",
+                "end": "2002-03-01"
+              }
+            ]
+          },
+          {
+            "id": 17953,
+            "name": "L. Baines",
+            "firstname": "Leighton",
+            "lastname": "Baines",
+            "age": 41,
+            "birth": {
+              "date": "1984-12-11",
+              "place": "Kirkby",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": "170 cm",
+            "weight": "74 kg",
+            "photo": "https://media.api-sports.io/football/coachs/17953.png",
+            "team": {
+              "id": 45,
+              "name": "Everton",
+              "logo": "https://media.api-sports.io/football/teams/45.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 45,
+                  "name": "Everton",
+                  "logo": "https://media.api-sports.io/football/teams/45.png"
+                },
+                "start": "2025-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 15378,
+                  "name": "Everton U18",
+                  "logo": "https://media.api-sports.io/football/teams/15378.png"
+                },
+                "start": "2022-08-01",
+                "end": "2024-12-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "D. Moyes"
+      },
+      "reputation": 83,
+      "financialPower": 92,
+      "youthStrength": 74,
+      "managerSlot": {
+        "clubId": "provider:api-football:45",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:46",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "46"
+      },
+      "name": "Leicester",
+      "country": "England",
+      "founded": 1884,
+      "national": false,
+      "venue": {
+        "id": 547,
+        "name": "King Power Stadium",
+        "address": "Filbert Way",
+        "city": "Leicester, Leicestershire",
+        "capacity": 34310,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/547.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:454",
+          "provider:api-football:2925",
+          "provider:api-football:2778",
+          "provider:api-football:284372",
+          "provider:api-football:138929",
+          "provider:api-football:148099",
+          "provider:api-football:278116",
+          "provider:api-football:283289",
+          "provider:api-football:284403",
+          "provider:api-football:304322",
+          "provider:api-football:1135",
+          "provider:api-football:311334",
+          "provider:api-football:19760",
+          "provider:api-football:15870",
+          "provider:api-football:305732",
+          "provider:api-football:304316",
+          "provider:api-football:278115",
+          "provider:api-football:350626",
+          "provider:api-football:400745",
+          "provider:api-football:17736",
+          "provider:api-football:18146",
+          "provider:api-football:18741",
+          "provider:api-football:283290",
+          "provider:api-football:284530",
+          "provider:api-football:180",
+          "provider:api-football:182",
+          "provider:api-football:3428",
+          "provider:api-football:8694",
+          "provider:api-football:18771",
+          "provider:api-football:18779",
+          "provider:api-football:18943",
+          "provider:api-football:22233",
+          "provider:api-football:30427",
+          "provider:api-football:128338",
+          "provider:api-football:152969",
+          "provider:api-football:152970",
+          "provider:api-football:158710",
+          "provider:api-football:284487",
+          "provider:api-football:303467",
+          "provider:api-football:305733",
+          "provider:api-football:340573",
+          "provider:api-football:417310",
+          "provider:api-football:434183",
+          "provider:api-football:460853",
+          "provider:api-football:879",
+          "provider:api-football:1098",
+          "provider:api-football:215874",
+          "provider:api-football:18777",
+          "provider:api-football:18788",
+          "provider:api-football:20079",
+          "provider:api-football:278118",
+          "provider:api-football:289624",
+          "provider:api-football:18786"
+        ],
+        "size": 53,
+        "averageAge": 25.1,
+        "overall": 82.5,
+        "startingStrength": 83.4,
+        "depth": 80.1,
+        "attack": 79.7,
+        "midfield": 83.7,
+        "defence": 82.5,
+        "goalkeeper": 82.5
+      },
+      "leagueContext": {
+        "rank": 18,
+        "points": 25,
+        "goalsDiff": -47,
+        "form": "LWDWL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 1878,
+            "name": "Martí Cifuentes",
+            "firstname": "Martí",
+            "lastname": "Cifuentes Corvillo Bajare",
+            "age": 43,
+            "birth": {
+              "date": "1982-07-07",
+              "place": "Sant Cugat del Vallès",
+              "country": "Spain"
+            },
+            "nationality": "Spain",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/1878.png",
+            "team": {
+              "id": 46,
+              "name": "Leicester",
+              "logo": "https://media.api-sports.io/football/teams/46.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2025-08-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 72,
+                  "name": "Queens Park Rangers",
+                  "logo": "https://media.api-sports.io/football/teams/72.png"
+                },
+                "start": "2023-10-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 16596,
+                  "name": "Hammarby Talang",
+                  "logo": "https://media.api-sports.io/football/teams/16596.png"
+                },
+                "start": "2023-04-01",
+                "end": "2023-06-01"
+              },
+              {
+                "team": {
+                  "id": 363,
+                  "name": "Hammarby",
+                  "logo": "https://media.api-sports.io/football/teams/363.png"
+                },
+                "start": "2022-01-01",
+                "end": "2023-10-01"
+              },
+              {
+                "team": {
+                  "id": 402,
+                  "name": "AaB",
+                  "logo": "https://media.api-sports.io/football/teams/402.png"
+                },
+                "start": "2021-01-01",
+                "end": "2022-01-01"
+              },
+              {
+                "team": {
+                  "id": 332,
+                  "name": "Sandefjord",
+                  "logo": "https://media.api-sports.io/football/teams/332.png"
+                },
+                "start": "2018-06-01",
+                "end": "2020-12-01"
+              },
+              {
+                "team": {
+                  "id": 9392,
+                  "name": "L'Hospitalet",
+                  "logo": "https://media.api-sports.io/football/teams/9392.png"
+                },
+                "start": "2015-06-01",
+                "end": "2016-03-01"
+              },
+              {
+                "team": {
+                  "id": 5277,
+                  "name": "Sant Andreu",
+                  "logo": "https://media.api-sports.io/football/teams/5277.png"
+                },
+                "start": "2014-02-01",
+                "end": "2014-07-01"
+              }
+            ]
+          },
+          {
+            "id": 2855,
+            "name": "M. Stowell",
+            "firstname": "Michael",
+            "lastname": "Stowell",
+            "age": 54,
+            "birth": {
+              "date": "1965-04-19",
+              "place": null,
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/2855.png",
+            "team": {
+              "id": 46,
+              "name": "Leicester City",
+              "logo": "https://media.api-sports.io/football/teams/46.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2019-02-24",
+                "end": "2019-02-27"
+              },
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2011-10-25",
+                "end": "2011-11-14"
+              }
+            ]
+          },
+          {
+            "id": 5380,
+            "name": "R. van Nistelrooy",
+            "firstname": "Ruud",
+            "lastname": "van Nistelrooij",
+            "age": 49,
+            "birth": {
+              "date": "1976-07-01",
+              "place": "Oss",
+              "country": "Netherlands"
+            },
+            "nationality": "Netherlands",
+            "height": "188 cm",
+            "weight": "80 kg",
+            "photo": "https://media.api-sports.io/football/coachs/5380.png",
+            "team": {
+              "id": 46,
+              "name": "Leicester City",
+              "logo": "https://media.api-sports.io/football/teams/46.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2024-12-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 33,
+                  "name": "Manchester United",
+                  "logo": "https://media.api-sports.io/football/teams/33.png"
+                },
+                "start": "2024-10-01",
+                "end": "2024-11-01"
+              },
+              {
+                "team": {
+                  "id": 197,
+                  "name": "PSV",
+                  "logo": "https://media.api-sports.io/football/teams/197.png"
+                },
+                "start": "2022-05-01",
+                "end": "2023-05-01"
+              },
+              {
+                "team": {
+                  "id": 411,
+                  "name": "PSV II",
+                  "logo": "https://media.api-sports.io/football/teams/411.png"
+                },
+                "start": "2021-07-01",
+                "end": "2022-05-01"
+              },
+              {
+                "team": {
+                  "id": 7965,
+                  "name": "PSV U19",
+                  "logo": "https://media.api-sports.io/football/teams/7965.png"
+                },
+                "start": "2018-06-01",
+                "end": "2022-05-01"
+              }
+            ]
+          },
+          {
+            "id": 5668,
+            "name": "C. Shakespeare",
+            "firstname": "Craig",
+            "lastname": "Shakespeare",
+            "age": 54,
+            "birth": {
+              "date": "1963-10-26",
+              "place": "Birmingham",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/5668.png",
+            "team": {
+              "id": 46,
+              "name": "Leicester City",
+              "logo": "https://media.api-sports.io/football/teams/46.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2017-02-23",
+                "end": "2017-10-17"
+              }
+            ]
+          },
+          {
+            "id": 9443,
+            "name": "B. Dawson",
+            "firstname": "Ben",
+            "lastname": "Dawson",
+            "age": 44,
+            "birth": {
+              "date": "1981-02-11",
+              "place": null,
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/9443.png",
+            "team": {
+              "id": 46,
+              "name": "Leicester City",
+              "logo": "https://media.api-sports.io/football/teams/46.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2024-11-01",
+                "end": "2024-12-01"
+              },
+              {
+                "team": {
+                  "id": 7199,
+                  "name": "Newcastle United U21",
+                  "logo": "https://media.api-sports.io/football/teams/7199.png"
+                },
+                "start": "2024-08-01",
+                "end": "2024-08-01"
+              },
+              {
+                "team": {
+                  "id": 7195,
+                  "name": "Leicester City U21",
+                  "logo": "https://media.api-sports.io/football/teams/7195.png"
+                },
+                "start": "2024-07-01",
+                "end": "2024-08-01"
+              },
+              {
+                "team": {
+                  "id": 22373,
+                  "name": "Newcastle United U19",
+                  "logo": "https://media.api-sports.io/football/teams/22373.png"
+                },
+                "start": "2023-07-01",
+                "end": "2024-07-01"
+              },
+              {
+                "team": {
+                  "id": 7199,
+                  "name": "Newcastle United U21",
+                  "logo": "https://media.api-sports.io/football/teams/7199.png"
+                },
+                "start": "2023-01-01",
+                "end": "2024-07-01"
+              },
+              {
+                "team": {
+                  "id": 14737,
+                  "name": "Newcastle United U23",
+                  "logo": "https://media.api-sports.io/football/teams/14737.png"
+                },
+                "start": "2019-11-01",
+                "end": "2021-03-01"
+              },
+              {
+                "team": {
+                  "id": 7199,
+                  "name": "Newcastle United U21",
+                  "logo": "https://media.api-sports.io/football/teams/7199.png"
+                },
+                "start": "2018-07-01",
+                "end": "2019-06-01"
+              },
+              {
+                "team": {
+                  "id": 14737,
+                  "name": "Newcastle United U23",
+                  "logo": "https://media.api-sports.io/football/teams/14737.png"
+                },
+                "start": "2018-02-01",
+                "end": "2019-06-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Martí Cifuentes"
+      },
+      "reputation": 83,
+      "financialPower": 93,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:46",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:47",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "47"
+      },
+      "name": "Tottenham",
+      "country": "England",
+      "founded": 1882,
+      "national": false,
+      "venue": {
+        "id": 593,
+        "name": "Tottenham Hotspur Stadium",
+        "address": "Bill Nicholson Way, 748 High Road",
+        "city": "London",
+        "capacity": 62850,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/593.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19032",
+          "provider:api-football:19321",
+          "provider:api-football:149551",
+          "provider:api-football:162148",
+          "provider:api-football:162150",
+          "provider:api-football:361736",
+          "provider:api-football:337929",
+          "provider:api-football:344247",
+          "provider:api-football:164",
+          "provider:api-football:19235",
+          "provider:api-football:25287",
+          "provider:api-football:30435",
+          "provider:api-football:30776",
+          "provider:api-football:31354",
+          "provider:api-football:47519",
+          "provider:api-football:152849",
+          "provider:api-football:156428",
+          "provider:api-football:162498",
+          "provider:api-football:204039",
+          "provider:api-football:265826",
+          "provider:api-football:697",
+          "provider:api-football:863",
+          "provider:api-football:2061",
+          "provider:api-football:2413",
+          "provider:api-football:18784",
+          "provider:api-football:18883",
+          "provider:api-football:18968",
+          "provider:api-football:129711",
+          "provider:api-football:237129",
+          "provider:api-football:270510",
+          "provider:api-football:336564",
+          "provider:api-football:347316",
+          "provider:api-football:310531",
+          "provider:api-football:392607",
+          "provider:api-football:284415",
+          "provider:api-football:273757",
+          "provider:api-football:349384",
+          "provider:api-football:293163",
+          "provider:api-football:301281",
+          "provider:api-football:423708",
+          "provider:api-football:361734",
+          "provider:api-football:465310",
+          "provider:api-football:161",
+          "provider:api-football:18932",
+          "provider:api-football:284417",
+          "provider:api-football:380689",
+          "provider:api-football:459203",
+          "provider:api-football:1578",
+          "provider:api-football:311344",
+          "provider:api-football:1166",
+          "provider:api-football:2735",
+          "provider:api-football:186",
+          "provider:api-football:311817",
+          "provider:api-football:380690",
+          "provider:api-football:1566",
+          "provider:api-football:328089",
+          "provider:api-football:162552",
+          "provider:api-football:393195"
+        ],
+        "size": 58,
+        "averageAge": 23.7,
+        "overall": 84.2,
+        "startingStrength": 85.1,
+        "depth": 82.5,
+        "attack": 84.5,
+        "midfield": 85,
+        "defence": 83.4,
+        "goalkeeper": 80.5
+      },
+      "leagueContext": {
+        "rank": 17,
+        "points": 38,
+        "goalsDiff": -1,
+        "form": "LLLDL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 90,
+            "name": "T. Frank",
+            "firstname": "Thomas",
+            "lastname": "Frank",
+            "age": 52,
+            "birth": {
+              "date": "1973-10-09",
+              "place": null,
+              "country": "Denmark"
+            },
+            "nationality": "Denmark",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/90.png",
+            "team": {
+              "id": 47,
+              "name": "Tottenham",
+              "logo": "https://media.api-sports.io/football/teams/47.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 47,
+                  "name": "Tottenham",
+                  "logo": "https://media.api-sports.io/football/teams/47.png"
+                },
+                "start": "2025-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 55,
+                  "name": "Brentford",
+                  "logo": "https://media.api-sports.io/football/teams/55.png"
+                },
+                "start": "2018-10-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 407,
+                  "name": "Brøndby",
+                  "logo": "https://media.api-sports.io/football/teams/407.png"
+                },
+                "start": "2013-06-01",
+                "end": "2016-03-01"
+              },
+              {
+                "team": {
+                  "id": 10331,
+                  "name": "Denmark U19",
+                  "logo": "https://media.api-sports.io/football/teams/10331.png"
+                },
+                "start": "2012-07-01",
+                "end": "2013-06-01"
+              },
+              {
+                "team": {
+                  "id": 17948,
+                  "name": "Denmark U17",
+                  "logo": "https://media.api-sports.io/football/teams/17948.png"
+                },
+                "start": "2011-06-01",
+                "end": "2012-06-01"
+              }
+            ]
+          },
+          {
+            "id": 2424,
+            "name": "R. De Zerbi",
+            "firstname": "Roberto",
+            "lastname": "De Zerbi",
+            "age": 46,
+            "birth": {
+              "date": "1979-06-06",
+              "place": "Brescia",
+              "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "175 cm",
+            "weight": "67 kg",
+            "photo": "https://media.api-sports.io/football/coachs/2424.png",
+            "team": {
+              "id": 47,
+              "name": "Tottenham",
+              "logo": "https://media.api-sports.io/football/teams/47.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 47,
+                  "name": "Tottenham",
+                  "logo": "https://media.api-sports.io/football/teams/47.png"
+                },
+                "start": "2025-09-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 81,
+                  "name": "Marseille",
+                  "logo": "https://media.api-sports.io/football/teams/81.png"
+                },
+                "start": "2024-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 51,
+                  "name": "Brighton & Hove Albion",
+                  "logo": "https://media.api-sports.io/football/teams/51.png"
+                },
+                "start": "2022-09-01",
+                "end": "2024-06-01"
+              },
+              {
+                "team": {
+                  "id": 550,
+                  "name": "Shakhtar Donetsk",
+                  "logo": "https://media.api-sports.io/football/teams/550.png"
+                },
+                "start": "2021-07-01",
+                "end": "2022-07-01"
+              },
+              {
+                "team": {
+                  "id": 488,
+                  "name": "Sassuolo",
+                  "logo": "https://media.api-sports.io/football/teams/488.png"
+                },
+                "start": "2018-07-01",
+                "end": "2021-06-01"
+              },
+              {
+                "team": {
+                  "id": 506,
+                  "name": "Benevento",
+                  "logo": "https://media.api-sports.io/football/teams/506.png"
+                },
+                "start": "2017-10-01",
+                "end": "2018-06-01"
+              },
+              {
+                "team": {
+                  "id": 522,
+                  "name": "Palermo",
+                  "logo": "https://media.api-sports.io/football/teams/522.png"
+                },
+                "start": "2016-09-01",
+                "end": "2016-12-01"
+              },
+              {
+                "team": {
+                  "id": 521,
+                  "name": "Foggia",
+                  "logo": "https://media.api-sports.io/football/teams/521.png"
+                },
+                "start": "2014-07-01",
+                "end": "2016-08-01"
+              }
+            ]
+          },
+          {
+            "id": 27686,
+            "name": "Igor Tudor",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/27686.png",
+            "team": {
+              "id": 47,
+              "name": "Tottenham",
+              "logo": "https://media.api-sports.io/football/teams/47.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 47,
+                  "name": "Tottenham",
+                  "logo": "https://media.api-sports.io/football/teams/47.png"
+                },
+                "start": "2025-09-01",
+                "end": null
+              }
+            ]
+          },
+          {
+            "id": 28389,
+            "name": "Bruno Saltor",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/28389.png",
+            "team": {
+              "id": 47,
+              "name": "Tottenham",
+              "logo": "https://media.api-sports.io/football/teams/47.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 47,
+                  "name": "Tottenham",
+                  "logo": "https://media.api-sports.io/football/teams/47.png"
+                },
+                "start": "2025-11-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "T. Frank"
+      },
+      "reputation": 85,
+      "financialPower": 95,
+      "youthStrength": 76,
+      "managerSlot": {
+        "clubId": "provider:api-football:47",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:48",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "48"
+      },
+      "name": "West Ham",
+      "country": "England",
+      "founded": 1895,
+      "national": false,
+      "venue": {
+        "id": 598,
+        "name": "London Stadium",
+        "address": "Marshgate Lane, Stratford",
+        "city": "London",
+        "capacity": 64472,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/598.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:18817",
+          "provider:api-football:19130",
+          "provider:api-football:144709",
+          "provider:api-football:284536",
+          "provider:api-football:18823",
+          "provider:api-football:284409",
+          "provider:api-football:315767",
+          "provider:api-football:310529",
+          "provider:api-football:284444",
+          "provider:api-football:337932",
+          "provider:api-football:401278",
+          "provider:api-football:665",
+          "provider:api-football:144723",
+          "provider:api-football:129643",
+          "provider:api-football:15911",
+          "provider:api-football:138",
+          "provider:api-football:253",
+          "provider:api-football:1243",
+          "provider:api-football:1445",
+          "provider:api-football:1646",
+          "provider:api-football:1736",
+          "provider:api-football:2284",
+          "provider:api-football:2476",
+          "provider:api-football:2997",
+          "provider:api-football:18846",
+          "provider:api-football:19428",
+          "provider:api-football:21694",
+          "provider:api-football:68466",
+          "provider:api-football:288118",
+          "provider:api-football:291363",
+          "provider:api-football:327730",
+          "provider:api-football:25391",
+          "provider:api-football:37724",
+          "provider:api-football:344707",
+          "provider:api-football:404574",
+          "provider:api-football:144725",
+          "provider:api-football:288125",
+          "provider:api-football:405530",
+          "provider:api-football:288116",
+          "provider:api-football:18813",
+          "provider:api-football:18955",
+          "provider:api-football:2726",
+          "provider:api-football:18819",
+          "provider:api-football:284060",
+          "provider:api-football:930",
+          "provider:api-football:1231",
+          "provider:api-football:284446",
+          "provider:api-football:2869"
+        ],
+        "size": 48,
+        "averageAge": 26.2,
+        "overall": 81.3,
+        "startingStrength": 82.8,
+        "depth": 78.3,
+        "attack": 80.8,
+        "midfield": 83.3,
+        "defence": 80.6,
+        "goalkeeper": 76.5
+      },
+      "leagueContext": {
+        "rank": 14,
+        "points": 43,
+        "goalsDiff": -16,
+        "form": "WLWDL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 16,
+            "name": "Nuno Espírito Santo",
+            "firstname": "Nuno Herlander",
+            "lastname": "Simões Espírito Santo",
+            "age": 51,
+            "birth": {
+              "date": "1974-01-25",
+              "place": "São Tomé",
+              "country": "São Tomé e Príncipe"
+            },
+            "nationality": "Portugal",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/16.png",
+            "team": {
+              "id": 48,
+              "name": "West Ham",
+              "logo": "https://media.api-sports.io/football/teams/48.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 48,
+                  "name": "West Ham",
+                  "logo": "https://media.api-sports.io/football/teams/48.png"
+                },
+                "start": "2025-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2023-12-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 2938,
+                  "name": "Al Ittihad",
+                  "logo": "https://media.api-sports.io/football/teams/2938.png"
+                },
+                "start": "2022-07-01",
+                "end": "2023-11-01"
+              },
+              {
+                "team": {
+                  "id": 47,
+                  "name": "Tottenham Hotspur",
+                  "logo": "https://media.api-sports.io/football/teams/47.png"
+                },
+                "start": "2021-06-01",
+                "end": "2021-11-01"
+              },
+              {
+                "team": {
+                  "id": 39,
+                  "name": "Wolverhampton Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/39.png"
+                },
+                "start": "2017-05-01",
+                "end": "2021-05-01"
+              },
+              {
+                "team": {
+                  "id": 212,
+                  "name": "Porto",
+                  "logo": "https://media.api-sports.io/football/teams/212.png"
+                },
+                "start": "2016-06-01",
+                "end": "2017-05-01"
+              },
+              {
+                "team": {
+                  "id": 532,
+                  "name": "Valencia",
+                  "logo": "https://media.api-sports.io/football/teams/532.png"
+                },
+                "start": "2014-07-01",
+                "end": "2015-11-01"
+              },
+              {
+                "team": {
+                  "id": 226,
+                  "name": "Rio Ave",
+                  "logo": "https://media.api-sports.io/football/teams/226.png"
+                },
+                "start": "2012-07-01",
+                "end": "2014-05-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Nuno Espírito Santo"
+      },
+      "reputation": 82,
+      "financialPower": 91,
+      "youthStrength": 74,
+      "managerSlot": {
+        "clubId": "provider:api-football:48",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:49",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "49"
+      },
+      "name": "Chelsea",
+      "country": "England",
+      "founded": 1905,
+      "national": false,
+      "venue": {
+        "id": 519,
+        "name": "Stamford Bridge",
+        "address": "Fulham Road",
+        "city": "London",
+        "capacity": 41841,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/519.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:284260",
+          "provider:api-football:284404",
+          "provider:api-football:284428",
+          "provider:api-football:286773",
+          "provider:api-football:259",
+          "provider:api-football:181796",
+          "provider:api-football:284492",
+          "provider:api-football:284532",
+          "provider:api-football:327748",
+          "provider:api-football:330986",
+          "provider:api-football:394167",
+          "provider:api-football:411808",
+          "provider:api-football:22166",
+          "provider:api-football:305834",
+          "provider:api-football:265733",
+          "provider:api-football:64167",
+          "provider:api-football:136723",
+          "provider:api-football:118307",
+          "provider:api-football:19012",
+          "provider:api-football:18959",
+          "provider:api-football:19545",
+          "provider:api-football:22094",
+          "provider:api-football:47380",
+          "provider:api-football:152953",
+          "provider:api-football:161907",
+          "provider:api-football:286616",
+          "provider:api-football:298061",
+          "provider:api-football:328093",
+          "provider:api-football:422780",
+          "provider:api-football:95",
+          "provider:api-football:269",
+          "provider:api-football:1864",
+          "provider:api-football:5996",
+          "provider:api-football:63577",
+          "provider:api-football:116117",
+          "provider:api-football:138935",
+          "provider:api-football:152982",
+          "provider:api-football:282125",
+          "provider:api-football:283058",
+          "provider:api-football:284406",
+          "provider:api-football:334037",
+          "provider:api-football:336671",
+          "provider:api-football:366735",
+          "provider:api-football:392270",
+          "provider:api-football:415001",
+          "provider:api-football:18",
+          "provider:api-football:181797",
+          "provider:api-football:138777",
+          "provider:api-football:288055",
+          "provider:api-football:907",
+          "provider:api-football:274550",
+          "provider:api-football:287868",
+          "provider:api-football:364048",
+          "provider:api-football:306263",
+          "provider:api-football:327733",
+          "provider:api-football:334042",
+          "provider:api-football:360011",
+          "provider:api-football:365660",
+          "provider:api-football:398000",
+          "provider:api-football:454935",
+          "provider:api-football:395762",
+          "provider:api-football:406303",
+          "provider:api-football:286774",
+          "provider:api-football:289618",
+          "provider:api-football:331563",
+          "provider:api-football:359117",
+          "provider:api-football:482888",
+          "provider:api-football:67972",
+          "provider:api-football:335056",
+          "provider:api-football:583",
+          "provider:api-football:270507",
+          "provider:api-football:291476",
+          "provider:api-football:303667",
+          "provider:api-football:152955"
+        ],
+        "size": 74,
+        "averageAge": 22.2,
+        "overall": 84.8,
+        "startingStrength": 86.2,
+        "depth": 81.4,
+        "attack": 85.7,
+        "midfield": 84.6,
+        "defence": 83.1,
+        "goalkeeper": 81.5
+      },
+      "leagueContext": {
+        "rank": 4,
+        "points": 69,
+        "goalsDiff": 21,
+        "form": "WWLWW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 12629,
+            "name": "E. Maresca",
+            "firstname": "Vincenzo",
+            "lastname": "Maresca",
+            "age": 45,
+            "birth": {
+              "date": "1980-02-10",
+              "place": "Ponte Cagnano",
+              "country": "Italy"
+            },
+            "nationality": "Italy",
+            "height": "180 cm",
+            "weight": "77 kg",
+            "photo": "https://media.api-sports.io/football/coachs/12629.png",
+            "team": {
+              "id": 49,
+              "name": "Chelsea",
+              "logo": "https://media.api-sports.io/football/teams/49.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 49,
+                  "name": "Chelsea",
+                  "logo": "https://media.api-sports.io/football/teams/49.png"
+                },
+                "start": "2024-06-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "2023-07-01",
+                "end": "2024-06-01"
+              },
+              {
+                "team": {
+                  "id": 523,
+                  "name": "Parma",
+                  "logo": "https://media.api-sports.io/football/teams/523.png"
+                },
+                "start": "2021-05-01",
+                "end": "2021-11-01"
+              },
+              {
+                "team": {
+                  "id": 7197,
+                  "name": "Manchester City U21",
+                  "logo": "https://media.api-sports.io/football/teams/7197.png"
+                },
+                "start": "2020-09-01",
+                "end": "2021-05-01"
+              },
+              {
+                "team": {
+                  "id": 15637,
+                  "name": "Manchester City U23",
+                  "logo": "https://media.api-sports.io/football/teams/15637.png"
+                },
+                "start": "2020-08-01",
+                "end": "2021-05-01"
+              }
+            ]
+          },
+          {
+            "id": 28620,
+            "name": "Calum McFarlane",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/28620.png",
+            "team": {
+              "id": 49,
+              "name": "Chelsea",
+              "logo": "https://media.api-sports.io/football/teams/49.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 49,
+                  "name": "Chelsea",
+                  "logo": "https://media.api-sports.io/football/teams/49.png"
+                },
+                "start": "2025-08-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "E. Maresca"
+      },
+      "reputation": 88,
+      "financialPower": 95,
+      "youthStrength": 78,
+      "managerSlot": {
+        "clubId": "provider:api-football:49",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:50",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "50"
+      },
+      "name": "Manchester City",
+      "country": "England",
+      "founded": 1880,
+      "national": false,
+      "venue": {
+        "id": 555,
+        "name": "Etihad Stadium",
+        "address": "Rowsley Street",
+        "city": "Manchester",
+        "capacity": 55097,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/555.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:144729",
+          "provider:api-football:161948",
+          "provider:api-football:197448",
+          "provider:api-football:361675",
+          "provider:api-football:144733",
+          "provider:api-football:158696",
+          "provider:api-football:278129",
+          "provider:api-football:288109",
+          "provider:api-football:303015",
+          "provider:api-football:328096",
+          "provider:api-football:328120",
+          "provider:api-football:337936",
+          "provider:api-football:337941",
+          "provider:api-football:345107",
+          "provider:api-football:347305",
+          "provider:api-football:382358",
+          "provider:api-football:448969",
+          "provider:api-football:284228",
+          "provider:api-football:389035",
+          "provider:api-football:437559",
+          "provider:api-football:25004",
+          "provider:api-football:5",
+          "provider:api-football:44",
+          "provider:api-football:567",
+          "provider:api-football:626",
+          "provider:api-football:631",
+          "provider:api-football:636",
+          "provider:api-football:2291",
+          "provider:api-football:18861",
+          "provider:api-football:41621",
+          "provider:api-football:129033",
+          "provider:api-football:140947",
+          "provider:api-football:158697",
+          "provider:api-football:161933",
+          "provider:api-football:278128",
+          "provider:api-football:278133",
+          "provider:api-football:284230",
+          "provider:api-football:307123",
+          "provider:api-football:360114",
+          "provider:api-football:414385",
+          "provider:api-football:1100",
+          "provider:api-football:1422",
+          "provider:api-football:81573",
+          "provider:api-football:266657",
+          "provider:api-football:19187",
+          "provider:api-football:627",
+          "provider:api-football:437557",
+          "provider:api-football:284231",
+          "provider:api-football:414359",
+          "provider:api-football:293168",
+          "provider:api-football:382355",
+          "provider:api-football:451583",
+          "provider:api-football:23",
+          "provider:api-football:6009",
+          "provider:api-football:629",
+          "provider:api-football:288699",
+          "provider:api-football:404656",
+          "provider:api-football:855",
+          "provider:api-football:328097",
+          "provider:api-football:617",
+          "provider:api-football:633",
+          "provider:api-football:19197"
+        ],
+        "size": 62,
+        "averageAge": 23.9,
+        "overall": 84,
+        "startingStrength": 85.4,
+        "depth": 81.3,
+        "attack": 81.7,
+        "midfield": 84.4,
+        "defence": 81.9,
+        "goalkeeper": 78.5
+      },
+      "leagueContext": {
+        "rank": 3,
+        "points": 71,
+        "goalsDiff": 28,
+        "form": "WWDWW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 4,
+            "name": "Guardiola",
+            "firstname": "Josep",
+            "lastname": "Guardiola i Sala",
+            "age": 54,
+            "birth": {
+              "date": "1971-01-18",
+              "place": "Santpedor",
+              "country": "Spain"
+            },
+            "nationality": "Spain",
+            "height": "180 cm",
+            "weight": "70 kg",
+            "photo": "https://media.api-sports.io/football/coachs/4.png",
+            "team": {
+              "id": 50,
+              "name": "Manchester City",
+              "logo": "https://media.api-sports.io/football/teams/50.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 50,
+                  "name": "Manchester City",
+                  "logo": "https://media.api-sports.io/football/teams/50.png"
+                },
+                "start": "2016-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 157,
+                  "name": "Bayern Munich",
+                  "logo": "https://media.api-sports.io/football/teams/157.png"
+                },
+                "start": "2013-06-01",
+                "end": "2016-06-01"
+              },
+              {
+                "team": {
+                  "id": 529,
+                  "name": "Barcelona",
+                  "logo": "https://media.api-sports.io/football/teams/529.png"
+                },
+                "start": "2008-07-01",
+                "end": "2012-06-01"
+              },
+              {
+                "team": {
+                  "id": 712,
+                  "name": "Barcelona II",
+                  "logo": "https://media.api-sports.io/football/teams/712.png"
+                },
+                "start": "2007-06-01",
+                "end": "2008-06-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Guardiola"
+      },
+      "reputation": 88,
+      "financialPower": 94,
+      "youthStrength": 76,
+      "managerSlot": {
+        "clubId": "provider:api-football:50",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "title-challenge",
+          "summary": "Compete for the title and qualify for elite competition.",
+          "sackRisk": "high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:51",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "51"
+      },
+      "name": "Brighton",
+      "country": "England",
+      "founded": 1901,
+      "national": false,
+      "venue": {
+        "id": 508,
+        "name": "American Express Stadium",
+        "address": "Village Way",
+        "city": "Falmer, East Sussex",
+        "capacity": 31872,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/508.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:135775",
+          "provider:api-football:37276",
+          "provider:api-football:200233",
+          "provider:api-football:284531",
+          "provider:api-football:296121",
+          "provider:api-football:336240",
+          "provider:api-football:328095",
+          "provider:api-football:64304",
+          "provider:api-football:293643",
+          "provider:api-football:342191",
+          "provider:api-football:206404",
+          "provider:api-football:336599",
+          "provider:api-football:10329",
+          "provider:api-football:301771",
+          "provider:api-football:537",
+          "provider:api-football:7600",
+          "provider:api-football:18960",
+          "provider:api-football:18963",
+          "provider:api-football:19265",
+          "provider:api-football:38695",
+          "provider:api-football:106835",
+          "provider:api-football:129058",
+          "provider:api-football:138815",
+          "provider:api-football:202086",
+          "provider:api-football:328076",
+          "provider:api-football:412086",
+          "provider:api-football:296",
+          "provider:api-football:1469",
+          "provider:api-football:18973",
+          "provider:api-football:19030",
+          "provider:api-football:90590",
+          "provider:api-football:92993",
+          "provider:api-football:265820",
+          "provider:api-football:277191",
+          "provider:api-football:278370",
+          "provider:api-football:305730",
+          "provider:api-football:328225",
+          "provider:api-football:329369",
+          "provider:api-football:356041",
+          "provider:api-football:392610",
+          "provider:api-football:130423",
+          "provider:api-football:359842",
+          "provider:api-football:305735",
+          "provider:api-football:282254",
+          "provider:api-football:410125",
+          "provider:api-football:19565",
+          "provider:api-football:343209",
+          "provider:api-football:379618",
+          "provider:api-football:161663",
+          "provider:api-football:167656",
+          "provider:api-football:280672",
+          "provider:api-football:201368",
+          "provider:api-football:216809",
+          "provider:api-football:14",
+          "provider:api-football:18970",
+          "provider:api-football:26475",
+          "provider:api-football:40911",
+          "provider:api-football:319572",
+          "provider:api-football:46731",
+          "provider:api-football:273758",
+          "provider:api-football:137220",
+          "provider:api-football:167663",
+          "provider:api-football:278088",
+          "provider:api-football:340135",
+          "provider:api-football:1361"
+        ],
+        "size": 65,
+        "averageAge": 24.1,
+        "overall": 84.4,
+        "startingStrength": 85.4,
+        "depth": 81.1,
+        "attack": 79.7,
+        "midfield": 85.5,
+        "defence": 82,
+        "goalkeeper": 84.5
+      },
+      "leagueContext": {
+        "rank": 8,
+        "points": 61,
+        "goalsDiff": 7,
+        "form": "WWWDW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 19253,
+            "name": "F. Hürzeler",
+            "firstname": "Fabian Marc",
+            "lastname": "Hürzeler",
+            "age": 32,
+            "birth": {
+              "date": "1993-02-26",
+              "place": "Houston",
+              "country": "USA"
+            },
+            "nationality": "Germany",
+            "height": "182 cm",
+            "weight": "72 kg",
+            "photo": "https://media.api-sports.io/football/coachs/19253.png",
+            "team": {
+              "id": 51,
+              "name": "Brighton & Hove Albion",
+              "logo": "https://media.api-sports.io/football/teams/51.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 51,
+                  "name": "Brighton & Hove Albion",
+                  "logo": "https://media.api-sports.io/football/teams/51.png"
+                },
+                "start": "2024-06-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 186,
+                  "name": "St. Pauli",
+                  "logo": "https://media.api-sports.io/football/teams/186.png"
+                },
+                "start": "2022-12-01",
+                "end": "2024-06-01"
+              },
+              {
+                "team": {
+                  "id": 12832,
+                  "name": "Pipinsried",
+                  "logo": "https://media.api-sports.io/football/teams/12832.png"
+                },
+                "start": "2016-07-01",
+                "end": "2020-07-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "F. Hürzeler"
+      },
+      "reputation": 86,
+      "financialPower": 95,
+      "youthStrength": 76,
+      "managerSlot": {
+        "clubId": "provider:api-football:51",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:52",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "52"
+      },
+      "name": "Crystal Palace",
+      "country": "England",
+      "founded": 1861,
+      "national": false,
+      "venue": {
+        "id": 525,
+        "name": "Selhurst Park",
+        "address": "Holmesdale Road",
+        "city": "London",
+        "capacity": 26309,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/525.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:18853",
+          "provider:api-football:127605",
+          "provider:api-football:19617",
+          "provider:api-football:304319",
+          "provider:api-football:284493",
+          "provider:api-football:298129",
+          "provider:api-football:380702",
+          "provider:api-football:2933",
+          "provider:api-football:284554",
+          "provider:api-football:19586",
+          "provider:api-football:2490",
+          "provider:api-football:2601",
+          "provider:api-football:3339",
+          "provider:api-football:13736",
+          "provider:api-football:18862",
+          "provider:api-football:19088",
+          "provider:api-football:19684",
+          "provider:api-football:20995",
+          "provider:api-football:67971",
+          "provider:api-football:126949",
+          "provider:api-football:182201",
+          "provider:api-football:278898",
+          "provider:api-football:286458",
+          "provider:api-football:288102",
+          "provider:api-football:380679",
+          "provider:api-football:402640",
+          "provider:api-football:2218",
+          "provider:api-football:25927",
+          "provider:api-football:152418",
+          "provider:api-football:284449",
+          "provider:api-football:301295",
+          "provider:api-football:311157",
+          "provider:api-football:340136",
+          "provider:api-football:363974",
+          "provider:api-football:367634",
+          "provider:api-football:19720",
+          "provider:api-football:293162",
+          "provider:api-football:284416",
+          "provider:api-football:380680",
+          "provider:api-football:304320",
+          "provider:api-football:18843",
+          "provider:api-football:18844",
+          "provider:api-football:308867",
+          "provider:api-football:18847",
+          "provider:api-football:284551",
+          "provider:api-football:196856",
+          "provider:api-football:284059",
+          "provider:api-football:1440",
+          "provider:api-football:50999",
+          "provider:api-football:270357",
+          "provider:api-football:18806",
+          "provider:api-football:284549",
+          "provider:api-football:328808"
+        ],
+        "size": 53,
+        "averageAge": 24.8,
+        "overall": 83.8,
+        "startingStrength": 85,
+        "depth": 80,
+        "attack": 75.2,
+        "midfield": 84.3,
+        "defence": 84.5,
+        "goalkeeper": 81.5
+      },
+      "leagueContext": {
+        "rank": 12,
+        "points": 53,
+        "goalsDiff": 0,
+        "form": "DWWDD"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 9,
+            "name": "R. Hodgson",
+            "firstname": "Roy",
+            "lastname": "Hodgson",
+            "age": 78,
+            "birth": {
+              "date": "1947-08-09",
+              "place": "London",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/9.png",
+            "team": {
+              "id": 52,
+              "name": "Crystal Palace",
+              "logo": "https://media.api-sports.io/football/teams/52.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 52,
+                  "name": "Crystal Palace",
+                  "logo": "https://media.api-sports.io/football/teams/52.png"
+                },
+                "start": "2023-03-01",
+                "end": "2024-02-01"
+              },
+              {
+                "team": {
+                  "id": 38,
+                  "name": "Watford",
+                  "logo": "https://media.api-sports.io/football/teams/38.png"
+                },
+                "start": "2022-01-01",
+                "end": "2022-06-01"
+              },
+              {
+                "team": {
+                  "id": 52,
+                  "name": "Crystal Palace",
+                  "logo": "https://media.api-sports.io/football/teams/52.png"
+                },
+                "start": "2017-09-01",
+                "end": "2021-05-01"
+              },
+              {
+                "team": {
+                  "id": 10,
+                  "name": "England",
+                  "logo": "https://media.api-sports.io/football/teams/10.png"
+                },
+                "start": "2012-05-01",
+                "end": "2016-06-01"
+              },
+              {
+                "team": {
+                  "id": 60,
+                  "name": "West Bromwich Albion",
+                  "logo": "https://media.api-sports.io/football/teams/60.png"
+                },
+                "start": "2011-02-01",
+                "end": "2012-05-01"
+              },
+              {
+                "team": {
+                  "id": 40,
+                  "name": "Liverpool",
+                  "logo": "https://media.api-sports.io/football/teams/40.png"
+                },
+                "start": "2010-07-01",
+                "end": "2011-01-01"
+              },
+              {
+                "team": {
+                  "id": 36,
+                  "name": "Fulham",
+                  "logo": "https://media.api-sports.io/football/teams/36.png"
+                },
+                "start": "2007-12-01",
+                "end": "2010-06-01"
+              },
+              {
+                "team": {
+                  "id": 1099,
+                  "name": "Finland",
+                  "logo": "https://media.api-sports.io/football/teams/1099.png"
+                },
+                "start": "2006-01-01",
+                "end": "2007-11-01"
+              },
+              {
+                "team": {
+                  "id": 759,
+                  "name": "Viking",
+                  "logo": "https://media.api-sports.io/football/teams/759.png"
+                },
+                "start": "2004-07-01",
+                "end": "2005-12-01"
+              },
+              {
+                "team": {
+                  "id": 1563,
+                  "name": "UAE",
+                  "logo": "https://media.api-sports.io/football/teams/1563.png"
+                },
+                "start": "2002-04-01",
+                "end": "2004-01-01"
+              },
+              {
+                "team": {
+                  "id": 494,
+                  "name": "Udinese",
+                  "logo": "https://media.api-sports.io/football/teams/494.png"
+                },
+                "start": "2001-06-01",
+                "end": "2001-12-01"
+              },
+              {
+                "team": {
+                  "id": 400,
+                  "name": "FC Copenhagen",
+                  "logo": "https://media.api-sports.io/football/teams/400.png"
+                },
+                "start": "2000-07-01",
+                "end": "2001-06-01"
+              },
+              {
+                "team": {
+                  "id": 1013,
+                  "name": "Grasshoppers",
+                  "logo": "https://media.api-sports.io/football/teams/1013.png"
+                },
+                "start": "1999-07-01",
+                "end": "2000-06-01"
+              },
+              {
+                "team": {
+                  "id": 505,
+                  "name": "Inter Milan",
+                  "logo": "https://media.api-sports.io/football/teams/505.png"
+                },
+                "start": "1999-05-01",
+                "end": "1999-06-01"
+              },
+              {
+                "team": {
+                  "id": 67,
+                  "name": "Blackburn Rovers",
+                  "logo": "https://media.api-sports.io/football/teams/67.png"
+                },
+                "start": "1997-07-01",
+                "end": "1998-11-01"
+              },
+              {
+                "team": {
+                  "id": 505,
+                  "name": "Inter Milan",
+                  "logo": "https://media.api-sports.io/football/teams/505.png"
+                },
+                "start": "1995-10-01",
+                "end": "1997-06-01"
+              },
+              {
+                "team": {
+                  "id": 15,
+                  "name": "Switzerland",
+                  "logo": "https://media.api-sports.io/football/teams/15.png"
+                },
+                "start": "1992-01-01",
+                "end": "1995-11-01"
+              },
+              {
+                "team": {
+                  "id": 1015,
+                  "name": "Xamax",
+                  "logo": "https://media.api-sports.io/football/teams/1015.png"
+                },
+                "start": "1990-07-01",
+                "end": "1992-06-01"
+              },
+              {
+                "team": {
+                  "id": 375,
+                  "name": "Malmö",
+                  "logo": "https://media.api-sports.io/football/teams/375.png"
+                },
+                "start": "1985-01-01",
+                "end": "1989-11-01"
+              },
+              {
+                "team": {
+                  "id": 365,
+                  "name": "Örebro",
+                  "logo": "https://media.api-sports.io/football/teams/365.png"
+                },
+                "start": "1983-01-01",
+                "end": "1984-11-01"
+              },
+              {
+                "team": {
+                  "id": 56,
+                  "name": "Bristol City",
+                  "logo": "https://media.api-sports.io/football/teams/56.png"
+                },
+                "start": "1982-01-01",
+                "end": "1982-04-01"
+              },
+              {
+                "team": {
+                  "id": 766,
+                  "name": "Halmstad",
+                  "logo": "https://media.api-sports.io/football/teams/766.png"
+                },
+                "start": "1976-01-01",
+                "end": "1980-11-01"
+              }
+            ]
+          },
+          {
+            "id": 1534,
+            "name": "O. Glasner",
+            "firstname": "Oliver",
+            "lastname": "Glasner",
+            "age": 51,
+            "birth": {
+              "date": "1974-08-28",
+              "place": "Salzburg",
+              "country": "Austria"
+            },
+            "nationality": "Austria",
+            "height": "181 cm",
+            "weight": "72 kg",
+            "photo": "https://media.api-sports.io/football/coachs/1534.png",
+            "team": {
+              "id": 52,
+              "name": "Crystal Palace",
+              "logo": "https://media.api-sports.io/football/teams/52.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 52,
+                  "name": "Crystal Palace",
+                  "logo": "https://media.api-sports.io/football/teams/52.png"
+                },
+                "start": "2024-02-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 169,
+                  "name": "Eintracht Frankfurt",
+                  "logo": "https://media.api-sports.io/football/teams/169.png"
+                },
+                "start": "2021-07-01",
+                "end": "2023-06-01"
+              },
+              {
+                "team": {
+                  "id": 161,
+                  "name": "Wolfsburg",
+                  "logo": "https://media.api-sports.io/football/teams/161.png"
+                },
+                "start": "2019-07-01",
+                "end": "2021-06-01"
+              },
+              {
+                "team": {
+                  "id": 1026,
+                  "name": "LASK",
+                  "logo": "https://media.api-sports.io/football/teams/1026.png"
+                },
+                "start": "2015-07-01",
+                "end": "2019-06-01"
+              },
+              {
+                "team": {
+                  "id": 1028,
+                  "name": "Ried",
+                  "logo": "https://media.api-sports.io/football/teams/1028.png"
+                },
+                "start": "2014-06-01",
+                "end": "2015-05-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "R. Hodgson"
+      },
+      "reputation": 85,
+      "financialPower": 94,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:52",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:55",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "55"
+      },
+      "name": "Brentford",
+      "country": "England",
+      "founded": 1889,
+      "national": false,
+      "venue": {
+        "id": 10503,
+        "name": "Gtech Community Stadium",
+        "address": "166 Lionel Rd N, Brentford",
+        "city": "Brentford, Middlesex",
+        "capacity": 17250,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/10503.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:2699",
+          "provider:api-football:19364",
+          "provider:api-football:153422",
+          "provider:api-football:20110",
+          "provider:api-football:281975",
+          "provider:api-football:349288",
+          "provider:api-football:19465",
+          "provider:api-football:138832",
+          "provider:api-football:276263",
+          "provider:api-football:327726",
+          "provider:api-football:364980",
+          "provider:api-football:388509",
+          "provider:api-football:393311",
+          "provider:api-football:30407",
+          "provider:api-football:20589",
+          "provider:api-football:20649",
+          "provider:api-football:1119",
+          "provider:api-football:15745",
+          "provider:api-football:19340",
+          "provider:api-football:19346",
+          "provider:api-football:19495",
+          "provider:api-football:19789",
+          "provider:api-football:36922",
+          "provider:api-football:44871",
+          "provider:api-football:61742",
+          "provider:api-football:278041",
+          "provider:api-football:342022",
+          "provider:api-football:389579",
+          "provider:api-football:430827",
+          "provider:api-football:15799",
+          "provider:api-football:15908",
+          "provider:api-football:25073",
+          "provider:api-football:47438",
+          "provider:api-football:106725",
+          "provider:api-football:153066",
+          "provider:api-football:162075",
+          "provider:api-football:178077",
+          "provider:api-football:180308",
+          "provider:api-football:196156",
+          "provider:api-football:263538",
+          "provider:api-football:427736",
+          "provider:api-football:408221",
+          "provider:api-football:191337",
+          "provider:api-football:18917",
+          "provider:api-football:382925",
+          "provider:api-football:388510",
+          "provider:api-football:19362",
+          "provider:api-football:400938",
+          "provider:api-football:26232",
+          "provider:api-football:356237",
+          "provider:api-football:2731",
+          "provider:api-football:19974",
+          "provider:api-football:1835",
+          "provider:api-football:430734"
+        ],
+        "size": 54,
+        "averageAge": 24.8,
+        "overall": 84,
+        "startingStrength": 85.8,
+        "depth": 80.6,
+        "attack": 82.1,
+        "midfield": 85.6,
+        "defence": 82.6,
+        "goalkeeper": 79
+      },
+      "leagueContext": {
+        "rank": 10,
+        "points": 56,
+        "goalsDiff": 9,
+        "form": "DLWWW"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 25364,
+            "name": "Keith Andrews",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/25364.png",
+            "team": {
+              "id": 55,
+              "name": "Brentford",
+              "logo": "https://media.api-sports.io/football/teams/55.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 55,
+                  "name": "Brentford",
+                  "logo": "https://media.api-sports.io/football/teams/55.png"
+                },
+                "start": "2025-07-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Keith Andrews"
+      },
+      "reputation": 85,
+      "financialPower": 94,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:55",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:57",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "57"
+      },
+      "name": "Ipswich",
+      "country": "England",
+      "founded": 1878,
+      "national": false,
+      "venue": {
+        "id": 545,
+        "name": "Portman Road",
+        "address": "Portman Road",
+        "city": "Ipswich, Suffolk",
+        "capacity": 30311,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/545.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19744",
+          "provider:api-football:44803",
+          "provider:api-football:348263",
+          "provider:api-football:44994",
+          "provider:api-football:147832",
+          "provider:api-football:19723",
+          "provider:api-football:19738",
+          "provider:api-football:441032",
+          "provider:api-football:70747",
+          "provider:api-football:19182",
+          "provider:api-football:327749",
+          "provider:api-football:2752",
+          "provider:api-football:17739",
+          "provider:api-football:20457",
+          "provider:api-football:126791",
+          "provider:api-football:138806",
+          "provider:api-football:20007",
+          "provider:api-football:17714",
+          "provider:api-football:20167",
+          "provider:api-football:299813",
+          "provider:api-football:326763",
+          "provider:api-football:8794",
+          "provider:api-football:15797",
+          "provider:api-football:17579",
+          "provider:api-football:17597",
+          "provider:api-football:18397",
+          "provider:api-football:19119",
+          "provider:api-football:19136",
+          "provider:api-football:19152",
+          "provider:api-football:19365",
+          "provider:api-football:19541",
+          "provider:api-football:20089",
+          "provider:api-football:20415",
+          "provider:api-football:82097",
+          "provider:api-football:127579",
+          "provider:api-football:138836",
+          "provider:api-football:138931",
+          "provider:api-football:283265",
+          "provider:api-football:158702",
+          "provider:api-football:455009",
+          "provider:api-football:13109",
+          "provider:api-football:20031",
+          "provider:api-football:390052",
+          "provider:api-football:19558",
+          "provider:api-football:366629",
+          "provider:api-football:431119",
+          "provider:api-football:616"
+        ],
+        "size": 47,
+        "averageAge": 26.6,
+        "overall": 82.1,
+        "startingStrength": 82.8,
+        "depth": 79.9,
+        "attack": 82.7,
+        "midfield": 78.4,
+        "defence": 82.5,
+        "goalkeeper": 81.5
+      },
+      "leagueContext": {
+        "rank": 19,
+        "points": 22,
+        "goalsDiff": -46,
+        "form": "LLLDL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 610,
+            "name": "P. Lambert",
+            "firstname": "Paul",
+            "lastname": "Lambert",
+            "age": 56,
+            "birth": {
+              "date": "1969-08-07",
+              "place": "Paisley",
+              "country": "Scotland"
+            },
+            "nationality": "Scotland",
+            "height": "180 cm",
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/610.png",
+            "team": {
+              "id": 57,
+              "name": "Ipswich Town",
+              "logo": "https://media.api-sports.io/football/teams/57.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 57,
+                  "name": "Ipswich Town",
+                  "logo": "https://media.api-sports.io/football/teams/57.png"
+                },
+                "start": "2018-10-01",
+                "end": "2021-02-01"
+              },
+              {
+                "team": {
+                  "id": 75,
+                  "name": "Stoke City",
+                  "logo": "https://media.api-sports.io/football/teams/75.png"
+                },
+                "start": "2018-01-01",
+                "end": "2018-05-01"
+              },
+              {
+                "team": {
+                  "id": 39,
+                  "name": "Wolverhampton Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/39.png"
+                },
+                "start": "2016-11-01",
+                "end": "2017-05-01"
+              },
+              {
+                "team": {
+                  "id": 67,
+                  "name": "Blackburn Rovers",
+                  "logo": "https://media.api-sports.io/football/teams/67.png"
+                },
+                "start": "2015-11-01",
+                "end": "2016-05-01"
+              },
+              {
+                "team": {
+                  "id": 66,
+                  "name": "Aston Villa",
+                  "logo": "https://media.api-sports.io/football/teams/66.png"
+                },
+                "start": "2012-06-01",
+                "end": "2015-02-01"
+              },
+              {
+                "team": {
+                  "id": 71,
+                  "name": "Norwich City",
+                  "logo": "https://media.api-sports.io/football/teams/71.png"
+                },
+                "start": "2009-08-01",
+                "end": "2012-06-01"
+              },
+              {
+                "team": {
+                  "id": 1361,
+                  "name": "Colchester United",
+                  "logo": "https://media.api-sports.io/football/teams/1361.png"
+                },
+                "start": "2008-10-01",
+                "end": "2009-08-01"
+              },
+              {
+                "team": {
+                  "id": 1358,
+                  "name": "Wycombe Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/1358.png"
+                },
+                "start": "2006-06-01",
+                "end": "2008-05-01"
+              },
+              {
+                "team": {
+                  "id": 255,
+                  "name": "Livingston",
+                  "logo": "https://media.api-sports.io/football/teams/255.png"
+                },
+                "start": "2005-06-01",
+                "end": "2006-02-01"
+              }
+            ]
+          },
+          {
+            "id": 2951,
+            "name": "B. Klug",
+            "firstname": "Bryan",
+            "lastname": "Klug",
+            "age": 58,
+            "birth": {
+              "date": "1960-10-08",
+              "place": null,
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/2951.png",
+            "team": {
+              "id": 57,
+              "name": "Ipswich Town",
+              "logo": "https://media.api-sports.io/football/teams/57.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 57,
+                  "name": "Ipswich Town",
+                  "logo": "https://media.api-sports.io/football/teams/57.png"
+                },
+                "start": "2018-10-26",
+                "end": "2018-10-28"
+              },
+              {
+                "team": {
+                  "id": 57,
+                  "name": "Ipswich Town",
+                  "logo": "https://media.api-sports.io/football/teams/57.png"
+                },
+                "start": "2018-04-10",
+                "end": "2018-05-30"
+              }
+            ]
+          },
+          {
+            "id": 16556,
+            "name": "K. McKenna",
+            "firstname": "Kieran",
+            "lastname": "McKenna",
+            "age": 39,
+            "birth": {
+              "date": "1986-05-14",
+              "place": "London",
+              "country": "England"
+            },
+            "nationality": "Northern Ireland",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/16556.png",
+            "team": {
+              "id": 57,
+              "name": "Ipswich Town",
+              "logo": "https://media.api-sports.io/football/teams/57.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 57,
+                  "name": "Ipswich Town",
+                  "logo": "https://media.api-sports.io/football/teams/57.png"
+                },
+                "start": "2021-12-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 7960,
+                  "name": "Manchester United U19",
+                  "logo": "https://media.api-sports.io/football/teams/7960.png"
+                },
+                "start": "2017-10-01",
+                "end": "2017-12-01"
+              },
+              {
+                "team": {
+                  "id": 15382,
+                  "name": "Manchester United U18",
+                  "logo": "https://media.api-sports.io/football/teams/15382.png"
+                },
+                "start": "2016-09-01",
+                "end": "2018-10-01"
+              },
+              {
+                "team": {
+                  "id": 15398,
+                  "name": "Tottenham Hotspur U18",
+                  "logo": "https://media.api-sports.io/football/teams/15398.png"
+                },
+                "start": "2016-07-01",
+                "end": "2016-07-01"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "P. Lambert"
+      },
+      "reputation": 83,
+      "financialPower": 92,
+      "youthStrength": 73,
+      "managerSlot": {
+        "clubId": "provider:api-football:57",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:65",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "65"
+      },
+      "name": "Nottingham Forest",
+      "country": "England",
+      "founded": 1865,
+      "national": false,
+      "venue": {
+        "id": 566,
+        "name": "The City Ground",
+        "address": "Pavilion Road",
+        "city": "Nottingham, Nottinghamshire",
+        "capacity": 30576,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/566.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:305",
+          "provider:api-football:371",
+          "provider:api-football:2468",
+          "provider:api-football:41577",
+          "provider:api-football:161921",
+          "provider:api-football:341641",
+          "provider:api-football:14206",
+          "provider:api-football:24882",
+          "provider:api-football:557",
+          "provider:api-football:25916",
+          "provider:api-football:279",
+          "provider:api-football:2807",
+          "provider:api-football:129712",
+          "provider:api-football:325851",
+          "provider:api-football:339138",
+          "provider:api-football:18904",
+          "provider:api-football:153430",
+          "provider:api-football:47547",
+          "provider:api-football:2817",
+          "provider:api-football:2919",
+          "provider:api-football:10373",
+          "provider:api-football:18739",
+          "provider:api-football:19610",
+          "provider:api-football:138780",
+          "provider:api-football:329357",
+          "provider:api-football:363695",
+          "provider:api-football:80",
+          "provider:api-football:1746",
+          "provider:api-football:2298",
+          "provider:api-football:2771",
+          "provider:api-football:6056",
+          "provider:api-football:8598",
+          "provider:api-football:18746",
+          "provider:api-football:18931",
+          "provider:api-football:19305",
+          "provider:api-football:22149",
+          "provider:api-football:67943",
+          "provider:api-football:83029",
+          "provider:api-football:380492",
+          "provider:api-football:2938",
+          "provider:api-football:20503",
+          "provider:api-football:327602",
+          "provider:api-football:329344",
+          "provider:api-football:327604",
+          "provider:api-football:327609",
+          "provider:api-football:2991",
+          "provider:api-football:18836",
+          "provider:api-football:147835",
+          "provider:api-football:2910",
+          "provider:api-football:17365",
+          "provider:api-football:84088",
+          "provider:api-football:196298",
+          "provider:api-football:141901",
+          "provider:api-football:275170"
+        ],
+        "size": 54,
+        "averageAge": 26.9,
+        "overall": 82.8,
+        "startingStrength": 84.4,
+        "depth": 78.1,
+        "attack": 83.5,
+        "midfield": 81.9,
+        "defence": 83.5,
+        "goalkeeper": 78.5
+      },
+      "leagueContext": {
+        "rank": 7,
+        "points": 65,
+        "goalsDiff": 12,
+        "form": "LWDDL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 7,
+            "name": "S. Dyche",
+            "firstname": "Sean Mark",
+            "lastname": "Dyche",
+            "age": 54,
+            "birth": {
+              "date": "1971-06-28",
+              "place": "Kettering",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/7.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2025-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 45,
+                  "name": "Everton",
+                  "logo": "https://media.api-sports.io/football/teams/45.png"
+                },
+                "start": "2023-01-01",
+                "end": "2025-01-01"
+              },
+              {
+                "team": {
+                  "id": 44,
+                  "name": "Burnley",
+                  "logo": "https://media.api-sports.io/football/teams/44.png"
+                },
+                "start": "2012-10-01",
+                "end": "2022-04-01"
+              },
+              {
+                "team": {
+                  "id": 38,
+                  "name": "Watford",
+                  "logo": "https://media.api-sports.io/football/teams/38.png"
+                },
+                "start": "2011-06-01",
+                "end": "2012-07-01"
+              }
+            ]
+          },
+          {
+            "id": 548,
+            "name": "A. Postecoglou",
+            "firstname": "Angelos",
+            "lastname": "Postecoglou",
+            "age": 60,
+            "birth": {
+              "date": "1965-08-27",
+              "place": "Athens",
+              "country": "Greece"
+            },
+            "nationality": "Australia",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/548.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2025-09-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 47,
+                  "name": "Tottenham Hotspur",
+                  "logo": "https://media.api-sports.io/football/teams/47.png"
+                },
+                "start": "2023-07-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 247,
+                  "name": "Celtic",
+                  "logo": "https://media.api-sports.io/football/teams/247.png"
+                },
+                "start": "2021-06-01",
+                "end": "2023-06-01"
+              },
+              {
+                "team": {
+                  "id": 296,
+                  "name": "Yokohama F. Marinos",
+                  "logo": "https://media.api-sports.io/football/teams/296.png"
+                },
+                "start": "2018-01-01",
+                "end": "2021-06-01"
+              },
+              {
+                "team": {
+                  "id": 20,
+                  "name": "Australia",
+                  "logo": "https://media.api-sports.io/football/teams/20.png"
+                },
+                "start": "2013-10-01",
+                "end": "2017-11-01"
+              },
+              {
+                "team": {
+                  "id": 944,
+                  "name": "Melbourne Victory",
+                  "logo": "https://media.api-sports.io/football/teams/944.png"
+                },
+                "start": "2012-04-01",
+                "end": "2013-10-01"
+              },
+              {
+                "team": {
+                  "id": 947,
+                  "name": "Brisbane Roar",
+                  "logo": "https://media.api-sports.io/football/teams/947.png"
+                },
+                "start": "2009-09-01",
+                "end": "2012-04-01"
+              }
+            ]
+          },
+          {
+            "id": 2940,
+            "name": "M. O'Neill",
+            "firstname": "Martin Hugh Michael",
+            "lastname": "O'Neill",
+            "age": 73,
+            "birth": {
+              "date": "1952-03-01",
+              "place": "Kilrea",
+              "country": "Northern Ireland"
+            },
+            "nationality": "Northern Ireland",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/2940.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2019-01-01",
+                "end": "2019-06-01"
+              },
+              {
+                "team": {
+                  "id": 776,
+                  "name": "Republic of Ireland",
+                  "logo": "https://media.api-sports.io/football/teams/776.png"
+                },
+                "start": "2013-11-01",
+                "end": "2018-11-01"
+              },
+              {
+                "team": {
+                  "id": 746,
+                  "name": "Sunderland",
+                  "logo": "https://media.api-sports.io/football/teams/746.png"
+                },
+                "start": "2011-12-01",
+                "end": "2013-03-01"
+              },
+              {
+                "team": {
+                  "id": 66,
+                  "name": "Aston Villa",
+                  "logo": "https://media.api-sports.io/football/teams/66.png"
+                },
+                "start": "2006-08-01",
+                "end": "2010-08-01"
+              },
+              {
+                "team": {
+                  "id": 247,
+                  "name": "Celtic",
+                  "logo": "https://media.api-sports.io/football/teams/247.png"
+                },
+                "start": "2000-07-01",
+                "end": "2005-05-01"
+              },
+              {
+                "team": {
+                  "id": 46,
+                  "name": "Leicester City",
+                  "logo": "https://media.api-sports.io/football/teams/46.png"
+                },
+                "start": "1995-12-01",
+                "end": "2000-06-01"
+              },
+              {
+                "team": {
+                  "id": 71,
+                  "name": "Norwich City",
+                  "logo": "https://media.api-sports.io/football/teams/71.png"
+                },
+                "start": "1995-07-01",
+                "end": "1995-11-01"
+              },
+              {
+                "team": {
+                  "id": 1358,
+                  "name": "Wycombe Wanderers",
+                  "logo": "https://media.api-sports.io/football/teams/1358.png"
+                },
+                "start": "1990-08-01",
+                "end": "1995-06-01"
+              }
+            ]
+          },
+          {
+            "id": 2954,
+            "name": "S. Ireland",
+            "firstname": "Simon",
+            "lastname": "Ireland",
+            "age": 48,
+            "birth": {
+              "date": "1971-11-23",
+              "place": null,
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/2954.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2019-01-11",
+                "end": null
+              }
+            ]
+          },
+          {
+            "id": 10324,
+            "name": "G. Brazil",
+            "firstname": "Gary",
+            "lastname": "Brazil",
+            "age": 56,
+            "birth": {
+              "date": "1962-09-19",
+              "place": "Tunbridge Wells",
+              "country": "England"
+            },
+            "nationality": "England",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/10324.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2017-12-31",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2017-01-01",
+                "end": "2017-03-14"
+              },
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2014-03-24",
+                "end": "2014-06-30"
+              }
+            ]
+          },
+          {
+            "id": 15701,
+            "name": "S. Reid",
+            "firstname": "Steven",
+            "lastname": "Reid",
+            "age": 44,
+            "birth": {
+              "date": "1981-03-10",
+              "place": "Kingston-on-Thames",
+              "country": "England"
+            },
+            "nationality": "Republic of Ireland",
+            "height": "185 cm",
+            "weight": "87 kg",
+            "photo": "https://media.api-sports.io/football/coachs/15701.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2021-09-01",
+                "end": "2021-09-01"
+              }
+            ]
+          },
+          {
+            "id": 27667,
+            "name": "Vitor Pereira",
+            "firstname": null,
+            "lastname": null,
+            "age": null,
+            "birth": {
+              "date": null,
+              "place": null,
+              "country": null
+            },
+            "nationality": null,
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/27667.png",
+            "team": {
+              "id": 65,
+              "name": "Nottingham Forest",
+              "logo": "https://media.api-sports.io/football/teams/65.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 65,
+                  "name": "Nottingham Forest",
+                  "logo": "https://media.api-sports.io/football/teams/65.png"
+                },
+                "start": "2025-08-01",
+                "end": null
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "S. Dyche"
+      },
+      "reputation": 85,
+      "financialPower": 93,
+      "youthStrength": 73,
+      "managerSlot": {
+        "clubId": "provider:api-football:65",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    {
+      "id": "provider:api-football:66",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "66"
+      },
+      "name": "Aston Villa",
+      "country": "England",
+      "founded": 1874,
+      "national": false,
+      "venue": {
+        "id": 495,
+        "name": "Villa Park",
+        "address": "Trinity Road",
+        "city": "Birmingham",
+        "capacity": 42824,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/495.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:284500",
+          "provider:api-football:133",
+          "provider:api-football:786",
+          "provider:api-football:138937",
+          "provider:api-football:278123",
+          "provider:api-football:294638",
+          "provider:api-football:329347",
+          "provider:api-football:455010",
+          "provider:api-football:47522",
+          "provider:api-football:284390",
+          "provider:api-football:162168",
+          "provider:api-football:284439",
+          "provider:api-football:19192",
+          "provider:api-football:2724",
+          "provider:api-football:19599",
+          "provider:api-football:138816",
+          "provider:api-football:360269",
+          "provider:api-football:398004",
+          "provider:api-football:983",
+          "provider:api-football:1904",
+          "provider:api-football:2287",
+          "provider:api-football:2922",
+          "provider:api-football:2926",
+          "provider:api-football:19071",
+          "provider:api-football:19170",
+          "provider:api-football:19179",
+          "provider:api-football:19191",
+          "provider:api-football:19298",
+          "provider:api-football:19354",
+          "provider:api-football:46815",
+          "provider:api-football:162173",
+          "provider:api-football:284457",
+          "provider:api-football:308843",
+          "provider:api-football:360268",
+          "provider:api-football:388013",
+          "provider:api-football:434180",
+          "provider:api-football:453101",
+          "provider:api-football:249",
+          "provider:api-football:19366",
+          "provider:api-football:284523",
+          "provider:api-football:284556",
+          "provider:api-football:19016",
+          "provider:api-football:298128",
+          "provider:api-football:7029",
+          "provider:api-football:312118",
+          "provider:api-football:19177",
+          "provider:api-football:21998",
+          "provider:api-football:380715",
+          "provider:api-football:305736",
+          "provider:api-football:312260",
+          "provider:api-football:357060",
+          "provider:api-football:909",
+          "provider:api-football:342320",
+          "provider:api-football:148270",
+          "provider:api-football:158378",
+          "provider:api-football:169291",
+          "provider:api-football:147",
+          "provider:api-football:277",
+          "provider:api-football:766",
+          "provider:api-football:746",
+          "provider:api-football:13489",
+          "provider:api-football:21090",
+          "provider:api-football:376039"
+        ],
+        "size": 63,
+        "averageAge": 24.6,
+        "overall": 83.4,
+        "startingStrength": 84.5,
+        "depth": 80.9,
+        "attack": 85.8,
+        "midfield": 82.7,
+        "defence": 81.4,
+        "goalkeeper": 77.5
+      },
+      "leagueContext": {
+        "rank": 6,
+        "points": 66,
+        "goalsDiff": 7,
+        "form": "LWWWL"
+      },
+      "coaching": {
+        "providerRows": [
+          {
+            "id": 18,
+            "name": "Unai Emery",
+            "firstname": "Unai",
+            "lastname": "Emery Etxegoien",
+            "age": 54,
+            "birth": {
+              "date": "1971-11-03",
+              "place": "Hondarribia",
+              "country": "Spain"
+            },
+            "nationality": "Spain",
+            "height": null,
+            "weight": null,
+            "photo": "https://media.api-sports.io/football/coachs/18.png",
+            "team": {
+              "id": 66,
+              "name": "Aston Villa",
+              "logo": "https://media.api-sports.io/football/teams/66.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 66,
+                  "name": "Aston Villa",
+                  "logo": "https://media.api-sports.io/football/teams/66.png"
+                },
+                "start": "2022-11-01",
+                "end": null
+              },
+              {
+                "team": {
+                  "id": 533,
+                  "name": "Villarreal",
+                  "logo": "https://media.api-sports.io/football/teams/533.png"
+                },
+                "start": "2020-07-01",
+                "end": "2022-10-01"
+              },
+              {
+                "team": {
+                  "id": 42,
+                  "name": "Arsenal",
+                  "logo": "https://media.api-sports.io/football/teams/42.png"
+                },
+                "start": "2018-05-01",
+                "end": "2019-11-01"
+              },
+              {
+                "team": {
+                  "id": 85,
+                  "name": "PSG",
+                  "logo": "https://media.api-sports.io/football/teams/85.png"
+                },
+                "start": "2016-06-01",
+                "end": "2018-05-01"
+              },
+              {
+                "team": {
+                  "id": 536,
+                  "name": "Sevilla",
+                  "logo": "https://media.api-sports.io/football/teams/536.png"
+                },
+                "start": "2013-01-01",
+                "end": "2016-06-01"
+              },
+              {
+                "team": {
+                  "id": 558,
+                  "name": "Spartak Moscow",
+                  "logo": "https://media.api-sports.io/football/teams/558.png"
+                },
+                "start": "2012-06-01",
+                "end": "2012-11-01"
+              },
+              {
+                "team": {
+                  "id": 532,
+                  "name": "Valencia",
+                  "logo": "https://media.api-sports.io/football/teams/532.png"
+                },
+                "start": "2008-07-01",
+                "end": "2012-06-01"
+              },
+              {
+                "team": {
+                  "id": 723,
+                  "name": "Almeria",
+                  "logo": "https://media.api-sports.io/football/teams/723.png"
+                },
+                "start": "2006-07-01",
+                "end": "2008-06-01"
+              },
+              {
+                "team": {
+                  "id": 9400,
+                  "name": "Lorca Deportiva CF",
+                  "logo": "https://media.api-sports.io/football/teams/9400.png"
+                },
+                "start": "2004-11-01",
+                "end": "2006-06-01"
+              }
+            ]
+          },
+          {
+            "id": 9537,
+            "name": "R. Di Matteo",
+            "firstname": "Roberto",
+            "lastname": "Di Matteo",
+            "age": 47,
+            "birth": {
+              "date": "1970-05-29",
+              "place": "Schaffhausen",
+              "country": "Switzerland"
+            },
+            "nationality": "Italy",
+            "height": "178 cm",
+            "weight": "74 kg",
+            "photo": "https://media.api-sports.io/football/coachs/9537.png",
+            "team": {
+              "id": 66,
+              "name": "Aston Villa",
+              "logo": "https://media.api-sports.io/football/teams/66.png"
+            },
+            "career": [
+              {
+                "team": {
+                  "id": 66,
+                  "name": "Aston Villa",
+                  "logo": "https://media.api-sports.io/football/teams/66.png"
+                },
+                "start": "2016-06-03",
+                "end": "2016-10-03"
+              },
+              {
+                "team": {
+                  "id": 174,
+                  "name": "Schalke 04",
+                  "logo": "https://media.api-sports.io/football/teams/174.png"
+                },
+                "start": "2014-10-07",
+                "end": "2015-05-26"
+              },
+              {
+                "team": {
+                  "id": 49,
+                  "name": "Chelsea",
+                  "logo": "https://media.api-sports.io/football/teams/49.png"
+                },
+                "start": "2012-03-05",
+                "end": "2012-11-21"
+              },
+              {
+                "team": {
+                  "id": 60,
+                  "name": "West Bromwich Albion",
+                  "logo": "https://media.api-sports.io/football/teams/60.png"
+                },
+                "start": "2009-07-01",
+                "end": "2011-02-06"
+              }
+            ]
+          }
+        ],
+        "currentCoachName": "Unai Emery"
+      },
+      "reputation": 85,
+      "financialPower": 94,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:66",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    }
+  ]
+}
