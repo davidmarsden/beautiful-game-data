@@ -1,27 +1,5107 @@
 {
   "meta": {
     "version": "league-pack-v0.1",
-    "createdAt": "2026-07-02T13:42:01.511Z",
+    "createdAt": "2026-07-02T17:09:47.637Z",
     "source": {
       "league": "39",
       "season": "2024",
       "leagueFolder": "providers/api-football/2024/league-39",
-      "players": "derived/players/players-2026-07-01T19-06-29-371Z-derived-2026-07-01T19-50-42-332Z.json",
-      "clubs": "derived/clubs/clubs-league-39-season-2025-2026-07-01T21-03-31-608Z.json",
+      "players": "derived/players/players-derived-2026-07-02T17-09-47-287Z.json",
+      "clubs": "derived/clubs/clubs-league-39-season-2024-2026-07-02T17-09-47-460Z.json",
       "fixtures": "providers/api-football/2024/league-39/fixtures.json",
       "standings": "providers/api-football/2024/league-39/standings.json"
     },
     "counts": {
-      "clubs": 0,
-      "players": 0,
+      "clubs": 20,
+      "players": 60,
       "fixtures": 380,
       "standings": 20,
-      "managerSlots": 0
+      "managerSlots": 20
     }
   },
-  "clubs": {},
-  "players": {},
-  "managerSlots": {},
+  "clubs": {
+    "provider:api-football:33": {
+      "id": "provider:api-football:33",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "33"
+      },
+      "name": "Manchester United",
+      "country": "England",
+      "founded": 1878,
+      "national": false,
+      "venue": {
+        "id": 556,
+        "name": "Old Trafford",
+        "address": "Sir Matt Busby Way",
+        "city": "Manchester",
+        "capacity": 76212,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/556.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:908",
+          "provider:api-football:284242"
+        ],
+        "size": 2,
+        "averageAge": 25.5,
+        "overall": 59.5,
+        "startingStrength": 59.5,
+        "depth": 59.5,
+        "attack": 59.5,
+        "midfield": 0,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 15,
+        "points": 42,
+        "goalsDiff": -10,
+        "form": "WLLLD"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 60,
+      "financialPower": 67,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:33",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:34": {
+      "id": "provider:api-football:34",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "34"
+      },
+      "name": "Newcastle",
+      "country": "England",
+      "founded": 1892,
+      "national": false,
+      "venue": {
+        "id": 562,
+        "name": "St. James' Park",
+        "address": "St. James&apos; Street",
+        "city": "Newcastle upon Tyne",
+        "capacity": 52758,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/562.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:1972",
+          "provider:api-football:18892",
+          "provider:api-football:18903"
+        ],
+        "size": 3,
+        "averageAge": 34,
+        "overall": 52.7,
+        "startingStrength": 52.7,
+        "depth": 52.7,
+        "attack": 0,
+        "midfield": 51,
+        "defence": 51,
+        "goalkeeper": 56
+      },
+      "leagueContext": {
+        "rank": 5,
+        "points": 66,
+        "goalsDiff": 21,
+        "form": "LLWDW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 55,
+      "financialPower": 59,
+      "youthStrength": 66,
+      "managerSlot": {
+        "clubId": "provider:api-football:34",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:35": {
+      "id": "provider:api-football:35",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "35"
+      },
+      "name": "Bournemouth",
+      "country": "England",
+      "founded": 1899,
+      "national": false,
+      "venue": {
+        "id": 504,
+        "name": "Vitality Stadium",
+        "address": "Dean Court, Kings Park",
+        "city": "Bournemouth, Dorset",
+        "capacity": 12000,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/504.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19263",
+          "provider:api-football:19356",
+          "provider:api-football:19804",
+          "provider:api-football:30765"
+        ],
+        "size": 4,
+        "averageAge": 29.5,
+        "overall": 58.5,
+        "startingStrength": 58.5,
+        "depth": 58.5,
+        "attack": 56,
+        "midfield": 59,
+        "defence": 60,
+        "goalkeeper": 59
+      },
+      "leagueContext": {
+        "rank": 9,
+        "points": 56,
+        "goalsDiff": 12,
+        "form": "WLLWD"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 60,
+      "financialPower": 66,
+      "youthStrength": 71,
+      "managerSlot": {
+        "clubId": "provider:api-football:35",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:36": {
+      "id": "provider:api-football:36",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "36"
+      },
+      "name": "Fulham",
+      "country": "England",
+      "founded": 1879,
+      "national": false,
+      "venue": {
+        "id": 535,
+        "name": "Craven Cottage",
+        "address": "Stevenage Road",
+        "city": "London",
+        "capacity": 29589,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/535.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:105",
+          "provider:api-football:19145",
+          "provider:api-football:19657",
+          "provider:api-football:138822"
+        ],
+        "size": 4,
+        "averageAge": 27.3,
+        "overall": 59.5,
+        "startingStrength": 59.5,
+        "depth": 59.5,
+        "attack": 61,
+        "midfield": 0,
+        "defence": 59,
+        "goalkeeper": 59
+      },
+      "leagueContext": {
+        "rank": 11,
+        "points": 54,
+        "goalsDiff": 0,
+        "form": "LWLLW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 61,
+      "financialPower": 67,
+      "youthStrength": 73,
+      "managerSlot": {
+        "clubId": "provider:api-football:36",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:39": {
+      "id": "provider:api-football:39",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "39"
+      },
+      "name": "Wolves",
+      "country": "England",
+      "founded": 1877,
+      "national": false,
+      "venue": {
+        "id": 600,
+        "name": "Molineux Stadium",
+        "address": "Waterloo Road",
+        "city": "Wolverhampton, West Midlands",
+        "capacity": 34624,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/600.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:338856"
+        ],
+        "size": 1,
+        "averageAge": 20,
+        "overall": 60,
+        "startingStrength": 60,
+        "depth": 60,
+        "attack": 0,
+        "midfield": 60,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 16,
+        "points": 42,
+        "goalsDiff": -15,
+        "form": "DLLLW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 61,
+      "financialPower": 68,
+      "youthStrength": 80,
+      "managerSlot": {
+        "clubId": "provider:api-football:39",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:40": {
+      "id": "provider:api-football:40",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "40"
+      },
+      "name": "Liverpool",
+      "country": "England",
+      "founded": 1892,
+      "national": false,
+      "venue": {
+        "id": 550,
+        "name": "Anfield",
+        "address": "Anfield Road",
+        "city": "Liverpool",
+        "capacity": 61276,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/550.png"
+      },
+      "squad": {
+        "playerIds": [],
+        "size": 0,
+        "averageAge": 0,
+        "overall": 0,
+        "startingStrength": 0,
+        "depth": 0,
+        "attack": 0,
+        "midfield": 0,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 1,
+        "points": 84,
+        "goalsDiff": 45,
+        "form": "DLDLW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 40,
+      "financialPower": 40,
+      "youthStrength": 60,
+      "managerSlot": {
+        "clubId": "provider:api-football:40",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "title-challenge",
+          "summary": "Compete for the title and qualify for elite competition.",
+          "sackRisk": "high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:41": {
+      "id": "provider:api-football:41",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "41"
+      },
+      "name": "Southampton",
+      "country": "England",
+      "founded": 1885,
+      "national": false,
+      "venue": {
+        "id": 585,
+        "name": "St. Mary's Stadium",
+        "address": "Britannia Road",
+        "city": "Southampton, Hampshire",
+        "capacity": 32689,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/585.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19482"
+        ],
+        "size": 1,
+        "averageAge": 30,
+        "overall": 59,
+        "startingStrength": 59,
+        "depth": 59,
+        "attack": 0,
+        "midfield": 59,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 20,
+        "points": 12,
+        "goalsDiff": -60,
+        "form": "LLDLL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 60,
+      "financialPower": 66,
+      "youthStrength": 70,
+      "managerSlot": {
+        "clubId": "provider:api-football:41",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:42": {
+      "id": "provider:api-football:42",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "42"
+      },
+      "name": "Arsenal",
+      "country": "England",
+      "founded": 1886,
+      "national": false,
+      "venue": {
+        "id": 494,
+        "name": "Emirates Stadium",
+        "address": "Hornsey Road",
+        "city": "London",
+        "capacity": 60383,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/494.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:190",
+          "provider:api-football:1452",
+          "provider:api-football:284502",
+          "provider:api-football:284540",
+          "provider:api-football:309501",
+          "provider:api-football:309505"
+        ],
+        "size": 6,
+        "averageAge": 25.3,
+        "overall": 58.2,
+        "startingStrength": 58.2,
+        "depth": 58.2,
+        "attack": 0,
+        "midfield": 59,
+        "defence": 57.3,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 2,
+        "points": 74,
+        "goalsDiff": 35,
+        "form": "WWDLD"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 64,
+      "financialPower": 65,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:42",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "title-challenge",
+          "summary": "Compete for the title and qualify for elite competition.",
+          "sackRisk": "high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:45": {
+      "id": "provider:api-football:45",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "45"
+      },
+      "name": "Everton",
+      "country": "England",
+      "founded": 1878,
+      "national": false,
+      "venue": {
+        "id": 22033,
+        "name": "Hill Dickinson Stadium",
+        "address": "35 Regent Road, Bramley-Moore Dock, Vauxhall",
+        "city": "Liverpool, Merseyside",
+        "capacity": 52888,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/22033.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:83",
+          "provider:api-football:172",
+          "provider:api-football:18765",
+          "provider:api-football:19073",
+          "provider:api-football:20224",
+          "provider:api-football:153425"
+        ],
+        "size": 6,
+        "averageAge": 30,
+        "overall": 57.7,
+        "startingStrength": 57.7,
+        "depth": 57.7,
+        "attack": 60,
+        "midfield": 57.5,
+        "defence": 60,
+        "goalkeeper": 51
+      },
+      "leagueContext": {
+        "rank": 13,
+        "points": 48,
+        "goalsDiff": -2,
+        "form": "WWWDL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 59,
+      "financialPower": 65,
+      "youthStrength": 70,
+      "managerSlot": {
+        "clubId": "provider:api-football:45",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:46": {
+      "id": "provider:api-football:46",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "46"
+      },
+      "name": "Leicester",
+      "country": "England",
+      "founded": 1884,
+      "national": false,
+      "venue": {
+        "id": 547,
+        "name": "King Power Stadium",
+        "address": "Filbert Way",
+        "city": "Leicester, Leicestershire",
+        "capacity": 34310,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/547.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:454",
+          "provider:api-football:2925"
+        ],
+        "size": 2,
+        "averageAge": 28,
+        "overall": 58,
+        "startingStrength": 58,
+        "depth": 58,
+        "attack": 60,
+        "midfield": 56,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 18,
+        "points": 25,
+        "goalsDiff": -47,
+        "form": "LWDWL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 59,
+      "financialPower": 65,
+      "youthStrength": 72,
+      "managerSlot": {
+        "clubId": "provider:api-football:46",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:47": {
+      "id": "provider:api-football:47",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "47"
+      },
+      "name": "Tottenham",
+      "country": "England",
+      "founded": 1882,
+      "national": false,
+      "venue": {
+        "id": 593,
+        "name": "Tottenham Hotspur Stadium",
+        "address": "Bill Nicholson Way, 748 High Road",
+        "city": "London",
+        "capacity": 62850,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/593.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19032"
+        ],
+        "size": 1,
+        "averageAge": 25,
+        "overall": 60,
+        "startingStrength": 60,
+        "depth": 60,
+        "attack": 0,
+        "midfield": 60,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 17,
+        "points": 38,
+        "goalsDiff": -1,
+        "form": "LLLDL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 61,
+      "financialPower": 68,
+      "youthStrength": 75,
+      "managerSlot": {
+        "clubId": "provider:api-football:47",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:48": {
+      "id": "provider:api-football:48",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "48"
+      },
+      "name": "West Ham",
+      "country": "England",
+      "founded": 1895,
+      "national": false,
+      "venue": {
+        "id": 598,
+        "name": "London Stadium",
+        "address": "Marshgate Lane, Stratford",
+        "city": "London",
+        "capacity": 64472,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/598.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:18817",
+          "provider:api-football:19130",
+          "provider:api-football:144709",
+          "provider:api-football:284536"
+        ],
+        "size": 4,
+        "averageAge": 28.3,
+        "overall": 57.5,
+        "startingStrength": 57.5,
+        "depth": 57.5,
+        "attack": 0,
+        "midfield": 59,
+        "defence": 51,
+        "goalkeeper": 60
+      },
+      "leagueContext": {
+        "rank": 14,
+        "points": 43,
+        "goalsDiff": -16,
+        "form": "WLWDL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 58,
+      "financialPower": 65,
+      "youthStrength": 72,
+      "managerSlot": {
+        "clubId": "provider:api-football:48",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:49": {
+      "id": "provider:api-football:49",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "49"
+      },
+      "name": "Chelsea",
+      "country": "England",
+      "founded": 1905,
+      "national": false,
+      "venue": {
+        "id": 519,
+        "name": "Stamford Bridge",
+        "address": "Fulham Road",
+        "city": "London",
+        "capacity": 41841,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/519.png"
+      },
+      "squad": {
+        "playerIds": [],
+        "size": 0,
+        "averageAge": 0,
+        "overall": 0,
+        "startingStrength": 0,
+        "depth": 0,
+        "attack": 0,
+        "midfield": 0,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 4,
+        "points": 69,
+        "goalsDiff": 21,
+        "form": "WWLWW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 40,
+      "financialPower": 40,
+      "youthStrength": 60,
+      "managerSlot": {
+        "clubId": "provider:api-football:49",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:50": {
+      "id": "provider:api-football:50",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "50"
+      },
+      "name": "Manchester City",
+      "country": "England",
+      "founded": 1880,
+      "national": false,
+      "venue": {
+        "id": 555,
+        "name": "Etihad Stadium",
+        "address": "Rowsley Street",
+        "city": "Manchester",
+        "capacity": 55097,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/555.png"
+      },
+      "squad": {
+        "playerIds": [],
+        "size": 0,
+        "averageAge": 0,
+        "overall": 0,
+        "startingStrength": 0,
+        "depth": 0,
+        "attack": 0,
+        "midfield": 0,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 3,
+        "points": 71,
+        "goalsDiff": 28,
+        "form": "WWDWW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 40,
+      "financialPower": 40,
+      "youthStrength": 60,
+      "managerSlot": {
+        "clubId": "provider:api-football:50",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "title-challenge",
+          "summary": "Compete for the title and qualify for elite competition.",
+          "sackRisk": "high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:51": {
+      "id": "provider:api-football:51",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "51"
+      },
+      "name": "Brighton",
+      "country": "England",
+      "founded": 1901,
+      "national": false,
+      "venue": {
+        "id": 508,
+        "name": "American Express Stadium",
+        "address": "Village Way",
+        "city": "Falmer, East Sussex",
+        "capacity": 31872,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/508.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:135775"
+        ],
+        "size": 1,
+        "averageAge": 23,
+        "overall": 61,
+        "startingStrength": 61,
+        "depth": 61,
+        "attack": 61,
+        "midfield": 0,
+        "defence": 0,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 8,
+        "points": 61,
+        "goalsDiff": 7,
+        "form": "WWWDW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 63,
+      "financialPower": 69,
+      "youthStrength": 77,
+      "managerSlot": {
+        "clubId": "provider:api-football:51",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:52": {
+      "id": "provider:api-football:52",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "52"
+      },
+      "name": "Crystal Palace",
+      "country": "England",
+      "founded": 1861,
+      "national": false,
+      "venue": {
+        "id": 525,
+        "name": "Selhurst Park",
+        "address": "Holmesdale Road",
+        "city": "London",
+        "capacity": 26309,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/525.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:18853",
+          "provider:api-football:127605"
+        ],
+        "size": 2,
+        "averageAge": 26.5,
+        "overall": 60,
+        "startingStrength": 60,
+        "depth": 60,
+        "attack": 0,
+        "midfield": 59,
+        "defence": 61,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 12,
+        "points": 53,
+        "goalsDiff": 0,
+        "form": "DWWDD"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 61,
+      "financialPower": 68,
+      "youthStrength": 74,
+      "managerSlot": {
+        "clubId": "provider:api-football:52",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:55": {
+      "id": "provider:api-football:55",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "55"
+      },
+      "name": "Brentford",
+      "country": "England",
+      "founded": 1889,
+      "national": false,
+      "venue": {
+        "id": 10503,
+        "name": "Gtech Community Stadium",
+        "address": "166 Lionel Rd N, Brentford",
+        "city": "Brentford, Middlesex",
+        "capacity": 17250,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/10503.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:2699",
+          "provider:api-football:19364",
+          "provider:api-football:153422",
+          "provider:api-football:20110",
+          "provider:api-football:281975",
+          "provider:api-football:349288"
+        ],
+        "size": 6,
+        "averageAge": 25.7,
+        "overall": 59.7,
+        "startingStrength": 59.7,
+        "depth": 59.7,
+        "attack": 57.5,
+        "midfield": 60.5,
+        "defence": 61,
+        "goalkeeper": 61
+      },
+      "leagueContext": {
+        "rank": 10,
+        "points": 56,
+        "goalsDiff": 9,
+        "form": "DLWWW"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 61,
+      "financialPower": 67,
+      "youthStrength": 74,
+      "managerSlot": {
+        "clubId": "provider:api-football:55",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "top-half-stability",
+          "summary": "Build a stable top-half side.",
+          "sackRisk": "medium"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:57": {
+      "id": "provider:api-football:57",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "57"
+      },
+      "name": "Ipswich",
+      "country": "England",
+      "founded": 1878,
+      "national": false,
+      "venue": {
+        "id": 545,
+        "name": "Portman Road",
+        "address": "Portman Road",
+        "city": "Ipswich, Suffolk",
+        "capacity": 30311,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/545.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:19744",
+          "provider:api-football:44803",
+          "provider:api-football:348263"
+        ],
+        "size": 3,
+        "averageAge": 27.7,
+        "overall": 58.7,
+        "startingStrength": 58.7,
+        "depth": 58.7,
+        "attack": 56,
+        "midfield": 59,
+        "defence": 61,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 19,
+        "points": 22,
+        "goalsDiff": -46,
+        "form": "LLLDL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 59,
+      "financialPower": 66,
+      "youthStrength": 72,
+      "managerSlot": {
+        "clubId": "provider:api-football:57",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "survival",
+          "summary": "Avoid relegation and stabilise the squad.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:65": {
+      "id": "provider:api-football:65",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "65"
+      },
+      "name": "Nottingham Forest",
+      "country": "England",
+      "founded": 1865,
+      "national": false,
+      "venue": {
+        "id": 566,
+        "name": "The City Ground",
+        "address": "Pavilion Road",
+        "city": "Nottingham, Nottinghamshire",
+        "capacity": 30576,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/566.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:305",
+          "provider:api-football:371",
+          "provider:api-football:2468",
+          "provider:api-football:41577",
+          "provider:api-football:161921",
+          "provider:api-football:341641"
+        ],
+        "size": 6,
+        "averageAge": 26.8,
+        "overall": 58.3,
+        "startingStrength": 58.3,
+        "depth": 58.3,
+        "attack": 59.5,
+        "midfield": 61,
+        "defence": 56.7,
+        "goalkeeper": 0
+      },
+      "leagueContext": {
+        "rank": 7,
+        "points": 65,
+        "goalsDiff": 12,
+        "form": "LWDDL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 60,
+      "financialPower": 66,
+      "youthStrength": 73,
+      "managerSlot": {
+        "clubId": "provider:api-football:65",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    },
+    "provider:api-football:66": {
+      "id": "provider:api-football:66",
+      "source": {
+        "provider": "api-football",
+        "providerTeamId": "66"
+      },
+      "name": "Aston Villa",
+      "country": "England",
+      "founded": 1874,
+      "national": false,
+      "venue": {
+        "id": 495,
+        "name": "Villa Park",
+        "address": "Trinity Road",
+        "city": "Birmingham",
+        "capacity": 42824,
+        "surface": "grass",
+        "image": "https://media.api-sports.io/football/venues/495.png"
+      },
+      "squad": {
+        "playerIds": [
+          "provider:api-football:284500",
+          "provider:api-football:133",
+          "provider:api-football:786",
+          "provider:api-football:138937",
+          "provider:api-football:278123",
+          "provider:api-football:294638",
+          "provider:api-football:329347",
+          "provider:api-football:455010"
+        ],
+        "size": 8,
+        "averageAge": 23,
+        "overall": 60.4,
+        "startingStrength": 60.4,
+        "depth": 60.4,
+        "attack": 0,
+        "midfield": 60.5,
+        "defence": 59.5,
+        "goalkeeper": 61
+      },
+      "leagueContext": {
+        "rank": 6,
+        "points": 66,
+        "goalsDiff": 7,
+        "form": "LWWWL"
+      },
+      "coaching": {
+        "providerRows": [],
+        "currentCoachName": null
+      },
+      "reputation": 62,
+      "financialPower": 68,
+      "youthStrength": 77,
+      "managerSlot": {
+        "clubId": "provider:api-football:66",
+        "status": "vacant",
+        "controller": {
+          "type": "caretaker-ai",
+          "managerId": null,
+          "displayName": "Caretaker Manager"
+        },
+        "permissions": {
+          "tactics": true,
+          "transfers": true,
+          "contracts": true,
+          "scouting": true,
+          "youth": true,
+          "media": true
+        },
+        "caretaker": {
+          "active": true,
+          "reason": "no-human-manager-assigned"
+        },
+        "boardExpectation": {
+          "category": "continental-places",
+          "summary": "Challenge for continental qualification.",
+          "sackRisk": "medium-high"
+        },
+        "participation": {
+          "minimumActivity": "weekly",
+          "missedTurnTolerance": 2,
+          "handoverRequired": true
+        },
+        "history": []
+      }
+    }
+  },
+  "players": {
+    "provider:api-football:83": {
+      "id": "provider:api-football:83",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "83"
+      },
+      "name": "A. Danjuma",
+      "age": 28,
+      "nationality": "Netherlands",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "45",
+        "name": "Everton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:105": {
+      "id": "provider:api-football:105",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "105"
+      },
+      "name": "F. Ballo-Touré",
+      "age": 28,
+      "nationality": "Senegal",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "36",
+        "name": "Fulham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:172": {
+      "id": "provider:api-football:172",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "172"
+      },
+      "name": "D. Alli",
+      "age": 29,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "45",
+        "name": "Everton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:2699": {
+      "id": "provider:api-football:2699",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "2699"
+      },
+      "name": "S. Ghoddos",
+      "age": 32,
+      "nationality": "Iran",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "55",
+        "name": "Brentford"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:18765": {
+      "id": "provider:api-football:18765",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "18765"
+      },
+      "name": "André Gomes",
+      "age": 32,
+      "nationality": "Portugal",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "45",
+        "name": "Everton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:18853": {
+      "id": "provider:api-football:18853",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "18853"
+      },
+      "name": "J. Riedewald",
+      "age": 29,
+      "nationality": "Netherlands",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "52",
+        "name": "Crystal Palace"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19073": {
+      "id": "provider:api-football:19073",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19073"
+      },
+      "name": "B. Godfrey",
+      "age": 27,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "45",
+        "name": "Everton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 59,
+          "upper": 61,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19145": {
+      "id": "provider:api-football:19145",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19145"
+      },
+      "name": "T. Adarabioyo",
+      "age": 28,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "36",
+        "name": "Fulham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19364": {
+      "id": "provider:api-football:19364",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19364"
+      },
+      "name": "N. Maupay",
+      "age": 29,
+      "nationality": "France",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "55",
+        "name": "Brentford"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19657": {
+      "id": "provider:api-football:19657",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19657"
+      },
+      "name": "M. Rodák",
+      "age": 29,
+      "nationality": "Slovakia",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "36",
+        "name": "Fulham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19744": {
+      "id": "provider:api-football:19744",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19744"
+      },
+      "name": "K. Jackson",
+      "age": 31,
+      "nationality": "England",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "57",
+        "name": "Ipswich"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:20224": {
+      "id": "provider:api-football:20224",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "20224"
+      },
+      "name": "A. Lonergan",
+      "age": 42,
+      "nationality": "England",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "45",
+        "name": "Everton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 100000,
+      "ratings": {
+        "ability": 51,
+        "potential": {
+          "lower": 51,
+          "upper": 51,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 49,
+        "effectiveMatchRating": 51
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 100000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:44803": {
+      "id": "provider:api-football:44803",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "44803"
+      },
+      "name": "D. Ball",
+      "age": 30,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "57",
+        "name": "Ipswich"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:127605": {
+      "id": "provider:api-football:127605",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "127605"
+      },
+      "name": "N. Ferguson",
+      "age": 24,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "52",
+        "name": "Crystal Palace"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 59,
+          "upper": 63,
+          "label": "Late Development"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:135775": {
+      "id": "provider:api-football:135775",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "135775"
+      },
+      "name": "Ansu Fati",
+      "age": 23,
+      "nationality": "Spain",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "51",
+        "name": "Brighton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 67,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:138822": {
+      "id": "provider:api-football:138822",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "138822"
+      },
+      "name": "A. Broja",
+      "age": 24,
+      "nationality": "Albania",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "36",
+        "name": "Fulham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 59,
+          "upper": 63,
+          "label": "Late Development"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:153422": {
+      "id": "provider:api-football:153422",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "153422"
+      },
+      "name": "E. Brierley",
+      "age": 22,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "55",
+        "name": "Brentford"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:153425": {
+      "id": "provider:api-football:153425",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "153425"
+      },
+      "name": "L. Dobbin",
+      "age": 22,
+      "nationality": "England",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "45",
+        "name": "Everton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:284500": {
+      "id": "provider:api-football:284500",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "284500"
+      },
+      "name": "T. Iroegbunam",
+      "age": 22,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:348263": {
+      "id": "provider:api-football:348263",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "348263"
+      },
+      "name": "C. Stewart",
+      "age": 22,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "57",
+        "name": "Ipswich"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:133": {
+      "id": "provider:api-football:133",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "133"
+      },
+      "name": "C. Lenglet",
+      "age": 30,
+      "nationality": "France",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:190": {
+      "id": "provider:api-football:190",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "190"
+      },
+      "name": "Cédric Soares",
+      "age": 34,
+      "nationality": "Portugal",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "42",
+        "name": "Arsenal"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 100000,
+      "ratings": {
+        "ability": 51,
+        "potential": {
+          "lower": 51,
+          "upper": 51,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 49,
+        "effectiveMatchRating": 51
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 100000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:786": {
+      "id": "provider:api-football:786",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "786"
+      },
+      "name": "N. Zaniolo",
+      "age": 26,
+      "nationality": "Italy",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 59,
+          "upper": 61,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:1452": {
+      "id": "provider:api-football:1452",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "1452"
+      },
+      "name": "Mohamed Elneny",
+      "age": 33,
+      "nationality": "Egypt",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "42",
+        "name": "Arsenal"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19263": {
+      "id": "provider:api-football:19263",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19263"
+      },
+      "name": "L. Kelly",
+      "age": 27,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "35",
+        "name": "Bournemouth"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 59,
+          "upper": 61,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19356": {
+      "id": "provider:api-football:19356",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19356"
+      },
+      "name": "E. Marcondes",
+      "age": 30,
+      "nationality": "Denmark",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "35",
+        "name": "Bournemouth"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19804": {
+      "id": "provider:api-football:19804",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19804"
+      },
+      "name": "K. Moore",
+      "age": 33,
+      "nationality": "Wales",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "35",
+        "name": "Bournemouth"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:20110": {
+      "id": "provider:api-football:20110",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "20110"
+      },
+      "name": "S. Baptiste",
+      "age": 27,
+      "nationality": "Grenada",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "55",
+        "name": "Brentford"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 59,
+          "upper": 61,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:30765": {
+      "id": "provider:api-football:30765",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "30765"
+      },
+      "name": "I. Radu",
+      "age": 28,
+      "nationality": "Romania",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "35",
+        "name": "Bournemouth"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:138937": {
+      "id": "provider:api-football:138937",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "138937"
+      },
+      "name": "F. Marschall",
+      "age": 22,
+      "nationality": "England",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:278123": {
+      "id": "provider:api-football:278123",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "278123"
+      },
+      "name": "S. Revan",
+      "age": 22,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:281975": {
+      "id": "provider:api-football:281975",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "281975"
+      },
+      "name": "Val Adedokun",
+      "age": 22,
+      "nationality": "Republic of Ireland",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "55",
+        "name": "Brentford"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:284502": {
+      "id": "provider:api-football:284502",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "284502"
+      },
+      "name": "James Lannin-Sweet",
+      "age": 22,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "42",
+        "name": "Arsenal"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:284540": {
+      "id": "provider:api-football:284540",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "284540"
+      },
+      "name": "Mauro Bandeira",
+      "age": 22,
+      "nationality": "Portugal",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "42",
+        "name": "Arsenal"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:294638": {
+      "id": "provider:api-football:294638",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "294638"
+      },
+      "name": "Finley Munroe",
+      "age": 20,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 75,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:309501": {
+      "id": "provider:api-football:309501",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "309501"
+      },
+      "name": "A. Cozier-Duberry",
+      "age": 20,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "42",
+        "name": "Arsenal"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 75,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:309505": {
+      "id": "provider:api-football:309505",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "309505"
+      },
+      "name": "R. Walters",
+      "age": 21,
+      "nationality": "England",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "42",
+        "name": "Arsenal"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 71,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:329347": {
+      "id": "provider:api-football:329347",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "329347"
+      },
+      "name": "O. Kellyman",
+      "age": 20,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 75,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:349288": {
+      "id": "provider:api-football:349288",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "349288"
+      },
+      "name": "Vincent Angelini",
+      "age": 22,
+      "nationality": "Scotland",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "55",
+        "name": "Brentford"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:455010": {
+      "id": "provider:api-football:455010",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "455010"
+      },
+      "name": "L. Emery",
+      "age": 22,
+      "nationality": "Spain",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "66",
+        "name": "Aston Villa"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 69,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:305": {
+      "id": "provider:api-football:305",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "305"
+      },
+      "name": "D. Origi",
+      "age": 30,
+      "nationality": "Belgium",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "65",
+        "name": "Nottingham Forest"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:371": {
+      "id": "provider:api-football:371",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "371"
+      },
+      "name": "Felipe",
+      "age": 35,
+      "nationality": "Brazil",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "65",
+        "name": "Nottingham Forest"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 100000,
+      "ratings": {
+        "ability": 51,
+        "potential": {
+          "lower": 51,
+          "upper": 51,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 49,
+        "effectiveMatchRating": 51
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 100000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:454": {
+      "id": "provider:api-football:454",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "454"
+      },
+      "name": "Y. Akgün",
+      "age": 25,
+      "nationality": "Türkiye",
+      "position": "Forward",
+      "team": {
+        "providerTeamId": "46",
+        "name": "Leicester"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 58,
+          "upper": 62,
+          "label": "Late Development"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:908": {
+      "id": "provider:api-football:908",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "908"
+      },
+      "name": "A. Martial",
+      "age": 30,
+      "nationality": "France",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "33",
+        "name": "Manchester United"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:1972": {
+      "id": "provider:api-football:1972",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "1972"
+      },
+      "name": "L. Karius",
+      "age": 32,
+      "nationality": "Germany",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "34",
+        "name": "Newcastle"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:2468": {
+      "id": "provider:api-football:2468",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "2468"
+      },
+      "name": "G. Montiel",
+      "age": 28,
+      "nationality": "Argentina",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "65",
+        "name": "Nottingham Forest"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 58,
+          "upper": 60,
+          "label": "Mature"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:2925": {
+      "id": "provider:api-football:2925",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "2925"
+      },
+      "name": "D. Praet",
+      "age": 31,
+      "nationality": "Belgium",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "46",
+        "name": "Leicester"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 225000,
+      "ratings": {
+        "ability": 56,
+        "potential": {
+          "lower": 56,
+          "upper": 56,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 51,
+        "effectiveMatchRating": 56
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 225000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:18817": {
+      "id": "provider:api-football:18817",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "18817"
+      },
+      "name": "A. Ogbonna",
+      "age": 37,
+      "nationality": "Italy",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "48",
+        "name": "West Ham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 100000,
+      "ratings": {
+        "ability": 51,
+        "potential": {
+          "lower": 51,
+          "upper": 51,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 49,
+        "effectiveMatchRating": 51
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 100000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:18892": {
+      "id": "provider:api-football:18892",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "18892"
+      },
+      "name": "P. Dummett",
+      "age": 34,
+      "nationality": "Wales",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "34",
+        "name": "Newcastle"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 100000,
+      "ratings": {
+        "ability": 51,
+        "potential": {
+          "lower": 51,
+          "upper": 51,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 49,
+        "effectiveMatchRating": 51
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 100000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:18903": {
+      "id": "provider:api-football:18903",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "18903"
+      },
+      "name": "M. Ritchie",
+      "age": 36,
+      "nationality": "Scotland",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "34",
+        "name": "Newcastle"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 100000,
+      "ratings": {
+        "ability": 51,
+        "potential": {
+          "lower": 51,
+          "upper": 51,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 49,
+        "effectiveMatchRating": 51
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 100000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19032": {
+      "id": "provider:api-football:19032",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19032"
+      },
+      "name": "R. Sessegnon",
+      "age": 25,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "47",
+        "name": "Tottenham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 58,
+          "upper": 62,
+          "label": "Late Development"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19130": {
+      "id": "provider:api-football:19130",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19130"
+      },
+      "name": "K. Phillips",
+      "age": 30,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "48",
+        "name": "West Ham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:19482": {
+      "id": "provider:api-football:19482",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "19482"
+      },
+      "name": "J. Rothwell",
+      "age": 30,
+      "nationality": "England",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "41",
+        "name": "Southampton"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 400000,
+      "ratings": {
+        "ability": 59,
+        "potential": {
+          "lower": 59,
+          "upper": 59,
+          "label": "Peak"
+        },
+        "form": 0,
+        "reputation": 53,
+        "effectiveMatchRating": 59
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 400000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:41577": {
+      "id": "provider:api-football:41577",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "41577"
+      },
+      "name": "Nuno Tavares",
+      "age": 25,
+      "nationality": "Portugal",
+      "position": "Defender",
+      "team": {
+        "providerTeamId": "65",
+        "name": "Nottingham Forest"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 58,
+          "upper": 62,
+          "label": "Late Development"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:144709": {
+      "id": "provider:api-football:144709",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "144709"
+      },
+      "name": "J. Anang",
+      "age": 25,
+      "nationality": "England",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "48",
+        "name": "West Ham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 500000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 58,
+          "upper": 62,
+          "label": "Late Development"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 500000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:161921": {
+      "id": "provider:api-football:161921",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "161921"
+      },
+      "name": "G. Reyna",
+      "age": 23,
+      "nationality": "USA",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "65",
+        "name": "Nottingham Forest"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 575000,
+      "ratings": {
+        "ability": 61,
+        "potential": {
+          "lower": 61,
+          "upper": 67,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 61
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 575000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:284242": {
+      "id": "provider:api-football:284242",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "284242"
+      },
+      "name": "O. Forson",
+      "age": 21,
+      "nationality": "England",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "33",
+        "name": "Manchester United"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 71,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:284536": {
+      "id": "provider:api-football:284536",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "284536"
+      },
+      "name": "J. Knightbridge",
+      "age": 21,
+      "nationality": "England",
+      "position": "Goalkeeper",
+      "team": {
+        "providerTeamId": "48",
+        "name": "West Ham"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 71,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:338856": {
+      "id": "provider:api-football:338856",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "338856"
+      },
+      "name": "N. Lemina",
+      "age": 20,
+      "nationality": "France",
+      "position": "Midfielder",
+      "team": {
+        "providerTeamId": "39",
+        "name": "Wolves"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 75,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    },
+    "provider:api-football:341641": {
+      "id": "provider:api-football:341641",
+      "source": {
+        "provider": "api-football",
+        "providerPlayerId": "341641"
+      },
+      "name": "Rodrigo Ribeiro",
+      "age": 20,
+      "nationality": "Portugal",
+      "position": "Attacker",
+      "team": {
+        "providerTeamId": "65",
+        "name": "Nottingham Forest"
+      },
+      "league": {
+        "providerLeagueId": "39",
+        "name": "Premier League",
+        "country": "England",
+        "season": 2024
+      },
+      "marketValue": 525000,
+      "ratings": {
+        "ability": 60,
+        "potential": {
+          "lower": 60,
+          "upper": 75,
+          "label": "Forward Projection"
+        },
+        "form": 0,
+        "reputation": 54,
+        "effectiveMatchRating": 60
+      },
+      "evidence": {
+        "minutes": 0,
+        "appearances": 0,
+        "goals": 0,
+        "assists": 0,
+        "leagueTier": "S",
+        "caps": 0,
+        "valueGrowthPercent": 0,
+        "marketValueEvidence": {
+          "marketValue": 525000,
+          "evidenceQuality": "estimated",
+          "method": "minutes-age-output-league-tier-v0.1"
+        }
+      }
+    }
+  },
+  "managerSlots": {
+    "provider:api-football:33": {
+      "clubId": "provider:api-football:33",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "survival",
+        "summary": "Avoid relegation and stabilise the squad.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:34": {
+      "clubId": "provider:api-football:34",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "continental-places",
+        "summary": "Challenge for continental qualification.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:35": {
+      "clubId": "provider:api-football:35",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:36": {
+      "clubId": "provider:api-football:36",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:39": {
+      "clubId": "provider:api-football:39",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "survival",
+        "summary": "Avoid relegation and stabilise the squad.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:40": {
+      "clubId": "provider:api-football:40",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "title-challenge",
+        "summary": "Compete for the title and qualify for elite competition.",
+        "sackRisk": "high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:41": {
+      "clubId": "provider:api-football:41",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "survival",
+        "summary": "Avoid relegation and stabilise the squad.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:42": {
+      "clubId": "provider:api-football:42",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "title-challenge",
+        "summary": "Compete for the title and qualify for elite competition.",
+        "sackRisk": "high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:45": {
+      "clubId": "provider:api-football:45",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:46": {
+      "clubId": "provider:api-football:46",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "survival",
+        "summary": "Avoid relegation and stabilise the squad.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:47": {
+      "clubId": "provider:api-football:47",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "survival",
+        "summary": "Avoid relegation and stabilise the squad.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:48": {
+      "clubId": "provider:api-football:48",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:49": {
+      "clubId": "provider:api-football:49",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "continental-places",
+        "summary": "Challenge for continental qualification.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:50": {
+      "clubId": "provider:api-football:50",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "title-challenge",
+        "summary": "Compete for the title and qualify for elite competition.",
+        "sackRisk": "high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:51": {
+      "clubId": "provider:api-football:51",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:52": {
+      "clubId": "provider:api-football:52",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:55": {
+      "clubId": "provider:api-football:55",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "top-half-stability",
+        "summary": "Build a stable top-half side.",
+        "sackRisk": "medium"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:57": {
+      "clubId": "provider:api-football:57",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "survival",
+        "summary": "Avoid relegation and stabilise the squad.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:65": {
+      "clubId": "provider:api-football:65",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "continental-places",
+        "summary": "Challenge for continental qualification.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    },
+    "provider:api-football:66": {
+      "clubId": "provider:api-football:66",
+      "status": "vacant",
+      "controller": {
+        "type": "caretaker-ai",
+        "managerId": null,
+        "displayName": "Caretaker Manager"
+      },
+      "permissions": {
+        "tactics": true,
+        "transfers": true,
+        "contracts": true,
+        "scouting": true,
+        "youth": true,
+        "media": true
+      },
+      "caretaker": {
+        "active": true,
+        "reason": "no-human-manager-assigned"
+      },
+      "boardExpectation": {
+        "category": "continental-places",
+        "summary": "Challenge for continental qualification.",
+        "sackRisk": "medium-high"
+      },
+      "participation": {
+        "minimumActivity": "weekly",
+        "missedTurnTolerance": 2,
+        "handoverRequired": true
+      },
+      "history": []
+    }
+  },
   "fixtures": [
     {
       "id": "provider:api-football:1208021",
