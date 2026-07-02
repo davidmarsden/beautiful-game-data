@@ -1,5 +1,12 @@
 import { API_FOOTBALL_CONFIG, getApiFootballKey } from "./config.js";
 
+function hasErrors(errors) {
+  if (!errors) return false;
+  if (Array.isArray(errors)) return errors.length > 0;
+  if (typeof errors === "object") return Object.keys(errors).length > 0;
+  return Boolean(errors);
+}
+
 export class ApiFootballClient {
   constructor(options = {}) {
     this.baseUrl = options.baseUrl ?? API_FOOTBALL_CONFIG.baseUrl;
@@ -35,7 +42,20 @@ export class ApiFootballClient {
     }
 
     const payload = await response.json();
+
+    if (hasErrors(payload.errors)) {
+      throw new Error(`API-Football returned errors for ${url.pathname}: ${JSON.stringify(payload.errors)}`);
+    }
+
     return payload.response ?? [];
+  }
+
+  status() {
+    return this.request("/status");
+  }
+
+  leagues({ leagueId, season }) {
+    return this.request("/leagues", { id: leagueId, season });
   }
 
   playersByLeagueSeason({ leagueId, season, page = 1 }) {
