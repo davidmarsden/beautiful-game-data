@@ -1,0 +1,26 @@
+name: Diagnose API-Football Coverage
+
+on:
+  workflow_dispatch:
+    inputs:
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      seasons:
+        description: "Comma-separated season starting years"
+        required: true
+        default: "2025,2024,2023,2022,2021"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Diagnose coverage
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: npm run diagnose:api-football -- --league=${{ github.event.inputs.league }} --seasons=${{ github.event.inputs.seasons }}
