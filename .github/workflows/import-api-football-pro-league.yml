@@ -31,6 +31,7 @@ jobs:
       - name: Run harvest
         env:
           API_FOOTBALL_REQUEST_DELAY_MS: ${{ github.event.inputs.requestDelayMs }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: npm run import:api-football:pro-league -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}
       - name: Commit harvest
         run: |
