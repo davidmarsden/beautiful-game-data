@@ -105,6 +105,30 @@ export class ApiFootballClient {
     return this.request("/standings", { league: leagueId, season });
   }
 
+  fixtureEvents({ fixtureId }) {
+    return this.request("/fixtures/events", { fixture: fixtureId });
+  }
+
+  fixtureLineups({ fixtureId }) {
+    return this.request("/fixtures/lineups", { fixture: fixtureId });
+  }
+
+  fixturePlayerStatistics({ fixtureId }) {
+    return this.request("/fixtures/players", { fixture: fixtureId });
+  }
+
+  fixtureTeamStatistics({ fixtureId }) {
+    return this.request("/fixtures/statistics", { fixture: fixtureId });
+  }
+
+  injuriesByLeagueSeason({ leagueId, season }) {
+    return this.request("/injuries", { league: leagueId, season });
+  }
+
+  transfersByTeam({ teamId }) {
+    return this.request("/transfers", { team: teamId });
+  }
+
   coachesByTeam({ teamId }) {
     return this.request("/coachs", { team: teamId });
   }
