@@ -8,9 +8,9 @@ on:
         required: true
         default: "39"
       season:
-        description: "Season year"
+        description: "Season starting year"
         required: true
-        default: "2025"
+        default: "2024"
       players:
         description: "Optional derived players snapshot path"
         required: false
@@ -31,19 +31,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Derive missing players
+      - name: Derive players for requested season
         run: |
-          if [ -z "${{ github.event.inputs.players }}" ] && ! ls derived/players/*.json >/dev/null 2>&1; then
+          if [ -n "${{ github.event.inputs.players }}" ]; then
+            echo "Explicit derived players snapshot supplied."
+          else
             npm run derive:players -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }} --leagueTier=S
-          else
-            echo "Derived players already available or explicitly supplied."
           fi
-      - name: Derive missing clubs
+      - name: Derive clubs for requested season
         run: |
-          if [ -z "${{ github.event.inputs.clubs }}" ] && ! ls derived/clubs/*.json >/dev/null 2>&1; then
-            npm run derive:clubs -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}
+          if [ -n "${{ github.event.inputs.clubs }}" ]; then
+            echo "Explicit derived clubs snapshot supplied."
           else
-            echo "Derived clubs already available or explicitly supplied."
+            npm run derive:clubs -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }}
           fi
       - name: Export league pack
         run: |
