@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
+    "diagnose:api-football": "node scripts/diagnose-api-football-coverage.js",
     "import:api-football:players": "node scripts/import-api-football-players.js",
     "import:api-football:league": "node scripts/import-api-football-league.js",
     "derive:players": "node scripts/derive-players-from-snapshot.js",
