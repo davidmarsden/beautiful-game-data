@@ -71,6 +71,21 @@ function snapshot({ endpoint, rows, leagueId, season, createdAt, normalised = fa
   });
 }
 
+function assertRows(label, rows, { leagueId, season, required = true }) {
+  if (!required || rows.length > 0) return;
+
+  throw new Error([
+    `API-Football returned 0 ${label} for league ${leagueId}, season ${season}.`,
+    "Import aborted so empty data cannot flow into derived ratings or the engine.",
+    "Possible causes:",
+    "- this season is not available on your API-Football plan",
+    "- API-Football seasons use the starting year, e.g. 2023 for 2023/24",
+    "- wrong league id or season",
+    "- quota/rate limit/account coverage issue",
+    "Try running the diagnostic workflow, or try league=39 season=2023."
+  ].join("\n"));
+}
+
 async function main() {
   await loadDotEnv();
 
@@ -78,16 +93,28 @@ async function main() {
   const leagueId = requireInteger(args.league, "league");
   const season = requireInteger(args.season, "season");
   const maxPages = args.maxPages ? requireInteger(args.maxPages, "maxPages") : 1;
+  const allowEmpty = args.allowEmpty === "true";
 
   const client = new ApiFootballClient();
   const createdAt = new Date().toISOString();
   const folder = outputFolder({ leagueId, season });
   await mkdir(folder, { recursive: true });
 
+  const leagueRows = await client.leagues({ leagueId, season });
+  assertRows("league metadata rows", leagueRows, { leagueId, season, required: !allowEmpty });
+
   const teams = await client.teamsByLeagueSeason({ leagueId, season });
+  assertRows("teams", teams, { leagueId, season, required: !allowEmpty });
+
   const fixtures = await client.fixturesByLeagueSeason({ leagueId, season });
+  assertRows("fixtures", fixtures, { leagueId, season, required: !allowEmpty });
+
   const standings = await client.standingsByLeagueSeason({ leagueId, season });
+  assertRows("standings", standings, { leagueId, season, required: !allowEmpty });
+
   const playerRows = await fetchAllPlayerPages(client, { leagueId, season, maxPages });
+  assertRows("players", playerRows, { leagueId, season, required: !allowEmpty });
+
   const players = normaliseApiFootballPlayers(playerRows, { importedAt: createdAt });
 
   const coaches = [];
@@ -99,6 +126,7 @@ async function main() {
   }
 
   const files = [];
+  files.push(await writeSnapshot(folder, "league", snapshot({ endpoint: "leagues", rows: leagueRows, leagueId, season, createdAt })));
   files.push(await writeSnapshot(folder, "teams", snapshot({ endpoint: "teams", rows: teams, leagueId, season, createdAt })));
   files.push(await writeSnapshot(folder, "fixtures", snapshot({ endpoint: "fixtures", rows: fixtures, leagueId, season, createdAt })));
   files.push(await writeSnapshot(folder, "standings", snapshot({ endpoint: "standings", rows: standings, leagueId, season, createdAt })));
@@ -107,12 +135,13 @@ async function main() {
 
   const manifest = {
     provider: API_FOOTBALL_CONFIG.provider,
-    version: "complete-league-snapshot-v0.1",
+    version: "complete-league-snapshot-v0.2",
     leagueId,
     season,
     createdAt,
     maxPages,
     counts: {
+      leagueRows: leagueRows.length,
       teams: teams.length,
       fixtures: fixtures.length,
       standings: standings.length,
