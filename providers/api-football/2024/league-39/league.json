@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "provider": "api-football",
+    "version": "api-football-snapshot-v0.1",
+    "source": {
+      "endpoint": "leagues",
+      "leagueId": 39,
+      "season": 2024,
+      "normalised": false
+    },
+    "createdAt": "2026-07-02T13:40:48.990Z",
+    "rowCount": 1
+  },
+  "rows": [
+    {
+      "league": {
+        "id": 39,
+        "name": "Premier League",
+        "type": "League",
+        "logo": "https://media.api-sports.io/football/leagues/39.png"
+      },
+      "country": {
+        "name": "England",
+        "code": "GB-ENG",
+        "flag": "https://media.api-sports.io/flags/gb-eng.svg"
+      },
+      "seasons": [
+        {
+          "year": 2024,
+          "start": "2024-08-16",
+          "end": "2025-05-25",
+          "current": false,
+          "coverage": {
+            "fixtures": {
+              "events": true,
+              "lineups": true,
+              "statistics_fixtures": true,
+              "statistics_players": true
+            },
+            "standings": true,
+            "players": true,
+            "top_scorers": true,
+            "top_assists": true,
+            "top_cards": true,
+            "injuries": true,
+            "predictions": true,
+            "odds": false
+          }
+        }
+      ]
+    }
+  ]
+}

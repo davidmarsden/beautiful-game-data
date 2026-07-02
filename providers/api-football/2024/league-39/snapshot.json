@@ -1,0 +1,27 @@
+{
+  "provider": "api-football",
+  "version": "complete-league-snapshot-v0.3",
+  "leagueId": 39,
+  "season": 2024,
+  "createdAt": "2026-07-02T13:40:48.990Z",
+  "requestedMaxPages": 3,
+  "maxPages": 3,
+  "includeCoaches": false,
+  "counts": {
+    "leagueRows": 1,
+    "teams": 20,
+    "fixtures": 380,
+    "standings": 1,
+    "playerRows": 60,
+    "players": 60,
+    "coachTeams": 0
+  },
+  "files": [
+    "providers/api-football/2024/league-39/league.json",
+    "providers/api-football/2024/league-39/teams.json",
+    "providers/api-football/2024/league-39/fixtures.json",
+    "providers/api-football/2024/league-39/standings.json",
+    "providers/api-football/2024/league-39/coaches.json",
+    "providers/api-football/2024/league-39/players.json"
+  ]
+}
