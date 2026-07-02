@@ -8,13 +8,21 @@ on:
         required: true
         default: "39"
       season:
-        description: "Season year"
+        description: "Season starting year, e.g. 2024 for 2024/25"
         required: true
-        default: "2025"
+        default: "2024"
       maxPages:
-        description: "Maximum player pages"
+        description: "Maximum player pages, capped at 3 for free plans"
         required: true
-        default: "1"
+        default: "3"
+      includeCoaches:
+        description: "Import coaches too? More API calls; leave false on free plan"
+        required: true
+        default: "false"
+      requestDelayMs:
+        description: "Delay between API requests in milliseconds"
+        required: true
+        default: "2500"
 
 permissions:
   contents: write
@@ -30,7 +38,8 @@ jobs:
       - name: Import league
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: npm run import:api-football:league -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }} --maxPages=${{ github.event.inputs.maxPages }}
+          API_FOOTBALL_REQUEST_DELAY_MS: ${{ github.event.inputs.requestDelayMs }}
+        run: npm run import:api-football:league -- --league=${{ github.event.inputs.league }} --season=${{ github.event.inputs.season }} --maxPages=${{ github.event.inputs.maxPages }} --includeCoaches=${{ github.event.inputs.includeCoaches }}
       - name: Commit complete league snapshot
         run: |
           if [ -z "$(git status --porcelain providers/api-football)" ]; then
