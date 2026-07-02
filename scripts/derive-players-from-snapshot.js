@@ -41,6 +41,15 @@ function inputPathFromArg(value) {
 
 async function latestSnapshotPath({ league, season }) {
   const folder = path.join(repoRoot, "providers", "api-football", String(season), `league-${league}`);
+  const canonicalPlayers = path.join(folder, "players.json");
+
+  try {
+    await readFile(canonicalPlayers, "utf8");
+    return canonicalPlayers;
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+
   const files = await readdir(folder);
   const playerFiles = files
     .filter((file) => file.startsWith("players-") && file.endsWith(".json"))
