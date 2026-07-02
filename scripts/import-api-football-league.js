@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { ApiFootballClient, API_FOOTBALL_CONFIG, normaliseApiFootballPlayers } from "../importers/api-football/index.js";
 import { createDataSnapshot } from "../importers/snapshots.js";
 
+const FREE_PLAN_MAX_PLAYER_PAGES = 3;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "..");
@@ -86,14 +87,25 @@ function assertRows(label, rows, { leagueId, season, required = true }) {
   ].join("\n"));
 }
 
+function parseBoolean(value, defaultValue = false) {
+  if (value === undefined) return defaultValue;
+  return ["1", "true", "yes", "y"].includes(String(value).toLowerCase());
+}
+
 async function main() {
   await loadDotEnv();
 
   const args = parseArgs(process.argv.slice(2));
   const leagueId = requireInteger(args.league, "league");
   const season = requireInteger(args.season, "season");
-  const maxPages = args.maxPages ? requireInteger(args.maxPages, "maxPages") : 1;
-  const allowEmpty = args.allowEmpty === "true";
+  const requestedMaxPages = args.maxPages ? requireInteger(args.maxPages, "maxPages") : 1;
+  const maxPages = Math.min(requestedMaxPages, FREE_PLAN_MAX_PLAYER_PAGES);
+  const allowEmpty = parseBoolean(args.allowEmpty);
+  const includeCoaches = parseBoolean(args.includeCoaches, false);
+
+  if (requestedMaxPages > FREE_PLAN_MAX_PLAYER_PAGES) {
+    console.warn(`Free API-Football plans only allow player pages up to ${FREE_PLAN_MAX_PLAYER_PAGES}. Using maxPages=${maxPages}.`);
+  }
 
   const client = new ApiFootballClient();
   const createdAt = new Date().toISOString();
@@ -118,11 +130,13 @@ async function main() {
   const players = normaliseApiFootballPlayers(playerRows, { importedAt: createdAt });
 
   const coaches = [];
-  for (const teamRow of teams) {
-    const teamId = teamRow.team?.id;
-    if (!teamId) continue;
-    const teamCoaches = await client.coachesByTeam({ teamId });
-    coaches.push({ teamId, rows: teamCoaches });
+  if (includeCoaches) {
+    for (const teamRow of teams) {
+      const teamId = teamRow.team?.id;
+      if (!teamId) continue;
+      const teamCoaches = await client.coachesByTeam({ teamId });
+      coaches.push({ teamId, rows: teamCoaches });
+    }
   }
 
   const files = [];
@@ -135,11 +149,13 @@ async function main() {
 
   const manifest = {
     provider: API_FOOTBALL_CONFIG.provider,
-    version: "complete-league-snapshot-v0.2",
+    version: "complete-league-snapshot-v0.3",
     leagueId,
     season,
     createdAt,
+    requestedMaxPages,
     maxPages,
+    includeCoaches,
     counts: {
       leagueRows: leagueRows.length,
       teams: teams.length,
