@@ -1,0 +1,40 @@
+{
+  "provider": "api-football",
+  "version": "pro-league-harvest-v0.1",
+  "leagueId": 39,
+  "season": 2024,
+  "createdAt": "2026-07-02T19:03:51.200Z",
+  "options": {
+    "maxPlayerPages": 100,
+    "includeLineups": true,
+    "includeEvents": true,
+    "includePlayerStats": true,
+    "includeTeamStats": true,
+    "includeInjuries": true,
+    "includeCoaches": true,
+    "includeTransfers": true
+  },
+  "counts": {
+    "leagueRows": 1,
+    "teams": 20,
+    "fixtures": 380,
+    "standings": 1,
+    "playerRows": 1127,
+    "players": 1127,
+    "fixtureDetails": 380,
+    "coachTeams": 20,
+    "transferTeams": 20,
+    "injuries": 3168
+  },
+  "files": [
+    "providers/api-football/2024/league-39/league.json",
+    "providers/api-football/2024/league-39/teams.json",
+    "providers/api-football/2024/league-39/fixtures.json",
+    "providers/api-football/2024/league-39/standings.json",
+    "providers/api-football/2024/league-39/players.json",
+    "providers/api-football/2024/league-39/fixture-details.json",
+    "providers/api-football/2024/league-39/coaches.json",
+    "providers/api-football/2024/league-39/transfers.json",
+    "providers/api-football/2024/league-39/injuries.json"
+  ]
+}
