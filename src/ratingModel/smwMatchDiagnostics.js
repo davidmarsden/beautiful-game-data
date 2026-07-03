@@ -1,67 +1,8 @@
-const CLUB_ALIASES = new Map([
-  ["manchester utd", "manchester united"],
-  ["man utd", "manchester united"],
-  ["man united", "manchester united"],
-  ["brighton", "brighton hove albion"],
-  ["brighton hove", "brighton hove albion"],
-  ["tottenham", "tottenham hotspur"],
-  ["spurs", "tottenham hotspur"],
-  ["bournemouth", "bournemouth"],
-  ["afc bournemouth", "bournemouth"],
-  ["newcastle", "newcastle united"],
-  ["west ham", "west ham united"],
-  ["nottingham forest", "nottingham forest"],
-  ["wolves", "wolverhampton wanderers"],
-  ["wolverhampton", "wolverhampton wanderers"]
-]);
-
-function normaliseText(value) {
-  return String(value ?? "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/&apos;/g, "'")
-    .replace(/&#39;/g, "'")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-function normaliseName(value) {
-  return normaliseText(value)
-    .replace(/\b(fc|afc|cf|sc|sk|calcio|club)\b/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function normaliseClub(value) {
-  const clean = normaliseText(value)
-    .replace(/\b(fc|afc|cf|sc|sk|calcio|club)\b/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return CLUB_ALIASES.get(clean) ?? clean;
-}
-
-function compactName(value) {
-  return normaliseName(value).replace(/\s+/g, "");
-}
-
-function nameTokens(value) {
-  return normaliseName(value).split(/\s+/).filter(Boolean);
-}
-
-function nameParts(value) {
-  const tokens = nameTokens(value);
-  const first = tokens[0] ?? "";
-  const last = tokens.at(-1) ?? "";
-  const initial = first ? first[0] : "";
-  return { tokens, first, last, initial };
-}
-
-function isInitialSurnameMatch(a, b) {
-  const left = nameParts(a);
-  const right = nameParts(b);
-  return Boolean(left.last && right.last && left.last === right.last && left.initial && right.initial && left.initial === right.initial);
-}
+import {
+  matchIdentity,
+  playerClubKey,
+  playerIdentityKey
+} from "./playerIdentity.js";
 
 function targetName(row) {
   return row.name ?? row.playerName ?? row.player ?? "";
@@ -83,101 +24,78 @@ function playerRating(player) {
   return Number(player.ratings?.effectiveMatchRating ?? player.ratings?.ability ?? player.ability ?? player.rating ?? 0);
 }
 
-function similarity(a, b) {
-  if (isInitialSurnameMatch(a, b)) return 0.92;
-
-  const aTokens = new Set(nameTokens(a));
-  const bTokens = new Set(nameTokens(b));
-  if (!aTokens.size || !bTokens.size) return 0;
-  const intersection = [...aTokens].filter((token) => bTokens.has(token)).length;
-  const union = new Set([...aTokens, ...bTokens]).size;
-  const tokenScore = intersection / union;
-  const compactScore = compactName(a) === compactName(b) ? 1 : 0;
-  const lastA = [...aTokens].at(-1);
-  const lastB = [...bTokens].at(-1);
-  const lastScore = lastA && lastA === lastB ? 0.25 : 0;
-  return Math.min(1, Math.max(tokenScore, compactScore) + lastScore);
-}
-
-function clubSimilarity(a, b) {
-  if (!a || !b) return 0;
-  const normalA = normaliseClub(a);
-  const normalB = normaliseClub(b);
-  if (normalA === normalB) return 1;
-  if (normalA.includes(normalB) || normalB.includes(normalA)) return 0.8;
-  return similarity(normalA, normalB);
-}
-
-function exactKey(name, club = "") {
-  const nameKey = normaliseName(name);
-  const clubKey = normaliseClub(club);
-  return clubKey ? `${nameKey}|${clubKey}` : nameKey;
-}
-
 function buildTargetMaps(targetRows) {
   const byNameClub = new Map();
   const byName = new Map();
+  const targets = [];
+
   for (const row of targetRows ?? []) {
     const name = targetName(row);
     const club = targetClub(row);
     const rating = targetRating(row);
     if (!name || !rating) continue;
+
     const target = { name, club, rating, raw: row };
-    if (club) byNameClub.set(exactKey(name, club), target);
-    if (!byName.has(exactKey(name))) byName.set(exactKey(name), target);
+    targets.push(target);
+    if (club) byNameClub.set(playerClubKey(name, club), target);
+    if (!byName.has(playerIdentityKey(name))) byName.set(playerIdentityKey(name), target);
   }
-  return { byNameClub, byName };
+
+  return { byNameClub, byName, targets };
 }
 
-function bestLikelyMatch(player, targets) {
-  const [best, second] = likelyMatches(player, targets, 2);
-  if (!best) return null;
+function matchTarget(player, maps, options = {}) {
+  const club = playerClub(player);
+  const name = player.name;
+  const source = { name, club };
 
-  const sameClub = clubSimilarity(playerClub(player), best.club) >= 0.8;
-  const initialSurname = isInitialSurnameMatch(player.name, best.name);
-  const strongName = best.nameScore >= 0.82;
-  const clearlyBest = !second || best.score - second.score >= 0.15;
+  if (club && maps.byNameClub.has(playerClubKey(name, club))) {
+    const target = maps.byNameClub.get(playerClubKey(name, club));
+    return { ...target, confidence: 1, reason: "exact-name-club", nameScore: 1, clubScore: 1, clubMismatch: false };
+  }
 
-  if (sameClub && (initialSurname || strongName) && best.score >= 0.72 && clearlyBest) return best;
+  const identityResult = matchIdentity(source, maps.targets, options);
+  if (identityResult.match) return identityResult.match;
+
+  if (maps.byName.has(playerIdentityKey(name))) {
+    const target = maps.byName.get(playerIdentityKey(name));
+    return { ...target, confidence: 1, reason: "exact-name", nameScore: 1, clubScore: 0, clubMismatch: true };
+  }
+
   return null;
 }
 
-function exactMatch(player, maps, targets) {
-  const club = playerClub(player);
-  const name = player.name;
-  if (club && maps.byNameClub.has(exactKey(name, club))) return maps.byNameClub.get(exactKey(name, club));
-  if (maps.byName.has(exactKey(name))) return maps.byName.get(exactKey(name));
-  return bestLikelyMatch(player, targets);
-}
-
 function likelyMatches(player, targets, limit) {
-  return targets
-    .map((target) => {
-      const nameScore = similarity(player.name, target.name);
-      const clubScore = clubSimilarity(playerClub(player), target.club);
-      const score = Number((nameScore * 0.8 + clubScore * 0.2).toFixed(3));
-      return { ...target, score, nameScore: Number(nameScore.toFixed(3)), clubScore: Number(clubScore.toFixed(3)) };
-    })
-    .filter((target) => target.score >= 0.35)
-    .sort((a, b) => b.score - a.score || b.rating - a.rating || a.name.localeCompare(b.name))
-    .slice(0, limit);
+  return matchIdentity(
+    { name: player.name, club: playerClub(player) },
+    targets,
+    { minConfidence: 2 }
+  ).candidates.slice(0, limit).map((candidate) => ({
+    ...candidate,
+    score: candidate.confidence
+  }));
 }
 
 export function diagnoseSmwPlayerMatches(pack, targetRows, options = {}) {
   const limit = Number(options.limit ?? 25);
   const suggestionLimit = Number(options.suggestionLimit ?? 3);
-  const targets = (targetRows ?? [])
-    .map((row) => ({ name: targetName(row), club: targetClub(row), rating: targetRating(row), raw: row }))
-    .filter((row) => row.name && row.rating);
+  const matchOptions = {
+    minConfidence: Number(options.minConfidence ?? 0.95),
+    clubTieBreakConfidence: Number(options.clubTieBreakConfidence ?? 0.85)
+  };
   const maps = buildTargetMaps(targetRows);
   const players = Object.values(pack.players ?? {});
   const matched = [];
   const unmatchedPlayers = [];
   const matchedTargetKeys = new Set();
+  let clubMismatchMatches = 0;
+  const confidenceCounts = {};
 
   for (const player of players) {
-    const target = exactMatch(player, maps, targets);
+    const target = matchTarget(player, maps, matchOptions);
     if (target) {
+      if (target.clubMismatch) clubMismatchMatches += 1;
+      confidenceCounts[target.reason] = (confidenceCounts[target.reason] ?? 0) + 1;
       matched.push({
         playerId: player.id,
         playerName: player.name,
@@ -185,33 +103,41 @@ export function diagnoseSmwPlayerMatches(pack, targetRows, options = {}) {
         modelRating: playerRating(player),
         targetName: target.name,
         targetClub: target.club,
-        smwRating: target.rating
+        smwRating: target.rating,
+        confidence: target.confidence,
+        matchReason: target.reason,
+        nameScore: target.nameScore,
+        clubScore: target.clubScore,
+        clubMismatch: target.clubMismatch
       });
-      matchedTargetKeys.add(exactKey(target.name, target.club));
-      matchedTargetKeys.add(exactKey(target.name));
+      matchedTargetKeys.add(playerClubKey(target.name, target.club));
+      matchedTargetKeys.add(playerIdentityKey(target.name));
     } else {
       unmatchedPlayers.push({
         playerId: player.id,
         playerName: player.name,
         clubName: playerClub(player),
         modelRating: playerRating(player),
-        suggestions: likelyMatches(player, targets, suggestionLimit)
+        suggestions: likelyMatches(player, maps.targets, suggestionLimit)
       });
     }
   }
 
-  const unmatchedTargets = targets
-    .filter((target) => !matchedTargetKeys.has(exactKey(target.name, target.club)) && !matchedTargetKeys.has(exactKey(target.name)))
+  const unmatchedTargets = maps.targets
+    .filter((target) => !matchedTargetKeys.has(playerClubKey(target.name, target.club)) && !matchedTargetKeys.has(playerIdentityKey(target.name)))
     .sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name));
 
   return {
     summary: {
       packPlayers: players.length,
-      targetPlayers: targets.length,
+      targetPlayers: maps.targets.length,
       matched: matched.length,
       unmatchedPackPlayers: unmatchedPlayers.length,
       unmatchedTargets: unmatchedTargets.length,
-      matchRate: players.length ? Number((matched.length / players.length).toFixed(3)) : 0
+      matchRate: players.length ? Number((matched.length / players.length).toFixed(3)) : 0,
+      targetMatchRate: maps.targets.length ? Number((matched.length / maps.targets.length).toFixed(3)) : 0,
+      clubMismatchMatches,
+      confidenceCounts
     },
     matched: matched.slice(0, limit),
     unmatchedPlayers: unmatchedPlayers
@@ -228,11 +154,16 @@ export function formatSmwMatchDiagnostics(report) {
     `Target players: ${report.summary.targetPlayers}`,
     `Matched: ${report.summary.matched}`,
     `Match rate: ${Math.round(report.summary.matchRate * 100)}%`,
+    `Target match rate: ${Math.round((report.summary.targetMatchRate ?? 0) * 100)}%`,
+    `Club mismatch matches: ${report.summary.clubMismatchMatches ?? 0}`,
     `Unmatched pack players: ${report.summary.unmatchedPackPlayers}`,
     `Unmatched targets: ${report.summary.unmatchedTargets}`,
     "",
+    "Confidence counts:",
+    ...Object.entries(report.summary.confidenceCounts ?? {}).map(([reason, count]) => `- ${reason}: ${count}`),
+    "",
     "Matched sample:",
-    "Player                   API Club                 SMW Name                 SMW Club                 RT"
+    "Player                   API Club                 SMW Name                 SMW Club                 RT Conf Reason"
   ];
 
   for (const row of report.matched) {
@@ -241,7 +172,9 @@ export function formatSmwMatchDiagnostics(report) {
       String(row.clubName ?? "").padEnd(24, " "),
       row.targetName.padEnd(24, " "),
       String(row.targetClub ?? "").padEnd(24, " "),
-      String(row.smwRating).padStart(2, " ")
+      String(row.smwRating).padStart(2, " "),
+      String(row.confidence ?? "").padStart(4, " "),
+      row.matchReason ?? ""
     ].join(" "));
   }
 
@@ -249,7 +182,7 @@ export function formatSmwMatchDiagnostics(report) {
   for (const row of report.unmatchedPlayers) {
     lines.push(`- ${row.playerName} (${row.clubName || "unknown"}, model ${row.modelRating || "-"})`);
     for (const suggestion of row.suggestions) {
-      lines.push(`  → ${suggestion.name} (${suggestion.club || "unknown"}, ${suggestion.rating}) score=${suggestion.score} name=${suggestion.nameScore} club=${suggestion.clubScore}`);
+      lines.push(`  → ${suggestion.name} (${suggestion.club || "unknown"}, ${suggestion.rating}) confidence=${suggestion.confidence} reason=${suggestion.reason} name=${suggestion.nameScore} club=${suggestion.clubScore}`);
     }
   }
 
