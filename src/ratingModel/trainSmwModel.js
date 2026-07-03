@@ -168,6 +168,24 @@ const DEFAULT_FEATURES = [
   "isATT"
 ];
 
+const DEFAULT_CALIBRATION_FEATURES = [
+  "intercept",
+  "rawPrediction",
+  "rawPredictionSquared",
+  "currentAbility",
+  "effectiveRating",
+  "abilityOver85",
+  "abilityOver88",
+  "abilityOver90",
+  "effectiveOver85",
+  "effectiveOver88",
+  "effectiveOver90",
+  "isGK",
+  "isDEF",
+  "isMID",
+  "isATT"
+];
+
 function matrixTranspose(matrix) {
   return matrix[0].map((_, column) => matrix.map((row) => row[column]));
 }
@@ -234,6 +252,77 @@ function median(values) {
   return clean.length % 2 ? clean[middle] : (clean[middle - 1] + clean[middle]) / 2;
 }
 
+function calibrationFeatureObject(example, rawPrediction) {
+  const currentAbility = number(example.features.currentAbility);
+  const effectiveRating = number(example.features.effectiveRating);
+
+  return {
+    intercept: 1,
+    rawPrediction,
+    rawPredictionSquared: rawPrediction * rawPrediction,
+    currentAbility,
+    effectiveRating,
+    abilityOver85: Math.max(0, currentAbility - 85),
+    abilityOver88: Math.max(0, currentAbility - 88),
+    abilityOver90: Math.max(0, currentAbility - 90),
+    effectiveOver85: Math.max(0, effectiveRating - 85),
+    effectiveOver88: Math.max(0, effectiveRating - 88),
+    effectiveOver90: Math.max(0, effectiveRating - 90),
+    isGK: number(example.features.isGK),
+    isDEF: number(example.features.isDEF),
+    isMID: number(example.features.isMID),
+    isATT: number(example.features.isATT)
+  };
+}
+
+function fitPredictionCalibration(examples, rawPredictions, options = {}) {
+  const featureNames = options.calibrationFeatures ?? DEFAULT_CALIBRATION_FEATURES;
+  const x = examples.map((example, index) => featureNames.map((name) => number(calibrationFeatureObject(example, rawPredictions[index])[name])));
+  const y = examples.map((example) => example.targetRating);
+  const coefficients = fitRidgeRegression(x, y, number(options.calibrationRidge ?? 0.5));
+  return { featureNames, coefficients };
+}
+
+function calibratedPrediction(example, rawPrediction, calibration) {
+  if (!calibration) return rawPrediction;
+  const features = calibrationFeatureObject(example, rawPrediction);
+  return predict(features, calibration.coefficients, calibration.featureNames);
+}
+
+function predictionRows(examples, rawPredictions, calibration = null) {
+  return examples.map((example, index) => {
+    const rawPrediction = rawPredictions[index];
+    const predictedRating = calibratedPrediction(example, rawPrediction, calibration);
+    const error = predictedRating - example.targetRating;
+    return {
+      playerId: example.playerId,
+      playerName: example.playerName,
+      clubName: example.clubName,
+      positionGroup: example.positionGroup,
+      targetRating: example.targetRating,
+      rawPrediction: round(rawPrediction, 2),
+      predictedRating: round(predictedRating, 2),
+      error: round(error, 3),
+      absoluteError: round(Math.abs(error), 3),
+      matchConfidence: example.matchConfidence,
+      matchReason: example.matchReason,
+      clubMismatch: example.clubMismatch
+    };
+  });
+}
+
+function metricSummary(predictions) {
+  const absoluteErrors = predictions.map((row) => row.absoluteError);
+  const errors = predictions.map((row) => row.error);
+  return {
+    meanError: round(mean(errors), 3),
+    meanAbsoluteError: round(mean(absoluteErrors), 3),
+    medianAbsoluteError: round(median(absoluteErrors), 3),
+    maxAbsoluteError: round(Math.max(...absoluteErrors), 3),
+    score: round(Math.max(0, 100 - mean(absoluteErrors) * 15), 2)
+  };
+}
+
 export function trainSmwRatingModel(pack, targetRows, options = {}) {
   const featureNames = options.features ?? DEFAULT_FEATURES;
   const index = targetIndex(targetRows);
@@ -269,47 +358,34 @@ export function trainSmwRatingModel(pack, targetRows, options = {}) {
   const x = examples.map((example) => featureNames.map((name) => number(example.features[name])));
   const y = examples.map((example) => example.targetRating);
   const coefficients = fitRidgeRegression(x, y, number(options.ridge ?? 1));
-
-  const predictions = examples.map((example) => {
-    const predictedRating = predict(example.features, coefficients, featureNames);
-    const error = predictedRating - example.targetRating;
-    return {
-      playerId: example.playerId,
-      playerName: example.playerName,
-      clubName: example.clubName,
-      positionGroup: example.positionGroup,
-      targetRating: example.targetRating,
-      predictedRating: round(predictedRating, 2),
-      error: round(error, 3),
-      absoluteError: round(Math.abs(error), 3),
-      matchConfidence: example.matchConfidence,
-      matchReason: example.matchReason,
-      clubMismatch: example.clubMismatch
-    };
-  });
-
-  const absoluteErrors = predictions.map((row) => row.absoluteError);
-  const errors = predictions.map((row) => row.error);
+  const rawPredictions = examples.map((example) => predict(example.features, coefficients, featureNames));
+  const rawPredictionRows = predictionRows(examples, rawPredictions, null);
+  const calibrationEnabled = options.calibrate !== false;
+  const calibration = calibrationEnabled ? fitPredictionCalibration(examples, rawPredictions, options) : null;
+  const predictions = predictionRows(examples, rawPredictions, calibration);
+  const metrics = metricSummary(predictions);
+  const rawMetrics = metricSummary(rawPredictionRows);
 
   return {
     meta: {
-      version: "smw-rating-model-v0.3",
+      version: "smw-rating-model-v0.4",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       targetRows: targetRows.length,
       ridge: number(options.ridge ?? 1),
+      calibrationRidge: calibrationEnabled ? number(options.calibrationRidge ?? 0.5) : null,
+      calibrated: calibrationEnabled,
       minTrainingConfidence: Number(options.minTrainingConfidence ?? 0.95),
       excludeClubMismatches: Boolean(options.excludeClubMismatches)
     },
     featureNames,
     coefficients: Object.fromEntries(featureNames.map((name, index) => [name, round(coefficients[index], 8)])),
-    metrics: {
-      meanError: round(mean(errors), 3),
-      meanAbsoluteError: round(mean(absoluteErrors), 3),
-      medianAbsoluteError: round(median(absoluteErrors), 3),
-      maxAbsoluteError: round(Math.max(...absoluteErrors), 3),
-      score: round(Math.max(0, 100 - mean(absoluteErrors) * 15), 2)
-    },
+    calibration: calibration ? {
+      featureNames: calibration.featureNames,
+      coefficients: Object.fromEntries(calibration.featureNames.map((name, index) => [name, round(calibration.coefficients[index], 8)]))
+    } : null,
+    rawMetrics,
+    metrics,
     biggestMisses: [...predictions].sort((a, b) => b.absoluteError - a.absoluteError || a.playerName.localeCompare(b.playerName)).slice(0, 20),
     predictions: predictions.sort((a, b) => b.targetRating - a.targetRating || a.playerName.localeCompare(b.playerName))
   };
@@ -324,18 +400,35 @@ export function formatSmwRatingModelReport(model) {
     `Mean absolute error: ${model.metrics.meanAbsoluteError}`,
     `Median absolute error: ${model.metrics.medianAbsoluteError}`,
     `Max absolute error: ${model.metrics.maxAbsoluteError}`,
-    "",
-    "Coefficients:"
+    `Calibrated: ${model.meta.calibrated ? "yes" : "no"}`,
+    ""
   ];
 
+  if (model.rawMetrics) {
+    lines.push(
+      "Raw model:",
+      `- Mean absolute error: ${model.rawMetrics.meanAbsoluteError}`,
+      `- Median absolute error: ${model.rawMetrics.medianAbsoluteError}`,
+      `- Max absolute error: ${model.rawMetrics.maxAbsoluteError}`,
+      ""
+    );
+  }
+
+  lines.push("Coefficients:");
   for (const [name, value] of Object.entries(model.coefficients)) lines.push(`- ${name}: ${value}`);
 
-  lines.push("", "Biggest misses:", "Player                   Club                     Pos Pred SMW Diff Conf Reason");
+  if (model.calibration) {
+    lines.push("", "Calibration coefficients:");
+    for (const [name, value] of Object.entries(model.calibration.coefficients)) lines.push(`- ${name}: ${value}`);
+  }
+
+  lines.push("", "Biggest misses:", "Player                   Club                     Pos Raw  Pred SMW Diff Conf Reason");
   for (const row of model.biggestMisses) {
     lines.push([
       row.playerName.padEnd(24, " "),
       String(row.clubName ?? "").padEnd(24, " "),
       row.positionGroup.padEnd(3, " "),
+      String(row.rawPrediction ?? "").padStart(4, " "),
       String(row.predictedRating).padStart(5, " "),
       String(row.targetRating).padStart(3, " "),
       String(row.error).padStart(6, " "),
@@ -347,4 +440,4 @@ export function formatSmwRatingModelReport(model) {
   return lines.join("\n");
 }
 
-export { DEFAULT_FEATURES, playerFeatureObject };
+export { DEFAULT_FEATURES, DEFAULT_CALIBRATION_FEATURES, playerFeatureObject };
