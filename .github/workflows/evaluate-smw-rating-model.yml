@@ -11,10 +11,22 @@ on:
         description: "API-Football league id"
         required: true
         default: "39"
+      baseTargetsPath:
+        description: "Base SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
       targetsPath:
-        description: "SoccerWiki ratings CSV"
+        description: "Enriched SoccerWiki ratings CSV used for evaluation"
         required: true
         default: "calibration/smw-ratings-enriched.csv"
+      minModelRating:
+        description: "Only enrich missing API players at or above this model rating"
+        required: true
+        default: "83"
+      enrichmentLimit:
+        description: "Maximum missing players to search during enrichment"
+        required: true
+        default: "120"
       output:
         description: "Output JSON report"
         required: true
@@ -32,7 +44,7 @@ on:
         required: true
         default: "false"
       commitResults:
-        description: "Commit evaluation reports back to repo"
+        description: "Commit enriched CSV and evaluation reports back to repo"
         required: true
         default: "false"
 
@@ -53,6 +65,19 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Prepare enriched SoccerWiki ratings
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.season }}.json"
+          TARGETS="${{ github.event.inputs.targetsPath }}"
+          BASE_TARGETS="${{ github.event.inputs.baseTargetsPath }}"
+          if [ ! -f "$TARGETS" ]; then
+            echo "Enriched ratings file not found: $TARGETS"
+            echo "Generating from base ratings: $BASE_TARGETS"
+            npm run enrich:soccerwiki:missing-ratings -- --pack="$PACK" --targets="$BASE_TARGETS" --output="$TARGETS" --minModelRating="${{ github.event.inputs.minModelRating }}" --limit="${{ github.event.inputs.enrichmentLimit }}" --report="calibration/smw-ratings-enrichment-report.json" --delayMs=250
+          else
+            echo "Using existing enriched ratings file: $TARGETS"
+          fi
+
       - name: Evaluate SMW rating model
         run: |
           PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.season }}.json"
@@ -63,14 +88,16 @@ jobs:
         with:
           name: smw-rating-evaluation
           path: |
+            ${{ github.event.inputs.targetsPath }}
+            calibration/smw-ratings-enrichment-report.json
             ${{ github.event.inputs.output }}
             calibration/smw-rating-evaluation.md
 
       - name: Commit SMW rating evaluation
-        if: ${{ github.event.inputs.commitResults == 'true' }}
+        if: $${{ github.event.inputs.commitResults == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${{ github.event.inputs.output }}" calibration/smw-rating-evaluation.md
+          git add "${{ github.event.inputs.targetsPath }}" calibration/smw-ratings-enrichment-report.json "${{ github.event.inputs.output }}" calibration/smw-rating-evaluation.md
           git commit -m "Evaluate SMW rating model" || echo "No changes to commit"
           git push
