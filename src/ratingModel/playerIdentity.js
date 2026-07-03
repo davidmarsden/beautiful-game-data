@@ -30,8 +30,18 @@ const NAME_ALIASES = new Map([
   ["savinho", "moreira savinho"]
 ]);
 
-export function normaliseText(value) {
+function transliterate(value) {
   return String(value ?? "")
+    .replace(/[Øø]/g, "o")
+    .replace(/[Đđ]/g, "d")
+    .replace(/[Łł]/g, "l")
+    .replace(/[Þþ]/g, "th")
+    .replace(/[Ææ]/g, "ae")
+    .replace(/[Œœ]/g, "oe");
+}
+
+export function normaliseText(value) {
+  return transliterate(value)
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
@@ -171,7 +181,12 @@ export function matchIdentity(source, targets, options = {}) {
   const second = candidates[1] ?? null;
   if (!best) return { match: null, candidates };
 
-  const clearlyBest = !second || best.confidence - second.confidence >= 0.03 || (best.confidence >= 0.98 && second.confidence < best.confidence);
+  if (best.reason === "initial-surname" && second?.reason === "initial-surname" && best.clubScore > second.clubScore) {
+    best.reason = "club-tiebreak";
+    best.confidence = Math.max(best.confidence, clubTieBreakConfidence);
+  }
+
+  const clearlyBest = !second || best.confidence - second.confidence >= 0.03 || best.clubScore - second.clubScore >= 0.3 || (best.confidence >= 0.98 && second.confidence < best.confidence);
   if (best.confidence >= minConfidence && clearlyBest) return { match: best, candidates };
   return { match: null, candidates };
 }
