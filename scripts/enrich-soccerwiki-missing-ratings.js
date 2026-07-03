@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { parseSoccerWikiRatingsHtml, ratingsToCsv } from "../src/soccerwiki/scrapeRatings.js";
-import { matchIdentity, playerClubKey, playerIdentityKey } from "../src/ratingModel/playerIdentity.js";
+import { matchIdentity, normaliseName, playerClubKey, playerIdentityKey } from "../src/ratingModel/playerIdentity.js";
 
 function parseArgs(argv) {
   const args = {};
@@ -72,16 +72,24 @@ function existingMatch(player, targets, options = {}) {
 }
 
 function searchNamesForPlayer(player) {
-  const name = String(player.name ?? "").replace(/&apos;/g, "'").trim();
-  const names = new Set([name]);
-  const initialMatch = name.match(/^([A-Z])\.\s+(.+)$/i);
+  const original = String(player.name ?? "").replace(/&apos;/g, "'").trim();
+  const normalised = normaliseName(original);
+  const tokens = normalised.split(/\s+/).filter(Boolean);
+  const names = new Set();
+
+  const initialMatch = original.match(/^([A-Z])\.\s+(.+)$/i);
+  if (tokens.length) names.add(tokens.at(-1));
+  if (tokens.length >= 2) names.add(tokens.slice(-2).join(" "));
   if (initialMatch) names.add(initialMatch[2]);
+  names.add(original);
+  names.add(normalised);
+
   return [...names].filter(Boolean);
 }
 
-function soccerWikiSearchUrl(query, baseUrl = "https://en.soccerwiki.org/search/player") {
+function soccerWikiSearchUrl(query, baseUrl = "https://en.soccerwiki.org/search.php") {
   const url = new URL(baseUrl);
-  url.searchParams.set("search", query);
+  url.searchParams.set("q", query);
   return url.toString();
 }
 
@@ -147,7 +155,7 @@ for (const player of missing) {
   let match = null;
   for (const query of searchNamesForPlayer(player)) {
     const url = soccerWikiSearchUrl(query, args.baseUrl);
-    console.log(`Searching SoccerWiki: ${query}`);
+    console.log(`Searching SoccerWiki: ${query} (${url})`);
     const html = await fetchText(url, { userAgent: args.userAgent });
     const rows = parseSoccerWikiRatingsHtml(html);
     match = bestSearchResult(player, rows, { minConfidence: Number(args.minConfidence ?? 0.85) });
