@@ -2,7 +2,7 @@ const CLUB_ALIASES = new Map([
   ["manchester utd", "manchester united"],
   ["man utd", "manchester united"],
   ["man united", "manchester united"],
-  ["brighton", "brightton hove albion"],
+  ["brighton", "brighton hove albion"],
   ["brighton hove", "brighton hove albion"],
   ["brighton hove albion", "brighton hove albion"],
   ["tottenham", "tottenham hotspur"],
