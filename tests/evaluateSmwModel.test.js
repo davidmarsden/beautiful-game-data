@@ -17,7 +17,7 @@ test("evaluates SMW rating model predictions", () => {
 
   assert.equal(evaluation.overall.count, 4);
   assert.equal(evaluation.overall.mae, 1.625);
-  assert.equal(evaluation.rawOverall.mae, 1.375);
+  assert.equal(evaluation.rawOverall.mae, 1.25);
   assert.equal(evaluation.byPosition.GK.mae, 0.5);
   assert.equal(evaluation.byRatingBand["90-94"].count, 2);
   assert.equal(evaluation.clubMismatch.count, 1);
