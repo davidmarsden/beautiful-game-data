@@ -25,9 +25,18 @@ const NAME_ALIASES = new Map([
   ["m odegaard", "martin odegaard"],
   ["martin odegaard", "martin odegaard"],
   ["f kadioglu", "ferdi kadioglu"],
+  ["ferdi kadioglu", "ferdi kadioglu"],
   ["d petrovic", "djordje petrovic"],
   ["rayan", "vitor rayan"],
-  ["savinho", "moreira savinho"]
+  ["savinho", "moreira savinho"],
+  ["junior kroupi", "eli junior kroupi"],
+  ["e kroupi", "eli junior kroupi"],
+  ["cassio joelinton", "joelinton"],
+  ["joelinton", "joelinton"],
+  ["kepa arrizabalaga", "kepa"],
+  ["kepa", "kepa"],
+  ["odysseas vlachodimos", "vlachodimos"],
+  ["vlachodimos", "vlachodimos"]
 ]);
 
 function transliterate(value) {
@@ -37,7 +46,11 @@ function transliterate(value) {
     .replace(/[Łł]/g, "l")
     .replace(/[Þþ]/g, "th")
     .replace(/[Ææ]/g, "ae")
-    .replace(/[Œœ]/g, "oe");
+    .replace(/[Œœ]/g, "oe")
+    .replace(/[ıİ]/g, "i")
+    .replace(/[Ğğ]/g, "g")
+    .replace(/[Şş]/g, "s")
+    .replace(/[Çç]/g, "c");
 }
 
 export function normaliseText(value) {
@@ -83,6 +96,20 @@ function nameParts(value) {
   return { tokens, first, last, initial };
 }
 
+function isSingleToken(value) {
+  return nameTokens(value).length === 1;
+}
+
+function isSuffixMatch(a, b) {
+  const left = nameTokens(a);
+  const right = nameTokens(b);
+  if (!left.length || !right.length) return false;
+  const short = left.length <= right.length ? left : right;
+  const long = left.length <= right.length ? right : left;
+  if (short.length > 2) return false;
+  return short.every((token, index) => token === long[long.length - short.length + index]);
+}
+
 export function isInitialSurnameMatch(a, b) {
   const left = nameParts(a);
   const right = nameParts(b);
@@ -103,6 +130,7 @@ export function nameSimilarity(a, b) {
   if (compactName(a) === compactName(b)) return 1;
   if (hasSameTokenSet(a, b)) return 0.99;
   if (isInitialSurnameMatch(a, b)) return 0.98;
+  if (isSuffixMatch(a, b)) return isSingleToken(a) || isSingleToken(b) ? 0.94 : 0.97;
 
   const aTokens = new Set(nameTokens(a));
   const bTokens = new Set(nameTokens(b));
@@ -135,11 +163,16 @@ export function playerClubKey(name, club = "") {
   return clubKey ? `${nameKey}|${clubKey}` : nameKey;
 }
 
+export function targetIdentityKey(target) {
+  return target.soccerwikiUrl ?? target.raw?.soccerwikiUrl ?? playerClubKey(target.name ?? target.playerName, target.club ?? target.clubName);
+}
+
 export function confidenceLabel(confidence) {
   if (confidence >= 0.995) return "exact-name";
   if (confidence >= 0.985) return "canonical-or-reordered-name";
   if (confidence >= 0.975) return "initial-surname";
   if (confidence >= 0.95) return "strong-name";
+  if (confidence >= 0.93) return "suffix-or-single-name";
   if (confidence >= 0.85) return "club-tiebreak";
   return "review";
 }
@@ -167,6 +200,7 @@ export function matchIdentity(source, targets, options = {}) {
 
       return {
         ...target,
+        identityKey: targetIdentityKey(target),
         confidence: Number(confidence.toFixed(3)),
         reason,
         nameScore: Number(nameScore.toFixed(3)),
