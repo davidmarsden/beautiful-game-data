@@ -1,7 +1,8 @@
 import {
   matchIdentity,
   playerClubKey,
-  playerIdentityKey
+  playerIdentityKey,
+  targetIdentityKey
 } from "./playerIdentity.js";
 
 function targetName(row) {
@@ -36,6 +37,7 @@ function buildTargetMaps(targetRows) {
     if (!name || !rating) continue;
 
     const target = { name, club, rating, raw: row };
+    target.identityKey = targetIdentityKey(target);
     targets.push(target);
     if (club) byNameClub.set(playerClubKey(name, club), target);
     if (!byName.has(playerIdentityKey(name))) byName.set(playerIdentityKey(name), target);
@@ -44,25 +46,35 @@ function buildTargetMaps(targetRows) {
   return { byNameClub, byName, targets };
 }
 
-function matchTarget(player, maps, options = {}) {
+function candidateMatches(player, maps, options = {}) {
   const club = playerClub(player);
   const name = player.name;
   const source = { name, club };
+  const candidates = [];
 
   if (club && maps.byNameClub.has(playerClubKey(name, club))) {
     const target = maps.byNameClub.get(playerClubKey(name, club));
-    return { ...target, confidence: 1, reason: "exact-name-club", nameScore: 1, clubScore: 1, clubMismatch: false };
+    candidates.push({ ...target, confidence: 1, reason: "exact-name-club", nameScore: 1, clubScore: 1, clubMismatch: false });
   }
 
-  const identityResult = matchIdentity(source, maps.targets, options);
-  if (identityResult.match) return identityResult.match;
+  const identityResult = matchIdentity(source, maps.targets, { ...options, minConfidence: 2 });
+  candidates.push(...identityResult.candidates);
 
   if (maps.byName.has(playerIdentityKey(name))) {
     const target = maps.byName.get(playerIdentityKey(name));
-    return { ...target, confidence: 1, reason: "exact-name", nameScore: 1, clubScore: 0, clubMismatch: true };
+    candidates.push({ ...target, confidence: 1, reason: "exact-name", nameScore: 1, clubScore: 0, clubMismatch: true });
   }
 
-  return null;
+  const byTarget = new Map();
+  for (const candidate of candidates) {
+    const key = targetIdentityKey(candidate);
+    const current = byTarget.get(key);
+    if (!current || candidate.confidence > current.confidence || candidate.clubScore > current.clubScore) {
+      byTarget.set(key, { ...candidate, identityKey: key });
+    }
+  }
+
+  return [...byTarget.values()].sort((a, b) => b.confidence - a.confidence || b.clubScore - a.clubScore || b.nameScore - a.nameScore || String(a.name).localeCompare(String(b.name)));
 }
 
 function likelyMatches(player, targets, limit) {
@@ -85,46 +97,68 @@ export function diagnoseSmwPlayerMatches(pack, targetRows, options = {}) {
   };
   const maps = buildTargetMaps(targetRows);
   const players = Object.values(pack.players ?? {});
-  const matched = [];
+  const proposals = [];
   const unmatchedPlayers = [];
-  const matchedTargetKeys = new Set();
   let clubMismatchMatches = 0;
   const confidenceCounts = {};
 
   for (const player of players) {
-    const target = matchTarget(player, maps, matchOptions);
-    if (target) {
-      if (target.clubMismatch) clubMismatchMatches += 1;
-      confidenceCounts[target.reason] = (confidenceCounts[target.reason] ?? 0) + 1;
-      matched.push({
-        playerId: player.id,
-        playerName: player.name,
-        clubName: playerClub(player),
-        modelRating: playerRating(player),
-        targetName: target.name,
-        targetClub: target.club,
-        smwRating: target.rating,
-        confidence: target.confidence,
-        matchReason: target.reason,
-        nameScore: target.nameScore,
-        clubScore: target.clubScore,
-        clubMismatch: target.clubMismatch
-      });
-      matchedTargetKeys.add(playerClubKey(target.name, target.club));
-      matchedTargetKeys.add(playerIdentityKey(target.name));
-    } else {
-      unmatchedPlayers.push({
-        playerId: player.id,
-        playerName: player.name,
-        clubName: playerClub(player),
-        modelRating: playerRating(player),
-        suggestions: likelyMatches(player, maps.targets, suggestionLimit)
+    const candidates = candidateMatches(player, maps, matchOptions).filter((candidate) => candidate.confidence >= matchOptions.minConfidence);
+    for (const candidate of candidates) {
+      proposals.push({
+        player,
+        target: candidate,
+        targetKey: targetIdentityKey(candidate),
+        confidence: candidate.confidence,
+        clubScore: candidate.clubScore,
+        nameScore: candidate.nameScore
       });
     }
   }
 
+  proposals.sort((a, b) => b.confidence - a.confidence || b.clubScore - a.clubScore || b.nameScore - a.nameScore || playerRating(b.player) - playerRating(a.player));
+
+  const matched = [];
+  const matchedPlayerIds = new Set();
+  const matchedTargetKeys = new Set();
+
+  for (const proposal of proposals) {
+    if (matchedPlayerIds.has(proposal.player.id) || matchedTargetKeys.has(proposal.targetKey)) continue;
+    matchedPlayerIds.add(proposal.player.id);
+    matchedTargetKeys.add(proposal.targetKey);
+
+    const { player, target } = proposal;
+    if (target.clubMismatch) clubMismatchMatches += 1;
+    confidenceCounts[target.reason] = (confidenceCounts[target.reason] ?? 0) + 1;
+    matched.push({
+      playerId: player.id,
+      playerName: player.name,
+      clubName: playerClub(player),
+      modelRating: playerRating(player),
+      targetName: target.name,
+      targetClub: target.club,
+      smwRating: target.rating,
+      confidence: target.confidence,
+      matchReason: target.reason,
+      nameScore: target.nameScore,
+      clubScore: target.clubScore,
+      clubMismatch: target.clubMismatch
+    });
+  }
+
+  for (const player of players) {
+    if (matchedPlayerIds.has(player.id)) continue;
+    unmatchedPlayers.push({
+      playerId: player.id,
+      playerName: player.name,
+      clubName: playerClub(player),
+      modelRating: playerRating(player),
+      suggestions: likelyMatches(player, maps.targets, suggestionLimit)
+    });
+  }
+
   const unmatchedTargets = maps.targets
-    .filter((target) => !matchedTargetKeys.has(playerClubKey(target.name, target.club)) && !matchedTargetKeys.has(playerIdentityKey(target.name)))
+    .filter((target) => !matchedTargetKeys.has(targetIdentityKey(target)))
     .sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name));
 
   return {
