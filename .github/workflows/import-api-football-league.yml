@@ -8,9 +8,9 @@ on:
         required: true
         default: "39"
       season:
-        description: "Season starting year, e.g. 2024 for 2024/25"
+        description: "Season starting year, e.g. 2025 for 2025/26"
         required: true
-        default: "2024"
+        default: "2025"
       maxPages:
         description: "Maximum player pages, capped at 3 for free plans"
         required: true
