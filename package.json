@@ -11,7 +11,8 @@
     "import:api-football:pro-league": "node scripts/import-api-football-pro-league.js",
     "derive:players": "node scripts/derive-players-from-snapshot.js",
     "derive:clubs": "node scripts/derive-clubs-from-league.js",
-    "export:league-pack": "node scripts/export-league-pack.js"
+    "export:league-pack": "node scripts/export-league-pack.js",
+    "scrape:soccerwiki:ratings": "node scripts/scrape-soccerwiki-ratings.js"
   },
   "engines": {
     "node": ">=20"
