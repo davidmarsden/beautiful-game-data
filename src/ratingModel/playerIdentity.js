@@ -41,6 +41,7 @@ const NAME_ALIASES = new Map([
 
 function transliterate(value) {
   return String(value ?? "")
+    .replace(/[ßẞ]/g, "ss")
     .replace(/[Øø]/g, "o")
     .replace(/[Đđ]/g, "d")
     .replace(/[Łł]/g, "l")
