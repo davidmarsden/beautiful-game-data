@@ -61,15 +61,27 @@ function pickPosition(cells) {
   return null;
 }
 
+function normaliseHref(value) {
+  return String(value ?? "").replace(/&amp;/g, "&");
+}
+
+function isPlayerHref(value) {
+  return /player\.php|\/player\b|pid=/i.test(normaliseHref(value));
+}
+
+function isClubHref(value) {
+  return /club\.php|\/club\b|team/i.test(normaliseHref(value));
+}
+
 function pickNameAndClub(rowHtml, cells) {
   const links = linksFromRow(rowHtml).filter((link) => link.text);
-  const playerLink = links.find((link) => /player/i.test(link.href)) ?? links[0];
-  const clubLink = links.find((link) => /club|team/i.test(link.href) && link.text !== playerLink?.text) ?? links.find((link) => link.text !== playerLink?.text);
+  const playerLink = links.find((link) => isPlayerHref(link.href)) ?? links.find((link) => /player/i.test(link.href)) ?? links[0];
+  const clubLink = links.find((link) => isClubHref(link.href) && link.text !== playerLink?.text) ?? links.find((link) => link.text !== playerLink?.text);
 
   return {
     name: playerLink?.text ?? cells.find((cell) => /[a-z]/i.test(cell)) ?? null,
     club: clubLink?.text ?? null,
-    soccerwikiUrl: playerLink?.href ?? null
+    soccerwikiUrl: normaliseHref(playerLink?.href) || null
   };
 }
 
@@ -139,7 +151,7 @@ function uniqueRows(rows) {
   const seen = new Set();
   const output = [];
   for (const row of rows) {
-    const key = `${String(row.name).toLowerCase()}|${String(row.club ?? "").toLowerCase()}|${row.smwRating}`;
+    const key = row.soccerwikiUrl || `${String(row.name).toLowerCase()}|${String(row.club ?? "").toLowerCase()}|${row.smwRating}`;
     if (seen.has(key)) continue;
     seen.add(key);
     output.push(row);
