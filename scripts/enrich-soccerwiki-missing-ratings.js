@@ -138,12 +138,28 @@ function rescueSearchResult(player, rows) {
 }
 
 function bestSearchResult(player, rows, options = {}) {
-  const identity = matchIdentity(
+  const identityResult = matchIdentity(
     { name: player.name, club: playerClub(player) },
     rows,
     { minConfidence: Number(options.minConfidence ?? 0.85), clubTieBreakConfidence: Number(options.clubTieBreakConfidence ?? 0.85) }
-  ).match;
-  return identity ?? rescueSearchResult(player, rows);
+  );
+  return identityResult.match ?? rescueSearchResult(player, rows);
+}
+
+function debugCandidates(player, rows) {
+  const identityResult = matchIdentity({ name: player.name, club: playerClub(player) }, rows, { minConfidence: 2 });
+  const rescueRows = rows.map((row) => ({ ...row, rescueScore: rescueScore(player, row) }));
+  const byName = new Map();
+  for (const row of [...identityResult.candidates, ...rescueRows]) {
+    const key = `${row.name}|${row.club}|${row.smwRating}`;
+    const existing = byName.get(key);
+    if (!existing || Number(row.confidence ?? 0) > Number(existing.confidence ?? 0) || Number(row.rescueScore ?? 0) > Number(existing.rescueScore ?? 0)) {
+      byName.set(key, row);
+    }
+  }
+  return [...byName.values()]
+    .sort((a, b) => Number(b.confidence ?? 0) - Number(a.confidence ?? 0) || Number(b.rescueScore ?? 0) - Number(a.rescueScore ?? 0) || Number(b.smwRating ?? 0) - Number(a.smwRating ?? 0))
+    .slice(0, 5);
 }
 
 function mergeRows(existingRows, newRows) {
@@ -187,11 +203,17 @@ console.log(`Checking ${missing.length} missing high-rated API player(s).`);
 
 for (const player of missing) {
   let match = null;
+  let lastRows = [];
   for (const query of searchNamesForPlayer(player)) {
     const url = soccerWikiSearchUrl(query, args.baseUrl);
     console.log(`Searching SoccerWiki: ${query} (${url})`);
     const html = await fetchText(url, { userAgent: args.userAgent });
     const rows = parseSoccerWikiRatingsHtml(html);
+    lastRows = rows;
+    console.log(`  parsed ${rows.length} player row(s)`);
+    if (rows.length) {
+      console.log(`  sample: ${rows.slice(0, 3).map((row) => `${row.name} / ${row.club ?? "?"} / ${row.smwRating}`).join(" | ")}`);
+    }
     match = bestSearchResult(player, rows, { minConfidence: Number(args.minConfidence ?? 0.85) });
     if (match) break;
     if (delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
@@ -201,7 +223,11 @@ for (const player of missing) {
     found.push(match);
     console.log(`  found ${match.name} (${match.club ?? "unknown"}) ${match.smwRating}`);
   } else {
-    misses.push({ name: player.name, club: playerClub(player), modelRating: playerRating(player) });
+    const candidates = debugCandidates(player, lastRows);
+    if (candidates.length) {
+      console.log(`  rejected candidates: ${candidates.map((row) => `${row.name} (${row.club ?? "?"}, ${row.smwRating}) confidence=${row.confidence ?? "-"} rescue=${row.rescueScore ?? "-"}`).join(" | ")}`);
+    }
+    misses.push({ name: player.name, club: playerClub(player), modelRating: playerRating(player), candidates });
     console.log(`  no match for ${player.name} (${playerClub(player)})`);
   }
 
