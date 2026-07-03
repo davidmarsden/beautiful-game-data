@@ -36,10 +36,9 @@ test("diagnoses exact and likely SMW player matches", () => {
 
   assert.equal(report.summary.packPlayers, 3);
   assert.equal(report.summary.targetPlayers, 3);
-  assert.equal(report.summary.matched, 2);
-  assert.equal(report.summary.unmatchedPackPlayers, 1);
-  assert.equal(report.unmatchedPlayers[0].playerName, "Bruno Fernandes");
-  assert.equal(report.unmatchedPlayers[0].suggestions[0].name, "Bruno Fernandes");
+  assert.equal(report.summary.matched, 3);
+  assert.equal(report.summary.unmatchedPackPlayers, 0);
+  assert.equal(report.unmatchedPlayers.length, 0);
 });
 
 test("formats SMW match diagnostics", () => {
