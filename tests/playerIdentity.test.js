@@ -5,6 +5,7 @@ import { clubSimilarity, matchIdentity, nameSimilarity, normaliseClub, normalise
 test("normalises common aliases", () => {
   assert.equal(normaliseName("Beto"), "gomes beto");
   assert.equal(normaliseName("M. Ødegaard"), "martin odegaard");
+  assert.equal(normaliseName("Pascal Groß"), "pascal gross");
   assert.equal(normaliseClub("Brighton"), "brighton hove albion");
   assert.equal(normaliseClub("AFC Bournemouth"), "bournemouth");
 });
@@ -38,5 +39,6 @@ test("uses club as supporting evidence for ambiguous surnames", () => {
 
 test("scores reordered and club aliases", () => {
   assert.ok(nameSimilarity("Alisson Becker", "Becker Alisson") >= 0.99);
+  assert.ok(nameSimilarity("Pascal Gross", "Pascal Groß") >= 0.99);
   assert.ok(clubSimilarity("Newcastle", "Newcastle United") >= 0.8);
 });
