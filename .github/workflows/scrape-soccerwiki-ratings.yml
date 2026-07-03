@@ -1,0 +1,56 @@
+name: Scrape SoccerWiki Ratings
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Comma-separated SoccerWiki rating/search URLs"
+        required: true
+        default: ""
+      output:
+        description: "Output CSV path"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      delayMs:
+        description: "Delay between requests"
+        required: true
+        default: "1500"
+      commitResults:
+        description: "Commit generated CSV back to repo"
+        required: true
+        default: "false"
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: npm test
+
+      - name: Scrape SoccerWiki ratings
+        run: npm run scrape:soccerwiki:ratings -- --urls="${{ github.event.inputs.urls }}" --output="${{ github.event.inputs.output }}" --delayMs="${{ github.event.inputs.delayMs }}"
+
+      - name: Upload ratings CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-ratings
+          path: ${{ github.event.inputs.output }}
+
+      - name: Commit ratings CSV
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}"
+          git commit -m "Update SoccerWiki rating calibration CSV" || echo "No changes to commit"
+          git push
