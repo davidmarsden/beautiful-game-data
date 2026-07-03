@@ -53,11 +53,30 @@ function summariseRows(rows) {
   };
 }
 
+function summariseRawRows(rows) {
+  return summariseRows(rows.map((row) => {
+    const error = Number(row.rawPrediction ?? row.predictedRating ?? 0) - Number(row.targetRating ?? 0);
+    return {
+      ...row,
+      error,
+      absoluteError: Math.abs(error)
+    };
+  }));
+}
+
 function summariseGroups(rows, keyFn) {
   return Object.fromEntries(
     [...groupBy(rows, keyFn).entries()]
       .sort(([a], [b]) => String(a).localeCompare(String(b)))
       .map(([key, groupRows]) => [key, summariseRows(groupRows)])
+  );
+}
+
+function summariseRawGroups(rows, keyFn) {
+  return Object.fromEntries(
+    [...groupBy(rows, keyFn).entries()]
+      .sort(([a], [b]) => String(a).localeCompare(String(b)))
+      .map(([key, groupRows]) => [key, summariseRawRows(groupRows)])
   );
 }
 
@@ -75,16 +94,21 @@ export function evaluateSmwRatingModel(model, options = {}) {
 
   return {
     meta: {
-      version: "smw-rating-evaluation-v1.0",
+      version: "smw-rating-evaluation-v1.1",
       evaluatedAt: new Date().toISOString(),
       modelVersion: model.meta?.version ?? null,
+      calibrated: Boolean(model.meta?.calibrated),
       examples: predictions.length,
       targetRows: model.meta?.targetRows ?? null,
-      ridge: model.meta?.ridge ?? null
+      ridge: model.meta?.ridge ?? null,
+      calibrationRidge: model.meta?.calibrationRidge ?? null
     },
+    rawOverall: summariseRawRows(predictions),
     overall: summariseRows(predictions),
     byPosition: summariseGroups(predictions, (row) => row.positionGroup ?? "UNK"),
+    rawByPosition: summariseRawGroups(predictions, (row) => row.positionGroup ?? "UNK"),
     byRatingBand: summariseGroups(predictions, (row) => ratingBand(row.targetRating)),
+    rawByRatingBand: summariseRawGroups(predictions, (row) => ratingBand(row.targetRating)),
     byMatchReason: summariseGroups(predictions, (row) => row.matchReason ?? "unknown"),
     clubMismatch: summariseRows(predictions.filter((row) => row.clubMismatch)),
     sameClub: summariseRows(predictions.filter((row) => !row.clubMismatch)),
@@ -95,6 +119,11 @@ export function evaluateSmwRatingModel(model, options = {}) {
 
 function percent(value) {
   return `${Math.round(Number(value ?? 0) * 100)}%`;
+}
+
+function signed(value) {
+  const numeric = Number(value ?? 0);
+  return numeric > 0 ? `+${round(numeric)}` : String(round(numeric));
 }
 
 function formatSummaryRow(name, summary) {
@@ -109,11 +138,25 @@ function formatSummaryRow(name, summary) {
   ].join(" ");
 }
 
+function formatRawVsCalibratedRow(name, rawSummary, calibratedSummary) {
+  return [
+    String(name).padEnd(18, " "),
+    String(calibratedSummary.count).padStart(5, " "),
+    String(rawSummary.mae).padStart(7, " "),
+    String(calibratedSummary.mae).padStart(7, " "),
+    signed(calibratedSummary.mae - rawSummary.mae).padStart(8, " "),
+    String(rawSummary.meanError).padStart(8, " "),
+    String(calibratedSummary.meanError).padStart(8, " "),
+    percent(calibratedSummary.withinOne).padStart(8, " ")
+  ].join(" ");
+}
+
 function formatMiss(row) {
   return [
     String(row.playerName ?? "").padEnd(24, " "),
     String(row.clubName ?? "").padEnd(24, " "),
     String(row.positionGroup ?? "").padEnd(3, " "),
+    String(row.rawPrediction ?? "").padStart(5, " "),
     String(row.predictedRating ?? "").padStart(5, " "),
     String(row.targetRating ?? "").padStart(3, " "),
     String(row.error ?? "").padStart(7, " "),
@@ -125,16 +168,25 @@ export function formatSmwRatingEvaluationReport(evaluation) {
   const lines = [
     "# SMW Rating Calibration",
     `Players evaluated: ${evaluation.overall.count}`,
-    `Overall MAE: ${evaluation.overall.mae}`,
+    `Calibrated: ${evaluation.meta.calibrated ? "yes" : "no"}`,
+    `Raw MAE: ${evaluation.rawOverall.mae}`,
+    `Calibrated MAE: ${evaluation.overall.mae}`,
+    `MAE change: ${signed(evaluation.overall.mae - evaluation.rawOverall.mae)}`,
     `Median absolute error: ${evaluation.overall.medianAbsoluteError}`,
     `Max absolute error: ${evaluation.overall.maxAbsoluteError}`,
     `Within 1 rating point: ${percent(evaluation.overall.withinOne)}`,
     `Within 2 rating points: ${percent(evaluation.overall.withinTwo)}`,
     "",
-    "## By position",
-    "Group              Count     MAE  MeanErr     Med     Max  Within1"
+    "## Raw vs calibrated by position",
+    "Group              Count  RawMAE  CalMAE   Change   RawErr   CalErr  Within1"
   ];
 
+  for (const [group, summary] of Object.entries(evaluation.byPosition)) lines.push(formatRawVsCalibratedRow(group, evaluation.rawByPosition[group], summary));
+
+  lines.push("", "## Raw vs calibrated by SMW rating band", "Band               Count  RawMAE  CalMAE   Change   RawErr   CalErr  Within1");
+  for (const [band, summary] of Object.entries(evaluation.byRatingBand)) lines.push(formatRawVsCalibratedRow(band, evaluation.rawByRatingBand[band], summary));
+
+  lines.push("", "## By position", "Group              Count     MAE  MeanErr     Med     Max  Within1");
   for (const [group, summary] of Object.entries(evaluation.byPosition)) lines.push(formatSummaryRow(group, summary));
 
   lines.push("", "## By SMW rating band", "Band               Count     MAE  MeanErr     Med     Max  Within1");
@@ -143,10 +195,10 @@ export function formatSmwRatingEvaluationReport(evaluation) {
   lines.push("", "## By match reason", "Reason             Count     MAE  MeanErr     Med     Max  Within1");
   for (const [reason, summary] of Object.entries(evaluation.byMatchReason)) lines.push(formatSummaryRow(reason, summary));
 
-  lines.push("", "## Biggest over-ratings", "Player                   Club                     Pos  Pred SMW    Diff Reason");
+  lines.push("", "## Biggest over-ratings", "Player                   Club                     Pos   Raw  Pred SMW    Diff Reason");
   for (const row of evaluation.overRated.slice(0, 15)) lines.push(formatMiss(row));
 
-  lines.push("", "## Biggest under-ratings", "Player                   Club                     Pos  Pred SMW    Diff Reason");
+  lines.push("", "## Biggest under-ratings", "Player                   Club                     Pos   Raw  Pred SMW    Diff Reason");
   for (const row of evaluation.underRated.slice(0, 15)) lines.push(formatMiss(row));
 
   return lines.join("\n");
