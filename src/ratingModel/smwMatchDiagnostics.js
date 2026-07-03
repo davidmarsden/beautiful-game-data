@@ -1,13 +1,44 @@
-function normaliseName(value) {
+const CLUB_ALIASES = new Map([
+  ["manchester utd", "manchester united"],
+  ["man utd", "manchester united"],
+  ["man united", "manchester united"],
+  ["brighton", "brighton hove albion"],
+  ["brighton hove", "brighton hove albion"],
+  ["tottenham", "tottenham hotspur"],
+  ["spurs", "tottenham hotspur"],
+  ["bournemouth", "bournemouth"],
+  ["afc bournemouth", "bournemouth"],
+  ["newcastle", "newcastle united"],
+  ["west ham", "west ham united"],
+  ["nottingham forest", "nottingham forest"],
+  ["wolves", "wolverhampton wanderers"],
+  ["wolverhampton", "wolverhampton wanderers"]
+]);
+
+function normaliseText(value) {
   return String(value ?? "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/&apos;/g, "'")
     .replace(/&#39;/g, "'")
-    .replace(/\b(fc|afc|cf|sc|sk|calcio|club|united fc|city fc)\b/g, " ")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+}
+
+function normaliseName(value) {
+  return normaliseText(value)
+    .replace(/\b(fc|afc|cf|sc|sk|calcio|club)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normaliseClub(value) {
+  const clean = normaliseText(value)
+    .replace(/\b(fc|afc|cf|sc|sk|calcio|club)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return CLUB_ALIASES.get(clean) ?? clean;
 }
 
 function compactName(value) {
@@ -16,6 +47,20 @@ function compactName(value) {
 
 function nameTokens(value) {
   return normaliseName(value).split(/\s+/).filter(Boolean);
+}
+
+function nameParts(value) {
+  const tokens = nameTokens(value);
+  const first = tokens[0] ?? "";
+  const last = tokens.at(-1) ?? "";
+  const initial = first ? first[0] : "";
+  return { tokens, first, last, initial };
+}
+
+function isInitialSurnameMatch(a, b) {
+  const left = nameParts(a);
+  const right = nameParts(b);
+  return Boolean(left.last && right.last && left.last === right.last && left.initial && right.initial && left.initial === right.initial);
 }
 
 function targetName(row) {
@@ -39,6 +84,8 @@ function playerRating(player) {
 }
 
 function similarity(a, b) {
+  if (isInitialSurnameMatch(a, b)) return 0.92;
+
   const aTokens = new Set(nameTokens(a));
   const bTokens = new Set(nameTokens(b));
   if (!aTokens.size || !bTokens.size) return 0;
@@ -54,16 +101,16 @@ function similarity(a, b) {
 
 function clubSimilarity(a, b) {
   if (!a || !b) return 0;
-  const normalA = normaliseName(a);
-  const normalB = normaliseName(b);
+  const normalA = normaliseClub(a);
+  const normalB = normaliseClub(b);
   if (normalA === normalB) return 1;
   if (normalA.includes(normalB) || normalB.includes(normalA)) return 0.8;
-  return similarity(a, b);
+  return similarity(normalA, normalB);
 }
 
 function exactKey(name, club = "") {
   const nameKey = normaliseName(name);
-  const clubKey = normaliseName(club);
+  const clubKey = normaliseClub(club);
   return clubKey ? `${nameKey}|${clubKey}` : nameKey;
 }
 
@@ -82,11 +129,25 @@ function buildTargetMaps(targetRows) {
   return { byNameClub, byName };
 }
 
-function exactMatch(player, maps) {
+function bestLikelyMatch(player, targets) {
+  const [best, second] = likelyMatches(player, targets, 2);
+  if (!best) return null;
+
+  const sameClub = clubSimilarity(playerClub(player), best.club) >= 0.8;
+  const initialSurname = isInitialSurnameMatch(player.name, best.name);
+  const strongName = best.nameScore >= 0.82;
+  const clearlyBest = !second || best.score - second.score >= 0.15;
+
+  if (sameClub && (initialSurname || strongName) && best.score >= 0.72 && clearlyBest) return best;
+  return null;
+}
+
+function exactMatch(player, maps, targets) {
   const club = playerClub(player);
   const name = player.name;
   if (club && maps.byNameClub.has(exactKey(name, club))) return maps.byNameClub.get(exactKey(name, club));
-  return maps.byName.get(exactKey(name)) ?? null;
+  if (maps.byName.has(exactKey(name))) return maps.byName.get(exactKey(name));
+  return bestLikelyMatch(player, targets);
 }
 
 function likelyMatches(player, targets, limit) {
@@ -115,7 +176,7 @@ export function diagnoseSmwPlayerMatches(pack, targetRows, options = {}) {
   const matchedTargetKeys = new Set();
 
   for (const player of players) {
-    const target = exactMatch(player, maps);
+    const target = exactMatch(player, maps, targets);
     if (target) {
       matched.push({
         playerId: player.id,
