@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       season:
-        description: "Season starting year"
+        description: "Season starting year, e.g. 2025 for 2025/26"
         required: true
-        default: "2024"
+        default: "2025"
       league:
         description: "API-Football league id"
         required: true
