@@ -1,0 +1,76 @@
+name: Evaluate SMW Rating Model
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season starting year, e.g. 2025 for 2025/26"
+        required: true
+        default: "2025"
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+      output:
+        description: "Output JSON report"
+        required: true
+        default: "calibration/smw-rating-evaluation.json"
+      ridge:
+        description: "Ridge regularisation value"
+        required: true
+        default: "1"
+      minTrainingConfidence:
+        description: "Minimum identity confidence for training/evaluation examples"
+        required: true
+        default: "0.95"
+      excludeClubMismatches:
+        description: "Exclude matches where API club and SoccerWiki club differ"
+        required: true
+        default: "false"
+      commitResults:
+        description: "Commit evaluation reports back to repo"
+        required: true
+        default: "false"
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: npm test
+
+      - name: Evaluate SMW rating model
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.season }}.json"
+          npm run evaluate:smw-rating-model -- --pack="$PACK" --targets="${{ github.event.inputs.targetsPath }}" --output="${{ github.event.inputs.output }}" --report="calibration/smw-rating-evaluation.md" --ridge="${{ github.event.inputs.ridge }}" --minTrainingConfidence="${{ github.event.inputs.minTrainingConfidence }}" --excludeClubMismatches="${{ github.event.inputs.excludeClubMismatches }}"
+
+      - name: Upload SMW rating evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-rating-evaluation
+          path: |
+            ${{ github.event.inputs.output }}
+            calibration/smw-rating-evaluation.md
+
+      - name: Commit SMW rating evaluation
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}" calibration/smw-rating-evaluation.md
+          git commit -m "Evaluate SMW rating model" || echo "No changes to commit"
+          git push
