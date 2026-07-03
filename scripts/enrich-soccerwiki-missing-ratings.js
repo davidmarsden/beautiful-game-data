@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { parseSoccerWikiRatingsHtml, ratingsToCsv } from "../src/soccerwiki/scrapeRatings.js";
-import { matchIdentity, normaliseName, playerClubKey, playerIdentityKey } from "../src/ratingModel/playerIdentity.js";
+import { matchIdentity, normaliseClub, normaliseName, playerClubKey, playerIdentityKey } from "../src/ratingModel/playerIdentity.js";
 
 function parseArgs(argv) {
   const args = {};
@@ -104,12 +104,46 @@ async function fetchText(url, options = {}) {
   return response.text();
 }
 
+function tokens(value) {
+  return normaliseName(value).split(/\s+/).filter(Boolean);
+}
+
+function rescueScore(player, row) {
+  const playerTokens = tokens(player.name);
+  const rowTokens = tokens(row.name);
+  const playerClubName = normaliseClub(playerClub(player));
+  const rowClubName = normaliseClub(row.club);
+  const sameClub = Boolean(playerClubName && rowClubName && playerClubName === rowClubName);
+  const playerLast = playerTokens.at(-1);
+  const rowLast = rowTokens.at(-1);
+  const surnameMatch = Boolean(playerLast && rowTokens.includes(playerLast)) || Boolean(rowLast && playerTokens.includes(rowLast));
+  const firstMatch = Boolean(playerTokens[0] && rowTokens[0] && playerTokens[0][0] === rowTokens[0][0]);
+  const tokenOverlap = playerTokens.filter((token) => rowTokens.includes(token)).length;
+
+  let score = 0;
+  if (sameClub) score += 0.45;
+  if (surnameMatch) score += 0.35;
+  if (firstMatch) score += 0.15;
+  if (tokenOverlap) score += Math.min(0.25, tokenOverlap * 0.1);
+  if (Number(row.smwRating ?? 0) >= 80) score += 0.05;
+  return score;
+}
+
+function rescueSearchResult(player, rows) {
+  const ranked = rows
+    .map((row) => ({ ...row, rescueScore: rescueScore(player, row) }))
+    .filter((row) => row.rescueScore >= 0.55)
+    .sort((a, b) => b.rescueScore - a.rescueScore || Number(b.smwRating ?? 0) - Number(a.smwRating ?? 0));
+  return ranked[0] ?? null;
+}
+
 function bestSearchResult(player, rows, options = {}) {
-  return matchIdentity(
+  const identity = matchIdentity(
     { name: player.name, club: playerClub(player) },
     rows,
     { minConfidence: Number(options.minConfidence ?? 0.85), clubTieBreakConfidence: Number(options.clubTieBreakConfidence ?? 0.85) }
   ).match;
+  return identity ?? rescueSearchResult(player, rows);
 }
 
 function mergeRows(existingRows, newRows) {
