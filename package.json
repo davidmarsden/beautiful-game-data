@@ -12,7 +12,8 @@
     "derive:players": "node scripts/derive-players-from-snapshot.js",
     "derive:clubs": "node scripts/derive-clubs-from-league.js",
     "export:league-pack": "node scripts/export-league-pack.js",
-    "scrape:soccerwiki:ratings": "node scripts/scrape-soccerwiki-ratings.js"
+    "scrape:soccerwiki:ratings": "node scripts/scrape-soccerwiki-ratings.js",
+    "train:smw-rating-model": "node scripts/train-smw-rating-model.js"
   },
   "engines": {
     "node": ">=20"
