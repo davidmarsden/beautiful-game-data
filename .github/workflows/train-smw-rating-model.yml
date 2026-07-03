@@ -1,0 +1,66 @@
+name: Train SMW Rating Model
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season starting year"
+        required: true
+        default: "2024"
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "Path to SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      output:
+        description: "Output model JSON path"
+        required: true
+        default: "calibration/smw-rating-model.json"
+      ridge:
+        description: "Ridge regularisation strength"
+        required: true
+        default: "1"
+      commitResults:
+        description: "Commit generated model back to repo"
+        required: true
+        default: "false"
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: npm test
+
+      - name: Train SMW rating model
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.season }}.json"
+          npm run train:smw-rating-model -- --pack="$PACK" --targets="${{ github.event.inputs.targetsPath }}" --output="${{ github.event.inputs.output }}" --ridge="${{ github.event.inputs.ridge }}"
+
+      - name: Upload SMW rating model
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-rating-model
+          path: ${{ github.event.inputs.output }}
+
+      - name: Commit SMW rating model
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}"
+          git commit -m "Update SMW rating model" || echo "No changes to commit"
+          git push
