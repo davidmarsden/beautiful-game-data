@@ -1,0 +1,72 @@
+name: Enrich SoccerWiki Missing Ratings
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season starting year, e.g. 2025 for 2025/26"
+        required: true
+        default: "2025"
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "Existing SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      output:
+        description: "Output enriched SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+      minModelRating:
+        description: "Only search missing API players at or above this current model rating"
+        required: true
+        default: "83"
+      limit:
+        description: "Maximum missing players to search"
+        required: true
+        default: "80"
+      commitResults:
+        description: "Commit enriched CSV back to repo"
+        required: true
+        default: "false"
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: npm test
+
+      - name: Enrich missing SoccerWiki ratings
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.season }}.json"
+          npm run enrich:soccerwiki:missing-ratings -- --pack="$PACK" --targets="${{ github.event.inputs.targetsPath }}" --output="${{ github.event.inputs.output }}" --minModelRating="${{ github.event.inputs.minModelRating }}" --limit="${{ github.event.inputs.limit }}" --report="calibration/smw-ratings-enrichment-report.json"
+
+      - name: Upload enriched SoccerWiki ratings
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-ratings-enriched
+          path: |
+            ${{ github.event.inputs.output }}
+            calibration/smw-ratings-enrichment-report.json
+
+      - name: Commit enriched SoccerWiki ratings
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}" calibration/smw-ratings-enrichment-report.json
+          git commit -m "Enrich SoccerWiki ratings" || echo "No changes to commit"
+          git push
