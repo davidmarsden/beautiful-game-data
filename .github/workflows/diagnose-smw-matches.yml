@@ -1,0 +1,49 @@
+name: Diagnose SMW Matches
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season starting year"
+        required: true
+        default: "2024"
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "Path to SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      limit:
+        description: "Rows to show in each diagnostics section"
+        required: true
+        default: "80"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: npm test
+
+      - name: Diagnose SMW matches
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.season }}.json"
+          npm run diagnose:smw-matches -- --pack="$PACK" --targets="${{ github.event.inputs.targetsPath }}" --limit="${{ github.event.inputs.limit }}" --json="calibration/smw-match-diagnostics.json" --text="calibration/smw-match-diagnostics.md"
+
+      - name: Upload SMW match diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-match-diagnostics
+          path: |
+            calibration/smw-match-diagnostics.json
+            calibration/smw-match-diagnostics.md
