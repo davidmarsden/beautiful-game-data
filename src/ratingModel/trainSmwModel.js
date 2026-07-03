@@ -1,4 +1,4 @@
-import { matchIdentity, playerClubKey, playerIdentityKey } from "./playerIdentity.js";
+import { matchIdentity, playerClubKey, playerIdentityKey, targetIdentityKey } from "./playerIdentity.js";
 
 function round(value, digits = 4) {
   return Number(Number(value ?? 0).toFixed(digits));
@@ -31,6 +31,7 @@ function targetIndex(targetRows) {
     const rating = ratingFromTarget(row);
     if (!name || rating <= 0) continue;
     const target = { name, club, rating, raw: row };
+    target.identityKey = targetIdentityKey(target);
     targets.push(target);
     if (club) byNameClub.set(playerClubKey(name, club), target);
     if (!byName.has(playerIdentityKey(name))) byName.set(playerIdentityKey(name), target);
@@ -42,23 +43,68 @@ function playerClub(player) {
   return player.team?.name ?? player.clubName ?? player.teamName ?? "";
 }
 
-function matchTarget(player, index, options = {}) {
+function candidateMatches(player, index, options = {}) {
   const name = player.name;
   const club = playerClub(player);
+  const candidates = [];
+
   if (club && index.byNameClub.has(playerClubKey(name, club))) {
     const target = index.byNameClub.get(playerClubKey(name, club));
-    return { ...target, confidence: 1, reason: "exact-name-club", clubMismatch: false };
+    candidates.push({ ...target, confidence: 1, reason: "exact-name-club", clubMismatch: false });
   }
 
-  const result = matchIdentity({ name, club }, index.targets, options);
-  if (result.match) return result.match;
+  candidates.push(...matchIdentity({ name, club }, index.targets, { ...options, minConfidence: 2 }).candidates);
 
   if (index.byName.has(playerIdentityKey(name))) {
     const target = index.byName.get(playerIdentityKey(name));
-    return { ...target, confidence: 1, reason: "exact-name", clubMismatch: true };
+    candidates.push({ ...target, confidence: 1, reason: "exact-name", clubMismatch: true });
   }
 
-  return null;
+  const byTarget = new Map();
+  for (const candidate of candidates) {
+    const key = targetIdentityKey(candidate);
+    const current = byTarget.get(key);
+    if (!current || candidate.confidence > current.confidence || candidate.clubScore > current.clubScore) {
+      byTarget.set(key, { ...candidate, identityKey: key });
+    }
+  }
+
+  return [...byTarget.values()].sort((a, b) => b.confidence - a.confidence || b.clubScore - a.clubScore || b.nameScore - a.nameScore || String(a.name).localeCompare(String(b.name)));
+}
+
+function selectOneToOneMatches(players, index, options = {}) {
+  const proposals = [];
+  for (const player of players) {
+    for (const target of candidateMatches(player, index, options)) {
+      if (Number(target.confidence ?? 0) < Number(options.minTrainingConfidence ?? 0.95)) continue;
+      if (options.excludeClubMismatches && target.clubMismatch) continue;
+      proposals.push({
+        player,
+        target,
+        targetKey: targetIdentityKey(target),
+        confidence: target.confidence ?? 1,
+        clubScore: target.clubScore ?? 0,
+        nameScore: target.nameScore ?? 0
+      });
+    }
+  }
+
+  proposals.sort((a, b) => b.confidence - a.confidence || b.clubScore - a.clubScore || b.nameScore - a.nameScore || playerRating(b.player) - playerRating(a.player));
+
+  const usedPlayers = new Set();
+  const usedTargets = new Set();
+  const matches = [];
+  for (const proposal of proposals) {
+    if (usedPlayers.has(proposal.player.id) || usedTargets.has(proposal.targetKey)) continue;
+    usedPlayers.add(proposal.player.id);
+    usedTargets.add(proposal.targetKey);
+    matches.push(proposal);
+  }
+  return matches;
+}
+
+function playerRating(player) {
+  return Number(player.ratings?.effectiveMatchRating ?? player.ratings?.ability ?? player.ability ?? player.rating ?? 0);
 }
 
 function positionGroup(player) {
@@ -194,15 +240,14 @@ export function trainSmwRatingModel(pack, targetRows, options = {}) {
   const examples = [];
   const matchOptions = {
     minConfidence: Number(options.minConfidence ?? 0.95),
-    clubTieBreakConfidence: Number(options.clubTieBreakConfidence ?? 0.85)
+    minTrainingConfidence: Number(options.minTrainingConfidence ?? 0.95),
+    clubTieBreakConfidence: Number(options.clubTieBreakConfidence ?? 0.85),
+    excludeClubMismatches: Boolean(options.excludeClubMismatches)
   };
 
-  for (const player of Object.values(pack.players ?? {})) {
-    const target = matchTarget(player, index, matchOptions);
-    if (!target) continue;
-    if (options.excludeClubMismatches && target.clubMismatch) continue;
-    if (Number(target.confidence ?? 1) < Number(options.minTrainingConfidence ?? 0.95)) continue;
+  const selectedMatches = selectOneToOneMatches(Object.values(pack.players ?? {}), index, matchOptions);
 
+  for (const { player, target } of selectedMatches) {
     const features = playerFeatureObject(player);
     examples.push({
       playerId: player.id,
@@ -248,7 +293,7 @@ export function trainSmwRatingModel(pack, targetRows, options = {}) {
 
   return {
     meta: {
-      version: "smw-rating-model-v0.2",
+      version: "smw-rating-model-v0.3",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       targetRows: targetRows.length,
