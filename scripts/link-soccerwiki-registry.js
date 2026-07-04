@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { access, readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import { createPlayerIdentityResolver, normaliseName } from "../src/identity/playerIdentityResolver.js";
 
@@ -9,6 +9,15 @@ function parseArgs(argv) {
     args[key] = value ?? true;
   }
   return args;
+}
+
+async function exists(path) {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function parseCsvLine(line) {
@@ -44,6 +53,11 @@ function parseCsv(text) {
 async function loadRows(path) {
   const text = await readFile(path, "utf8");
   return path.endsWith(".json") ? JSON.parse(text) : parseCsv(text);
+}
+
+async function loadOptionalRows(path) {
+  if (!path || !(await exists(path))) return [];
+  return loadRows(path);
 }
 
 function csvEscape(value) {
@@ -91,6 +105,26 @@ function queryFromSoccerWikiRow(row) {
     position: soccerwikiPosition(row),
     soccerwiki_id: soccerwikiId(row)
   };
+}
+
+function exclusionKey(name, club = "") {
+  return `${normaliseName(name)}|${normaliseName(club)}`;
+}
+
+function buildExclusionMap(rows) {
+  const map = new Map();
+  for (const row of rows) {
+    const name = row.name || row.player_name || row.soccerwiki_name || "";
+    const club = row.club || row.soccerwiki_club || row.team || "";
+    if (!name) continue;
+    map.set(exclusionKey(name, club), row);
+    map.set(exclusionKey(name, ""), row);
+  }
+  return map;
+}
+
+function findExclusion(map, row) {
+  return map.get(exclusionKey(soccerwikiName(row), soccerwikiClub(row))) || map.get(exclusionKey(soccerwikiName(row), "")) || null;
 }
 
 function shouldAutoLink(resolution, threshold) {
@@ -161,6 +195,7 @@ const args = parseArgs(process.argv.slice(2));
 const registryPath = args.registry ?? "data/players/player-registry.json";
 const registryCsvPath = args.registryCsv ?? "data/players/player-registry.csv";
 const soccerwikiPath = args.soccerwiki ?? args.input ?? "calibration/smw-ratings-enriched.csv";
+const outOfScopePath = args.outOfScope ?? "calibration/soccerwiki-out-of-scope.json";
 const reportPath = args.report ?? "calibration/soccerwiki-link-report.json";
 const reportCsvPath = args.reportCsv ?? reportPath.replace(/\.json$/i, ".csv");
 const autoThreshold = args.autoThreshold ? Number(args.autoThreshold) : 0.9;
@@ -168,6 +203,8 @@ const writeRegistry = args.writeRegistry !== "false";
 
 const registry = await loadRows(registryPath);
 const soccerwikiRows = await loadRows(soccerwikiPath);
+const outOfScopeRows = await loadOptionalRows(outOfScopePath);
+const outOfScopeMap = buildExclusionMap(outOfScopeRows);
 const resolver = createPlayerIdentityResolver(registry);
 
 const reportRows = [];
@@ -175,7 +212,14 @@ const autoLinks = [];
 
 for (const swRow of soccerwikiRows) {
   const resolution = resolver.resolve(queryFromSoccerWikiRow(swRow));
-  const bucket = shouldAutoLink(resolution, autoThreshold) ? "auto_link" : resolution.ambiguous ? "review" : "unmatched";
+  const exclusion = findExclusion(outOfScopeMap, swRow);
+  const bucket = shouldAutoLink(resolution, autoThreshold)
+    ? "auto_link"
+    : exclusion
+      ? "out_of_scope_loan"
+      : resolution.ambiguous
+        ? "review"
+        : "unmatched_in_scope";
   const row = {
     bucket,
     soccerwiki_name: soccerwikiName(swRow),
@@ -192,7 +236,7 @@ for (const swRow of soccerwikiRows) {
     current_club: resolution.current_club,
     position: resolution.position,
     date_of_birth: resolution.date_of_birth,
-    reasons: (resolution.reasons ?? []).join("; "),
+    reasons: exclusion?.reason || (resolution.reasons ?? []).join("; "),
     candidates: resolution.candidates ?? []
   };
   reportRows.push(row);
@@ -210,11 +254,17 @@ const summary = {
   soccerwiki_rows: soccerwikiRows.length,
   auto_linked: autoLinks.length,
   review: reportRows.filter((row) => row.bucket === "review").length,
-  unmatched: reportRows.filter((row) => row.bucket === "unmatched").length,
+  out_of_scope_loan: reportRows.filter((row) => row.bucket === "out_of_scope_loan").length,
+  actionable_unmatched: reportRows.filter((row) => row.bucket === "unmatched_in_scope").length,
   auto_threshold: autoThreshold,
+  out_of_scope_path: outOfScopePath,
   generated_at: new Date().toISOString(),
   by_method: reportRows.reduce((acc, row) => {
     acc[row.method] = (acc[row.method] ?? 0) + 1;
+    return acc;
+  }, {}),
+  by_bucket: reportRows.reduce((acc, row) => {
+    acc[row.bucket] = (acc[row.bucket] ?? 0) + 1;
     return acc;
   }, {})
 };
