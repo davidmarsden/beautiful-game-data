@@ -16,6 +16,7 @@
     "enrich:soccerwiki:missing-ratings": "node scripts/enrich-soccerwiki-missing-ratings.js",
     "train:smw-rating-model": "node scripts/train-smw-rating-model.js",
     "evaluate:smw-rating-model": "node scripts/evaluate-smw-rating-model.js",
+    "fetch:transfermarkt:apify": "node scripts/fetch-apify-transfermarkt-values.js"
     "diagnose:smw-matches": "node scripts/diagnose-smw-matches.js"
   },
   "engines": {
