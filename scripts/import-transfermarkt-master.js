@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { access, readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 
 function parseArgs(argv) {
@@ -8,6 +8,15 @@ function parseArgs(argv) {
     args[key] = value ?? true;
   }
   return args;
+}
+
+async function exists(path) {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function csvEscape(value) {
@@ -63,10 +72,11 @@ function buildMasterRecord(row) {
   const careerHistory = asArray(row.career_history).map(String).filter(Boolean);
   const injuries = asArray(row.injuries).map(String).filter(Boolean);
   const suspensions = asArray(row.suspensions).map(String).filter(Boolean);
+  const transfermarktId = String(row.transfermarkt_id ?? row.player_id ?? "");
 
   return {
-    player_id: String(row.player_id ?? ""),
-    transfermarkt_id: String(row.player_id ?? ""),
+    player_id: transfermarktId,
+    transfermarkt_id: transfermarktId,
     profile_url: row.profile_url || "",
     full_name: row.full_name || displayName,
     display_name: displayName,
@@ -113,7 +123,7 @@ function buildMasterRecord(row) {
     suspensions,
     photo_url: row.photo_url || "",
     scraped_at: row.scraped_at || "",
-    source: "apify-transfermarkt-global-player-scraper"
+    source: row.source || "apify-transfermarkt-global-player-scraper"
   };
 }
 
@@ -128,7 +138,9 @@ function dedupe(records) {
     }
     const existingValue = existing.market_value_eur ?? 0;
     const nextValue = record.market_value_eur ?? 0;
-    if (nextValue > existingValue) byId.set(key, record);
+    const existingScrapedAt = Date.parse(existing.scraped_at || "") || 0;
+    const nextScrapedAt = Date.parse(record.scraped_at || "") || 0;
+    if (nextScrapedAt > existingScrapedAt || (nextScrapedAt === existingScrapedAt && nextValue >= existingValue)) byId.set(key, record);
   }
   return [...byId.values()].sort((a, b) => {
     const clubCompare = String(a.current_club).localeCompare(String(b.current_club));
@@ -187,18 +199,21 @@ function buildSummary(records) {
 
 const args = parseArgs(process.argv.slice(2));
 if (!args.input) {
-  console.error("Usage: node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-dataset.json --masterJson=data/transfermarkt/players-master.json --masterCsv=data/transfermarkt/players-master.csv --valuesCsv=calibration/transfermarkt-values.csv");
+  console.error("Usage: node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-dataset.json --masterJson=data/transfermarkt/players-master.json --masterCsv=data/transfermarkt/players-master.csv --valuesCsv=calibration/transfermarkt-values.csv [--mergeExisting=true]");
   process.exit(1);
 }
-
-const input = JSON.parse(await readFile(args.input, "utf8"));
-const rows = Array.isArray(input) ? input : input.items || input.data || [];
-const records = dedupe(rows.map(buildMasterRecord).filter((record) => record.display_name && record.market_value_eur));
 
 const masterJsonPath = args.masterJson ?? "data/transfermarkt/players-master.json";
 const masterCsvPath = args.masterCsv ?? "data/transfermarkt/players-master.csv";
 const valuesCsvPath = args.valuesCsv ?? "calibration/transfermarkt-values.csv";
 const summaryPath = args.summary ?? "data/transfermarkt/players-master-summary.json";
+const mergeExisting = args.mergeExisting === true || args.mergeExisting === "true";
+
+const input = JSON.parse(await readFile(args.input, "utf8"));
+const rows = Array.isArray(input) ? input : input.items || input.data || [];
+const importedRecords = rows.map(buildMasterRecord).filter((record) => record.display_name && record.market_value_eur);
+const existingRecords = mergeExisting && await exists(masterJsonPath) ? JSON.parse(await readFile(masterJsonPath, "utf8")) : [];
+const records = dedupe([...existingRecords, ...importedRecords]);
 
 for (const path of [masterJsonPath, masterCsvPath, valuesCsvPath, summaryPath]) {
   await mkdir(dirname(path), { recursive: true });
@@ -252,7 +267,9 @@ await writeFile(valuesCsvPath, writeCsv(valueRows, valueHeaders), "utf8");
 
 await writeFile(summaryPath, JSON.stringify(buildSummary(records), null, 2) + "\n", "utf8");
 
-console.log(`Imported ${records.length} Transfermarkt player record(s).`);
+console.log(`Imported ${importedRecords.length} Transfermarkt player record(s).`);
+if (mergeExisting) console.log(`Merged into ${existingRecords.length} existing Transfermarkt player record(s).`);
+console.log(`Wrote ${records.length} total master record(s).`);
 console.log(`Wrote master JSON: ${masterJsonPath}`);
 console.log(`Wrote master CSV: ${masterCsvPath}`);
 console.log(`Wrote rating-compatible values CSV: ${valuesCsvPath}`);
