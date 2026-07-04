@@ -1,0 +1,178 @@
+name: TBG Data Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      updateTransfermarkt:
+        description: "Fetch Transfermarkt players from Apify and rebuild master files"
+        required: true
+        default: "true"
+      buildRegistry:
+        description: "Build permanent player registry from Transfermarkt master"
+        required: true
+        default: "true"
+      linkSoccerWiki:
+        description: "Link SoccerWiki ratings to player registry"
+        required: true
+        default: "true"
+      runEvaluation:
+        description: "Run SMW rating model evaluation"
+        required: true
+        default: "false"
+      commitResults:
+        description: "Commit generated outputs back to repo"
+        required: true
+        default: "true"
+      actor:
+        description: "Apify Transfermarkt actor id"
+        required: true
+        default: "jungle_synthesizer/transfermarkt-global-football-player-scraper"
+      mode:
+        description: "players for player scraper, generic for page scraper"
+        required: true
+        default: "players"
+      competitionCodes:
+        description: "Comma-separated Transfermarkt competition codes"
+        required: true
+        default: "GB1"
+      maxItems:
+        description: "Maximum player records to fetch"
+        required: true
+        default: "1000"
+      apiSeason:
+        description: "API-Football season starting year for optional evaluation"
+        required: true
+        default: "2025"
+      league:
+        description: "API-Football league id for optional evaluation"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+      autoThreshold:
+        description: "SoccerWiki auto-link confidence threshold"
+        required: true
+        default: "0.90"
+
+jobs:
+  data-pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      VALUES_CSV: calibration/transfermarkt-values.csv
+      TM_DATASET_JSON: calibration/apify-transfermarkt-dataset.json
+      TM_MASTER_JSON: data/transfermarkt/players-master.json
+      TM_MASTER_CSV: data/transfermarkt/players-master.csv
+      TM_MASTER_SUMMARY: data/transfermarkt/players-master-summary.json
+      REGISTRY_JSON: data/players/player-registry.json
+      REGISTRY_CSV: data/players/player-registry.csv
+      REGISTRY_SUMMARY: data/players/player-registry-summary.json
+      SW_LINK_REPORT: calibration/soccerwiki-link-report.json
+      SW_LINK_REPORT_CSV: calibration/soccerwiki-link-report.csv
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Fetch Transfermarkt data from Apify
+        if: ${{ github.event.inputs.updateTransfermarkt == 'true' }}
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "Missing APIFY_TOKEN repository secret."
+            exit 1
+          fi
+          npm run fetch:transfermarkt:apify -- \
+            --actor="${{ github.event.inputs.actor }}" \
+            --mode="${{ github.event.inputs.mode }}" \
+            --competitionCodes="${{ github.event.inputs.competitionCodes }}" \
+            --maxItems="${{ github.event.inputs.maxItems }}" \
+            --output="$TM_DATASET_JSON"
+
+      - name: Import Apify dataset into Transfermarkt master database
+        if: ${{ github.event.inputs.updateTransfermarkt == 'true' }}
+        run: |
+          npm run import:transfermarkt:master -- \
+            --input="$TM_DATASET_JSON" \
+            --masterJson="$TM_MASTER_JSON" \
+            --masterCsv="$TM_MASTER_CSV" \
+            --valuesCsv="$VALUES_CSV" \
+            --summary="$TM_MASTER_SUMMARY"
+
+      - name: Build permanent player registry
+        if: ${{ github.event.inputs.buildRegistry == 'true' }}
+        run: |
+          npm run build:player-registry -- \
+            --transfermarkt="$TM_MASTER_JSON" \
+            --registryJson="$REGISTRY_JSON" \
+            --registryCsv="$REGISTRY_CSV" \
+            --summary="$REGISTRY_SUMMARY"
+
+      - name: Link SoccerWiki rows to player registry
+        if: ${{ github.event.inputs.linkSoccerWiki == 'true' }}
+        run: |
+          npm run link:soccerwiki-registry -- \
+            --registry="$REGISTRY_JSON" \
+            --registryCsv="$REGISTRY_CSV" \
+            --soccerwiki="${{ github.event.inputs.targetsPath }}" \
+            --report="$SW_LINK_REPORT" \
+            --reportCsv="$SW_LINK_REPORT_CSV" \
+            --autoThreshold="${{ github.event.inputs.autoThreshold }}" \
+            --writeRegistry="true"
+
+      - name: Evaluate SMW rating model
+        if: ${{ github.event.inputs.runEvaluation == 'true' }}
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.apiSeason }}.json"
+          npm run evaluate:smw-rating-model -- \
+            --pack="$PACK" \
+            --targets="${{ github.event.inputs.targetsPath }}" \
+            --marketValues="$VALUES_CSV" \
+            --output="calibration/smw-rating-evaluation.json" \
+            --report="calibration/smw-rating-evaluation.md" \
+            --marketImpactOutput="calibration/smw-rating-evaluation-market-impact.json" \
+            --marketImpactReport="calibration/smw-rating-evaluation-market-impact.md"
+
+      - name: Upload data pipeline outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-data-pipeline-output
+          path: |
+            calibration/transfermarkt-values.csv
+            calibration/apify-transfermarkt-dataset.json
+            data/transfermarkt/players-master.json
+            data/transfermarkt/players-master.csv
+            data/transfermarkt/players-master-summary.json
+            data/players/player-registry.json
+            data/players/player-registry.csv
+            data/players/player-registry-summary.json
+            calibration/soccerwiki-link-report.json
+            calibration/soccerwiki-link-report.csv
+            calibration/smw-rating-evaluation.json
+            calibration/smw-rating-evaluation.md
+            calibration/smw-rating-evaluation-market-impact.json
+            calibration/smw-rating-evaluation-market-impact.md
+          if-no-files-found: ignore
+
+      - name: Commit data pipeline outputs
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration/transfermarkt-values.csv data/transfermarkt/players-master.json data/transfermarkt/players-master.csv data/transfermarkt/players-master-summary.json data/players/player-registry.json data/players/player-registry.csv data/players/player-registry-summary.json calibration/soccerwiki-link-report.json calibration/soccerwiki-link-report.csv calibration/smw-rating-evaluation.json calibration/smw-rating-evaluation.md calibration/smw-rating-evaluation-market-impact.json calibration/smw-rating-evaluation-market-impact.md || true
+          git commit -m "Run TBG data pipeline" || echo "No changes to commit"
+          git push
