@@ -1,0 +1,133 @@
+name: Update Transfermarkt Values
+
+on:
+  workflow_dispatch:
+    inputs:
+      country:
+        description: "Transfermarkt country name used by worldfootballR"
+        required: true
+        default: "England"
+      startYear:
+        description: "Season starting year, e.g. 2025 for 2025/26"
+        required: true
+        default: "2025"
+      mode:
+        description: "worldfootballR extraction mode: league or team"
+        required: true
+        default: "league"
+      output:
+        description: "Output CSV path"
+        required: true
+        default: "calibration/transfermarkt-values.csv"
+      commitResults:
+        description: "Commit Transfermarkt CSV back to repo"
+        required: true
+        default: "true"
+      runEvaluation:
+        description: "Run SMW evaluation after updating values"
+        required: true
+        default: "false"
+      league:
+        description: "API-Football league id for optional evaluation"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "SoccerWiki ratings CSV for optional evaluation"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+
+jobs:
+  update-transfermarkt:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+          use-public-rspm: true
+
+      - name: Setup R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::worldfootballR
+            any::readr
+
+      - name: Export Transfermarkt values
+        run: |
+          mkdir -p "$(dirname "${{ github.event.inputs.output }}")"
+          Rscript scripts/export-transfermarkt-values.R "${{ github.event.inputs.country }}" "${{ github.event.inputs.startYear }}" "${{ github.event.inputs.output }}" "${{ github.event.inputs.mode }}"
+
+      - name: Upload Transfermarkt values
+        uses: actions/upload-artifact@v4
+        with:
+          name: transfermarkt-values
+          path: ${{ github.event.inputs.output }}
+
+      - name: Commit Transfermarkt values
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}"
+          git commit -m "Update Transfermarkt values" || echo "No changes to commit"
+          git push
+
+  evaluate:
+    needs: update-transfermarkt
+    if: ${{ github.event.inputs.runEvaluation == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download Transfermarkt values artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: transfermarkt-values
+          path: calibration
+
+      - name: Normalise artifact filename
+        run: |
+          OUTPUT="${{ github.event.inputs.output }}"
+          BASENAME="$(basename "$OUTPUT")"
+          if [ "calibration/$BASENAME" != "$OUTPUT" ]; then
+            mkdir -p "$(dirname "$OUTPUT")"
+            cp "calibration/$BASENAME" "$OUTPUT"
+          fi
+
+      - name: Prepare enriched SoccerWiki ratings
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.startYear }}.json"
+          TARGETS="${{ github.event.inputs.targetsPath }}"
+          if [ ! -f "$TARGETS" ]; then
+            npm run enrich:soccerwiki:missing-ratings -- --pack="$PACK" --targets="calibration/smw-ratings.csv" --output="$TARGETS" --minModelRating=83 --limit=120 --report="calibration/smw-ratings-enrichment-report.json" --delayMs=250
+          fi
+
+      - name: Evaluate SMW rating model
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.startYear }}.json"
+          npm run evaluate:smw-rating-model -- --pack="$PACK" --targets="${{ github.event.inputs.targetsPath }}" --marketValues="${{ github.event.inputs.output }}" --output="calibration/smw-rating-evaluation.json" --report="calibration/smw-rating-evaluation.md" --marketImpactOutput="calibration/smw-rating-evaluation-market-impact.json" --marketImpactReport="calibration/smw-rating-evaluation-market-impact.md"
+
+      - name: Upload SMW evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-rating-evaluation
+          path: |
+            calibration/smw-rating-evaluation.json
+            calibration/smw-rating-evaluation.md
+            calibration/smw-rating-evaluation-market-impact.json
+            calibration/smw-rating-evaluation-market-impact.md
+            calibration/smw-ratings-enrichment-report.json
