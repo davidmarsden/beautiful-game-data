@@ -1,5 +1,6 @@
 import { access, readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
+import { compareSmwRatingModels, formatSmwMarketImpactReport } from "../src/ratingModel/compareSmwModels.js";
 import { evaluateSmwRatingModel, formatSmwRatingEvaluationReport } from "../src/ratingModel/evaluateSmwModel.js";
 import { trainSmwRatingModel } from "../src/ratingModel/trainSmwModel.js";
 
@@ -72,18 +73,24 @@ if (!args.pack || !args.targets) {
 
 const output = args.output ?? "calibration/smw-rating-evaluation.json";
 const report = args.report ?? output.replace(/\.json$/i, ".md");
+const marketImpactOutput = args.marketImpactOutput ?? output.replace(/\.json$/i, "-market-impact.json");
+const marketImpactReport = args.marketImpactReport ?? report.replace(/\.md$/i, "-market-impact.md");
 const pack = await loadJson(args.pack);
 const targets = await loadRows(args.targets);
 const marketValueRows = args.marketValues && await exists(args.marketValues) ? await loadRows(args.marketValues) : [];
 if (args.marketValues && !marketValueRows.length) console.warn(`No Transfermarkt market values loaded from ${args.marketValues}`);
 
-const model = trainSmwRatingModel(pack, targets, {
+const modelOptions = {
   ridge: args.ridge ? Number(args.ridge) : 1,
   calibrationRidge: args.calibrationRidge ? Number(args.calibrationRidge) : 0.5,
   minTrainingConfidence: args.minTrainingConfidence ? Number(args.minTrainingConfidence) : 0.95,
-  excludeClubMismatches: args.excludeClubMismatches === "true",
-  marketValueRows
-});
+  excludeClubMismatches: args.excludeClubMismatches === "true"
+};
+
+const baselineModel = trainSmwRatingModel(pack, targets, modelOptions);
+const model = marketValueRows.length
+  ? trainSmwRatingModel(pack, targets, { ...modelOptions, marketValueRows })
+  : baselineModel;
 const evaluation = evaluateSmwRatingModel(model, {
   biggestMissLimit: args.biggestMissLimit ? Number(args.biggestMissLimit) : 25
 });
@@ -92,7 +99,17 @@ const text = formatSmwRatingEvaluationReport(evaluation);
 console.log(text);
 
 await mkdir(dirname(output), { recursive: true });
-await writeFile(output, `${JSON.stringify({ model, evaluation }, null, 2)}\n`, "utf8");
+await writeFile(output, `${JSON.stringify({ baselineModel, model, evaluation }, null, 2)}\n`, "utf8");
 await writeFile(report, `${text}\n`, "utf8");
 console.log(`\nWrote SMW rating evaluation: ${output}`);
 console.log(`Wrote SMW rating evaluation report: ${report}`);
+
+if (marketValueRows.length) {
+  const impact = compareSmwRatingModels(baselineModel, model, { limit: args.biggestMissLimit ? Number(args.biggestMissLimit) : 25 });
+  const impactText = formatSmwMarketImpactReport(impact);
+  console.log("\n" + impactText);
+  await writeFile(marketImpactOutput, `${JSON.stringify(impact, null, 2)}\n`, "utf8");
+  await writeFile(marketImpactReport, `${impactText}\n`, "utf8");
+  console.log(`\nWrote SMW market value impact: ${marketImpactOutput}`);
+  console.log(`Wrote SMW market value impact report: ${marketImpactReport}`);
+}
