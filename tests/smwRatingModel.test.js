@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { formatSmwRatingModelReport, trainSmwRatingModel } from "../src/ratingModel/trainSmwModel.js";
+import { formatSmwRatingModelReport, marketValueFromRow, trainSmwRatingModel } from "../src/ratingModel/trainSmwModel.js";
 
 function player(id, name, club, position, ability, age, minutes, goals, assists) {
   return {
@@ -54,11 +54,32 @@ test("trains SMW rating model from matched players", () => {
   assert.equal(model.predictions.length, players.length);
 });
 
+test("parses Transfermarkt market values", () => {
+  assert.equal(marketValueFromRow({ market_value: "€80.00m" }), 80000000);
+  assert.equal(marketValueFromRow({ market_value: "€750k" }), 750000);
+  assert.equal(marketValueFromRow({ market_value_eur: 12500000 }), 12500000);
+});
+
+test("uses Transfermarkt market value rows when provided", () => {
+  const marketValueRows = [
+    { player_name: "Alpha One", squad: "Alpha", market_value: "€100.00m" },
+    { player_name: "Alpha Two", squad: "Alpha", market_value: "€60.00m" },
+    { player_name: "Beta One", squad: "Beta", market_value: "€12.50m" }
+  ];
+  const model = trainSmwRatingModel(pack, targets, { ridge: 10, marketValueRows });
+
+  assert.equal(model.meta.marketValueRows, 3);
+  assert.equal(model.meta.marketValueMatches, 3);
+  assert.ok(model.featureNames.includes("logMarketValue"));
+  assert.equal(model.predictions.find((row) => row.playerName === "Alpha One").marketValueMatched, true);
+});
+
 test("formats SMW rating model report", () => {
   const model = trainSmwRatingModel(pack, targets, { ridge: 10 });
   const text = formatSmwRatingModelReport(model);
 
   assert.match(text, /# SMW Rating Model/);
   assert.match(text, /Coefficients/);
+  assert.match(text, /Market value coverage/);
   assert.match(text, /Biggest misses/);
 });
