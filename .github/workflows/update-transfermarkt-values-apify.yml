@@ -1,0 +1,139 @@
+name: Update Transfermarkt Values - Apify
+
+on:
+  workflow_dispatch:
+    inputs:
+      startUrls:
+        description: "Comma-separated Transfermarkt start URLs"
+        required: true
+        default: "https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1"
+      crawlDepth:
+        description: "Apify crawl depth"
+        required: true
+        default: "1"
+      pageDepth:
+        description: "Apify page depth"
+        required: true
+        default: "1"
+      output:
+        description: "Output CSV path"
+        required: true
+        default: "calibration/transfermarkt-values.csv"
+      commitResults:
+        description: "Commit Transfermarkt CSV back to repo"
+        required: true
+        default: "true"
+      runEvaluation:
+        description: "Run SMW evaluation after updating values"
+        required: true
+        default: "false"
+      apiSeason:
+        description: "API-Football season starting year"
+        required: true
+        default: "2025"
+      league:
+        description: "API-Football league id"
+        required: true
+        default: "39"
+      targetsPath:
+        description: "SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+
+jobs:
+  update-transfermarkt-apify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch Transfermarkt data from Apify
+        run: |
+          npm run fetch:transfermarkt:apify -- \
+            --startUrls="${{ github.event.inputs.startUrls }}" \
+            --crawlDepth="${{ github.event.inputs.crawlDepth }}" \
+            --pageDepth="${{ github.event.inputs.pageDepth }}" \
+            --output="calibration/apify-transfermarkt-dataset.json"
+
+      - name: Normalise Apify dataset to Transfermarkt CSV
+        run: |
+          node scripts/normalise-apify-transfermarkt-values.js \
+            --input=calibration/apify-transfermarkt-dataset.json \
+            --output="${{ github.event.inputs.output }}"
+
+      - name: Upload Transfermarkt values
+        uses: actions/upload-artifact@v4
+        with:
+          name: transfermarkt-values-apify
+          path: |
+            ${{ github.event.inputs.output }}
+            calibration/apify-transfermarkt-dataset.json
+
+      - name: Commit Transfermarkt values
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}"
+          git commit -m "Update Transfermarkt values from Apify" || echo "No changes to commit"
+          git push
+
+  evaluate:
+    needs: update-transfermarkt-apify
+    if: ${{ github.event.inputs.runEvaluation == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Download Transfermarkt values artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: transfermarkt-values-apify
+          path: calibration
+
+      - name: Evaluate SMW rating model
+        run: |
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.apiSeason }}.json"
+          npm run evaluate:smw-rating-model -- \
+            --pack="$PACK" \
+            --targets="${{ github.event.inputs.targetsPath }}" \
+            --marketValues="${{ github.event.inputs.output }}" \
+            --output="calibration/smw-rating-evaluation.json" \
+            --report="calibration/smw-rating-evaluation.md" \
+            --marketImpactOutput="calibration/smw-rating-evaluation-market-impact.json" \
+            --marketImpactReport="calibration/smw-rating-evaluation-market-impact.md"
+
+      - name: Upload SMW evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: smw-rating-evaluation
+          path: |
+            calibration/smw-rating-evaluation.json
+            calibration/smw-rating-evaluation.md
+            calibration/smw-rating-evaluation-market-impact.json
+            calibration/smw-rating-evaluation-market-impact.md
