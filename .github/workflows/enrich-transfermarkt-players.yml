@@ -1,0 +1,161 @@
+name: Enrich Transfermarkt Players
+
+on:
+  workflow_dispatch:
+    inputs:
+      actor:
+        description: "Apify Transfermarkt actor id"
+        required: true
+        default: "jungle_synthesizer/transfermarkt-global-football-player-scraper"
+      playerIds:
+        description: "Optional comma-separated Transfermarkt player IDs"
+        required: false
+        default: ""
+      searchQueries:
+        description: "Optional comma-separated player search queries"
+        required: false
+        default: "Emanuel Emegha"
+      maxItems:
+        description: "Maximum player records to fetch"
+        required: true
+        default: "10"
+      linkSoccerWiki:
+        description: "Re-run SoccerWiki registry linker after enrichment"
+        required: true
+        default: "true"
+      soccerwiki:
+        description: "Preferred SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+      fallbackSoccerwiki:
+        description: "Fallback SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      autoThreshold:
+        description: "SoccerWiki auto-link confidence threshold"
+        required: true
+        default: "0.90"
+      commitResults:
+        description: "Commit updated master, registry and reports"
+        required: true
+        default: "true"
+
+jobs:
+  enrich-transfermarkt-players:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      TARGET_DATASET_JSON: calibration/apify-transfermarkt-targeted-dataset.json
+      VALUES_CSV: calibration/transfermarkt-values.csv
+      TM_MASTER_JSON: data/transfermarkt/players-master.json
+      TM_MASTER_CSV: data/transfermarkt/players-master.csv
+      TM_MASTER_SUMMARY: data/transfermarkt/players-master-summary.json
+      REGISTRY_JSON: data/players/player-registry.json
+      REGISTRY_CSV: data/players/player-registry.csv
+      REGISTRY_SUMMARY: data/players/player-registry-summary.json
+      SW_LINK_REPORT: calibration/soccerwiki-link-report.json
+      SW_LINK_REPORT_CSV: calibration/soccerwiki-link-report.csv
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Fetch targeted Transfermarkt player data from Apify
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "Missing APIFY_TOKEN repository secret."
+            exit 1
+          fi
+          npm run fetch:transfermarkt:apify -- \
+            --actor="${{ github.event.inputs.actor }}" \
+            --mode="players" \
+            --competitionCodes="" \
+            --playerIds="${{ github.event.inputs.playerIds }}" \
+            --searchQueries="${{ github.event.inputs.searchQueries }}" \
+            --maxItems="${{ github.event.inputs.maxItems }}" \
+            --output="$TARGET_DATASET_JSON"
+
+      - name: Merge targeted player data into Transfermarkt master database
+        run: |
+          npm run import:transfermarkt:master -- \
+            --input="$TARGET_DATASET_JSON" \
+            --masterJson="$TM_MASTER_JSON" \
+            --masterCsv="$TM_MASTER_CSV" \
+            --valuesCsv="$VALUES_CSV" \
+            --summary="$TM_MASTER_SUMMARY" \
+            --mergeExisting="true"
+
+      - name: Rebuild permanent player registry
+        run: |
+          npm run build:player-registry -- \
+            --transfermarkt="$TM_MASTER_JSON" \
+            --registryJson="$REGISTRY_JSON" \
+            --registryCsv="$REGISTRY_CSV" \
+            --summary="$REGISTRY_SUMMARY"
+
+      - name: Prepare SoccerWiki ratings CSV
+        if: ${{ github.event.inputs.linkSoccerWiki == 'true' }}
+        run: |
+          PREFERRED="${{ github.event.inputs.soccerwiki }}"
+          FALLBACK="${{ github.event.inputs.fallbackSoccerwiki }}"
+          if [ -f "$PREFERRED" ]; then
+            echo "SOCCERWIKI_PATH=$PREFERRED" >> "$GITHUB_ENV"
+            echo "Using preferred SoccerWiki ratings: $PREFERRED"
+          elif [ -f "$FALLBACK" ]; then
+            echo "SOCCERWIKI_PATH=$FALLBACK" >> "$GITHUB_ENV"
+            echo "Using fallback SoccerWiki ratings: $FALLBACK"
+          else
+            echo "No SoccerWiki ratings file found: $PREFERRED or $FALLBACK"
+            exit 1
+          fi
+
+      - name: Link SoccerWiki rows to player registry
+        if: ${{ github.event.inputs.linkSoccerWiki == 'true' }}
+        run: |
+          npm run link:soccerwiki-registry -- \
+            --registry="$REGISTRY_JSON" \
+            --registryCsv="$REGISTRY_CSV" \
+            --soccerwiki="$SOCCERWIKI_PATH" \
+            --report="$SW_LINK_REPORT" \
+            --reportCsv="$SW_LINK_REPORT_CSV" \
+            --autoThreshold="${{ github.event.inputs.autoThreshold }}" \
+            --writeRegistry="true"
+
+      - name: Upload targeted enrichment outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: transfermarkt-targeted-enrichment
+          path: |
+            calibration/apify-transfermarkt-targeted-dataset.json
+            calibration/transfermarkt-values.csv
+            data/transfermarkt/players-master.json
+            data/transfermarkt/players-master.csv
+            data/transfermarkt/players-master-summary.json
+            data/players/player-registry.json
+            data/players/player-registry.csv
+            data/players/player-registry-summary.json
+            calibration/soccerwiki-link-report.json
+            calibration/soccerwiki-link-report.csv
+          if-no-files-found: ignore
+
+      - name: Commit targeted enrichment outputs
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration/apify-transfermarkt-targeted-dataset.json calibration/transfermarkt-values.csv data/transfermarkt/players-master.json data/transfermarkt/players-master.csv data/transfermarkt/players-master-summary.json data/players/player-registry.json data/players/player-registry.csv data/players/player-registry-summary.json calibration/soccerwiki-link-report.json calibration/soccerwiki-link-report.csv || true
+          git commit -m "Enrich Transfermarkt player master data" || echo "No changes to commit"
+          git push
