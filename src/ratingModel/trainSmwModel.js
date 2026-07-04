@@ -14,11 +14,11 @@ function ratingFromTarget(row) {
 }
 
 function clubFromTarget(row) {
-  return row.club ?? row.clubName ?? row.team ?? row.teamName ?? "";
+  return row.club ?? row.clubName ?? row.team ?? row.teamName ?? row.squad ?? "";
 }
 
 function nameFromTarget(row) {
-  return row.name ?? row.playerName ?? row.player ?? "";
+  return row.name ?? row.playerName ?? row.player_name ?? row.player ?? "";
 }
 
 function targetIndex(targetRows) {
@@ -32,6 +32,37 @@ function targetIndex(targetRows) {
     if (!name || rating <= 0) continue;
     const target = { name, club, rating, raw: row };
     target.identityKey = targetIdentityKey(target);
+    targets.push(target);
+    if (club) byNameClub.set(playerClubKey(name, club), target);
+    if (!byName.has(playerIdentityKey(name))) byName.set(playerIdentityKey(name), target);
+  }
+  return { byNameClub, byName, targets };
+}
+
+function marketValueFromRow(row) {
+  const raw = row.marketValueEur ?? row.market_value_eur ?? row.market_value ?? row.marketValue ?? row.value ?? row.player_market_value_euro ?? row.player_market_value;
+  if (raw === undefined || raw === null || raw === "") return 0;
+  if (Number.isFinite(Number(raw))) return Number(raw);
+
+  const text = String(raw).trim().toLowerCase().replace(/[,€£$]/g, "");
+  const amount = Number(text.match(/-?\d+(?:\.\d+)?/)?.[0]);
+  if (!Number.isFinite(amount)) return 0;
+  if (/bn|b\b/.test(text)) return amount * 1_000_000_000;
+  if (/m\b|mil|million/.test(text)) return amount * 1_000_000;
+  if (/k\b|th/.test(text)) return amount * 1_000;
+  return amount;
+}
+
+function marketValueIndex(rows = []) {
+  const byNameClub = new Map();
+  const byName = new Map();
+  const targets = [];
+  for (const row of rows) {
+    const name = nameFromTarget(row);
+    const club = clubFromTarget(row);
+    const marketValueEur = marketValueFromRow(row);
+    if (!name || marketValueEur <= 0) continue;
+    const target = { name, club, marketValueEur, raw: row };
     targets.push(target);
     if (club) byNameClub.set(playerClubKey(name, club), target);
     if (!byName.has(playerIdentityKey(name))) byName.set(playerIdentityKey(name), target);
@@ -70,6 +101,17 @@ function candidateMatches(player, index, options = {}) {
   }
 
   return [...byTarget.values()].sort((a, b) => b.confidence - a.confidence || b.clubScore - a.clubScore || b.nameScore - a.nameScore || String(a.name).localeCompare(String(b.name)));
+}
+
+function marketValueForPlayer(player, index, options = {}) {
+  if (!index) return null;
+  const name = player.name;
+  const club = playerClub(player);
+  if (club && index.byNameClub.has(playerClubKey(name, club))) return { ...index.byNameClub.get(playerClubKey(name, club)), confidence: 1, reason: "exact-name-club" };
+  const match = matchIdentity({ name, club }, index.targets, { minConfidence: Number(options.minMarketConfidence ?? 0.95), clubTieBreakConfidence: 0.85 }).match;
+  if (match) return match;
+  if (index.byName.has(playerIdentityKey(name))) return { ...index.byName.get(playerIdentityKey(name)), confidence: 1, reason: "exact-name" };
+  return null;
 }
 
 function selectOneToOneMatches(players, index, options = {}) {
@@ -116,7 +158,7 @@ function positionGroup(player) {
   return "UNK";
 }
 
-function playerFeatureObject(player) {
+function playerFeatureObject(player, options = {}) {
   const appearances = number(player.appearances ?? player.statistics?.games?.appearences ?? player.statistics?.games?.appearances);
   const lineups = number(player.lineups ?? player.statistics?.games?.lineups);
   const minutes = number(player.minutes ?? player.statistics?.games?.minutes);
@@ -128,6 +170,8 @@ function playerFeatureObject(player) {
   const currentAbility = number(player.ratings?.ability ?? player.ability ?? player.rating);
   const effectiveRating = number(player.ratings?.effectiveMatchRating ?? currentAbility);
   const group = positionGroup(player);
+  const marketValueEur = number(options.marketValueEur, 0);
+  const marketValueMillions = marketValueEur / 1_000_000;
 
   return {
     intercept: 1,
@@ -142,6 +186,13 @@ function playerFeatureObject(player) {
     goalsPer90: minutes ? goals * 90 / minutes : 0,
     assistsPer90: minutes ? assists * 90 / minutes : 0,
     cardsPer90: minutes ? (yellowCards + redCards * 2) * 90 / minutes : 0,
+    marketValueMillions,
+    logMarketValue: marketValueEur > 0 ? Math.log10(marketValueEur) : 0,
+    marketValueOver25m: Math.max(0, marketValueMillions - 25),
+    marketValueOver50m: Math.max(0, marketValueMillions - 50),
+    marketValueOver80m: Math.max(0, marketValueMillions - 80),
+    marketValueOver100m: Math.max(0, marketValueMillions - 100),
+    hasMarketValue: marketValueEur > 0 ? 1 : 0,
     isGK: group === "GK" ? 1 : 0,
     isDEF: group === "DEF" ? 1 : 0,
     isMID: group === "MID" ? 1 : 0,
@@ -162,6 +213,13 @@ const DEFAULT_FEATURES = [
   "goalsPer90",
   "assistsPer90",
   "cardsPer90",
+  "marketValueMillions",
+  "logMarketValue",
+  "marketValueOver25m",
+  "marketValueOver50m",
+  "marketValueOver80m",
+  "marketValueOver100m",
+  "hasMarketValue",
   "isGK",
   "isDEF",
   "isMID",
@@ -180,6 +238,12 @@ const DEFAULT_CALIBRATION_FEATURES = [
   "effectiveOver85",
   "effectiveOver88",
   "effectiveOver90",
+  "marketValueMillions",
+  "logMarketValue",
+  "marketValueOver50m",
+  "marketValueOver80m",
+  "marketValueOver100m",
+  "hasMarketValue",
   "isGK",
   "isDEF",
   "isMID",
@@ -268,6 +332,12 @@ function calibrationFeatureObject(example, rawPrediction) {
     effectiveOver85: Math.max(0, effectiveRating - 85),
     effectiveOver88: Math.max(0, effectiveRating - 88),
     effectiveOver90: Math.max(0, effectiveRating - 90),
+    marketValueMillions: number(example.features.marketValueMillions),
+    logMarketValue: number(example.features.logMarketValue),
+    marketValueOver50m: number(example.features.marketValueOver50m),
+    marketValueOver80m: number(example.features.marketValueOver80m),
+    marketValueOver100m: number(example.features.marketValueOver100m),
+    hasMarketValue: number(example.features.hasMarketValue),
     isGK: number(example.features.isGK),
     isDEF: number(example.features.isDEF),
     isMID: number(example.features.isMID),
@@ -306,7 +376,9 @@ function predictionRows(examples, rawPredictions, calibration = null) {
       absoluteError: round(Math.abs(error), 3),
       matchConfidence: example.matchConfidence,
       matchReason: example.matchReason,
-      clubMismatch: example.clubMismatch
+      clubMismatch: example.clubMismatch,
+      marketValueEur: example.marketValueEur,
+      marketValueMatched: example.marketValueMatched
     };
   });
 }
@@ -326,6 +398,7 @@ function metricSummary(predictions) {
 export function trainSmwRatingModel(pack, targetRows, options = {}) {
   const featureNames = options.features ?? DEFAULT_FEATURES;
   const index = targetIndex(targetRows);
+  const marketIndex = options.marketValueRows ? marketValueIndex(options.marketValueRows) : null;
   const examples = [];
   const matchOptions = {
     minConfidence: Number(options.minConfidence ?? 0.95),
@@ -337,7 +410,9 @@ export function trainSmwRatingModel(pack, targetRows, options = {}) {
   const selectedMatches = selectOneToOneMatches(Object.values(pack.players ?? {}), index, matchOptions);
 
   for (const { player, target } of selectedMatches) {
-    const features = playerFeatureObject(player);
+    const marketValueMatch = marketValueForPlayer(player, marketIndex, options);
+    const marketValueEur = number(marketValueMatch?.marketValueEur, 0);
+    const features = playerFeatureObject(player, { marketValueEur });
     examples.push({
       playerId: player.id,
       playerName: player.name,
@@ -347,6 +422,8 @@ export function trainSmwRatingModel(pack, targetRows, options = {}) {
       matchConfidence: target.confidence ?? 1,
       matchReason: target.reason ?? "exact-name",
       clubMismatch: Boolean(target.clubMismatch),
+      marketValueEur,
+      marketValueMatched: Boolean(marketValueEur),
       features
     });
   }
@@ -365,16 +442,20 @@ export function trainSmwRatingModel(pack, targetRows, options = {}) {
   const predictions = predictionRows(examples, rawPredictions, calibration);
   const metrics = metricSummary(predictions);
   const rawMetrics = metricSummary(rawPredictionRows);
+  const marketValueMatches = examples.filter((example) => example.marketValueMatched).length;
 
   return {
     meta: {
-      version: "smw-rating-model-v0.4",
+      version: "smw-rating-model-v0.5",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       targetRows: targetRows.length,
       ridge: number(options.ridge ?? 1),
       calibrationRidge: calibrationEnabled ? number(options.calibrationRidge ?? 0.5) : null,
       calibrated: calibrationEnabled,
+      marketValueRows: options.marketValueRows?.length ?? 0,
+      marketValueMatches,
+      marketValueCoverage: examples.length ? round(marketValueMatches / examples.length, 3) : 0,
       minTrainingConfidence: Number(options.minTrainingConfidence ?? 0.95),
       excludeClubMismatches: Boolean(options.excludeClubMismatches)
     },
@@ -401,6 +482,7 @@ export function formatSmwRatingModelReport(model) {
     `Median absolute error: ${model.metrics.medianAbsoluteError}`,
     `Max absolute error: ${model.metrics.maxAbsoluteError}`,
     `Calibrated: ${model.meta.calibrated ? "yes" : "no"}`,
+    `Market value coverage: ${model.meta.marketValueMatches ?? 0}/${model.meta.examples} (${Math.round(Number(model.meta.marketValueCoverage ?? 0) * 100)}%)`,
     ""
   ];
 
@@ -422,7 +504,7 @@ export function formatSmwRatingModelReport(model) {
     for (const [name, value] of Object.entries(model.calibration.coefficients)) lines.push(`- ${name}: ${value}`);
   }
 
-  lines.push("", "Biggest misses:", "Player                   Club                     Pos Raw  Pred SMW Diff Conf Reason");
+  lines.push("", "Biggest misses:", "Player                   Club                     Pos Raw  Pred SMW Diff Conf MV Reason");
   for (const row of model.biggestMisses) {
     lines.push([
       row.playerName.padEnd(24, " "),
@@ -433,6 +515,7 @@ export function formatSmwRatingModelReport(model) {
       String(row.targetRating).padStart(3, " "),
       String(row.error).padStart(6, " "),
       String(row.matchConfidence ?? "").padStart(4, " "),
+      row.marketValueMatched ? "yes" : " no",
       row.matchReason ?? ""
     ].join(" "));
   }
@@ -440,4 +523,4 @@ export function formatSmwRatingModelReport(model) {
   return lines.join("\n");
 }
 
-export { DEFAULT_FEATURES, DEFAULT_CALIBRATION_FEATURES, playerFeatureObject };
+export { DEFAULT_FEATURES, DEFAULT_CALIBRATION_FEATURES, marketValueFromRow, playerFeatureObject };
