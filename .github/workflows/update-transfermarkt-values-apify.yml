@@ -59,6 +59,18 @@ on:
         description: "Transfermarkt master summary JSON path"
         required: true
         default: "data/transfermarkt/players-master-summary.json"
+      registryJson:
+        description: "Permanent TBG player registry JSON path"
+        required: true
+        default: "data/players/player-registry.json"
+      registryCsv:
+        description: "Permanent TBG player registry CSV path"
+        required: true
+        default: "data/players/player-registry.csv"
+      registrySummary:
+        description: "Permanent TBG player registry summary path"
+        required: true
+        default: "data/players/player-registry-summary.json"
       commitResults:
         description: "Commit Transfermarkt outputs back to repo"
         required: true
@@ -124,6 +136,14 @@ jobs:
             --valuesCsv="${{ github.event.inputs.output }}" \
             --summary="${{ github.event.inputs.masterSummary }}"
 
+      - name: Build permanent player registry
+        run: |
+          npm run build:player-registry -- \
+            --transfermarkt="${{ github.event.inputs.masterJson }}" \
+            --registryJson="${{ github.event.inputs.registryJson }}" \
+            --registryCsv="${{ github.event.inputs.registryCsv }}" \
+            --summary="${{ github.event.inputs.registrySummary }}"
+
       - name: Upload Transfermarkt values
         uses: actions/upload-artifact@v4
         with:
@@ -133,6 +153,9 @@ jobs:
             ${{ github.event.inputs.masterJson }}
             ${{ github.event.inputs.masterCsv }}
             ${{ github.event.inputs.masterSummary }}
+            ${{ github.event.inputs.registryJson }}
+            ${{ github.event.inputs.registryCsv }}
+            ${{ github.event.inputs.registrySummary }}
             calibration/apify-transfermarkt-dataset.json
 
       - name: Commit Transfermarkt values
@@ -140,7 +163,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${{ github.event.inputs.output }}" "${{ github.event.inputs.masterJson }}" "${{ github.event.inputs.masterCsv }}" "${{ github.event.inputs.masterSummary }}"
+          git add "${{ github.event.inputs.output }}" "${{ github.event.inputs.masterJson }}" "${{ github.event.inputs.masterCsv }}" "${{ github.event.inputs.masterSummary }}" "${{ github.event.inputs.registryJson }}" "${{ github.event.inputs.registryCsv }}" "${{ github.event.inputs.registrySummary }}"
           git commit -m "Update Transfermarkt master player database" || echo "No changes to commit"
           git push
 
