@@ -44,11 +44,23 @@ on:
         required: true
         default: "1"
       output:
-        description: "Output CSV path"
+        description: "Rating-compatible market values CSV path"
         required: true
         default: "calibration/transfermarkt-values.csv"
+      masterJson:
+        description: "Rich Transfermarkt master JSON path"
+        required: true
+        default: "data/transfermarkt/players-master.json"
+      masterCsv:
+        description: "Rich Transfermarkt master CSV path"
+        required: true
+        default: "data/transfermarkt/players-master.csv"
+      masterSummary:
+        description: "Transfermarkt master summary JSON path"
+        required: true
+        default: "data/transfermarkt/players-master-summary.json"
       commitResults:
-        description: "Commit Transfermarkt CSV back to repo"
+        description: "Commit Transfermarkt outputs back to repo"
         required: true
         default: "true"
       runEvaluation:
@@ -103,11 +115,14 @@ jobs:
             --pageDepth="${{ github.event.inputs.pageDepth }}" \
             --output="calibration/apify-transfermarkt-dataset.json"
 
-      - name: Normalise Apify dataset to Transfermarkt CSV
+      - name: Import Apify dataset into Transfermarkt master database
         run: |
-          node scripts/normalise-apify-transfermarkt-values.js \
-            --input=calibration/apify-transfermarkt-dataset.json \
-            --output="${{ github.event.inputs.output }}"
+          npm run import:transfermarkt:master -- \
+            --input="calibration/apify-transfermarkt-dataset.json" \
+            --masterJson="${{ github.event.inputs.masterJson }}" \
+            --masterCsv="${{ github.event.inputs.masterCsv }}" \
+            --valuesCsv="${{ github.event.inputs.output }}" \
+            --summary="${{ github.event.inputs.masterSummary }}"
 
       - name: Upload Transfermarkt values
         uses: actions/upload-artifact@v4
@@ -115,16 +130,18 @@ jobs:
           name: transfermarkt-values-apify
           path: |
             ${{ github.event.inputs.output }}
+            ${{ github.event.inputs.masterJson }}
+            ${{ github.event.inputs.masterCsv }}
+            ${{ github.event.inputs.masterSummary }}
             calibration/apify-transfermarkt-dataset.json
-            calibration/transfermarkt-values-shape.json
 
       - name: Commit Transfermarkt values
         if: ${{ github.event.inputs.commitResults == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${{ github.event.inputs.output }}"
-          git commit -m "Update Transfermarkt values from Apify" || echo "No changes to commit"
+          git add "${{ github.event.inputs.output }}" "${{ github.event.inputs.masterJson }}" "${{ github.event.inputs.masterCsv }}" "${{ github.event.inputs.masterSummary }}"
+          git commit -m "Update Transfermarkt master player database" || echo "No changes to commit"
           git push
 
   evaluate:
@@ -150,7 +167,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: transfermarkt-values-apify
-          path: calibration
+          path: .
 
       - name: Evaluate SMW rating model
         run: |
