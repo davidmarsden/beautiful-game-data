@@ -19,7 +19,8 @@
     "diagnose:smw-matches": "node scripts/diagnose-smw-matches.js",
     "fetch:transfermarkt:apify": "node scripts/fetch-apify-transfermarkt-values.js",
     "import:transfermarkt:master": "node scripts/import-transfermarkt-master.js",
-    "build:player-registry": "node scripts/build-player-registry.js"
+    "build:player-registry": "node scripts/build-player-registry.js",
+    "resolve:player-identities": "node scripts/resolve-player-identities.js"
   },
   "dependencies": {
     "apify-client": "^2.12.0"
