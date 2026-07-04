@@ -28,6 +28,7 @@ const SOCCERWIKI_NAME_ALIASES = new Map([
   ["gomes beto", ["beto", "norberto betuncal", "norberto neto"]],
   ["ferdi kadioglu", ["ferdi kadioglu", "ferdi kadıoglu", "ferdi kadıoğlu"]],
   ["andre onana", ["andre onana", "andré onana"]],
+  ["emanuel emegha", ["emmanuel emegha"]],
   ["kostas tsimikas", ["konstantinos tsimikas", "kostas tsimikas"]],
   ["vitor rayan", ["rayan vitor", "vitor roque", "rayan"]],
   ["yehor yarmolyuk", ["yegor yarmolyuk", "yehor yarmoliuk", "egor yarmolyuk"]],
