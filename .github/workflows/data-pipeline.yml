@@ -48,9 +48,25 @@ on:
         required: true
         default: "39"
       targetsPath:
-        description: "SoccerWiki ratings CSV"
+        description: "Preferred SoccerWiki ratings CSV"
         required: true
         default: "calibration/smw-ratings-enriched.csv"
+      fallbackTargetsPath:
+        description: "Fallback SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      scrapeSoccerWikiIfMissing:
+        description: "Scrape SoccerWiki ratings if neither CSV exists"
+        required: true
+        default: "true"
+      soccerWikiLeagueId:
+        description: "SoccerWiki league id to scrape if missing"
+        required: true
+        default: "28"
+      soccerWikiPages:
+        description: "SoccerWiki pages to scrape if missing"
+        required: true
+        default: "20"
       autoThreshold:
         description: "SoccerWiki auto-link confidence threshold"
         required: true
@@ -122,13 +138,34 @@ jobs:
             --registryCsv="$REGISTRY_CSV" \
             --summary="$REGISTRY_SUMMARY"
 
+      - name: Prepare SoccerWiki ratings CSV
+        if: ${{ github.event.inputs.linkSoccerWiki == 'true' || github.event.inputs.runEvaluation == 'true' }}
+        run: |
+          PREFERRED="${{ github.event.inputs.targetsPath }}"
+          FALLBACK="${{ github.event.inputs.fallbackTargetsPath }}"
+          if [ -f "$PREFERRED" ]; then
+            echo "SOCCERWIKI_PATH=$PREFERRED" >> "$GITHUB_ENV"
+            echo "Using preferred SoccerWiki ratings: $PREFERRED"
+          elif [ -f "$FALLBACK" ]; then
+            echo "SOCCERWIKI_PATH=$FALLBACK" >> "$GITHUB_ENV"
+            echo "Using fallback SoccerWiki ratings: $FALLBACK"
+          elif [ "${{ github.event.inputs.scrapeSoccerWikiIfMissing }}" = "true" ]; then
+            mkdir -p "$(dirname "$FALLBACK")"
+            npm run scrape:soccerwiki:ratings -- --leagueId="${{ github.event.inputs.soccerWikiLeagueId }}" --pages="${{ github.event.inputs.soccerWikiPages }}" --output="$FALLBACK" --delayMs=1500
+            echo "SOCCERWIKI_PATH=$FALLBACK" >> "$GITHUB_ENV"
+            echo "Scraped SoccerWiki ratings: $FALLBACK"
+          else
+            echo "No SoccerWiki ratings file found: $PREFERRED or $FALLBACK"
+            exit 1
+          fi
+
       - name: Link SoccerWiki rows to player registry
         if: ${{ github.event.inputs.linkSoccerWiki == 'true' }}
         run: |
           npm run link:soccerwiki-registry -- \
             --registry="$REGISTRY_JSON" \
             --registryCsv="$REGISTRY_CSV" \
-            --soccerwiki="${{ github.event.inputs.targetsPath }}" \
+            --soccerwiki="$SOCCERWIKI_PATH" \
             --report="$SW_LINK_REPORT" \
             --reportCsv="$SW_LINK_REPORT_CSV" \
             --autoThreshold="${{ github.event.inputs.autoThreshold }}" \
@@ -140,7 +177,7 @@ jobs:
           PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.apiSeason }}.json"
           npm run evaluate:smw-rating-model -- \
             --pack="$PACK" \
-            --targets="${{ github.event.inputs.targetsPath }}" \
+            --targets="$SOCCERWIKI_PATH" \
             --marketValues="$VALUES_CSV" \
             --output="calibration/smw-rating-evaluation.json" \
             --report="calibration/smw-rating-evaluation.md" \
@@ -154,6 +191,8 @@ jobs:
           path: |
             calibration/transfermarkt-values.csv
             calibration/apify-transfermarkt-dataset.json
+            calibration/smw-ratings.csv
+            calibration/smw-ratings-enriched.csv
             data/transfermarkt/players-master.json
             data/transfermarkt/players-master.csv
             data/transfermarkt/players-master-summary.json
@@ -173,6 +212,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add calibration/transfermarkt-values.csv data/transfermarkt/players-master.json data/transfermarkt/players-master.csv data/transfermarkt/players-master-summary.json data/players/player-registry.json data/players/player-registry.csv data/players/player-registry-summary.json calibration/soccerwiki-link-report.json calibration/soccerwiki-link-report.csv calibration/smw-rating-evaluation.json calibration/smw-rating-evaluation.md calibration/smw-rating-evaluation-market-impact.json calibration/smw-rating-evaluation-market-impact.md || true
+          git add calibration/transfermarkt-values.csv calibration/smw-ratings.csv calibration/smw-ratings-enriched.csv data/transfermarkt/players-master.json data/transfermarkt/players-master.csv data/transfermarkt/players-master-summary.json data/players/player-registry.json data/players/player-registry.csv data/players/player-registry-summary.json calibration/soccerwiki-link-report.json calibration/soccerwiki-link-report.csv calibration/smw-rating-evaluation.json calibration/smw-rating-evaluation.md calibration/smw-rating-evaluation-market-impact.json calibration/smw-rating-evaluation-market-impact.md || true
           git commit -m "Run TBG data pipeline" || echo "No changes to commit"
           git push
