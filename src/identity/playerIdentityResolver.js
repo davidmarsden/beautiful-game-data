@@ -17,6 +17,24 @@ export function normaliseName(value) {
     .toLowerCase();
 }
 
+const SOCCERWIKI_NAME_ALIASES = new Map([
+  ["hernandez rodri", ["rodri", "rodrigo hernandez"]],
+  ["becker alisson", ["alisson", "alisson becker"]],
+  ["andrade richarlison", ["richarlison", "richarlison de andrade"]],
+  ["carlos casemiro", ["casemiro", "carlos henrique casemiro"]],
+  ["cassio joelinton", ["joelinton", "joelinton cassio"]],
+  ["barbosa evanilson", ["evanilson", "evanilson barbosa"]],
+  ["moreira savinho", ["savinho", "savio", "savio moreira", "savio moreira de oliveira"]],
+  ["gomes beto", ["beto", "norberto betuncal", "norberto neto"]],
+  ["ferdi kadioglu", ["ferdi kadioglu", "ferdi kadıoglu", "ferdi kadıoğlu"]],
+  ["andre onana", ["andre onana", "andré onana"]],
+  ["kostas tsimikas", ["konstantinos tsimikas", "kostas tsimikas"]],
+  ["vitor rayan", ["rayan vitor", "vitor roque", "rayan"]],
+  ["yehor yarmolyuk", ["yegor yarmolyuk", "yehor yarmoliuk", "egor yarmolyuk"]],
+  ["felipe morato", ["morato", "felipe rodrigues da silva"]],
+  ["odysseas vlachodimos", ["odisseas vlachodimos", "odysseas vlachodimos"]]
+]);
+
 function compactId(value) {
   const text = String(value ?? "").trim();
   return text || "";
@@ -49,8 +67,34 @@ function dateYear(date) {
   return match ? match[1] : "";
 }
 
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function aliasKeysForKey(key) {
+  const aliases = SOCCERWIKI_NAME_ALIASES.get(key) ?? [];
+  return aliases.map(normaliseName).filter(Boolean);
+}
+
+function derivedNameKeys(key) {
+  const parts = words(key);
+  const variants = [key, ...aliasKeysForKey(key)];
+
+  if (parts.length >= 2) {
+    variants.push([...parts].reverse().join(" "));
+    variants.push(parts[parts.length - 1]);
+  }
+
+  if (parts.length >= 3) {
+    variants.push(parts.slice(1).join(" "));
+    variants.push(parts.slice(-2).join(" "));
+  }
+
+  return unique(variants.map(normaliseName));
+}
+
 function allNameKeys(row) {
-  return [
+  return unique([
     row.name_key,
     row.full_name_key,
     normaliseName(row.canonical_name),
@@ -58,7 +102,7 @@ function allNameKeys(row) {
     normaliseName(row.full_name),
     ...(row.alias_keys ?? []),
     ...(row.aliases ?? []).map(normaliseName)
-  ].filter(Boolean);
+  ].filter(Boolean));
 }
 
 function pushIndex(map, key, row) {
@@ -142,7 +186,7 @@ function pickUnique(rows, method, confidence, reasons) {
 }
 
 function queryNameKeys(query) {
-  return [
+  const baseKeys = [
     query.name_key,
     query.full_name_key,
     query.name,
@@ -151,6 +195,8 @@ function queryNameKeys(query) {
     query.full_name,
     query.display_name
   ].map(normaliseName).filter(Boolean);
+
+  return unique(baseKeys.flatMap(derivedNameKeys));
 }
 
 function bestNameFallback(indexes, query) {
