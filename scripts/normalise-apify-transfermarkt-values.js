@@ -24,6 +24,11 @@ function pick(row, names, fallback = "") {
   return fallback;
 }
 
+function objectValues(value) {
+  if (!value || typeof value !== "object") return [];
+  return Object.values(value).filter((item) => item && typeof item === "object");
+}
+
 function flattenRows(value) {
   if (Array.isArray(value)) return value.flatMap(flattenRows);
   if (!value || typeof value !== "object") return [];
@@ -31,13 +36,56 @@ function flattenRows(value) {
     value.items,
     value.data,
     value.players,
+    value.player,
     value.result,
     value.results,
     value.dataset,
-    value.records
+    value.records,
+    value.table,
+    value.rows,
+    value.squad,
+    value.squadPlayers,
+    value.playersTable,
+    value.marketValues
   ].filter(Array.isArray);
   if (candidateArrays.length) return candidateArrays.flatMap(flattenRows);
   return [value];
+}
+
+function deepFindString(row, patterns) {
+  const stack = [row];
+  const seen = new Set();
+  while (stack.length) {
+    const current = stack.pop();
+    if (!current || seen.has(current)) continue;
+    if (typeof current === "object") seen.add(current);
+    if (typeof current === "string" || typeof current === "number") {
+      const text = String(current).trim();
+      if (patterns.some((pattern) => pattern.test(text))) return text;
+      continue;
+    }
+    if (Array.isArray(current)) {
+      for (const item of current) stack.push(item);
+    } else if (typeof current === "object") {
+      for (const item of Object.values(current)) stack.push(item);
+    }
+  }
+  return "";
+}
+
+function deepFindByKey(row, keyPatterns) {
+  const stack = [row];
+  const seen = new Set();
+  while (stack.length) {
+    const current = stack.pop();
+    if (!current || typeof current !== "object" || seen.has(current)) continue;
+    seen.add(current);
+    for (const [key, value] of Object.entries(current)) {
+      if (value !== undefined && value !== null && value !== "" && keyPatterns.some((pattern) => pattern.test(key))) return value;
+      if (value && typeof value === "object") stack.push(value);
+    }
+  }
+  return "";
 }
 
 function playerName(row) {
@@ -49,10 +97,15 @@ function playerName(row) {
     "Player",
     "playerFullName",
     "fullName",
-    "full_name"
+    "full_name",
+    "spieler",
+    "player_name_text"
   ]);
-  if (typeof direct === "object") return pick(direct, ["name", "playerName", "fullName"]);
-  return direct;
+  if (typeof direct === "object") return pick(direct, ["name", "playerName", "fullName", "text", "title", "label"]);
+  if (direct) return direct;
+  const byKey = deepFindByKey(row, [/player.*name/i, /full.*name/i, /^name$/i, /spieler/i]);
+  if (typeof byKey === "object") return pick(byKey, ["name", "text", "title", "label"]);
+  return byKey;
 }
 
 function clubName(row) {
@@ -64,15 +117,22 @@ function clubName(row) {
     "squad",
     "currentClub",
     "current_club",
-    "Club"
+    "Club",
+    "verein"
   ]);
-  if (typeof direct === "object") return pick(direct, ["name", "clubName", "teamName"]);
-  return direct;
+  if (typeof direct === "object") return pick(direct, ["name", "clubName", "teamName", "text", "title", "label"]);
+  if (direct) return direct;
+  const byKey = deepFindByKey(row, [/club/i, /team/i, /squad/i, /verein/i]);
+  if (typeof byKey === "object") return pick(byKey, ["name", "text", "title", "label"]);
+  return byKey;
 }
 
 function marketValue(row) {
   const direct = marketValueFromRow(row);
   if (direct) return direct;
+  const byKey = deepFindByKey(row, [/market.*value/i, /marktwert/i, /^value$/i, /price/i]);
+  const keyed = marketValueFromRow({ market_value: byKey });
+  if (keyed) return keyed;
   return marketValueFromRow({
     market_value: pick(row, [
       "marketValue",
@@ -83,7 +143,7 @@ function marketValue(row) {
       "Value",
       "price",
       "currentMarketValue"
-    ])
+    ]) || deepFindString(row, [/^[€£$]\s*\d+(?:\.\d+)?\s*(?:m|k|bn|b)?$/i])
   });
 }
 
@@ -96,13 +156,25 @@ function normaliseRow(row) {
   return {
     player_name: name,
     club,
-    position: pick(row, ["position", "Position", "mainPosition", "main_position", "player_position"]),
-    age: pick(row, ["age", "Age"]),
-    nationality: pick(row, ["nationality", "Nationality", "country", "countryName"]),
+    position: pick(row, ["position", "Position", "mainPosition", "main_position", "player_position"]) || deepFindByKey(row, [/position/i, /pos$/i]),
+    age: pick(row, ["age", "Age"]) || deepFindByKey(row, [/^age$/i, /alter/i]),
+    nationality: pick(row, ["nationality", "Nationality", "country", "countryName"]) || deepFindByKey(row, [/nationality/i, /country/i, /nation/i]),
     market_value_eur: marketValueEur,
-    market_value: pick(row, ["marketValue", "market_value", "marketValueText", "market_value_text", "value", "Value"]),
-    transfermarkt_url: pick(row, ["url", "playerUrl", "player_url", "profileUrl", "profile_url", "link", "href"]),
+    market_value: pick(row, ["marketValue", "market_value", "marketValueText", "market_value_text", "value", "Value"]) || deepFindString(row, [/^[€£$]\s*\d+(?:\.\d+)?\s*(?:m|k|bn|b)?$/i]),
+    transfermarkt_url: pick(row, ["url", "playerUrl", "player_url", "profileUrl", "profile_url", "link", "href"]) || deepFindString(row, [/transfermarkt\.(com|co\.uk).*spieler/i, /\/profil\/spieler\//i]),
     source: "apify-transfermarkt"
+  };
+}
+
+function describeShape(rows) {
+  const keyCounts = new Map();
+  for (const row of rows) {
+    for (const key of Object.keys(row ?? {})) keyCounts.set(key, (keyCounts.get(key) ?? 0) + 1);
+  }
+  return {
+    rowCount: rows.length,
+    topLevelKeys: [...keyCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 80),
+    samples: rows.slice(0, 5).map((row) => ({ keys: Object.keys(row ?? {}), row }))
   };
 }
 
@@ -131,9 +203,13 @@ const csv = [headers.join(","), ...normalised.map((row) => headers.map((header) 
 await mkdir(dirname(args.output), { recursive: true });
 await writeFile(args.output, `${csv}\n`, "utf8");
 
+const diagnosticsPath = args.diagnostics ?? args.output.replace(/\.csv$/i, "-shape.json");
+await writeFile(diagnosticsPath, `${JSON.stringify(describeShape(rows), null, 2)}\n`, "utf8");
+
 console.log(`Read ${rows.length} Apify row(s).`);
 console.log(`Wrote ${normalised.length} normalised Transfermarkt value row(s) to ${args.output}.`);
+console.log(`Wrote Apify dataset shape diagnostics to ${diagnosticsPath}.`);
 if (!normalised.length) {
-  console.error("No usable player market values found. Check the Apify dataset shape.");
+  console.error("No usable player market values found. Check the Apify dataset shape diagnostics artifact.");
   process.exit(1);
 }
