@@ -3,16 +3,44 @@ name: Update Transfermarkt Values - Apify
 on:
   workflow_dispatch:
     inputs:
-      startUrls:
-        description: "Comma-separated Transfermarkt start URLs"
+      actor:
+        description: "Apify actor id"
         required: true
+        default: "jungle_synthesizer/transfermarkt-global-football-player-scraper"
+      mode:
+        description: "players for player scraper, generic for page scraper"
+        required: true
+        default: "players"
+      competitionCodes:
+        description: "Comma-separated Transfermarkt competition codes, e.g. GB1"
+        required: true
+        default: "GB1"
+      clubIds:
+        description: "Optional comma-separated Transfermarkt club IDs"
+        required: false
+        default: ""
+      playerIds:
+        description: "Optional comma-separated Transfermarkt player IDs"
+        required: false
+        default: ""
+      searchQueries:
+        description: "Optional comma-separated player search queries"
+        required: false
+        default: ""
+      startUrls:
+        description: "Generic scraper only: comma-separated Transfermarkt start URLs"
+        required: false
         default: "https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1"
+      maxItems:
+        description: "Maximum player records to fetch"
+        required: true
+        default: "1000"
       crawlDepth:
-        description: "Apify crawl depth"
+        description: "Generic scraper only: crawl depth"
         required: true
         default: "1"
       pageDepth:
-        description: "Apify page depth"
+        description: "Generic scraper only: page depth"
         required: true
         default: "1"
       output:
@@ -63,7 +91,14 @@ jobs:
       - name: Fetch Transfermarkt data from Apify
         run: |
           npm run fetch:transfermarkt:apify -- \
+            --actor="${{ github.event.inputs.actor }}" \
+            --mode="${{ github.event.inputs.mode }}" \
+            --competitionCodes="${{ github.event.inputs.competitionCodes }}" \
+            --clubIds="${{ github.event.inputs.clubIds }}" \
+            --playerIds="${{ github.event.inputs.playerIds }}" \
+            --searchQueries="${{ github.event.inputs.searchQueries }}" \
             --startUrls="${{ github.event.inputs.startUrls }}" \
+            --maxItems="${{ github.event.inputs.maxItems }}" \
             --crawlDepth="${{ github.event.inputs.crawlDepth }}" \
             --pageDepth="${{ github.event.inputs.pageDepth }}" \
             --output="calibration/apify-transfermarkt-dataset.json"
@@ -81,6 +116,7 @@ jobs:
           path: |
             ${{ github.event.inputs.output }}
             calibration/apify-transfermarkt-dataset.json
+            calibration/transfermarkt-values-shape.json
 
       - name: Commit Transfermarkt values
         if: ${{ github.event.inputs.commitResults == 'true' }}
