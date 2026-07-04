@@ -2,7 +2,7 @@ import { access, readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import { compareSmwRatingModels, formatSmwMarketImpactReport } from "../src/ratingModel/compareSmwModels.js";
 import { evaluateSmwRatingModel, formatSmwRatingEvaluationReport } from "../src/ratingModel/evaluateSmwModel.js";
-import { trainSmwRatingModel } from "../src/ratingModel/trainSmwModel.js";
+import { trainSmwRatingModel, marketValueFromRow } from "../src/ratingModel/trainSmwModel.js";
 
 function parseArgs(argv) {
   const args = {};
@@ -46,6 +46,48 @@ function parseCsv(text) {
   });
 }
 
+function isCurrencyText(value) {
+  return /^[€£$]?\s*\d+(?:\.\d+)?\s*(?:m|k|bn|b|million|th)?$/i.test(String(value ?? "").trim());
+}
+
+function hasWorldfootballRColumns(rows) {
+  return rows.some((row) => row.player_name !== undefined && row.squad !== undefined && row.player_market_value_euro !== undefined);
+}
+
+function normaliseWorldfootballRMarketRows(rows) {
+  const normalised = [];
+  let recoveredFromCurrencyRows = 0;
+  let skippedCurrencyRows = 0;
+
+  for (let index = 0; index < rows.length; index += 1) {
+    const row = rows[index];
+    const playerName = row.player_name ?? row.playerName ?? row.name ?? "";
+    if (isCurrencyText(playerName)) {
+      skippedCurrencyRows += 1;
+      continue;
+    }
+
+    const next = rows[index + 1];
+    const nextName = next?.player_name ?? next?.playerName ?? next?.name ?? "";
+    const valueFromNextCurrencyRow = isCurrencyText(nextName) ? marketValueFromRow({ market_value: nextName }) : 0;
+    const directValue = marketValueFromRow(row);
+    const marketValueEur = valueFromNextCurrencyRow || directValue;
+    if (valueFromNextCurrencyRow) recoveredFromCurrencyRows += 1;
+
+    normalised.push({
+      ...row,
+      player_name: playerName,
+      name: playerName,
+      club: row.squad ?? row.current_club ?? row.club ?? row.team ?? "",
+      market_value_eur: marketValueEur,
+      marketValueEur,
+      worldfootballr_value_recovered_from_next_row: Boolean(valueFromNextCurrencyRow)
+    });
+  }
+
+  return { rows: normalised, recoveredFromCurrencyRows, skippedCurrencyRows };
+}
+
 async function exists(path) {
   try {
     await access(path);
@@ -77,8 +119,19 @@ const marketImpactOutput = args.marketImpactOutput ?? output.replace(/\.json$/i,
 const marketImpactReport = args.marketImpactReport ?? report.replace(/\.md$/i, "-market-impact.md");
 const pack = await loadJson(args.pack);
 const targets = await loadRows(args.targets);
-const marketValueRows = args.marketValues && await exists(args.marketValues) ? await loadRows(args.marketValues) : [];
+const loadedMarketValueRows = args.marketValues && await exists(args.marketValues) ? await loadRows(args.marketValues) : [];
+const marketNormalisation = loadedMarketValueRows.length && hasWorldfootballRColumns(loadedMarketValueRows)
+  ? normaliseWorldfootballRMarketRows(loadedMarketValueRows)
+  : { rows: loadedMarketValueRows, recoveredFromCurrencyRows: 0, skippedCurrencyRows: 0 };
+const marketValueRows = marketNormalisation.rows;
+
 if (args.marketValues && !marketValueRows.length) console.warn(`No Transfermarkt market values loaded from ${args.marketValues}`);
+if (loadedMarketValueRows.length) {
+  console.log(`Loaded ${loadedMarketValueRows.length} Transfermarkt row(s); using ${marketValueRows.length} normalised player row(s).`);
+  if (marketNormalisation.skippedCurrencyRows) {
+    console.log(`Skipped ${marketNormalisation.skippedCurrencyRows} worldfootballR currency pseudo-row(s); recovered ${marketNormalisation.recoveredFromCurrencyRows} market value(s).`);
+  }
+}
 
 const modelOptions = {
   ridge: args.ridge ? Number(args.ridge) : 1,
@@ -99,7 +152,7 @@ const text = formatSmwRatingEvaluationReport(evaluation);
 console.log(text);
 
 await mkdir(dirname(output), { recursive: true });
-await writeFile(output, `${JSON.stringify({ baselineModel, model, evaluation }, null, 2)}\n`, "utf8");
+await writeFile(output, `${JSON.stringify({ baselineModel, model, evaluation, marketNormalisation: { inputRows: loadedMarketValueRows.length, outputRows: marketValueRows.length, recoveredFromCurrencyRows: marketNormalisation.recoveredFromCurrencyRows, skippedCurrencyRows: marketNormalisation.skippedCurrencyRows } }, null, 2)}\n`, "utf8");
 await writeFile(report, `${text}\n`, "utf8");
 console.log(`\nWrote SMW rating evaluation: ${output}`);
 console.log(`Wrote SMW rating evaluation report: ${report}`);
@@ -108,7 +161,7 @@ if (marketValueRows.length) {
   const impact = compareSmwRatingModels(baselineModel, model, { limit: args.biggestMissLimit ? Number(args.biggestMissLimit) : 25 });
   const impactText = formatSmwMarketImpactReport(impact);
   console.log("\n" + impactText);
-  await writeFile(marketImpactOutput, `${JSON.stringify(impact, null, 2)}\n`, "utf8");
+  await writeFile(marketImpactOutput, `${JSON.stringify({ ...impact, marketNormalisation: { inputRows: loadedMarketValueRows.length, outputRows: marketValueRows.length, recoveredFromCurrencyRows: marketNormalisation.recoveredFromCurrencyRows, skippedCurrencyRows: marketNormalisation.skippedCurrencyRows } }, null, 2)}\n`, "utf8");
   await writeFile(marketImpactReport, `${impactText}\n`, "utf8");
   console.log(`\nWrote SMW market value impact: ${marketImpactOutput}`);
   console.log(`Wrote SMW market value impact report: ${marketImpactReport}`);
