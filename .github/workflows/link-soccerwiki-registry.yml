@@ -12,9 +12,25 @@ on:
         required: true
         default: "data/players/player-registry.csv"
       soccerwiki:
-        description: "SoccerWiki ratings CSV"
+        description: "Preferred SoccerWiki ratings CSV"
         required: true
         default: "calibration/smw-ratings-enriched.csv"
+      fallbackSoccerwiki:
+        description: "Fallback SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings.csv"
+      scrapeIfMissing:
+        description: "Scrape SoccerWiki ratings if neither CSV exists"
+        required: true
+        default: "true"
+      leagueId:
+        description: "SoccerWiki league id to scrape if missing"
+        required: true
+        default: "28"
+      scrapePages:
+        description: "SoccerWiki pages to scrape if missing"
+        required: true
+        default: "20"
       report:
         description: "SoccerWiki link report JSON"
         required: true
@@ -57,12 +73,32 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Prepare SoccerWiki ratings CSV
+        run: |
+          PREFERRED="${{ github.event.inputs.soccerwiki }}"
+          FALLBACK="${{ github.event.inputs.fallbackSoccerwiki }}"
+          if [ -f "$PREFERRED" ]; then
+            echo "SOCCERWIKI_PATH=$PREFERRED" >> "$GITHUB_ENV"
+            echo "Using preferred SoccerWiki ratings: $PREFERRED"
+          elif [ -f "$FALLBACK" ]; then
+            echo "SOCCERWIKI_PATH=$FALLBACK" >> "$GITHUB_ENV"
+            echo "Using fallback SoccerWiki ratings: $FALLBACK"
+          elif [ "${{ github.event.inputs.scrapeIfMissing }}" = "true" ]; then
+            mkdir -p "$(dirname "$FALLBACK")"
+            npm run scrape:soccerwiki:ratings -- --leagueId="${{ github.event.inputs.leagueId }}" --pages="${{ github.event.inputs.scrapePages }}" --output="$FALLBACK" --delayMs=1500
+            echo "SOCCERWIKI_PATH=$FALLBACK" >> "$GITHUB_ENV"
+            echo "Scraped SoccerWiki ratings: $FALLBACK"
+          else
+            echo "No SoccerWiki ratings file found: $PREFERRED or $FALLBACK"
+            exit 1
+          fi
+
       - name: Link SoccerWiki rows to player registry
         run: |
           npm run link:soccerwiki-registry -- \
             --registry="${{ github.event.inputs.registry }}" \
             --registryCsv="${{ github.event.inputs.registryCsv }}" \
-            --soccerwiki="${{ github.event.inputs.soccerwiki }}" \
+            --soccerwiki="$SOCCERWIKI_PATH" \
             --report="${{ github.event.inputs.report }}" \
             --reportCsv="${{ github.event.inputs.reportCsv }}" \
             --autoThreshold="${{ github.event.inputs.autoThreshold }}" \
@@ -77,13 +113,16 @@ jobs:
             ${{ github.event.inputs.registryCsv }}
             ${{ github.event.inputs.report }}
             ${{ github.event.inputs.reportCsv }}
+            calibration/smw-ratings.csv
+            calibration/smw-ratings-enriched.csv
+          if-no-files-found: ignore
 
       - name: Commit SoccerWiki registry links
         if: ${{ github.event.inputs.commitResults == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${{ github.event.inputs.report }}" "${{ github.event.inputs.reportCsv }}"
+          git add "${{ github.event.inputs.report }}" "${{ github.event.inputs.reportCsv }}" calibration/smw-ratings.csv calibration/smw-ratings-enriched.csv || true
           if [ "${{ github.event.inputs.writeRegistry }}" = "true" ]; then
             git add "${{ github.event.inputs.registry }}" "${{ github.event.inputs.registryCsv }}"
           fi
