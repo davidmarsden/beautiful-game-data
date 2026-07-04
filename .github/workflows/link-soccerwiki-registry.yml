@@ -1,0 +1,91 @@
+name: Link SoccerWiki Registry
+
+on:
+  workflow_dispatch:
+    inputs:
+      registry:
+        description: "Permanent player registry JSON"
+        required: true
+        default: "data/players/player-registry.json"
+      registryCsv:
+        description: "Permanent player registry CSV"
+        required: true
+        default: "data/players/player-registry.csv"
+      soccerwiki:
+        description: "SoccerWiki ratings CSV"
+        required: true
+        default: "calibration/smw-ratings-enriched.csv"
+      report:
+        description: "SoccerWiki link report JSON"
+        required: true
+        default: "calibration/soccerwiki-link-report.json"
+      reportCsv:
+        description: "SoccerWiki link report CSV"
+        required: true
+        default: "calibration/soccerwiki-link-report.csv"
+      autoThreshold:
+        description: "Auto-link confidence threshold"
+        required: true
+        default: "0.90"
+      writeRegistry:
+        description: "Update registry files with auto-linked SoccerWiki IDs"
+        required: true
+        default: "true"
+      commitResults:
+        description: "Commit updated registry and reports"
+        required: true
+        default: "true"
+
+jobs:
+  link-soccerwiki-registry:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Link SoccerWiki rows to player registry
+        run: |
+          npm run link:soccerwiki-registry -- \
+            --registry="${{ github.event.inputs.registry }}" \
+            --registryCsv="${{ github.event.inputs.registryCsv }}" \
+            --soccerwiki="${{ github.event.inputs.soccerwiki }}" \
+            --report="${{ github.event.inputs.report }}" \
+            --reportCsv="${{ github.event.inputs.reportCsv }}" \
+            --autoThreshold="${{ github.event.inputs.autoThreshold }}" \
+            --writeRegistry="${{ github.event.inputs.writeRegistry }}"
+
+      - name: Upload SoccerWiki link reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: soccerwiki-link-report
+          path: |
+            ${{ github.event.inputs.registry }}
+            ${{ github.event.inputs.registryCsv }}
+            ${{ github.event.inputs.report }}
+            ${{ github.event.inputs.reportCsv }}
+
+      - name: Commit SoccerWiki registry links
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.report }}" "${{ github.event.inputs.reportCsv }}"
+          if [ "${{ github.event.inputs.writeRegistry }}" = "true" ]; then
+            git add "${{ github.event.inputs.registry }}" "${{ github.event.inputs.registryCsv }}"
+          fi
+          git commit -m "Link SoccerWiki ratings to player registry" || echo "No changes to commit"
+          git push
