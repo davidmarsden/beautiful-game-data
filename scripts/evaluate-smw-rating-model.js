@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { access, readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import { evaluateSmwRatingModel, formatSmwRatingEvaluationReport } from "../src/ratingModel/evaluateSmwModel.js";
 import { trainSmwRatingModel } from "../src/ratingModel/trainSmwModel.js";
@@ -45,11 +45,20 @@ function parseCsv(text) {
   });
 }
 
+async function exists(path) {
+  try {
+    await access(path);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function loadJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
 }
 
-async function loadTargets(path) {
+async function loadRows(path) {
   const text = await readFile(path, "utf8");
   return path.endsWith(".json") ? JSON.parse(text) : parseCsv(text);
 }
@@ -57,18 +66,23 @@ async function loadTargets(path) {
 const args = parseArgs(process.argv.slice(2));
 
 if (!args.pack || !args.targets) {
-  console.error("Usage: node scripts/evaluate-smw-rating-model.js --pack=<league-pack.json> --targets=<smw-ratings.csv> [--output=calibration/smw-rating-evaluation.json]");
+  console.error("Usage: node scripts/evaluate-smw-rating-model.js --pack=<league-pack.json> --targets=<smw-ratings.csv> [--marketValues=calibration/transfermarkt-values.csv] [--output=calibration/smw-rating-evaluation.json]");
   process.exit(1);
 }
 
 const output = args.output ?? "calibration/smw-rating-evaluation.json";
 const report = args.report ?? output.replace(/\.json$/i, ".md");
 const pack = await loadJson(args.pack);
-const targets = await loadTargets(args.targets);
+const targets = await loadRows(args.targets);
+const marketValueRows = args.marketValues && await exists(args.marketValues) ? await loadRows(args.marketValues) : [];
+if (args.marketValues && !marketValueRows.length) console.warn(`No Transfermarkt market values loaded from ${args.marketValues}`);
+
 const model = trainSmwRatingModel(pack, targets, {
   ridge: args.ridge ? Number(args.ridge) : 1,
+  calibrationRidge: args.calibrationRidge ? Number(args.calibrationRidge) : 0.5,
   minTrainingConfidence: args.minTrainingConfidence ? Number(args.minTrainingConfidence) : 0.95,
-  excludeClubMismatches: args.excludeClubMismatches === "true"
+  excludeClubMismatches: args.excludeClubMismatches === "true",
+  marketValueRows
 });
 const evaluation = evaluateSmwRatingModel(model, {
   biggestMissLimit: args.biggestMissLimit ? Number(args.biggestMissLimit) : 25
