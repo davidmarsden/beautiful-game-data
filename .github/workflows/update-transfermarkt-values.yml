@@ -7,10 +7,18 @@ on:
         description: "Transfermarkt country name used by worldfootballR"
         required: true
         default: "England"
-      startYear:
-        description: "Season starting year, e.g. 2025 for 2025/26"
+      apiSeason:
+        description: "API-Football season starting year for optional evaluation"
         required: true
         default: "2025"
+      transfermarktStartYear:
+        description: "Transfermarkt season starting year known to worldfootballR"
+        required: true
+        default: "2024"
+      transfermarktFallbackYear:
+        description: "Fallback Transfermarkt season if requested season is unavailable"
+        required: true
+        default: "2024"
       mode:
         description: "worldfootballR extraction mode: league or team"
         required: true
@@ -61,7 +69,7 @@ jobs:
       - name: Export Transfermarkt values
         run: |
           mkdir -p "$(dirname "${{ github.event.inputs.output }}")"
-          Rscript scripts/export-transfermarkt-values.R "${{ github.event.inputs.country }}" "${{ github.event.inputs.startYear }}" "${{ github.event.inputs.output }}" "${{ github.event.inputs.mode }}"
+          Rscript scripts/export-transfermarkt-values.R "${{ github.event.inputs.country }}" "${{ github.event.inputs.transfermarktStartYear }}" "${{ github.event.inputs.output }}" "${{ github.event.inputs.mode }}" "${{ github.event.inputs.transfermarktFallbackYear }}"
 
       - name: Upload Transfermarkt values
         uses: actions/upload-artifact@v4
@@ -110,7 +118,7 @@ jobs:
 
       - name: Prepare enriched SoccerWiki ratings
         run: |
-          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.startYear }}.json"
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.apiSeason }}.json"
           TARGETS="${{ github.event.inputs.targetsPath }}"
           if [ ! -f "$TARGETS" ]; then
             npm run enrich:soccerwiki:missing-ratings -- --pack="$PACK" --targets="calibration/smw-ratings.csv" --output="$TARGETS" --minModelRating=83 --limit=120 --report="calibration/smw-ratings-enrichment-report.json" --delayMs=250
@@ -118,7 +126,7 @@ jobs:
 
       - name: Evaluate SMW rating model
         run: |
-          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.startYear }}.json"
+          PACK="exports/league-packs/league-${{ github.event.inputs.league }}-season-${{ github.event.inputs.apiSeason }}.json"
           npm run evaluate:smw-rating-model -- --pack="$PACK" --targets="${{ github.event.inputs.targetsPath }}" --marketValues="${{ github.event.inputs.output }}" --output="calibration/smw-rating-evaluation.json" --report="calibration/smw-rating-evaluation.md" --marketImpactOutput="calibration/smw-rating-evaluation-market-impact.json" --marketImpactReport="calibration/smw-rating-evaluation-market-impact.md"
 
       - name: Upload SMW evaluation
