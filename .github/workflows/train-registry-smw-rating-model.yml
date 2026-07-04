@@ -1,0 +1,87 @@
+name: Train Registry SMW Rating Model
+
+on:
+  workflow_dispatch:
+    inputs:
+      registry:
+        description: "Permanent player registry JSON"
+        required: true
+        default: "data/players/player-registry.json"
+      transfermarkt:
+        description: "Transfermarkt master JSON"
+        required: true
+        default: "data/transfermarkt/players-master.json"
+      ridge:
+        description: "Ridge regularisation strength"
+        required: true
+        default: "10"
+      includeOutOfScope:
+        description: "Include out-of-scope rows in training"
+        required: true
+        default: "false"
+      output:
+        description: "Model JSON output"
+        required: true
+        default: "calibration/registry-smw-rating-model.json"
+      report:
+        description: "Markdown model report output"
+        required: true
+        default: "calibration/registry-smw-rating-model.md"
+      predictions:
+        description: "Predictions CSV output"
+        required: true
+        default: "calibration/registry-smw-rating-predictions.csv"
+      commitResults:
+        description: "Commit generated model files"
+        required: true
+        default: "true"
+
+jobs:
+  train-registry-smw-rating-model:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Train registry-first SMW rating model
+        run: |
+          npm run train:registry-smw-rating-model -- \
+            --registry="${{ github.event.inputs.registry }}" \
+            --transfermarkt="${{ github.event.inputs.transfermarkt }}" \
+            --ridge="${{ github.event.inputs.ridge }}" \
+            --includeOutOfScope="${{ github.event.inputs.includeOutOfScope }}" \
+            --output="${{ github.event.inputs.output }}" \
+            --report="${{ github.event.inputs.report }}" \
+            --predictions="${{ github.event.inputs.predictions }}"
+
+      - name: Upload registry SMW model outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: registry-smw-rating-model
+          path: |
+            ${{ github.event.inputs.output }}
+            ${{ github.event.inputs.report }}
+            ${{ github.event.inputs.predictions }}
+
+      - name: Commit registry SMW model outputs
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${{ github.event.inputs.output }}" "${{ github.event.inputs.report }}" "${{ github.event.inputs.predictions }}"
+          git commit -m "Train registry-first SMW rating model" || echo "No changes to commit"
+          git push
