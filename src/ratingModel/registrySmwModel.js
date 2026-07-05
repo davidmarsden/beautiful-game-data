@@ -188,6 +188,8 @@ function buildExamples(registryRows, transfermarktRows, options = {}) {
       positionGroup: positionGroup(registryRow.primary_position || tmRow.position),
       targetRating: rating,
       marketValueEur: number(tmRow.market_value_eur, 0),
+      highestMarketValueEur: number(tmRow.highest_market_value_eur, 0),
+      previousMarketValueEur: number(tmRow.previous_market_value_eur, 0),
       age: number(tmRow.age, 0),
       features
     });
@@ -247,6 +249,48 @@ function disagreementNote(row) {
   return "Model and SoccerWiki/SMW are closely aligned.";
 }
 
+function adjustment(value, reason) {
+  return { value: round(value, 3), reason };
+}
+
+function tbgV2Adjustments(example, smwEquivalentRaw) {
+  const age = number(example.age, 0);
+  const marketValueMillions = number(example.marketValueEur, 0) / 1_000_000;
+  const highestValueMillions = number(example.highestMarketValueEur, 0) / 1_000_000;
+  const previousValueMillions = number(example.previousMarketValueEur, 0) / 1_000_000;
+  const currentToPeak = highestValueMillions > 0 ? marketValueMillions / highestValueMillions : 1;
+  const components = [];
+
+  if (marketValueMillions >= 150) components.push(adjustment(0.35, "world-superstar market signal"));
+  else if (marketValueMillions >= 100) components.push(adjustment(0.2, "elite market signal"));
+
+  if (age <= 20 && marketValueMillions >= 35) components.push(adjustment(0.45, "teenage elite-potential premium"));
+  else if (age <= 22 && marketValueMillions >= 50) components.push(adjustment(0.3, "young elite-potential premium"));
+  else if (age <= 24 && marketValueMillions >= 75) components.push(adjustment(0.15, "early-prime high-ceiling premium"));
+
+  if (previousValueMillions > 0) {
+    const trend = (marketValueMillions - previousValueMillions) / previousValueMillions;
+    if (trend >= 0.75 && marketValueMillions >= 25) components.push(adjustment(0.25, "strong recent market rise"));
+    else if (trend <= -0.5 && previousValueMillions >= 20) components.push(adjustment(-0.25, "sharp recent market fall"));
+  }
+
+  if (age >= 32 && marketValueMillions < 10 && smwEquivalentRaw >= 88) components.push(adjustment(-0.35, "age-and-current-market decline check"));
+  if (age >= 34 && marketValueMillions < 5 && smwEquivalentRaw >= 87) components.push(adjustment(-0.25, "late-career low-market safeguard"));
+  if (highestValueMillions >= 40 && currentToPeak <= 0.25 && age >= 30) components.push(adjustment(-0.25, "large fall from peak market status"));
+
+  if (example.positionGroup === "GK") components.push(adjustment(0.1, "goalkeeper longevity stability"));
+  if (example.positionGroup === "ATT" && marketValueMillions < 20 && smwEquivalentRaw >= 90) components.push(adjustment(-0.2, "attacker output/value reality check"));
+
+  const rawTotal = components.reduce((sum, item) => sum + item.value, 0);
+  const cappedTotal = clamp(rawTotal, -1.25, 1.25);
+  if (round(cappedTotal, 3) !== round(rawTotal, 3)) components.push(adjustment(cappedTotal - rawTotal, "compatibility cap"));
+  return {
+    total: round(cappedTotal, 3),
+    components,
+    reasons: components.map((item) => `${item.value >= 0 ? "+" : ""}${item.value}: ${item.reason}`)
+  };
+}
+
 function buildDisagreementAudit(predictions) {
   const rows = [...predictions].sort((a, b) => b.absoluteError - a.absoluteError || a.playerName.localeCompare(b.playerName));
   return {
@@ -272,10 +316,12 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
   const coefficients = fitRidgeRegression(x, y, number(options.ridge ?? 10));
 
   const predictions = examples.map((example) => {
-    const predictedRating = predict(example.features, coefficients, featureNames);
-    const tbgRatingRaw = clamp(predictedRating, 60, 99);
+    const smwEquivalentRaw = clamp(predict(example.features, coefficients, featureNames), 60, 99);
+    const smwEquivalentRating = Math.round(smwEquivalentRaw);
+    const tbgV2 = tbgV2Adjustments(example, smwEquivalentRaw);
+    const tbgRatingRaw = clamp(smwEquivalentRaw + tbgV2.total, 60, 99);
     const tbgRating = Math.round(tbgRatingRaw);
-    const error = predictedRating - example.targetRating;
+    const error = smwEquivalentRaw - example.targetRating;
     const disagreement = disagreementType(error);
     return {
       tbgPlayerId: example.tbgPlayerId,
@@ -288,11 +334,20 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
       positionGroup: example.positionGroup,
       age: example.age,
       marketValueEur: example.marketValueEur,
+      highestMarketValueEur: example.highestMarketValueEur,
+      previousMarketValueEur: example.previousMarketValueEur,
       targetRating: example.targetRating,
-      predictedRating: round(predictedRating, 2),
+      smwEquivalentRaw: round(smwEquivalentRaw, 2),
+      smwEquivalentRating,
+      predictedRating: round(smwEquivalentRaw, 2),
+      tbgV2Adjustment: tbgV2.total,
+      tbgV2AdjustmentComponents: tbgV2.components,
+      tbgV2AdjustmentReasons: tbgV2.reasons,
       tbgRatingRaw: round(tbgRatingRaw, 2),
       tbgRating,
       tbgRatingBand: tbgRatingBand(tbgRating),
+      smwDeltaRounded: smwEquivalentRating - example.targetRating,
+      tbgDeltaRounded: tbgRating - example.targetRating,
       ratingDeltaRounded: tbgRating - example.targetRating,
       error: round(error, 3),
       absoluteError: round(Math.abs(error), 3),
@@ -306,13 +361,19 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
 
   return {
     meta: {
-      version: "registry-smw-rating-model-v1.1",
+      version: "registry-smw-rating-model-v2.0",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       registryRows: registryRows.length,
       transfermarktRows: transfermarktRows.length,
       ridge: number(options.ridge ?? 10),
-      philosophy: "SMW-compatible benchmark model plus objective TBG rating and disagreement audit.",
+      philosophy: "SMW-equivalent benchmark model plus independent TBG Rating Model v2 adjustment layer.",
+      tbgV2: {
+        basis: "SMW-equivalent calibration score plus small, auditable objective adjustments.",
+        adjustmentCap: 1.25,
+        availableSignals: ["age", "current market value", "previous market value", "peak market value", "position group"],
+        futureSignals: ["minutes", "recent form", "injury history", "league strength", "club strength", "European/international performance", "versatility"]
+      },
       skipped
     },
     featureNames,
@@ -329,11 +390,16 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
       positionGroup: row.positionGroup,
       age: row.age,
       marketValueEur: row.marketValueEur,
+      smwEquivalentRating: row.smwEquivalentRating,
+      smwEquivalentRaw: row.smwEquivalentRaw,
+      tbgV2Adjustment: row.tbgV2Adjustment,
+      tbgV2AdjustmentReasons: row.tbgV2AdjustmentReasons,
       tbgRating: row.tbgRating,
       tbgRatingRaw: row.tbgRatingRaw,
       tbgRatingBand: row.tbgRatingBand,
       smwRating: row.targetRating,
-      ratingDeltaRounded: row.ratingDeltaRounded,
+      smwDeltaRounded: row.smwDeltaRounded,
+      tbgDeltaRounded: row.tbgDeltaRounded,
       disagreementType: row.disagreementType
     })),
     predictions
@@ -356,6 +422,12 @@ export function formatRegistrySmwModelReport(model) {
     `Within 1 rating point: ${Math.round(model.metrics.withinOne * 100)}%`,
     `Within 2 rating points: ${Math.round(model.metrics.withinTwo * 100)}%`,
     "",
+    "TBG Rating Model v2:",
+    `- Basis: ${model.meta.tbgV2.basis}`,
+    `- Adjustment cap: ±${model.meta.tbgV2.adjustmentCap}`,
+    `- Current signals: ${model.meta.tbgV2.availableSignals.join(", ")}`,
+    `- Future signals: ${model.meta.tbgV2.futureSignals.join(", ")}`,
+    "",
     "Skipped:",
     `- No SoccerWiki rating: ${model.meta.skipped.noSoccerWikiRating}`,
     `- No Transfermarkt row: ${model.meta.skipped.noTransfermarktRow}`,
@@ -377,26 +449,40 @@ export function formatRegistrySmwModelReport(model) {
   lines.push("", "Coefficients:");
   for (const [name, value] of Object.entries(model.coefficients)) lines.push(`- ${name}: ${value}`);
 
-  lines.push("", "Material disagreements:", "Player                   Club                     Pos  TBG SMW Delta Type");
+  lines.push("", "Material disagreements:", "Player                   Club                     Pos  SMW-Eq TBG SMW ΔTBG Type");
   for (const row of model.disagreementAudit.materialDisagreements.slice(0, 25)) {
     lines.push([
       row.playerName.padEnd(24, " "),
       String(row.clubName ?? "").padEnd(24, " "),
       row.positionGroup.padEnd(3, " "),
+      String(row.smwEquivalentRating).padStart(6, " "),
       String(row.tbgRating).padStart(3, " "),
       String(row.targetRating).padStart(3, " "),
-      String(row.ratingDeltaRounded).padStart(5, " "),
+      String(row.tbgDeltaRounded).padStart(5, " "),
       row.disagreementType
     ].join(" "));
   }
 
-  lines.push("", "Biggest misses:", "Player                   Club                     Pos Pred TBG SMW Diff   MV");
+  lines.push("", "TBG v2 largest adjustments:", "Player                   Club                     Pos SMW-Eq Adj  TBG Reasons");
+  for (const row of [...model.predictions].sort((a, b) => Math.abs(b.tbgV2Adjustment) - Math.abs(a.tbgV2Adjustment)).slice(0, 20)) {
+    lines.push([
+      row.playerName.padEnd(24, " "),
+      String(row.clubName ?? "").padEnd(24, " "),
+      row.positionGroup.padEnd(3, " "),
+      String(row.smwEquivalentRating).padStart(6, " "),
+      String(row.tbgV2Adjustment).padStart(5, " "),
+      String(row.tbgRating).padStart(3, " "),
+      row.tbgV2AdjustmentReasons.join(" | ")
+    ].join(" "));
+  }
+
+  lines.push("", "Biggest SMW-equivalent calibration misses:", "Player                   Club                     Pos SMW-Eq TBG SMW Diff   MV");
   for (const row of model.biggestMisses) {
     lines.push([
       row.playerName.padEnd(24, " "),
       String(row.clubName ?? "").padEnd(24, " "),
       row.positionGroup.padEnd(3, " "),
-      String(row.predictedRating).padStart(5, " "),
+      String(row.smwEquivalentRaw).padStart(6, " "),
       String(row.tbgRating).padStart(3, " "),
       String(row.targetRating).padStart(3, " "),
       String(row.error).padStart(6, " "),
@@ -407,4 +493,4 @@ export function formatRegistrySmwModelReport(model) {
   return lines.join("\n");
 }
 
-export { DEFAULT_FEATURES, featuresFor, buildExamples, tbgRatingBand, disagreementType };
+export { DEFAULT_FEATURES, featuresFor, buildExamples, tbgRatingBand, disagreementType, tbgV2Adjustments };
