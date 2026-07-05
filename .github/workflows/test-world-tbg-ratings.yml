@@ -1,0 +1,143 @@
+name: Test Wider-World TBG Ratings
+
+on:
+  workflow_dispatch:
+    inputs:
+      actor:
+        description: "Apify Transfermarkt actor id"
+        required: true
+        default: "jungle_synthesizer/transfermarkt-global-football-player-scraper"
+      playerIds:
+        description: "Comma-separated Transfermarkt player IDs. Defaults: Messi 28003, Ronaldo 8198"
+        required: true
+        default: "28003,8198"
+      searchQueries:
+        description: "Optional comma-separated player search queries"
+        required: false
+        default: ""
+      maxItems:
+        description: "Maximum player records to fetch"
+        required: true
+        default: "20"
+      ridge:
+        description: "Ridge regularisation strength for calibration model"
+        required: true
+        default: "10"
+      commitResults:
+        description: "Commit generated master, registry and score files"
+        required: true
+        default: "true"
+
+jobs:
+  test-world-tbg-ratings:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      TARGET_DATASET_JSON: calibration/apify-transfermarkt-world-test-dataset.json
+      VALUES_CSV: calibration/transfermarkt-values.csv
+      TM_MASTER_JSON: data/transfermarkt/players-master.json
+      TM_MASTER_CSV: data/transfermarkt/players-master.csv
+      TM_MASTER_SUMMARY: data/transfermarkt/players-master-summary.json
+      REGISTRY_JSON: data/players/player-registry.json
+      REGISTRY_CSV: data/players/player-registry.csv
+      REGISTRY_SUMMARY: data/players/player-registry-summary.json
+      MODEL_JSON: calibration/registry-smw-rating-model.json
+      MODEL_REPORT: calibration/registry-smw-rating-model.md
+      MODEL_PREDICTIONS: calibration/registry-smw-rating-predictions.csv
+      WORLD_SCORES_CSV: calibration/tbg-world-test-ratings.csv
+      WORLD_SCORES_REPORT: calibration/tbg-world-test-ratings.md
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Fetch wider-world Transfermarkt players from Apify
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "Missing APIFY_TOKEN repository secret."
+            exit 1
+          fi
+          npm run fetch:transfermarkt:apify -- \
+            --actor="${{ github.event.inputs.actor }}" \
+            --mode="players" \
+            --competitionCodes="" \
+            --playerIds="${{ github.event.inputs.playerIds }}" \
+            --searchQueries="${{ github.event.inputs.searchQueries }}" \
+            --maxItems="${{ github.event.inputs.maxItems }}" \
+            --output="$TARGET_DATASET_JSON"
+
+      - name: Merge wider-world players into Transfermarkt master database
+        run: |
+          npm run import:transfermarkt:master -- \
+            --input="$TARGET_DATASET_JSON" \
+            --masterJson="$TM_MASTER_JSON" \
+            --masterCsv="$TM_MASTER_CSV" \
+            --valuesCsv="$VALUES_CSV" \
+            --summary="$TM_MASTER_SUMMARY" \
+            --mergeExisting="true"
+
+      - name: Rebuild permanent player registry
+        run: |
+          npm run build:player-registry -- \
+            --transfermarkt="$TM_MASTER_JSON" \
+            --registryJson="$REGISTRY_JSON" \
+            --registryCsv="$REGISTRY_CSV" \
+            --summary="$REGISTRY_SUMMARY"
+
+      - name: Train registry-first SMW/TBG model
+        run: |
+          npm run train:registry-smw-rating-model -- \
+            --registry="$REGISTRY_JSON" \
+            --transfermarkt="$TM_MASTER_JSON" \
+            --ridge="${{ github.event.inputs.ridge }}" \
+            --includeOutOfScope="false" \
+            --output="$MODEL_JSON" \
+            --report="$MODEL_REPORT" \
+            --predictions="$MODEL_PREDICTIONS"
+
+      - name: Score requested wider-world players
+        run: |
+          npm run score:tbg-ratings -- \
+            --model="$MODEL_JSON" \
+            --registry="$REGISTRY_JSON" \
+            --transfermarkt="$TM_MASTER_JSON" \
+            --transfermarktIds="${{ github.event.inputs.playerIds }}" \
+            --names="${{ github.event.inputs.searchQueries }}" \
+            --output="$WORLD_SCORES_CSV" \
+            --report="$WORLD_SCORES_REPORT"
+
+      - name: Upload wider-world TBG rating outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: wider-world-tbg-ratings
+          path: |
+            calibration/apify-transfermarkt-world-test-dataset.json
+            calibration/tbg-world-test-ratings.csv
+            calibration/tbg-world-test-ratings.md
+            calibration/registry-smw-rating-model.json
+            calibration/registry-smw-rating-model.md
+            calibration/registry-smw-rating-predictions.csv
+            data/transfermarkt/players-master.json
+            data/players/player-registry.json
+
+      - name: Commit wider-world TBG rating outputs
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration/apify-transfermarkt-world-test-dataset.json calibration/tbg-world-test-ratings.csv calibration/tbg-world-test-ratings.md calibration/registry-smw-rating-model.json calibration/registry-smw-rating-model.md calibration/registry-smw-rating-predictions.csv calibration/transfermarkt-values.csv data/transfermarkt/players-master.json data/transfermarkt/players-master.csv data/transfermarkt/players-master-summary.json data/players/player-registry.json data/players/player-registry.csv data/players/player-registry-summary.json || true
+          git commit -m "Test wider-world TBG ratings" || echo "No changes to commit"
+          git push
