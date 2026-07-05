@@ -90,6 +90,19 @@ function marketTrend(record) {
   return (current - previous) / previous;
 }
 
+function isEliteLeague(codeOrName) {
+  const value = String(codeOrName ?? "").toLowerCase();
+  return ["gb1", "es1", "l1", "it1", "fr1", "champions league", "europa league"].some((key) => value.includes(key));
+}
+
+function isNonEliteVeteranLeague(example) {
+  const code = String(example.currentCompetitionCode ?? example.competitionCode ?? "").toLowerCase();
+  const club = String(example.clubName ?? example.currentClub ?? "").toLowerCase();
+  if (isEliteLeague(code)) return false;
+  if (["mls", "usa", "saudi", "sa1", "al-nassr", "al nassr", "inter miami"].some((key) => code.includes(key) || club.includes(key))) return true;
+  return false;
+}
+
 function featuresFor(registryRow, tmRow) {
   const age = number(tmRow.age ?? registryRow.age, 0);
   const marketValue = number(tmRow.market_value_eur, 0);
@@ -184,6 +197,8 @@ function buildExamples(registryRows, transfermarktRows, options = {}) {
       playerName: registryRow.soccerwiki_name || registryRow.canonical_name || tmRow.display_name,
       transfermarktName: tmRow.display_name,
       clubName: registryRow.current_club || tmRow.current_club,
+      currentClub: registryRow.current_club || tmRow.current_club,
+      currentCompetitionCode: registryRow.current_competition_code || tmRow.current_competition_code,
       position: registryRow.primary_position || tmRow.position,
       positionGroup: positionGroup(registryRow.primary_position || tmRow.position),
       targetRating: rating,
@@ -242,12 +257,8 @@ function disagreementType(error) {
 }
 
 function disagreementNote(row) {
-  if (row.disagreementType === "smw_higher_than_tbg") {
-    return "SoccerWiki/SMW rating is materially higher than the objective TBG model. Possible legacy, title, status or editorial boost.";
-  }
-  if (row.disagreementType === "tbg_higher_than_smw") {
-    return "Objective TBG model is materially higher than SoccerWiki/SMW. Possible delayed rise, harsh drop, injury lag or undervalued player.";
-  }
+  if (row.disagreementType === "smw_higher_than_tbg") return "SoccerWiki/SMW rating is materially higher than the objective TBG model. Possible legacy, title, status or editorial boost.";
+  if (row.disagreementType === "tbg_higher_than_smw") return "Objective TBG model is materially higher than SoccerWiki/SMW. Possible delayed rise, harsh drop, injury lag or undervalued player.";
   if (row.disagreementType === "minor_difference") return "Small difference within normal calibration tolerance.";
   return "Model and SoccerWiki/SMW are closely aligned.";
 }
@@ -278,6 +289,14 @@ function scorePrestige(example, smwEquivalentRaw) {
   if (age >= 30 && smwEquivalentRaw >= 89 && highestValueMillions >= 40) components.push(adjustment(0.25, "form is temporary, class is permanent safeguard", "prestige"));
   if (age >= 34 && smwEquivalentRaw >= 91) components.push(adjustment(0.15, "late-career elite class inertia", "prestige"));
 
+  const raw = components.reduce((sum, item) => sum + item.value, 0);
+  let cap = 0.85;
+  if (age >= 37 && isNonEliteVeteranLeague(example)) cap = 0.25;
+  else if (age >= 34 && smwEquivalentRaw >= 93) cap = 0.45;
+  else if (age >= 32 && smwEquivalentRaw >= 91) cap = 0.6;
+
+  const capped = clamp(raw, 0, cap);
+  if (round(capped, 3) !== round(raw, 3)) components.push(adjustment(capped - raw, "diminishing-returns prestige taper", "prestige"));
   return components;
 }
 
@@ -290,8 +309,8 @@ function scoreTrajectory(example) {
   if (marketValueMillions >= 150) components.push(adjustment(0.35, "world-superstar current market signal", "trajectory"));
   else if (marketValueMillions >= 100) components.push(adjustment(0.2, "elite current market signal", "trajectory"));
 
-  if (age <= 20 && marketValueMillions >= 35) components.push(adjustment(0.45, "teenage elite-potential trajectory", "trajectory"));
-  else if (age <= 22 && marketValueMillions >= 50) components.push(adjustment(0.3, "young elite-potential trajectory", "trajectory"));
+  if (age <= 20 && marketValueMillions >= 35) components.push(adjustment(0.45, "teenage elite-trajectory adjustment", "trajectory"));
+  else if (age <= 22 && marketValueMillions >= 50) components.push(adjustment(0.3, "young elite-trajectory adjustment", "trajectory"));
   else if (age <= 24 && marketValueMillions >= 75) components.push(adjustment(0.15, "early-prime high-ceiling trajectory", "trajectory"));
 
   if (previousValueMillions > 0) {
@@ -310,6 +329,7 @@ function scoreAbilityAdjustment(example, smwEquivalentRaw) {
   const currentToPeak = highestValueMillions > 0 ? marketValueMillions / highestValueMillions : 1;
   const components = [];
 
+  if (age >= 37 && isNonEliteVeteranLeague(example) && smwEquivalentRaw >= 93) components.push(adjustment(-0.45, "late-career non-elite-league current-ability caution", "ability"));
   if (age >= 34 && marketValueMillions < 5 && smwEquivalentRaw >= 87) components.push(adjustment(-0.15, "late-career low-market ability caution", "ability"));
   if (highestValueMillions >= 40 && currentToPeak <= 0.2 && age >= 31) components.push(adjustment(-0.15, "large fall from peak current-ability caution", "ability"));
   if (example.positionGroup === "GK") components.push(adjustment(0.1, "goalkeeper longevity stability", "ability"));
@@ -380,6 +400,7 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
       playerName: example.playerName,
       transfermarktName: example.transfermarktName,
       clubName: example.clubName,
+      currentCompetitionCode: example.currentCompetitionCode,
       position: example.position,
       positionGroup: example.positionGroup,
       age: example.age,
@@ -417,18 +438,18 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
 
   return {
     meta: {
-      version: "registry-smw-rating-model-v2.1",
+      version: "registry-smw-rating-model-v2.2",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       registryRows: registryRows.length,
       transfermarktRows: transfermarktRows.length,
       ridge: number(options.ridge ?? 10),
-      philosophy: "SMW-equivalent benchmark plus independent TBG Rating Model v2.1: ability, prestige and trajectory.",
+      philosophy: "SMW-equivalent benchmark plus independent TBG Rating Model v2.2: sticky ability, prestige with diminishing returns, and elite trajectory.",
       tbgV2: {
-        basis: "SMW-equivalent calibration score plus small, auditable ability, prestige and trajectory adjustments.",
+        basis: "SMW-equivalent calibration score plus auditable ability, prestige and trajectory adjustments.",
         adjustmentCap: 1.25,
         dimensions: ["ability", "prestige", "trajectory"],
-        availableSignals: ["age", "current market value", "previous market value", "peak market value", "international caps", "lifetime transfer fees", "position group"],
+        availableSignals: ["age", "current market value", "previous market value", "peak market value", "international caps", "lifetime transfer fees", "position group", "current competition/club context"],
         futureSignals: ["minutes", "recent form", "injury history", "league strength", "club strength", "European/international performance", "versatility", "previous TBG rating"]
       },
       skipped
@@ -484,7 +505,7 @@ export function formatRegistrySmwModelReport(model) {
     `Within 1 rating point: ${Math.round(model.metrics.withinOne * 100)}%`,
     `Within 2 rating points: ${Math.round(model.metrics.withinTwo * 100)}%`,
     "",
-    "TBG Rating Model v2.1:",
+    "TBG Rating Model v2.2:",
     `- Basis: ${model.meta.tbgV2.basis}`,
     `- Adjustment cap: ±${model.meta.tbgV2.adjustmentCap}`,
     `- Dimensions: ${model.meta.tbgV2.dimensions.join(", ")}`,
@@ -505,53 +526,23 @@ export function formatRegistrySmwModelReport(model) {
     "Position metrics:"
   ];
 
-  for (const [group, stats] of Object.entries(model.metricsByPositionGroup)) {
-    lines.push(`- ${group}: n=${stats.examples}, MAE=${stats.meanAbsoluteError}, median=${stats.medianAbsoluteError}, max=${stats.maxAbsoluteError}`);
-  }
-
+  for (const [group, stats] of Object.entries(model.metricsByPositionGroup)) lines.push(`- ${group}: n=${stats.examples}, MAE=${stats.meanAbsoluteError}, median=${stats.medianAbsoluteError}, max=${stats.maxAbsoluteError}`);
   lines.push("", "Coefficients:");
   for (const [name, value] of Object.entries(model.coefficients)) lines.push(`- ${name}: ${value}`);
 
   lines.push("", "Material disagreements:", "Player                   Club                     Pos  SMW-Eq TBG SMW ΔTBG Type");
   for (const row of model.disagreementAudit.materialDisagreements.slice(0, 25)) {
-    lines.push([
-      row.playerName.padEnd(24, " "),
-      String(row.clubName ?? "").padEnd(24, " "),
-      row.positionGroup.padEnd(3, " "),
-      String(row.smwEquivalentRating).padStart(6, " "),
-      String(row.tbgRating).padStart(3, " "),
-      String(row.targetRating).padStart(3, " "),
-      String(row.tbgDeltaRounded).padStart(5, " "),
-      row.disagreementType
-    ].join(" "));
+    lines.push([row.playerName.padEnd(24, " "), String(row.clubName ?? "").padEnd(24, " "), row.positionGroup.padEnd(3, " "), String(row.smwEquivalentRating).padStart(6, " "), String(row.tbgRating).padStart(3, " "), String(row.targetRating).padStart(3, " "), String(row.tbgDeltaRounded).padStart(5, " "), row.disagreementType].join(" "));
   }
 
-  lines.push("", "TBG v2.1 largest adjustments:", "Player                   Club                     Pos SMW-Eq A/P/T  Adj  TBG Reasons");
+  lines.push("", "TBG v2.2 largest adjustments:", "Player                   Club                     Pos SMW-Eq A/P/T  Adj  TBG Reasons");
   for (const row of [...model.predictions].sort((a, b) => Math.abs(b.tbgV2Adjustment) - Math.abs(a.tbgV2Adjustment)).slice(0, 20)) {
-    lines.push([
-      row.playerName.padEnd(24, " "),
-      String(row.clubName ?? "").padEnd(24, " "),
-      row.positionGroup.padEnd(3, " "),
-      String(row.smwEquivalentRating).padStart(6, " "),
-      `${row.abilityComponent}/${row.prestigeComponent}/${row.trajectoryComponent}`.padStart(10, " "),
-      String(row.tbgV2Adjustment).padStart(5, " "),
-      String(row.tbgRating).padStart(3, " "),
-      row.tbgV2AdjustmentReasons.join(" | ")
-    ].join(" "));
+    lines.push([row.playerName.padEnd(24, " "), String(row.clubName ?? "").padEnd(24, " "), row.positionGroup.padEnd(3, " "), String(row.smwEquivalentRating).padStart(6, " "), `${row.abilityComponent}/${row.prestigeComponent}/${row.trajectoryComponent}`.padStart(10, " "), String(row.tbgV2Adjustment).padStart(5, " "), String(row.tbgRating).padStart(3, " "), row.tbgV2AdjustmentReasons.join(" | ")].join(" "));
   }
 
   lines.push("", "Biggest SMW-equivalent calibration misses:", "Player                   Club                     Pos SMW-Eq TBG SMW Diff   MV");
   for (const row of model.biggestMisses) {
-    lines.push([
-      row.playerName.padEnd(24, " "),
-      String(row.clubName ?? "").padEnd(24, " "),
-      row.positionGroup.padEnd(3, " "),
-      String(row.smwEquivalentRaw).padStart(6, " "),
-      String(row.tbgRating).padStart(3, " "),
-      String(row.targetRating).padStart(3, " "),
-      String(row.error).padStart(6, " "),
-      `${Math.round(row.marketValueEur / 1_000_000)}m`.padStart(5, " ")
-    ].join(" "));
+    lines.push([row.playerName.padEnd(24, " "), String(row.clubName ?? "").padEnd(24, " "), row.positionGroup.padEnd(3, " "), String(row.smwEquivalentRaw).padStart(6, " "), String(row.tbgRating).padStart(3, " "), String(row.targetRating).padStart(3, " "), String(row.error).padStart(6, " "), `${Math.round(row.marketValueEur / 1_000_000)}m`.padStart(5, " ")].join(" "));
   }
 
   return lines.join("\n");
