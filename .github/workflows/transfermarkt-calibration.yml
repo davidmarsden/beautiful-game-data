@@ -1,0 +1,119 @@
+name: Transfermarkt Gold Standard Calibration
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Transfermarkt fetch scope"
+        required: true
+        default: "wide"
+        type: choice
+        options:
+          - wide
+          - premier-league
+      maxItems:
+        description: "Maximum Apify player items to fetch"
+        required: true
+        default: "5000"
+      datasetLimit:
+        description: "Maximum Apify dataset rows to download"
+        required: true
+        default: "10000"
+      mergeExisting:
+        description: "Merge with existing Transfermarkt master data"
+        required: true
+        default: true
+        type: boolean
+      includeGoldStandardRescue:
+        description: "Also search for gold-standard players by name"
+        required: true
+        default: true
+        type: boolean
+      runRatings:
+        description: "Run TBG scoring and gold-standard review after import"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+env:
+  APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+
+jobs:
+  transfermarkt-calibration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out data repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Apify token
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "Missing APIFY_TOKEN repository secret."
+            exit 1
+          fi
+
+      - name: Fetch Transfermarkt wide calibration dataset
+        run: |
+          npm run fetch:transfermarkt:apify -- \
+            --scope=${{ github.event.inputs.scope }} \
+            --maxItems=${{ github.event.inputs.maxItems }} \
+            --datasetLimit=${{ github.event.inputs.datasetLimit }} \
+            --includeGoldStandardRescue=${{ github.event.inputs.includeGoldStandardRescue }} \
+            --output=calibration/apify-transfermarkt-wide-dataset.json
+
+      - name: Import and merge Transfermarkt master data
+        run: |
+          npm run import:transfermarkt:master -- \
+            --input=calibration/apify-transfermarkt-wide-dataset.json \
+            --mergeExisting=${{ github.event.inputs.mergeExisting }}
+
+      - name: Audit gold-standard Transfermarkt coverage
+        run: npm run gold-standard:coverage
+
+      - name: Re-score TBG ratings
+        if: ${{ github.event.inputs.runRatings == 'true' }}
+        run: npm run score:tbg-ratings
+
+      - name: Rebuild gold-standard rating review
+        if: ${{ github.event.inputs.runRatings == 'true' }}
+        run: npm run gold-standard:review
+
+      - name: Upload calibration artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: transfermarkt-calibration-output
+          path: |
+            calibration/apify-transfermarkt-wide-dataset.json
+            calibration/transfermarkt-values.csv
+            calibration/transfermarkt-gold-standard-coverage.csv
+            calibration/transfermarkt-gold-standard-coverage-summary.json
+            calibration/tbg-gold-standard-ratings.csv
+            calibration/tbg-gold-standard-ratings.md
+            calibration/tbg-gold-standard-review.csv
+            calibration/tbg-gold-standard-review.md
+            data/transfermarkt/players-master-summary.json
+          if-no-files-found: ignore
+
+      - name: Commit calibration data
+        run: |
+          if [ -z "$(git status --porcelain calibration data/transfermarkt)" ]; then
+            echo "No calibration data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration data/transfermarkt
+          git commit -m "Refresh Transfermarkt gold-standard calibration"
+          git push
