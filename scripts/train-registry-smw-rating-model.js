@@ -12,7 +12,7 @@ function parseArgs(argv) {
 }
 
 function csvEscape(value) {
-  const text = String(value ?? "");
+  const text = Array.isArray(value) ? value.join(" | ") : String(value ?? "");
   if (/[,"\n\r]/.test(text)) return `"${text.replace(/"/g, '""')}"`;
   return text;
 }
@@ -27,12 +27,18 @@ function predictionsCsv(rows) {
     "positionGroup",
     "age",
     "marketValueEur",
+    "highestMarketValueEur",
+    "previousMarketValueEur",
     "targetRating",
-    "predictedRating",
+    "smwEquivalentRaw",
+    "smwEquivalentRating",
+    "tbgV2Adjustment",
+    "tbgV2AdjustmentReasons",
     "tbgRatingRaw",
     "tbgRating",
     "tbgRatingBand",
-    "ratingDeltaRounded",
+    "smwDeltaRounded",
+    "tbgDeltaRounded",
     "error",
     "absoluteError",
     "disagreementType",
