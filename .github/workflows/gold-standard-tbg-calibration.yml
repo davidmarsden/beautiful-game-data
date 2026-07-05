@@ -1,0 +1,136 @@
+name: Gold-Standard TBG Calibration
+
+on:
+  workflow_dispatch:
+    inputs:
+      actor:
+        description: "Apify Transfermarkt actor id"
+        required: true
+        default: "jungle_synthesizer/transfermarkt-global-football-player-scraper"
+      calibrationSet:
+        description: "Gold-standard calibration JSON"
+        required: true
+        default: "data/calibration/tbg-gold-standard-players.json"
+      model:
+        description: "Existing trained registry SMW/TBG model JSON"
+        required: true
+        default: "calibration/registry-smw-rating-model.json"
+      registry:
+        description: "Existing player registry JSON"
+        required: true
+        default: "data/players/player-registry.json"
+      commitResults:
+        description: "Commit generated gold-standard outputs"
+        required: true
+        default: "true"
+
+jobs:
+  gold-standard-tbg-calibration:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      TARGET_DATASET_JSON: calibration/apify-transfermarkt-gold-standard-dataset.json
+      VALUES_CSV: calibration/transfermarkt-values.csv
+      TM_MASTER_JSON: data/transfermarkt/players-master.json
+      TM_MASTER_CSV: data/transfermarkt/players-master.csv
+      TM_MASTER_SUMMARY: data/transfermarkt/players-master-summary.json
+      SCORES_CSV: calibration/tbg-gold-standard-ratings.csv
+      SCORES_REPORT: calibration/tbg-gold-standard-ratings.md
+      REVIEW_MD: calibration/tbg-gold-standard-review.md
+      REVIEW_CSV: calibration/tbg-gold-standard-review.csv
+
+    steps:
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Export gold-standard Apify queries
+        id: gold_standard
+        run: |
+          npm run gold-standard:inputs -- \
+            --input="${{ github.event.inputs.calibrationSet }}" \
+            --format=github-output >> "$GITHUB_OUTPUT"
+
+      - name: Fetch gold-standard Transfermarkt players from Apify
+        run: |
+          if [ -z "$APIFY_TOKEN" ]; then
+            echo "Missing APIFY_TOKEN repository secret."
+            exit 1
+          fi
+          echo "Gold-standard players: ${{ steps.gold_standard.outputs.count }}"
+          npm run fetch:transfermarkt:apify -- \
+            --actor="${{ github.event.inputs.actor }}" \
+            --mode="players" \
+            --competitionCodes="" \
+            --searchQueries="${{ steps.gold_standard.outputs.searchQueries }}" \
+            --maxItems="${{ steps.gold_standard.outputs.maxItems }}" \
+            --output="$TARGET_DATASET_JSON"
+
+      - name: Merge gold-standard players into Transfermarkt master database
+        run: |
+          npm run import:transfermarkt:master -- \
+            --input="$TARGET_DATASET_JSON" \
+            --masterJson="$TM_MASTER_JSON" \
+            --masterCsv="$TM_MASTER_CSV" \
+            --valuesCsv="$VALUES_CSV" \
+            --summary="$TM_MASTER_SUMMARY" \
+            --mergeExisting="true"
+
+      - name: Score gold-standard players from existing model
+        run: |
+          if [ ! -f "${{ github.event.inputs.model }}" ]; then
+            echo "Missing trained model: ${{ github.event.inputs.model }}"
+            echo "Run 'Train Registry SMW Rating Model' first."
+            exit 1
+          fi
+          npm run score:tbg-ratings -- \
+            --model="${{ github.event.inputs.model }}" \
+            --registry="${{ github.event.inputs.registry }}" \
+            --transfermarkt="$TM_MASTER_JSON" \
+            --names="${{ steps.gold_standard.outputs.searchQueries }}" \
+            --output="$SCORES_CSV" \
+            --report="$SCORES_REPORT"
+
+      - name: Review gold-standard ratings against expected bands
+        run: |
+          npm run gold-standard:review -- \
+            --set="${{ github.event.inputs.calibrationSet }}" \
+            --scores="$SCORES_CSV" \
+            --output="$REVIEW_MD" \
+            --csv="$REVIEW_CSV"
+
+      - name: Upload gold-standard calibration outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-gold-standard-calibration
+          path: |
+            calibration/apify-transfermarkt-gold-standard-dataset.json
+            calibration/tbg-gold-standard-ratings.csv
+            calibration/tbg-gold-standard-ratings.md
+            calibration/tbg-gold-standard-review.md
+            calibration/tbg-gold-standard-review.csv
+            calibration/transfermarkt-values.csv
+            data/transfermarkt/players-master.json
+            data/transfermarkt/players-master.csv
+            data/transfermarkt/players-master-summary.json
+
+      - name: Commit gold-standard calibration outputs
+        if: ${{ github.event.inputs.commitResults == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration/apify-transfermarkt-gold-standard-dataset.json calibration/tbg-gold-standard-ratings.csv calibration/tbg-gold-standard-ratings.md calibration/tbg-gold-standard-review.md calibration/tbg-gold-standard-review.csv calibration/transfermarkt-values.csv data/transfermarkt/players-master.json data/transfermarkt/players-master.csv data/transfermarkt/players-master-summary.json || true
+          git commit -m "Run gold-standard TBG calibration" || echo "No changes to commit"
+          git push
