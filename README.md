@@ -42,3 +42,21 @@ Snapshots are committed under:
 ```text
 providers/api-football/
 ```
+
+## Transfermarkt calibration workflow
+
+The wide Transfermarkt fetch now covers the big-five leagues plus key calibration leagues and also includes the gold-standard rescue names. This prevents the benchmark being dominated by Premier League coverage.
+
+```bash
+npm run fetch:transfermarkt:wide
+npm run import:transfermarkt:wide
+npm run gold-standard:coverage
+npm run score:tbg-ratings
+npm run gold-standard:review
+```
+
+The default wide fetch writes `calibration/apify-transfermarkt-wide-dataset.json`.
+
+The import merges that into the Transfermarkt master files under `data/transfermarkt/` and refreshes `calibration/transfermarkt-values.csv`.
+
+The coverage audit writes `calibration/transfermarkt-gold-standard-coverage.csv` and `calibration/transfermarkt-gold-standard-coverage-summary.json`.
