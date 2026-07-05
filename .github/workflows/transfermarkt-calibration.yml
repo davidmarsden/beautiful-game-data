@@ -25,7 +25,7 @@ on:
         default: true
         type: boolean
       includeGoldStandardRescue:
-        description: "Also search for gold-standard players by name"
+        description: "Run targeted rescue pass for still-missing gold-standard players"
         required: true
         default: true
         type: boolean
@@ -63,22 +63,42 @@ jobs:
             exit 1
           fi
 
-      - name: Fetch Transfermarkt wide calibration dataset
+      - name: Fetch Transfermarkt league calibration dataset
         run: |
           npm run fetch:transfermarkt:apify -- \
             --scope=${{ github.event.inputs.scope }} \
             --maxItems=${{ github.event.inputs.maxItems }} \
             --datasetLimit=${{ github.event.inputs.datasetLimit }} \
-            --includeGoldStandardRescue=${{ github.event.inputs.includeGoldStandardRescue }} \
+            --includeGoldStandardRescue=false \
             --output=calibration/apify-transfermarkt-wide-dataset.json
 
-      - name: Import and merge Transfermarkt master data
+      - name: Import and merge Transfermarkt league data
         run: |
           npm run import:transfermarkt:master -- \
             --input=calibration/apify-transfermarkt-wide-dataset.json \
             --mergeExisting=${{ github.event.inputs.mergeExisting }}
 
-      - name: Audit gold-standard Transfermarkt coverage
+      - name: Audit coverage after league import
+        run: npm run gold-standard:coverage
+
+      - name: Rescue still-missing gold-standard players
+        if: ${{ github.event.inputs.includeGoldStandardRescue == 'true' }}
+        run: |
+          node scripts/fetch-apify-transfermarkt-rescue.js \
+            --missingQueries=calibration/transfermarkt-gold-standard-missing-queries.json \
+            --output=calibration/apify-transfermarkt-rescue-dataset.json \
+            --batchSize=5 \
+            --maxItemsPerQuery=5 \
+            --datasetLimit=500
+
+      - name: Import and merge rescue data
+        if: ${{ github.event.inputs.includeGoldStandardRescue == 'true' }}
+        run: |
+          npm run import:transfermarkt:master -- \
+            --input=calibration/apify-transfermarkt-rescue-dataset.json \
+            --mergeExisting=true
+
+      - name: Audit coverage after rescue import
         run: npm run gold-standard:coverage
 
       - name: Re-score TBG ratings
@@ -95,9 +115,11 @@ jobs:
           name: transfermarkt-calibration-output
           path: |
             calibration/apify-transfermarkt-wide-dataset.json
+            calibration/apify-transfermarkt-rescue-dataset.json
             calibration/transfermarkt-values.csv
             calibration/transfermarkt-gold-standard-coverage.csv
             calibration/transfermarkt-gold-standard-coverage-summary.json
+            calibration/transfermarkt-gold-standard-missing-queries.json
             calibration/tbg-gold-standard-ratings.csv
             calibration/tbg-gold-standard-ratings.md
             calibration/tbg-gold-standard-review.csv
