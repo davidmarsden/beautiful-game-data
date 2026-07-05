@@ -18,6 +18,10 @@ function median(values) {
   return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 }
 
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
 function identity(size) {
   return Array.from({ length: size }, (_, row) => Array.from({ length: size }, (_, column) => row === column ? 1 : 0));
 }
@@ -216,6 +220,46 @@ function groupMetrics(predictions, key) {
   return Object.fromEntries([...groups.entries()].sort().map(([name, rows]) => [name, { examples: rows.length, ...metrics(rows) }]));
 }
 
+function tbgRatingBand(rating) {
+  if (rating >= 94) return "world_elite";
+  if (rating >= 91) return "elite";
+  if (rating >= 89) return "top_tier";
+  if (rating >= 87) return "first_team";
+  if (rating >= 84) return "senior_squad";
+  return "development";
+}
+
+function disagreementType(error) {
+  if (error <= -1.25) return "smw_higher_than_tbg";
+  if (error >= 1.25) return "tbg_higher_than_smw";
+  if (Math.abs(error) <= 0.5) return "aligned";
+  return "minor_difference";
+}
+
+function disagreementNote(row) {
+  if (row.disagreementType === "smw_higher_than_tbg") {
+    return "SoccerWiki/SMW rating is materially higher than the objective TBG model. Possible legacy, title, status or editorial boost.";
+  }
+  if (row.disagreementType === "tbg_higher_than_smw") {
+    return "Objective TBG model is materially higher than SoccerWiki/SMW. Possible delayed rise, harsh drop, injury lag or undervalued player.";
+  }
+  if (row.disagreementType === "minor_difference") return "Small difference within normal calibration tolerance.";
+  return "Model and SoccerWiki/SMW are closely aligned.";
+}
+
+function buildDisagreementAudit(predictions) {
+  const rows = [...predictions].sort((a, b) => b.absoluteError - a.absoluteError || a.playerName.localeCompare(b.playerName));
+  return {
+    summary: {
+      aligned: rows.filter((row) => row.disagreementType === "aligned").length,
+      minorDifference: rows.filter((row) => row.disagreementType === "minor_difference").length,
+      smwHigherThanTbg: rows.filter((row) => row.disagreementType === "smw_higher_than_tbg").length,
+      tbgHigherThanSmw: rows.filter((row) => row.disagreementType === "tbg_higher_than_smw").length
+    },
+    materialDisagreements: rows.filter((row) => Math.abs(row.error) >= 1.25).slice(0, 50)
+  };
+}
+
 export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, options = {}) {
   const featureNames = options.features ?? DEFAULT_FEATURES;
   const { examples, skipped } = buildExamples(registryRows, transfermarktRows, options);
@@ -229,7 +273,10 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
 
   const predictions = examples.map((example) => {
     const predictedRating = predict(example.features, coefficients, featureNames);
+    const tbgRatingRaw = clamp(predictedRating, 60, 99);
+    const tbgRating = Math.round(tbgRatingRaw);
     const error = predictedRating - example.targetRating;
+    const disagreement = disagreementType(error);
     return {
       tbgPlayerId: example.tbgPlayerId,
       transfermarktId: example.transfermarktId,
@@ -243,28 +290,52 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
       marketValueEur: example.marketValueEur,
       targetRating: example.targetRating,
       predictedRating: round(predictedRating, 2),
+      tbgRatingRaw: round(tbgRatingRaw, 2),
+      tbgRating,
+      tbgRatingBand: tbgRatingBand(tbgRating),
+      ratingDeltaRounded: tbgRating - example.targetRating,
       error: round(error, 3),
-      absoluteError: round(Math.abs(error), 3)
+      absoluteError: round(Math.abs(error), 3),
+      disagreementType: disagreement,
+      disagreementNote: disagreementNote({ disagreementType: disagreement })
     };
   });
 
   predictions.sort((a, b) => b.targetRating - a.targetRating || a.playerName.localeCompare(b.playerName));
+  const disagreementAudit = buildDisagreementAudit(predictions);
 
   return {
     meta: {
-      version: "registry-smw-rating-model-v1.0",
+      version: "registry-smw-rating-model-v1.1",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       registryRows: registryRows.length,
       transfermarktRows: transfermarktRows.length,
       ridge: number(options.ridge ?? 10),
+      philosophy: "SMW-compatible benchmark model plus objective TBG rating and disagreement audit.",
       skipped
     },
     featureNames,
     coefficients: Object.fromEntries(featureNames.map((name, index) => [name, round(coefficients[index], 8)])),
     metrics: metrics(predictions),
     metricsByPositionGroup: groupMetrics(predictions, "positionGroup"),
+    disagreementAudit,
     biggestMisses: [...predictions].sort((a, b) => b.absoluteError - a.absoluteError || a.playerName.localeCompare(b.playerName)).slice(0, 25),
+    tbgRatings: predictions.map((row) => ({
+      tbgPlayerId: row.tbgPlayerId,
+      transfermarktId: row.transfermarktId,
+      playerName: row.playerName,
+      clubName: row.clubName,
+      positionGroup: row.positionGroup,
+      age: row.age,
+      marketValueEur: row.marketValueEur,
+      tbgRating: row.tbgRating,
+      tbgRatingRaw: row.tbgRatingRaw,
+      tbgRatingBand: row.tbgRatingBand,
+      smwRating: row.targetRating,
+      ratingDeltaRounded: row.ratingDeltaRounded,
+      disagreementType: row.disagreementType
+    })),
     predictions
   };
 }
@@ -273,6 +344,7 @@ export function formatRegistrySmwModelReport(model) {
   const lines = [
     "# Registry-first SMW Rating Model",
     `Version: ${model.meta.version}`,
+    `Philosophy: ${model.meta.philosophy}`,
     `Examples: ${model.meta.examples}`,
     `Registry rows: ${model.meta.registryRows}`,
     `Transfermarkt rows: ${model.meta.transfermarktRows}`,
@@ -289,6 +361,12 @@ export function formatRegistrySmwModelReport(model) {
     `- No Transfermarkt row: ${model.meta.skipped.noTransfermarktRow}`,
     `- Out of scope: ${model.meta.skipped.outOfScope}`,
     "",
+    "Disagreement audit:",
+    `- Aligned: ${model.disagreementAudit.summary.aligned}`,
+    `- Minor difference: ${model.disagreementAudit.summary.minorDifference}`,
+    `- SoccerWiki higher than TBG: ${model.disagreementAudit.summary.smwHigherThanTbg}`,
+    `- TBG higher than SoccerWiki: ${model.disagreementAudit.summary.tbgHigherThanSmw}`,
+    "",
     "Position metrics:"
   ];
 
@@ -299,20 +377,34 @@ export function formatRegistrySmwModelReport(model) {
   lines.push("", "Coefficients:");
   for (const [name, value] of Object.entries(model.coefficients)) lines.push(`- ${name}: ${value}`);
 
-  lines.push("", "Biggest misses:", "Player                   Club                     Pos Pred SMW Diff   MV");
+  lines.push("", "Material disagreements:", "Player                   Club                     Pos  TBG SMW Delta Type");
+  for (const row of model.disagreementAudit.materialDisagreements.slice(0, 25)) {
+    lines.push([
+      row.playerName.padEnd(24, " "),
+      String(row.clubName ?? "").padEnd(24, " "),
+      row.positionGroup.padEnd(3, " "),
+      String(row.tbgRating).padStart(3, " "),
+      String(row.targetRating).padStart(3, " "),
+      String(row.ratingDeltaRounded).padStart(5, " "),
+      row.disagreementType
+    ].join(" "));
+  }
+
+  lines.push("", "Biggest misses:", "Player                   Club                     Pos Pred TBG SMW Diff   MV");
   for (const row of model.biggestMisses) {
     lines.push([
       row.playerName.padEnd(24, " "),
       String(row.clubName ?? "").padEnd(24, " "),
       row.positionGroup.padEnd(3, " "),
       String(row.predictedRating).padStart(5, " "),
+      String(row.tbgRating).padStart(3, " "),
       String(row.targetRating).padStart(3, " "),
       String(row.error).padStart(6, " "),
-      String(Math.round(row.marketValueEur / 1_000_000)).padStart(4, "m")
+      `${Math.round(row.marketValueEur / 1_000_000)}m`.padStart(5, " ")
     ].join(" "));
   }
 
   return lines.join("\n");
 }
 
-export { DEFAULT_FEATURES, featuresFor, buildExamples };
+export { DEFAULT_FEATURES, featuresFor, buildExamples, tbgRatingBand, disagreementType };
