@@ -76,6 +76,7 @@ const goldStandardPath = args.goldStandard ?? "data/calibration/tbg-gold-standar
 const playersPath = args.players ?? "data/transfermarkt/players-master.json";
 const outputPath = args.output ?? "calibration/transfermarkt-gold-standard-coverage.csv";
 const summaryPath = args.summary ?? "calibration/transfermarkt-gold-standard-coverage-summary.json";
+const missingQueriesPath = args.missingQueries ?? "calibration/transfermarkt-gold-standard-missing-queries.json";
 
 const goldStandard = JSON.parse(await readFile(goldStandardPath, "utf8"));
 const players = JSON.parse(await readFile(playersPath, "utf8"));
@@ -113,6 +114,7 @@ summary.coverage_rate = summary.total ? Number((summary.covered / summary.total)
 
 await mkdir(dirname(outputPath), { recursive: true });
 await mkdir(dirname(summaryPath), { recursive: true });
+await mkdir(dirname(missingQueriesPath), { recursive: true });
 await writeFile(
   outputPath,
   writeCsv(rows, [
@@ -131,6 +133,7 @@ await writeFile(
   "utf8"
 );
 await writeFile(summaryPath, JSON.stringify(summary, null, 2) + "\n", "utf8");
+await writeFile(missingQueriesPath, JSON.stringify(summary.missing_players, null, 2) + "\n", "utf8");
 
 console.log(`Gold-standard players: ${summary.total}`);
 console.log(`Covered: ${summary.covered}`);
@@ -138,3 +141,4 @@ console.log(`Missing: ${summary.missing}`);
 console.log(`Coverage rate: ${(summary.coverage_rate * 100).toFixed(1)}%`);
 console.log(`Wrote coverage CSV: ${outputPath}`);
 console.log(`Wrote coverage summary: ${summaryPath}`);
+console.log(`Wrote missing query list: ${missingQueriesPath}`);
