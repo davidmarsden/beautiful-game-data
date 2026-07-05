@@ -57,6 +57,7 @@ function blankRegistryRowFromTransfermarkt(tmRow) {
     primary_position: tmRow.position || "",
     position_category: tmRow.position_category || "",
     current_club: tmRow.current_club || "",
+    current_competition_code: tmRow.current_competition_code || "",
     soccerwiki_rating: ""
   };
 }
@@ -73,6 +74,10 @@ function scoreRow(model, registryRow, tmRow) {
     internationalCaps: number(tmRow.international_caps, 0),
     internationalGoals: number(tmRow.international_goals, 0),
     totalTransferFeesEur: number(tmRow.total_transfer_fees_eur, 0),
+    currentClub: registryRow.current_club || tmRow.current_club,
+    clubName: registryRow.current_club || tmRow.current_club,
+    currentCompetitionCode: registryRow.current_competition_code || tmRow.current_competition_code,
+    competitionCode: registryRow.current_competition_code || tmRow.current_competition_code,
     positionGroup: positionGroup(tmRow.position || registryRow.primary_position)
   };
   const tbgV2 = tbgV2Adjustments(example, smwEquivalentRaw);
@@ -86,6 +91,7 @@ function scoreRow(model, registryRow, tmRow) {
     playerName: registryRow.soccerwiki_name || registryRow.canonical_name || tmRow.display_name || tmRow.full_name,
     transfermarktName: tmRow.display_name || tmRow.full_name,
     clubName: registryRow.current_club || tmRow.current_club,
+    currentCompetitionCode: example.currentCompetitionCode,
     position: registryRow.primary_position || tmRow.position,
     positionGroup: example.positionGroup,
     age: example.age,
@@ -118,6 +124,7 @@ function csv(rows) {
     "playerName",
     "transfermarktName",
     "clubName",
+    "currentCompetitionCode",
     "position",
     "positionGroup",
     "age",
@@ -149,11 +156,11 @@ function markdown(rows) {
     "",
     "These scores apply the trained SMW-equivalent model and TBG v2 ability/prestige/trajectory adjustments to any Transfermarkt player in the master database.",
     "",
-    "Player | Club | Pos | Age | SMW Eq | TBG | Band | Adjustment | Reasons",
-    "--- | --- | --- | ---: | ---: | ---: | --- | ---: | ---"
+    "Player | Club | Comp | Pos | Age | SMW Eq | TBG | Band | Adjustment | Reasons",
+    "--- | --- | --- | --- | ---: | ---: | ---: | --- | ---: | ---"
   ];
   for (const row of rows.slice(0, 100)) {
-    lines.push(`${row.playerName} | ${row.clubName} | ${row.positionGroup} | ${row.age} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.tbgRatingBand} | ${row.tbgV2Adjustment} | ${row.tbgV2AdjustmentReasons.join("; ")}`);
+    lines.push(`${row.playerName} | ${row.clubName} | ${row.currentCompetitionCode} | ${row.positionGroup} | ${row.age} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.tbgRatingBand} | ${row.tbgV2Adjustment} | ${row.tbgV2AdjustmentReasons.join("; ")}`);
   }
   return lines.join("\n") + "\n";
 }
@@ -170,7 +177,6 @@ const onlyNames = String(args.names ?? "").split(",").map((value) => value.trim(
 const model = JSON.parse(await readFile(modelPath, "utf8"));
 const registryRows = JSON.parse(await readFile(registryPath, "utf8"));
 const transfermarktRows = JSON.parse(await readFile(transfermarktPath, "utf8"));
-const tmById = byTransfermarktId(transfermarktRows);
 const registryByTmId = byTransfermarktId(registryRows);
 
 let rows = transfermarktRows
@@ -189,4 +195,4 @@ await writeFile(reportPath, markdown(rows), "utf8");
 console.log(`Scored ${rows.length} player(s).`);
 console.log(`Wrote TBG scores CSV: ${outputPath}`);
 console.log(`Wrote TBG scores report: ${reportPath}`);
-if (rows.length) console.table(rows.slice(0, 20).map((row) => ({ player: row.playerName, club: row.clubName, smwEq: row.smwEquivalentRating, tbg: row.tbgRating, adjustment: row.tbgV2Adjustment })));
+if (rows.length) console.table(rows.slice(0, 20).map((row) => ({ player: row.playerName, club: row.clubName, comp: row.currentCompetitionCode, smwEq: row.smwEquivalentRating, tbg: row.tbgRating, adjustment: row.tbgV2Adjustment })));
