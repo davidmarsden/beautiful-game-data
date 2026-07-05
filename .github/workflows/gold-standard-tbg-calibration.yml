@@ -59,7 +59,7 @@ jobs:
       - name: Export gold-standard Apify queries
         id: gold_standard
         run: |
-          npm run gold-standard:inputs -- \
+          node scripts/export-gold-standard-inputs.js \
             --input="${{ github.event.inputs.calibrationSet }}" \
             --format=github-output >> "$GITHUB_OUTPUT"
 
