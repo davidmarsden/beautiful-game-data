@@ -190,6 +190,9 @@ function buildExamples(registryRows, transfermarktRows, options = {}) {
       marketValueEur: number(tmRow.market_value_eur, 0),
       highestMarketValueEur: number(tmRow.highest_market_value_eur, 0),
       previousMarketValueEur: number(tmRow.previous_market_value_eur, 0),
+      internationalCaps: number(tmRow.international_caps, 0),
+      internationalGoals: number(tmRow.international_goals, 0),
+      totalTransferFeesEur: number(tmRow.total_transfer_fees_eur, 0),
       age: number(tmRow.age, 0),
       features
     });
@@ -249,43 +252,90 @@ function disagreementNote(row) {
   return "Model and SoccerWiki/SMW are closely aligned.";
 }
 
-function adjustment(value, reason) {
-  return { value: round(value, 3), reason };
+function adjustment(value, reason, dimension = "ability") {
+  return { value: round(value, 3), reason, dimension };
 }
 
-function tbgV2Adjustments(example, smwEquivalentRaw) {
+function scorePrestige(example, smwEquivalentRaw) {
   const age = number(example.age, 0);
   const marketValueMillions = number(example.marketValueEur, 0) / 1_000_000;
   const highestValueMillions = number(example.highestMarketValueEur, 0) / 1_000_000;
-  const previousValueMillions = number(example.previousMarketValueEur, 0) / 1_000_000;
-  const currentToPeak = highestValueMillions > 0 ? marketValueMillions / highestValueMillions : 1;
+  const transferFeesMillions = number(example.totalTransferFeesEur, 0) / 1_000_000;
+  const caps = number(example.internationalCaps, 0);
   const components = [];
 
-  if (marketValueMillions >= 150) components.push(adjustment(0.35, "world-superstar market signal"));
-  else if (marketValueMillions >= 100) components.push(adjustment(0.2, "elite market signal"));
+  if (highestValueMillions >= 150) components.push(adjustment(0.45, "historic world-superstar prestige", "prestige"));
+  else if (highestValueMillions >= 100) components.push(adjustment(0.3, "historic elite-market prestige", "prestige"));
+  else if (highestValueMillions >= 70) components.push(adjustment(0.18, "historic high-level market prestige", "prestige"));
 
-  if (age <= 20 && marketValueMillions >= 35) components.push(adjustment(0.45, "teenage elite-potential premium"));
-  else if (age <= 22 && marketValueMillions >= 50) components.push(adjustment(0.3, "young elite-potential premium"));
-  else if (age <= 24 && marketValueMillions >= 75) components.push(adjustment(0.15, "early-prime high-ceiling premium"));
+  if (caps >= 100) components.push(adjustment(0.3, "centurion international prestige", "prestige"));
+  else if (caps >= 60) components.push(adjustment(0.2, "major international experience", "prestige"));
+  else if (caps >= 30) components.push(adjustment(0.1, "established international experience", "prestige"));
+
+  if (transferFeesMillions >= 150) components.push(adjustment(0.25, "elite lifetime transfer-fee signal", "prestige"));
+  else if (transferFeesMillions >= 80) components.push(adjustment(0.15, "major lifetime transfer-fee signal", "prestige"));
+
+  if (age >= 30 && smwEquivalentRaw >= 89 && highestValueMillions >= 40) components.push(adjustment(0.25, "form is temporary, class is permanent safeguard", "prestige"));
+  if (age >= 34 && smwEquivalentRaw >= 91) components.push(adjustment(0.15, "late-career elite class inertia", "prestige"));
+
+  return components;
+}
+
+function scoreTrajectory(example) {
+  const age = number(example.age, 0);
+  const marketValueMillions = number(example.marketValueEur, 0) / 1_000_000;
+  const previousValueMillions = number(example.previousMarketValueEur, 0) / 1_000_000;
+  const components = [];
+
+  if (marketValueMillions >= 150) components.push(adjustment(0.35, "world-superstar current market signal", "trajectory"));
+  else if (marketValueMillions >= 100) components.push(adjustment(0.2, "elite current market signal", "trajectory"));
+
+  if (age <= 20 && marketValueMillions >= 35) components.push(adjustment(0.45, "teenage elite-potential trajectory", "trajectory"));
+  else if (age <= 22 && marketValueMillions >= 50) components.push(adjustment(0.3, "young elite-potential trajectory", "trajectory"));
+  else if (age <= 24 && marketValueMillions >= 75) components.push(adjustment(0.15, "early-prime high-ceiling trajectory", "trajectory"));
 
   if (previousValueMillions > 0) {
     const trend = (marketValueMillions - previousValueMillions) / previousValueMillions;
-    if (trend >= 0.75 && marketValueMillions >= 25) components.push(adjustment(0.25, "strong recent market rise"));
-    else if (trend <= -0.5 && previousValueMillions >= 20) components.push(adjustment(-0.25, "sharp recent market fall"));
+    if (trend >= 0.75 && marketValueMillions >= 25) components.push(adjustment(0.25, "strong recent market rise", "trajectory"));
+    else if (trend <= -0.5 && previousValueMillions >= 20) components.push(adjustment(-0.2, "sharp recent market fall", "trajectory"));
   }
 
-  if (age >= 32 && marketValueMillions < 10 && smwEquivalentRaw >= 88) components.push(adjustment(-0.35, "age-and-current-market decline check"));
-  if (age >= 34 && marketValueMillions < 5 && smwEquivalentRaw >= 87) components.push(adjustment(-0.25, "late-career low-market safeguard"));
-  if (highestValueMillions >= 40 && currentToPeak <= 0.25 && age >= 30) components.push(adjustment(-0.25, "large fall from peak market status"));
+  return components;
+}
 
-  if (example.positionGroup === "GK") components.push(adjustment(0.1, "goalkeeper longevity stability"));
-  if (example.positionGroup === "ATT" && marketValueMillions < 20 && smwEquivalentRaw >= 90) components.push(adjustment(-0.2, "attacker output/value reality check"));
+function scoreAbilityAdjustment(example, smwEquivalentRaw) {
+  const age = number(example.age, 0);
+  const marketValueMillions = number(example.marketValueEur, 0) / 1_000_000;
+  const highestValueMillions = number(example.highestMarketValueEur, 0) / 1_000_000;
+  const currentToPeak = highestValueMillions > 0 ? marketValueMillions / highestValueMillions : 1;
+  const components = [];
 
+  if (age >= 34 && marketValueMillions < 5 && smwEquivalentRaw >= 87) components.push(adjustment(-0.15, "late-career low-market ability caution", "ability"));
+  if (highestValueMillions >= 40 && currentToPeak <= 0.2 && age >= 31) components.push(adjustment(-0.15, "large fall from peak current-ability caution", "ability"));
+  if (example.positionGroup === "GK") components.push(adjustment(0.1, "goalkeeper longevity stability", "ability"));
+  if (example.positionGroup === "ATT" && marketValueMillions < 20 && smwEquivalentRaw >= 90) components.push(adjustment(-0.15, "attacker output/value reality check", "ability"));
+
+  return components;
+}
+
+function tbgV2Adjustments(example, smwEquivalentRaw) {
+  const components = [
+    ...scoreAbilityAdjustment(example, smwEquivalentRaw),
+    ...scorePrestige(example, smwEquivalentRaw),
+    ...scoreTrajectory(example)
+  ];
+  const totalsByDimension = components.reduce((acc, item) => {
+    acc[item.dimension] = round((acc[item.dimension] ?? 0) + item.value, 3);
+    return acc;
+  }, {});
   const rawTotal = components.reduce((sum, item) => sum + item.value, 0);
   const cappedTotal = clamp(rawTotal, -1.25, 1.25);
-  if (round(cappedTotal, 3) !== round(rawTotal, 3)) components.push(adjustment(cappedTotal - rawTotal, "compatibility cap"));
+  if (round(cappedTotal, 3) !== round(rawTotal, 3)) components.push(adjustment(cappedTotal - rawTotal, "compatibility cap", "cap"));
   return {
     total: round(cappedTotal, 3),
+    ability: round(totalsByDimension.ability ?? 0, 3),
+    prestige: round(totalsByDimension.prestige ?? 0, 3),
+    trajectory: round(totalsByDimension.trajectory ?? 0, 3),
     components,
     reasons: components.map((item) => `${item.value >= 0 ? "+" : ""}${item.value}: ${item.reason}`)
   };
@@ -336,10 +386,16 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
       marketValueEur: example.marketValueEur,
       highestMarketValueEur: example.highestMarketValueEur,
       previousMarketValueEur: example.previousMarketValueEur,
+      internationalCaps: example.internationalCaps,
+      internationalGoals: example.internationalGoals,
+      totalTransferFeesEur: example.totalTransferFeesEur,
       targetRating: example.targetRating,
       smwEquivalentRaw: round(smwEquivalentRaw, 2),
       smwEquivalentRating,
       predictedRating: round(smwEquivalentRaw, 2),
+      abilityComponent: tbgV2.ability,
+      prestigeComponent: tbgV2.prestige,
+      trajectoryComponent: tbgV2.trajectory,
       tbgV2Adjustment: tbgV2.total,
       tbgV2AdjustmentComponents: tbgV2.components,
       tbgV2AdjustmentReasons: tbgV2.reasons,
@@ -361,18 +417,19 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
 
   return {
     meta: {
-      version: "registry-smw-rating-model-v2.0",
+      version: "registry-smw-rating-model-v2.1",
       trainedAt: new Date().toISOString(),
       examples: examples.length,
       registryRows: registryRows.length,
       transfermarktRows: transfermarktRows.length,
       ridge: number(options.ridge ?? 10),
-      philosophy: "SMW-equivalent benchmark model plus independent TBG Rating Model v2 adjustment layer.",
+      philosophy: "SMW-equivalent benchmark plus independent TBG Rating Model v2.1: ability, prestige and trajectory.",
       tbgV2: {
-        basis: "SMW-equivalent calibration score plus small, auditable objective adjustments.",
+        basis: "SMW-equivalent calibration score plus small, auditable ability, prestige and trajectory adjustments.",
         adjustmentCap: 1.25,
-        availableSignals: ["age", "current market value", "previous market value", "peak market value", "position group"],
-        futureSignals: ["minutes", "recent form", "injury history", "league strength", "club strength", "European/international performance", "versatility"]
+        dimensions: ["ability", "prestige", "trajectory"],
+        availableSignals: ["age", "current market value", "previous market value", "peak market value", "international caps", "lifetime transfer fees", "position group"],
+        futureSignals: ["minutes", "recent form", "injury history", "league strength", "club strength", "European/international performance", "versatility", "previous TBG rating"]
       },
       skipped
     },
@@ -390,8 +447,13 @@ export function trainRegistrySmwRatingModel(registryRows, transfermarktRows, opt
       positionGroup: row.positionGroup,
       age: row.age,
       marketValueEur: row.marketValueEur,
+      highestMarketValueEur: row.highestMarketValueEur,
+      internationalCaps: row.internationalCaps,
       smwEquivalentRating: row.smwEquivalentRating,
       smwEquivalentRaw: row.smwEquivalentRaw,
+      abilityComponent: row.abilityComponent,
+      prestigeComponent: row.prestigeComponent,
+      trajectoryComponent: row.trajectoryComponent,
       tbgV2Adjustment: row.tbgV2Adjustment,
       tbgV2AdjustmentReasons: row.tbgV2AdjustmentReasons,
       tbgRating: row.tbgRating,
@@ -422,9 +484,10 @@ export function formatRegistrySmwModelReport(model) {
     `Within 1 rating point: ${Math.round(model.metrics.withinOne * 100)}%`,
     `Within 2 rating points: ${Math.round(model.metrics.withinTwo * 100)}%`,
     "",
-    "TBG Rating Model v2:",
+    "TBG Rating Model v2.1:",
     `- Basis: ${model.meta.tbgV2.basis}`,
     `- Adjustment cap: ±${model.meta.tbgV2.adjustmentCap}`,
+    `- Dimensions: ${model.meta.tbgV2.dimensions.join(", ")}`,
     `- Current signals: ${model.meta.tbgV2.availableSignals.join(", ")}`,
     `- Future signals: ${model.meta.tbgV2.futureSignals.join(", ")}`,
     "",
@@ -463,13 +526,14 @@ export function formatRegistrySmwModelReport(model) {
     ].join(" "));
   }
 
-  lines.push("", "TBG v2 largest adjustments:", "Player                   Club                     Pos SMW-Eq Adj  TBG Reasons");
+  lines.push("", "TBG v2.1 largest adjustments:", "Player                   Club                     Pos SMW-Eq A/P/T  Adj  TBG Reasons");
   for (const row of [...model.predictions].sort((a, b) => Math.abs(b.tbgV2Adjustment) - Math.abs(a.tbgV2Adjustment)).slice(0, 20)) {
     lines.push([
       row.playerName.padEnd(24, " "),
       String(row.clubName ?? "").padEnd(24, " "),
       row.positionGroup.padEnd(3, " "),
       String(row.smwEquivalentRating).padStart(6, " "),
+      `${row.abilityComponent}/${row.prestigeComponent}/${row.trajectoryComponent}`.padStart(10, " "),
       String(row.tbgV2Adjustment).padStart(5, " "),
       String(row.tbgRating).padStart(3, " "),
       row.tbgV2AdjustmentReasons.join(" | ")
