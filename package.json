@@ -20,9 +20,12 @@
     "score:tbg-ratings": "node scripts/score-tbg-ratings.js",
     "gold-standard:inputs": "node scripts/export-gold-standard-inputs.js",
     "gold-standard:review": "node scripts/review-gold-standard-ratings.js",
+    "gold-standard:coverage": "node scripts/audit-transfermarkt-gold-standard-coverage.js",
     "diagnose:smw-matches": "node scripts/diagnose-smw-matches.js",
     "fetch:transfermarkt:apify": "node scripts/fetch-apify-transfermarkt-values.js",
+    "fetch:transfermarkt:wide": "node scripts/fetch-apify-transfermarkt-values.js --scope=wide --output=calibration/apify-transfermarkt-wide-dataset.json",
     "import:transfermarkt:master": "node scripts/import-transfermarkt-master.js",
+    "import:transfermarkt:wide": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-wide-dataset.json --mergeExisting=true",
     "build:player-registry": "node scripts/build-player-registry.js",
     "resolve:player-identities": "node scripts/resolve-player-identities.js",
     "link:soccerwiki-registry": "node scripts/link-soccerwiki-registry.js"
