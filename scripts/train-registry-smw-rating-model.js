@@ -29,8 +29,14 @@ function predictionsCsv(rows) {
     "marketValueEur",
     "targetRating",
     "predictedRating",
+    "tbgRatingRaw",
+    "tbgRating",
+    "tbgRatingBand",
+    "ratingDeltaRounded",
     "error",
-    "absoluteError"
+    "absoluteError",
+    "disagreementType",
+    "disagreementNote"
   ];
   return [headers.join(","), ...rows.map((row) => headers.map((header) => csvEscape(row[header])).join(","))].join("\n") + "\n";
 }
