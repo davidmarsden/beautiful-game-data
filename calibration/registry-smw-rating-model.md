@@ -1,5 +1,6 @@
 # Registry-first SMW Rating Model
-Version: registry-smw-rating-model-v1.0
+Version: registry-smw-rating-model-v1.1
+Philosophy: SMW-compatible benchmark model plus objective TBG rating and disagreement audit.
 Examples: 210
 Registry rows: 644
 Transfermarkt rows: 644
@@ -15,6 +16,12 @@ Skipped:
 - No SoccerWiki rating: 434
 - No Transfermarkt row: 0
 - Out of scope: 0
+
+Disagreement audit:
+- Aligned: 109
+- Minor difference: 75
+- SoccerWiki higher than TBG: 15
+- TBG higher than SoccerWiki: 11
 
 Position metrics:
 - ATT: n=51, MAE=0.516, median=0.402, max=2.066
@@ -46,30 +53,58 @@ Coefficients:
 - isMID: 0.02806681
 - isATT: -0.2693484
 
+Material disagreements:
+Player                   Club                     Pos  TBG SMW Delta Type
+Lucas Digne              Aston Villa              DEF  89  91    -2 smw_higher_than_tbg
+Igor Thiago              Brentford FC             ATT  90  88     2 tbg_higher_than_smw
+Matty Cash               Aston Villa              DEF  89  91    -2 smw_higher_than_tbg
+Joe Rodon                Leeds United             DEF  89  87     2 tbg_higher_than_smw
+Ben Davies               Tottenham Hotspur        DEF  89  87     2 tbg_higher_than_smw
+David Raya               Arsenal FC               GK   91  93    -2 smw_higher_than_tbg
+Luke Shaw                Manchester United        DEF  88  90    -2 smw_higher_than_tbg
+Rayan Cherki             Manchester City          MID  90  92    -2 smw_higher_than_tbg
+Fabian Schär             Newcastle United         DEF  88  90    -2 smw_higher_than_tbg
+Martin Dúbravka          Tottenham Hotspur        GK   89  87     2 tbg_higher_than_smw
+Dominic Calvert-Lewin    Leeds United             ATT  90  88     2 tbg_higher_than_smw
+Pascal Gross             Brighton & Hove Albion   MID  88  90    -2 smw_higher_than_tbg
+James Garner             Everton FC               DEF  90  88     2 tbg_higher_than_smw
+Jeremie Frimpong         Liverpool FC             DEF  89  91    -2 smw_higher_than_tbg
+William Saliba           Arsenal FC               DEF  93  94    -1 smw_higher_than_tbg
+Giorgi Mamardashvili     Liverpool FC             GK   90  91    -1 smw_higher_than_tbg
+Yéremy Pino              Crystal Palace           ATT  89  90    -1 smw_higher_than_tbg
+Bernd Leno               Fulham FC                GK   89  88     1 tbg_higher_than_smw
+Ismaïla Sarr             Crystal Palace           ATT  90  89     1 tbg_higher_than_smw
+Curtis Jones             Liverpool FC             MID  90  91    -1 smw_higher_than_tbg
+Luka Vušković            Tottenham Hotspur        DEF  89  88     1 tbg_higher_than_smw
+Wesley Fofana            Chelsea FC               DEF  89  88     1 tbg_higher_than_smw
+Mason Mount              Manchester United        MID  90  89     1 tbg_higher_than_smw
+Gabriel Magalhães        Arsenal FC               DEF  93  94    -1 smw_higher_than_tbg
+Jérémy Doku              Manchester City          ATT  91  92    -1 smw_higher_than_tbg
+
 Biggest misses:
-Player                   Club                     Pos Pred SMW Diff   MV
-Lucas Digne              Aston Villa              DEF 88.89  91 -2.111 mmm6
-Igor Thiago              Brentford FC             ATT 90.07  88  2.066 mm65
-Matty Cash               Aston Villa              DEF 89.13  91 -1.869 mm22
-Joe Rodon                Leeds United             DEF 88.79  87  1.789 mm18
-Ben Davies               Tottenham Hotspur        DEF 88.78  87  1.781 mmm3
-David Raya               Arsenal FC               GK  91.22  93 -1.781 mm30
-Luke Shaw                Manchester United        DEF  88.3  90 -1.698 mmm8
-Rayan Cherki             Manchester City          MID 90.31  92 -1.692 mm90
-Fabian Schär             Newcastle United         DEF 88.37  90 -1.626 mmm4
-Martin Dúbravka          Tottenham Hotspur        GK  88.62  87  1.618 mmm1
-Dominic Calvert-Lewin    Leeds United             ATT  89.6  88  1.599 mm22
-Pascal Gross             Brighton & Hove Albion   MID 88.42  90 -1.582 mmm3
-James Garner             Everton FC               DEF 89.53  88  1.527 mm45
-Jeremie Frimpong         Liverpool FC             DEF 89.49  91 -1.509 mm35
-William Saliba           Arsenal FC               DEF 92.52  94 -1.476 m100
-Giorgi Mamardashvili     Liverpool FC             GK  89.55  91 -1.449 mm28
-Yéremy Pino              Crystal Palace           ATT 88.56  90 -1.441 mm30
-Bernd Leno               Fulham FC                GK  89.44  88  1.437 mmm6
-Ismaïla Sarr             Crystal Palace           ATT 90.43  89   1.43 mm40
-Curtis Jones             Liverpool FC             MID 89.58  91  -1.42 mm35
-Luka Vušković            Tottenham Hotspur        DEF 89.36  88  1.358 mm60
-Wesley Fofana            Chelsea FC               DEF 89.35  88  1.351 mm28
-Mason Mount              Manchester United        MID 90.35  89  1.349 mm25
-Gabriel Magalhães        Arsenal FC               DEF 92.69  94 -1.306 mm75
-Jérémy Doku              Manchester City          ATT 90.71  92 -1.289 mm75
+Player                   Club                     Pos Pred TBG SMW Diff   MV
+Lucas Digne              Aston Villa              DEF 88.89  89  91 -2.111    6m
+Igor Thiago              Brentford FC             ATT 90.07  90  88  2.066   65m
+Matty Cash               Aston Villa              DEF 89.13  89  91 -1.869   22m
+Joe Rodon                Leeds United             DEF 88.79  89  87  1.789   18m
+Ben Davies               Tottenham Hotspur        DEF 88.78  89  87  1.781    3m
+David Raya               Arsenal FC               GK  91.22  91  93 -1.781   30m
+Luke Shaw                Manchester United        DEF  88.3  88  90 -1.698    8m
+Rayan Cherki             Manchester City          MID 90.31  90  92 -1.692   90m
+Fabian Schär             Newcastle United         DEF 88.37  88  90 -1.626    4m
+Martin Dúbravka          Tottenham Hotspur        GK  88.62  89  87  1.618    1m
+Dominic Calvert-Lewin    Leeds United             ATT  89.6  90  88  1.599   22m
+Pascal Gross             Brighton & Hove Albion   MID 88.42  88  90 -1.582    3m
+James Garner             Everton FC               DEF 89.53  90  88  1.527   45m
+Jeremie Frimpong         Liverpool FC             DEF 89.49  89  91 -1.509   35m
+William Saliba           Arsenal FC               DEF 92.52  93  94 -1.476  100m
+Giorgi Mamardashvili     Liverpool FC             GK  89.55  90  91 -1.449   28m
+Yéremy Pino              Crystal Palace           ATT 88.56  89  90 -1.441   30m
+Bernd Leno               Fulham FC                GK  89.44  89  88  1.437    6m
+Ismaïla Sarr             Crystal Palace           ATT 90.43  90  89   1.43   40m
+Curtis Jones             Liverpool FC             MID 89.58  90  91  -1.42   35m
+Luka Vušković            Tottenham Hotspur        DEF 89.36  89  88  1.358   60m
+Wesley Fofana            Chelsea FC               DEF 89.35  89  88  1.351   28m
+Mason Mount              Manchester United        MID 90.35  90  89  1.349   25m
+Gabriel Magalhães        Arsenal FC               DEF 92.69  93  94 -1.306   75m
+Jérémy Doku              Manchester City          ATT 90.71  91  92 -1.289   75m
