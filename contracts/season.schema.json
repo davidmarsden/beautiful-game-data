@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/season.schema.json",
+  "title": "TBG Season",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["season_id", "season_number", "status", "competitions"],
+  "properties": {
+    "season_id": { "type": "string", "minLength": 1 },
+    "season_number": { "type": ["integer", "number"], "minimum": 1 },
+    "name": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["setup", "active", "completed", "archived"]
+    },
+    "starts_at": { "type": "string" },
+    "ends_at": { "type": "string" },
+    "ruleset_version": { "type": "string" },
+    "data_snapshot_id": { "type": "string" },
+    "competitions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Array of competition_id values."
+    },
+    "diagnostics": {
+      "$ref": "./stress-test.schema.json#/$defs/season_diagnostics"
+    }
+  }
+}
