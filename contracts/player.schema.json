@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/player.schema.json",
+  "title": "TBG Player",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "tbg_player_id",
+    "display_name",
+    "age",
+    "status",
+    "position_group",
+    "underlying_ability_rating",
+    "effective_match_rating",
+    "assignment_status"
+  ],
+  "properties": {
+    "tbg_player_id": { "type": "string", "minLength": 1 },
+    "transfermarkt_id": { "type": "string" },
+    "display_name": { "type": "string", "minLength": 1 },
+    "full_name": { "type": "string" },
+    "name_key": { "type": "string" },
+    "date_of_birth": { "type": "string" },
+    "age": { "type": ["integer", "number", "null"], "minimum": 0, "maximum": 60 },
+    "status": {
+      "type": "string",
+      "enum": ["active", "without_club", "retired", "unknown"]
+    },
+    "nationality": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "position": { "type": "string" },
+    "position_group": {
+      "type": "string",
+      "enum": ["GK", "DEF", "MID", "ATT", "UNK"]
+    },
+    "foot": { "type": "string" },
+    "height_cm": { "type": ["integer", "number", "null"], "minimum": 0 },
+    "current_club": { "type": "string" },
+    "current_club_id": { "type": "string" },
+    "current_competition_code": { "type": "string" },
+    "contract_until": { "type": "string" },
+    "market_value_eur": { "type": ["integer", "number"], "minimum": 0 },
+    "highest_market_value_eur": { "type": ["integer", "number"], "minimum": 0 },
+    "international_team": { "type": "string" },
+    "international_caps": { "type": ["integer", "number"], "minimum": 0 },
+    "tbg_rating": { "type": ["integer", "number", "null"], "minimum": 40, "maximum": 99 },
+    "underlying_ability_rating": { "type": ["integer", "number", "null"], "minimum": 40, "maximum": 99 },
+    "effective_match_rating": { "type": ["integer", "number", "null"], "minimum": 40, "maximum": 99 },
+    "current_state_total_modifier": { "type": ["integer", "number"] },
+    "smw_equivalent_rating": { "type": ["integer", "number", "null"], "minimum": 40, "maximum": 99 },
+    "rating_band": {
+      "type": "string",
+      "enum": ["", "development", "senior_squad", "first_team", "top_tier", "elite", "world_elite"]
+    },
+    "ability_profile": { "$ref": "./rating-profile.schema.json#/$defs/ability_profile" },
+    "current_state": { "$ref": "./rating-profile.schema.json#/$defs/current_state" },
+    "engine_profile": { "$ref": "./rating-profile.schema.json#/$defs/engine_profile" },
+    "tbg_club_id": { "type": "string" },
+    "tbg_club_name": { "type": "string" },
+    "owner_manager": { "type": "string" },
+    "assignment_status": {
+      "type": "string",
+      "enum": ["assigned", "unsigned"]
+    },
+    "first_seen_at": { "type": "string" },
+    "last_seen_at": { "type": "string" },
+    "profile_url": { "type": "string" },
+    "photo_url": { "type": "string" }
+  }
+}
