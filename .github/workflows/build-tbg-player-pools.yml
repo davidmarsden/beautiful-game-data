@@ -1,0 +1,73 @@
+name: Build TBG Player Pools
+
+on:
+  workflow_dispatch:
+    inputs:
+      runRatings:
+        description: "Re-score TBG ratings before exporting player pools"
+        required: true
+        default: true
+        type: boolean
+      runGoldStandardReview:
+        description: "Rebuild gold-standard review before exporting player pools"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  build-player-pools:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out data repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Re-score TBG ratings
+        if: ${{ github.event.inputs.runRatings == 'true' }}
+        run: npm run score:tbg-ratings
+
+      - name: Rebuild gold-standard review
+        if: ${{ github.event.inputs.runGoldStandardReview == 'true' }}
+        run: npm run gold-standard:review
+
+      - name: Export TBG player pools
+        run: node scripts/export-tbg-player-pools.js
+
+      - name: Upload player-pool artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-player-pools
+          path: |
+            derived/tbg-player-pools/global-players.json
+            derived/tbg-player-pools/global-players.csv
+            derived/tbg-player-pools/game-players.json
+            derived/tbg-player-pools/unsigned-players.json
+            derived/tbg-player-pools/unsigned-players.csv
+            derived/tbg-player-pools/watchlist-players.json
+            derived/tbg-player-pools/watchlist-players.csv
+            derived/tbg-player-pools/new-players.json
+            derived/tbg-player-pools/submitted-players.json
+            derived/tbg-player-pools/summary.json
+          if-no-files-found: error
+
+      - name: Commit player-pool data
+        run: |
+          if [ -z "$(git status --porcelain calibration derived data/transfermarkt)" ]; then
+            echo "No player-pool changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration derived data/transfermarkt
+          git commit -m "Build TBG player pools"
+          git push
