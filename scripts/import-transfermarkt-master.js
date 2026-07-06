@@ -63,6 +63,14 @@ function currentClubFromHistoryFallback(row) {
   return parts.length >= 2 ? parts[1] : "";
 }
 
+function playerStatus(row, club) {
+  const raw = String(row.status || row.player_status || row.transfermarkt_status || row.current_status || "").trim();
+  const clubKey = normaliseText(club);
+  if (/retired/i.test(raw)) return "retired";
+  if (/without club|free agent|unattached/i.test(raw) || clubKey === "without club") return "without_club";
+  return raw || "active";
+}
+
 function buildMasterRecord(row) {
   const displayName = row.display_name || row.short_name || row.full_name || "";
   const club = row.current_club || currentClubFromHistoryFallback(row);
@@ -86,6 +94,8 @@ function buildMasterRecord(row) {
     full_name_key: normaliseText(row.full_name || displayName),
     date_of_birth: row.date_of_birth || "",
     age: asNumber(row.age),
+    status: playerStatus(row, club),
+    transfermarkt_status: row.status || row.player_status || row.transfermarkt_status || row.current_status || "",
     place_of_birth: row.place_of_birth || "",
     country_of_birth: row.country_of_birth || "",
     nationality,
@@ -140,7 +150,7 @@ function dedupe(records) {
     const nextValue = record.market_value_eur ?? 0;
     const existingScrapedAt = Date.parse(existing.scraped_at || "") || 0;
     const nextScrapedAt = Date.parse(record.scraped_at || "") || 0;
-    if (nextScrapedAt > existingScrapedAt || (nextScrapedAt === existingScrapedAt && nextValue >= existingValue)) byId.set(key, record);
+    if (nextScrapedAt > existingScrapedAt || (nextScrapedAt === existingScrapedAt && nextValue >= existingValue)) byId.set(key, { ...existing, ...record });
   }
   return [...byId.values()].sort((a, b) => {
     const clubCompare = String(a.current_club).localeCompare(String(b.current_club));
@@ -156,6 +166,7 @@ function writeCsv(records, headers) {
 function buildSummary(records) {
   const byCompetition = new Map();
   const byClub = new Map();
+  const byStatus = new Map();
   const byPositionCategory = new Map();
   let totalValue = 0;
   let valuedPlayers = 0;
@@ -168,9 +179,11 @@ function buildSummary(records) {
     }
     const competition = record.current_competition_code || "UNKNOWN";
     const club = record.current_club || "UNKNOWN";
+    const status = record.status || "unknown";
     const positionCategory = record.position_category || "UNKNOWN";
     byCompetition.set(competition, (byCompetition.get(competition) ?? 0) + 1);
     byClub.set(club, (byClub.get(club) ?? 0) + 1);
+    byStatus.set(status, (byStatus.get(status) ?? 0) + 1);
     byPositionCategory.set(positionCategory, (byPositionCategory.get(positionCategory) ?? 0) + 1);
   }
 
@@ -181,6 +194,7 @@ function buildSummary(records) {
     .map((record) => ({
       player: record.display_name,
       club: record.current_club,
+      status: record.status,
       position: record.position,
       market_value_eur: record.market_value_eur
     }));
@@ -190,6 +204,7 @@ function buildSummary(records) {
     valued_players: valuedPlayers,
     total_market_value_eur: totalValue,
     average_market_value_eur: valuedPlayers ? Math.round(totalValue / valuedPlayers) : 0,
+    statuses: Object.fromEntries([...byStatus.entries()].sort()),
     competitions: Object.fromEntries([...byCompetition.entries()].sort()),
     position_categories: Object.fromEntries([...byPositionCategory.entries()].sort()),
     clubs: Object.fromEntries([...byClub.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))),
@@ -228,6 +243,8 @@ const masterHeaders = [
   "name_key",
   "date_of_birth",
   "age",
+  "status",
+  "transfermarkt_status",
   "nationality",
   "position",
   "position_category",
@@ -251,10 +268,11 @@ const masterHeaders = [
 ];
 await writeFile(masterCsvPath, writeCsv(records, masterHeaders), "utf8");
 
-const valueHeaders = ["player_name", "club", "position", "age", "nationality", "market_value_eur", "market_value", "transfermarkt_url", "source"];
+const valueHeaders = ["player_name", "club", "status", "position", "age", "nationality", "market_value_eur", "market_value", "transfermarkt_url", "source"];
 const valueRows = records.map((record) => ({
   player_name: record.display_name,
   club: record.current_club,
+  status: record.status,
   position: record.position,
   age: record.age,
   nationality: record.nationality,
