@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/rating-profile.schema.json",
+  "title": "TBG Rating Profile",
+  "$defs": {
+    "modifier": {
+      "type": "number",
+      "minimum": -20,
+      "maximum": 20
+    },
+    "current_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "form_modifier",
+        "fitness_modifier",
+        "match_sharpness_modifier",
+        "morale_modifier",
+        "fatigue_modifier",
+        "tactical_fit_modifier",
+        "availability_modifier",
+        "total_modifier"
+      ],
+      "properties": {
+        "form_modifier": { "$ref": "#/$defs/modifier" },
+        "fitness_modifier": { "$ref": "#/$defs/modifier" },
+        "match_sharpness_modifier": { "$ref": "#/$defs/modifier" },
+        "morale_modifier": { "$ref": "#/$defs/modifier" },
+        "fatigue_modifier": { "$ref": "#/$defs/modifier" },
+        "tactical_fit_modifier": { "$ref": "#/$defs/modifier" },
+        "availability_modifier": { "$ref": "#/$defs/modifier" },
+        "total_modifier": { "$ref": "#/$defs/modifier" },
+        "note": { "type": "string" }
+      }
+    },
+    "ability_profile": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "model_version": { "type": "string" },
+        "philosophy": { "type": "string" },
+        "base_smw_equivalent_raw": { "type": "number" },
+        "base_smw_equivalent_rating": { "type": "number" },
+        "ability_component": { "type": "number" },
+        "prestige_component": { "type": "number" },
+        "elite_trajectory_component": { "type": "number" },
+        "total_sticky_adjustment": { "type": "number" },
+        "underlying_ability_raw": { "type": "number" },
+        "underlying_ability_rating": { "type": "number", "minimum": 40, "maximum": 99 },
+        "explanation": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "market_value_eur": { "type": "number" },
+            "highest_market_value_eur": { "type": "number" },
+            "previous_market_value_eur": { "type": "number" },
+            "international_caps": { "type": "number" },
+            "international_goals": { "type": "number" },
+            "total_transfer_fees_eur": { "type": "number" },
+            "age": { "type": "number" },
+            "reasons": { "type": "array", "items": { "type": "string" } },
+            "reasons_by_component": {
+              "type": "object",
+              "additionalProperties": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "engine_profile": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["underlying_ability_rating", "current_state", "effective_match_rating"],
+      "properties": {
+        "underlying_ability_rating": { "type": ["integer", "number", "null"], "minimum": 40, "maximum": 99 },
+        "current_state": { "$ref": "#/$defs/current_state" },
+        "effective_match_rating": { "type": ["integer", "number", "null"], "minimum": 40, "maximum": 99 },
+        "engine_note": { "type": "string" }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/ability_profile" },
+    { "$ref": "#/$defs/current_state" },
+    { "$ref": "#/$defs/engine_profile" }
+  ]
+}
