@@ -3,8 +3,16 @@ name: Transfermarkt Gold Standard Calibration
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "What should this run do?"
+        required: true
+        default: "review-existing-data"
+        type: choice
+        options:
+          - review-existing-data
+          - refresh-transfermarkt-data
       scope:
-        description: "Transfermarkt fetch scope"
+        description: "Transfermarkt fetch scope, only used when refreshing data"
         required: true
         default: "wide"
         type: choice
@@ -12,25 +20,25 @@ on:
           - wide
           - premier-league
       maxItems:
-        description: "Maximum Apify player items to fetch"
+        description: "Maximum Apify player items to fetch, only used when refreshing data"
         required: true
         default: "5000"
       datasetLimit:
-        description: "Maximum Apify dataset rows to download"
+        description: "Maximum Apify dataset rows to download, only used when refreshing data"
         required: true
         default: "10000"
       mergeExisting:
-        description: "Merge with existing Transfermarkt master data"
+        description: "Merge with existing Transfermarkt master data, only used when refreshing data"
         required: true
         default: true
         type: boolean
       includeGoldStandardRescue:
-        description: "Run targeted rescue pass for still-missing gold-standard players"
+        description: "Run targeted rescue pass for still-missing gold-standard players, only used when refreshing data"
         required: true
         default: true
         type: boolean
       runRatings:
-        description: "Run TBG scoring and gold-standard review after import"
+        description: "Run TBG scoring and gold-standard review"
         required: true
         default: true
         type: boolean
@@ -57,6 +65,7 @@ jobs:
         run: npm install
 
       - name: Validate Apify token
+        if: ${{ github.event.inputs.mode == 'refresh-transfermarkt-data' }}
         run: |
           if [ -z "$APIFY_TOKEN" ]; then
             echo "Missing APIFY_TOKEN repository secret."
@@ -64,6 +73,7 @@ jobs:
           fi
 
       - name: Fetch Transfermarkt league calibration dataset
+        if: ${{ github.event.inputs.mode == 'refresh-transfermarkt-data' }}
         run: |
           npm run fetch:transfermarkt:apify -- \
             --scope=${{ github.event.inputs.scope }} \
@@ -73,16 +83,18 @@ jobs:
             --output=calibration/apify-transfermarkt-wide-dataset.json
 
       - name: Import and merge Transfermarkt league data
+        if: ${{ github.event.inputs.mode == 'refresh-transfermarkt-data' }}
         run: |
           npm run import:transfermarkt:master -- \
             --input=calibration/apify-transfermarkt-wide-dataset.json \
             --mergeExisting=${{ github.event.inputs.mergeExisting }}
 
       - name: Audit coverage after league import
+        if: ${{ github.event.inputs.mode == 'refresh-transfermarkt-data' }}
         run: npm run gold-standard:coverage
 
       - name: Rescue still-missing gold-standard players
-        if: ${{ github.event.inputs.includeGoldStandardRescue == 'true' }}
+        if: ${{ github.event.inputs.mode == 'refresh-transfermarkt-data' && github.event.inputs.includeGoldStandardRescue == 'true' }}
         run: |
           node scripts/fetch-apify-transfermarkt-rescue.js \
             --missingQueries=calibration/transfermarkt-gold-standard-missing-queries.json \
@@ -92,13 +104,13 @@ jobs:
             --datasetLimit=500
 
       - name: Import and merge rescue data
-        if: ${{ github.event.inputs.includeGoldStandardRescue == 'true' }}
+        if: ${{ github.event.inputs.mode == 'refresh-transfermarkt-data' && github.event.inputs.includeGoldStandardRescue == 'true' }}
         run: |
           npm run import:transfermarkt:master -- \
             --input=calibration/apify-transfermarkt-rescue-dataset.json \
             --mergeExisting=true
 
-      - name: Audit coverage after rescue import
+      - name: Audit Transfermarkt gold-standard coverage
         run: npm run gold-standard:coverage
 
       - name: Re-score TBG ratings
