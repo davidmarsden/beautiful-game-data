@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/transfer.schema.json",
+  "title": "TBG Transfer",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["transfer_id", "season_id", "tbg_player_id", "transfer_type", "status"],
+  "properties": {
+    "transfer_id": { "type": "string", "minLength": 1 },
+    "season_id": { "type": "string", "minLength": 1 },
+    "tbg_player_id": { "type": "string", "minLength": 1 },
+    "transfermarkt_id": { "type": "string" },
+    "from_club_id": { "type": ["string", "null"] },
+    "to_club_id": { "type": ["string", "null"] },
+    "transfer_type": {
+      "type": "string",
+      "enum": ["permanent", "loan", "free_agent", "release", "retirement", "draft", "manager_submission", "admin_assignment"]
+    },
+    "fee_eur": { "type": ["integer", "number", "null"], "minimum": 0 },
+    "wage_eur": { "type": ["integer", "number", "null"], "minimum": 0 },
+    "contract_until": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["proposed", "negotiating", "accepted", "rejected", "completed", "cancelled"]
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "actor_type": { "type": "string", "enum": ["human_manager", "ai_manager", "admin", "system"] },
+        "actor_id": { "type": "string" },
+        "actor_name": { "type": "string" }
+      }
+    },
+    "created_at": { "type": "string" },
+    "completed_at": { "type": "string" }
+  }
+}
