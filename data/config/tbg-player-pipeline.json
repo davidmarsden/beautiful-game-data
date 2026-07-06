@@ -1,0 +1,26 @@
+{
+  "importPolicy": {
+    "minimumAge": 15,
+    "maximumAge": 40,
+    "minimumMarketValueEur": 100000,
+    "includeWithoutClub": true,
+    "includeRetiredInGlobalDatabase": true,
+    "excludeRetiredFromGamePools": true,
+    "includeExistingGameAssignmentsRegardlessOfFilters": true
+  },
+  "watchlistPolicy": {
+    "maximumAge": 21,
+    "minimumMarketValueEur": 0,
+    "maximumRows": 1000,
+    "sortBy": [
+      "age_asc",
+      "market_value_desc",
+      "tbg_rating_desc"
+    ]
+  },
+  "newPlayersPolicy": {
+    "lookbackDays": 30,
+    "maximumAge": 21,
+    "minimumMarketValueEur": 0
+  }
+}
