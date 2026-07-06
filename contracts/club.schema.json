@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/club.schema.json",
+  "title": "TBG Club",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["tbg_club_id", "club_name", "division", "squad"],
+  "properties": {
+    "tbg_club_id": { "type": "string", "minLength": 1 },
+    "club_name": { "type": "string", "minLength": 1 },
+    "short_name": { "type": "string" },
+    "division": { "type": ["integer", "number", "string"] },
+    "country": { "type": "string" },
+    "reputation": { "type": ["integer", "number"], "minimum": 0 },
+    "budget_eur": { "type": ["integer", "number"], "minimum": 0 },
+    "wage_budget_eur": { "type": ["integer", "number"], "minimum": 0 },
+    "manager": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "manager_id": { "type": "string" },
+        "manager_name": { "type": "string" },
+        "manager_type": { "type": "string", "enum": ["human", "ai", "caretaker", "vacant"] }
+      }
+    },
+    "squad": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Array of tbg_player_id values."
+    },
+    "tactics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "formation": { "type": "string" },
+        "mentality": { "type": "string" },
+        "pressing": { "type": "string" },
+        "tempo": { "type": "string" },
+        "width": { "type": "string" }
+      }
+    }
+  }
+}
