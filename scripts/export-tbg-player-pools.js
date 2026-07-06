@@ -54,7 +54,7 @@ function parseCsv(text) {
 }
 
 function csvEscape(value) {
-  const text = Array.isArray(value) ? value.join("; ") : String(value ?? "");
+  const text = Array.isArray(value) ? value.join("; ") : typeof value === "object" && value !== null ? JSON.stringify(value) : String(value ?? "");
   if (/[,"\n\r]/.test(text)) return `"${text.replace(/"/g, '""')}"`;
   return text;
 }
@@ -99,6 +99,15 @@ function buildRatingIndex(rows) {
   return byTmId;
 }
 
+function buildProfileIndex(rows) {
+  const byTmId = new Map();
+  for (const row of rows) {
+    const id = String(row.transfermarkt_id || row.transfermarktId || "").trim();
+    if (id && !byTmId.has(id)) byTmId.set(id, row);
+  }
+  return byTmId;
+}
+
 function buildAssignmentIndex(assignments) {
   const byTmId = new Map();
   for (const row of assignments) {
@@ -126,11 +135,26 @@ function isGamePoolEligible(row, policy) {
   return true;
 }
 
-function canonicalPlayer(tmRow, ratingRow, assignment) {
+function neutralState() {
+  return {
+    form_modifier: 0,
+    fitness_modifier: 0,
+    match_sharpness_modifier: 0,
+    morale_modifier: 0,
+    fatigue_modifier: 0,
+    tactical_fit_modifier: 0,
+    availability_modifier: 0,
+    total_modifier: 0
+  };
+}
+
+function canonicalPlayer(tmRow, ratingRow, profileRow, assignment) {
   const id = String(tmRow.transfermarkt_id || tmRow.player_id || "");
   const status = normaliseStatus(tmRow);
+  const underlyingAbilityRating = number(ratingRow?.underlyingAbilityRating || ratingRow?.tbgRating, null);
+  const effectiveMatchRating = number(ratingRow?.effectiveMatchRating || ratingRow?.tbgRating, null);
   return {
-    tbg_player_id: ratingRow?.tbgPlayerId || `tbg-tm-${id.padStart(8, "0")}`,
+    tbg_player_id: ratingRow?.tbgPlayerId || profileRow?.tbg_player_id || `tbg-tm-${id.padStart(8, "0")}`,
     transfermarkt_id: id,
     display_name: tmRow.display_name || tmRow.full_name || ratingRow?.playerName || "",
     full_name: tmRow.full_name || tmRow.display_name || "",
@@ -151,9 +175,20 @@ function canonicalPlayer(tmRow, ratingRow, assignment) {
     highest_market_value_eur: number(tmRow.highest_market_value_eur, 0),
     international_team: tmRow.international_team || "",
     international_caps: number(tmRow.international_caps, 0),
-    tbg_rating: ratingRow?.tbgRating ? number(ratingRow.tbgRating, null) : null,
+    tbg_rating: underlyingAbilityRating,
+    underlying_ability_rating: underlyingAbilityRating,
+    effective_match_rating: effectiveMatchRating,
+    current_state_total_modifier: number(ratingRow?.currentStateTotalModifier, 0),
     smw_equivalent_rating: ratingRow?.smwEquivalentRating ? number(ratingRow.smwEquivalentRating, null) : null,
     rating_band: ratingRow?.tbgRatingBand || "",
+    ability_profile: profileRow?.ability || null,
+    current_state: profileRow?.current_state || neutralState(),
+    engine_profile: profileRow?.engine || {
+      underlying_ability_rating: underlyingAbilityRating,
+      current_state: neutralState(),
+      effective_match_rating: effectiveMatchRating,
+      engine_note: "Data repo neutral state; match engine should replace current_state per fixture."
+    },
     tbg_club_id: assignment?.tbg_club_id || assignment?.tbgClubId || "",
     tbg_club_name: assignment?.tbg_club_name || assignment?.tbgClubName || "",
     owner_manager: assignment?.owner_manager || assignment?.ownerManager || "",
@@ -166,11 +201,11 @@ function canonicalPlayer(tmRow, ratingRow, assignment) {
 }
 
 function sortByValueAndRating(a, b) {
-  return number(b.tbg_rating) - number(a.tbg_rating) || number(b.market_value_eur) - number(a.market_value_eur) || String(a.display_name).localeCompare(String(b.display_name));
+  return number(b.underlying_ability_rating) - number(a.underlying_ability_rating) || number(b.market_value_eur) - number(a.market_value_eur) || String(a.display_name).localeCompare(String(b.display_name));
 }
 
 function sortWatchlist(a, b) {
-  return number(a.age, 99) - number(b.age, 99) || number(b.market_value_eur) - number(a.market_value_eur) || number(b.tbg_rating) - number(a.tbg_rating) || String(a.display_name).localeCompare(String(b.display_name));
+  return number(a.age, 99) - number(b.age, 99) || number(b.market_value_eur) - number(a.market_value_eur) || number(b.underlying_ability_rating) - number(a.underlying_ability_rating) || String(a.display_name).localeCompare(String(b.display_name));
 }
 
 function recentCutoffIso(days) {
@@ -183,6 +218,7 @@ const args = parseArgs(process.argv.slice(2));
 const configPath = args.config ?? "data/config/tbg-player-pipeline.json";
 const transfermarktPath = args.transfermarkt ?? "data/transfermarkt/players-master.json";
 const ratingsPath = args.ratings ?? "calibration/tbg-rating-scores.csv";
+const ratingProfilesPath = args.ratingProfiles ?? "calibration/tbg-rating-profiles.json";
 const assignmentsPath = args.assignments ?? "data/game/player-assignments.json";
 const submissionsPath = args.submissions ?? "data/submissions/transfermarkt-player-submissions.json";
 const outputDir = args.outputDir ?? "derived/tbg-player-pools";
@@ -193,13 +229,20 @@ const watchlistPolicy = config.watchlistPolicy ?? {};
 const newPlayersPolicy = config.newPlayersPolicy ?? {};
 const transfermarktRows = await readJson(transfermarktPath, []);
 const ratingRows = parseCsv(await readFile(ratingsPath, "utf8"));
+const ratingProfiles = await readJson(ratingProfilesPath, []);
 const assignments = await readJson(assignmentsPath, []);
 const submissions = await readJson(submissionsPath, []);
 const ratingsByTmId = buildRatingIndex(ratingRows);
+const profilesByTmId = buildProfileIndex(ratingProfiles);
 const assignmentsByTmId = buildAssignmentIndex(assignments);
 
 const globalPlayers = transfermarktRows
-  .map((tmRow) => canonicalPlayer(tmRow, ratingsByTmId.get(String(tmRow.transfermarkt_id || tmRow.player_id || "")), assignmentsByTmId.get(String(tmRow.transfermarkt_id || tmRow.player_id || ""))))
+  .map((tmRow) => canonicalPlayer(
+    tmRow,
+    ratingsByTmId.get(String(tmRow.transfermarkt_id || tmRow.player_id || "")),
+    profilesByTmId.get(String(tmRow.transfermarkt_id || tmRow.player_id || "")),
+    assignmentsByTmId.get(String(tmRow.transfermarkt_id || tmRow.player_id || ""))
+  ))
   .filter((player) => isEligibleForGlobal(player, policy, Boolean(player.tbg_club_id)))
   .sort(sortByValueAndRating);
 
@@ -235,6 +278,7 @@ const submissionRows = submissions.map((submission) => ({
 
 const summary = {
   generated_at: new Date().toISOString(),
+  model_version: "tbg-v3-sticky-ability-fluid-form",
   global_players: globalPlayers.length,
   game_players: gamePlayers.length,
   unsigned_players: unsignedPlayers.length,
@@ -243,6 +287,11 @@ const summary = {
   submitted_players: submissionRows.length,
   status_counts: globalPlayers.reduce((memo, player) => {
     memo[player.status] = (memo[player.status] ?? 0) + 1;
+    return memo;
+  }, {}),
+  rating_counts: globalPlayers.reduce((memo, player) => {
+    const band = player.rating_band || "unrated";
+    memo[band] = (memo[band] ?? 0) + 1;
     return memo;
   }, {}),
   policy
@@ -275,6 +324,9 @@ const csvHeaders = [
   "current_competition_code",
   "market_value_eur",
   "tbg_rating",
+  "underlying_ability_rating",
+  "effective_match_rating",
+  "current_state_total_modifier",
   "smw_equivalent_rating",
   "rating_band",
   "assignment_status",
