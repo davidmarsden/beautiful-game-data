@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/world-state.schema.json",
+  "title": "TBG World State",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["world_id", "contract_version", "generated_at", "players", "clubs", "competitions", "fixtures", "transfers"],
+  "properties": {
+    "world_id": { "type": "string", "minLength": 1 },
+    "contract_version": { "type": "string", "minLength": 1 },
+    "generated_at": { "type": "string" },
+    "data_snapshot_id": { "type": "string" },
+    "season_id": { "type": "string" },
+    "players": {
+      "type": "array",
+      "items": { "$ref": "./player.schema.json" }
+    },
+    "clubs": {
+      "type": "array",
+      "items": { "$ref": "./club.schema.json" }
+    },
+    "competitions": {
+      "type": "array",
+      "items": { "$ref": "./competition.schema.json" }
+    },
+    "fixtures": {
+      "type": "array",
+      "items": { "$ref": "./fixture.schema.json" }
+    },
+    "transfers": {
+      "type": "array",
+      "items": { "$ref": "./transfer.schema.json" }
+    },
+    "diagnostics": {
+      "$ref": "./stress-test.schema.json#/$defs/world_diagnostics"
+    }
+  }
+}
