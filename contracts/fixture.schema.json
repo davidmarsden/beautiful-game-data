@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/fixture.schema.json",
+  "title": "TBG Fixture",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["fixture_id", "season_id", "competition_id", "home_club_id", "away_club_id", "status"],
+  "properties": {
+    "fixture_id": { "type": "string", "minLength": 1 },
+    "season_id": { "type": "string", "minLength": 1 },
+    "competition_id": { "type": "string", "minLength": 1 },
+    "round": { "type": ["integer", "number", "string"] },
+    "matchday": { "type": ["integer", "number", "string", "null"] },
+    "leg": { "type": ["integer", "number", "null"] },
+    "home_club_id": { "type": "string", "minLength": 1 },
+    "away_club_id": { "type": "string", "minLength": 1 },
+    "scheduled_at": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["scheduled", "simulated", "played", "forfeit", "postponed", "void"]
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "home": { "type": ["integer", "number", "null"], "minimum": 0 },
+        "away": { "type": ["integer", "number", "null"], "minimum": 0 },
+        "extra_time_home": { "type": ["integer", "number", "null"], "minimum": 0 },
+        "extra_time_away": { "type": ["integer", "number", "null"], "minimum": 0 },
+        "penalties_home": { "type": ["integer", "number", "null"], "minimum": 0 },
+        "penalties_away": { "type": ["integer", "number", "null"], "minimum": 0 }
+      }
+    },
+    "engine_result": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
