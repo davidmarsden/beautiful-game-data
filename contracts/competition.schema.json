@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/competition.schema.json",
+  "title": "TBG Competition",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["competition_id", "name", "competition_type", "season_id", "participants"],
+  "properties": {
+    "competition_id": { "type": "string", "minLength": 1 },
+    "season_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "competition_type": {
+      "type": "string",
+      "enum": ["league", "cup", "shield", "friendly", "playoff"]
+    },
+    "division": { "type": ["integer", "number", "string", "null"] },
+    "ruleset_version": { "type": "string" },
+    "participants": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Array of tbg_club_id values."
+    },
+    "promotion_slots": { "type": ["integer", "number"], "minimum": 0 },
+    "relegation_slots": { "type": ["integer", "number"], "minimum": 0 },
+    "auto_sack_slots": { "type": ["integer", "number"], "minimum": 0 },
+    "fixture_policy": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}
