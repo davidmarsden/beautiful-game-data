@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thebeautifulgame.dev/contracts/stress-test.schema.json",
+  "title": "TBG Engine Stress Test",
+  "$defs": {
+    "metric_band": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "status"],
+      "properties": {
+        "value": { "type": ["number", "integer"] },
+        "target_min": { "type": ["number", "integer", "null"] },
+        "target_max": { "type": ["number", "integer", "null"] },
+        "status": { "type": "string", "enum": ["green", "amber", "red", "info"] },
+        "note": { "type": "string" }
+      }
+    },
+    "season_diagnostics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "goals_per_match": { "$ref": "#/$defs/metric_band" },
+        "home_win_rate": { "$ref": "#/$defs/metric_band" },
+        "draw_rate": { "$ref": "#/$defs/metric_band" },
+        "upset_rate": { "$ref": "#/$defs/metric_band" },
+        "clean_sheet_rate": { "$ref": "#/$defs/metric_band" },
+        "promotion_relegation_volatility": { "$ref": "#/$defs/metric_band" },
+        "title_concentration": { "$ref": "#/$defs/metric_band" },
+        "elite_squad_hoarding_index": { "$ref": "#/$defs/metric_band" },
+        "ageing_star_replacement_index": { "$ref": "#/$defs/metric_band" },
+        "relegated_club_liquidity_index": { "$ref": "#/$defs/metric_band" },
+        "transfer_market_activity": { "$ref": "#/$defs/metric_band" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "world_diagnostics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "engine_version": { "type": "string" },
+        "data_contract_version": { "type": "string" },
+        "seasons_simulated": { "type": ["integer", "number"] },
+        "closed_world_warning": {
+          "type": "string",
+          "description": "Stress tests cannot validate real-life player development or future human transfer decisions. They validate engine mechanics under a fixed data snapshot."
+        },
+        "summary_status": { "type": "string", "enum": ["green", "amber", "red", "info"] },
+        "season_diagnostics": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/season_diagnostics" }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["engine_version", "data_contract_version", "summary_status"],
+  "properties": {
+    "engine_version": { "type": "string" },
+    "data_contract_version": { "type": "string" },
+    "summary_status": { "type": "string", "enum": ["green", "amber", "red", "info"] },
+    "closed_world_warning": { "type": "string" },
+    "diagnostics": { "$ref": "#/$defs/world_diagnostics" }
+  }
+}
