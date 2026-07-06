@@ -25,7 +25,7 @@ function clamp(value, min, max) {
 }
 
 function csvEscape(value) {
-  const text = Array.isArray(value) ? value.join(" | ") : String(value ?? "");
+  const text = Array.isArray(value) ? value.join(" | ") : typeof value === "object" && value !== null ? JSON.stringify(value) : String(value ?? "");
   if (/[,"\n\r]/.test(text)) return `"${text.replace(/"/g, '""')}"`;
   return text;
 }
@@ -62,6 +62,43 @@ function blankRegistryRowFromTransfermarkt(tmRow) {
   };
 }
 
+function componentReasonMatch(reason) {
+  const text = String(reason ?? "").toLowerCase();
+  if (text.includes("trajectory")) return "elite_trajectory_adjustment";
+  if (text.includes("form is temporary") || text.includes("class is permanent") || text.includes("class inertia")) return "class_retention_adjustment";
+  if (text.includes("international") || text.includes("centurion") || text.includes("transfer-fee") || text.includes("prestige")) return "prestige_adjustment";
+  if (text.includes("caution") || text.includes("reality check")) return "current_ability_caution";
+  return "other_adjustment";
+}
+
+function groupedReasons(reasons) {
+  return reasons.reduce((memo, reason) => {
+    const key = componentReasonMatch(reason);
+    memo[key].push(reason);
+    return memo;
+  }, {
+    elite_trajectory_adjustment: [],
+    class_retention_adjustment: [],
+    prestige_adjustment: [],
+    current_ability_caution: [],
+    other_adjustment: []
+  });
+}
+
+function defaultCurrentState() {
+  return {
+    form_modifier: 0,
+    fitness_modifier: 0,
+    match_sharpness_modifier: 0,
+    morale_modifier: 0,
+    fatigue_modifier: 0,
+    tactical_fit_modifier: 0,
+    availability_modifier: 0,
+    total_modifier: 0,
+    note: "Neutral default. Match engine owns fluid state before each fixture."
+  };
+}
+
 function scoreRow(model, registryRow, tmRow) {
   const features = featuresFor(registryRow, tmRow);
   const smwEquivalentRaw = clamp(predict(features, model.coefficients, model.featureNames), 60, 99);
@@ -81,9 +118,36 @@ function scoreRow(model, registryRow, tmRow) {
     positionGroup: positionGroup(tmRow.position || registryRow.primary_position)
   };
   const tbgV2 = tbgV2Adjustments(example, smwEquivalentRaw);
-  const tbgRatingRaw = clamp(smwEquivalentRaw + tbgV2.total, 60, 99);
-  const tbgRating = Math.round(tbgRatingRaw);
+  const abilityRatingRaw = clamp(smwEquivalentRaw + tbgV2.total, 60, 99);
+  const abilityRating = Math.round(abilityRatingRaw);
+  const currentState = defaultCurrentState();
+  const effectiveMatchRatingRaw = clamp(abilityRatingRaw + currentState.total_modifier, 40, 99);
+  const effectiveMatchRating = Math.round(effectiveMatchRatingRaw);
   const smwRating = number(registryRow.soccerwiki_rating, 0) || "";
+  const reasonsByComponent = groupedReasons(tbgV2.reasons);
+  const abilityProfile = {
+    model_version: "tbg-v3-sticky-ability-fluid-form",
+    philosophy: "Ability is sticky; form, fitness, sharpness, morale, fatigue and tactical fit are fluid match-engine state.",
+    base_smw_equivalent_raw: round(smwEquivalentRaw, 2),
+    base_smw_equivalent_rating: smwEquivalentRating,
+    ability_component: round(tbgV2.ability, 2),
+    prestige_component: round(tbgV2.prestige, 2),
+    elite_trajectory_component: round(tbgV2.trajectory, 2),
+    total_sticky_adjustment: round(tbgV2.total, 2),
+    underlying_ability_raw: round(abilityRatingRaw, 2),
+    underlying_ability_rating: abilityRating,
+    explanation: {
+      market_value_eur: example.marketValueEur,
+      highest_market_value_eur: example.highestMarketValueEur,
+      previous_market_value_eur: example.previousMarketValueEur,
+      international_caps: example.internationalCaps,
+      international_goals: example.internationalGoals,
+      total_transfer_fees_eur: example.totalTransferFeesEur,
+      age: example.age,
+      reasons: tbgV2.reasons,
+      reasons_by_component: reasonsByComponent
+    }
+  };
   return {
     tbgPlayerId: registryRow.tbg_player_id || blankRegistryRowFromTransfermarkt(tmRow).tbg_player_id,
     transfermarktId: String(tmRow.transfermarkt_id || registryRow.transfermarkt_id || ""),
@@ -104,15 +168,37 @@ function scoreRow(model, registryRow, tmRow) {
     smwRating,
     smwEquivalentRaw: round(smwEquivalentRaw, 2),
     smwEquivalentRating,
-    abilityComponent: tbgV2.ability,
-    prestigeComponent: tbgV2.prestige,
-    trajectoryComponent: tbgV2.trajectory,
-    tbgV2Adjustment: tbgV2.total,
+    abilityComponent: abilityProfile.ability_component,
+    prestigeComponent: abilityProfile.prestige_component,
+    trajectoryComponent: abilityProfile.elite_trajectory_component,
+    eliteTrajectoryComponent: abilityProfile.elite_trajectory_component,
+    classRetentionReasons: reasonsByComponent.class_retention_adjustment,
+    tbgV2Adjustment: abilityProfile.total_sticky_adjustment,
     tbgV2AdjustmentReasons: tbgV2.reasons,
-    tbgRatingRaw: round(tbgRatingRaw, 2),
-    tbgRating,
-    tbgRatingBand: tbgRatingBand(tbgRating),
-    tbgDeltaRounded: smwRating ? tbgRating - smwRating : ""
+    tbgRatingRaw: abilityProfile.underlying_ability_raw,
+    tbgRating: abilityRating,
+    underlyingAbilityRaw: abilityProfile.underlying_ability_raw,
+    underlyingAbilityRating: abilityRating,
+    currentFormModifier: currentState.form_modifier,
+    fitnessModifier: currentState.fitness_modifier,
+    matchSharpnessModifier: currentState.match_sharpness_modifier,
+    moraleModifier: currentState.morale_modifier,
+    fatigueModifier: currentState.fatigue_modifier,
+    tacticalFitModifier: currentState.tactical_fit_modifier,
+    availabilityModifier: currentState.availability_modifier,
+    currentStateTotalModifier: currentState.total_modifier,
+    effectiveMatchRatingRaw: round(effectiveMatchRatingRaw, 2),
+    effectiveMatchRating,
+    tbgRatingBand: tbgRatingBand(abilityRating),
+    tbgDeltaRounded: smwRating ? abilityRating - smwRating : "",
+    abilityProfile,
+    currentState,
+    engineProfile: {
+      underlying_ability_rating: abilityRating,
+      current_state: currentState,
+      effective_match_rating: effectiveMatchRating,
+      engine_note: "Data repo supplies neutral state. Match engine should replace current_state per fixture."
+    }
   };
 }
 
@@ -140,8 +226,21 @@ function csv(rows) {
     "abilityComponent",
     "prestigeComponent",
     "trajectoryComponent",
+    "eliteTrajectoryComponent",
     "tbgV2Adjustment",
     "tbgV2AdjustmentReasons",
+    "underlyingAbilityRaw",
+    "underlyingAbilityRating",
+    "currentFormModifier",
+    "fitnessModifier",
+    "matchSharpnessModifier",
+    "moraleModifier",
+    "fatigueModifier",
+    "tacticalFitModifier",
+    "availabilityModifier",
+    "currentStateTotalModifier",
+    "effectiveMatchRatingRaw",
+    "effectiveMatchRating",
     "tbgRatingRaw",
     "tbgRating",
     "tbgRatingBand",
@@ -154,15 +253,32 @@ function markdown(rows) {
   const lines = [
     "# TBG Rating Scores",
     "",
-    "These scores apply the trained SMW-equivalent model and TBG v2 ability/prestige/trajectory adjustments to any Transfermarkt player in the master database.",
+    "These scores apply the trained SMW-equivalent model and TBG v3 sticky-ability / fluid-form architecture to any Transfermarkt player in the master database.",
     "",
-    "Player | Club | Comp | Pos | Age | SMW Eq | TBG | Band | Adjustment | Reasons",
-    "--- | --- | --- | --- | ---: | ---: | ---: | --- | ---: | ---"
+    "Player | Club | Comp | Pos | Age | SMW Eq | Ability | Effective | Band | Sticky Adj | Reasons",
+    "--- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | ---: | ---"
   ];
   for (const row of rows.slice(0, 100)) {
-    lines.push(`${row.playerName} | ${row.clubName} | ${row.currentCompetitionCode} | ${row.positionGroup} | ${row.age} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.tbgRatingBand} | ${row.tbgV2Adjustment} | ${row.tbgV2AdjustmentReasons.join("; ")}`);
+    lines.push(`${row.playerName} | ${row.clubName} | ${row.currentCompetitionCode} | ${row.positionGroup} | ${row.age} | ${row.smwEquivalentRating} | ${row.underlyingAbilityRating} | ${row.effectiveMatchRating} | ${row.tbgRatingBand} | ${row.tbgV2Adjustment} | ${row.tbgV2AdjustmentReasons.join("; ")}`);
   }
   return lines.join("\n") + "\n";
+}
+
+function jsonProfiles(rows) {
+  return rows.map((row) => ({
+    tbg_player_id: row.tbgPlayerId,
+    transfermarkt_id: row.transfermarktId,
+    player_name: row.playerName,
+    transfermarkt_name: row.transfermarktName,
+    club_name: row.clubName,
+    current_competition_code: row.currentCompetitionCode,
+    position: row.position,
+    position_group: row.positionGroup,
+    age: row.age,
+    ability: row.abilityProfile,
+    current_state: row.currentState,
+    engine: row.engineProfile
+  }));
 }
 
 const args = parseArgs(process.argv.slice(2));
@@ -171,6 +287,7 @@ const registryPath = args.registry ?? "data/players/player-registry.json";
 const transfermarktPath = args.transfermarkt ?? "data/transfermarkt/players-master.json";
 const outputPath = args.output ?? "calibration/tbg-rating-scores.csv";
 const reportPath = args.report ?? "calibration/tbg-rating-scores.md";
+const jsonOutputPath = args.json ?? "calibration/tbg-rating-profiles.json";
 const onlyTransfermarktIds = String(args.transfermarktIds ?? "").split(",").map((value) => value.trim()).filter(Boolean);
 const onlyNames = String(args.names ?? "").split(",").map((value) => value.trim().toLowerCase()).filter(Boolean);
 
@@ -188,11 +305,13 @@ if (onlyNames.length) rows = rows.filter((row) => onlyNames.some((name) => Strin
 
 rows.sort((a, b) => b.tbgRatingRaw - a.tbgRatingRaw || b.smwEquivalentRaw - a.smwEquivalentRaw || String(a.playerName).localeCompare(String(b.playerName)));
 
-for (const path of [outputPath, reportPath]) await mkdir(dirname(path), { recursive: true });
+for (const path of [outputPath, reportPath, jsonOutputPath]) await mkdir(dirname(path), { recursive: true });
 await writeFile(outputPath, csv(rows), "utf8");
 await writeFile(reportPath, markdown(rows), "utf8");
+await writeFile(jsonOutputPath, JSON.stringify(jsonProfiles(rows), null, 2) + "\n", "utf8");
 
 console.log(`Scored ${rows.length} player(s).`);
 console.log(`Wrote TBG scores CSV: ${outputPath}`);
 console.log(`Wrote TBG scores report: ${reportPath}`);
-if (rows.length) console.table(rows.slice(0, 20).map((row) => ({ player: row.playerName, club: row.clubName, comp: row.currentCompetitionCode, smwEq: row.smwEquivalentRating, tbg: row.tbgRating, adjustment: row.tbgV2Adjustment })));
+console.log(`Wrote TBG rating profiles JSON: ${jsonOutputPath}`);
+if (rows.length) console.table(rows.slice(0, 20).map((row) => ({ player: row.playerName, club: row.clubName, comp: row.currentCompetitionCode, smwEq: row.smwEquivalentRating, ability: row.underlyingAbilityRating, effective: row.effectiveMatchRating, adjustment: row.tbgV2Adjustment })));
