@@ -15,9 +15,29 @@ function normalise(value) {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’']/g, "")
+    .replace(/[ø]/g, "o")
+    .replace(/[Ø]/g, "o")
+    .replace(/[æ]/g, "ae")
+    .replace(/[Æ]/g, "ae")
+    .replace(/[ß]/g, "ss")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 }
+
+const MANUAL_ALIASES = new Map([
+  ["alisson", ["becker alisson", "alisson becker"]],
+  ["casemiro", ["carlos casemiro", "casemiro carlos"]],
+  ["cristiano ronaldo", ["cristiano ronaldo dos santos aveiro"]],
+  ["pedri", ["pedro gonzalez lopez", "pedro gonzalez"]],
+  ["rodri", ["hernandez rodri", "rodrigo hernandez", "rodrigo hernandez cascante"]],
+  ["vinicius junior", ["vinicius jose paixao de oliveira junior", "vinicius jr"]],
+  ["lamine yamal", ["lamine yamal nasraoui ebana"]],
+  ["raphinha", ["raphael dias belloli"]],
+  ["joao pedro", ["joao pedro junqueira de jesus"]],
+  ["nico williams", ["nicholas williams arthuer"]],
+  ["marc andre ter stegen", ["marc andre ter stegen"]]
+]);
 
 function parseCsv(text) {
   const rows = [];
@@ -64,24 +84,110 @@ function verdict(score, min, max) {
   return "ok";
 }
 
-function findScore(target, scores) {
-  const targetName = normalise(target.name);
-  return scores.find((row) => normalise(row.playerName) === targetName)
-    || scores.find((row) => normalise(row.transfermarktName) === targetName)
-    || scores.find((row) => normalise(row.playerName).includes(targetName) || targetName.includes(normalise(row.playerName)))
-    || scores.find((row) => normalise(row.transfermarktName).includes(targetName) || targetName.includes(normalise(row.transfermarktName)));
+function candidateNames(row) {
+  return [
+    row.name,
+    row.playerName,
+    row.transfermarktName,
+    row.display_name,
+    row.full_name,
+    row.short_name,
+    row.nickname,
+    row.name_key,
+    row.full_name_key
+  ]
+    .map((value) => String(value ?? ""))
+    .filter(Boolean);
+}
+
+function tokenSet(value) {
+  return new Set(normalise(value).split(" ").filter(Boolean));
+}
+
+function overlapScore(targetName, candidateName) {
+  const targetTokens = tokenSet(targetName);
+  const candidateTokens = tokenSet(candidateName);
+  if (!targetTokens.size || !candidateTokens.size) return 0;
+  let overlap = 0;
+  for (const token of targetTokens) if (candidateTokens.has(token)) overlap += 1;
+  const targetCoverage = overlap / targetTokens.size;
+  const candidateCoverage = overlap / candidateTokens.size;
+  return Math.max(targetCoverage, candidateCoverage * 0.8);
+}
+
+function aliasKeys(name) {
+  const key = normalise(name);
+  return [key, ...(MANUAL_ALIASES.get(key) ?? []).map(normalise)];
+}
+
+function findTransfermarktIdentity(target, transfermarktRows) {
+  const keys = aliasKeys(target.name);
+  const exact = transfermarktRows.find((row) => {
+    const names = candidateNames(row).map(normalise);
+    return keys.some((key) => names.includes(key));
+  });
+  if (exact) return { row: exact, matchMethod: "transfermarkt_exact_or_alias" };
+
+  const scored = transfermarktRows
+    .map((row) => {
+      const score = Math.max(...candidateNames(row).map((name) => overlapScore(target.name, name)), 0);
+      return { row, score };
+    })
+    .filter((item) => item.score >= 0.95)
+    .sort((a, b) => b.score - a.score || number(b.row.market_value_eur) - number(a.row.market_value_eur));
+
+  if (scored[0]) return { row: scored[0].row, matchMethod: "transfermarkt_token_match" };
+  return { row: null, matchMethod: "unresolved" };
+}
+
+function buildScoreIndexes(scores) {
+  const byTransfermarktId = new Map();
+  for (const row of scores) {
+    const id = String(row.transfermarktId || row.transfermarkt_id || "").trim();
+    if (id && !byTransfermarktId.has(id)) byTransfermarktId.set(id, row);
+  }
+  return { byTransfermarktId };
+}
+
+function findScoreByName(target, scores) {
+  const keys = aliasKeys(target.name);
+  return scores.find((row) => keys.some((key) => candidateNames(row).map(normalise).includes(key)))
+    || scores.find((row) => keys.some((key) => candidateNames(row).some((name) => normalise(name).includes(key) || key.includes(normalise(name)))))
+    || scores
+      .map((row) => ({ row, score: Math.max(...candidateNames(row).map((name) => overlapScore(target.name, name)), 0) }))
+      .filter((item) => item.score >= 0.95)
+      .sort((a, b) => b.score - a.score || number(b.row.marketValueEur) - number(a.row.marketValueEur))[0]?.row;
+}
+
+function resolveScore(target, scores, scoreIndexes, transfermarktRows) {
+  const identity = findTransfermarktIdentity(target, transfermarktRows);
+  const transfermarktId = String(identity.row?.transfermarkt_id || identity.row?.player_id || "").trim();
+  if (transfermarktId && scoreIndexes.byTransfermarktId.has(transfermarktId)) {
+    return { score: scoreIndexes.byTransfermarktId.get(transfermarktId), matchMethod: identity.matchMethod, transfermarktId };
+  }
+  const fallback = findScoreByName(target, scores);
+  return {
+    score: fallback,
+    matchMethod: fallback ? "score_name_fallback" : identity.matchMethod,
+    transfermarktId: transfermarktId || String(fallback?.transfermarktId || fallback?.transfermarkt_id || "")
+  };
 }
 
 const args = parseArgs(process.argv.slice(2));
 const calibrationSetPath = args.set ?? "data/calibration/tbg-gold-standard-players.json";
 const scoresPath = args.scores ?? "calibration/tbg-gold-standard-ratings.csv";
+const transfermarktPath = args.transfermarkt ?? "data/transfermarkt/players-master.json";
 const outputPath = args.output ?? "calibration/tbg-gold-standard-review.md";
 const csvOutputPath = args.csv ?? "calibration/tbg-gold-standard-review.csv";
 
 const calibrationSet = JSON.parse(await readFile(calibrationSetPath, "utf8"));
 const scores = parseCsv(await readFile(scoresPath, "utf8"));
+const transfermarktRows = JSON.parse(await readFile(transfermarktPath, "utf8"));
+const scoreIndexes = buildScoreIndexes(scores);
+
 const reviewRows = calibrationSet.map((target) => {
-  const score = findScore(target, scores);
+  const resolved = resolveScore(target, scores, scoreIndexes, transfermarktRows);
+  const score = resolved.score;
   const tbgRating = number(score?.tbgRating, 0);
   const status = verdict(tbgRating, target.expectedMin, target.expectedMax);
   return {
@@ -89,7 +195,9 @@ const reviewRows = calibrationSet.map((target) => {
     category: target.category,
     expectedMin: target.expectedMin,
     expectedMax: target.expectedMax,
-    matchedName: score?.playerName ?? "",
+    matchedName: score?.playerName ?? score?.transfermarktName ?? "",
+    transfermarktId: resolved.transfermarktId,
+    matchMethod: resolved.matchMethod,
     clubName: score?.clubName ?? "",
     positionGroup: score?.positionGroup ?? target.positionGroup ?? "",
     smwEquivalentRating: score?.smwEquivalentRating ?? "",
@@ -130,14 +238,14 @@ for (const [category, stats] of Object.entries(byCategory).sort()) {
   lines.push(`${category} | ${stats.total} | ${stats.ok} | ${stats.low} | ${stats.high} | ${stats.missing}`);
 }
 
-lines.push("", "## Players needing review", "", "Player | Category | Expected | Matched | Club | SMW Eq | TBG | Verdict | Reasons", "--- | --- | --- | --- | --- | ---: | ---: | --- | ---");
+lines.push("", "## Players needing review", "", "Player | Category | Expected | Matched | TM ID | Match | Club | SMW Eq | TBG | Verdict | Reasons", "--- | --- | --- | --- | --- | --- | --- | ---: | ---: | --- | ---");
 for (const row of reviewRows.filter((item) => item.verdict !== "ok")) {
-  lines.push(`${row.name} | ${row.category} | ${row.expectedMin}-${row.expectedMax} | ${row.matchedName} | ${row.clubName} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.verdict} | ${row.reasons}`);
+  lines.push(`${row.name} | ${row.category} | ${row.expectedMin}-${row.expectedMax} | ${row.matchedName} | ${row.transfermarktId} | ${row.matchMethod} | ${row.clubName} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.verdict} | ${row.reasons}`);
 }
 
-lines.push("", "## Full review", "", "Player | Category | Expected | Matched | Club | SMW Eq | TBG | Verdict", "--- | --- | --- | --- | --- | ---: | ---: | ---");
+lines.push("", "## Full review", "", "Player | Category | Expected | Matched | TM ID | Match | Club | SMW Eq | TBG | Verdict", "--- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---");
 for (const row of reviewRows) {
-  lines.push(`${row.name} | ${row.category} | ${row.expectedMin}-${row.expectedMax} | ${row.matchedName} | ${row.clubName} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.verdict}`);
+  lines.push(`${row.name} | ${row.category} | ${row.expectedMin}-${row.expectedMax} | ${row.matchedName} | ${row.transfermarktId} | ${row.matchMethod} | ${row.clubName} | ${row.smwEquivalentRating} | ${row.tbgRating} | ${row.verdict}`);
 }
 
 function csvEscape(value) {
