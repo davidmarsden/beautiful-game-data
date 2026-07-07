@@ -24,8 +24,11 @@
     "diagnose:smw-matches": "node scripts/diagnose-smw-matches.js",
     "fetch:transfermarkt:apify": "node scripts/fetch-apify-transfermarkt-values.js",
     "fetch:transfermarkt:wide": "node scripts/fetch-apify-transfermarkt-values.js --scope=wide --output=calibration/apify-transfermarkt-wide-dataset.json",
+    "fetch:transfermarkt:universe": "node scripts/fetch-apify-transfermarkt-values.js --scope=universe --output=calibration/apify-transfermarkt-universe-dataset.json --includeGoldStandardRescue=false --allowSearchWithTargetedIds=true",
     "import:transfermarkt:master": "node scripts/import-transfermarkt-master.js",
     "import:transfermarkt:wide": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-wide-dataset.json --mergeExisting=true",
+    "import:transfermarkt:universe": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-universe-dataset.json --mergeExisting=true",
+    "export:club-universe-scope": "node scripts/export-tbg-club-universe-scope.js",
     "build:player-registry": "node scripts/build-player-registry.js",
     "resolve:player-identities": "node scripts/resolve-player-identities.js",
     "link:soccerwiki-registry": "node scripts/link-soccerwiki-registry.js"
