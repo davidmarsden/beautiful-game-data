@@ -1,0 +1,69 @@
+name: Import TBG Club Universe
+
+on:
+  workflow_dispatch:
+    inputs:
+      maxItems:
+        description: "Maximum Apify items"
+        required: true
+        default: "12000"
+      datasetLimit:
+        description: "Dataset read limit"
+        required: true
+        default: "15000"
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - name: Export club universe scope
+        id: scope
+        run: npm run export:club-universe-scope
+
+      - name: Fetch universe squads from Transfermarkt
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: node scripts/fetch-apify-transfermarkt-values.js --scope=universe --output=calibration/apify-transfermarkt-universe-dataset.json --includeGoldStandardRescue=false --allowSearchWithTargetedIds=true --clubIds=${{ steps.scope.outputs.club_ids }} --searchQueries="${{ steps.scope.outputs.search_queries }}" --maxItems=${{ github.event.inputs.maxItems }} --datasetLimit=${{ github.event.inputs.datasetLimit }}
+
+      - name: Import universe players
+        run: npm run import:transfermarkt:universe
+
+      - name: Rebuild TBG player pools
+        run: |
+          npm run build:player-registry
+          npm run train:registry-smw-rating-model
+          npm run score:tbg-ratings
+          node scripts/export-tbg-player-pools.js
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-club-universe-import
+          path: |
+            calibration/apify-transfermarkt-universe-dataset.json
+            derived/tbg-club-universe/import-scope.json
+            derived/tbg-player-pools/**
+          if-no-files-found: ignore
+
+      - name: Commit outputs
+        run: |
+          if [ -z "$(git status --porcelain calibration data derived)" ]; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration data derived
+          git commit -m "Import TBG club universe squads"
+          git push
