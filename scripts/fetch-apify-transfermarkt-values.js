@@ -51,6 +51,7 @@ const output = args.output ?? "calibration/apify-transfermarkt-dataset.json";
 const scope = String(args.scope ?? "wide");
 const includeGoldStandardRescue = booleanArg(args.includeGoldStandardRescue, true);
 const includeSearchQueries = booleanArg(args.includeSearchQueries, includeGoldStandardRescue);
+const allowSearchWithTargetedIds = booleanArg(args.allowSearchWithTargetedIds, false);
 
 let input;
 if (String(args.mode ?? "players") === "generic") {
@@ -77,13 +78,10 @@ if (String(args.mode ?? "players") === "generic") {
     includeSearchQueries ? GOLD_STANDARD_RESCUE_PLAYERS : []
   );
 
-  // Keep the targeted overrides explicit, but allow league scope and rescue-name
-  // search to run together. The previous else-if chain meant a league sweep could
-  // never also pull gold-standard missing players by name.
   if (playerIds.length) input.playerIds = playerIds.map(String);
   if (clubIds.length) input.clubIds = clubIds.map(String);
   if (competitionCodes.length && !playerIds.length && !clubIds.length) input.competitionCodes = competitionCodes;
-  if (searchQueries.length && !playerIds.length && !clubIds.length) input.searchQueries = searchQueries;
+  if (searchQueries.length && (!playerIds.length && !clubIds.length || allowSearchWithTargetedIds)) input.searchQueries = searchQueries;
   if (!input.playerIds && !input.clubIds && !input.competitionCodes && !input.searchQueries) input.competitionCodes = ["GB1"];
 }
 
