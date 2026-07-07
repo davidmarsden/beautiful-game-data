@@ -39,10 +39,10 @@ jobs:
       - name: Import universe players
         run: npm run import:transfermarkt:universe
 
-      - name: Rebuild TBG player pools
+      - name: Rebuild TBG player pools with existing rating model
         run: |
           npm run build:player-registry
-          npm run train:registry-smw-rating-model
+          npm run resolve:player-identities
           npm run score:tbg-ratings
           node scripts/export-tbg-player-pools.js
 
