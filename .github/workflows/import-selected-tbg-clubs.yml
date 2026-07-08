@@ -59,6 +59,7 @@ jobs:
           npm run build:player-registry
           npm run score:tbg-ratings
           node scripts/export-tbg-player-pools.js
+          npm run export:player-database
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -69,6 +70,7 @@ jobs:
             derived/tbg-club-universe/selected-import-scope.json
             derived/tbg-club-universe/match-audit.json
             derived/tbg-player-pools/**
+            derived/player-database/**
           if-no-files-found: ignore
 
       - name: Commit outputs
