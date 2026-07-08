@@ -10,7 +10,8 @@
   <header class="masthead">
     <div class="strapline">Saturday Night Special • The Beautiful Game • Scouting Edition</div>
     <h1>The Pink Final</h1>
-    <p class="subtitle">Player ratings, values, clubs and transfer-market clues from the TBG database.</p>
+    <p class="subtitle">A searchable, sortable scouting newspaper for TBG ratings, values, clubs and transfer-market clues.</p>
+    <p class="dateline" id="dateline">Late edition loading…</p>
   </header>
 
   <main>
@@ -21,13 +22,21 @@
       </div>
       <div><span class="label">Elite</span><strong id="summaryElite">—</strong></div>
       <div><span class="label">Unsigned</span><strong id="summaryUnsigned">—</strong></div>
-      <div><span class="label">Young prospects</span><strong id="summaryYoung">—</strong></div>
+      <div><span class="label">Young Prospects</span><strong id="summaryYoung">—</strong></div>
+    </section>
+
+    <section class="intro-card">
+      <div>
+        <span class="label">Chief Scout</span>
+        <h2>Names, numbers, rumours, arguments.</h2>
+      </div>
+      <p>Filter the database like an old-school transfer desk: rating, age, value, position, club, status and unsigned pool. Ratings are sticky; form is fluid.</p>
     </section>
 
     <section class="controls" aria-label="Player search filters">
       <label class="wide">
-        Search name, club or nationality
-        <input id="searchBox" type="search" placeholder="e.g. Greenwood, Real Madrid, Brazil" />
+        Search name, club, nationality or position
+        <input id="searchBox" type="search" placeholder="e.g. Greenwood, Real Madrid, Brazil, striker" />
       </label>
       <label>
         Position
@@ -39,16 +48,11 @@
       </label>
       <label>
         Status
-        <select id="statusFilter">
-          <option value="">All</option>
-          <option value="active">Active</option>
-          <option value="without_club">Without club</option>
-          <option value="retired">Retired</option>
-        </select>
+        <select id="statusFilter"><option value="">All</option></select>
       </label>
       <label>
         Rating min
-        <input id="ratingMin" type="number" min="0" max="100" step="1" placeholder="80" />
+        <input id="ratingMin" type="number" min="0" max="100" step="1" placeholder="87" />
       </label>
       <label>
         Age max
@@ -58,9 +62,30 @@
         Value min (€m)
         <input id="valueMin" type="number" min="0" step="1" placeholder="10" />
       </label>
+      <label>
+        Sort
+        <select id="sortSelect">
+          <option value="tbg_rating:desc">Rating high to low</option>
+          <option value="market_value_eur:desc">Value high to low</option>
+          <option value="age:asc">Youngest first</option>
+          <option value="player_name:asc">Name A-Z</option>
+          <option value="current_club:asc">Club A-Z</option>
+        </select>
+      </label>
+      <label>
+        Per page
+        <select id="perPageSelect">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+          <option value="250">250</option>
+        </select>
+      </label>
       <div class="buttons">
         <button id="resetButton" type="button">Reset</button>
         <button id="toggleUnsigned" type="button" aria-pressed="false">Unsigned only</button>
+        <button id="toggleU21" type="button" aria-pressed="false">U21 only</button>
+        <button id="toggleNew" type="button" aria-pressed="false">New only</button>
       </div>
     </section>
 
@@ -82,8 +107,8 @@
               <th data-sort="position_group">Pos</th>
               <th data-sort="current_club">Club</th>
               <th data-sort="nationality">Nat.</th>
-              <th data-sort="market_value_eur">Value</th>
-              <th data-sort="tbg_rating">TBG</th>
+              <th data-sort="market_value_eur" class="numeric">Value</th>
+              <th data-sort="tbg_rating" class="numeric">TBG</th>
               <th data-sort="rating_band">Band</th>
               <th data-sort="status">Status</th>
             </tr>
@@ -101,7 +126,7 @@
   </main>
 
   <footer>
-    <p>The Beautiful Game data desk. Ratings are sticky; form is fluid.</p>
+    <p>The Beautiful Game data desk. Printed in pink. Argued over forever.</p>
   </footer>
 
   <script src="./app.js"></script>
