@@ -43,6 +43,9 @@ jobs:
       - name: Import universe players
         run: npm run import:transfermarkt:universe
 
+      - name: Audit club universe Transfermarkt mappings
+        run: npm run audit:club-universe
+
       - name: Rebuild TBG player pools with existing rating model
         run: |
           npm run build:player-registry
@@ -56,6 +59,7 @@ jobs:
           path: |
             calibration/apify-transfermarkt-universe-dataset.json
             derived/tbg-club-universe/import-scope.json
+            derived/tbg-club-universe/match-audit.json
             derived/tbg-player-pools/**
           if-no-files-found: ignore
 
