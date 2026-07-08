@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Beautiful Game — Pink Final Scouting Database</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="strapline">Saturday Night Special • The Beautiful Game • Scouting Edition</div>
+    <h1>The Pink Final</h1>
+    <p class="subtitle">Player ratings, values, clubs and transfer-market clues from the TBG database.</p>
+  </header>
+
+  <main>
+    <section class="stop-press" aria-label="Database summary">
+      <div>
+        <span class="label">Stop Press</span>
+        <strong id="summaryPlayers">Loading players…</strong>
+      </div>
+      <div><span class="label">Elite</span><strong id="summaryElite">—</strong></div>
+      <div><span class="label">Unsigned</span><strong id="summaryUnsigned">—</strong></div>
+      <div><span class="label">Young prospects</span><strong id="summaryYoung">—</strong></div>
+    </section>
+
+    <section class="controls" aria-label="Player search filters">
+      <label class="wide">
+        Search name, club or nationality
+        <input id="searchBox" type="search" placeholder="e.g. Greenwood, Real Madrid, Brazil" />
+      </label>
+      <label>
+        Position
+        <select id="positionFilter"><option value="">All</option></select>
+      </label>
+      <label>
+        Club
+        <select id="clubFilter"><option value="">All</option></select>
+      </label>
+      <label>
+        Status
+        <select id="statusFilter">
+          <option value="">All</option>
+          <option value="active">Active</option>
+          <option value="without_club">Without club</option>
+          <option value="retired">Retired</option>
+        </select>
+      </label>
+      <label>
+        Rating min
+        <input id="ratingMin" type="number" min="0" max="100" step="1" placeholder="80" />
+      </label>
+      <label>
+        Age max
+        <input id="ageMax" type="number" min="14" max="50" step="1" placeholder="21" />
+      </label>
+      <label>
+        Value min (€m)
+        <input id="valueMin" type="number" min="0" step="1" placeholder="10" />
+      </label>
+      <div class="buttons">
+        <button id="resetButton" type="button">Reset</button>
+        <button id="toggleUnsigned" type="button" aria-pressed="false">Unsigned only</button>
+      </div>
+    </section>
+
+    <section class="edition-panel">
+      <div class="panel-heading">
+        <div>
+          <span class="label">Main Story</span>
+          <h2>Scouting Ledger</h2>
+        </div>
+        <p id="resultCount">Loading…</p>
+      </div>
+
+      <div class="table-wrap">
+        <table id="playersTable">
+          <thead>
+            <tr>
+              <th data-sort="player_name">Player</th>
+              <th data-sort="age">Age</th>
+              <th data-sort="position_group">Pos</th>
+              <th data-sort="current_club">Club</th>
+              <th data-sort="nationality">Nat.</th>
+              <th data-sort="market_value_eur">Value</th>
+              <th data-sort="tbg_rating">TBG</th>
+              <th data-sort="rating_band">Band</th>
+              <th data-sort="status">Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <nav class="pagination" aria-label="Pagination">
+        <button id="prevPage" type="button">Previous</button>
+        <span id="pageLabel">Page 1</span>
+        <button id="nextPage" type="button">Next</button>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <p>The Beautiful Game data desk. Ratings are sticky; form is fluid.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
