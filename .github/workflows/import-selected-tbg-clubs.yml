@@ -1,0 +1,84 @@
+name: Import Selected TBG Clubs
+
+on:
+  workflow_dispatch:
+    inputs:
+      clubIds:
+        description: "Comma-separated Transfermarkt club IDs. Leave blank to use repair set."
+        required: false
+        default: ""
+      repairSet:
+        description: "Include current South America/Asia/Mexico/Africa/Oceania repair set"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      maxItems:
+        description: "Maximum Apify items"
+        required: true
+        default: "2500"
+      datasetLimit:
+        description: "Dataset read limit"
+        required: true
+        default: "3000"
+
+permissions:
+  contents: write
+
+jobs:
+  import-selected:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - name: Export selected club scope
+        id: scope
+        run: npm run export:selected-club-scope -- --clubIds=${{ github.event.inputs.clubIds }} --repairSet=${{ github.event.inputs.repairSet }}
+
+      - name: Fetch selected Transfermarkt club squads
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: node scripts/fetch-apify-transfermarkt-values.js --scope=selected --output=calibration/apify-transfermarkt-selected-clubs-dataset.json --includeGoldStandardRescue=false --allowSearchWithTargetedIds=false --clubIds=${{ steps.scope.outputs.club_ids }} --maxItems=${{ github.event.inputs.maxItems }} --datasetLimit=${{ github.event.inputs.datasetLimit }}
+
+      - name: Import selected clubs into master database
+        run: node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-selected-clubs-dataset.json --mergeExisting=true
+
+      - name: Audit club universe Transfermarkt mappings
+        run: npm run audit:club-universe -- --failOnMismatch=false
+
+      - name: Rebuild TBG player pools with existing rating model
+        run: |
+          npm run build:player-registry
+          npm run score:tbg-ratings
+          node scripts/export-tbg-player-pools.js
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-selected-club-import
+          path: |
+            calibration/apify-transfermarkt-selected-clubs-dataset.json
+            derived/tbg-club-universe/selected-import-scope.json
+            derived/tbg-club-universe/match-audit.json
+            derived/tbg-player-pools/**
+          if-no-files-found: ignore
+
+      - name: Commit outputs
+        run: |
+          if [ -z "$(git status --porcelain calibration data derived)" ]; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calibration data derived
+          git commit -m "Import selected TBG club squads"
+          git push
