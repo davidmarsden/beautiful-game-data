@@ -29,6 +29,7 @@
     "import:transfermarkt:wide": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-wide-dataset.json --mergeExisting=true",
     "import:transfermarkt:universe": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-universe-dataset.json --mergeExisting=true",
     "export:club-universe-scope": "node scripts/export-tbg-club-universe-scope.js",
+    "audit:club-universe": "node scripts/audit-tbg-club-universe-matches.js",
     "build:player-registry": "node scripts/build-player-registry.js",
     "resolve:player-identities": "node scripts/resolve-player-identities.js",
     "link:soccerwiki-registry": "node scripts/link-soccerwiki-registry.js"
