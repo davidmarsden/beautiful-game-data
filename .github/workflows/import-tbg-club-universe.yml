@@ -3,6 +3,10 @@ name: Import TBG Club Universe
 on:
   workflow_dispatch:
     inputs:
+      apifyDatasetId:
+        description: "Existing Apify dataset ID to reuse. Leave blank to fetch again."
+        required: false
+        default: ""
       maxItems:
         description: "Maximum Apify items"
         required: true
@@ -31,10 +35,10 @@ jobs:
         id: scope
         run: npm run export:club-universe-scope
 
-      - name: Fetch universe squads from Transfermarkt
+      - name: Read existing Apify dataset or fetch universe squads
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-        run: node scripts/fetch-apify-transfermarkt-values.js --scope=universe --output=calibration/apify-transfermarkt-universe-dataset.json --includeGoldStandardRescue=false --allowSearchWithTargetedIds=true --clubIds=${{ steps.scope.outputs.club_ids }} --searchQueries="${{ steps.scope.outputs.search_queries }}" --maxItems=${{ github.event.inputs.maxItems }} --datasetLimit=${{ github.event.inputs.datasetLimit }}
+        run: node scripts/fetch-apify-transfermarkt-values.js --scope=universe --output=calibration/apify-transfermarkt-universe-dataset.json --includeGoldStandardRescue=false --allowSearchWithTargetedIds=true --datasetId=${{ github.event.inputs.apifyDatasetId }} --clubIds=${{ steps.scope.outputs.club_ids }} --searchQueries="${{ steps.scope.outputs.search_queries }}" --maxItems=${{ github.event.inputs.maxItems }} --datasetLimit=${{ github.event.inputs.datasetLimit }}
 
       - name: Import universe players
         run: npm run import:transfermarkt:universe
