@@ -38,6 +38,14 @@ function mergeUnique(...lists) {
   return [...new Set(lists.flat().map(String).map((item) => item.trim()).filter(Boolean))];
 }
 
+function usableDatasetId(value) {
+  const text = String(value || "").trim();
+  const lowered = text.toLowerCase();
+  if (!text) return "";
+  if (["apifydatasetid", "datasetid", "none", "null", "undefined", "false", "0", "leaveblank", "leave-blank"].includes(lowered)) return "";
+  return text;
+}
+
 const args = parseArgs(process.argv.slice(2));
 
 const token = process.env.APIFY_TOKEN;
@@ -52,7 +60,7 @@ const scope = String(args.scope ?? "wide");
 const includeGoldStandardRescue = booleanArg(args.includeGoldStandardRescue, true);
 const includeSearchQueries = booleanArg(args.includeSearchQueries, includeGoldStandardRescue);
 const allowSearchWithTargetedIds = booleanArg(args.allowSearchWithTargetedIds, false);
-const existingDatasetId = String(args.datasetId || args.apifyDatasetId || "").trim();
+const existingDatasetId = usableDatasetId(args.datasetId || args.apifyDatasetId);
 
 const client = new ApifyClient({ token });
 let datasetId = existingDatasetId;
