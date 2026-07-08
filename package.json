@@ -30,6 +30,7 @@
     "import:transfermarkt:universe": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-universe-dataset.json --mergeExisting=true",
     "export:club-universe-scope": "node scripts/export-tbg-club-universe-scope.js",
     "export:selected-club-scope": "node scripts/export-selected-club-scope.js",
+    "export:player-database": "node scripts/export-player-database.js",
     "audit:club-universe": "node scripts/audit-tbg-club-universe-matches.js",
     "build:player-registry": "node scripts/build-player-registry.js",
     "resolve:player-identities": "node scripts/resolve-player-identities.js",
