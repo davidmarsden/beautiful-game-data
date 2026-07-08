@@ -52,52 +52,59 @@ const scope = String(args.scope ?? "wide");
 const includeGoldStandardRescue = booleanArg(args.includeGoldStandardRescue, true);
 const includeSearchQueries = booleanArg(args.includeSearchQueries, includeGoldStandardRescue);
 const allowSearchWithTargetedIds = booleanArg(args.allowSearchWithTargetedIds, false);
-
-let input;
-if (String(args.mode ?? "players") === "generic") {
-  const defaultStartUrls = scope === "wide" ? TRANSFERMARKT_GENERIC_START_URLS : ["https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1"];
-  const startUrls = csvList(args.startUrls || defaultStartUrls.join(",")).map((url) => ({ url }));
-  input = {
-    startUrls,
-    proxyConfig: { useApifyProxy: true },
-    crawlDepth: Number(args.crawlDepth ?? 1),
-    pageDepth: Number(args.pageDepth ?? 1)
-  };
-} else {
-  input = {
-    maxItems: Number(args.maxItems ?? (scope === "wide" ? 5000 : 1000)),
-    proxyConfiguration: { useApifyProxy: true }
-  };
-
-  const defaultCompetitionCodes = scope === "wide" ? TRANSFERMARKT_WIDE_COMPETITION_CODES : ["GB1"];
-  const competitionCodes = csvList(args.competitionCodes ?? defaultCompetitionCodes.join(","));
-  const clubIds = parseNumberList(args.clubIds);
-  const playerIds = parseNumberList(args.playerIds);
-  const searchQueries = mergeUnique(
-    csvList(args.searchQueries),
-    includeSearchQueries ? GOLD_STANDARD_RESCUE_PLAYERS : []
-  );
-
-  if (playerIds.length) input.playerIds = playerIds.map(String);
-  if (clubIds.length) input.clubIds = clubIds.map(String);
-  if (competitionCodes.length && !playerIds.length && !clubIds.length) input.competitionCodes = competitionCodes;
-  if (searchQueries.length && (!playerIds.length && !clubIds.length || allowSearchWithTargetedIds)) input.searchQueries = searchQueries;
-  if (!input.playerIds && !input.clubIds && !input.competitionCodes && !input.searchQueries) input.competitionCodes = ["GB1"];
-}
-
-console.log(`Actor: ${actor}`);
-console.log("Input:");
-console.log(JSON.stringify(input, null, 2));
+const existingDatasetId = String(args.datasetId || args.apifyDatasetId || "").trim();
 
 const client = new ApifyClient({ token });
-const run = await client.actor(actor).call(input);
+let datasetId = existingDatasetId;
 
-console.log(`Apify run finished: ${run.id}`);
-console.log(`Dataset: ${run.defaultDatasetId}`);
+if (datasetId) {
+  console.log(`Reusing existing Apify dataset: ${datasetId}`);
+} else {
+  let input;
+  if (String(args.mode ?? "players") === "generic") {
+    const defaultStartUrls = scope === "wide" ? TRANSFERMARKT_GENERIC_START_URLS : ["https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1"];
+    const startUrls = csvList(args.startUrls || defaultStartUrls.join(",")).map((url) => ({ url }));
+    input = {
+      startUrls,
+      proxyConfig: { useApifyProxy: true },
+      crawlDepth: Number(args.crawlDepth ?? 1),
+      pageDepth: Number(args.pageDepth ?? 1)
+    };
+  } else {
+    input = {
+      maxItems: Number(args.maxItems ?? (scope === "wide" ? 5000 : 1000)),
+      proxyConfiguration: { useApifyProxy: true }
+    };
 
-const { items } = await client.dataset(run.defaultDatasetId).listItems({ limit: Number(args.datasetLimit ?? 10000) });
+    const defaultCompetitionCodes = scope === "wide" ? TRANSFERMARKT_WIDE_COMPETITION_CODES : ["GB1"];
+    const competitionCodes = csvList(args.competitionCodes ?? defaultCompetitionCodes.join(","));
+    const clubIds = parseNumberList(args.clubIds);
+    const playerIds = parseNumberList(args.playerIds);
+    const searchQueries = mergeUnique(
+      csvList(args.searchQueries),
+      includeSearchQueries ? GOLD_STANDARD_RESCUE_PLAYERS : []
+    );
+
+    if (playerIds.length) input.playerIds = playerIds.map(String);
+    if (clubIds.length) input.clubIds = clubIds.map(String);
+    if (competitionCodes.length && !playerIds.length && !clubIds.length) input.competitionCodes = competitionCodes;
+    if (searchQueries.length && (!playerIds.length && !clubIds.length || allowSearchWithTargetedIds)) input.searchQueries = searchQueries;
+    if (!input.playerIds && !input.clubIds && !input.competitionCodes && !input.searchQueries) input.competitionCodes = ["GB1"];
+  }
+
+  console.log(`Actor: ${actor}`);
+  console.log("Input:");
+  console.log(JSON.stringify(input, null, 2));
+
+  const run = await client.actor(actor).call(input);
+  datasetId = run.defaultDatasetId;
+  console.log(`Apify run finished: ${run.id}`);
+  console.log(`Dataset: ${datasetId}`);
+}
+
+const { items } = await client.dataset(datasetId).listItems({ limit: Number(args.datasetLimit ?? 10000) });
 
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, `${JSON.stringify(items, null, 2)}\n`, "utf8");
 
-console.log(`Wrote ${items.length} Apify item(s) to ${output}`);
+console.log(`Wrote ${items.length} Apify item(s) from dataset ${datasetId} to ${output}`);
