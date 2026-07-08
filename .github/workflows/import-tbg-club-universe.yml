@@ -42,7 +42,6 @@ jobs:
       - name: Rebuild TBG player pools with existing rating model
         run: |
           npm run build:player-registry
-          npm run resolve:player-identities
           npm run score:tbg-ratings
           node scripts/export-tbg-player-pools.js
 
