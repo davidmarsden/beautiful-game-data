@@ -10,10 +10,14 @@ const outputDir = "derived/scouting-site";
 await rm(outputDir, { recursive: true, force: true });
 await mkdir(outputDir, { recursive: true });
 
-await copy("public/scouting/index.html", join(outputDir, "index.html"));
-await copy("public/scouting/styles.css", join(outputDir, "styles.css"));
-await copy("public/scouting/app.js", join(outputDir, "app.js"));
-await copy("derived/player-database/player-database.json", join(outputDir, "player-database.json"));
-await copy("derived/player-database/player-database.csv", join(outputDir, "player-database.csv"));
+await copy("public/index.html", join(outputDir, "index.html"));
+await copy("public/portal.css", join(outputDir, "portal.css"));
+await copy("public/portal.js", join(outputDir, "portal.js"));
 
-console.log(`Built scouting site at ${outputDir}`);
+await copy("public/scouting/index.html", join(outputDir, "scouting", "index.html"));
+await copy("public/scouting/styles.css", join(outputDir, "scouting", "styles.css"));
+await copy("public/scouting/app.js", join(outputDir, "scouting", "app.js"));
+await copy("derived/player-database/player-database.json", join(outputDir, "scouting", "player-database.json"));
+await copy("derived/player-database/player-database.csv", join(outputDir, "scouting", "player-database.csv"));
+
+console.log(`Built Pink Final portal at ${outputDir}`);
