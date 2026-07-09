@@ -45,6 +45,10 @@ function text(value) {
   return String(value ?? "").trim();
 }
 
+function playerPosition(player) {
+  return text(player.position || player.primary_position || player.detailed_position || player.position_group) || "—";
+}
+
 function formatValue(value) {
   const amount = number(value);
   if (!amount) return "—";
@@ -57,8 +61,8 @@ function niceBand(value) {
   return text(value).replace(/_/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()) || "—";
 }
 
-function uniqueOptions(players, key) {
-  return [...new Set(players.map((player) => text(player[key])).filter(Boolean))]
+function uniqueOptions(players, getter) {
+  return [...new Set(players.map(getter).map(text).filter(Boolean).filter((value) => value !== "—"))]
     .sort((a, b) => a.localeCompare(b));
 }
 
@@ -82,7 +86,7 @@ function getSearchHaystack(player) {
     player.current_club,
     player.tbg_club,
     player.nationality,
-    player.position,
+    playerPosition(player),
     player.position_group,
     player.rating_band,
     player.status
@@ -106,7 +110,7 @@ function applyFilters() {
 
   state.filtered = state.players.filter((player) => {
     if (query && !getSearchHaystack(player).includes(query)) return false;
-    if (position && text(player.position_group || player.position) !== position) return false;
+    if (position && playerPosition(player) !== position) return false;
     if (club && text(player.current_club) !== club) return false;
     if (status && text(player.status) !== status) return false;
     if (ratingMin && number(player.tbg_rating) < ratingMin) return false;
@@ -125,8 +129,8 @@ function sortPlayers() {
   const key = state.sortKey;
   const direction = state.sortDirection === "asc" ? 1 : -1;
   state.filtered.sort((a, b) => {
-    const av = a[key];
-    const bv = b[key];
+    const av = key === "position_group" ? playerPosition(a) : a[key];
+    const bv = key === "position_group" ? playerPosition(b) : b[key];
     const an = number(av);
     const bn = number(bv);
     const bothNumeric = an || bn || ["age", "market_value_eur", "tbg_rating"].includes(key);
@@ -164,7 +168,7 @@ function render() {
         <span class="subtle">${escapeHtml(player.transfermarkt_player_id || player.tbg_player_id)}</span>
       </td>
       <td>${escapeHtml(player.age || "—")}</td>
-      <td>${escapeHtml(player.position_group || player.position || "—")}</td>
+      <td>${escapeHtml(playerPosition(player))}</td>
       <td>${escapeHtml(player.current_club || "Without Club")}</td>
       <td>${escapeHtml(player.nationality || "—")}</td>
       <td>${formatValue(player.market_value_eur)}</td>
@@ -235,8 +239,8 @@ async function init() {
   try {
     state.players = await loadData();
     state.filtered = [...state.players];
-    fillSelect(els.positionFilter, uniqueOptions(state.players.map((player) => ({ ...player, position_group: player.position_group || player.position })), "position_group"));
-    fillSelect(els.clubFilter, uniqueOptions(state.players, "current_club"));
+    fillSelect(els.positionFilter, uniqueOptions(state.players, playerPosition));
+    fillSelect(els.clubFilter, uniqueOptions(state.players, (player) => player.current_club));
     renderSummary();
     bindEvents();
     applyFilters();
