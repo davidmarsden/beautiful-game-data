@@ -27,9 +27,9 @@
       <div>
         <span class="label">Stop Press</span>
         <strong id="clubCount">Loading clubs…</strong>
-        <p>club squads filed by the Pink Final data desk.</p>
+        <p>playable squads filed by the Pink Final data desk.</p>
       </div>
-      <div><span class="label">Strongest</span><strong id="strongestClub">—</strong><p>by average TBG rating.</p></div>
+      <div><span class="label">Strongest</span><strong id="strongestClub">—</strong><p>by weighted squad strength.</p></div>
       <div><span class="label">Most Valuable</span><strong id="richestClub">—</strong><p>by squad market value.</p></div>
       <div><span class="label">Youngest</span><strong id="youngestClub">—</strong><p>by average age.</p></div>
     </section>
@@ -37,9 +37,9 @@
     <section class="lead-story club-lead">
       <div>
         <span class="label">Main Story</span>
-        <h2>Every club, every squad, one back page.</h2>
+        <h2>Every proper squad, one back page.</h2>
       </div>
-      <p>Search the TBG club universe by name, league, continent or strength. Click a club to inspect its squad ledger.</p>
+      <p>Default view hides one-player ringers and incomplete imports. Switch the squad filter to inspect every club filed in the wider database.</p>
     </section>
 
     <section class="controls club-controls" aria-label="Club filters">
@@ -48,9 +48,17 @@
         <input id="clubSearch" type="search" placeholder="e.g. Real Madrid, Premier League, Brazil, Yamal" />
       </label>
       <label>
+        Squad view
+        <select id="squadView">
+          <option value="playable" selected>Playable squads only</option>
+          <option value="partial">Partial squads included</option>
+          <option value="all">All clubs, including ringers</option>
+        </select>
+      </label>
+      <label>
         Sort
         <select id="sortSelect">
-          <option value="average_rating:desc">Strength high to low</option>
+          <option value="weighted_strength:desc">Strength high to low</option>
           <option value="total_value:desc">Value high to low</option>
           <option value="average_age:asc">Youngest squads</option>
           <option value="squad_size:desc">Largest squads</option>
