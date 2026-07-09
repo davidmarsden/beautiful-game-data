@@ -3,125 +3,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Beautiful Game — Pink Final Scouting Database</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <title>The Pink Final — The Beautiful Game</title>
+  <link rel="stylesheet" href="./portal.css" />
 </head>
 <body>
   <header class="masthead">
-    <div class="strapline">Saturday Night Special • The Beautiful Game • Scouting Edition</div>
+    <div class="strapline">Late Edition • The Beautiful Game • World Football Special</div>
     <h1>The Pink Final</h1>
-    <p class="subtitle">A searchable, sortable scouting newspaper for TBG ratings, values, clubs and transfer-market clues.</p>
-    <p class="dateline" id="dateline">Late edition loading…</p>
+    <p class="subtitle">The newspaper of The Beautiful Game universe: scouting, clubs, ratings, simulations and transfer-market noise.</p>
   </header>
 
-  <main>
-    <section class="stop-press" aria-label="Database summary">
+  <nav class="nav" aria-label="Pink Final sections">
+    <a href="./">Front Page</a>
+    <a href="./scouting/">Scouting Database</a>
+    <a href="./clubs/">Clubs</a>
+    <a href="./rankings/">Rankings</a>
+    <a href="./simulator/">Simulator</a>
+  </nav>
+
+  <main class="paper">
+    <section class="stop-press">
       <div>
         <span class="label">Stop Press</span>
-        <strong id="summaryPlayers">Loading players…</strong>
+        <strong>Pink Final goes live</strong>
+        <p>A searchable TBG scouting desk is now open for business.</p>
       </div>
-      <div><span class="label">Elite</span><strong id="summaryElite">—</strong></div>
-      <div><span class="label">Unsigned</span><strong id="summaryUnsigned">—</strong></div>
-      <div><span class="label">Young Prospects</span><strong id="summaryYoung">—</strong></div>
+      <div><span class="label">Players</span><strong id="playersCount">—</strong><p>filed in the first database cut.</p></div>
+      <div><span class="label">Elite</span><strong id="eliteCount">—</strong><p>rated 90 or above.</p></div>
+      <div><span class="label">Young Guns</span><strong id="youngCount">—</strong><p>aged 21 or under.</p></div>
     </section>
 
-    <section class="intro-card">
+    <section class="lead-story">
       <div>
-        <span class="label">Chief Scout</span>
-        <h2>Names, numbers, rumours, arguments.</h2>
+        <span class="label">Main Story</span>
+        <h2>A Transfermarkt for The Beautiful Game.</h2>
       </div>
-      <p>Filter the database like an old-school transfer desk: rating, age, value, position, club, status and unsigned pool. Ratings are sticky; form is fluid.</p>
+      <p>This is the public face of TBG: part scouting desk, part football annual, part late-night back-page rumour machine. The first section is live; the rest of the paper is being set in hot metal.</p>
+      <a class="cta" href="./scouting/">Open the Scouting Database</a>
     </section>
 
-    <section class="controls" aria-label="Player search filters">
-      <label class="wide">
-        Search name, club, nationality or position
-        <input id="searchBox" type="search" placeholder="e.g. Greenwood, Real Madrid, Brazil, striker" />
-      </label>
-      <label>
-        Position
-        <select id="positionFilter"><option value="">All</option></select>
-      </label>
-      <label>
-        Club
-        <select id="clubFilter"><option value="">All</option></select>
-      </label>
-      <label>
-        Status
-        <select id="statusFilter"><option value="">All</option></select>
-      </label>
-      <label>
-        Rating min
-        <input id="ratingMin" type="number" min="0" max="100" step="1" placeholder="87" />
-      </label>
-      <label>
-        Age max
-        <input id="ageMax" type="number" min="14" max="50" step="1" placeholder="21" />
-      </label>
-      <label>
-        Value min (€m)
-        <input id="valueMin" type="number" min="0" step="1" placeholder="10" />
-      </label>
-      <label>
-        Sort
-        <select id="sortSelect">
-          <option value="tbg_rating:desc">Rating high to low</option>
-          <option value="market_value_eur:desc">Value high to low</option>
-          <option value="age:asc">Youngest first</option>
-          <option value="player_name:asc">Name A-Z</option>
-          <option value="current_club:asc">Club A-Z</option>
-        </select>
-      </label>
-      <label>
-        Per page
-        <select id="perPageSelect">
-          <option value="25">25</option>
-          <option value="50" selected>50</option>
-          <option value="100">100</option>
-          <option value="250">250</option>
-        </select>
-      </label>
-      <div class="buttons">
-        <button id="resetButton" type="button">Reset</button>
-        <button id="toggleUnsigned" type="button" aria-pressed="false">Unsigned only</button>
-        <button id="toggleU21" type="button" aria-pressed="false">U21 only</button>
-        <button id="toggleNew" type="button" aria-pressed="false">New only</button>
-      </div>
+    <section class="grid" aria-label="Pink Final sections">
+      <a class="card live" href="./scouting/">
+        <span class="kicker">🔍 Live</span>
+        <h3>Scouting Database</h3>
+        <p>Search player name, club, position, nationality, age, value and TBG rating.</p>
+      </a>
+      <a class="card" href="./clubs/">
+        <span class="kicker">🏆 Next</span>
+        <h3>Club Database</h3>
+        <p>Squads, club strength, league, continent and Top 80 division status.</p>
+      </a>
+      <a class="card" href="./rankings/">
+        <span class="kicker">📈 Planned</span>
+        <h3>Team Strength Rankings</h3>
+        <p>Weighted squad power tables and division-by-division comparisons.</p>
+      </a>
+      <a class="card" href="./world/">
+        <span class="kicker">🌍 Planned</span>
+        <h3>World Map</h3>
+        <p>Continental spread, playable clubs and global player pools.</p>
+      </a>
+      <a class="card" href="./simulator/">
+        <span class="kicker">📊 Planned</span>
+        <h3>Season Simulator Dashboard</h3>
+        <p>League tables, champions, promotions, relegations and club histories.</p>
+      </a>
+      <a class="card" href="./new-players/">
+        <span class="kicker">👶 Planned</span>
+        <h3>New Players</h3>
+        <p>The manager-favourite feed: newly surfaced young players and database additions.</p>
+      </a>
+      <a class="card" href="./wonderkids/">
+        <span class="kicker">⭐ Planned</span>
+        <h3>Wonderkids</h3>
+        <p>Best U21 players by rating, value, club, role and trajectory.</p>
+      </a>
+      <a class="card" href="./transfer-market/">
+        <span class="kicker">💰 Planned</span>
+        <h3>Transfer Market</h3>
+        <p>Unsigned gems, value plays, squad gaps and future manager submissions.</p>
+      </a>
+      <a class="card" href="./players/">
+        <span class="kicker">📜 Planned</span>
+        <h3>Player Histories</h3>
+        <p>Profile pages, rating history, club moves, form and long-term records.</p>
+      </a>
     </section>
 
-    <section class="edition-panel">
-      <div class="panel-heading">
-        <div>
-          <span class="label">Main Story</span>
-          <h2>Scouting Ledger</h2>
-        </div>
-        <p id="resultCount">Loading…</p>
-      </div>
-
-      <div class="table-wrap">
-        <table id="playersTable">
-          <thead>
-            <tr>
-              <th data-sort="player_name">Player</th>
-              <th data-sort="age">Age</th>
-              <th data-sort="position_group">Pos</th>
-              <th data-sort="current_club">Club</th>
-              <th data-sort="nationality">Nat.</th>
-              <th data-sort="market_value_eur" class="numeric">Value</th>
-              <th data-sort="tbg_rating" class="numeric">TBG</th>
-              <th data-sort="rating_band">Band</th>
-              <th data-sort="status">Status</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <nav class="pagination" aria-label="Pagination">
-        <button id="prevPage" type="button">Previous</button>
-        <span id="pageLabel">Page 1</span>
-        <button id="nextPage" type="button">Next</button>
-      </nav>
+    <section class="two-col">
+      <article>
+        <span class="label">Track A</span>
+        <h2>Full Match Engine</h2>
+        <p>Replace the simplified resolver with fixture-by-fixture matches using tactics, fatigue, cohesion, home advantage, injuries, suspensions and player form.</p>
+      </article>
+      <article>
+        <span class="label">Track B</span>
+        <h2>World Dashboard</h2>
+        <p>Tables for every season, club timelines, champions, promotion/relegation movement, player stats, squad values and strength graphs.</p>
+      </article>
     </section>
   </main>
 
@@ -129,6 +108,6 @@
     <p>The Beautiful Game data desk. Printed in pink. Argued over forever.</p>
   </footer>
 
-  <script src="./app.js"></script>
+  <script src="./portal.js"></script>
 </body>
 </html>

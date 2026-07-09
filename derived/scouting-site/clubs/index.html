@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Club Database — The Pink Final</title>
+  <link rel="stylesheet" href="../portal.css" />
+  <link rel="stylesheet" href="./clubs.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="strapline">Club Edition • Squad Strength • The Beautiful Game</div>
+    <h1>The Pink Final</h1>
+    <p class="subtitle">Club Database: squad strength, value, age profile, star players and position depth.</p>
+  </header>
+
+  <nav class="nav" aria-label="Pink Final sections">
+    <a href="../">Front Page</a>
+    <a href="../scouting/">Scouting Database</a>
+    <a href="./">Clubs</a>
+    <a href="../rankings/">Rankings</a>
+    <a href="../simulator/">Simulator</a>
+  </nav>
+
+  <main class="paper">
+    <section class="stop-press">
+      <div>
+        <span class="label">Stop Press</span>
+        <strong id="clubCount">Loading clubs…</strong>
+        <p>club squads filed by the Pink Final data desk.</p>
+      </div>
+      <div><span class="label">Strongest</span><strong id="strongestClub">—</strong><p>by average TBG rating.</p></div>
+      <div><span class="label">Most Valuable</span><strong id="richestClub">—</strong><p>by squad market value.</p></div>
+      <div><span class="label">Youngest</span><strong id="youngestClub">—</strong><p>by average age.</p></div>
+    </section>
+
+    <section class="lead-story club-lead">
+      <div>
+        <span class="label">Main Story</span>
+        <h2>Every club, every squad, one back page.</h2>
+      </div>
+      <p>Search the TBG club universe by name, league, continent or strength. Click a club to inspect its squad ledger.</p>
+    </section>
+
+    <section class="controls club-controls" aria-label="Club filters">
+      <label class="wide">
+        Search club, league, continent or player
+        <input id="clubSearch" type="search" placeholder="e.g. Real Madrid, Premier League, Brazil, Yamal" />
+      </label>
+      <label>
+        Sort
+        <select id="sortSelect">
+          <option value="average_rating:desc">Strength high to low</option>
+          <option value="total_value:desc">Value high to low</option>
+          <option value="average_age:asc">Youngest squads</option>
+          <option value="squad_size:desc">Largest squads</option>
+          <option value="club_name:asc">Club A-Z</option>
+        </select>
+      </label>
+      <label>
+        Minimum rating
+        <input id="ratingMin" type="number" min="0" max="100" step="1" placeholder="87" />
+      </label>
+      <label>
+        Minimum value €m
+        <input id="valueMin" type="number" min="0" step="10" placeholder="500" />
+      </label>
+      <button id="resetButton" type="button">Reset</button>
+    </section>
+
+    <section class="club-layout">
+      <div class="club-list-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="label">Club Ledger</span>
+            <h2>Squad Strength Table</h2>
+          </div>
+          <p id="resultCount">Loading…</p>
+        </div>
+        <div class="club-list" id="clubList"></div>
+      </div>
+
+      <aside class="club-profile" id="clubProfile">
+        <span class="label">Club Profile</span>
+        <h2>Select a club</h2>
+        <p>Pick a club from the ledger to inspect squad depth, star player, age profile and full squad table.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>The Beautiful Game club desk. Printed in pink. Argued over forever.</p>
+  </footer>
+
+  <script src="./clubs.js"></script>
+</body>
+</html>
