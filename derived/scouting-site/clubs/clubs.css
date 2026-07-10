@@ -8,224 +8,50 @@
   background: rgba(255, 242, 217, .42);
   box-shadow: 5px 5px 0 var(--shadow);
 }
-
-.club-controls label {
-  display: grid;
-  gap: 4px;
-  font: 900 .72rem Arial, sans-serif;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.club-controls input,
-.club-controls select,
-.club-controls button {
-  width: 100%;
-  border: 2px solid var(--rule);
-  background: var(--paper-light);
-  color: var(--ink);
-  padding: 8px;
-  font: 800 .9rem Georgia, serif;
-}
-
-.club-controls button {
-  align-self: end;
-  background: var(--ink);
-  color: var(--cream);
-  font-family: Arial, sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.club-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
-  gap: 14px;
-  align-items: start;
-}
-
-.club-list-panel,
-.club-profile {
-  border: 3px solid var(--rule);
-  background: rgba(255, 242, 217, .45);
-  box-shadow: 5px 5px 0 var(--shadow);
-}
-
-.club-list-panel { padding: 12px; }
-.club-profile { padding: 14px; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
-
-.panel-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: end;
-  border-bottom: 3px solid var(--rule);
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-}
-
-.panel-heading h2,
-.club-profile h2 {
-  margin: 0;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(2.1rem, 4vw, 3.8rem);
-  line-height: .88;
-  letter-spacing: -.04em;
-  text-transform: uppercase;
-}
-
-.club-list {
-  display: grid;
-  gap: 8px;
-}
-
-.club-row {
-  display: grid;
-  grid-template-columns: 38px minmax(0, 1fr) 86px 86px 76px;
-  gap: 8px;
-  align-items: center;
-  border: 2px solid var(--rule);
-  background: rgba(255, 211, 216, .64);
-  padding: 8px;
-  cursor: pointer;
-  text-align: left;
-  color: var(--ink);
-  font: inherit;
-}
-
-.club-row:hover,
-.club-row.active {
-  outline: 3px solid var(--ink);
-  background: rgba(255, 242, 217, .75);
-}
-
-.rank {
-  font: 900 1.25rem Impact, sans-serif;
-}
-
-.club-name {
-  font: 900 1.1rem Arial, sans-serif;
-  text-transform: uppercase;
-}
-
-.club-meta {
-  color: var(--muted);
-  font-weight: 800;
-  font-size: .82rem;
-}
-
-.stat-pill {
-  border-left: 2px solid var(--rule);
-  padding-left: 8px;
-  font-weight: 900;
-  text-align: right;
-}
-
-.profile-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin: 12px 0;
-}
-
-.profile-stat {
-  border: 2px solid var(--rule);
-  background: rgba(255, 211, 216, .64);
-  padding: 8px;
-}
-
-.profile-stat span {
-  display: block;
-  font: 900 .7rem Arial, sans-serif;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.profile-stat strong {
-  display: block;
-  font: 900 1.35rem Impact, sans-serif;
-}
-
-.depth-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin: 12px 0;
-}
-
-.depth-card {
-  border: 2px solid var(--rule);
-  padding: 7px;
-  text-align: center;
-  background: rgba(255, 242, 217, .55);
-}
-
-.depth-card span { display: block; font: 900 .75rem Arial, sans-serif; }
-.depth-card strong { font: 900 1.6rem Impact, sans-serif; }
-
-.squad-scroll {
-  max-height: 65vh;
-  overflow: auto;
-  border-top: 2px solid var(--rule);
-  border-bottom: 2px solid var(--rule);
-}
-
-.squad-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: .86rem;
-}
-
-.squad-table th,
-.squad-table td {
-  border-bottom: 1px solid rgba(33, 19, 19, .35);
-  padding: 5px 4px;
-  text-align: left;
-}
-
-.squad-table th {
-  font: 900 .68rem Arial, sans-serif;
-  text-transform: uppercase;
-  position: sticky;
-  top: 0;
-  background: var(--paper-light);
-}
-
-.player-link {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-weight: 900;
-  text-align: left;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.profile-note {
-  color: var(--muted);
-  font-size: .86rem;
-  font-weight: 800;
-}
-
-.numeric { text-align: right !important; }
-
-@media (max-width: 1180px) {
-  .club-controls { grid-template-columns: repeat(2, 1fr); }
-  .club-controls .wide { grid-column: 1 / -1; }
-}
-
-@media (max-width: 980px) {
-  .club-layout { grid-template-columns: 1fr; }
-  .club-profile { position: static; max-height: none; overflow: visible; }
-  .squad-scroll { max-height: none; overflow: visible; }
-  .club-row { grid-template-columns: 34px minmax(0, 1fr) 70px; }
-  .club-row .hide-mobile { display: none; }
-}
-
-@media (max-width: 620px) {
-  .club-controls { grid-template-columns: 1fr; }
-  .profile-grid, .depth-grid { grid-template-columns: repeat(2, 1fr); }
-}
+.club-controls label { display:grid; gap:4px; font:900 .72rem Arial,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+.club-controls input,.club-controls select,.club-controls button { width:100%; border:2px solid var(--rule); background:var(--paper-light); color:var(--ink); padding:8px; font:800 .9rem Georgia,serif; }
+.club-controls button { align-self:end; background:var(--ink); color:var(--cream); font-family:Arial,sans-serif; text-transform:uppercase; cursor:pointer; }
+.club-layout { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr); gap:14px; align-items:start; }
+.club-list-panel,.club-profile { border:3px solid var(--rule); background:rgba(255,242,217,.45); box-shadow:5px 5px 0 var(--shadow); }
+.club-list-panel { padding:12px; }
+.club-profile { padding:14px; position:sticky; top:12px; max-height:calc(100vh - 24px); overflow:auto; }
+.panel-heading { display:flex; justify-content:space-between; gap:12px; align-items:end; border-bottom:3px solid var(--rule); margin-bottom:10px; padding-bottom:8px; }
+.panel-heading h2,.club-profile h2 { margin:0; font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif; font-size:clamp(2.1rem,4vw,3.8rem); line-height:.88; letter-spacing:-.04em; text-transform:uppercase; }
+.club-list { display:grid; gap:8px; }
+.club-row { display:grid; grid-template-columns:38px minmax(0,1fr) 86px 86px 88px; gap:8px; align-items:center; border:2px solid var(--rule); background:rgba(255,211,216,.64); padding:8px; cursor:pointer; text-align:left; color:var(--ink); font:inherit; }
+.club-row:hover,.club-row.active { outline:3px solid var(--ink); background:rgba(255,242,217,.75); }
+.rank { font:900 1.25rem Impact,sans-serif; }
+.club-identity { display:flex; align-items:center; gap:8px; min-width:0; }
+.mini-badge { width:34px; height:34px; object-fit:contain; flex:0 0 34px; }
+.club-name { font:900 1.05rem Arial,sans-serif; text-transform:uppercase; }
+.club-meta { color:var(--muted); font-weight:800; font-size:.78rem; }
+.stat-pill { border-left:2px solid var(--rule); padding-left:8px; font-weight:900; text-align:right; }
+.profile-head { display:flex; gap:14px; align-items:center; border-bottom:3px solid var(--rule); padding-bottom:10px; }
+.club-badge { width:82px; height:82px; object-fit:contain; flex:0 0 82px; }
+.profile-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin:12px 0; }
+.profile-stat { border:2px solid var(--rule); background:rgba(255,211,216,.64); padding:8px; }
+.profile-stat span { display:block; font:900 .7rem Arial,sans-serif; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+.profile-stat strong { display:block; font:900 1.35rem Impact,sans-serif; }
+.depth-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:12px 0; }
+.depth-card { border:2px solid var(--rule); padding:7px; text-align:center; background:rgba(255,242,217,.55); }
+.depth-card span { display:block; font:900 .75rem Arial,sans-serif; }
+.depth-card strong { font:900 1.6rem Impact,sans-serif; }
+.formation { margin:14px 0; padding:10px; border:3px solid var(--rule); background:linear-gradient(rgba(255,255,255,.12),rgba(255,255,255,.12)),repeating-linear-gradient(90deg,rgba(33,19,19,.06) 0 1px,transparent 1px 48px),rgba(160,190,140,.35); }
+.formation-title { margin-bottom:8px; font:900 .78rem Arial,sans-serif; text-transform:uppercase; text-align:center; }
+.formation-line { display:flex; justify-content:space-around; gap:6px; margin:11px 0; }
+.shirt { min-width:58px; padding:5px 4px; border:2px solid var(--rule); background:var(--paper-light); text-align:center; font-size:.68rem; font-weight:900; }
+.shirt b { display:block; font:900 1.15rem Impact,sans-serif; }
+.value-chart { margin:14px 0; border-top:3px solid var(--rule); padding-top:8px; }
+.value-chart h3 { margin:0 0 8px; font-family:Impact,sans-serif; text-transform:uppercase; font-size:1.6rem; }
+.value-row { display:grid; grid-template-columns:minmax(110px,1.2fr) minmax(80px,2fr) 70px; gap:7px; align-items:center; margin:5px 0; font-size:.78rem; font-weight:800; }
+.value-row i { display:block; height:10px; background:var(--ink); }
+.value-row b { text-align:right; }
+.squad-scroll { max-height:65vh; overflow:auto; border-top:2px solid var(--rule); border-bottom:2px solid var(--rule); }
+.squad-table { width:100%; border-collapse:collapse; font-size:.86rem; }
+.squad-table th,.squad-table td { border-bottom:1px solid rgba(33,19,19,.35); padding:5px 4px; text-align:left; }
+.squad-table th { font:900 .68rem Arial,sans-serif; text-transform:uppercase; position:sticky; top:0; background:var(--paper-light); }
+.player-link { padding:0; border:0; background:transparent; color:var(--ink); font:inherit; font-weight:900; text-align:left; text-decoration:underline; cursor:pointer; }
+.numeric { text-align:right!important; }
+@media (max-width:1180px) { .club-controls { grid-template-columns:repeat(2,1fr); } .club-controls .wide { grid-column:1/-1; } }
+@media (max-width:980px) { .club-layout { grid-template-columns:1fr; } .club-profile { position:static; max-height:none; overflow:visible; } .squad-scroll { max-height:none; overflow:visible; } .club-row { grid-template-columns:34px minmax(0,1fr) 70px; } .club-row .hide-mobile { display:none; } }
+@media (max-width:620px) { .club-controls { grid-template-columns:1fr; } .profile-grid,.depth-grid { grid-template-columns:repeat(2,1fr); } .formation-line { gap:3px; } .shirt { min-width:46px; font-size:.6rem; } .club-badge { width:60px; height:60px; flex-basis:60px; } }
