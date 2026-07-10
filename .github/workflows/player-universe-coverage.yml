@@ -1,0 +1,94 @@
+name: Player Universe Coverage
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "audit, targeted-import, or rebuild"
+        required: true
+        default: audit
+        type: choice
+        options:
+          - audit
+          - targeted-import
+          - rebuild
+      playerIds:
+        description: "Comma-separated Transfermarkt player IDs for targeted import"
+        required: false
+        type: string
+      clubIds:
+        description: "Comma-separated Transfermarkt club IDs for targeted import"
+        required: false
+        type: string
+      searchQueries:
+        description: "Comma-separated exact player search queries when an ID is not known"
+        required: false
+        type: string
+      datasetId:
+        description: "Optional existing Apify dataset ID to reuse without a new scrape"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run targeted import
+        if: ${{ inputs.mode == 'targeted-import' }}
+        run: |
+          node scripts/import-transfermarkt-targeted.js \
+            --playerIds="${{ inputs.playerIds }}" \
+            --clubIds="${{ inputs.clubIds }}" \
+            --searchQueries="${{ inputs.searchQueries }}" \
+            --datasetId="${{ inputs.datasetId }}"
+
+      - name: Build lightweight wider registry
+        run: npm run build:wider-player-registry
+
+      - name: Rebuild rated pools and published database
+        if: ${{ inputs.mode == 'targeted-import' || inputs.mode == 'rebuild' }}
+        run: npm run rebuild:published-player-database
+
+      - name: Run player universe coverage audit
+        if: ${{ inputs.mode == 'audit' }}
+        run: npm run audit:player-universe
+
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: player-universe-coverage
+          path: |
+            derived/player-universe/wider-player-registry-summary.json
+            derived/player-universe/player-universe-coverage-audit.json
+            derived/player-universe/player-universe-coverage-audit.md
+            derived/player-database/player-database-summary.json
+          if-no-files-found: warn
+
+      - name: Commit generated coverage and database outputs
+        run: |
+          if [ -z "$(git status --porcelain derived data/transfermarkt calibration)" ]; then
+            echo "No generated changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add derived data/transfermarkt calibration
+          git commit -m "Update player universe coverage"
+          git push
