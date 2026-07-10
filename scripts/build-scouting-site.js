@@ -17,6 +17,7 @@ await copy("public/portal.js", join(outputDir, "portal.js"));
 await copy("public/scouting/index.html", join(outputDir, "scouting", "index.html"));
 await copy("public/scouting/styles.css", join(outputDir, "scouting", "styles.css"));
 await copy("public/scouting/app.js", join(outputDir, "scouting", "app.js"));
+await copy("public/scouting/player-links.js", join(outputDir, "scouting", "player-links.js"));
 await copy("derived/player-database/player-database.json", join(outputDir, "scouting", "player-database.json"));
 await copy("derived/player-database/player-database.csv", join(outputDir, "scouting", "player-database.csv"));
 
