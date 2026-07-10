@@ -6,8 +6,9 @@ on:
     branches:
       - main
     paths:
-      - public/scouting/**
+      - public/**
       - derived/player-database/player-database.json
+      - data/config/tbg-club-universe.json
       - .github/workflows/publish-scouting-pages.yml
 
 permissions:
@@ -29,14 +30,22 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Prepare public scouting data
+      - name: Prepare Pink Final data files
         run: |
-          mkdir -p public/scouting
+          mkdir -p public/scouting public/clubs
+
           if [ ! -f derived/player-database/player-database.json ]; then
             echo "Missing derived/player-database/player-database.json"
             exit 1
           fi
+
+          if [ ! -f data/config/tbg-club-universe.json ]; then
+            echo "Missing data/config/tbg-club-universe.json"
+            exit 1
+          fi
+
           cp derived/player-database/player-database.json public/scouting/player-database.json
+          cp data/config/tbg-club-universe.json public/clubs/club-universe.json
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
