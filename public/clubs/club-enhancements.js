@@ -153,3 +153,70 @@ renderProfile = function enhancedRenderProfile() {
   const squadScroll = panel.querySelector(".squad-scroll");
   panel.insertBefore(charts, squadScroll);
 };
+
+function analyseSquadNeeds(club) {
+  const roles = ["GK","RB","LB","CB","DM","CM","AM","RW","LW","ST"];
+  const required = { GK:2, RB:2, LB:2, CB:4, DM:2, CM:3, AM:2, RW:2, LW:2, ST:2 };
+  const byRole = Object.fromEntries(roles.map((role) => [role, []]));
+  club.squad.forEach((player) => {
+    const role = detailedRole(player);
+    if (!byRole[role]) byRole[role] = [];
+    byRole[role].push(player);
+  });
+  Object.values(byRole).forEach((pool) => pool.sort((a,b) => num(b.tbg_rating)-num(a.tbg_rating)));
+
+  const benchmark = Math.max(84, club.starting_xi_rating - 2.5);
+  const findings = [];
+
+  for (const role of roles) {
+    const pool = byRole[role] || [];
+    const need = required[role];
+    if (pool.length === 0) {
+      findings.push({ severity:"critical", icon:"🔴", title:`No natural ${role}`, detail:"The preferred XI must use a makeshift option." });
+      continue;
+    }
+    if (pool.length < need) {
+      findings.push({ severity:"warning", icon:"🟡", title:`Light at ${role}`, detail:`Only ${pool.length} natural option${pool.length === 1 ? "" : "s"}; target depth is ${need}.` });
+    }
+
+    const starter = pool[0];
+    const backup = pool[1];
+    if (starter && num(starter.tbg_rating) < benchmark - 1.5) {
+      findings.push({ severity:"quality", icon:"🟠", title:`Quality gap at ${role}`, detail:`Best natural option is rated ${num(starter.tbg_rating).toFixed(0)}, below this squad's level.` });
+    }
+    if (starter && num(starter.age) >= 31 && (!backup || num(backup.age) >= 28 || num(backup.tbg_rating) < num(starter.tbg_rating) - 3)) {
+      findings.push({ severity:"age", icon:"⏳", title:`${role} succession risk`, detail:`${starter.player_name} is ${starter.age} with no convincing younger successor.` });
+    }
+
+    const strong = pool.filter((player) => num(player.tbg_rating) >= benchmark);
+    if (strong.length >= need + 2) {
+      const surplus = strong.slice(need);
+      findings.push({ severity:"surplus", icon:"💰", title:`Sellable ${role} surplus`, detail:`${strong.length} players meet squad level; ${surplus.slice(0,2).map((p) => p.player_name).join(" and ")} may be expendable.` });
+    }
+
+    if (pool.length >= need && pool.slice(0, need).every((player) => num(player.tbg_rating) >= benchmark + 1)) {
+      findings.push({ severity:"strength", icon:"🟢", title:`Excellent ${role} depth`, detail:`The first ${need} natural options all rate above the squad benchmark.` });
+    }
+  }
+
+  const youngElite = club.squad.filter((player) => num(player.age) <= 21 && num(player.tbg_rating) >= Math.max(87, benchmark));
+  youngElite.slice(0,3).forEach((player) => findings.push({ severity:"prospect", icon:"⭐", title:`Elite young ${detailedRole(player)}`, detail:`${player.player_name}, ${player.age}, is already rated ${num(player.tbg_rating).toFixed(0)}.` }));
+
+  const priorityOrder = { critical:0, quality:1, warning:2, age:3, surplus:4, prospect:5, strength:6 };
+  return findings.sort((a,b) => priorityOrder[a.severity]-priorityOrder[b.severity]).slice(0,10);
+}
+
+function squadNeedsHtml(club) {
+  const findings = analyseSquadNeeds(club);
+  return `<section class="squad-needs"><div class="needs-heading"><span class="label">Sporting Director</span><h3>Squad Needs Analysis</h3></div><p class="needs-method">Based on natural positions, squad-relative quality, depth, age succession and surplus—not reputation or transfer gossip.</p><div class="needs-grid">${findings.map((finding) => `<article class="need-card need-${finding.severity}"><span class="need-icon">${finding.icon}</span><div><strong>${finding.title}</strong><p>${finding.detail}</p></div></article>`).join("")}</div></section>`;
+}
+
+const renderProfileWithDistributions = renderProfile;
+renderProfile = function renderProfileWithSquadNeeds() {
+  renderProfileWithDistributions();
+  const club = state.clubs.find((candidate) => candidate.club_id === state.selectedClubId);
+  const panel = document.getElementById("clubProfile");
+  if (!club || !panel) return;
+  const formation = panel.querySelector(".formation");
+  if (formation) formation.insertAdjacentHTML("afterend", squadNeedsHtml(club));
+};
