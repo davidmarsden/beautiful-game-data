@@ -23,6 +23,12 @@ await copy("derived/player-database/player-database.csv", join(outputDir, "scout
 await copy("public/clubs/index.html", join(outputDir, "clubs", "index.html"));
 await copy("public/clubs/clubs.css", join(outputDir, "clubs", "clubs.css"));
 await copy("public/clubs/clubs.js", join(outputDir, "clubs", "clubs.js"));
+await copy("public/clubs/club-enhancements.js", join(outputDir, "clubs", "club-enhancements.js"));
+await copy("public/clubs/club-enhancements.css", join(outputDir, "clubs", "club-enhancements.css"));
 await copy("data/config/tbg-club-universe.json", join(outputDir, "clubs", "club-universe.json"));
+
+await copy("public/players/index.html", join(outputDir, "players", "index.html"));
+await copy("public/players/players.css", join(outputDir, "players", "players.css"));
+await copy("public/players/players.js", join(outputDir, "players", "players.js"));
 
 console.log(`Built Pink Final portal at ${outputDir}`);
