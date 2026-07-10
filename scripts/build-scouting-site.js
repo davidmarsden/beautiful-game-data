@@ -32,4 +32,8 @@ await copy("public/players/index.html", join(outputDir, "players", "index.html")
 await copy("public/players/players.css", join(outputDir, "players", "players.css"));
 await copy("public/players/players.js", join(outputDir, "players", "players.js"));
 
+await copy("public/wonderkids/index.html", join(outputDir, "wonderkids", "index.html"));
+await copy("public/wonderkids/wonderkids.css", join(outputDir, "wonderkids", "wonderkids.css"));
+await copy("public/wonderkids/wonderkids.js", join(outputDir, "wonderkids", "wonderkids.js"));
+
 console.log(`Built Pink Final portal at ${outputDir}`);
