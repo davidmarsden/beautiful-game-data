@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "description": "Inclusion policy for the rated TBG transfer pool. Transfermarkt remains the wider searchable catalogue; players outside this pool may be requested for targeted addition.",
+  "core_playable_world": {
+    "top_club_slots": 80,
+    "minimum_expected_squad_size": 18,
+    "include_all_players_at_core_clubs": true
+  },
+  "external_priority_rules": [
+    {
+      "name": "elite_market_value",
+      "minimum_market_value_eur": 20000000,
+      "maximum_age": 40
+    },
+    {
+      "name": "high_value_young_player",
+      "minimum_market_value_eur": 5000000,
+      "maximum_age": 23
+    },
+    {
+      "name": "emerging_prospect",
+      "minimum_market_value_eur": 1000000,
+      "maximum_age": 20
+    },
+    {
+      "name": "established_senior",
+      "minimum_market_value_eur": 10000000,
+      "minimum_age": 24,
+      "maximum_age": 32
+    }
+  ],
+  "request_policy": {
+    "allow_targeted_player_requests": true,
+    "allow_targeted_club_requests": true,
+    "required_identifier": "Transfermarkt player ID or club ID",
+    "automatic_rating_after_successful_import": true
+  },
+  "lightweight_registry_fields": [
+    "transfermarkt_player_id",
+    "player_name",
+    "date_of_birth",
+    "age",
+    "nationality",
+    "position",
+    "current_club",
+    "current_club_id",
+    "market_value_eur",
+    "source_updated_at"
+  ]
+}
