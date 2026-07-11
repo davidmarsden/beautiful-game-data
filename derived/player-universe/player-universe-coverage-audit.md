@@ -1,6 +1,6 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-07-11T18:57:07.061Z
+Generated: 2026-07-11T19:39:45.990Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
@@ -18,6 +18,17 @@ Generated: 2026-07-11T18:57:07.061Z
 ## High-priority external missing players
 Count: 0
 
+
+## Dropout categories
+- amateur_or_unvalued: 298
+- below_value_threshold: 41
+- free_agent: 14
+- zero_value_prospect: 8
+- reserve_team: 7
+- retired: 5
+
+## Unexpected dropouts
+Count: 0
 
 ## Stage dropouts
 - raw_import → players_master: 155

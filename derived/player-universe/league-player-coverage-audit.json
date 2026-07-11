@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-11T18:57:07.446Z",
-  "benchmarks_version": "1.0",
+  "generated_at": "2026-07-11T19:39:46.329Z",
+  "benchmarks_version": "1.1",
   "totals": {
     "expected_players": 2797,
     "imported_players": 2474,
@@ -15,21 +15,114 @@
       "league": "Bundesliga",
       "country": "Germany",
       "expected_players": 558,
+      "expected_clubs": 18,
       "imported_players": 357,
       "published_players": 357,
       "estimated_not_imported": 201,
       "imported_coverage_pct": 64,
       "published_coverage_pct": 64,
       "clubs_represented": 17,
+      "published_clubs_represented": 17,
+      "estimated_clubs_not_represented": 1,
+      "club_breakdown": [
+        {
+          "club_id": "409",
+          "club_name": "Red Bull Salzburg",
+          "players": 39
+        },
+        {
+          "club_id": "15",
+          "club_name": "Bayer 04 Leverkusen",
+          "players": 35
+        },
+        {
+          "club_id": "167",
+          "club_name": "FC Augsburg",
+          "players": 32
+        },
+        {
+          "club_id": "23826",
+          "club_name": "RB Leipzig",
+          "players": 32
+        },
+        {
+          "club_id": "127",
+          "club_name": "SC Paderborn 07",
+          "players": 32
+        },
+        {
+          "club_id": "79",
+          "club_name": "VfB Stuttgart",
+          "players": 32
+        },
+        {
+          "club_id": "33",
+          "club_name": "FC Schalke 04",
+          "players": 31
+        },
+        {
+          "club_id": "27",
+          "club_name": "Bayern Munich",
+          "players": 30
+        },
+        {
+          "club_id": "16",
+          "club_name": "Borussia Dortmund",
+          "players": 30
+        },
+        {
+          "club_id": "60",
+          "club_name": "SC Freiburg",
+          "players": 30
+        },
+        {
+          "club_id": "64",
+          "club_name": "SV 07 Elversberg",
+          "players": 27
+        },
+        {
+          "club_id": "86",
+          "club_name": "SV Werder Bremen",
+          "players": 2
+        },
+        {
+          "club_id": "89",
+          "club_name": "1.FC Union Berlin",
+          "players": 1
+        },
+        {
+          "club_id": "39",
+          "club_name": "1.FSV Mainz 05",
+          "players": 1
+        },
+        {
+          "club_id": "18",
+          "club_name": "Borussia Mönchengladbach",
+          "players": 1
+        },
+        {
+          "club_id": "41",
+          "club_name": "Hamburger SV",
+          "players": 1
+        },
+        {
+          "club_id": "122",
+          "club_name": "SK Sturm Graz",
+          "players": 1
+        }
+      ],
       "under_21": 121,
       "under_23": 175,
       "value_1m_plus": 272,
       "value_5m_plus": 164,
       "value_20m_plus": 68,
-      "rated_84_plus": 0,
-      "rated_87_plus": 0,
-      "rated_90_plus": 0,
+      "rated_84_plus": 258,
+      "rated_87_plus": 118,
+      "rated_90_plus": 30,
       "total_market_value_eur": 3755050000,
+      "anomalies": [
+        "1 expected club not represented"
+      ],
       "status": "under-covered"
     },
     {
@@ -37,21 +130,129 @@
       "league": "Serie A",
       "country": "Italy",
       "expected_players": 652,
+      "expected_clubs": 20,
       "imported_players": 582,
       "published_players": 580,
       "estimated_not_imported": 70,
       "imported_coverage_pct": 89.3,
       "published_coverage_pct": 89,
       "clubs_represented": 20,
+      "published_clubs_represented": 20,
+      "estimated_clubs_not_represented": 0,
+      "club_breakdown": [
+        {
+          "club_id": "607",
+          "club_name": "Venezia FC",
+          "players": 43
+        },
+        {
+          "club_id": "6195",
+          "club_name": "SSC Napoli",
+          "players": 41
+        },
+        {
+          "club_id": "430",
+          "club_name": "ACF Fiorentina",
+          "players": 40
+        },
+        {
+          "club_id": "6574",
+          "club_name": "US Sassuolo",
+          "players": 40
+        },
+        {
+          "club_id": "1047",
+          "club_name": "Como 1907",
+          "players": 39
+        },
+        {
+          "club_id": "410",
+          "club_name": "Udinese Calcio",
+          "players": 36
+        },
+        {
+          "club_id": "1390",
+          "club_name": "Cagliari Calcio",
+          "players": 33
+        },
+        {
+          "club_id": "398",
+          "club_name": "SS Lazio",
+          "players": 32
+        },
+        {
+          "club_id": "5",
+          "club_name": "AC Milan",
+          "players": 31
+        },
+        {
+          "club_id": "1025",
+          "club_name": "Bologna FC 1909",
+          "players": 31
+        },
+        {
+          "club_id": "800",
+          "club_name": "Atalanta BC",
+          "players": 30
+        },
+        {
+          "club_id": "130",
+          "club_name": "Parma Calcio 1913",
+          "players": 30
+        },
+        {
+          "club_id": "252",
+          "club_name": "Genoa CFC",
+          "players": 29
+        },
+        {
+          "club_id": "506",
+          "club_name": "Juventus FC",
+          "players": 29
+        },
+        {
+          "club_id": "416",
+          "club_name": "Torino FC",
+          "players": 27
+        },
+        {
+          "club_id": "12",
+          "club_name": "AS Roma",
+          "players": 26
+        },
+        {
+          "club_id": "46",
+          "club_name": "Inter Milan",
+          "players": 24
+        },
+        {
+          "club_id": "1005",
+          "club_name": "US Lecce",
+          "players": 18
+        },
+        {
+          "club_id": "2919",
+          "club_name": "AC Monza",
+          "players": 2
+        },
+        {
+          "club_id": "8970",
+          "club_name": "Frosinone Calcio",
+          "players": 1
+        }
+      ],
       "under_21": 124,
       "under_23": 230,
       "value_1m_plus": 481,
       "value_5m_plus": 289,
       "value_20m_plus": 91,
-      "rated_84_plus": 0,
-      "rated_87_plus": 0,
-      "rated_90_plus": 0,
+      "rated_84_plus": 450,
+      "rated_87_plus": 215,
+      "rated_90_plus": 44,
       "total_market_value_eur": 5395900000,
+      "anomalies": [
+        "2 imported players excluded from publication"
+      ],
       "status": "partial"
     },
     {
@@ -59,21 +260,119 @@
       "league": "Ligue 1",
       "country": "France",
       "expected_players": 478,
+      "expected_clubs": 18,
       "imported_players": 431,
       "published_players": 428,
       "estimated_not_imported": 47,
       "imported_coverage_pct": 90.2,
       "published_coverage_pct": 89.5,
       "clubs_represented": 18,
+      "published_clubs_represented": 18,
+      "estimated_clubs_not_represented": 0,
+      "club_breakdown": [
+        {
+          "club_id": "1041",
+          "club_name": "Olympique Lyon",
+          "players": 32
+        },
+        {
+          "club_id": "273",
+          "club_name": "Stade Rennais FC",
+          "players": 32
+        },
+        {
+          "club_id": "667",
+          "club_name": "RC Strasbourg Alsace",
+          "players": 31
+        },
+        {
+          "club_id": "1082",
+          "club_name": "LOSC Lille",
+          "players": 29
+        },
+        {
+          "club_id": "417",
+          "club_name": "OGC Nice",
+          "players": 28
+        },
+        {
+          "club_id": "583",
+          "club_name": "Paris Saint-Germain",
+          "players": 28
+        },
+        {
+          "club_id": "826",
+          "club_name": "RC Lens",
+          "players": 28
+        },
+        {
+          "club_id": "162",
+          "club_name": "AS Monaco",
+          "players": 27
+        },
+        {
+          "club_id": "290",
+          "club_name": "AJ Auxerre",
+          "players": 26
+        },
+        {
+          "club_id": "244",
+          "club_name": "Olympique Marseille",
+          "players": 25
+        },
+        {
+          "club_id": "415",
+          "club_name": "FC Toulouse",
+          "players": 23
+        },
+        {
+          "club_id": "1420",
+          "club_name": "Angers SCO",
+          "players": 22
+        },
+        {
+          "club_id": "1095",
+          "club_name": "ESTAC Troyes",
+          "players": 22
+        },
+        {
+          "club_id": "1158",
+          "club_name": "FC Lorient",
+          "players": 22
+        },
+        {
+          "club_id": "738",
+          "club_name": "Le Havre AC",
+          "players": 19
+        },
+        {
+          "club_id": "1164",
+          "club_name": "Le Mans FC",
+          "players": 19
+        },
+        {
+          "club_id": "3911",
+          "club_name": "Stade Brestois 29",
+          "players": 17
+        },
+        {
+          "club_id": "10004",
+          "club_name": "Paris FC",
+          "players": 1
+        }
+      ],
       "under_21": 133,
       "under_23": 203,
       "value_1m_plus": 349,
       "value_5m_plus": 196,
       "value_20m_plus": 52,
-      "rated_84_plus": 0,
-      "rated_87_plus": 0,
-      "rated_90_plus": 0,
+      "rated_84_plus": 319,
+      "rated_87_plus": 141,
+      "rated_90_plus": 24,
       "total_market_value_eur": 4139950000,
+      "anomalies": [
+        "3 imported players excluded from publication"
+      ],
       "status": "partial"
     },
     {
@@ -81,21 +380,135 @@
       "league": "Premier League",
       "country": "England",
       "expected_players": 593,
+      "expected_clubs": 20,
       "imported_players": 587,
       "published_players": 584,
       "estimated_not_imported": 6,
       "imported_coverage_pct": 99,
       "published_coverage_pct": 98.5,
       "clubs_represented": 21,
+      "published_clubs_represented": 21,
+      "estimated_clubs_not_represented": 0,
+      "club_breakdown": [
+        {
+          "club_id": "1237",
+          "club_name": "Brighton & Hove Albion",
+          "players": 38
+        },
+        {
+          "club_id": "148",
+          "club_name": "Tottenham Hotspur",
+          "players": 38
+        },
+        {
+          "club_id": "631",
+          "club_name": "Chelsea FC",
+          "players": 36
+        },
+        {
+          "club_id": "1148",
+          "club_name": "Brentford FC",
+          "players": 32
+        },
+        {
+          "club_id": "281",
+          "club_name": "Manchester City",
+          "players": 32
+        },
+        {
+          "club_id": "985",
+          "club_name": "Manchester United",
+          "players": 31
+        },
+        {
+          "club_id": "289",
+          "club_name": "Sunderland AFC",
+          "players": 31
+        },
+        {
+          "club_id": "989",
+          "club_name": "AFC Bournemouth",
+          "players": 30
+        },
+        {
+          "club_id": "405",
+          "club_name": "Aston Villa",
+          "players": 29
+        },
+        {
+          "club_id": "873",
+          "club_name": "Crystal Palace",
+          "players": 29
+        },
+        {
+          "club_id": "31",
+          "club_name": "Liverpool FC",
+          "players": 29
+        },
+        {
+          "club_id": "399",
+          "club_name": "Leeds United",
+          "players": 28
+        },
+        {
+          "club_id": "703",
+          "club_name": "Nottingham Forest",
+          "players": 28
+        },
+        {
+          "club_id": "11",
+          "club_name": "Arsenal FC",
+          "players": 27
+        },
+        {
+          "club_id": "677",
+          "club_name": "Ipswich Town",
+          "players": 27
+        },
+        {
+          "club_id": "3008",
+          "club_name": "Hull City",
+          "players": 26
+        },
+        {
+          "club_id": "990",
+          "club_name": "Coventry City",
+          "players": 25
+        },
+        {
+          "club_id": "762",
+          "club_name": "Newcastle United",
+          "players": 25
+        },
+        {
+          "club_id": "29",
+          "club_name": "Everton FC",
+          "players": 23
+        },
+        {
+          "club_id": "931",
+          "club_name": "Fulham FC",
+          "players": 22
+        },
+        {
+          "club_id": "60368",
+          "club_name": "FC Noah Yerevan",
+          "players": 1
+        }
+      ],
       "under_21": 115,
       "under_23": 210,
       "value_1m_plus": 534,
       "value_5m_plus": 436,
       "value_20m_plus": 253,
-      "rated_84_plus": 0,
-      "rated_87_plus": 0,
-      "rated_90_plus": 0,
+      "rated_84_plus": 525,
+      "rated_87_plus": 389,
+      "rated_90_plus": 143,
       "total_market_value_eur": 12572250000,
+      "anomalies": [
+        "1 extra club identities; inspect aliases or promoted/relegated records",
+        "3 imported players excluded from publication"
+      ],
       "status": "strong"
     },
     {
@@ -103,21 +516,129 @@
       "league": "LaLiga",
       "country": "Spain",
       "expected_players": 516,
+      "expected_clubs": 20,
       "imported_players": 517,
       "published_players": 514,
       "estimated_not_imported": 0,
       "imported_coverage_pct": 100.2,
       "published_coverage_pct": 99.6,
       "clubs_represented": 20,
+      "published_clubs_represented": 20,
+      "estimated_clubs_not_represented": 0,
+      "club_breakdown": [
+        {
+          "club_id": "621",
+          "club_name": "Athletic Bilbao",
+          "players": 33
+        },
+        {
+          "club_id": "418",
+          "club_name": "Real Madrid",
+          "players": 31
+        },
+        {
+          "club_id": "897",
+          "club_name": "Deportivo A Coruña",
+          "players": 30
+        },
+        {
+          "club_id": "940",
+          "club_name": "Celta de Vigo",
+          "players": 29
+        },
+        {
+          "club_id": "1108",
+          "club_name": "Deportivo Alavés",
+          "players": 28
+        },
+        {
+          "club_id": "131",
+          "club_name": "FC Barcelona",
+          "players": 28
+        },
+        {
+          "club_id": "714",
+          "club_name": "RCD Espanyol Barcelona",
+          "players": 28
+        },
+        {
+          "club_id": "681",
+          "club_name": "Real Sociedad",
+          "players": 28
+        },
+        {
+          "club_id": "368",
+          "club_name": "Sevilla FC",
+          "players": 27
+        },
+        {
+          "club_id": "1049",
+          "club_name": "Valencia CF",
+          "players": 27
+        },
+        {
+          "club_id": "1050",
+          "club_name": "Villarreal CF",
+          "players": 26
+        },
+        {
+          "club_id": "13",
+          "club_name": "Atlético de Madrid",
+          "players": 25
+        },
+        {
+          "club_id": "150",
+          "club_name": "Real Betis Balompié",
+          "players": 25
+        },
+        {
+          "club_id": "1531",
+          "club_name": "Elche CF",
+          "players": 24
+        },
+        {
+          "club_id": "1084",
+          "club_name": "Málaga CF",
+          "players": 23
+        },
+        {
+          "club_id": "3368",
+          "club_name": "Levante UD",
+          "players": 22
+        },
+        {
+          "club_id": "367",
+          "club_name": "Rayo Vallecano",
+          "players": 22
+        },
+        {
+          "club_id": "3709",
+          "club_name": "Getafe CF",
+          "players": 21
+        },
+        {
+          "club_id": "331",
+          "club_name": "CA Osasuna",
+          "players": 20
+        },
+        {
+          "club_id": "630",
+          "club_name": "Racing Santander",
+          "players": 20
+        }
+      ],
       "under_21": 75,
       "under_23": 171,
       "value_1m_plus": 434,
       "value_5m_plus": 214,
       "value_20m_plus": 76,
-      "rated_84_plus": 0,
-      "rated_87_plus": 0,
-      "rated_90_plus": 0,
+      "rated_84_plus": 417,
+      "rated_87_plus": 184,
+      "rated_90_plus": 57,
       "total_market_value_eur": 5385625000,
+      "anomalies": [
+        "3 imported players excluded from publication"
+      ],
       "status": "strong"
     }
   ]
