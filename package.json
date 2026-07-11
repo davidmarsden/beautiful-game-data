@@ -30,6 +30,7 @@
     "import:transfermarkt:universe": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-universe-dataset.json --mergeExisting=true",
     "import:transfermarkt:targeted": "node scripts/import-transfermarkt-targeted.js",
     "apply:player-status-overrides": "node scripts/apply-player-status-overrides.js",
+    "apply:player-pool-overrides": "node scripts/apply-player-pool-overrides.js",
     "promote:global-clubs": "node scripts/promote-global-clubs-to-top80.js",
     "export:club-universe-scope": "node scripts/export-tbg-club-universe-scope.js",
     "export:selected-club-scope": "node scripts/export-selected-club-scope.js",
@@ -41,7 +42,7 @@
     "build:wider-player-registry": "node scripts/build-wider-player-registry.js",
     "audit:player-universe": "node scripts/audit-player-universe-coverage.js",
     "audit:league-coverage": "node scripts/audit-league-player-coverage.js",
-    "rebuild:published-player-database": "npm run promote:global-clubs && npm run apply:player-status-overrides && npm run score:tbg-ratings && npm run export:player-pools && npm run export:player-database && npm run build:wider-player-registry && npm run audit:player-universe && npm run audit:league-coverage && npm run build:scouting-site",
+    "rebuild:published-player-database": "npm run promote:global-clubs && npm run apply:player-status-overrides && npm run score:tbg-ratings && npm run export:player-pools && npm run apply:player-pool-overrides && npm run export:player-database && npm run build:wider-player-registry && npm run audit:player-universe && npm run audit:league-coverage && npm run build:scouting-site",
     "resolve:player-identities": "node scripts/resolve-player-identities.js",
     "link:soccerwiki-registry": "node scripts/link-soccerwiki-registry.js"
   },
