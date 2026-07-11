@@ -4,13 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "audit, targeted-import, or rebuild"
+        description: "audit, targeted-import, kees-smit-import, or rebuild"
         required: true
         default: audit
         type: choice
         options:
           - audit
           - targeted-import
+          - kees-smit-import
           - rebuild
       playerIds:
         description: "Comma-separated Transfermarkt player IDs for targeted import"
@@ -59,16 +60,27 @@ jobs:
             --searchQueries="${{ inputs.searchQueries }}" \
             --datasetId="${{ inputs.datasetId }}"
 
+      - name: Import Kees Smit
+        if: ${{ inputs.mode == 'kees-smit-import' }}
+        run: |
+          node scripts/import-transfermarkt-targeted.js \
+            --searchQueries="Kees Smit" \
+            --maxItems=25
+
       - name: Build lightweight wider registry
         run: npm run build:wider-player-registry
 
       - name: Rebuild rated pools and published database
-        if: ${{ inputs.mode == 'targeted-import' || inputs.mode == 'rebuild' }}
+        if: ${{ inputs.mode == 'targeted-import' || inputs.mode == 'kees-smit-import' || inputs.mode == 'rebuild' }}
         run: npm run rebuild:published-player-database
 
       - name: Run player universe coverage audit
         if: ${{ inputs.mode == 'audit' }}
         run: npm run audit:player-universe
+
+      - name: Run league coverage audit
+        if: ${{ inputs.mode == 'audit' }}
+        run: npm run audit:league-coverage
 
       - name: Upload coverage artifacts
         uses: actions/upload-artifact@v4
@@ -78,6 +90,8 @@ jobs:
             derived/player-universe/wider-player-registry-summary.json
             derived/player-universe/player-universe-coverage-audit.json
             derived/player-universe/player-universe-coverage-audit.md
+            derived/player-universe/league-player-coverage-audit.json
+            derived/player-universe/league-player-coverage-audit.md
             derived/player-database/player-database-summary.json
           if-no-files-found: warn
 
@@ -90,5 +104,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add derived data/transfermarkt calibration
-          git commit -m "Update player universe coverage"
+          git commit -m "Update player universe and league coverage"
           git push
