@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "description": "Reference roster totals used to measure local TBG player coverage. Figures are snapshots and should be updated when Transfermarkt league totals materially change.",
+  "leagues": [
+    {
+      "key": "premier_league",
+      "name": "Premier League",
+      "country": "England",
+      "expected_players": 593,
+      "competition_codes": ["GB1"],
+      "name_aliases": ["Premier League"]
+    },
+    {
+      "key": "serie_a",
+      "name": "Serie A",
+      "country": "Italy",
+      "expected_players": 652,
+      "competition_codes": ["IT1"],
+      "name_aliases": ["Serie A"]
+    },
+    {
+      "key": "bundesliga",
+      "name": "Bundesliga",
+      "country": "Germany",
+      "expected_players": 558,
+      "competition_codes": ["L1"],
+      "name_aliases": ["Bundesliga"]
+    },
+    {
+      "key": "laliga",
+      "name": "LaLiga",
+      "country": "Spain",
+      "expected_players": 516,
+      "competition_codes": ["ES1"],
+      "name_aliases": ["LaLiga", "La Liga"]
+    },
+    {
+      "key": "ligue_1",
+      "name": "Ligue 1",
+      "country": "France",
+      "expected_players": 478,
+      "competition_codes": ["FR1"],
+      "name_aliases": ["Ligue 1"]
+    }
+  ]
+}
