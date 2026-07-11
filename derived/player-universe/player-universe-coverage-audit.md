@@ -1,6 +1,6 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-07-11T17:06:51.352Z
+Generated: 2026-07-11T18:17:30.953Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
@@ -10,11 +10,10 @@ Generated: 2026-07-11T17:06:51.352Z
 - published_database: 6450 rows / 6450 unique TM IDs
 
 ## Top 80 squad completeness
-- Complete: 79
-- Thin: 1
+- Complete: 80
+- Thin: 0
 - Missing: 0
 
-- 78. Club América: 1 players (thin)
 
 ## High-priority external missing players
 Count: 0

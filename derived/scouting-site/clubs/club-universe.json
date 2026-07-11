@@ -1,11 +1,11 @@
 {
-  "version": "tbg-club-universe-v0.3",
+  "version": "tbg-club-universe-v0.4",
   "description": "Canonical playable club universe for The Beautiful Game. Top 80 launch clubs prioritise complete imported squads and global representation; wider reserve clubs remain available for future promotion.",
   "selection_policy": {
     "playable_clubs": 80,
     "principle": "Choose 80 globally significant clubs with complete playable squads; assign starting divisions by weighted TBG squad strength.",
     "best_of_rest": "Players from non-universe clubs remain in the global player pool for transfers, scouting, free agents and manager submissions.",
-    "global_balance_note": "Slots 71, 74, 78 and 79 promote Al-Hilal, Al-Nassr, Club América and Al Ahly in place of incomplete South American imports. The displaced clubs remain in reserve slots."
+    "global_balance_note": "Slots 71, 74, 78 and 79 promote Al-Hilal, Al-Nassr, Inter Miami and Al Ahly in place of incomplete South American imports. The displaced clubs and Club América remain in reserve slots."
   },
   "continent_targets": {
     "Europe": 66,
@@ -711,11 +711,11 @@
     },
     {
       "slot": 78,
-      "name": "Club América",
-      "transfermarkt_club_id": "3631",
+      "name": "Inter Miami CF",
+      "transfermarkt_club_id": "69261",
       "continent": "North America",
-      "country": "Mexico",
-      "league": "Liga MX",
+      "country": "United States",
+      "league": "MLS",
       "importance": 87
     },
     {
@@ -801,12 +801,12 @@
     },
     {
       "slot": 88,
-      "name": "Racing Club",
-      "transfermarkt_club_id": "1444",
-      "continent": "South America",
-      "country": "Argentina",
-      "league": "Argentina Primera División",
-      "importance": 86
+      "name": "Club América",
+      "transfermarkt_club_id": "3631",
+      "continent": "North America",
+      "country": "Mexico",
+      "league": "Liga MX",
+      "importance": 87
     },
     {
       "slot": 89,
@@ -828,12 +828,12 @@
     },
     {
       "slot": 91,
-      "name": "Inter Miami CF",
-      "transfermarkt_club_id": "69261",
-      "continent": "North America",
-      "country": "United States",
-      "league": "MLS",
-      "importance": 87
+      "name": "Racing Club",
+      "transfermarkt_club_id": "1444",
+      "continent": "South America",
+      "country": "Argentina",
+      "league": "Argentina Primera División",
+      "importance": 86
     },
     {
       "slot": 92,
