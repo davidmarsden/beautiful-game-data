@@ -23,6 +23,20 @@ function value(player) {
   return Number(player.market_value_eur ?? player.value_eur ?? 0) || 0;
 }
 
+function transfermarktId(player) {
+  const direct = player.transfermarkt_player_id
+    ?? player.transfermarkt_id
+    ?? player.transfermarktId
+    ?? player.source_player_id
+    ?? "";
+  if (String(direct).trim()) return String(direct).trim();
+
+  const tbgId = String(player.tbg_player_id ?? "");
+  const match = tbgId.match(/^tbg-tm-(\d+)$/i);
+  if (!match) return "";
+  return String(Number(match[1]));
+}
+
 function ratingBand(score) {
   if (score >= 93) return "world_elite";
   if (score >= 90) return "elite";
@@ -71,15 +85,17 @@ const source = globalPlayers.length ? globalPlayers : [...gamePlayers, ...unsign
 const rows = source
   .map((player) => {
     const score = rating(player);
+    const tmId = transfermarktId(player);
     return {
       tbg_player_id: player.tbg_player_id || "",
-      transfermarkt_player_id: player.transfermarkt_player_id || player.source_player_id || "",
+      transfermarkt_player_id: tmId,
+      transfermarkt_id: tmId,
       player_name: player.display_name || player.name || "",
       age: player.age ?? "",
       date_of_birth: player.date_of_birth || "",
       nationality: Array.isArray(player.nationalities) ? player.nationalities.join("; ") : (player.nationality || ""),
       current_club: player.current_club || player.tbg_club_name || "Without Club",
-      current_club_id: player.current_club_id || player.real_club_source_id || "",
+      current_club_id: player.current_club_id || player.real_club_source_id || player.transfermarkt_club_id || "",
       tbg_club: player.tbg_club_name || "",
       position: player.position || player.primary_position || "",
       position_group: player.position_group || "",
@@ -99,6 +115,7 @@ const rows = source
 const columns = [
   "tbg_player_id",
   "transfermarkt_player_id",
+  "transfermarkt_id",
   "player_name",
   "age",
   "date_of_birth",
@@ -121,6 +138,8 @@ const columns = [
 const summary = {
   generated_at: new Date().toISOString(),
   players: rows.length,
+  transfermarkt_linked: rows.filter((row) => row.transfermarkt_player_id).length,
+  missing_transfermarkt_id: rows.filter((row) => !row.transfermarkt_player_id).length,
   assigned_players: rows.filter((row) => row.assignment_status === "assigned").length,
   without_club: rows.filter((row) => row.status === "without_club" || row.current_club === "Without Club").length,
   new_players: rows.filter((row) => row.is_new_player).length,
