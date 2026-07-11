@@ -1,6 +1,6 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-07-11T13:21:10.901Z
+Generated: 2026-07-11T17:06:51.352Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
@@ -10,14 +10,11 @@ Generated: 2026-07-11T13:21:10.901Z
 - published_database: 6450 rows / 6450 unique TM IDs
 
 ## Top 80 squad completeness
-- Complete: 76
-- Thin: 2
-- Missing: 2
+- Complete: 79
+- Thin: 1
+- Missing: 0
 
-- 71. São Paulo FC: 0 players (missing)
-- 74. Botafogo FR: 2 players (thin)
-- 78. Racing Club: 1 players (thin)
-- 79. Independiente: 0 players (missing)
+- 78. Club América: 1 players (thin)
 
 ## High-priority external missing players
 Count: 0
