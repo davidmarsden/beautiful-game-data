@@ -4,19 +4,27 @@ const path = "data/config/tbg-club-universe.json";
 const universe = JSON.parse(await readFile(path, "utf8"));
 
 const swaps = [
-  [71, 81],
-  [74, 82],
-  [78, 88],
-  [79, 94]
+  { top80Slot: 71, reserveSlot: 81, promotedName: "Al-Hilal SFC" },
+  { top80Slot: 74, reserveSlot: 82, promotedName: "Al-Nassr FC" },
+  { top80Slot: 78, reserveSlot: 88, promotedName: "Club América" },
+  { top80Slot: 79, reserveSlot: 94, promotedName: "Al Ahly SC" }
 ];
 
 const bySlot = new Map(universe.clubs.map((club) => [Number(club.slot), club]));
-for (const [top80Slot, reserveSlot] of swaps) {
+let changed = false;
+for (const { top80Slot, reserveSlot, promotedName } of swaps) {
   const top80Club = bySlot.get(top80Slot);
   const reserveClub = bySlot.get(reserveSlot);
   if (!top80Club || !reserveClub) throw new Error(`Missing club slot for swap ${top80Slot} ↔ ${reserveSlot}`);
+  if (top80Club.name === promotedName) continue;
+  if (reserveClub.name !== promotedName) {
+    throw new Error(`Expected ${promotedName} in slot ${reserveSlot}, found ${reserveClub.name}`);
+  }
   top80Club.slot = reserveSlot;
   reserveClub.slot = top80Slot;
+  bySlot.set(top80Slot, reserveClub);
+  bySlot.set(reserveSlot, top80Club);
+  changed = true;
 }
 
 universe.version = "tbg-club-universe-v0.3";
@@ -27,6 +35,5 @@ universe.selection_policy.global_balance_note = "Slots 71, 74, 78 and 79 promote
 universe.clubs.sort((a, b) => Number(a.slot) - Number(b.slot));
 
 await writeFile(path, JSON.stringify(universe, null, 2) + "\n", "utf8");
-console.log("Promoted global clubs into Top 80:");
-console.log("71 Al-Hilal SFC; 74 Al-Nassr FC; 78 Club América; 79 Al Ahly SC");
-console.log("Moved São Paulo FC, Botafogo FR, Racing Club and Independiente to reserve slots.");
+console.log(changed ? "Promoted global clubs into the Top 80." : "Global Top 80 promotion already applied; no slot changes needed.");
+console.log("Top 80 additions: Al-Hilal SFC, Al-Nassr FC, Club América, Al Ahly SC.");
