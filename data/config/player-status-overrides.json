@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "description": "Explicit corrections for active veterans, retired players and temporarily unavailable players. Transfermarkt player ID is authoritative.",
+  "players": {
+    "8198": {
+      "display_name": "Cristiano Ronaldo dos Santos Aveiro",
+      "status": "active",
+      "force_include": true,
+      "eligible_for_matches": true,
+      "eligible_for_transfer": true,
+      "reason": "Active Al-Nassr player; age ceiling must not exclude active Top 80 players."
+    },
+    "29241": {
+      "display_name": "Thiago Silva",
+      "status": "active",
+      "force_include": true,
+      "eligible_for_matches": true,
+      "eligible_for_transfer": true,
+      "reason": "Active Fluminense player; age ceiling must not exclude active Top 80 players."
+    },
+    "537860": {
+      "display_name": "Mykhaylo Mudryk",
+      "status": "suspended",
+      "force_include": true,
+      "eligible_for_matches": false,
+      "eligible_for_transfer": false,
+      "reason": "Retain in scouting database while unavailable for selection or transfer."
+    },
+    "65230": {
+      "display_name": "Sergio Busquets",
+      "status": "retired",
+      "force_include": false,
+      "eligible_for_matches": false,
+      "eligible_for_transfer": false
+    },
+    "16911": {
+      "display_name": "Kasper Schmeichel",
+      "status": "retired",
+      "force_include": false,
+      "eligible_for_matches": false,
+      "eligible_for_transfer": false
+    }
+  }
+}
