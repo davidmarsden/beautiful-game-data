@@ -21,7 +21,15 @@ function rowsFrom(value) {
 }
 
 function idOf(player) {
-  return String(player.transfermarkt_player_id || player.source_player_id || player.player_id || player.id || "").trim();
+  return String(
+    player.transfermarkt_player_id ||
+    player.transfermarkt_id ||
+    player.transfermarktId ||
+    player.source_player_id ||
+    player.player_id ||
+    player.id ||
+    ""
+  ).trim();
 }
 
 function clubIdOf(player) {
@@ -37,7 +45,7 @@ function age(player) {
 }
 
 function nameOf(player) {
-  return player.player_name || player.display_name || player.name || "";
+  return player.player_name || player.display_name || player.canonical_name || player.name || "";
 }
 
 function firstStageMissing(id, stages) {
@@ -83,6 +91,12 @@ const stageRows = [
   ["published_database", rowsFrom(publishedValue)]
 ];
 const stages = stageRows.map(([name, rows]) => ({ name, rows, ids: new Set(rows.map(idOf).filter(Boolean)) }));
+
+for (const stage of stages) {
+  if (stage.rows.length && !stage.ids.size) {
+    throw new Error(`${stage.name} contains ${stage.rows.length} rows but no recognised Transfermarkt IDs`);
+  }
+}
 
 const canonicalClubs = (universeValue.clubs || []).filter((club) => Number(club.slot) <= Number(policy.core_playable_world?.top_club_slots ?? 80));
 const published = rowsFrom(publishedValue);
