@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T18:17:30.953Z",
+  "generated_at": "2026-07-11T18:57:07.061Z",
   "paths": {
     "raw": "calibration/apify-transfermarkt-universe-dataset.json",
     "master": "data/transfermarkt/players-master.json",
@@ -28,13 +28,13 @@
     },
     {
       "name": "rated_global_pool",
-      "players": 6450,
-      "unique_transfermarkt_ids": 6450
+      "players": 6453,
+      "unique_transfermarkt_ids": 6453
     },
     {
       "name": "published_database",
-      "players": 6450,
-      "unique_transfermarkt_ids": 6450
+      "players": 6453,
+      "unique_transfermarkt_ids": 6453
     }
   ],
   "stage_dropouts": [
@@ -51,7 +51,7 @@
     {
       "from": "player_registry",
       "to": "rated_global_pool",
-      "missing_ids": 221
+      "missing_ids": 218
     },
     {
       "from": "rated_global_pool",
@@ -875,8 +875,8 @@
       "transfermarkt_club_id": "18544",
       "country": "Saudi Arabia",
       "continent": "Asia",
-      "published_players": 26,
-      "rated_players": 26,
+      "published_players": 27,
+      "rated_players": 27,
       "youngest_age": 21,
       "status": "complete"
     },
@@ -886,8 +886,8 @@
       "transfermarkt_club_id": "2462",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 31,
+      "rated_players": 31,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -949,7 +949,7 @@
   ],
   "high_priority_external_missing_count": 0,
   "high_priority_external_missing": [],
-  "dropout_count": 206,
+  "dropout_count": 203,
   "dropouts": [
     {
       "transfermarkt_player_id": "620362",
@@ -1085,15 +1085,6 @@
       "age": 20,
       "market_value_eur": 0,
       "first_missing_stage": "players_master"
-    },
-    {
-      "transfermarkt_player_id": "29692",
-      "player_name": "Lukasz Fabianski",
-      "current_club": "Without Club",
-      "current_club_id": "515",
-      "age": 41,
-      "market_value_eur": 150000,
-      "first_missing_stage": "rated_global_pool"
     },
     {
       "transfermarkt_player_id": "1008553",
@@ -1264,15 +1255,6 @@
       "current_club_id": "24366",
       "age": 21,
       "market_value_eur": 75000,
-      "first_missing_stage": "rated_global_pool"
-    },
-    {
-      "transfermarkt_player_id": "29241",
-      "player_name": "Thiago Silva",
-      "current_club": "Fluminense Football Club",
-      "current_club_id": "2462",
-      "age": 41,
-      "market_value_eur": 500000,
       "first_missing_stage": "rated_global_pool"
     },
     {
@@ -1885,15 +1867,6 @@
       "current_club_id": "18544",
       "age": 21,
       "market_value_eur": 75000,
-      "first_missing_stage": "rated_global_pool"
-    },
-    {
-      "transfermarkt_player_id": "8198",
-      "player_name": "Cristiano Ronaldo dos Santos Aveiro",
-      "current_club": "Al-Nassr FC",
-      "current_club_id": "18544",
-      "age": 41,
-      "market_value_eur": 10000000,
       "first_missing_stage": "rated_global_pool"
     },
     {
