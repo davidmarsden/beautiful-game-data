@@ -1,134 +1,699 @@
 {
-  "generated_at": "2026-07-11T19:39:46.329Z",
-  "benchmarks_version": "1.1",
+  "generated_at": "2026-07-12T09:15:14.443Z",
+  "benchmarks_version": "2.0",
+  "season": "2026-27",
+  "methodology": "canonical_club_membership",
   "totals": {
     "expected_players": 2797,
-    "imported_players": 2474,
-    "published_players": 2463,
-    "estimated_not_imported": 324,
-    "imported_coverage_pct": 88.5,
-    "published_coverage_pct": 88.1
+    "imported_players": 2434,
+    "published_players": 2423,
+    "estimated_not_imported": 365,
+    "clubs_complete": 84,
+    "clubs_thin": 9,
+    "clubs_missing": 3,
+    "metadata_false_positive_count": 41,
+    "metadata_false_negative_count": 1,
+    "imported_coverage_pct": 87,
+    "published_coverage_pct": 86.6
   },
   "leagues": [
     {
       "key": "bundesliga",
       "league": "Bundesliga",
       "country": "Germany",
+      "season": "2026-27",
       "expected_players": 558,
       "expected_clubs": 18,
-      "imported_players": 357,
-      "published_players": 357,
-      "estimated_not_imported": 201,
-      "imported_coverage_pct": 64,
-      "published_coverage_pct": 64,
-      "clubs_represented": 17,
-      "published_clubs_represented": 17,
-      "estimated_clubs_not_represented": 1,
-      "club_breakdown": [
+      "imported_players": 317,
+      "published_players": 317,
+      "estimated_not_imported": 241,
+      "imported_coverage_pct": 56.8,
+      "published_coverage_pct": 56.8,
+      "clubs_complete": 10,
+      "clubs_thin": 5,
+      "clubs_missing": 3,
+      "club_reports": [
         {
-          "club_id": "409",
-          "club_name": "Red Bull Salzburg",
-          "players": 39
+          "club_id": "3",
+          "club_name": "1. FC Köln",
+          "imported_players": 0,
+          "published_players": 0,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": null,
+          "total_market_value_eur": 0,
+          "status": "missing"
         },
         {
-          "club_id": "15",
-          "club_name": "Bayer 04 Leverkusen",
-          "players": 35
+          "club_id": "24",
+          "club_name": "Eintracht Frankfurt",
+          "imported_players": 0,
+          "published_players": 0,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": null,
+          "total_market_value_eur": 0,
+          "status": "missing"
         },
         {
-          "club_id": "167",
-          "club_name": "FC Augsburg",
-          "players": 32
-        },
-        {
-          "club_id": "23826",
-          "club_name": "RB Leipzig",
-          "players": 32
-        },
-        {
-          "club_id": "127",
-          "club_name": "SC Paderborn 07",
-          "players": 32
-        },
-        {
-          "club_id": "79",
-          "club_name": "VfB Stuttgart",
-          "players": 32
-        },
-        {
-          "club_id": "33",
-          "club_name": "FC Schalke 04",
-          "players": 31
-        },
-        {
-          "club_id": "27",
-          "club_name": "Bayern Munich",
-          "players": 30
-        },
-        {
-          "club_id": "16",
-          "club_name": "Borussia Dortmund",
-          "players": 30
-        },
-        {
-          "club_id": "60",
-          "club_name": "SC Freiburg",
-          "players": 30
-        },
-        {
-          "club_id": "64",
-          "club_name": "SV 07 Elversberg",
-          "players": 27
-        },
-        {
-          "club_id": "86",
-          "club_name": "SV Werder Bremen",
-          "players": 2
+          "club_id": "533",
+          "club_name": "TSG 1899 Hoffenheim",
+          "imported_players": 0,
+          "published_players": 0,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": null,
+          "total_market_value_eur": 0,
+          "status": "missing"
         },
         {
           "club_id": "89",
           "club_name": "1.FC Union Berlin",
-          "players": 1
+          "imported_players": 1,
+          "published_players": 1,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 23,
+          "total_market_value_eur": 6000000,
+          "status": "thin"
         },
         {
           "club_id": "39",
           "club_name": "1.FSV Mainz 05",
-          "players": 1
+          "imported_players": 1,
+          "published_players": 1,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 31,
+          "total_market_value_eur": 1500000,
+          "status": "thin"
         },
         {
           "club_id": "18",
           "club_name": "Borussia Mönchengladbach",
-          "players": 1
+          "imported_players": 1,
+          "published_players": 1,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 26,
+          "total_market_value_eur": 5000000,
+          "status": "thin"
         },
         {
           "club_id": "41",
           "club_name": "Hamburger SV",
-          "players": 1
+          "imported_players": 1,
+          "published_players": 1,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 25,
+          "total_market_value_eur": 5000000,
+          "status": "thin"
         },
         {
-          "club_id": "122",
-          "club_name": "SK Sturm Graz",
-          "players": 1
+          "club_id": "86",
+          "club_name": "SV Werder Bremen",
+          "imported_players": 2,
+          "published_players": 2,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 6000000,
+          "status": "thin"
+        },
+        {
+          "club_id": "64",
+          "club_name": "SV 07 Elversberg",
+          "imported_players": 27,
+          "published_players": 27,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 45100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "27",
+          "club_name": "Bayern Munich",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 1045100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "16",
+          "club_name": "Borussia Dortmund",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 506700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "60",
+          "club_name": "SC Freiburg",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 285550000,
+          "status": "complete"
+        },
+        {
+          "club_id": "33",
+          "club_name": "FC Schalke 04",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 55525000,
+          "status": "complete"
+        },
+        {
+          "club_id": "167",
+          "club_name": "FC Augsburg",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 159900000,
+          "status": "complete"
+        },
+        {
+          "club_id": "23826",
+          "club_name": "RB Leipzig",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 548800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "127",
+          "club_name": "SC Paderborn 07",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 38675000,
+          "status": "complete"
+        },
+        {
+          "club_id": "79",
+          "club_name": "VfB Stuttgart",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 406400000,
+          "status": "complete"
+        },
+        {
+          "club_id": "15",
+          "club_name": "Bayer 04 Leverkusen",
+          "imported_players": 35,
+          "published_players": 35,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 16,
+          "total_market_value_eur": 512850000,
+          "status": "complete"
         }
       ],
-      "under_21": 121,
-      "under_23": 175,
-      "value_1m_plus": 272,
-      "value_5m_plus": 164,
+      "under_21": 99,
+      "under_23": 142,
+      "value_1m_plus": 239,
+      "value_5m_plus": 155,
       "value_20m_plus": 68,
-      "rated_84_plus": 258,
-      "rated_87_plus": 118,
+      "rated_84_plus": 240,
+      "rated_87_plus": 117,
       "rated_90_plus": 30,
-      "total_market_value_eur": 3755050000,
-      "anomalies": [
-        "1 expected club not represented"
+      "total_market_value_eur": 3628100000,
+      "metadata_false_positive_count": 40,
+      "metadata_false_negative_count": 0,
+      "metadata_false_positives": [
+        {
+          "transfermarkt_player_id": "1133788",
+          "player_name": "Aboubacar Camara",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 800000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "657575",
+          "player_name": "Abubakr Barry",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 26,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "881297",
+          "player_name": "Adam Daghim",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 20,
+          "market_value_eur": 7500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "404260",
+          "player_name": "Aleksa Terzic",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 26,
+          "market_value_eur": 2500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "186374",
+          "player_name": "Alexander Schlager",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 30,
+          "market_value_eur": 2000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "948537",
+          "player_name": "Anrie Chase",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 22,
+          "market_value_eur": 2000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1118873",
+          "player_name": "Bartosz Mazurek",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 4500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "915421",
+          "player_name": "Christian Zawieschitzky",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 1000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "953893",
+          "player_name": "Clement Bischoff",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 20,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "715956",
+          "player_name": "Damir Redzic",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 23,
+          "market_value_eur": 4000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "359409",
+          "player_name": "Dominik Schmid",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 28,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "921863",
+          "player_name": "Douglas Mendes",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 22,
+          "market_value_eur": 800000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1236853",
+          "player_name": "Edmund Baidoo",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 20,
+          "market_value_eur": 8000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1057525",
+          "player_name": "Enrique Aguilar",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 1500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1073631",
+          "player_name": "Filip Matijasevic",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 18,
+          "market_value_eur": 4000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "604320",
+          "player_name": "Frans Krätzig",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 23,
+          "market_value_eur": 2800000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1227723",
+          "player_name": "Gaoussou Diakité",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 20,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "804831",
+          "player_name": "Hendry Blank",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 1200000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1078649",
+          "player_name": "Johannes Moser",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 18,
+          "market_value_eur": 1000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1072724",
+          "player_name": "John Mellberg",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 2000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "581880",
+          "player_name": "Justin Omoregie",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 22,
+          "market_value_eur": 400000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "847278",
+          "player_name": "Karim Konaté",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 22,
+          "market_value_eur": 12000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "709727",
+          "player_name": "Kévin Boma",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 23,
+          "market_value_eur": 6000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "786822",
+          "player_name": "Leandro Morgalla",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "620313",
+          "player_name": "Lucas Gourna-Douath",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 22,
+          "market_value_eur": 6000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "671593",
+          "player_name": "Mamady Diambou",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 23,
+          "market_value_eur": 1500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "610405",
+          "player_name": "Maurits Kjærgaard",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 23,
+          "market_value_eur": 8000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "905426",
+          "player_name": "Nikola Sarcevic",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 250000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "601143",
+          "player_name": "Nikolas Veratschnig",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 23,
+          "market_value_eur": 2500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "915896",
+          "player_name": "Oliver Lukic",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 1000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "671114",
+          "player_name": "Sota Kitano",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 6000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1089004",
+          "player_name": "Soumaïla Diabaté",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 8000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "85791",
+          "player_name": "Stefan Lainer",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 33,
+          "market_value_eur": 800000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "515650",
+          "player_name": "Takumu Kawamura",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 26,
+          "market_value_eur": 1000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "822958",
+          "player_name": "Tim Drexler",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "804034",
+          "player_name": "Valentin Sulzbacher",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 1000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "960455",
+          "player_name": "Valentin Zabransky",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 19,
+          "market_value_eur": 500000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "409517",
+          "player_name": "Yorbe Vertessen",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 25,
+          "market_value_eur": 5000000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "692474",
+          "player_name": "Zeteny Jano",
+          "current_club_id": "409",
+          "current_club": "Red Bull Salzburg",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 400000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "856068",
+          "player_name": "Jeyland Mitchell",
+          "current_club_id": "122",
+          "current_club": "SK Sturm Graz",
+          "competition_code": "A1",
+          "competition_name": "Bundesliga",
+          "age": 21,
+          "market_value_eur": 3000000,
+          "tbg_rating": null
+        }
       ],
-      "status": "under-covered"
+      "metadata_false_negatives": [],
+      "imported_but_not_published": [],
+      "status": "missing-clubs"
     },
     {
       "key": "serie_a",
       "league": "Serie A",
       "country": "Italy",
+      "season": "2026-27",
       "expected_players": 652,
       "expected_clubs": 20,
       "imported_players": 582,
@@ -136,109 +701,229 @@
       "estimated_not_imported": 70,
       "imported_coverage_pct": 89.3,
       "published_coverage_pct": 89,
-      "clubs_represented": 20,
-      "published_clubs_represented": 20,
-      "estimated_clubs_not_represented": 0,
-      "club_breakdown": [
+      "clubs_complete": 18,
+      "clubs_thin": 2,
+      "clubs_missing": 0,
+      "club_reports": [
         {
-          "club_id": "607",
-          "club_name": "Venezia FC",
-          "players": 43
-        },
-        {
-          "club_id": "6195",
-          "club_name": "SSC Napoli",
-          "players": 41
-        },
-        {
-          "club_id": "430",
-          "club_name": "ACF Fiorentina",
-          "players": 40
-        },
-        {
-          "club_id": "6574",
-          "club_name": "US Sassuolo",
-          "players": 40
-        },
-        {
-          "club_id": "1047",
-          "club_name": "Como 1907",
-          "players": 39
-        },
-        {
-          "club_id": "410",
-          "club_name": "Udinese Calcio",
-          "players": 36
-        },
-        {
-          "club_id": "1390",
-          "club_name": "Cagliari Calcio",
-          "players": 33
-        },
-        {
-          "club_id": "398",
-          "club_name": "SS Lazio",
-          "players": 32
-        },
-        {
-          "club_id": "5",
-          "club_name": "AC Milan",
-          "players": 31
-        },
-        {
-          "club_id": "1025",
-          "club_name": "Bologna FC 1909",
-          "players": 31
-        },
-        {
-          "club_id": "800",
-          "club_name": "Atalanta BC",
-          "players": 30
-        },
-        {
-          "club_id": "130",
-          "club_name": "Parma Calcio 1913",
-          "players": 30
-        },
-        {
-          "club_id": "252",
-          "club_name": "Genoa CFC",
-          "players": 29
-        },
-        {
-          "club_id": "506",
-          "club_name": "Juventus FC",
-          "players": 29
-        },
-        {
-          "club_id": "416",
-          "club_name": "Torino FC",
-          "players": 27
-        },
-        {
-          "club_id": "12",
-          "club_name": "AS Roma",
-          "players": 26
-        },
-        {
-          "club_id": "46",
-          "club_name": "Inter Milan",
-          "players": 24
-        },
-        {
-          "club_id": "1005",
-          "club_name": "US Lecce",
-          "players": 18
+          "club_id": "8970",
+          "club_name": "Frosinone Calcio",
+          "imported_players": 1,
+          "published_players": 1,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 26,
+          "total_market_value_eur": 500000,
+          "status": "thin"
         },
         {
           "club_id": "2919",
           "club_name": "AC Monza",
-          "players": 2
+          "imported_players": 2,
+          "published_players": 2,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 23,
+          "total_market_value_eur": 7300000,
+          "status": "thin"
         },
         {
-          "club_id": "8970",
-          "club_name": "Frosinone Calcio",
-          "players": 1
+          "club_id": "1005",
+          "club_name": "US Lecce",
+          "imported_players": 18,
+          "published_players": 17,
+          "excluded_from_publication": 1,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 21,
+          "total_market_value_eur": 43475000,
+          "status": "complete"
+        },
+        {
+          "club_id": "46",
+          "club_name": "Inter Milan",
+          "imported_players": 24,
+          "published_players": 24,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 680800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "12",
+          "club_name": "AS Roma",
+          "imported_players": 26,
+          "published_players": 26,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 422050000,
+          "status": "complete"
+        },
+        {
+          "club_id": "416",
+          "club_name": "Torino FC",
+          "imported_players": 27,
+          "published_players": 27,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 107100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "252",
+          "club_name": "Genoa CFC",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 158200000,
+          "status": "complete"
+        },
+        {
+          "club_id": "506",
+          "club_name": "Juventus FC",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 526700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "800",
+          "club_name": "Atalanta BC",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 436500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "130",
+          "club_name": "Parma Calcio 1913",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 179450000,
+          "status": "complete"
+        },
+        {
+          "club_id": "5",
+          "club_name": "AC Milan",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 533000000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1025",
+          "club_name": "Bologna FC 1909",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 264750000,
+          "status": "complete"
+        },
+        {
+          "club_id": "398",
+          "club_name": "SS Lazio",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 225900000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1390",
+          "club_name": "Cagliari Calcio",
+          "imported_players": 33,
+          "published_players": 33,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 115050000,
+          "status": "complete"
+        },
+        {
+          "club_id": "410",
+          "club_name": "Udinese Calcio",
+          "imported_players": 36,
+          "published_players": 36,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 214225000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1047",
+          "club_name": "Como 1907",
+          "imported_players": 39,
+          "published_players": 39,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 437850000,
+          "status": "complete"
+        },
+        {
+          "club_id": "430",
+          "club_name": "ACF Fiorentina",
+          "imported_players": 40,
+          "published_players": 40,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 271450000,
+          "status": "complete"
+        },
+        {
+          "club_id": "6574",
+          "club_name": "US Sassuolo",
+          "imported_players": 40,
+          "published_players": 40,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 197250000,
+          "status": "complete"
+        },
+        {
+          "club_id": "6195",
+          "club_name": "SSC Napoli",
+          "imported_players": 41,
+          "published_players": 41,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 485100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "607",
+          "club_name": "Venezia FC",
+          "imported_players": 43,
+          "published_players": 42,
+          "excluded_from_publication": 1,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 89250000,
+          "status": "complete"
         }
       ],
       "under_21": 124,
@@ -250,15 +935,41 @@
       "rated_87_plus": 215,
       "rated_90_plus": 44,
       "total_market_value_eur": 5395900000,
-      "anomalies": [
-        "2 imported players excluded from publication"
+      "metadata_false_positive_count": 0,
+      "metadata_false_negative_count": 0,
+      "metadata_false_positives": [],
+      "metadata_false_negatives": [],
+      "imported_but_not_published": [
+        {
+          "transfermarkt_player_id": "712911",
+          "player_name": "Jasper Samooja",
+          "current_club_id": "1005",
+          "current_club": "US Lecce",
+          "competition_code": "IT1",
+          "competition_name": "Serie A",
+          "age": 22,
+          "market_value_eur": 75000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "155038",
+          "player_name": "Matteo Grandi",
+          "current_club_id": "607",
+          "current_club": "Venezia FC",
+          "competition_code": "IT1",
+          "competition_name": "Serie A",
+          "age": 33,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        }
       ],
-      "status": "partial"
+      "status": "thin-clubs"
     },
     {
       "key": "ligue_1",
       "league": "Ligue 1",
       "country": "France",
+      "season": "2026-27",
       "expected_players": 478,
       "expected_clubs": 18,
       "imported_players": 431,
@@ -266,99 +977,207 @@
       "estimated_not_imported": 47,
       "imported_coverage_pct": 90.2,
       "published_coverage_pct": 89.5,
-      "clubs_represented": 18,
-      "published_clubs_represented": 18,
-      "estimated_clubs_not_represented": 0,
-      "club_breakdown": [
+      "clubs_complete": 16,
+      "clubs_thin": 2,
+      "clubs_missing": 0,
+      "club_reports": [
         {
-          "club_id": "1041",
-          "club_name": "Olympique Lyon",
-          "players": 32
-        },
-        {
-          "club_id": "273",
-          "club_name": "Stade Rennais FC",
-          "players": 32
-        },
-        {
-          "club_id": "667",
-          "club_name": "RC Strasbourg Alsace",
-          "players": 31
-        },
-        {
-          "club_id": "1082",
-          "club_name": "LOSC Lille",
-          "players": 29
-        },
-        {
-          "club_id": "417",
-          "club_name": "OGC Nice",
-          "players": 28
-        },
-        {
-          "club_id": "583",
-          "club_name": "Paris Saint-Germain",
-          "players": 28
-        },
-        {
-          "club_id": "826",
-          "club_name": "RC Lens",
-          "players": 28
-        },
-        {
-          "club_id": "162",
-          "club_name": "AS Monaco",
-          "players": 27
-        },
-        {
-          "club_id": "290",
-          "club_name": "AJ Auxerre",
-          "players": 26
-        },
-        {
-          "club_id": "244",
-          "club_name": "Olympique Marseille",
-          "players": 25
-        },
-        {
-          "club_id": "415",
-          "club_name": "FC Toulouse",
-          "players": 23
-        },
-        {
-          "club_id": "1420",
-          "club_name": "Angers SCO",
-          "players": 22
-        },
-        {
-          "club_id": "1095",
-          "club_name": "ESTAC Troyes",
-          "players": 22
-        },
-        {
-          "club_id": "1158",
-          "club_name": "FC Lorient",
-          "players": 22
-        },
-        {
-          "club_id": "738",
-          "club_name": "Le Havre AC",
-          "players": 19
-        },
-        {
-          "club_id": "1164",
-          "club_name": "Le Mans FC",
-          "players": 19
+          "club_id": "10004",
+          "club_name": "Paris FC",
+          "imported_players": 1,
+          "published_players": 1,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 34,
+          "total_market_value_eur": 1500000,
+          "status": "thin"
         },
         {
           "club_id": "3911",
           "club_name": "Stade Brestois 29",
-          "players": 17
+          "imported_players": 17,
+          "published_players": 17,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 59600000,
+          "status": "thin"
         },
         {
-          "club_id": "10004",
-          "club_name": "Paris FC",
-          "players": 1
+          "club_id": "738",
+          "club_name": "Le Havre AC",
+          "imported_players": 19,
+          "published_players": 19,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 33800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1164",
+          "club_name": "Le Mans FC",
+          "imported_players": 19,
+          "published_players": 19,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 15750000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1420",
+          "club_name": "Angers SCO",
+          "imported_players": 22,
+          "published_players": 22,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 69850000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1095",
+          "club_name": "ESTAC Troyes",
+          "imported_players": 22,
+          "published_players": 19,
+          "excluded_from_publication": 3,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 40200000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1158",
+          "club_name": "FC Lorient",
+          "imported_players": 22,
+          "published_players": 22,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 90850000,
+          "status": "complete"
+        },
+        {
+          "club_id": "415",
+          "club_name": "FC Toulouse",
+          "imported_players": 23,
+          "published_players": 23,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 155350000,
+          "status": "complete"
+        },
+        {
+          "club_id": "244",
+          "club_name": "Olympique Marseille",
+          "imported_players": 25,
+          "published_players": 25,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 23,
+          "total_market_value_eur": 320500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "290",
+          "club_name": "AJ Auxerre",
+          "imported_players": 26,
+          "published_players": 26,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 89750000,
+          "status": "complete"
+        },
+        {
+          "club_id": "162",
+          "club_name": "AS Monaco",
+          "imported_players": 27,
+          "published_players": 27,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 363100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "417",
+          "club_name": "OGC Nice",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 144300000,
+          "status": "complete"
+        },
+        {
+          "club_id": "583",
+          "club_name": "Paris Saint-Germain",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 1371600000,
+          "status": "complete"
+        },
+        {
+          "club_id": "826",
+          "club_name": "RC Lens",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 221050000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1082",
+          "club_name": "LOSC Lille",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 278700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "667",
+          "club_name": "RC Strasbourg Alsace",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 360400000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1041",
+          "club_name": "Olympique Lyon",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 259050000,
+          "status": "complete"
+        },
+        {
+          "club_id": "273",
+          "club_name": "Stade Rennais FC",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 264600000,
+          "status": "complete"
         }
       ],
       "under_21": 133,
@@ -370,130 +1189,282 @@
       "rated_87_plus": 141,
       "rated_90_plus": 24,
       "total_market_value_eur": 4139950000,
-      "anomalies": [
-        "3 imported players excluded from publication"
+      "metadata_false_positive_count": 0,
+      "metadata_false_negative_count": 0,
+      "metadata_false_positives": [],
+      "metadata_false_negatives": [],
+      "imported_but_not_published": [
+        {
+          "transfermarkt_player_id": "1179193",
+          "player_name": "Amadou Diakité",
+          "current_club_id": "1095",
+          "current_club": "ESTAC Troyes",
+          "competition_code": "FR1",
+          "competition_name": "Ligue 1",
+          "age": 21,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1146422",
+          "player_name": "Ibrahim Traoré",
+          "current_club_id": "1095",
+          "current_club": "ESTAC Troyes",
+          "competition_code": "FR1",
+          "competition_name": "Ligue 1",
+          "age": 20,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1174523",
+          "player_name": "Roman Murcy",
+          "current_club_id": "1095",
+          "current_club": "ESTAC Troyes",
+          "competition_code": "FR1",
+          "competition_name": "Ligue 1",
+          "age": 20,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        }
       ],
-      "status": "partial"
+      "status": "thin-clubs"
     },
     {
       "key": "premier_league",
       "league": "Premier League",
       "country": "England",
+      "season": "2026-27",
       "expected_players": 593,
       "expected_clubs": 20,
-      "imported_players": 587,
-      "published_players": 584,
-      "estimated_not_imported": 6,
-      "imported_coverage_pct": 99,
-      "published_coverage_pct": 98.5,
-      "clubs_represented": 21,
-      "published_clubs_represented": 21,
-      "estimated_clubs_not_represented": 0,
-      "club_breakdown": [
+      "imported_players": 586,
+      "published_players": 583,
+      "estimated_not_imported": 7,
+      "imported_coverage_pct": 98.8,
+      "published_coverage_pct": 98.3,
+      "clubs_complete": 20,
+      "clubs_thin": 0,
+      "clubs_missing": 0,
+      "club_reports": [
         {
-          "club_id": "1237",
-          "club_name": "Brighton & Hove Albion",
-          "players": 38
-        },
-        {
-          "club_id": "148",
-          "club_name": "Tottenham Hotspur",
-          "players": 38
-        },
-        {
-          "club_id": "631",
-          "club_name": "Chelsea FC",
-          "players": 36
-        },
-        {
-          "club_id": "1148",
-          "club_name": "Brentford FC",
-          "players": 32
-        },
-        {
-          "club_id": "281",
-          "club_name": "Manchester City",
-          "players": 32
-        },
-        {
-          "club_id": "985",
-          "club_name": "Manchester United",
-          "players": 31
-        },
-        {
-          "club_id": "289",
-          "club_name": "Sunderland AFC",
-          "players": 31
-        },
-        {
-          "club_id": "989",
-          "club_name": "AFC Bournemouth",
-          "players": 30
-        },
-        {
-          "club_id": "405",
-          "club_name": "Aston Villa",
-          "players": 29
-        },
-        {
-          "club_id": "873",
-          "club_name": "Crystal Palace",
-          "players": 29
-        },
-        {
-          "club_id": "31",
-          "club_name": "Liverpool FC",
-          "players": 29
-        },
-        {
-          "club_id": "399",
-          "club_name": "Leeds United",
-          "players": 28
-        },
-        {
-          "club_id": "703",
-          "club_name": "Nottingham Forest",
-          "players": 28
-        },
-        {
-          "club_id": "11",
-          "club_name": "Arsenal FC",
-          "players": 27
-        },
-        {
-          "club_id": "677",
-          "club_name": "Ipswich Town",
-          "players": 27
-        },
-        {
-          "club_id": "3008",
-          "club_name": "Hull City",
-          "players": 26
-        },
-        {
-          "club_id": "990",
-          "club_name": "Coventry City",
-          "players": 25
-        },
-        {
-          "club_id": "762",
-          "club_name": "Newcastle United",
-          "players": 25
+          "club_id": "931",
+          "club_name": "Fulham FC",
+          "imported_players": 22,
+          "published_players": 22,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 310200000,
+          "status": "complete"
         },
         {
           "club_id": "29",
           "club_name": "Everton FC",
-          "players": 23
+          "imported_players": 23,
+          "published_players": 23,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 454100000,
+          "status": "complete"
         },
         {
-          "club_id": "931",
-          "club_name": "Fulham FC",
-          "players": 22
+          "club_id": "990",
+          "club_name": "Coventry City",
+          "imported_players": 25,
+          "published_players": 25,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 199350000,
+          "status": "complete"
         },
         {
-          "club_id": "60368",
-          "club_name": "FC Noah Yerevan",
-          "players": 1
+          "club_id": "762",
+          "club_name": "Newcastle United",
+          "imported_players": 25,
+          "published_players": 25,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 588000000,
+          "status": "complete"
+        },
+        {
+          "club_id": "3008",
+          "club_name": "Hull City",
+          "imported_players": 26,
+          "published_players": 26,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 22,
+          "total_market_value_eur": 72150000,
+          "status": "complete"
+        },
+        {
+          "club_id": "11",
+          "club_name": "Arsenal FC",
+          "imported_players": 27,
+          "published_players": 27,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 16,
+          "total_market_value_eur": 1306000000,
+          "status": "complete"
+        },
+        {
+          "club_id": "677",
+          "club_name": "Ipswich Town",
+          "imported_players": 27,
+          "published_players": 26,
+          "excluded_from_publication": 1,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 200700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "399",
+          "club_name": "Leeds United",
+          "imported_players": 28,
+          "published_players": 27,
+          "excluded_from_publication": 1,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 353800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "703",
+          "club_name": "Nottingham Forest",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 517800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "405",
+          "club_name": "Aston Villa",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 522200000,
+          "status": "complete"
+        },
+        {
+          "club_id": "873",
+          "club_name": "Crystal Palace",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 512550000,
+          "status": "complete"
+        },
+        {
+          "club_id": "31",
+          "club_name": "Liverpool FC",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 979500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "989",
+          "club_name": "AFC Bournemouth",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 550375000,
+          "status": "complete"
+        },
+        {
+          "club_id": "985",
+          "club_name": "Manchester United",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 802350000,
+          "status": "complete"
+        },
+        {
+          "club_id": "289",
+          "club_name": "Sunderland AFC",
+          "imported_players": 31,
+          "published_players": 30,
+          "excluded_from_publication": 1,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 383175000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1148",
+          "club_name": "Brentford FC",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 522200000,
+          "status": "complete"
+        },
+        {
+          "club_id": "281",
+          "club_name": "Manchester City",
+          "imported_players": 32,
+          "published_players": 32,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 1433300000,
+          "status": "complete"
+        },
+        {
+          "club_id": "631",
+          "club_name": "Chelsea FC",
+          "imported_players": 36,
+          "published_players": 36,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 1260500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1237",
+          "club_name": "Brighton & Hove Albion",
+          "imported_players": 38,
+          "published_players": 38,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 646700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "148",
+          "club_name": "Tottenham Hotspur",
+          "imported_players": 38,
+          "published_players": 38,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 956500000,
+          "status": "complete"
         }
       ],
       "under_21": 115,
@@ -501,13 +1472,60 @@
       "value_1m_plus": 534,
       "value_5m_plus": 436,
       "value_20m_plus": 253,
-      "rated_84_plus": 525,
+      "rated_84_plus": 524,
       "rated_87_plus": 389,
       "rated_90_plus": 143,
-      "total_market_value_eur": 12572250000,
-      "anomalies": [
-        "1 extra club identities; inspect aliases or promoted/relegated records",
-        "3 imported players excluded from publication"
+      "total_market_value_eur": 12571450000,
+      "metadata_false_positive_count": 1,
+      "metadata_false_negative_count": 0,
+      "metadata_false_positives": [
+        {
+          "transfermarkt_player_id": "255995",
+          "player_name": "Mario González",
+          "current_club_id": "60368",
+          "current_club": "FC Noah Yerevan",
+          "competition_code": "ARM1",
+          "competition_name": "Premier League",
+          "age": 30,
+          "market_value_eur": 800000,
+          "tbg_rating": null
+        }
+      ],
+      "metadata_false_negatives": [],
+      "imported_but_not_published": [
+        {
+          "transfermarkt_player_id": "61814",
+          "player_name": "David Button",
+          "current_club_id": "677",
+          "current_club": "Ipswich Town",
+          "competition_code": "GB1",
+          "competition_name": "Premier League",
+          "age": 37,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "194386",
+          "player_name": "Alex Cairns",
+          "current_club_id": "399",
+          "current_club": "Leeds United",
+          "competition_code": "GB1",
+          "competition_name": "Premier League",
+          "age": 33,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "123536",
+          "player_name": "Simon Moore",
+          "current_club_id": "289",
+          "current_club": "Sunderland AFC",
+          "competition_code": "GB1",
+          "competition_name": "Premier League",
+          "age": 36,
+          "market_value_eur": 75000,
+          "tbg_rating": null
+        }
       ],
       "status": "strong"
     },
@@ -515,129 +1533,298 @@
       "key": "laliga",
       "league": "LaLiga",
       "country": "Spain",
+      "season": "2026-27",
       "expected_players": 516,
       "expected_clubs": 20,
-      "imported_players": 517,
-      "published_players": 514,
+      "imported_players": 518,
+      "published_players": 515,
       "estimated_not_imported": 0,
-      "imported_coverage_pct": 100.2,
-      "published_coverage_pct": 99.6,
-      "clubs_represented": 20,
-      "published_clubs_represented": 20,
-      "estimated_clubs_not_represented": 0,
-      "club_breakdown": [
-        {
-          "club_id": "621",
-          "club_name": "Athletic Bilbao",
-          "players": 33
-        },
-        {
-          "club_id": "418",
-          "club_name": "Real Madrid",
-          "players": 31
-        },
-        {
-          "club_id": "897",
-          "club_name": "Deportivo A Coruña",
-          "players": 30
-        },
-        {
-          "club_id": "940",
-          "club_name": "Celta de Vigo",
-          "players": 29
-        },
-        {
-          "club_id": "1108",
-          "club_name": "Deportivo Alavés",
-          "players": 28
-        },
-        {
-          "club_id": "131",
-          "club_name": "FC Barcelona",
-          "players": 28
-        },
-        {
-          "club_id": "714",
-          "club_name": "RCD Espanyol Barcelona",
-          "players": 28
-        },
-        {
-          "club_id": "681",
-          "club_name": "Real Sociedad",
-          "players": 28
-        },
-        {
-          "club_id": "368",
-          "club_name": "Sevilla FC",
-          "players": 27
-        },
-        {
-          "club_id": "1049",
-          "club_name": "Valencia CF",
-          "players": 27
-        },
-        {
-          "club_id": "1050",
-          "club_name": "Villarreal CF",
-          "players": 26
-        },
-        {
-          "club_id": "13",
-          "club_name": "Atlético de Madrid",
-          "players": 25
-        },
-        {
-          "club_id": "150",
-          "club_name": "Real Betis Balompié",
-          "players": 25
-        },
-        {
-          "club_id": "1531",
-          "club_name": "Elche CF",
-          "players": 24
-        },
-        {
-          "club_id": "1084",
-          "club_name": "Málaga CF",
-          "players": 23
-        },
-        {
-          "club_id": "3368",
-          "club_name": "Levante UD",
-          "players": 22
-        },
-        {
-          "club_id": "367",
-          "club_name": "Rayo Vallecano",
-          "players": 22
-        },
-        {
-          "club_id": "3709",
-          "club_name": "Getafe CF",
-          "players": 21
-        },
+      "imported_coverage_pct": 100.4,
+      "published_coverage_pct": 99.8,
+      "clubs_complete": 20,
+      "clubs_thin": 0,
+      "clubs_missing": 0,
+      "club_reports": [
         {
           "club_id": "331",
           "club_name": "CA Osasuna",
-          "players": 20
+          "imported_players": 20,
+          "published_players": 20,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 21,
+          "total_market_value_eur": 67000000,
+          "status": "complete"
         },
         {
           "club_id": "630",
           "club_name": "Racing Santander",
-          "players": 20
+          "imported_players": 20,
+          "published_players": 20,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 60700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "3709",
+          "club_name": "Getafe CF",
+          "imported_players": 21,
+          "published_players": 21,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 64500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "3368",
+          "club_name": "Levante UD",
+          "imported_players": 22,
+          "published_players": 22,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 88750000,
+          "status": "complete"
+        },
+        {
+          "club_id": "367",
+          "club_name": "Rayo Vallecano",
+          "imported_players": 22,
+          "published_players": 22,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 21,
+          "total_market_value_eur": 85400000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1084",
+          "club_name": "Málaga CF",
+          "imported_players": 23,
+          "published_players": 21,
+          "excluded_from_publication": 2,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 30925000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1531",
+          "club_name": "Elche CF",
+          "imported_players": 24,
+          "published_players": 24,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 70600000,
+          "status": "complete"
+        },
+        {
+          "club_id": "13",
+          "club_name": "Atlético de Madrid",
+          "imported_players": 25,
+          "published_players": 25,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 576100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "150",
+          "club_name": "Real Betis Balompié",
+          "imported_players": 25,
+          "published_players": 25,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 224900000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1050",
+          "club_name": "Villarreal CF",
+          "imported_players": 26,
+          "published_players": 26,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 21,
+          "total_market_value_eur": 324200000,
+          "status": "complete"
+        },
+        {
+          "club_id": "368",
+          "club_name": "Sevilla FC",
+          "imported_players": 27,
+          "published_players": 27,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 21,
+          "total_market_value_eur": 161100000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1049",
+          "club_name": "Valencia CF",
+          "imported_players": 27,
+          "published_players": 27,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 126700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "1108",
+          "club_name": "Deportivo Alavés",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 67750000,
+          "status": "complete"
+        },
+        {
+          "club_id": "131",
+          "club_name": "FC Barcelona",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 17,
+          "total_market_value_eur": 1194800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "714",
+          "club_name": "RCD Espanyol Barcelona",
+          "imported_players": 28,
+          "published_players": 27,
+          "excluded_from_publication": 1,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 21,
+          "total_market_value_eur": 96650000,
+          "status": "complete"
+        },
+        {
+          "club_id": "681",
+          "club_name": "Real Sociedad",
+          "imported_players": 28,
+          "published_players": 28,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 261500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "940",
+          "club_name": "Celta de Vigo",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 20,
+          "total_market_value_eur": 174800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "897",
+          "club_name": "Deportivo A Coruña",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 67450000,
+          "status": "complete"
+        },
+        {
+          "club_id": "418",
+          "club_name": "Real Madrid",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 1384500000,
+          "status": "complete"
+        },
+        {
+          "club_id": "621",
+          "club_name": "Athletic Bilbao",
+          "imported_players": 34,
+          "published_players": 34,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 1,
+          "youngest_age": 19,
+          "total_market_value_eur": 258300000,
+          "status": "complete"
         }
       ],
       "under_21": 75,
       "under_23": 171,
-      "value_1m_plus": 434,
+      "value_1m_plus": 435,
       "value_5m_plus": 214,
       "value_20m_plus": 76,
-      "rated_84_plus": 417,
+      "rated_84_plus": 418,
       "rated_87_plus": 184,
       "rated_90_plus": 57,
-      "total_market_value_eur": 5385625000,
-      "anomalies": [
-        "3 imported players excluded from publication"
+      "total_market_value_eur": 5386625000,
+      "metadata_false_positive_count": 0,
+      "metadata_false_negative_count": 1,
+      "metadata_false_positives": [],
+      "metadata_false_negatives": [
+        {
+          "transfermarkt_player_id": "468320",
+          "player_name": "Leonardo Alves Chú Franco",
+          "current_club_id": "64918",
+          "current_club": "Athletic Club",
+          "competition_code": "BRA2",
+          "competition_name": "Campeonato Brasileiro Série B",
+          "age": 26,
+          "market_value_eur": 1000000,
+          "tbg_rating": null
+        }
+      ],
+      "imported_but_not_published": [
+        {
+          "transfermarkt_player_id": "923080",
+          "player_name": "Moussa Diarra",
+          "current_club_id": "1084",
+          "current_club": "Málaga CF",
+          "competition_code": "ES1",
+          "competition_name": "LaLiga",
+          "age": 24,
+          "market_value_eur": 25000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "1057392",
+          "player_name": "Pablo Arriaza",
+          "current_club_id": "1084",
+          "current_club": "Málaga CF",
+          "competition_code": "ES1",
+          "competition_name": "LaLiga",
+          "age": 22,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        },
+        {
+          "transfermarkt_player_id": "605528",
+          "player_name": "Pol Tristán",
+          "current_club_id": "714",
+          "current_club": "RCD Espanyol Barcelona",
+          "competition_code": "ES1",
+          "competition_name": "LaLiga",
+          "age": 24,
+          "market_value_eur": 50000,
+          "tbg_rating": null
+        }
       ],
       "status": "strong"
     }
