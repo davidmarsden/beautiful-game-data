@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T19:46:01.615Z",
+  "generated_at": "2026-07-12T20:45:40.286Z",
   "paths": {
     "raw": "calibration/apify-transfermarkt-universe-dataset.json",
     "master": "data/transfermarkt/players-master.json",
@@ -28,13 +28,13 @@
     },
     {
       "name": "rated_global_pool",
-      "players": 6781,
-      "unique_transfermarkt_ids": 6781
+      "players": 7000,
+      "unique_transfermarkt_ids": 7000
     },
     {
       "name": "published_database",
-      "players": 6781,
-      "unique_transfermarkt_ids": 6781
+      "players": 7000,
+      "unique_transfermarkt_ids": 7000
     }
   ],
   "stage_dropouts": [
@@ -51,7 +51,7 @@
     {
       "from": "player_registry",
       "to": "rated_global_pool",
-      "missing_ids": 219
+      "missing_ids": 0
     },
     {
       "from": "rated_global_pool",
@@ -501,8 +501,8 @@
       "transfermarkt_club_id": "399",
       "country": "England",
       "continent": "Europe",
-      "published_players": 27,
-      "rated_players": 27,
+      "published_players": 28,
+      "rated_players": 28,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -600,8 +600,8 @@
       "transfermarkt_club_id": "141",
       "country": "Turkey",
       "continent": "Europe",
-      "published_players": 29,
-      "rated_players": 29,
+      "published_players": 30,
+      "rated_players": 30,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -611,8 +611,8 @@
       "transfermarkt_club_id": "114",
       "country": "Turkey",
       "continent": "Europe",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 34,
+      "rated_players": 34,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -721,8 +721,8 @@
       "transfermarkt_club_id": "124",
       "country": "Scotland",
       "continent": "Europe",
-      "published_players": 28,
-      "rated_players": 28,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -787,8 +787,8 @@
       "transfermarkt_club_id": "265",
       "country": "Greece",
       "continent": "Europe",
-      "published_players": 35,
-      "rated_players": 35,
+      "published_players": 38,
+      "rated_players": 38,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -809,8 +809,8 @@
       "transfermarkt_club_id": "1023",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 27,
-      "rated_players": 27,
+      "published_players": 28,
+      "rated_players": 28,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -831,8 +831,8 @@
       "transfermarkt_club_id": "189",
       "country": "Argentina",
       "continent": "South America",
-      "published_players": 34,
-      "rated_players": 34,
+      "published_players": 36,
+      "rated_players": 36,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -875,8 +875,8 @@
       "transfermarkt_club_id": "18544",
       "country": "Saudi Arabia",
       "continent": "Asia",
-      "published_players": 27,
-      "rated_players": 27,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 21,
       "status": "complete"
     },
@@ -886,8 +886,8 @@
       "transfermarkt_club_id": "2462",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 32,
+      "rated_players": 32,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -919,8 +919,8 @@
       "transfermarkt_club_id": "69261",
       "country": "United States",
       "continent": "North America",
-      "published_players": 26,
-      "rated_players": 26,
+      "published_players": 27,
+      "rated_players": 27,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -930,9 +930,9 @@
       "transfermarkt_club_id": "7",
       "country": "Egypt",
       "continent": "Africa",
-      "published_players": 36,
-      "rated_players": 36,
-      "youngest_age": 20,
+      "published_players": 40,
+      "rated_players": 40,
+      "youngest_age": 19,
       "status": "complete"
     },
     {
@@ -941,230 +941,26 @@
       "transfermarkt_club_id": "866",
       "country": "Uruguay",
       "continent": "South America",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 32,
+      "rated_players": 32,
       "youngest_age": 18,
       "status": "complete"
     }
   ],
   "high_priority_external_missing_count": 0,
   "high_priority_external_missing": [],
-  "dropout_count": 374,
+  "dropout_count": 155,
   "dropout_categories": {
-    "amateur_or_unvalued": 299,
-    "free_agent": 14,
-    "zero_value_prospect": 8,
     "below_value_threshold": 41,
-    "reserve_team": 7,
-    "retired": 5
+    "amateur_or_unvalued": 98,
+    "zero_value_prospect": 4,
+    "reserve_team": 6,
+    "retired": 5,
+    "free_agent": 1
   },
   "unexpected_dropout_count": 0,
   "unexpected_dropouts": [],
   "dropouts": [
-    {
-      "transfermarkt_player_id": "1486200",
-      "player_name": "Abdoulie Mboge",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "646762",
-      "player_name": "Abdulaziz Al-Shahrani",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "901307",
-      "player_name": "Abdulbasit Hawsawi",
-      "current_club": "Al-Ettifaq FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1303473",
-      "player_name": "Abdulelah Al-Jaafari",
-      "current_club": "Al-Diriyah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1332354",
-      "player_name": "Abdulhakim Maghfouri",
-      "current_club": "Al-Ettifaq FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1178314",
-      "player_name": "Abdullah Abdo",
-      "current_club": "Al-Ahli SFC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "250825",
-      "player_name": "Abdullah Al-Jadani",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1500454",
-      "player_name": "Abdullah Al-Zaynaldeen",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1130877",
-      "player_name": "Abdullah Ibrahim Al-Dossary",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1350967",
-      "player_name": "Abdulmalik Al-Marwani",
-      "current_club": "Al-Taawoun FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "672392",
-      "player_name": "Abdulrahman Al-Bouq",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "358832",
-      "player_name": "Abdulrahman Al-Khaibary",
-      "current_club": "Al-Hazem SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "361206",
-      "player_name": "Abdulrahman Dagriri",
-      "current_club": "NEOM SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1180685",
-      "player_name": "Abdulrahman Nabza",
-      "current_club": "Al-Ettifaq FC U21",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
-    },
-    {
-      "transfermarkt_player_id": "1186816",
-      "player_name": "Abdulraouf Al-Duqayl",
-      "current_club": "Al-Fayha FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1389031",
-      "player_name": "Abdulrazzaq Awaji",
-      "current_club": "Al-Hazem SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1123232",
-      "player_name": "Adem Sipic",
-      "current_club": "Nashville SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
     {
       "transfermarkt_player_id": "1457931",
       "player_name": "Adem Yeşilyurt",
@@ -1178,18 +974,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1186346",
-      "player_name": "Ademar Chávez",
-      "current_club": "FC Cincinnati",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1256596",
       "player_name": "Aggelos Nikolaos Meselidis",
       "current_club": "SV Wacker Obercastrop",
@@ -1197,102 +981,6 @@
       "age": 21,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "570420",
-      "player_name": "Agustín Heredia",
-      "current_club": "CA Boca Juniors",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1159156",
-      "player_name": "Ahmad Abu Rasen",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "352715",
-      "player_name": "Ahmad Al-Rehaili",
-      "current_club": "Al-Ettifaq FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1237440",
-      "player_name": "Ahmed Abdin",
-      "current_club": "Al Ahly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1229326",
-      "player_name": "Ahmed Al-Anzi",
-      "current_club": "NEOM SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1269111",
-      "player_name": "Ahmed Al-Badah",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "209499",
-      "player_name": "Ahmed Asiri",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1006609",
-      "player_name": "Aidan Stokes",
-      "current_club": "Red Bull New York",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -1308,54 +996,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "985714",
-      "player_name": "Ajay Matthews",
-      "current_club": "Millwall FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1515490",
-      "player_name": "Aleks Dimitrov",
-      "current_club": "Chernomorets 1919 Burgas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "194386",
-      "player_name": "Alex Cairns",
-      "current_club": "Leeds United",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1363241",
-      "player_name": "Alex Moore",
-      "current_club": "Wrexham AFC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "1282470",
@@ -1377,66 +1017,6 @@
       "age": 27,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "928873",
-      "player_name": "Alexis Mirbach",
-      "current_club": "FC Nantes",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1370951",
-      "player_name": "Ali Abdulraouf",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1226512",
-      "player_name": "Ali Efe Çördek",
-      "current_club": "Galatasaray",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1459311",
-      "player_name": "Ali Mubarki",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1261143",
-      "player_name": "Ali Osman Kalın",
-      "current_club": "Gaziantep FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -1473,18 +1053,6 @@
       "age": 23,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1179193",
-      "player_name": "Amadou Diakité",
-      "current_club": "ESTAC Troyes",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -1538,138 +1106,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "935550",
-      "player_name": "Arda Kılıç",
-      "current_club": "Besiktas JK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1303365",
-      "player_name": "Arda Özyar",
-      "current_club": "Kocaelispor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1175508",
-      "player_name": "Arda Yavuz",
-      "current_club": "Eyüpspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1065144",
-      "player_name": "Arnaud Dobbels",
-      "current_club": "Zulte Waregem",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1140229",
-      "player_name": "Aron John",
-      "current_club": "Charlotte FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1234325",
-      "player_name": "Asser Housawi",
-      "current_club": "Al-Nassr FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1180070",
-      "player_name": "Awad Aman",
-      "current_club": "Al-Nassr FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1192697",
-      "player_name": "Axel Willockx",
-      "current_club": "KV Mechelen",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1437503",
-      "player_name": "Ayaz Özcan",
-      "current_club": "Genclerbirligi Ankara",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "811791",
-      "player_name": "Ayberk Kaygısız",
-      "current_club": "Basaksehir FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1434147",
-      "player_name": "Ayman Al-Sahli",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "452200",
       "player_name": "Bajrush Osmani",
       "current_club": "SpVgg Erkenschwick",
@@ -1677,18 +1113,6 @@
       "age": 24,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "451125",
-      "player_name": "Bandar Nasser",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -1706,30 +1130,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "993333",
-      "player_name": "Bas Langenbick",
-      "current_club": "Cercle Brugge ",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "745596",
-      "player_name": "Batuhan Yavuz",
-      "current_club": "Alanyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1047300",
       "player_name": "Ben Berzen",
       "current_club": "SpVgg Erkenschwick",
@@ -1740,18 +1140,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "67283",
-      "player_name": "Ben Hamer",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
     },
     {
       "transfermarkt_player_id": "1312046",
@@ -1778,114 +1166,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1043641",
-      "player_name": "Berk Can Yıldızlı",
-      "current_club": "Kasimpasa",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1233280",
-      "player_name": "Berkay Muratoğlu",
-      "current_club": "Kasimpasa",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "927953",
-      "player_name": "Bradley Mayo",
-      "current_club": "Birmingham City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "700305",
-      "player_name": "Buluthan Bulut",
-      "current_club": "Alanyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "952093",
-      "player_name": "Burak Enes Yıkıcı",
-      "current_club": "Gaziantep FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1070799",
-      "player_name": "Burak Sefa Kavraz",
-      "current_club": "Basaksehir FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "999364",
-      "player_name": "Cabral Carter",
-      "current_club": "Los Angeles FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1356836",
-      "player_name": "Caleb Swann",
-      "current_club": "FC Dallas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1193461",
-      "player_name": "Callum Edwards",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
       "transfermarkt_player_id": "1165039",
       "player_name": "Calvin Obin",
       "current_club": "Amiens SC",
@@ -1893,18 +1173,6 @@
       "age": 20,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1063334",
-      "player_name": "Carlos Jiménez",
-      "current_club": "Al-Qadsiah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -1946,18 +1214,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "38978",
-      "player_name": "Christian Brüls",
-      "current_club": "SK Beveren",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1008508",
       "player_name": "Christian Díaz",
       "current_club": "Los Angeles FC",
@@ -1982,18 +1238,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1135016",
-      "player_name": "Cielo Tschantret",
-      "current_club": "Sporting Kansas City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1156404",
       "player_name": "Côme Fromager",
       "current_club": "Amiens SC",
@@ -2001,18 +1245,6 @@
       "age": 22,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "45492",
-      "player_name": "Craig Forsyth",
-      "current_club": "Derby County",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -2030,18 +1262,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "821442",
-      "player_name": "Daniel Pantschenko",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
       "transfermarkt_player_id": "423337",
       "player_name": "Danilo Czekalla",
       "current_club": "SG Warnow Papendorf",
@@ -2049,66 +1269,6 @@
       "age": 35,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "61814",
-      "player_name": "David Button",
-      "current_club": "Ipswich Town",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "89648",
-      "player_name": "David Cornell",
-      "current_club": "Preston North End",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "986794",
-      "player_name": "David Poreba",
-      "current_club": "Chicago Fire FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1441124",
-      "player_name": "Dawood Al-Tarif",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1356044",
-      "player_name": "Dean Boltz",
-      "current_club": "Chicago Fire FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -2162,42 +1322,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "917594",
-      "player_name": "Diego García",
-      "current_club": "FC Dallas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1110822",
-      "player_name": "Dimitar Altanov",
-      "current_club": "Chernomorets 1919 Burgas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1034080",
-      "player_name": "Dobromir Pavlov",
-      "current_club": "Chernomorets 1919 Burgas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "545267",
       "player_name": "Dzenan Pilica",
       "current_club": "SV Schermbeck",
@@ -2210,18 +1334,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1432633",
-      "player_name": "Ebrima Ceesay",
-      "current_club": "Samsunspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "438988",
       "player_name": "Eddy Bormann",
       "current_club": "SG Warnow Papendorf",
@@ -2229,54 +1341,6 @@
       "age": 38,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1022814",
-      "player_name": "Eddy Davis III",
-      "current_club": "Philadelphia Union",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1076671",
-      "player_name": "Ege Yıldırım",
-      "current_club": "Göztepe",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1071220",
-      "player_name": "Egemen Aydın",
-      "current_club": "Konyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "740517",
-      "player_name": "Eldin Lolic",
-      "current_club": "Frosinone Calcio",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -2342,18 +1406,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "98853",
-      "player_name": "Enrico Pepe",
-      "current_club": "Marsaxlokk FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "745176",
       "player_name": "Enzo Couto",
       "current_club": "Amiens SC",
@@ -2376,30 +1428,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1354662",
-      "player_name": "Enzo Somon",
-      "current_club": "Amiens SC U19",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
-    },
-    {
-      "transfermarkt_player_id": "701834",
-      "player_name": "Erdem Çetinkaya",
-      "current_club": "Kasimpasa",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "881761",
@@ -2426,42 +1454,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "707915",
-      "player_name": "Erkam Kömür",
-      "current_club": "Göztepe",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "587903",
-      "player_name": "Erkan Anapa",
-      "current_club": "Erzurumspor FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "165711",
-      "player_name": "Erkan Kaş",
-      "current_club": "Corum FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1152080",
       "player_name": "Erol Can Çolak",
       "current_club": "Trabzonspor",
@@ -2474,18 +1466,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "148916",
-      "player_name": "Evan Bush",
-      "current_club": "Columbus Crew",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1174103",
       "player_name": "Evangelos Karatzidis",
       "current_club": "SpVgg Erkenschwick",
@@ -2493,66 +1473,6 @@
       "age": 19,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "22415",
-      "player_name": "Fábio Deivson Lopes Maciel",
-      "current_club": "Fluminense Football Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "921229",
-      "player_name": "Fahad Al-Obaid",
-      "current_club": "Al-Diriyah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "970671",
-      "player_name": "Faisal Al-Abdulwahed",
-      "current_club": "Al-Fateh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1226559",
-      "player_name": "Faisal Al-Sobhi",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1485898",
-      "player_name": "Fawaz Al-Hamad",
-      "current_club": "Al-Fateh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -2570,18 +1490,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1033404",
-      "player_name": "Georgios Karakasidis",
-      "current_club": "Panathinaikos",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "721069",
       "player_name": "Gian-Luca Reck",
       "current_club": "SpVgg Erkenschwick",
@@ -2594,90 +1502,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1456741",
-      "player_name": "Gilbert Mendy",
-      "current_club": "Eyüpspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "58534",
-      "player_name": "Gökhan Değirmenci",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "875333",
-      "player_name": "Göktuğ Baytekin",
-      "current_club": "Besiktas JK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "367436",
-      "player_name": "Greg Ranjitsingh",
-      "current_club": "New York City FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "469595",
-      "player_name": "Habib Al-Watyan",
-      "current_club": "Al-Fateh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1345987",
-      "player_name": "Hamed Al-Mousa",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "820393",
-      "player_name": "Hamza Alaa Abdallah Hussein",
-      "current_club": "Al Ahly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1071298",
       "player_name": "Harrison Uchenna",
       "current_club": "SpVgg Erkenschwick",
@@ -2685,18 +1509,6 @@
       "age": 22,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "270486",
-      "player_name": "Hasan Hüseyin Akınay",
-      "current_club": "Kütahyaspor FSK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -2774,18 +1586,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "125033",
-      "player_name": "Henry Bonello",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
       "transfermarkt_player_id": "452075",
       "player_name": "Henry Haferkorn",
       "current_club": "Without Club",
@@ -2796,18 +1596,6 @@
       "category": "free_agent",
       "expected_dropout": true,
       "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "1366852",
-      "player_name": "Hussain Al-Sultan",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "1077528",
@@ -2832,18 +1620,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1146422",
-      "player_name": "Ibrahim Traoré",
-      "current_club": "ESTAC Troyes",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "1464896",
@@ -2882,18 +1658,6 @@
       "reason": "Player is retired"
     },
     {
-      "transfermarkt_player_id": "1008456",
-      "player_name": "Israel Boatwright",
-      "current_club": "Inter Miami CF",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1165854",
       "player_name": "Issa Djiguiba",
       "current_club": "Rayon Sports FC",
@@ -2901,54 +1665,6 @@
       "age": 22,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1081626",
-      "player_name": "Izhak Hammoudi",
-      "current_club": "Bourges FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1071724",
-      "player_name": "Jaber Qarradi",
-      "current_club": "Al-Diriyah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1122714",
-      "player_name": "Jack Neeley",
-      "current_club": "Charlotte FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "999298",
-      "player_name": "Jackson Gilman",
-      "current_club": "Toronto FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -2990,18 +1706,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "610898",
-      "player_name": "Jamie Pardington",
-      "current_club": "Lincoln City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1332096",
       "player_name": "Jan-Lucas Satzel",
       "current_club": "SG Warnow Papendorf",
@@ -3026,30 +1730,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "712911",
-      "player_name": "Jasper Samooja",
-      "current_club": "US Lecce",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "7966",
-      "player_name": "Javier García",
-      "current_club": "CA Boca Juniors",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "932108",
       "player_name": "Jawal Sheriff",
       "current_club": "SG Warnow Papendorf",
@@ -3057,30 +1737,6 @@
       "age": 25,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1232953",
-      "player_name": "JD Gunn",
-      "current_club": "New England Revolution",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "553399",
-      "player_name": "Jeff Gal",
-      "current_club": "Chicago Fire FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -3110,18 +1766,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "285551",
-      "player_name": "Joel Coleman",
-      "current_club": "Millwall FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1481710",
       "player_name": "Jonas Ohde",
       "current_club": "SG Warnow Papendorf",
@@ -3144,42 +1788,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "177952",
-      "player_name": "Jordan Archer",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "1087102",
-      "player_name": "Josua Lusamba",
-      "current_club": "SK Beveren",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1046464",
-      "player_name": "Jude Terry",
-      "current_club": "Los Angeles FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "1008553",
@@ -3213,30 +1821,6 @@
       "age": null,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1032945",
-      "player_name": "Kaedyn Kamara",
-      "current_club": "Preston North End",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1200235",
-      "player_name": "Kamil Boumedmed",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -3278,18 +1862,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "504152",
-      "player_name": "Kenny Nielsen",
-      "current_club": "Los Angeles FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "894580",
       "player_name": "Keny Mbala",
       "current_club": "Amiens SC",
@@ -3321,66 +1893,6 @@
       "age": null,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1498219",
-      "player_name": "Kevin Pierre Jr.",
-      "current_club": "New York City FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "998556",
-      "player_name": "Keyon Ewurum",
-      "current_club": "Valletta FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1019988",
-      "player_name": "Khaled Al-Asbahi",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "1377910",
-      "player_name": "Kieran Chandler",
-      "current_club": "Minnesota United FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "369523",
-      "player_name": "Kieran Wright",
-      "current_club": "Rangers FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -3458,18 +1970,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1311425",
-      "player_name": "Luca Ramirez",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "562463",
       "player_name": "Lucas Llort",
       "current_club": "Amiens SC",
@@ -3489,18 +1989,6 @@
       "age": 21,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "999379",
-      "player_name": "Luis Rivera",
-      "current_club": "Real Salt Lake City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -3530,18 +2018,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "688739",
-      "player_name": "Luke Pruter",
-      "current_club": "Columbus Crew",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1302323",
       "player_name": "Mahamadou Sissoko",
       "current_club": "Djoliba AC",
@@ -3566,54 +2042,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1004608",
-      "player_name": "Malang Gomes",
-      "current_club": "FC Nantes",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "884051",
-      "player_name": "Malcolm Fry",
-      "current_club": "New England Revolution",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "741039",
-      "player_name": "Malek Al-Abdulmenem",
-      "current_club": "Al-Fayha FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1190034",
-      "player_name": "Malik Hamza",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1456541",
       "player_name": "Mamadou Camara",
       "current_club": "Amiens SC B",
@@ -3626,18 +2054,6 @@
       "reason": "Player belongs to a reserve/B team"
     },
     {
-      "transfermarkt_player_id": "746973",
-      "player_name": "Mannou Berger",
-      "current_club": "Feyenoord U21",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
-    },
-    {
       "transfermarkt_player_id": "161050",
       "player_name": "Marcel Müller",
       "current_club": "SpVgg Erkenschwick",
@@ -3645,18 +2061,6 @@
       "age": 35,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "53015",
-      "player_name": "Marcelo Lomba do Nascimento",
-      "current_club": "Sociedade Esportiva Palmeiras",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -3746,42 +2150,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1085546",
-      "player_name": "Matt Evans",
-      "current_club": "Los Angeles FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "155038",
-      "player_name": "Matteo Grandi",
-      "current_club": "Venezia FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "559805",
-      "player_name": "Matthew Turner",
-      "current_club": "Cardiff City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1332095",
       "player_name": "Max Schulz",
       "current_club": "SG Warnow Papendorf",
@@ -3789,18 +2157,6 @@
       "age": null,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "860721",
-      "player_name": "Mehmet Ali Büyüksayar",
-      "current_club": "Konyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -3816,18 +2172,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1248495",
-      "player_name": "Messy Manitu",
-      "current_club": "Amiens SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "618869",
@@ -3854,18 +2198,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1254831",
-      "player_name": "Mihail Mihov",
-      "current_club": "Chernomorets 1919 Burgas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "383286",
       "player_name": "Mike Jordan",
       "current_club": "SpVgg Erkenschwick",
@@ -3873,198 +2205,6 @@
       "age": 27,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1315761",
-      "player_name": "Mishal Haddad",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1127314",
-      "player_name": "Mohammed Al-Abdullah",
-      "current_club": "Al-Khaleej FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1213131",
-      "player_name": "Mohammed Al-Dowaish",
-      "current_club": "Al-Fayha FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "154550",
-      "player_name": "Mohammed Al-Fuhaid",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1460614",
-      "player_name": "Mohammed Al-Hamsal",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "901279",
-      "player_name": "Mohammed Al-Hasawi",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1168841",
-      "player_name": "Mohammed Al-Oqil",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1369904",
-      "player_name": "Mohammed Al-Saedi",
-      "current_club": "Al-Hazem SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "631931",
-      "player_name": "Mohammed Al-Shanqiti",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "159561",
-      "player_name": "Mohammed Jahfali",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1187063",
-      "player_name": "Motaz Akjah",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1305989",
-      "player_name": "Mousa Al-Hamidi Al-Harbi",
-      "current_club": "Al-Qadsiah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "923080",
-      "player_name": "Moussa Diarra",
-      "current_club": "Málaga CF",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1474871",
-      "player_name": "Muhammet Akmelek",
-      "current_club": "Gaziantep FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "76176",
-      "player_name": "Mustafa Yumlu",
-      "current_club": "Erzurumspor FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "367937",
-      "player_name": "Mutab Sharahili",
-      "current_club": "Al-Diriyah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4106,78 +2246,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1009026",
-      "player_name": "Nasser Al-Bishi",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "743523",
-      "player_name": "Nathan Buayi-Kiala",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "1075576",
-      "player_name": "Nathan Talbot",
-      "current_club": "Amiens SC B",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "reserve_team",
-      "expected_dropout": true,
-      "reason": "Player belongs to a reserve/B team"
-    },
-    {
-      "transfermarkt_player_id": "1169025",
-      "player_name": "Nawaf Al-Hawsawi",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1180586",
-      "player_name": "Nawaf Al-Osaimi",
-      "current_club": "Al-Shabab FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1054088",
-      "player_name": "Nawaf Hazazi",
-      "current_club": "Al-Ettifaq FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1392804",
       "player_name": "Ndjicoura Bomba",
       "current_club": "Bayer 04 Leverkusen",
@@ -4190,18 +2258,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1105464",
-      "player_name": "Nicholas Simmonds",
-      "current_club": "FC Dallas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "444475",
       "player_name": "Nico Pulver",
       "current_club": "SpVgg Erkenschwick",
@@ -4209,18 +2265,6 @@
       "age": 27,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "72653",
-      "player_name": "Nicolás Lodeiro",
-      "current_club": "Club Nacional",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4274,18 +2318,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "990261",
-      "player_name": "Nikolaos Nikoletopoulos",
-      "current_club": "Panathinaikos",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1012922",
       "player_name": "Nolan Hérissé",
       "current_club": "Amiens SC",
@@ -4310,30 +2342,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1472451",
-      "player_name": "Odai Abdulghani",
-      "current_club": "Al-Kholood Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1047117",
-      "player_name": "Odysseas Lazaris",
-      "current_club": "Panathinaikos",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "757247",
       "player_name": "Oguz Karagüzel",
       "current_club": "SpVgg Erkenschwick",
@@ -4341,18 +2349,6 @@
       "age": 25,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "891989",
-      "player_name": "Oğuzhan Yılmaz",
-      "current_club": "Kasimpasa",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4394,42 +2390,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1330625",
-      "player_name": "Omar Sayed Moawad",
-      "current_club": "Al Ahly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "170239",
-      "player_name": "Orhan Ovacıklı",
-      "current_club": "Erzurumspor FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1020855",
-      "player_name": "Osama Al-Mermesh",
-      "current_club": "Al-Ittihad Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1059483",
       "player_name": "Oscar Buur",
       "current_club": "FC Copenhagen",
@@ -4442,42 +2402,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1063262",
-      "player_name": "Oskar Annell",
-      "current_club": "KVC Westerlo",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1152155",
-      "player_name": "Owen Presthus",
-      "current_club": "Columbus Crew",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1057392",
-      "player_name": "Pablo Arriaza",
-      "current_club": "Málaga CF",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "544451",
       "player_name": "Patrick Deiß",
       "current_club": "SG Warnow Papendorf",
@@ -4485,30 +2409,6 @@
       "age": 34,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "193611",
-      "player_name": "Patryk Dragon",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
-      "transfermarkt_player_id": "97930",
-      "player_name": "Paul Farman",
-      "current_club": "Swansea City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4526,18 +2426,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "67886",
-      "player_name": "Paulo Victor Mileo Vidotti",
-      "current_club": "Alanyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1005585",
       "player_name": "Pedro Paulo Manoel Fermino",
       "current_club": "Santos FC",
@@ -4550,18 +2438,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1175183",
-      "player_name": "Peterson Paul",
-      "current_club": "Amiens SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "544454",
       "player_name": "Pit Wilhelm",
       "current_club": "SG Warnow Papendorf",
@@ -4569,42 +2445,6 @@
       "age": null,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "605528",
-      "player_name": "Pol Tristán",
-      "current_club": "RCD Espanyol Barcelona",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "96472",
-      "player_name": "Ralf Seuntjens",
-      "current_club": "Lommel SK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1161144",
-      "player_name": "Rashid Al-Mutairi",
-      "current_club": "Al-Kholood Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4620,18 +2460,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1063517",
-      "player_name": "Rayan Fallatah",
-      "current_club": "Al-Faisaly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "743831",
@@ -4653,30 +2481,6 @@
       "age": 35,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "49667",
-      "player_name": "Richard O'Donnell",
-      "current_club": "Derby County",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1492796",
-      "player_name": "Ricky Louis",
-      "current_club": "FC Dallas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4704,18 +2508,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1174523",
-      "player_name": "Roman Murcy",
-      "current_club": "ESTAC Troyes",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "1467363",
@@ -4754,18 +2546,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "901084",
-      "player_name": "Ryan Al-Bloushi",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1275528",
       "player_name": "Ryan Roberto de Oliveira Dantas",
       "current_club": "Shakhtar Donetsk",
@@ -4776,54 +2556,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1236527",
-      "player_name": "Ryan Schewe",
-      "current_club": "Sporting Kansas City",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1237907",
-      "player_name": "Saliou Diop",
-      "current_club": "Akademisk Boldklub",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1273410",
-      "player_name": "Samir Mohamed",
-      "current_club": "Al Ahly FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1123280",
-      "player_name": "Sebastian Gomez",
-      "current_club": "Seattle Sounders FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "1556354",
@@ -4862,30 +2594,6 @@
       "reason": "Player is retired"
     },
     {
-      "transfermarkt_player_id": "123536",
-      "player_name": "Simon Moore",
-      "current_club": "Sunderland AFC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "74040",
-      "player_name": "Sinan Osmanoğlu",
-      "current_club": "Corum FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "10702",
       "player_name": "Sören Neumann",
       "current_club": "SG Warnow Papendorf",
@@ -4893,18 +2601,6 @@
       "age": 43,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "972651",
-      "player_name": "Stefan Stefanov",
-      "current_club": "Chernomorets 1919 Burgas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -4934,42 +2630,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1451255",
-      "player_name": "Sultan Al-Anzi",
-      "current_club": "Al-Shabab FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1235479",
-      "player_name": "Sultan Al-Essa",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1060927",
-      "player_name": "Suwailem Al-Manhali",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "78383",
       "player_name": "Sven Körner",
       "current_club": "SG Warnow Papendorf",
@@ -4977,54 +2637,6 @@
       "age": 37,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1329889",
-      "player_name": "Svetoslav Slavov",
-      "current_club": "Chernomorets 1919 Burgas",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1048119",
-      "player_name": "Taha Güneş",
-      "current_club": "Gaziantep FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1341829",
-      "player_name": "Taha İbrahim Rençber",
-      "current_club": "Corum FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1377531",
-      "player_name": "Talal Al-Shbely",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
@@ -5042,18 +2654,6 @@
       "reason": "Player belongs to a reserve/B team"
     },
     {
-      "transfermarkt_player_id": "1123651",
-      "player_name": "Théo Radelet",
-      "current_club": "RAAL La Louvière",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1290539",
       "player_name": "Thierry Karadeniz",
       "current_club": "Trabzonspor",
@@ -5064,18 +2664,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1268578",
-      "player_name": "Tibet Durakçay",
-      "current_club": "Göztepe",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "544458",
@@ -5102,18 +2690,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "866916",
-      "player_name": "Tom Negrel",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
       "transfermarkt_player_id": "544449",
       "player_name": "Tony Steinert",
       "current_club": "SG Warnow Papendorf",
@@ -5138,54 +2714,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "1423297",
-      "player_name": "Umut Can Aslan",
-      "current_club": "Kocaelispor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1045821",
-      "player_name": "Umut Keseci",
-      "current_club": "Eyüpspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1185812",
-      "player_name": "Utku Eriş",
-      "current_club": "Konyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "388368",
-      "player_name": "Üzeyir Ergün",
-      "current_club": "Without Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "free_agent",
-      "expected_dropout": true,
-      "reason": "Free agent below minimum market-value threshold"
-    },
-    {
       "transfermarkt_player_id": "1031282",
       "player_name": "Veron Osmani",
       "current_club": "SpVgg Erkenschwick",
@@ -5208,18 +2736,6 @@
       "category": "below_value_threshold",
       "expected_dropout": true,
       "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "647120",
-      "player_name": "Veysel Ünal",
-      "current_club": "Alanyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
     },
     {
       "transfermarkt_player_id": "861141",
@@ -5258,42 +2774,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "52261",
-      "player_name": "Volkan Babacan",
-      "current_club": "Basaksehir FK",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "86282",
-      "player_name": "Waleed Abdullah",
-      "current_club": "Al-Diriyah FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1140925",
-      "player_name": "Waleed Asiri",
-      "current_club": "Abha Club",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
       "transfermarkt_player_id": "1332091",
       "player_name": "Wilhelm Koschinski",
       "current_club": "SG Warnow Papendorf",
@@ -5306,90 +2786,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1516900",
-      "player_name": "Will Cleary",
-      "current_club": "Charlotte FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "215473",
-      "player_name": "William Yarbrough",
-      "current_club": "Toronto FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1457705",
-      "player_name": "Wissem Chaouali",
-      "current_club": "Al-Ettifaq FC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "989980",
-      "player_name": "Xavier Valdez",
-      "current_club": "Nashville SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "150788",
-      "player_name": "Yahya Al-Shehri",
-      "current_club": "Al-Riyadh SC",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "952550",
-      "player_name": "Yasin Eratilla",
-      "current_club": "Kasimpasa",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1145308",
-      "player_name": "Yassine Al-Jaber",
-      "current_club": "Al-Ittihad Club U21",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
-    },
-    {
       "transfermarkt_player_id": "895609",
       "player_name": "Yu Tsukanome",
       "current_club": "Seattle Sounders FC",
@@ -5397,30 +2793,6 @@
       "age": 25,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1243736",
-      "player_name": "Yusuf Can Karademir",
-      "current_club": "Alanyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "616467",
-      "player_name": "Yusuf Karagöz",
-      "current_club": "Alanyaspor",
-      "current_club_id": "",
-      "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "rated_global_pool",
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"

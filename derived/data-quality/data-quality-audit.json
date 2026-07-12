@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T19:46:02.488Z",
+  "generated_at": "2026-07-12T20:45:41.165Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -44,7 +44,7 @@
     "healthy": 0,
     "review": 80,
     "critical": 0,
-    "first_team_target_met": 33,
+    "first_team_target_met": 34,
     "development_target_met": 3,
     "review_items": 75
   },
@@ -2030,14 +2030,14 @@
       "league": "Premier League",
       "country": "England",
       "imported_players": 28,
-      "published_players": 27,
-      "senior_players": 26,
+      "published_players": 28,
+      "senior_players": 27,
       "development_players_u21": 1,
       "depth": {
         "ATT": 10,
         "MID": 7,
         "DEF": 9,
-        "GK": 1
+        "GK": 2
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -2054,7 +2054,7 @@
         {
           "severity": "warning",
           "type": "position_depth",
-          "detail": "GK: 1/3"
+          "detail": "GK: 2/3"
         },
         {
           "severity": "warning",
@@ -2422,11 +2422,11 @@
       "league": "Süper Lig",
       "country": "Turkey",
       "imported_players": 30,
-      "published_players": 29,
+      "published_players": 30,
       "senior_players": 22,
-      "development_players_u21": 7,
+      "development_players_u21": 8,
       "depth": {
-        "ATT": 8,
+        "ATT": 9,
         "DEF": 11,
         "GK": 3,
         "MID": 7
@@ -2475,7 +2475,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "7/15 U21 players"
+          "detail": "8/15 U21 players"
         },
         {
           "severity": "warning",
@@ -2496,14 +2496,14 @@
       "league": "Süper Lig",
       "country": "Turkey",
       "imported_players": 34,
-      "published_players": 32,
+      "published_players": 34,
       "senior_players": 23,
-      "development_players_u21": 9,
+      "development_players_u21": 11,
       "depth": {
         "MID": 10,
         "DEF": 11,
-        "ATT": 8,
-        "GK": 3
+        "ATT": 9,
+        "GK": 4
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -2520,7 +2520,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "9/15 U21 players"
+          "detail": "11/15 U21 players"
         }
       ]
     },
@@ -2892,31 +2892,26 @@
       "league": "Scottish Premiership",
       "country": "Scotland",
       "imported_players": 29,
-      "published_players": 28,
-      "senior_players": 27,
+      "published_players": 29,
+      "senior_players": 28,
       "development_players_u21": 1,
       "depth": {
         "DEF": 8,
         "MID": 9,
         "ATT": 9,
-        "GK": 2
+        "GK": 3
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [],
-      "health_score": 88,
+      "health_score": 94,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "1/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "GK: 2/3"
         }
       ]
     },
@@ -3110,14 +3105,14 @@
       "league": "Super League Greece",
       "country": "Greece",
       "imported_players": 38,
-      "published_players": 35,
+      "published_players": 38,
       "senior_players": 29,
-      "development_players_u21": 6,
+      "development_players_u21": 9,
       "depth": {
-        "DEF": 10,
+        "DEF": 11,
         "MID": 11,
-        "GK": 3,
-        "ATT": 11
+        "GK": 4,
+        "ATT": 12
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3129,7 +3124,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "6/15 U21 players"
+          "detail": "9/15 U21 players"
         }
       ]
     },
@@ -3183,14 +3178,14 @@
       "league": "Brasileirão",
       "country": "Brazil",
       "imported_players": 28,
-      "published_players": 27,
-      "senior_players": 22,
+      "published_players": 28,
+      "senior_players": 23,
       "development_players_u21": 5,
       "depth": {
         "MID": 6,
         "DEF": 11,
-        "ATT": 8,
-        "GK": 2
+        "GK": 3,
+        "ATT": 8
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3204,23 +3199,18 @@
           "market_value_eur": 14000000
         }
       ],
-      "health_score": 73,
+      "health_score": 79,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "22/25 senior players"
+          "detail": "23/25 senior players"
         },
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "5/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "GK: 2/3"
         },
         {
           "severity": "warning",
@@ -3271,31 +3261,26 @@
       "league": "Argentina Primera División",
       "country": "Argentina",
       "imported_players": 36,
-      "published_players": 34,
-      "senior_players": 29,
+      "published_players": 36,
+      "senior_players": 31,
       "development_players_u21": 5,
       "depth": {
         "MID": 11,
-        "GK": 2,
+        "GK": 3,
         "ATT": 11,
-        "DEF": 10
+        "DEF": 11
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [],
-      "health_score": 88,
+      "health_score": 94,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "5/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "GK: 2/3"
         }
       ]
     },
@@ -3426,12 +3411,12 @@
       "league": "Saudi Pro League",
       "country": "Saudi Arabia",
       "imported_players": 29,
-      "published_players": 27,
-      "senior_players": 24,
-      "development_players_u21": 3,
+      "published_players": 29,
+      "senior_players": 25,
+      "development_players_u21": 4,
       "depth": {
         "ATT": 10,
-        "DEF": 9,
+        "DEF": 11,
         "GK": 2,
         "MID": 6
       },
@@ -3454,18 +3439,13 @@
           "market_value_eur": 28000000
         }
       ],
-      "health_score": 73,
+      "health_score": 79,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
-          "type": "senior_depth",
-          "detail": "24/25 senior players"
-        },
-        {
-          "severity": "warning",
           "type": "development_depth",
-          "detail": "3/15 U21 players"
+          "detail": "4/15 U21 players"
         },
         {
           "severity": "warning",
@@ -3491,31 +3471,26 @@
       "league": "Brasileirão",
       "country": "Brazil",
       "imported_players": 32,
-      "published_players": 31,
-      "senior_players": 29,
+      "published_players": 32,
+      "senior_players": 30,
       "development_players_u21": 2,
       "depth": {
+        "GK": 3,
         "DEF": 12,
         "ATT": 8,
-        "MID": 9,
-        "GK": 2
+        "MID": 9
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [],
-      "health_score": 88,
+      "health_score": 94,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "2/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "GK: 2/3"
         }
       ]
     },
@@ -3596,14 +3571,14 @@
       "league": "MLS",
       "country": "United States",
       "imported_players": 27,
-      "published_players": 26,
+      "published_players": 27,
       "senior_players": 19,
-      "development_players_u21": 7,
+      "development_players_u21": 8,
       "depth": {
         "ATT": 6,
         "MID": 8,
         "GK": 3,
-        "DEF": 9
+        "DEF": 10
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3635,7 +3610,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "7/15 U21 players"
+          "detail": "8/15 U21 players"
         },
         {
           "severity": "review",
@@ -3651,14 +3626,14 @@
       "league": "Egyptian Premier League",
       "country": "Egypt",
       "imported_players": 40,
-      "published_players": 36,
-      "senior_players": 34,
-      "development_players_u21": 2,
+      "published_players": 40,
+      "senior_players": 36,
+      "development_players_u21": 4,
       "depth": {
-        "GK": 4,
-        "ATT": 11,
+        "GK": 5,
+        "ATT": 13,
         "MID": 9,
-        "DEF": 12
+        "DEF": 13
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3670,7 +3645,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "2/15 U21 players"
+          "detail": "4/15 U21 players"
         }
       ]
     },
@@ -3681,36 +3656,31 @@
       "league": "Uruguay Primera División",
       "country": "Uruguay",
       "imported_players": 32,
-      "published_players": 31,
-      "senior_players": 21,
+      "published_players": 32,
+      "senior_players": 22,
       "development_players_u21": 10,
       "depth": {
         "GK": 3,
+        "MID": 8,
         "DEF": 11,
-        "MID": 7,
         "ATT": 10
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [],
-      "health_score": 82,
+      "health_score": 88,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "21/25 senior players"
+          "detail": "22/25 senior players"
         },
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "10/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "MID: 7/8"
         }
       ]
     }
