@@ -80,8 +80,8 @@ jobs:
         if: ${{ inputs.mode == 'kees-smit-import' }}
         run: |
           node scripts/import-transfermarkt-targeted.js \
-            --searchQueries="Kees Smit" \
-            --maxItems=25
+            --playerIds="859035" \
+            --maxItems=5
 
       - name: Repair canonical league coverage
         if: ${{ inputs.mode == 'canonical-league-repair' }}
@@ -103,6 +103,11 @@ jobs:
       - name: Rebuild rated pools and published database
         if: ${{ inputs.mode == 'targeted-import' || inputs.mode == 'kees-smit-import' || inputs.mode == 'rebuild' || inputs.mode == 'registry-repair' }}
         run: npm run rebuild:published-player-database
+
+      - name: Verify Kees Smit was published
+        if: ${{ inputs.mode == 'kees-smit-import' }}
+        run: |
+          node -e "const fs=require('fs'); const rows=JSON.parse(fs.readFileSync('derived/player-database/player-database.json','utf8')); const p=rows.find(x=>String(x.transfermarkt_id||x.transfermarktId)==='859035'); if(!p){console.error('Kees Smit (859035) is still missing from the published database.'); process.exit(1);} console.log('Verified Kees Smit:', p.display_name||p.player_name||p.full_name);"
 
       - name: Verify registry exclusions after rebuild
         if: ${{ inputs.mode == 'registry-repair' }}
