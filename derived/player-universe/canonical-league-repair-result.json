@@ -1,0 +1,296 @@
+{
+  "generated_at": "2026-07-12T10:42:17.487Z",
+  "status": "completed-with-remaining-gaps",
+  "plan": {
+    "generated_at": "2026-07-12T10:34:17.022Z",
+    "audit_generated_at": "2026-07-12T10:34:16.958Z",
+    "season": "2026-27",
+    "methodology": "canonical_club_membership",
+    "selected_statuses": [
+      "missing",
+      "thin"
+    ],
+    "selected_league_keys": [],
+    "club_count": 12,
+    "club_ids": [
+      "3",
+      "24",
+      "533",
+      "89",
+      "39",
+      "18",
+      "41",
+      "86",
+      "8970",
+      "2919",
+      "10004",
+      "3911"
+    ],
+    "max_items": 600,
+    "dry_run": false,
+    "clubs": [
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "3",
+        "club_name": "1. FC Köln",
+        "status": "missing",
+        "imported_players": 0,
+        "published_players": 0
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "24",
+        "club_name": "Eintracht Frankfurt",
+        "status": "missing",
+        "imported_players": 0,
+        "published_players": 0
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "533",
+        "club_name": "TSG 1899 Hoffenheim",
+        "status": "missing",
+        "imported_players": 0,
+        "published_players": 0
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "89",
+        "club_name": "1.FC Union Berlin",
+        "status": "thin",
+        "imported_players": 1,
+        "published_players": 1
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "39",
+        "club_name": "1.FSV Mainz 05",
+        "status": "thin",
+        "imported_players": 1,
+        "published_players": 1
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "18",
+        "club_name": "Borussia Mönchengladbach",
+        "status": "thin",
+        "imported_players": 1,
+        "published_players": 1
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "41",
+        "club_name": "Hamburger SV",
+        "status": "thin",
+        "imported_players": 1,
+        "published_players": 1
+      },
+      {
+        "league_key": "bundesliga",
+        "league": "Bundesliga",
+        "club_id": "86",
+        "club_name": "SV Werder Bremen",
+        "status": "thin",
+        "imported_players": 2,
+        "published_players": 2
+      },
+      {
+        "league_key": "serie_a",
+        "league": "Serie A",
+        "club_id": "8970",
+        "club_name": "Frosinone Calcio",
+        "status": "thin",
+        "imported_players": 1,
+        "published_players": 1
+      },
+      {
+        "league_key": "serie_a",
+        "league": "Serie A",
+        "club_id": "2919",
+        "club_name": "AC Monza",
+        "status": "thin",
+        "imported_players": 2,
+        "published_players": 2
+      },
+      {
+        "league_key": "ligue_1",
+        "league": "Ligue 1",
+        "club_id": "10004",
+        "club_name": "Paris FC",
+        "status": "thin",
+        "imported_players": 1,
+        "published_players": 1
+      },
+      {
+        "league_key": "ligue_1",
+        "league": "Ligue 1",
+        "club_id": "3911",
+        "club_name": "Stade Brestois 29",
+        "status": "thin",
+        "imported_players": 17,
+        "published_players": 17
+      }
+    ]
+  },
+  "before": {
+    "generated_at": "2026-07-12T10:34:16.958Z",
+    "totals": {
+      "expected_players": 2797,
+      "imported_players": 2434,
+      "published_players": 2423,
+      "estimated_not_imported": 365,
+      "clubs_complete": 84,
+      "clubs_thin": 9,
+      "clubs_missing": 3,
+      "metadata_false_positive_count": 41,
+      "metadata_false_negative_count": 1,
+      "imported_coverage_pct": 87,
+      "published_coverage_pct": 86.6
+    },
+    "leagues": [
+      {
+        "key": "bundesliga",
+        "league": "Bundesliga",
+        "imported_players": 317,
+        "published_players": 317,
+        "clubs_complete": 10,
+        "clubs_thin": 5,
+        "clubs_missing": 3,
+        "status": "missing-clubs"
+      },
+      {
+        "key": "serie_a",
+        "league": "Serie A",
+        "imported_players": 582,
+        "published_players": 580,
+        "clubs_complete": 18,
+        "clubs_thin": 2,
+        "clubs_missing": 0,
+        "status": "thin-clubs"
+      },
+      {
+        "key": "ligue_1",
+        "league": "Ligue 1",
+        "imported_players": 431,
+        "published_players": 428,
+        "clubs_complete": 16,
+        "clubs_thin": 2,
+        "clubs_missing": 0,
+        "status": "thin-clubs"
+      },
+      {
+        "key": "premier_league",
+        "league": "Premier League",
+        "imported_players": 586,
+        "published_players": 583,
+        "clubs_complete": 20,
+        "clubs_thin": 0,
+        "clubs_missing": 0,
+        "status": "strong"
+      },
+      {
+        "key": "laliga",
+        "league": "LaLiga",
+        "imported_players": 518,
+        "published_players": 515,
+        "clubs_complete": 20,
+        "clubs_thin": 0,
+        "clubs_missing": 0,
+        "status": "strong"
+      }
+    ]
+  },
+  "after": {
+    "generated_at": "2026-07-12T10:42:17.301Z",
+    "totals": {
+      "expected_players": 2797,
+      "imported_players": 2731,
+      "published_players": 2719,
+      "estimated_not_imported": 68,
+      "clubs_complete": 95,
+      "clubs_thin": 1,
+      "clubs_missing": 0,
+      "metadata_false_positive_count": 41,
+      "metadata_false_negative_count": 1,
+      "imported_coverage_pct": 97.6,
+      "published_coverage_pct": 97.2
+    },
+    "leagues": [
+      {
+        "key": "ligue_1",
+        "league": "Ligue 1",
+        "imported_players": 457,
+        "published_players": 454,
+        "clubs_complete": 17,
+        "clubs_thin": 1,
+        "clubs_missing": 0,
+        "status": "thin-clubs"
+      },
+      {
+        "key": "serie_a",
+        "league": "Serie A",
+        "imported_players": 625,
+        "published_players": 622,
+        "clubs_complete": 20,
+        "clubs_thin": 0,
+        "clubs_missing": 0,
+        "status": "strong"
+      },
+      {
+        "key": "bundesliga",
+        "league": "Bundesliga",
+        "imported_players": 545,
+        "published_players": 545,
+        "clubs_complete": 18,
+        "clubs_thin": 0,
+        "clubs_missing": 0,
+        "status": "strong"
+      },
+      {
+        "key": "premier_league",
+        "league": "Premier League",
+        "imported_players": 586,
+        "published_players": 583,
+        "clubs_complete": 20,
+        "clubs_thin": 0,
+        "clubs_missing": 0,
+        "status": "strong"
+      },
+      {
+        "key": "laliga",
+        "league": "LaLiga",
+        "imported_players": 518,
+        "published_players": 515,
+        "clubs_complete": 20,
+        "clubs_thin": 0,
+        "clubs_missing": 0,
+        "status": "strong"
+      }
+    ]
+  },
+  "changes": {
+    "imported_players": 297,
+    "published_players": 296,
+    "clubs_complete": 11,
+    "clubs_thin": -8,
+    "clubs_missing": -3
+  },
+  "remaining_repair_clubs": [
+    {
+      "league_key": "ligue_1",
+      "league": "Ligue 1",
+      "club_id": "3911",
+      "club_name": "Stade Brestois 29",
+      "status": "thin",
+      "imported_players": 17,
+      "published_players": 17
+    }
+  ]
+}
