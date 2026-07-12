@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node --test",
     "diagnose:api-football": "node scripts/diagnose-api-football-coverage.js",
+    "diagnose:player-registry": "node scripts/diagnose-player-registry-exclusions.js",
     "import:api-football:players": "node scripts/import-api-football-players.js",
     "import:api-football:league": "node scripts/import-api-football-league.js",
     "import:api-football:pro-league": "node scripts/import-api-football-pro-league.js",
@@ -43,6 +44,7 @@
     "build:wider-player-registry": "node scripts/build-wider-player-registry.js",
     "audit:player-universe": "node scripts/audit-player-universe-coverage.js",
     "audit:league-coverage": "node scripts/audit-league-player-coverage.js",
+    "rebuild:published-player-database": "npm run build:player-registry && npm run promote:global-clubs && npm run apply:player-status-overrides && npm run score:tbg-ratings && npm run export:player-pools && npm run apply:player-pool-overrides && npm run export:player-database && npm run build:wider-player-registry && npm run audit:player-universe && npm run audit:league-coverage && npm run build:scouting-site",
     "audit:data-quality": "node scripts/audit-data-quality.js",
     "rebuild:published-player-database": "npm run promote:global-clubs && npm run apply:player-status-overrides && npm run score:tbg-ratings && npm run export:player-pools && npm run apply:player-pool-overrides && npm run export:player-database && npm run build:wider-player-registry && npm run audit:player-universe && npm run audit:league-coverage && npm run audit:data-quality && npm run build:scouting-site",
     "resolve:player-identities": "node scripts/resolve-player-identities.js",

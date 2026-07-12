@@ -4,12 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "audit, canonical-league-repair, targeted-import, kees-smit-import, or rebuild"
+        description: "audit, registry-repair, canonical-league-repair, targeted-import, kees-smit-import, or rebuild"
         required: true
         default: audit
         type: choice
         options:
           - audit
+          - registry-repair
           - canonical-league-repair
           - targeted-import
           - kees-smit-import
@@ -91,13 +92,21 @@ jobs:
             --datasetId="${{ inputs.datasetId }}" \
             --maxItems="${{ inputs.maxItems }}"
 
+      - name: Diagnose registry exclusions before rebuild
+        if: ${{ inputs.mode == 'registry-repair' }}
+        run: npm run diagnose:player-registry -- --phase=before
+
       - name: Build lightweight wider registry
-        if: ${{ inputs.mode != 'canonical-league-repair' }}
+        if: ${{ inputs.mode != 'canonical-league-repair' && inputs.mode != 'registry-repair' }}
         run: npm run build:wider-player-registry
 
       - name: Rebuild rated pools and published database
-        if: ${{ inputs.mode == 'targeted-import' || inputs.mode == 'kees-smit-import' || inputs.mode == 'rebuild' }}
+        if: ${{ inputs.mode == 'targeted-import' || inputs.mode == 'kees-smit-import' || inputs.mode == 'rebuild' || inputs.mode == 'registry-repair' }}
         run: npm run rebuild:published-player-database
+
+      - name: Verify registry exclusions after rebuild
+        if: ${{ inputs.mode == 'registry-repair' }}
+        run: npm run diagnose:player-registry -- --phase=after --failOnMissing=true
 
       - name: Run player universe coverage audit
         if: ${{ inputs.mode == 'audit' }}
@@ -117,19 +126,24 @@ jobs:
             derived/player-universe/player-universe-coverage-audit.md
             derived/player-universe/league-player-coverage-audit.json
             derived/player-universe/league-player-coverage-audit.md
+            derived/player-universe/player-registry-diagnosis-before.json
+            derived/player-universe/player-registry-diagnosis-before.md
+            derived/player-universe/player-registry-diagnosis-after.json
+            derived/player-universe/player-registry-diagnosis-after.md
             derived/player-universe/canonical-league-repair-plan.json
             derived/player-universe/canonical-league-repair-result.json
             derived/player-database/player-database-summary.json
+            data/players/player-registry-summary.json
           if-no-files-found: warn
 
       - name: Commit generated coverage and database outputs
         run: |
-          if [ -z "$(git status --porcelain derived data/transfermarkt calibration)" ]; then
+          if [ -z "$(git status --porcelain derived data/players data/transfermarkt calibration)" ]; then
             echo "No generated changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add derived data/transfermarkt calibration
+          git add derived data/players data/transfermarkt calibration
           git commit -m "Update player universe and league coverage"
           git push
