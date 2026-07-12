@@ -4,12 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "audit, targeted-import, kees-smit-import, or rebuild"
+        description: "audit, canonical-league-repair, targeted-import, kees-smit-import, or rebuild"
         required: true
         default: audit
         type: choice
         options:
           - audit
+          - canonical-league-repair
           - targeted-import
           - kees-smit-import
           - rebuild
@@ -27,6 +28,19 @@ on:
         type: string
       datasetId:
         description: "Optional existing Apify dataset ID to reuse without a new scrape"
+        required: false
+        type: string
+      leagueKeys:
+        description: "Optional canonical league keys to repair, comma-separated (for example bundesliga,serie_a)"
+        required: false
+        type: string
+      includeThin:
+        description: "Repair thin canonical clubs as well as completely missing clubs"
+        required: false
+        default: true
+        type: boolean
+      maxItems:
+        description: "Optional maximum Apify items for canonical repair or targeted import"
         required: false
         type: string
 
@@ -58,7 +72,8 @@ jobs:
             --playerIds="${{ inputs.playerIds }}" \
             --clubIds="${{ inputs.clubIds }}" \
             --searchQueries="${{ inputs.searchQueries }}" \
-            --datasetId="${{ inputs.datasetId }}"
+            --datasetId="${{ inputs.datasetId }}" \
+            --maxItems="${{ inputs.maxItems }}"
 
       - name: Import Kees Smit
         if: ${{ inputs.mode == 'kees-smit-import' }}
@@ -67,7 +82,17 @@ jobs:
             --searchQueries="Kees Smit" \
             --maxItems=25
 
+      - name: Repair canonical league coverage
+        if: ${{ inputs.mode == 'canonical-league-repair' }}
+        run: |
+          npm run repair:canonical-league-coverage -- \
+            --leagueKeys="${{ inputs.leagueKeys }}" \
+            --includeThin="${{ inputs.includeThin }}" \
+            --datasetId="${{ inputs.datasetId }}" \
+            --maxItems="${{ inputs.maxItems }}"
+
       - name: Build lightweight wider registry
+        if: ${{ inputs.mode != 'canonical-league-repair' }}
         run: npm run build:wider-player-registry
 
       - name: Rebuild rated pools and published database
@@ -92,6 +117,8 @@ jobs:
             derived/player-universe/player-universe-coverage-audit.md
             derived/player-universe/league-player-coverage-audit.json
             derived/player-universe/league-player-coverage-audit.md
+            derived/player-universe/canonical-league-repair-plan.json
+            derived/player-universe/canonical-league-repair-result.json
             derived/player-database/player-database-summary.json
           if-no-files-found: warn
 
