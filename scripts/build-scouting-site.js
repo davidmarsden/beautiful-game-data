@@ -40,4 +40,8 @@ await copy("public/rankings/index.html", join(outputDir, "rankings", "index.html
 await copy("public/rankings/rankings.css", join(outputDir, "rankings", "rankings.css"));
 await copy("public/rankings/rankings.js", join(outputDir, "rankings", "rankings.js"));
 
+await copy("public/transfer-market/index.html", join(outputDir, "transfer-market", "index.html"));
+await copy("public/transfer-market/transfer-market.css", join(outputDir, "transfer-market", "transfer-market.css"));
+await copy("public/transfer-market/transfer-market.js", join(outputDir, "transfer-market", "transfer-market.js"));
+
 console.log(`Built Pink Final portal at ${outputDir}`);
