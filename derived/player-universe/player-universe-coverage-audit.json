@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T09:15:14.000Z",
+  "generated_at": "2026-07-12T10:42:16.824Z",
   "paths": {
     "raw": "calibration/apify-transfermarkt-universe-dataset.json",
     "master": "data/transfermarkt/players-master.json",
@@ -18,23 +18,23 @@
     },
     {
       "name": "players_master",
-      "players": 6671,
-      "unique_transfermarkt_ids": 6671
+      "players": 7000,
+      "unique_transfermarkt_ids": 7000
     },
     {
       "name": "player_registry",
-      "players": 6671,
-      "unique_transfermarkt_ids": 6671
+      "players": 7000,
+      "unique_transfermarkt_ids": 7000
     },
     {
       "name": "rated_global_pool",
-      "players": 6453,
-      "unique_transfermarkt_ids": 6453
+      "players": 6781,
+      "unique_transfermarkt_ids": 6781
     },
     {
       "name": "published_database",
-      "players": 6453,
-      "unique_transfermarkt_ids": 6453
+      "players": 6781,
+      "unique_transfermarkt_ids": 6781
     }
   ],
   "stage_dropouts": [
@@ -51,7 +51,7 @@
     {
       "from": "player_registry",
       "to": "rated_global_pool",
-      "missing_ids": 218
+      "missing_ids": 219
     },
     {
       "from": "rated_global_pool",
@@ -303,8 +303,8 @@
       "transfermarkt_club_id": "430",
       "country": "Italy",
       "continent": "Europe",
-      "published_players": 40,
-      "rated_players": 40,
+      "published_players": 39,
+      "rated_players": 39,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -314,8 +314,8 @@
       "transfermarkt_club_id": "1025",
       "country": "Italy",
       "continent": "Europe",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -949,9 +949,9 @@
   ],
   "high_priority_external_missing_count": 0,
   "high_priority_external_missing": [],
-  "dropout_count": 373,
+  "dropout_count": 374,
   "dropout_categories": {
-    "amateur_or_unvalued": 298,
+    "amateur_or_unvalued": 299,
     "free_agent": 14,
     "zero_value_prospect": 8,
     "below_value_threshold": 41,
@@ -2261,6 +2261,18 @@
       "transfermarkt_player_id": "1071220",
       "player_name": "Egemen Aydın",
       "current_club": "Konyaspor",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "amateur_or_unvalued",
+      "expected_dropout": true,
+      "reason": "Outside core world and has no market value"
+    },
+    {
+      "transfermarkt_player_id": "740517",
+      "player_name": "Eldin Lolic",
+      "current_club": "Frosinone Calcio",
       "current_club_id": "",
       "age": null,
       "market_value_eur": 0,
