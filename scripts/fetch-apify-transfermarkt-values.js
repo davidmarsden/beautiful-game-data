@@ -95,7 +95,7 @@ if (datasetId) {
 
     if (playerIds.length) input.playerIds = playerIds.map(String);
     if (clubIds.length) input.clubIds = clubIds.map(String);
-    if (competitionCodes.length && !playerIds.length && !clubIds.length) input.competitionCodes = competitionCodes;
+    if (competitionCodes.length && !playerIds.length && !clubIds.length && !searchQueries.length) input.competitionCodes = competitionCodes;
     if (searchQueries.length && (!playerIds.length && !clubIds.length || allowSearchWithTargetedIds)) input.searchQueries = searchQueries;
     if (!input.playerIds && !input.clubIds && !input.competitionCodes && !input.searchQueries) input.competitionCodes = ["GB1"];
   }
@@ -114,5 +114,4 @@ const { items } = await client.dataset(datasetId).listItems({ limit: Number(args
 
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, `${JSON.stringify(items, null, 2)}\n`, "utf8");
-
 console.log(`Wrote ${items.length} Apify item(s) from dataset ${datasetId} to ${output}`);
