@@ -1,0 +1,149 @@
+name: Canonical league repair
+
+on:
+  workflow_dispatch:
+    inputs:
+      include_thin:
+        description: Re-import thin canonical clubs as well as missing clubs
+        required: true
+        type: boolean
+        default: true
+      thin_threshold:
+        description: Minimum imported players before a canonical club is considered complete
+        required: true
+        type: number
+        default: 18
+      leagues:
+        description: Optional comma-separated league keys (for example bundesliga,serie_a)
+        required: false
+        type: string
+        default: ""
+      create_pull_request:
+        description: Commit repaired data and open a pull request
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: canonical-league-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Refresh canonical league audit
+        run: npm run audit:league-coverage
+
+      - name: Build targeted repair plan
+        id: plan
+        run: |
+          node scripts/plan-canonical-league-repair.js \
+            --includeThin=${{ inputs.include_thin }} \
+            --thinThreshold=${{ inputs.thin_threshold }} \
+            --leagues="${{ inputs.leagues }}"
+
+      - name: Show repair plan
+        run: cat reports/canonical-league-repair-plan.md
+
+      - name: Fetch missing and thin canonical clubs
+        if: steps.plan.outputs.needs_repair == 'true'
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: |
+          node scripts/fetch-apify-transfermarkt-values.js \
+            --scope=canonical-league-repair \
+            --clubIds="${{ steps.plan.outputs.club_ids }}" \
+            --includeGoldStandardRescue=false \
+            --includeSearchQueries=false \
+            --maxItems=1500 \
+            --output=calibration/apify-transfermarkt-canonical-league-repair.json
+
+      - name: Merge targeted repair data
+        if: steps.plan.outputs.needs_repair == 'true'
+        run: |
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/apify-transfermarkt-canonical-league-repair.json \
+            --mergeExisting=true
+
+      - name: Rebuild published player database
+        if: steps.plan.outputs.needs_repair == 'true'
+        run: npm run rebuild:published-player-database
+
+      - name: Rebuild final repair plan
+        if: steps.plan.outputs.needs_repair == 'true'
+        run: |
+          node scripts/plan-canonical-league-repair.js \
+            --includeThin=${{ inputs.include_thin }} \
+            --thinThreshold=${{ inputs.thin_threshold }} \
+            --leagues="${{ inputs.leagues }}" \
+            --output=reports/canonical-league-repair-plan-after.json \
+            --markdown=reports/canonical-league-repair-plan-after.md
+
+      - name: Upload repair evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: canonical-league-repair-${{ github.run_id }}
+          if-no-files-found: error
+          path: |
+            reports/canonical-league-repair-plan.json
+            reports/canonical-league-repair-plan.md
+            reports/canonical-league-repair-plan-after.json
+            reports/canonical-league-repair-plan-after.md
+            reports/league-player-coverage-audit.json
+            reports/league-player-coverage-audit.md
+            reports/player-universe-coverage-audit.json
+            reports/player-universe-coverage-audit.md
+            calibration/apify-transfermarkt-canonical-league-repair.json
+
+      - name: Create repair pull request
+        if: steps.plan.outputs.needs_repair == 'true' && inputs.create_pull_request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPAIR_CLUBS: ${{ steps.plan.outputs.club_count }}
+          MISSING_CLUBS: ${{ steps.plan.outputs.missing_clubs }}
+          THIN_CLUBS: ${{ steps.plan.outputs.thin_clubs }}
+        run: |
+          branch="automation/canonical-league-repair-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add data calibration reports public
+          if git diff --cached --quiet; then
+            echo "Targeted import produced no tracked changes; no pull request required."
+            exit 0
+          fi
+          git commit -m "Repair canonical league player coverage"
+          git push --set-upstream origin "$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Repair canonical league player coverage" \
+            --body "Automated targeted re-import for ${REPAIR_CLUBS} under-covered canonical clubs (${MISSING_CLUBS} missing, ${THIN_CLUBS} thin before repair).\n\nThe workflow refreshed the canonical audit, fetched only the selected Transfermarkt club IDs, merged them into the master dataset, rebuilt the published player database, and regenerated the before/after repair evidence."
+
+      - name: Report no repair required
+        if: steps.plan.outputs.needs_repair != 'true'
+        run: echo "All selected canonical clubs meet the requested coverage threshold."
