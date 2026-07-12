@@ -142,7 +142,7 @@ const prospects = (config.tracked_prospects || []).map((prospect) => {
   };
 });
 
-review.sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.priority] - ({ high: 0, medium: 1, low: 2 }[b.priority]) || b.market_value_eur - a.market_value_eur);
+review.sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.priority] - ({ high: 0, medium: 1, low: 2 }[b.priority])) || b.market_value_eur - a.market_value_eur);
 const summary = {
   clubs: clubs.length,
   healthy: clubs.filter((c) => c.status === "healthy").length,
