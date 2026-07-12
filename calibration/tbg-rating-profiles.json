@@ -95270,6 +95270,73 @@
     }
   },
   {
+    "tbg_player_id": "tbg-tm-00859035",
+    "transfermarkt_id": "859035",
+    "player_name": "Kees Smit",
+    "transfermarkt_name": "Kees Smit",
+    "club_name": "AZ Alkmaar",
+    "current_competition_code": "NL1",
+    "position": "Central Midfield",
+    "position_group": "MID",
+    "age": 20,
+    "ability": {
+      "model_version": "tbg-v3-sticky-ability-fluid-form",
+      "philosophy": "Ability is sticky; form, fitness, sharpness, morale, fatigue and tactical fit are fluid match-engine state.",
+      "base_smw_equivalent_raw": 87.14,
+      "base_smw_equivalent_rating": 87,
+      "ability_component": 0,
+      "prestige_component": 0,
+      "elite_trajectory_component": 0,
+      "total_sticky_adjustment": 0,
+      "underlying_ability_raw": 87.14,
+      "underlying_ability_rating": 87,
+      "explanation": {
+        "market_value_eur": 25000000,
+        "highest_market_value_eur": 25000000,
+        "previous_market_value_eur": 25000000,
+        "international_caps": 0,
+        "international_goals": 0,
+        "total_transfer_fees_eur": 0,
+        "age": 20,
+        "reasons": [],
+        "reasons_by_component": {
+          "elite_trajectory_adjustment": [],
+          "class_retention_adjustment": [],
+          "prestige_adjustment": [],
+          "current_ability_caution": [],
+          "other_adjustment": []
+        }
+      }
+    },
+    "current_state": {
+      "form_modifier": 0,
+      "fitness_modifier": 0,
+      "match_sharpness_modifier": 0,
+      "morale_modifier": 0,
+      "fatigue_modifier": 0,
+      "tactical_fit_modifier": 0,
+      "availability_modifier": 0,
+      "total_modifier": 0,
+      "note": "Neutral default. Match engine owns fluid state before each fixture."
+    },
+    "engine": {
+      "underlying_ability_rating": 87,
+      "current_state": {
+        "form_modifier": 0,
+        "fitness_modifier": 0,
+        "match_sharpness_modifier": 0,
+        "morale_modifier": 0,
+        "fatigue_modifier": 0,
+        "tactical_fit_modifier": 0,
+        "availability_modifier": 0,
+        "total_modifier": 0,
+        "note": "Neutral default. Match engine owns fluid state before each fixture."
+      },
+      "effective_match_rating": 87,
+      "engine_note": "Data repo supplies neutral state. Match engine should replace current_state per fixture."
+    }
+  },
+  {
     "tbg_player_id": "tbg-tm-00119211",
     "transfermarkt_id": "119211",
     "player_name": "Mitchell Weiser",

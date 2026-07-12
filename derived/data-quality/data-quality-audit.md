@@ -1,6 +1,6 @@
 # TBG Data Quality Audit
 
-Generated: 2026-07-12T20:57:22.808Z
+Generated: 2026-07-12T21:42:49.913Z
 
 ## Summary
 - Healthy clubs: 0/80
@@ -11,7 +11,7 @@ Generated: 2026-07-12T20:57:22.808Z
 - Review queue: 75
 
 ## Tracked prospects
-- Kees Smit: missing
+- Kees Smit: ok — AZ Alkmaar, age 20, €25m, TBG ?
 
 ## Clubs needing attention
 - Inter Milan (Serie A) — health 67; 24 total, 21 senior, 3 U21 — 21/25 senior players; 3/15 U21 players; GK: 2/3; DEF: 6/8; ATT: 4/5; 4 ratings differ materially from value benchmark

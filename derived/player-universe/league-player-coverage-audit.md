@@ -1,6 +1,6 @@
 # Canonical League Player Coverage Audit
 
-Generated: 2026-07-12T20:57:22.394Z
+Generated: 2026-07-12T21:42:49.505Z
 Season: 2026-27
 
 Big Five expected: 2797
