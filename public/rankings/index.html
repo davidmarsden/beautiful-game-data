@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rankings — The Pink Final</title>
+  <link rel="stylesheet" href="../portal.css" />
+  <link rel="stylesheet" href="./rankings.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="strapline">Statistics Edition • Rankings Desk • The Beautiful Game</div>
+    <h1>The Pink Final</h1>
+    <p class="subtitle">Players, clubs, nations and leagues ranked automatically from the live TBG database.</p>
+  </header>
+  <nav class="nav" aria-label="Pink Final sections">
+    <a href="../">Front Page</a><a href="../scouting/">Scouting Database</a><a href="../clubs/">Clubs</a><a href="../wonderkids/">Wonderkids</a><a href="./">Rankings</a>
+  </nav>
+  <main class="paper">
+    <section class="stop-press">
+      <div><span class="label">Players</span><strong id="playerCount">Loading…</strong><p>ranked in the current edition.</p></div>
+      <div><span class="label">Top Rated</span><strong id="topPlayer">—</strong><p>highest TBG rating.</p></div>
+      <div><span class="label">Strongest Club</span><strong id="topClub">—</strong><p>highest average top-XI rating.</p></div>
+      <div><span class="label">Richest Nation</span><strong id="topNation">—</strong><p>highest total player value.</p></div>
+    </section>
+
+    <section class="lead-story"><div><span class="label">Main Story</span><h2>The numbers desk is open.</h2></div><p>Choose a desk and ranking. Every table is rebuilt from the latest published player database, with links straight through to player profiles.</p></section>
+
+    <section class="rank-controls">
+      <label>Desk<select id="deskSelect"><option value="players">Players</option><option value="clubs">Clubs</option><option value="nations">Nations</option><option value="leagues">Leagues</option></select></label>
+      <label>Ranking<select id="rankingSelect"></select></label>
+      <label>Rows<select id="rowLimit"><option>25</option><option selected>50</option><option>100</option></select></label>
+      <label class="wide">Search<input id="searchBox" type="search" placeholder="Search the current table" /></label>
+    </section>
+
+    <section class="ranking-panel">
+      <div class="panel-heading"><div><span class="label">Rankings Ledger</span><h2 id="rankingTitle">Highest Rated Players</h2></div><p id="resultCount">Loading…</p></div>
+      <div class="table-wrap"><table id="rankingTable"><thead></thead><tbody></tbody></table></div>
+    </section>
+  </main>
+  <footer><p>The Beautiful Game statistics desk. Printed in pink. Argued over forever.</p></footer>
+  <script src="./rankings.js"></script>
+</body>
+</html>
