@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
@@ -8,6 +8,11 @@ const clubIdOf = (row) => String(row.current_club_id || row.transfermarkt_club_i
 const ageOf = (row) => num(row.age, 99);
 const ratingOf = (row) => num(row.tbg_rating ?? row.underlying_ability_rating ?? row.underlyingAbilityRating, 0);
 const valueOf = (row) => num(row.market_value_eur ?? row.marketValueEur, 0);
+
+async function exists(path) {
+  try { await access(path); return true; }
+  catch { return false; }
+}
 
 function parseArgs(argv) {
   const args = {};
@@ -32,6 +37,15 @@ const universePath = args.universe ?? "data/config/tbg-club-universe.json";
 const configPath = args.config ?? "data/config/initial-squad-policy.json";
 const outputPath = args.output ?? "data/game/player-assignments.json";
 const summaryPath = args.summary ?? "derived/initial-squads/initial-squad-summary.json";
+const force = String(args.force ?? "false").toLowerCase() === "true";
+
+if (!force && await exists(outputPath)) {
+  const existing = await readJson(outputPath);
+  if (Array.isArray(existing) && existing.length) {
+    console.log(`Preserving ${existing.length} existing assignment(s). Use --force=true only when deliberately regenerating launch squads.`);
+    process.exit(0);
+  }
+}
 
 const [master, ratedPlayers, universe, policy] = await Promise.all([
   readJson(masterPath),
@@ -57,8 +71,7 @@ for (const club of universe.clubs || []) {
   const clubId = String(club.transfermarkt_club_id);
   const squad = (grouped.get(clubId) || []).sort(comparePlayers);
   const youth = squad.filter((player) => ageOf(player) <= policy.youth_max_age).slice(0, policy.initial_youth_limit);
-  const youthIds = new Set(youth.map(idOf));
-  const senior = squad.filter((player) => ageOf(player) > policy.youth_max_age && !youthIds.has(idOf(player))).slice(0, policy.initial_first_team_limit);
+  const senior = squad.filter((player) => ageOf(player) > policy.youth_max_age).slice(0, policy.initial_first_team_limit);
   const selected = [
     ...senior.map((player) => ({ player, squad: "first_team" })),
     ...youth.map((player) => ({ player, squad: "youth" }))
@@ -82,8 +95,8 @@ for (const club of universe.clubs || []) {
     available_real_world_players: squad.length,
     initial_first_team_players: senior.length,
     initial_youth_players: youth.length,
-    first_team_vacancies: policy.maximum_first_team_size - senior.length,
-    youth_vacancies: policy.maximum_youth_size - youth.length,
+    first_team_vacancies: Math.max(0, policy.maximum_first_team_size - senior.length),
+    youth_vacancies: Math.max(0, policy.maximum_youth_size - youth.length),
     unassigned_real_world_players: Math.max(0, squad.length - selected.length)
   });
 }
