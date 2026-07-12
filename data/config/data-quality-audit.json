@@ -1,0 +1,29 @@
+{
+  "version": "tbg-data-quality-audit-v1.0",
+  "top_club_slots": 80,
+  "big_five_leagues": ["Premier League", "Bundesliga", "LaLiga", "Serie A", "Ligue 1"],
+  "squad_targets": {
+    "minimum_playable": 18,
+    "first_team_target": 25,
+    "development_target": 15,
+    "maximum_total": 50,
+    "youth_max_age": 21,
+    "senior_min_age": 22
+  },
+  "position_minimums": {
+    "GK": 3,
+    "DEF": 8,
+    "MID": 8,
+    "ATT": 5
+  },
+  "priority_candidate_rules": {
+    "senior_min_market_value_eur": 1000000,
+    "youth_min_market_value_eur": 250000,
+    "elite_youth_min_market_value_eur": 5000000,
+    "rating_gap_warning": 4,
+    "rating_value_floor_eur": 10000000
+  },
+  "tracked_prospects": [
+    { "name": "Kees Smit", "expected_max_age": 21, "expected_min_market_value_eur": 1000000 }
+  ]
+}
