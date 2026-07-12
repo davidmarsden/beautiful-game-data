@@ -1,244 +1,37 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-07-12T14:19:23.556Z
+Generated: 2026-07-12T19:46:01.615Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
 - players_master: 7000 rows / 7000 unique TM IDs
-- player_registry: 6671 rows / 6671 unique TM IDs
+- player_registry: 7000 rows / 7000 unique TM IDs
 - rated_global_pool: 6781 rows / 6781 unique TM IDs
 - published_database: 6781 rows / 6781 unique TM IDs
 
 ## Top 80 squad completeness
-- Complete: 76
-- Thin: 2
-- Missing: 2
+- Complete: 80
+- Thin: 0
+- Missing: 0
 
-- 71. São Paulo FC: 0 players (missing)
-- 74. Botafogo FR: 2 players (thin)
-- 78. Racing Club: 1 players (thin)
-- 79. Independiente: 0 players (missing)
 
 ## High-priority external missing players
 Count: 0
 
 
 ## Dropout categories
-- amateur_or_unvalued: 300
-- unexpected_priority_dropout: 276
-- below_value_threshold: 40
-- policy_filtered: 34
-- free_agent: 28
-- reserve_team: 10
+- amateur_or_unvalued: 299
+- below_value_threshold: 41
+- free_agent: 14
 - zero_value_prospect: 8
+- reserve_team: 7
 - retired: 5
-- unexpected_core_club_dropout: 1
 
 ## Unexpected dropouts
-Count: 277
-- Can Uzun — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Said El Mala — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Kaishu Sano — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Fisnik Asllani — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Jonathan Burkardt — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Leon Avdullahu — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Hugo Larsson — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Karim Coulibaly — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Albian Hajdari — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Jean-Mattéo Bahoya — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Leopold Querfeld — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Nnamdi Collins — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Patrick Zabi — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Rudy Matondo — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Wouter Burger — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Elye Wahi — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Kacper Potulski — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Paul Nebel — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Arthur Theate — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Nadiem Amiri — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Ritsu Doan — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Tim Lemperle — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Wael Mohya — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Ansgar Knauff — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Farès Chaïbi — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Oscar Højlund — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Ozan Kabak — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Romano Schmid — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Jens Stage — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Albert Sambi Lokonga — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Aljoscha Kemlein — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Ilan Kebbal — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Ilyas Ansah — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Mats Rots — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Patrick Wimmer — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Adam Hlozek — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Aurèle Amenda — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Ayoube Amaimouni-Echghouyab — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Cajetan Lenz — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Jens Castrop — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Marco Friedl — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Nhoa Sangui — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Otávio Ataíde da Silva — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Rasmus Nissen Kristensen — FC Midtjylland — player_registry — Player meets priority value/age criteria but was excluded
-- Robin Hranac — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Robin Koch — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Tom Rothe — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Alexander Prass — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Andrej Ilic — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Jahmai Simpson-Pusey — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Moustapha Mbow — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Nicolai Remberg — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Ragnar Ache — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Alessandro Vogt — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Benedict Hollerbach — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Eric Martel — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Ísak Jóhannesson — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Iván San José Cantalejo — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Moritz Nicolas — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Nico Elvedi — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Nicolás Capaldo — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Samuel Mbangula — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Senne Lynen — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Tim Kleindienst — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Younes Ebnoutalib — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Farès Ghedjemis — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Noel Futkeu — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Anthony Caci — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Franck Honorat — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Gift Orban — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Joe Scally — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Kauã Santos — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Max Moerstedt — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Moses Simon — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Nelson Weiper — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Rav van den Berg — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Robin Hack — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Hugo Bolin — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Junior Dina Ebimbe — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Koki Machida — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Lukas Ullrich — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Valentin Gendrey — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Sebastian Sebulonsen — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Alexander Røssing-Lelesiit — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Arthur Chaves — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Ellyes Skhiri — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Fábio Baldé — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Hennes Behrens — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Isac Lidberg — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Jan Thielmann — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Justin Njinmah — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Keita Kosugi — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Kevin Diks — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Love Arrhov — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Matteo Cichella — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Matteo Pessina — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Maxime Lopez — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Miro Muheim — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Muhammed Damar — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Obed Nkambadio — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Oskar Wójcik — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Ransford Königsdörffer — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Willem Geubbels — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- András Schäfer — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Felix Agu — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Pierre Lees-Melou — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Tom Krauß — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Amos Pieper — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Andrea Colpani — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Bambasé Conté — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Bernardo Fernandes da Silva Junior — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- David Herold — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Deniz Zeitler — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Derrick Köhn — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Elias Baum — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Enzo Leopold — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Giorgi Kvernadze — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Giovanni Reyna — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Jonathan Ikoné — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Jordan Torunarigha — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Kofi Amoako — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Leonardo Colombo — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Livan Burcu — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Lorenzo Palmisani — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Luis Engelns — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Marco Grüll — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Michael Zetterer — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Otto Stange — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Patrice Covic — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Philipp Sander — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Phillip Tietz — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Rayan Philippe — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Shuto Machino — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Warmed Omari — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Andreas Hanche-Olsen — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Gabriele Bracaglia — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Haris Tabakovic — Red Bull Salzburg — player_registry — Active player at a Top 80 club should normally be retained
-- Jean-Philippe Krasso — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Nathan Ngoumou — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Olivier Deman — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Umut Tohumcu — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- William Bøving — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Woo-yeong Jeong — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Adama Camara — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Andrea Carboni — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Chris Bedia — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Daniel Elfadli — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Fabio Chiarodia — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Fabio Gruber — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Ilias Koutsoupias — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Joël Schmied — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Keke Topp — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Linton Maina — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Mario Götze — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Marvin Schwäbe — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Mitchell Weiser — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Oliver Burke — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Samir Chergui — Paris FC — player_registry — Player meets priority value/age criteria but was excluded
-- Sander Tangvik — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Dany Mota — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Niels Nkounkou — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Alessio Castro-Montes — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Andrej Kramaric — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Florian Neuhaus — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Giacomo Calò — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Hyun-seok Hong — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Ilario Monterisi — Frosinone Calcio — player_registry — Player meets priority value/age criteria but was excluded
-- Jean-Luc Dompé — Hamburger SV — player_registry — Player meets priority value/age criteria but was excluded
-- Julian Pauli — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Lennard Maloney — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Luka Lochoshvili — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Niklas Stark — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Oliver Baumann — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Robin Zentner — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Samuele Birindelli — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Vladimír Coufal — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Yannick Eduardo — TSG 1899 Hoffenheim — player_registry — Player meets priority value/age criteria but was excluded
-- Ben Bobzien — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Demba Thiam — AC Monza — player_registry — Player meets priority value/age criteria but was excluded
-- Denis Huseinbasic — SC Braga — player_registry — Player meets priority value/age criteria but was excluded
-- Dominik Kohr — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Frederik Rönnow — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Jae-sung Lee — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Janik Haberer — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Josip Juranovic — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Julián Malatini — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Jusuf Gazibegovic — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Luca Waldschmidt — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
-- Marin Ljubicic — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Michy Batshuayi — Eintracht Frankfurt — player_registry — Player meets priority value/age criteria but was excluded
-- Rani Khedira — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Rasmus Carstensen — Aarhus GF — player_registry — Player meets priority value/age criteria but was excluded
-- Robert Skov — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Salim Musah — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Silas Katompa Mvumpa — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Skelly Alvero — SV Werder Bremen — player_registry — Player meets priority value/age criteria but was excluded
-- Sota Kawasaki — 1.FSV Mainz 05 — player_registry — Player meets priority value/age criteria but was excluded
-- Stanley Nsoki — 1.FC Union Berlin — player_registry — Player meets priority value/age criteria but was excluded
-- Tomas Cvancara — Borussia Mönchengladbach — player_registry — Player meets priority value/age criteria but was excluded
-- Youssoupha Niang — 1.FC Köln — player_registry — Player meets priority value/age criteria but was excluded
+Count: 0
 
 ## Stage dropouts
 - raw_import → players_master: 155
-- players_master → player_registry: 329
-- player_registry → rated_global_pool: 218
+- players_master → player_registry: 0
+- player_registry → rated_global_pool: 219
 - rated_global_pool → published_database: 0

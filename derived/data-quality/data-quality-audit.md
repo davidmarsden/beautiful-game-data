@@ -1,0 +1,173 @@
+# TBG Data Quality Audit
+
+Generated: 2026-07-12T19:46:02.488Z
+
+## Summary
+- Healthy clubs: 0/80
+- Review: 80
+- Critical: 0
+- First-team target met: 33/80
+- Development target met: 3/80
+- Review queue: 75
+
+## Tracked prospects
+- Kees Smit: missing
+
+## Clubs needing attention
+- Inter Milan (Serie A) — health 67; 24 total, 21 senior, 3 U21 — 21/25 senior players; 3/15 U21 players; GK: 2/3; DEF: 6/8; ATT: 4/5; 4 ratings differ materially from value benchmark
+- Arsenal FC (Premier League) — health 73; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players; GK: 2/3; DEF: 7/8; 1 ratings differ materially from value benchmark
+- West Ham United (Premier League) — health 73; 25 total, 20 senior, 5 U21 — 20/25 senior players; 5/15 U21 players; GK: 2/3; MID: 6/8; 2 ratings differ materially from value benchmark
+- Everton FC (Premier League) — health 73; 23 total, 19 senior, 4 U21 — 19/25 senior players; 4/15 U21 players; DEF: 7/8; MID: 7/8; 1 ratings differ materially from value benchmark
+- SE Palmeiras (Brasileirão) — health 73; 27 total, 22 senior, 5 U21 — 22/25 senior players; 5/15 U21 players; GK: 2/3; MID: 6/8; 1 ratings differ materially from value benchmark
+- Al-Nassr FC (Saudi Pro League) — health 73; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players; GK: 2/3; MID: 6/8; 2 ratings differ materially from value benchmark
+- Nottingham Forest (Premier League) — health 76; 28 total, 24 senior, 4 U21 — 24/25 senior players; 4/15 U21 players; GK: 2/3; MID: 6/8
+- Fulham FC (Premier League) — health 76; 22 total, 19 senior, 3 U21 — 19/25 senior players; 3/15 U21 players; GK: 2/3; MID: 7/8
+- Real Betis Balompié (LaLiga) — health 76; 25 total, 22 senior, 3 U21 — 22/25 senior players; 3/15 U21 players; DEF: 7/8; MID: 7/8
+- SL Benfica (Liga Portugal) — health 76; 28 total, 24 senior, 4 U21 — 24/25 senior players; 4/15 U21 players; GK: 2/3; DEF: 7/8
+- FC Copenhagen (Superliga) — health 76; 25 total, 18 senior, 7 U21 — 18/25 senior players; 7/15 U21 players; GK: 2/3; MID: 6/8
+- Atlético de Madrid (LaLiga) — health 79; 25 total, 23 senior, 2 U21 — 23/25 senior players; 2/15 U21 players; MID: 6/8; 3 ratings differ materially from value benchmark
+- Olympique Marseille (Ligue 1) — health 79; 25 total, 25 senior, 0 U21 — 0/15 U21 players; GK: 2/3; MID: 7/8; 1 ratings differ materially from value benchmark
+- AS Monaco (Ligue 1) — health 79; 27 total, 20 senior, 7 U21 — 20/25 senior players; 7/15 U21 players; DEF: 7/8; 2 ratings differ materially from value benchmark
+- Newcastle United (Premier League) — health 79; 25 total, 20 senior, 5 U21 — 20/25 senior players; 5/15 U21 players; MID: 6/8; 1 ratings differ materially from value benchmark
+- Crystal Palace (Premier League) — health 79; 29 total, 24 senior, 5 U21 — 24/25 senior players; 5/15 U21 players; MID: 7/8; 1 ratings differ materially from value benchmark
+- Galatasaray (Süper Lig) — health 79; 29 total, 22 senior, 7 U21 — 22/25 senior players; 7/15 U21 players; MID: 7/8; 4 ratings differ materially from value benchmark
+- Al-Hilal SFC (Saudi Pro League) — health 79; 28 total, 24 senior, 4 U21 — 24/25 senior players; 4/15 U21 players; MID: 6/8; 2 ratings differ materially from value benchmark
+- Chelsea FC (Premier League) — health 82; 36 total, 24 senior, 12 U21 — 24/25 senior players; 12/15 U21 players; MID: 6/8
+- Borussia Dortmund (Bundesliga) — health 82; 30 total, 19 senior, 11 U21 — 19/25 senior players; 11/15 U21 players; MID: 7/8
+- AS Roma (Serie A) — health 82; 26 total, 19 senior, 7 U21 — 19/25 senior players; 7/15 U21 players; MID: 5/8
+- LOSC Lille (Ligue 1) — health 82; 29 total, 17 senior, 12 U21 — 17/25 senior players; 12/15 U21 players; MID: 6/8
+- Stade Rennais FC (Ligue 1) — health 82; 32 total, 22 senior, 10 U21 — 22/25 senior players; 10/15 U21 players; GK: 2/3
+- RC Lens (Ligue 1) — health 82; 28 total, 18 senior, 10 U21 — 18/25 senior players; 10/15 U21 players; MID: 5/8
+- Leeds United (Premier League) — health 82; 27 total, 26 senior, 1 U21 — 1/15 U21 players; GK: 1/3; MID: 7/8
+- Villarreal CF (LaLiga) — health 82; 26 total, 23 senior, 3 U21 — 23/25 senior players; 3/15 U21 players; MID: 4/8
+- Sevilla FC (LaLiga) — health 82; 27 total, 26 senior, 1 U21 — 1/15 U21 players; GK: 1/3; MID: 6/8
+- Club Brugge KV (Belgian Pro League) — health 82; 26 total, 16 senior, 10 U21 — 16/25 senior players; 10/15 U21 players; GK: 2/3
+- Ajax Amsterdam (Eredivisie) — health 82; 26 total, 17 senior, 9 U21 — 17/25 senior players; 9/15 U21 players; GK: 2/3
+- Celtic FC (Scottish Premiership) — health 82; 29 total, 27 senior, 2 U21 — 2/15 U21 players; GK: 2/3; MID: 7/8
+- Club Nacional (Uruguay Primera División) — health 82; 31 total, 21 senior, 10 U21 — 21/25 senior players; 10/15 U21 players; MID: 7/8
+- Real Madrid (LaLiga) — health 85; 31 total, 24 senior, 7 U21 — 24/25 senior players; 7/15 U21 players; 4 ratings differ materially from value benchmark
+- FC Barcelona (LaLiga) — health 85; 28 total, 17 senior, 11 U21 — 17/25 senior players; 11/15 U21 players; 1 ratings differ materially from value benchmark
+- Liverpool FC (Premier League) — health 85; 29 total, 24 senior, 5 U21 — 24/25 senior players; 5/15 U21 players; 4 ratings differ materially from value benchmark
+- Bayern Munich (Bundesliga) — health 85; 30 total, 24 senior, 6 U21 — 24/25 senior players; 6/15 U21 players; 5 ratings differ materially from value benchmark
+- Paris Saint-Germain (Ligue 1) — health 85; 28 total, 17 senior, 11 U21 — 17/25 senior players; 11/15 U21 players; 2 ratings differ materially from value benchmark
+- Manchester United (Premier League) — health 85; 31 total, 19 senior, 12 U21 — 19/25 senior players; 12/15 U21 players; 2 ratings differ materially from value benchmark
+- AC Milan (Serie A) — health 85; 31 total, 23 senior, 8 U21 — 23/25 senior players; 8/15 U21 players; 4 ratings differ materially from value benchmark
+- Olympique Lyon (Ligue 1) — health 85; 32 total, 20 senior, 12 U21 — 20/25 senior players; 12/15 U21 players; 1 ratings differ materially from value benchmark
+- Brighton & Hove Albion (Premier League) — health 85; 38 total, 24 senior, 14 U21 — 24/25 senior players; 14/15 U21 players; 1 ratings differ materially from value benchmark
+- AFC Bournemouth (Premier League) — health 85; 30 total, 21 senior, 9 U21 — 21/25 senior players; 9/15 U21 players; 1 ratings differ materially from value benchmark
+- Brentford FC (Premier League) — health 85; 32 total, 22 senior, 10 U21 — 22/25 senior players; 10/15 U21 players; 2 ratings differ materially from value benchmark
+- Real Sociedad (LaLiga) — health 85; 28 total, 25 senior, 3 U21 — 3/15 U21 players; GK: 2/3; 1 ratings differ materially from value benchmark
+- FC Porto (Liga Portugal) — health 85; 30 total, 24 senior, 6 U21 — 24/25 senior players; 6/15 U21 players; 1 ratings differ materially from value benchmark
+- Inter Miami CF (MLS) — health 85; 26 total, 19 senior, 7 U21 — 19/25 senior players; 7/15 U21 players; 2 ratings differ materially from value benchmark
+- SS Lazio (Serie A) — health 88; 32 total, 27 senior, 5 U21 — 5/15 U21 players; MID: 6/8
+- Bologna FC 1909 (Serie A) — health 88; 29 total, 25 senior, 4 U21 — 4/15 U21 players; MID: 6/8
+- Valencia CF (LaLiga) — health 88; 27 total, 25 senior, 2 U21 — 2/15 U21 players; GK: 2/3
+- Besiktas JK (Süper Lig) — health 88; 32 total, 23 senior, 9 U21 — 23/25 senior players; 9/15 U21 players
+- PSV Eindhoven (Eredivisie) — health 88; 27 total, 18 senior, 9 U21 — 18/25 senior players; 9/15 U21 players
+- Feyenoord Rotterdam (Eredivisie) — health 88; 35 total, 29 senior, 6 U21 — 6/15 U21 players; GK: 2/3
+- Sporting CP (Liga Portugal) — health 88; 31 total, 26 senior, 5 U21 — 5/15 U21 players; GK: 2/3
+- Rangers FC (Scottish Premiership) — health 88; 28 total, 27 senior, 1 U21 — 1/15 U21 players; GK: 2/3
+- Red Bull Salzburg (Austrian Bundesliga) — health 88; 39 total, 18 senior, 21 U21 — 18/25 senior players; GK: 2/3
+- Boca Juniors (Argentina Primera División) — health 88; 34 total, 29 senior, 5 U21 — 5/15 U21 players; GK: 2/3
+- Fluminense FC (Brasileirão) — health 88; 31 total, 29 senior, 2 U21 — 2/15 U21 players; GK: 2/3
+- Atlético Mineiro (Brasileirão) — health 88; 30 total, 24 senior, 6 U21 — 24/25 senior players; 6/15 U21 players
+- SC Internacional (Brasileirão) — health 88; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players
+- Manchester City (Premier League) — health 91; 32 total, 25 senior, 7 U21 — 7/15 U21 players; 3 ratings differ materially from value benchmark
+- Juventus FC (Serie A) — health 91; 29 total, 26 senior, 3 U21 — 3/15 U21 players; 1 ratings differ materially from value benchmark
+- Tottenham Hotspur (Premier League) — health 91; 38 total, 27 senior, 11 U21 — 11/15 U21 players; 1 ratings differ materially from value benchmark
+- SSC Napoli (Serie A) — health 91; 41 total, 37 senior, 4 U21 — 4/15 U21 players; 2 ratings differ materially from value benchmark
+- Aston Villa (Premier League) — health 91; 29 total, 26 senior, 3 U21 — 3/15 U21 players; 3 ratings differ materially from value benchmark
+- Athletic Bilbao (LaLiga) — health 91; 33 total, 31 senior, 2 U21 — 2/15 U21 players; 1 ratings differ materially from value benchmark
+- Fenerbahce (Süper Lig) — health 91; 39 total, 32 senior, 7 U21 — 7/15 U21 players; 5 ratings differ materially from value benchmark
+- Trabzonspor (Süper Lig) — health 91; 34 total, 25 senior, 9 U21 — 9/15 U21 players; 1 ratings differ materially from value benchmark
+- Shakhtar Donetsk (Ukrainian Premier League) — health 91; 40 total, 31 senior, 9 U21 — 9/15 U21 players; 1 ratings differ materially from value benchmark
+- CR Flamengo (Brasileirão) — health 91; 27 total, 25 senior, 2 U21 — 2/15 U21 players; 1 ratings differ materially from value benchmark
+- Bayer 04 Leverkusen (Bundesliga) — health 94; 35 total, 20 senior, 15 U21 — 20/25 senior players
+- RB Leipzig (Bundesliga) — health 94; 32 total, 17 senior, 15 U21 — 17/25 senior players
+- Atalanta BC (Serie A) — health 94; 30 total, 29 senior, 1 U21 — 1/15 U21 players
+- ACF Fiorentina (Serie A) — health 94; 39 total, 26 senior, 13 U21 — 13/15 U21 players
+- Wolverhampton Wanderers (Premier League) — health 94; 31 total, 27 senior, 4 U21 — 4/15 U21 players
+- Dynamo Kyiv (Ukrainian Premier League) — health 94; 43 total, 29 senior, 14 U21 — 14/15 U21 players
+- Olympiacos Piraeus (Super League Greece) — health 94; 33 total, 27 senior, 6 U21 — 6/15 U21 players
+- Panathinaikos (Super League Greece) — health 94; 35 total, 29 senior, 6 U21 — 6/15 U21 players
+- River Plate (Argentina Primera División) — health 94; 35 total, 27 senior, 8 U21 — 8/15 U21 players
+- Corinthians (Brasileirão) — health 94; 32 total, 27 senior, 5 U21 — 5/15 U21 players
+- Santos FC (Brasileirão) — health 94; 33 total, 27 senior, 6 U21 — 6/15 U21 players
+- Al Ahly SC (Egyptian Premier League) — health 94; 36 total, 34 senior, 2 U21 — 2/15 U21 players
+
+## Highest-priority review items
+- [medium] Real Madrid: Kylian Mbappé (27) — rating_sanity — €180m — TBG 99
+- [medium] Bayern Munich: Harry Kane (32) — rating_sanity — €60m — TBG 96
+- [medium] Manchester City: Rodrigo Hernández Cascante (30) — rating_sanity — €50m — TBG 96
+- [medium] FC Barcelona: Frenkie de Jong (29) — rating_sanity — €35m — TBG 93
+- [medium] Bayern Munich: Joshua Kimmich (31) — rating_sanity — €35m — TBG 94
+- [medium] Manchester United: Bruno Fernandes (31) — rating_sanity — €35m — TBG 94
+- [medium] Bayern Munich: Jonathan Tah (30) — rating_sanity — €28m — TBG 92
+- [medium] Paris Saint-Germain: Marcos Aoás Corrêa (32) — rating_sanity — €28m — TBG 94
+- [medium] Al-Nassr FC: João Félix (26) — rating_sanity — €28m — TBG 91
+- [medium] Real Madrid: Denzel Dumfries (30) — rating_sanity — €25m — TBG 91
+- [medium] Arsenal FC: Mikel Merino (30) — rating_sanity — €25m — TBG 92
+- [medium] Manchester United: Mason Mount (27) — rating_sanity — €25m — TBG 91
+- [medium] AC Milan: Christopher Nkunku (28) — rating_sanity — €25m — TBG 91
+- [medium] AS Monaco: Denis Zakaria (29) — rating_sanity — €25m — TBG 91
+- [medium] Aston Villa: Ollie Watkins (30) — rating_sanity — €25m — TBG 91
+- [medium] Real Sociedad: Mikel Oyarzabal (29) — rating_sanity — €25m — TBG 91
+- [medium] Al-Hilal SFC: Rúben Neves (29) — rating_sanity — €25m — TBG 91
+- [medium] Real Madrid: Bernardo Silva (31) — rating_sanity — €22m — TBG 94
+- [medium] Crystal Palace: Daniel Muñoz (30) — rating_sanity — €22m — TBG 91
+- [medium] Athletic Bilbao: Unai Simón (29) — rating_sanity — €22m — TBG 91
+- [medium] Manchester City: Jack Grealish (30) — rating_sanity — €20m — TBG 92
+- [medium] Bayern Munich: Min-jae Kim (29) — rating_sanity — €20m — TBG 91
+- [medium] AC Milan: Mike Maignan (31) — rating_sanity — €20m — TBG 92
+- [medium] Atlético de Madrid: Marcos Llorente (31) — rating_sanity — €20m — TBG 92
+- [medium] Atlético de Madrid: Alejandro Grimaldo (30) — rating_sanity — €20m — TBG 91
+- [medium] Tottenham Hotspur: Rodrigo Bentancur (29) — rating_sanity — €20m — TBG 91
+- [medium] Galatasaray: Leroy Sané (30) — rating_sanity — €20m — TBG 92
+- [medium] Bayern Munich: Serge Gnabry (30) — rating_sanity — €18m — TBG 91
+- [medium] Paris Saint-Germain: Lucas Hernández (30) — rating_sanity — €18m — TBG 91
+- [medium] AC Milan: Adrien Rabiot (31) — rating_sanity — €18m — TBG 91
+- [medium] Brighton & Hove Albion: Zadok Yohanna (19) — rating_sanity — €18m — TBG 82
+- [medium] Inter Milan: Manuel Akanji (30) — rating_sanity — €17m — TBG 91
+- [medium] Inter Milan: Hakan Çalhanoğlu (32) — rating_sanity — €16m — TBG 92
+- [medium] Galatasaray: Davinson Sánchez (30) — rating_sanity — €16m — TBG 91
+- [medium] Real Madrid: Thibaut Courtois (34) — rating_sanity — €15m — TBG 94
+- [medium] Liverpool FC: Virgil van Dijk (35) — rating_sanity — €15m — TBG 94
+- [medium] Liverpool FC: Alisson Ramses Becker (33) — rating_sanity — €15m — TBG 93
+- [medium] Atlético de Madrid: Jan Oblak (33) — rating_sanity — €15m — TBG 93
+- [medium] Olympique Marseille: Pierre-Emile Højbjerg (30) — rating_sanity — €15m — TBG 91
+- [medium] Fenerbahce: Marco Asensio (30) — rating_sanity — €15m — TBG 91
+- [medium] Inter Miami CF: Lionel Messi (39) — rating_sanity — €15m — TBG 96
+- [medium] Juventus FC: Teun Koopmeiners (28) — rating_sanity — €14m — TBG 89
+- [medium] Galatasaray: Roland Sallai (29) — rating_sanity — €14m — TBG 89
+- [medium] CR Flamengo: Giorgian de Arrascaeta (32) — rating_sanity — €14m — TBG 90
+- [medium] SE Palmeiras: Andreas Pereira (30) — rating_sanity — €14m — TBG 89
+- [medium] Inter Miami CF: Rodrigo De Paul (32) — rating_sanity — €14m — TBG 91
+- [medium] Liverpool FC: Federico Chiesa (28) — rating_sanity — €13m — TBG 89
+- [medium] Liverpool FC: Joe Gomez (29) — rating_sanity — €13m — TBG 89
+- [medium] Aston Villa: John McGinn (31) — rating_sanity — €13m — TBG 90
+- [medium] West Ham United: Maximilian Kilman (29) — rating_sanity — €13m — TBG 89
+- [medium] Everton FC: Jordan Pickford (32) — rating_sanity — €13m — TBG 91
+- [medium] Brentford FC: Rico Henry (29) — rating_sanity — €13m — TBG 89
+- [medium] AC Milan: Pervis Estupiñán (28) — rating_sanity — €12m — TBG 89
+- [medium] Inter Milan: Benjamin Pavard (30) — rating_sanity — €12m — TBG 89
+- [medium] AS Monaco: Thilo Kehrer (29) — rating_sanity — €12m — TBG 89
+- [medium] Aston Villa: Emiliano Martínez (33) — rating_sanity — €12m — TBG 91
+- [medium] Newcastle United: Jacob Murphy (31) — rating_sanity — €12m — TBG 89
+- [medium] AFC Bournemouth: David Brooks (29) — rating_sanity — €12m — TBG 89
+- [medium] Fenerbahce: Nathan Aké (31) — rating_sanity — €12m — TBG 90
+- [medium] Shakhtar Donetsk: Mykola Matvienko (30) — rating_sanity — €12m — TBG 90
+- [medium] Al-Hilal SFC: Sergej Milinković-Savić (31) — rating_sanity — €12m — TBG 91
+- [medium] FC Porto: Jan Bednarek (30) — rating_sanity — €11m — TBG 89
+- [medium] Manchester City: Mateo Kovacic (32) — rating_sanity — €10m — TBG 91
+- [medium] Inter Milan: Piotr Zielinski (32) — rating_sanity — €10m — TBG 91
+- [medium] SSC Napoli: Stanislav Lobotka (31) — rating_sanity — €10m — TBG 90
+- [medium] SSC Napoli: Amir Rrahmani (32) — rating_sanity — €10m — TBG 89
+- [medium] Olympique Lyon: Corentin Tolisso (31) — rating_sanity — €10m — TBG 89
+- [medium] West Ham United: Tomáš Souček (31) — rating_sanity — €10m — TBG 90
+- [medium] Brentford FC: Mathias Jensen (30) — rating_sanity — €10m — TBG 89
+- [medium] Fenerbahce: Ederson Santana de Moraes (32) — rating_sanity — €10m — TBG 91
+- [medium] Fenerbahce: Milan Škriniar (31) — rating_sanity — €10m — TBG 90
+- [medium] Fenerbahce: Sofyan Amrabat (29) — rating_sanity — €10m — TBG 89
+- [medium] Galatasaray: Lucas Torreira (30) — rating_sanity — €10m — TBG 89
+- [medium] Trabzonspor: André Onana (30) — rating_sanity — €10m — TBG 89
+- [medium] Al-Nassr FC: Cristiano Ronaldo dos Santos Aveiro (41) — rating_sanity — €10m — TBG 95

@@ -1,0 +1,3315 @@
+{
+  "generated_at": "2026-07-12T19:45:55.976Z",
+  "phase": "before",
+  "inputs": {
+    "master": "data/transfermarkt/players-master.json",
+    "registry": "data/players/player-registry.json",
+    "club_universe": "data/config/tbg-club-universe.json"
+  },
+  "totals": {
+    "master_players": 7000,
+    "registry_players": 6671,
+    "missing_from_registry": 329,
+    "duplicate_master_ids": 0,
+    "duplicate_registry_ids": 0,
+    "canonical_club_ids": 100
+  },
+  "category_counts": {
+    "club_eligibility_candidate": 328,
+    "stale_registry_or_over_aggressive_filter": 1
+  },
+  "duplicate_master_ids": [],
+  "duplicate_registry_ids": [],
+  "missing_players": [
+    {
+      "transfermarkt_id": "340166",
+      "player_name": "Alessio Castro-Montes",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 29,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "795762",
+      "player_name": "Elias Bakatukanda",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 22,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "795724",
+      "player_name": "Emin Kujovic",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 21,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "890532",
+      "player_name": "Fayssal Harchaoui",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 20,
+      "market_value_eur": 200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1118293",
+      "player_name": "Fynn Schenten",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 18,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "464154",
+      "player_name": "Imad Rondic",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 27,
+      "market_value_eur": 750000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "579565",
+      "player_name": "Ísak Jóhannesson",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 23,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "942497",
+      "player_name": "Jahmai Simpson-Pusey",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 20,
+      "market_value_eur": 9000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "472249",
+      "player_name": "Jan Thielmann",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 24,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "322517",
+      "player_name": "Joël Schmied",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 27,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "744558",
+      "player_name": "Julian Pauli",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 20,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "393745",
+      "player_name": "Jusuf Gazibegovic",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 26,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "335103",
+      "player_name": "Linton Maina",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 27,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "196095",
+      "player_name": "Luca Waldschmidt",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 30,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "345189",
+      "player_name": "Luka Lochoshvili",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 28,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1168222",
+      "player_name": "Malek El Mala",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 21,
+      "market_value_eur": 250000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "116088",
+      "player_name": "Marius Bülter",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 33,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "160929",
+      "player_name": "Marvin Schwäbe",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 31,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "227089",
+      "player_name": "Matthias Köbbing",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 29,
+      "market_value_eur": 100000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "416380",
+      "player_name": "Ragnar Ache",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 27,
+      "market_value_eur": 9000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "640556",
+      "player_name": "Rav van den Berg",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 22,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "21327",
+      "player_name": "Ron-Robert Zieler",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 37,
+      "market_value_eur": 500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1168219",
+      "player_name": "Said El Mala",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 19,
+      "market_value_eur": 45000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "592387",
+      "player_name": "Sebastian Sebulonsen",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 26,
+      "market_value_eur": 5500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "236981",
+      "player_name": "Timo Hübers",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 29,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "405687",
+      "player_name": "Tom Krauß",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 25,
+      "market_value_eur": 4500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "944331",
+      "player_name": "Youssoupha Niang",
+      "current_club": "1.FC Köln",
+      "current_club_id": "3",
+      "age": 20,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "692737",
+      "player_name": "Aljoscha Kemlein",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 21,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "454863",
+      "player_name": "András Schäfer",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 27,
+      "market_value_eur": 4500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "583699",
+      "player_name": "Andrej Ilic",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 26,
+      "market_value_eur": 9000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1027870",
+      "player_name": "Andrik Markgraf",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 20,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "161057",
+      "player_name": "Carl Klaus",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 32,
+      "market_value_eur": 350000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "294791",
+      "player_name": "Chris Bedia",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 30,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "75921",
+      "player_name": "Christopher Trimmel",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 39,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "391780",
+      "player_name": "Derrick Köhn",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 27,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1045446",
+      "player_name": "Dmytro Bogdanov",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 19,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "107775",
+      "player_name": "Frederik Rönnow",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 33,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1035765",
+      "player_name": "Ilyas Ansah",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 21,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "177779",
+      "player_name": "Janik Haberer",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 32,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "362977",
+      "player_name": "Josip Juranovic",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 30,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1033581",
+      "player_name": "Julien Friedrich",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 19,
+      "market_value_eur": 125000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "597432",
+      "player_name": "Leopold Querfeld",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 22,
+      "market_value_eur": 20000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1378338",
+      "player_name": "Linus Güther",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 16,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "519872",
+      "player_name": "Livan Burcu",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 21,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "838236",
+      "player_name": "Marin Ljubicic",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 24,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "196231",
+      "player_name": "Marvin Friedrich",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 30,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "386685",
+      "player_name": "Matheo Raab",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 27,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "341317",
+      "player_name": "Oliver Burke",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 29,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "995520",
+      "player_name": "Oluwaseun Ogbemudia",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 19,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "124410",
+      "player_name": "Rani Khedira",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 32,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "270393",
+      "player_name": "Robert Skov",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 30,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "371141",
+      "player_name": "Stanley Nsoki",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 27,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "287920",
+      "player_name": "Tim Skarke",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 29,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "798043",
+      "player_name": "Tom Rothe",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 21,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "297583",
+      "player_name": "Woo-yeong Jeong",
+      "current_club": "1.FC Union Berlin",
+      "current_club_id": "89",
+      "age": 26,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "370683",
+      "player_name": "Andreas Hanche-Olsen",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 29,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "453016",
+      "player_name": "Anthony Caci",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 29,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "658116",
+      "player_name": "Ben Bobzien",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 23,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "453870",
+      "player_name": "Benedict Hollerbach",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 25,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "85906",
+      "player_name": "Danny da Costa",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 32,
+      "market_value_eur": 1200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "118847",
+      "player_name": "Dominik Kohr",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 32,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "597000",
+      "player_name": "Eric Martel",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 24,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "594731",
+      "player_name": "Fabio Gruber",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 23,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "562948",
+      "player_name": "Hyun-seok Hong",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 27,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "314398",
+      "player_name": "Jae-sung Lee",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 33,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1073748",
+      "player_name": "Kacper Potulski",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 18,
+      "market_value_eur": 18000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "643574",
+      "player_name": "Kaishu Sano",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 25,
+      "market_value_eur": 40000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "392710",
+      "player_name": "Lennard Maloney",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 26,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "279009",
+      "player_name": "Marco Richter",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 28,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "934317",
+      "player_name": "Maxim Dal",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 20,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "817521",
+      "player_name": "Maximilian Kinzig",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 22,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "232454",
+      "player_name": "Nadiem Amiri",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 29,
+      "market_value_eur": 17000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "796213",
+      "player_name": "Nelson Weiper",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 21,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "901877",
+      "player_name": "Otto Ruoppi",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 20,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "503160",
+      "player_name": "Paul Nebel",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 23,
+      "market_value_eur": 18000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "288340",
+      "player_name": "Phillip Tietz",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 29,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "127573",
+      "player_name": "Phillipp Mwene",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 32,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "470038",
+      "player_name": "Ransford Königsdörffer",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 24,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "160963",
+      "player_name": "Robin Zentner",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 31,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "612826",
+      "player_name": "Silas Katompa Mvumpa",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 27,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "168989",
+      "player_name": "Silvan Widmer",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 33,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "733371",
+      "player_name": "Sota Kawasaki",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 24,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "82350",
+      "player_name": "Stefan Bell",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 34,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "610400",
+      "player_name": "William Bøving",
+      "current_club": "1.FSV Mainz 05",
+      "current_club_id": "39",
+      "age": 23,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "542697",
+      "player_name": "Rasmus Carstensen",
+      "current_club": "Aarhus GF",
+      "current_club_id": "678",
+      "age": 25,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1010150",
+      "player_name": "Adam Bakoune",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 20,
+      "market_value_eur": 1200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "898356",
+      "player_name": "Alessandro Berretta",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 20,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1009618",
+      "player_name": "Aljaz Strajnar",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 18,
+      "market_value_eur": 200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "481834",
+      "player_name": "Andrea Carboni",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 25,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "392959",
+      "player_name": "Andrea Colpani",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 27,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "199258",
+      "player_name": "Andrea Petagna",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 31,
+      "market_value_eur": 700000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "381706",
+      "player_name": "Arvid Brorsson",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 27,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "347253",
+      "player_name": "Dany Mota",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 28,
+      "market_value_eur": 2800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "435406",
+      "player_name": "Demba Thiam",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 28,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "393904",
+      "player_name": "Filippo Delli Carri",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 27,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "238752",
+      "player_name": "Keita Baldé",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 31,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "724069",
+      "player_name": "Kevin Martins",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 21,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "891869",
+      "player_name": "Leonardo Colombo",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 21,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "312341",
+      "player_name": "Luca Ravanelli",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 29,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1143375",
+      "player_name": "Manga Michel Quentin Foe Ondoa",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 20,
+      "market_value_eur": 750000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "332179",
+      "player_name": "Matteo Pessina",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 29,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "524428",
+      "player_name": "Nicolas Galazzi",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 25,
+      "market_value_eur": 750000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "670845",
+      "player_name": "Omari Forson",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 21,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "255838",
+      "player_name": "Patrick Ciurria",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 31,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "101213",
+      "player_name": "Pedro Obiang",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 34,
+      "market_value_eur": 350000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "461019",
+      "player_name": "Samuele Birindelli",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 26,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1049862",
+      "player_name": "Samuele Capolupo",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 20,
+      "market_value_eur": 250000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "537171",
+      "player_name": "Semuel Pizzignacco",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 24,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1144614",
+      "player_name": "Solomon Loubao",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 20,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "227347",
+      "player_name": "Valentin Antov",
+      "current_club": "AC Monza",
+      "current_club_id": "2919",
+      "age": 25,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "170506",
+      "player_name": "Julien Lopez",
+      "current_club": "AS Cannes",
+      "current_club_id": "895",
+      "age": 34,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "90317",
+      "player_name": "Daniel Batz",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 35,
+      "market_value_eur": 350000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "604358",
+      "player_name": "David Herold",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 23,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "383362",
+      "player_name": "Enzo Leopold",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 25,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "724104",
+      "player_name": "Fabio Chiarodia",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 21,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "278332",
+      "player_name": "Florian Neuhaus",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 29,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "229006",
+      "player_name": "Franck Honorat",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 29,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "504215",
+      "player_name": "Giovanni Reyna",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 23,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "574201",
+      "player_name": "Grant-Leon Ranos",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 22,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "667251",
+      "player_name": "Hugo Bolin",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 22,
+      "market_value_eur": 6000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "322073",
+      "player_name": "Isac Lidberg",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 27,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1118874",
+      "player_name": "Jan Leszczyński",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 19,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "455922",
+      "player_name": "Jan Olschowsky",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 24,
+      "market_value_eur": 450000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "613192",
+      "player_name": "Jens Castrop",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 22,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "504153",
+      "player_name": "Joe Scally",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 23,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "335209",
+      "player_name": "Kevin Diks",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 29,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "106872",
+      "player_name": "Kevin Stöger",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 32,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "787151",
+      "player_name": "Lukas Ullrich",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 22,
+      "market_value_eur": 6000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "284270",
+      "player_name": "Moritz Nicolas",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 28,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "629588",
+      "player_name": "Nathan Ngoumou",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 26,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "192635",
+      "player_name": "Nico Elvedi",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 29,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "388409",
+      "player_name": "Philipp Sander",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 28,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "284010",
+      "player_name": "Robin Hack",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 27,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "550580",
+      "player_name": "Shuto Machino",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 26,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "193033",
+      "player_name": "Tim Kleindienst",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 30,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "31653",
+      "player_name": "Tobias Sippel",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 38,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "544148",
+      "player_name": "Tomas Cvancara",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 25,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1070979",
+      "player_name": "Wael Mohya",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 17,
+      "market_value_eur": 17000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "957526",
+      "player_name": "Zento Uno",
+      "current_club": "Borussia Mönchengladbach",
+      "current_club_id": "18",
+      "age": 22,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "542588",
+      "player_name": "Alessandro Sorrentino",
+      "current_club": "Calcio Padova",
+      "current_club_id": "3037",
+      "age": 24,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "429874",
+      "player_name": "Ansgar Knauff",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 24,
+      "market_value_eur": 15000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "368891",
+      "player_name": "Arthur Theate",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 26,
+      "market_value_eur": 17000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "635645",
+      "player_name": "Aurèle Amenda",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 22,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "799993",
+      "player_name": "Ayoube Amaimouni-Echghouyab",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 21,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "816585",
+      "player_name": "Can Uzun",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 20,
+      "market_value_eur": 45000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "744857",
+      "player_name": "Elias Baum",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 20,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "290587",
+      "player_name": "Ellyes Skhiri",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 31,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "659542",
+      "player_name": "Elye Wahi",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 23,
+      "market_value_eur": 18000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "855015",
+      "player_name": "Farès Chaïbi",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 23,
+      "market_value_eur": 15000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "931838",
+      "player_name": "Hugo Larsson",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 22,
+      "market_value_eur": 28000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "939964",
+      "player_name": "Jean-Mattéo Bahoya",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 21,
+      "market_value_eur": 25000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "40034",
+      "player_name": "Jens Grahl",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 37,
+      "market_value_eur": 200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "448177",
+      "player_name": "Jessic Ngankam",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 25,
+      "market_value_eur": 700000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "333647",
+      "player_name": "Jonathan Burkardt",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 26,
+      "market_value_eur": 30000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "536482",
+      "player_name": "Junior Dina Ebimbe",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 25,
+      "market_value_eur": 6000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "997861",
+      "player_name": "Kauã Santos",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 23,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1146988",
+      "player_name": "Keita Kosugi",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 20,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1184986",
+      "player_name": "Love Arrhov",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 18,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "74842",
+      "player_name": "Mario Götze",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 34,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "196813",
+      "player_name": "Michael Zetterer",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 31,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "179184",
+      "player_name": "Michy Batshuayi",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 32,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "591193",
+      "player_name": "Niels Nkounkou",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 25,
+      "market_value_eur": 2600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "684315",
+      "player_name": "Nnamdi Collins",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 22,
+      "market_value_eur": 20000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "675535",
+      "player_name": "Noel Futkeu",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 23,
+      "market_value_eur": 7500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "846310",
+      "player_name": "Oscar Højlund",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 21,
+      "market_value_eur": 15000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "358504",
+      "player_name": "Ritsu Doan",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 28,
+      "market_value_eur": 17000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "328784",
+      "player_name": "Robin Koch",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 29,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "726120",
+      "player_name": "Simon Simoni",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 21,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "49723",
+      "player_name": "Timothy Chandler",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 36,
+      "market_value_eur": 350000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "692368",
+      "player_name": "Younes Ebnoutalib",
+      "current_club": "Eintracht Frankfurt",
+      "current_club_id": "24",
+      "age": 22,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "199927",
+      "player_name": "Davide Biraschi",
+      "current_club": "Fatih Karagümrük",
+      "current_club_id": "6646",
+      "age": 32,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "247915",
+      "player_name": "Jonas Omlin",
+      "current_club": "FC Basel 1893",
+      "current_club_id": "26",
+      "age": 32,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "93844",
+      "player_name": "Leonardo Bittencourt",
+      "current_club": "FC Energie Cottbus",
+      "current_club_id": "25",
+      "age": 32,
+      "market_value_eur": 900000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "369684",
+      "player_name": "Rasmus Nissen Kristensen",
+      "current_club": "FC Midtjylland",
+      "current_club_id": "865",
+      "age": 29,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "490609",
+      "player_name": "Lasse Rieß",
+      "current_club": "Fortuna Düsseldorf",
+      "current_club_id": "38",
+      "age": 24,
+      "market_value_eur": 500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1225943",
+      "player_name": "Abdoulie Ndow",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 21,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "804812",
+      "player_name": "Anthony Oyono",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 25,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "740517",
+      "player_name": "Eldin Lolic",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 22,
+      "market_value_eur": 50000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "888738",
+      "player_name": "Farès Ghedjemis",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 23,
+      "market_value_eur": 7500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1049596",
+      "player_name": "Filippo Grosso",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 19,
+      "market_value_eur": 500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "337811",
+      "player_name": "Francesco Gelli",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 29,
+      "market_value_eur": 500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "571600",
+      "player_name": "Gabriele Bracaglia",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 22,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "301235",
+      "player_name": "Giacomo Calò",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 29,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "412758",
+      "player_name": "Giorgi Kvernadze",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 23,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "550116",
+      "player_name": "Ilario Monterisi",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 24,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "534161",
+      "player_name": "Ilias Koutsoupias",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 25,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "534081",
+      "player_name": "Jacopo Gelli",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 25,
+      "market_value_eur": 750000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "917376",
+      "player_name": "Jérémy Oyono",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 25,
+      "market_value_eur": 250000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1051737",
+      "player_name": "Kevin Barcella",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 20,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "820636",
+      "player_name": "Lorenzo Gori",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 22,
+      "market_value_eur": 200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "705355",
+      "player_name": "Lorenzo Palmisani",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 22,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "927905",
+      "player_name": "Matteo Cichella",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 20,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "444662",
+      "player_name": "Niccolò Corrado",
+      "current_club": "Frosinone Calcio",
+      "current_club_id": "8970",
+      "age": 26,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "381967",
+      "player_name": "Albert Sambi Lokonga",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 26,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1213681",
+      "player_name": "Alexander Røssing-Lelesiit",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 19,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "415194",
+      "player_name": "Bakery Jatta",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 28,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "529895",
+      "player_name": "Daniel Elfadli",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 29,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "84993",
+      "player_name": "Daniel Heuer Fernandes",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 33,
+      "market_value_eur": 1200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "403177",
+      "player_name": "Emir Sahiti",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 27,
+      "market_value_eur": 1700000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "910541",
+      "player_name": "Fábio Baldé",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 20,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1048715",
+      "player_name": "Fernando Dickes",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 18,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "412935",
+      "player_name": "Immanuel Pherai",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 25,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "291222",
+      "player_name": "Jean-Luc Dompé",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 30,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "815838",
+      "player_name": "Joel Agyekum",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 21,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "227110",
+      "player_name": "Jordan Torunarigha",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 28,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "814950",
+      "player_name": "Kofi Amoako",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 21,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "298603",
+      "player_name": "Miro Muheim",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 28,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "592534",
+      "player_name": "Nicolai Remberg",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 26,
+      "market_value_eur": 9000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "649672",
+      "player_name": "Nicolás Capaldo",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 27,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1058520",
+      "player_name": "Otto Stange",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 19,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "694507",
+      "player_name": "Rayan Philippe",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 25,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "549378",
+      "player_name": "Sander Tangvik",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 23,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1125079",
+      "player_name": "Shafiq Nandja",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 19,
+      "market_value_eur": 500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "711996",
+      "player_name": "Warmed Omari",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 26,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "157635",
+      "player_name": "Yussuf Poulsen",
+      "current_club": "Hamburger SV",
+      "current_club_id": "41",
+      "age": 32,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1294853",
+      "player_name": "Louis Lemke",
+      "current_club": "Hamburger SV II",
+      "current_club_id": "389",
+      "age": 16,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1073997",
+      "player_name": "Shio Fukuda",
+      "current_club": "Karlsruher SC",
+      "current_club_id": "48",
+      "age": 22,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "297645",
+      "player_name": "Riccardo Marchizza",
+      "current_club": "LR Vicenza",
+      "current_club_id": "2655",
+      "age": 28,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "310527",
+      "player_name": "Paulo Azzi",
+      "current_club": "Modena FC",
+      "current_club_id": "1385",
+      "age": 31,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "181768",
+      "player_name": "Hernani Azevedo Júnior",
+      "current_club": "Palermo FC",
+      "current_club_id": "458",
+      "age": 32,
+      "market_value_eur": 1200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "973949",
+      "player_name": "Adama Camara",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 29,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "435492",
+      "player_name": "Alimami Gory",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 29,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "105521",
+      "player_name": "Ciro Immobile",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 36,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "739769",
+      "player_name": "Ilan Kebbal",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 28,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "358515",
+      "player_name": "Jean-Philippe Krasso",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 28,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "324690",
+      "player_name": "Jonathan Ikoné",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 28,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "45672",
+      "player_name": "Kevin Trapp",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 36,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "830265",
+      "player_name": "Lohann Doucet",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 23,
+      "market_value_eur": 500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "399383",
+      "player_name": "Mathieu Cafaro",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 29,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "536506",
+      "player_name": "Mathys Tourraine",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 25,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "290862",
+      "player_name": "Maxime Lopez",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 28,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "274862",
+      "player_name": "Moses Simon",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 31,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "649026",
+      "player_name": "Moustapha Mbow",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 26,
+      "market_value_eur": 9000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "955281",
+      "player_name": "Nhoa Sangui",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 20,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "750878",
+      "player_name": "Obed Nkambadio",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 23,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1132426",
+      "player_name": "Omar Sissoko",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 19,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "818495",
+      "player_name": "Otávio Ataíde da Silva",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 24,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1363293",
+      "player_name": "Patrick Zabi",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 19,
+      "market_value_eur": 20000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "377393",
+      "player_name": "Pierre Lees-Melou",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 33,
+      "market_value_eur": 4500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1241211",
+      "player_name": "Rudy Matondo",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 18,
+      "market_value_eur": 20000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "668167",
+      "player_name": "Samir Chergui",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 27,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "340177",
+      "player_name": "Thibault De Smet",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 28,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "433887",
+      "player_name": "Tuomas Ollila",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 26,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "374040",
+      "player_name": "Vincent Marchetti",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 29,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "463620",
+      "player_name": "Willem Geubbels",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 24,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "914539",
+      "player_name": "Yoan Koré",
+      "current_club": "Paris FC",
+      "current_club_id": "10004",
+      "age": 21,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1074523",
+      "player_name": "Wesley Adeh",
+      "current_club": "Preußen Münster",
+      "current_club_id": "91",
+      "age": 19,
+      "market_value_eur": 250000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1052420",
+      "player_name": "Aboubaka Soumahoro",
+      "current_club": "RCD Mallorca",
+      "current_club_id": "237",
+      "age": 21,
+      "market_value_eur": 1200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "203123",
+      "player_name": "Haris Tabakovic",
+      "current_club": "Red Bull Salzburg",
+      "current_club_id": "409",
+      "age": 32,
+      "market_value_eur": 3500000,
+      "category": "stale_registry_or_over_aggressive_filter",
+      "reason": "Player has a valid unique Transfermarkt ID and no detected identity or club-universe conflict; the registry is probably stale or was built from an older master file."
+    },
+    {
+      "transfermarkt_id": "678479",
+      "player_name": "Denis Huseinbasic",
+      "current_club": "SC Braga",
+      "current_club_id": "1075",
+      "age": 25,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "334221",
+      "player_name": "Amos Pieper",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 28,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "243856",
+      "player_name": "Cedric Itten",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 29,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "826795",
+      "player_name": "Dariusz Stalmach",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 20,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "208167",
+      "player_name": "Dawid Kownacki",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 29,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "393512",
+      "player_name": "Felix Agu",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 26,
+      "market_value_eur": 4500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "926763",
+      "player_name": "Iván San José Cantalejo",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 22,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "289835",
+      "player_name": "Jens Stage",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 29,
+      "market_value_eur": 14000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "830108",
+      "player_name": "Julián Malatini",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 25,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "596153",
+      "player_name": "Justin Njinmah",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 25,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1084638",
+      "player_name": "Karim Coulibaly",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 19,
+      "market_value_eur": 28000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "701757",
+      "player_name": "Keke Topp",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 22,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1078750",
+      "player_name": "Luca Höcker",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 19,
+      "market_value_eur": 125000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "156990",
+      "player_name": "Marco Friedl",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 28,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "391766",
+      "player_name": "Marco Grüll",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 28,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "99451",
+      "player_name": "Markus Kolke",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 35,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1045986",
+      "player_name": "Mick Schmetgens",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 18,
+      "market_value_eur": 700000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "119211",
+      "player_name": "Mitchell Weiser",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 32,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "162434",
+      "player_name": "Niklas Stark",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 31,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "621802",
+      "player_name": "Olivier Deman",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 26,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "821350",
+      "player_name": "Oskar Wójcik",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 22,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1114155",
+      "player_name": "Patrice Covic",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 19,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "346853",
+      "player_name": "Romano Schmid",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 26,
+      "market_value_eur": 15000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1042472",
+      "player_name": "Salim Musah",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 20,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "654991",
+      "player_name": "Samuel Mbangula",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 22,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "338668",
+      "player_name": "Senne Lynen",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 27,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "855134",
+      "player_name": "Skelly Alvero",
+      "current_club": "SV Werder Bremen",
+      "current_club_id": "86",
+      "age": 24,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1025989",
+      "player_name": "Stefan Smarkalev",
+      "current_club": "SV Werder Bremen II",
+      "current_club_id": "87",
+      "age": 19,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "552057",
+      "player_name": "Adam Hlozek",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 23,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "579459",
+      "player_name": "Albian Hajdari",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 23,
+      "market_value_eur": 25000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "987770",
+      "player_name": "Alessandro Vogt",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 21,
+      "market_value_eur": 8000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "434116",
+      "player_name": "Alexander Prass",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 25,
+      "market_value_eur": 9000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "46580",
+      "player_name": "Andrej Kramaric",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 35,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "875332",
+      "player_name": "Arthur Chaves",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 25,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "574193",
+      "player_name": "Bambasé Conté",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 23,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "364258",
+      "player_name": "Bernardo Fernandes da Silva Junior",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 31,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1047136",
+      "player_name": "Cajetan Lenz",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 20,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1108022",
+      "player_name": "Deniz Zeitler",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 19,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "251309",
+      "player_name": "Dennis Geiger",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 28,
+      "market_value_eur": 1000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "618898",
+      "player_name": "Erencan Yardımcı",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 24,
+      "market_value_eur": 1800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "524290",
+      "player_name": "Fisnik Asllani",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 23,
+      "market_value_eur": 35000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1018259",
+      "player_name": "Gift Orban",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 23,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "829838",
+      "player_name": "Hennes Behrens",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 21,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "415035",
+      "player_name": "Koki Machida",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 28,
+      "market_value_eur": 6000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "667457",
+      "player_name": "Leon Avdullahu",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 22,
+      "market_value_eur": 30000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "432671",
+      "player_name": "Luca Philipp",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 25,
+      "market_value_eur": 750000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1116191",
+      "player_name": "Luis Engelns",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 19,
+      "market_value_eur": 4000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "718460",
+      "player_name": "Lúkas Petersson",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 22,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "983677",
+      "player_name": "Mats Rots",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 20,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "923595",
+      "player_name": "Max Moerstedt",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 20,
+      "market_value_eur": 7000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "789898",
+      "player_name": "Muhammed Damar",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 22,
+      "market_value_eur": 5000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "1075143",
+      "player_name": "Natnael Abraha",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 18,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "55089",
+      "player_name": "Oliver Baumann",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 36,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "361260",
+      "player_name": "Ozan Kabak",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 26,
+      "market_value_eur": 15000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "533295",
+      "player_name": "Patrick Wimmer",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 25,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "620217",
+      "player_name": "Robin Hranac",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 26,
+      "market_value_eur": 10000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "907277",
+      "player_name": "Sean Dulic",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 21,
+      "market_value_eur": 1200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "553285",
+      "player_name": "Tim Lemperle",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 24,
+      "market_value_eur": 17000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "569031",
+      "player_name": "Umut Tohumcu",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 21,
+      "market_value_eur": 3500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "569387",
+      "player_name": "Valentin Gendrey",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 26,
+      "market_value_eur": 6000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "157672",
+      "player_name": "Vladimír Coufal",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 33,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "412953",
+      "player_name": "Wouter Burger",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 25,
+      "market_value_eur": 20000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "930998",
+      "player_name": "Yannick Eduardo",
+      "current_club": "TSG 1899 Hoffenheim",
+      "current_club_id": "533",
+      "age": 20,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "745075",
+      "player_name": "David Preu",
+      "current_club": "VfB Stuttgart II",
+      "current_club_id": "102",
+      "age": 21,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "825073",
+      "player_name": "Leon Opitz",
+      "current_club": "VfL Osnabrück",
+      "current_club_id": "81",
+      "age": 21,
+      "market_value_eur": 600000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "196139",
+      "player_name": "Robert Glatzel",
+      "current_club": "VfL Wolfsburg",
+      "current_club_id": "82",
+      "age": 32,
+      "market_value_eur": 1500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "337333",
+      "player_name": "Alex Král",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 28,
+      "market_value_eur": 2500000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "387047",
+      "player_name": "Danilho Doekhi",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 28,
+      "market_value_eur": 13000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "357156",
+      "player_name": "Diogo Leite",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 27,
+      "market_value_eur": 12000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "286293",
+      "player_name": "Edoardo Masciangelo",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 30,
+      "market_value_eur": 250000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "421780",
+      "player_name": "Edoardo Vergani",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 25,
+      "market_value_eur": 250000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "568701",
+      "player_name": "Lamine Gueye",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 28,
+      "market_value_eur": 200000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "191422",
+      "player_name": "Mahmoud Dahoud",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 30,
+      "market_value_eur": 2000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "168444",
+      "player_name": "Matteo Pisseri",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 34,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "334207",
+      "player_name": "Maxim Leitsch",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 28,
+      "market_value_eur": 800000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "215649",
+      "player_name": "Mirko Marić",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 31,
+      "market_value_eur": 400000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "203504",
+      "player_name": "Pierre-Yves Hamel",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 32,
+      "market_value_eur": 300000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "434358",
+      "player_name": "Sofiane Alakouch",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 27,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "84085",
+      "player_name": "Timothée Kolodziejczak",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 34,
+      "market_value_eur": 150000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    },
+    {
+      "transfermarkt_id": "743500",
+      "player_name": "William Mikelbrencis",
+      "current_club": "Without Club",
+      "current_club_id": "515",
+      "age": 22,
+      "market_value_eur": 3000000,
+      "category": "club_eligibility_candidate",
+      "reason": "Player's current club is outside the configured canonical club universe."
+    }
+  ]
+}

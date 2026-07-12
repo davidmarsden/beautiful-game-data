@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-07-12T19:46:03.063Z",
+  "phase": "after",
+  "inputs": {
+    "master": "data/transfermarkt/players-master.json",
+    "registry": "data/players/player-registry.json",
+    "club_universe": "data/config/tbg-club-universe.json"
+  },
+  "totals": {
+    "master_players": 7000,
+    "registry_players": 7000,
+    "missing_from_registry": 0,
+    "duplicate_master_ids": 0,
+    "duplicate_registry_ids": 0,
+    "canonical_club_ids": 100
+  },
+  "category_counts": {},
+  "duplicate_master_ids": [],
+  "duplicate_registry_ids": [],
+  "missing_players": []
+}
