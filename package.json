@@ -29,6 +29,7 @@
     "import:transfermarkt:wide": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-wide-dataset.json --mergeExisting=true",
     "import:transfermarkt:universe": "node scripts/import-transfermarkt-master.js --input=calibration/apify-transfermarkt-universe-dataset.json --mergeExisting=true",
     "import:transfermarkt:targeted": "node scripts/import-transfermarkt-targeted.js",
+    "repair:canonical-league-coverage": "node scripts/repair-canonical-league-coverage.js",
     "apply:player-status-overrides": "node scripts/apply-player-status-overrides.js",
     "apply:player-pool-overrides": "node scripts/apply-player-pool-overrides.js",
     "promote:global-clubs": "node scripts/promote-global-clubs-to-top80.js",
