@@ -9,6 +9,7 @@ on:
       - public/**
       - derived/player-database/player-database.json
       - data/config/tbg-club-universe.json
+      - scripts/promote-global-clubs-to-top80.js
       - .github/workflows/publish-scouting-pages.yml
 
 permissions:
@@ -29,6 +30,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Apply canonical Top 80 club promotions
+        run: node scripts/promote-global-clubs-to-top80.js
 
       - name: Prepare Pink Final data files
         run: |
