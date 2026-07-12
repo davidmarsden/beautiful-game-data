@@ -24,18 +24,25 @@
       <div><span class="label">Richest Nation</span><strong id="topNation">—</strong><p>highest total player value.</p></div>
     </section>
 
-    <section class="lead-story"><div><span class="label">Main Story</span><h2>The numbers desk is open.</h2></div><p>Choose a desk and ranking. Every table is rebuilt from the latest published player database, with links straight through to player profiles.</p></section>
+    <section class="lead-story"><div><span class="label">Main Story</span><h2>The numbers desk is open.</h2></div><p>Choose a desk and ranking. Click a column heading to re-sort, or open a nation, league or club to inspect its players.</p></section>
 
     <section class="rank-controls">
       <label>Desk<select id="deskSelect"><option value="players">Players</option><option value="clubs">Clubs</option><option value="nations">Nations</option><option value="leagues">Leagues</option></select></label>
       <label>Ranking<select id="rankingSelect"></select></label>
-      <label>Rows<select id="rowLimit"><option>25</option><option selected>50</option><option>100</option></select></label>
+      <label id="minimumPlayersLabel" hidden>Minimum players<select id="minimumPlayers"><option value="1">1+</option><option value="5">5+</option><option value="10" selected>10+</option><option value="20">20+</option><option value="50">50+</option><option value="100">100+</option></select></label>
+      <label>Rows<select id="rowLimit"><option>25</option><option selected>50</option><option>100</option><option>250</option></select></label>
       <label class="wide">Search<input id="searchBox" type="search" placeholder="Search the current table" /></label>
     </section>
 
     <section class="ranking-panel">
       <div class="panel-heading"><div><span class="label">Rankings Ledger</span><h2 id="rankingTitle">Highest Rated Players</h2></div><p id="resultCount">Loading…</p></div>
       <div class="table-wrap"><table id="rankingTable"><thead></thead><tbody></tbody></table></div>
+    </section>
+
+    <section id="drilldownPanel" class="ranking-panel drilldown-panel" hidden>
+      <div class="panel-heading"><div><span class="label">Player File</span><h2 id="drilldownTitle">Players</h2></div><button id="closeDrilldown" type="button">Close</button></div>
+      <p id="drilldownSummary"></p>
+      <div class="table-wrap"><table id="drilldownTable"><thead></thead><tbody></tbody></table></div>
     </section>
   </main>
   <footer><p>The Beautiful Game statistics desk. Printed in pink. Argued over forever.</p></footer>
