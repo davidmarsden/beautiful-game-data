@@ -1,12 +1,12 @@
 # TBG Data Quality Audit
 
-Generated: 2026-07-12T20:45:41.165Z
+Generated: 2026-07-12T20:57:22.808Z
 
 ## Summary
 - Healthy clubs: 0/80
 - Review: 80
 - Critical: 0
-- First-team target met: 34/80
+- First-team target met: 35/80
 - Development target met: 3/80
 - Review queue: 75
 
@@ -15,7 +15,6 @@ Generated: 2026-07-12T20:45:41.165Z
 
 ## Clubs needing attention
 - Inter Milan (Serie A) — health 67; 24 total, 21 senior, 3 U21 — 21/25 senior players; 3/15 U21 players; GK: 2/3; DEF: 6/8; ATT: 4/5; 4 ratings differ materially from value benchmark
-- Arsenal FC (Premier League) — health 73; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players; GK: 2/3; DEF: 7/8; 1 ratings differ materially from value benchmark
 - West Ham United (Premier League) — health 73; 25 total, 20 senior, 5 U21 — 20/25 senior players; 5/15 U21 players; GK: 2/3; MID: 6/8; 2 ratings differ materially from value benchmark
 - Everton FC (Premier League) — health 73; 23 total, 19 senior, 4 U21 — 19/25 senior players; 4/15 U21 players; DEF: 7/8; MID: 7/8; 1 ratings differ materially from value benchmark
 - Nottingham Forest (Premier League) — health 76; 28 total, 24 senior, 4 U21 — 24/25 senior players; 4/15 U21 players; GK: 2/3; MID: 6/8
@@ -70,6 +69,7 @@ Generated: 2026-07-12T20:45:41.165Z
 - SC Internacional (Brasileirão) — health 88; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players
 - Club Nacional (Uruguay Primera División) — health 88; 32 total, 22 senior, 10 U21 — 22/25 senior players; 10/15 U21 players
 - Manchester City (Premier League) — health 91; 32 total, 25 senior, 7 U21 — 7/15 U21 players; 3 ratings differ materially from value benchmark
+- Arsenal FC (Premier League) — health 91; 29 total, 25 senior, 4 U21 — 4/15 U21 players; 1 ratings differ materially from value benchmark
 - Juventus FC (Serie A) — health 91; 29 total, 26 senior, 3 U21 — 3/15 U21 players; 1 ratings differ materially from value benchmark
 - Tottenham Hotspur (Premier League) — health 91; 38 total, 27 senior, 11 U21 — 11/15 U21 players; 1 ratings differ materially from value benchmark
 - SSC Napoli (Serie A) — health 91; 41 total, 37 senior, 4 U21 — 4/15 U21 players; 2 ratings differ materially from value benchmark

@@ -1,11 +1,11 @@
 # Canonical League Player Coverage Audit
 
-Generated: 2026-07-12T20:45:40.762Z
+Generated: 2026-07-12T20:57:22.394Z
 Season: 2026-27
 
 Big Five expected: 2797
-Imported: 2731 (97.6%)
-Published: 2731 (97.6%)
+Imported: 2733 (97.7%)
+Published: 2733 (97.7%)
 Clubs: 95 complete, 1 thin, 0 missing
 Metadata errors: 41 false positives, 1 false negatives
 
@@ -37,12 +37,12 @@ Metadata errors: 41 false positives, 1 false negatives
 - Wrongly tagged clubs: Red Bull Salzburg, SK Sturm Graz
 
 ### Premier League
-- Players: 586/593 imported (98.8%), 586 published
+- Players: 588/593 imported (99.2%), 588 published
 - Clubs: 20 complete, 0 thin, 0 missing
-- Ratings: 527 rated 84+, 391 rated 87+, 143 rated 90+
+- Ratings: 528 rated 84+, 392 rated 87+, 143 rated 90+
 - Metadata: 1 players wrongly labelled as league members; 0 canonical players carrying other/stale league metadata
 - Status: strong
-- Club coverage: Fulham FC 22/22 (complete), Everton FC 23/23 (complete), Coventry City 25/25 (complete), Newcastle United 25/25 (complete), Hull City 26/26 (complete), Arsenal FC 27/27 (complete), Ipswich Town 27/27 (complete), Leeds United 28/28 (complete), Nottingham Forest 28/28 (complete), Aston Villa 29/29 (complete), Crystal Palace 29/29 (complete), Liverpool FC 29/29 (complete), AFC Bournemouth 30/30 (complete), Manchester United 31/31 (complete), Sunderland AFC 31/31 (complete), Brentford FC 32/32 (complete), Manchester City 32/32 (complete), Chelsea FC 36/36 (complete), Brighton & Hove Albion 38/38 (complete), Tottenham Hotspur 38/38 (complete)
+- Club coverage: Fulham FC 22/22 (complete), Everton FC 23/23 (complete), Coventry City 25/25 (complete), Newcastle United 25/25 (complete), Hull City 26/26 (complete), Ipswich Town 27/27 (complete), Leeds United 28/28 (complete), Nottingham Forest 28/28 (complete), Arsenal FC 29/29 (complete), Aston Villa 29/29 (complete), Crystal Palace 29/29 (complete), Liverpool FC 29/29 (complete), AFC Bournemouth 30/30 (complete), Manchester United 31/31 (complete), Sunderland AFC 31/31 (complete), Brentford FC 32/32 (complete), Manchester City 32/32 (complete), Chelsea FC 36/36 (complete), Brighton & Hove Albion 38/38 (complete), Tottenham Hotspur 38/38 (complete)
 - Wrongly tagged clubs: FC Noah Yerevan
 
 ### LaLiga

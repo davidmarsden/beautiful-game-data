@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T20:45:41.165Z",
+  "generated_at": "2026-07-12T20:57:22.808Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -44,7 +44,7 @@
     "healthy": 0,
     "review": 80,
     "critical": 0,
-    "first_team_target_met": 34,
+    "first_team_target_met": 35,
     "development_target_met": 3,
     "review_items": 75
   },
@@ -442,15 +442,15 @@
       "club_id": "11",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 27,
-      "published_players": 27,
-      "senior_players": 24,
-      "development_players_u21": 3,
+      "imported_players": 29,
+      "published_players": 29,
+      "senior_players": 25,
+      "development_players_u21": 4,
       "depth": {
-        "MID": 9,
+        "MID": 8,
         "ATT": 9,
-        "DEF": 7,
-        "GK": 2
+        "DEF": 8,
+        "GK": 4
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -464,28 +464,13 @@
           "market_value_eur": 25000000
         }
       ],
-      "health_score": 73,
+      "health_score": 91,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
-          "type": "senior_depth",
-          "detail": "24/25 senior players"
-        },
-        {
-          "severity": "warning",
           "type": "development_depth",
-          "detail": "3/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "GK: 2/3"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "DEF: 7/8"
+          "detail": "4/15 U21 players"
         },
         {
           "severity": "review",

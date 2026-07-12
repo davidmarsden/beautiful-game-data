@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-07-12T20:45:40.762Z",
+  "generated_at": "2026-07-12T20:57:22.394Z",
   "benchmarks_version": "2.0",
   "season": "2026-27",
   "methodology": "canonical_club_membership",
   "totals": {
     "expected_players": 2797,
-    "imported_players": 2731,
-    "published_players": 2731,
-    "estimated_not_imported": 68,
+    "imported_players": 2733,
+    "published_players": 2733,
+    "estimated_not_imported": 66,
     "clubs_complete": 95,
     "clubs_thin": 1,
     "clubs_missing": 0,
     "metadata_false_positive_count": 41,
     "metadata_false_negative_count": 1,
-    "imported_coverage_pct": 97.6,
-    "published_coverage_pct": 97.6
+    "imported_coverage_pct": 97.7,
+    "published_coverage_pct": 97.7
   },
   "leagues": [
     {
@@ -1180,11 +1180,11 @@
       "season": "2026-27",
       "expected_players": 593,
       "expected_clubs": 20,
-      "imported_players": 586,
-      "published_players": 586,
-      "estimated_not_imported": 7,
-      "imported_coverage_pct": 98.8,
-      "published_coverage_pct": 98.8,
+      "imported_players": 588,
+      "published_players": 588,
+      "estimated_not_imported": 5,
+      "imported_coverage_pct": 99.2,
+      "published_coverage_pct": 99.2,
       "clubs_complete": 20,
       "clubs_thin": 0,
       "clubs_missing": 0,
@@ -1245,17 +1245,6 @@
           "status": "complete"
         },
         {
-          "club_id": "11",
-          "club_name": "Arsenal FC",
-          "imported_players": 27,
-          "published_players": 27,
-          "excluded_from_publication": 0,
-          "metadata_mismatch_players": 0,
-          "youngest_age": 16,
-          "total_market_value_eur": 1306000000,
-          "status": "complete"
-        },
-        {
           "club_id": "677",
           "club_name": "Ipswich Town",
           "imported_players": 27,
@@ -1286,6 +1275,17 @@
           "metadata_mismatch_players": 0,
           "youngest_age": 20,
           "total_market_value_eur": 517800000,
+          "status": "complete"
+        },
+        {
+          "club_id": "11",
+          "club_name": "Arsenal FC",
+          "imported_players": 29,
+          "published_players": 29,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 16,
+          "total_market_value_eur": 1314500000,
           "status": "complete"
         },
         {
@@ -1410,15 +1410,15 @@
           "status": "complete"
         }
       ],
-      "under_21": 115,
-      "under_23": 210,
-      "value_1m_plus": 534,
-      "value_5m_plus": 436,
+      "under_21": 116,
+      "under_23": 211,
+      "value_1m_plus": 535,
+      "value_5m_plus": 437,
       "value_20m_plus": 253,
-      "rated_84_plus": 527,
-      "rated_87_plus": 391,
+      "rated_84_plus": 528,
+      "rated_87_plus": 392,
       "rated_90_plus": 143,
-      "total_market_value_eur": 12571450000,
+      "total_market_value_eur": 12579950000,
       "metadata_false_positive_count": 1,
       "metadata_false_negative_count": 0,
       "metadata_false_positives": [
