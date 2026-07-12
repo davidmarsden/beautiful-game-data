@@ -11,6 +11,12 @@ const state = { clubs: [], filtered: [], selectedClubId: null, sort: "weighted_s
 const $ = (id) => document.getElementById(id);
 const num = (value) => Number.isFinite(Number(value)) ? Number(value) : 0;
 const text = (value) => String(value ?? "").trim();
+const normaliseSearch = (value) => text(value)
+  .normalize("NFKD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, " ")
+  .trim();
 
 function money(value) {
   const n = num(value);
@@ -91,14 +97,20 @@ async function loadJson(urls) {
 
 function aggregateClubs(players, universe) {
   const universeById = new Map((universe.clubs || []).map((club) => [String(club.transfermarkt_club_id), club]));
-  const universeByName = new Map((universe.clubs || []).map((club) => [club.name.toLowerCase(), club]));
+  const universeByName = new Map();
+  for (const club of universe.clubs || []) {
+    for (const value of [club.name, ...(club.aliases || [])]) {
+      const key = normaliseSearch(value);
+      if (key) universeByName.set(key, club);
+    }
+  }
   const map = new Map();
   for (const player of players) {
     const clubName = text(player.current_club || player.tbg_club || "Without Club");
     if (!clubName || clubName === "Without Club") continue;
     const tmId = text(player.current_club_id || player.transfermarkt_club_id || player.club_id);
-    const meta = universeById.get(tmId) || universeByName.get(clubName.toLowerCase()) || null;
-    const clubId = text(meta?.transfermarkt_club_id || tmId || clubName.toLowerCase().replace(/[^a-z0-9]+/g, "-"));
+    const meta = universeById.get(tmId) || universeByName.get(normaliseSearch(clubName)) || null;
+    const clubId = text(meta?.transfermarkt_club_id || tmId || normaliseSearch(clubName).replace(/\s+/g, "-"));
     if (!map.has(clubId)) map.set(clubId, { club_id: clubId, club_name: meta?.name || clubName, players: [], meta });
     map.get(clubId).players.push(player);
   }
@@ -161,7 +173,7 @@ function passesView(club) {
 }
 
 function applyFilters() {
-  const query = $("clubSearch").value.toLowerCase();
+  const query = normaliseSearch($("clubSearch").value);
   const division = $("divisionFilter").value;
   const continent = $("continentFilter").value;
   const country = $("countryFilter").value;
@@ -171,7 +183,17 @@ function applyFilters() {
   const [key, direction] = state.sort.split(":");
   const sign = direction === "asc" ? 1 : -1;
   state.filtered = state.clubs.filter(passesView).filter((club) => {
-    const haystack = [club.club_name, club.league, club.country, club.continent, club.division, ...club.squad.map((p) => p.player_name)].join(" ").toLowerCase();
+    const playerNames = club.squad.flatMap((player) => [player.player_name, player.display_name, player.name]);
+    const haystack = normaliseSearch([
+      club.club_name,
+      club.meta?.name,
+      ...(club.meta?.aliases || []),
+      club.league,
+      club.country,
+      club.continent,
+      club.division,
+      ...playerNames
+    ].join(" "));
     return (!query || haystack.includes(query)) && (!division || club.division === division) && (!continent || club.continent === continent) && (!country || club.country === country) && (!league || club.league === league) && (!ratingMin || club.weighted_strength >= ratingMin) && (!valueMin || club.total_value >= valueMin);
   }).sort((a,b) => {
     const av = typeof a[key] === "string" ? a[key] : num(a[key]);
