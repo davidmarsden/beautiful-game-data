@@ -1,5 +1,5 @@
 import { ApifyClient } from "apify-client";
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, readFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import {
   GOLD_STANDARD_RESCUE_PLAYERS,
@@ -46,6 +46,13 @@ function usableDatasetId(value) {
   return text;
 }
 
+async function idsFromFile(path) {
+  if (!path) return [];
+  const raw = JSON.parse(await readFile(path, "utf8"));
+  const values = Array.isArray(raw) ? raw : raw.player_ids || raw.playerIds || [];
+  return values.map((item) => Number(item)).filter((item) => Number.isFinite(item));
+}
+
 const args = parseArgs(process.argv.slice(2));
 
 const token = process.env.APIFY_TOKEN;
@@ -87,7 +94,7 @@ if (datasetId) {
     const defaultCompetitionCodes = scope === "wide" ? TRANSFERMARKT_WIDE_COMPETITION_CODES : ["GB1"];
     const competitionCodes = csvList(args.competitionCodes ?? defaultCompetitionCodes.join(","));
     const clubIds = parseNumberList(args.clubIds);
-    const playerIds = parseNumberList(args.playerIds);
+    const playerIds = mergeUnique(parseNumberList(args.playerIds), await idsFromFile(args.playerIdsFile)).map(Number);
     const searchQueries = mergeUnique(
       csvList(args.searchQueries),
       includeSearchQueries ? GOLD_STANDARD_RESCUE_PLAYERS : []
