@@ -1,6 +1,6 @@
 # TBG Data Quality Audit
 
-Generated: 2026-07-13T21:22:00.481Z
+Generated: 2026-07-13T22:34:19.142Z
 
 ## Summary
 - Healthy clubs: 0/80
@@ -123,7 +123,7 @@ Generated: 2026-07-13T21:22:00.481Z
 - [medium] Atlético de Madrid: Alejandro Grimaldo (30) — rating_sanity — €20m — TBG 91
 - [medium] Tottenham Hotspur: Rodrigo Bentancur (29) — rating_sanity — €20m — TBG 91
 - [medium] Galatasaray: Leroy Sané (30) — rating_sanity — €20m — TBG 92
-- [medium] Bayern Munich: Serge Gnabry (30) — rating_sanity — €18m — TBG 91
+- [medium] Bayern Munich: Serge Gnabry (31) — rating_sanity — €18m — TBG 91
 - [medium] Paris Saint-Germain: Lucas Hernández (30) — rating_sanity — €18m — TBG 91
 - [medium] AC Milan: Adrien Rabiot (31) — rating_sanity — €18m — TBG 91
 - [medium] Brighton & Hove Albion: Zadok Yohanna (19) — rating_sanity — €18m — TBG 82

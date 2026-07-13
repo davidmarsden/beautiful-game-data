@@ -1,77 +1,23 @@
 # Player Change Ledger
 
-Generated: 2026-07-13T21:21:58.349Z
+Generated: 2026-07-13T22:34:16.997Z
 
 - previous players: 8090
-- current players: 8090
+- current players: 8082
 - new players: 0
-- rating increases: 14
-- rating decreases: 1
-- club changes: 46
-- newly unsigned: 1
-- removed players: 0
+- rating increases: 0
+- rating decreases: 0
+- club changes: 0
+- newly unsigned: 0
+- removed players: 8
 
 ## Changes
 
-- Alexandru Maxim: rating change — 86 → 87 (+1)
-- Bertuğ Yıldırım: rating change — 84 → 85 (+1)
-- Glenn Bijl: rating change — 85 → 86 (+1)
-- Han-Noah Massengo: rating change — 85 → 86 (+1)
-- James Rodríguez: rating change — 89 → 90 (+1)
-- Jean-Kévin Duverne: rating change — 85 → 86 (+1)
-- Jeffrey Gouweleeuw: rating change — 87 → 88 (+1)
-- João Palhinha: rating change — 90 → 91 (+1)
-- Loïc Nego: rating change — 87 → 86 (-1)
-- Lucas Höler: rating change — 86 → 87 (+1)
-- Mads Hermansen: rating change — 87 → 88 (+1)
-- Nicolas Hansen: rating change — 83 → 84 (+1)
-- Pablo Sisniega: rating change — 85 → 86 (+1)
-- Philipp Lienhart: rating change — 88 → 89 (+1)
-- Sebastian Tounekti: rating change — 84 → 85 (+1)
-- Alessandro Plizzari: club change — Venezia FC → FC Südtirol
-- Álex Domínguez: club change — Without Club → SD Ponferradina
-- Amin Al-Bukhari: club change — Al-Fateh SC → Without Club
-- Andrian Dimitrov: club change — Chernomorets 1919 Burgas → Dobrudzha
-- Ashley Barnes: club change — Burnley FC → Without Club
-- Axel Tuanzebe: club change — Burnley FC → Without Club
-- Barry Bannan: club change — Millwall FC → Sheffield Wednesday
-- Braian Samudio: club change — Corum FK → Without Club
-- Buluthan Bulut: club change — Alanyaspor → Muglaspor
-- Cenk Tosun: club change — Without Club → Fatih Karagümrük
-- Cieran Slicker: club change — Ipswich Town → Barnsley FC
-- Ekrem Kılıçarslan: club change — Without Club → Muglaspor
-- Emeka Eze: club change — Corum FK → Sariyerspor
-- Emin Bayram: club change — KVC Westerlo → Basaksehir FK
-- Emre Akbaba: club change — Without Club → Fatih Karagümrük
-- Erhan Erentürk: club change — Without Club → Corum FK
-- Giovanni Crociata: club change — Without Club → Igdir FK
-- Glenn Bijl: club change — Royal Antwerp FC → Without Club
-- Henry Bonello: club change — Without Club → Sliema Wanderers
-- Ian Murphy: club change — Colorado Rapids → San Diego FC
-- Isaac Hayden: club change — Without Club → Leyton Orient
-- Joe Lumley: club change — Bristol City → Sheffield Wednesday
-- Joe Walsh: club change — Queens Park Rangers → Wigan Athletic
-- Joseph Attamah: club change — Corum FK → Sariyerspor
-- Josué Chibozo: club change — Amiens SC → SD Ponferradina
-- Kevin Cannavò: club change — Venezia FC → Spezia Calcio
-- Kévin Rodrigues: club change — Without Club → Genclerbirligi Ankara
-- Loïc Nego: club change — Le Havre AC → Omonia Nicosia
-- Loum Tchaouna: club change — Burnley FC → Coventry City
-- Marcos Felipe de Freitas Monteiro: club change — Eyüpspor → Corum FK
-- Martín Rodríguez: club change — Without Club → Erzurumspor FK
-- Mathias Løvik: club change — Trabzonspor → Molde FK
-- Michael Smith: club change — Preston North End → Mansfield Town
-- Paul Bernardoni: club change — Without Club → KF Teuta
-- Quilindschy Hartman: club change — Burnley FC → RCD Espanyol Barcelona
-- Renaud Ripart: club change — Without Club → ESTAC Troyes
-- Ryan Wintle: club change — Without Club → Milton Keynes Dons
-- Salih Sarıkaya: club change — Without Club → Sakaryaspor
-- Shiloh 't Zand: club change — Feyenoord Rotterdam → Feyenoord U21
-- Slobodan Stanojlovic: club change — Royal Charleroi SC → Without Club
-- Sory Kaba: club change — Oud-Heverlee Leuven → Al-Dhafra FC
-- Stefano Minelli: club change — Without Club → Calcio Desenzano
-- Trent Buhagiar: club change — Without Club → Uthai Thani FC
-- Yassine Kechta: club change — Without Club → CD Leganés
-- Yusuf Erdoğan: club change — Corum FK → Without Club
-- Zito Luvumbo: club change — Cagliari Calcio → RCD Mallorca
-- Franco Armani: newly unsigned — River Plate → Unsigned
+- Ben Mee: removed player — removed from current edition
+- César Azpilicueta: removed player — removed from current edition
+- Darlington Nagbe: removed player — removed from current edition
+- Guillaume François: removed player — removed from current edition
+- Iñigo Lekue: removed player — removed from current edition
+- Óscar Trejo: removed player — removed from current edition
+- Samir Lagsir: removed player — removed from current edition
+- Simon Mignolet: removed player — removed from current edition

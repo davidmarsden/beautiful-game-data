@@ -10447,6 +10447,85 @@
     }
   },
   {
+    "tbg_player_id": "tbg-tm-00159471",
+    "transfermarkt_id": "159471",
+    "player_name": "Serge Gnabry",
+    "transfermarkt_name": "Serge Gnabry",
+    "club_name": "Bayern Munich",
+    "current_competition_code": "L1",
+    "position": "Second Striker",
+    "position_group": "ATT",
+    "age": 31,
+    "ability": {
+      "model_version": "tbg-v3-sticky-ability-fluid-form",
+      "philosophy": "Ability is sticky; form, fitness, sharpness, morale, fatigue and tactical fit are fluid match-engine state.",
+      "base_smw_equivalent_raw": 90.96,
+      "base_smw_equivalent_rating": 91,
+      "ability_component": -0.3,
+      "prestige_component": 0.43,
+      "elite_trajectory_component": 0,
+      "total_sticky_adjustment": 0.13,
+      "underlying_ability_raw": 91.09,
+      "underlying_ability_rating": 91,
+      "explanation": {
+        "market_value_eur": 18000000,
+        "highest_market_value_eur": 90000000,
+        "previous_market_value_eur": 20000000,
+        "international_caps": 0,
+        "international_goals": 0,
+        "total_transfer_fees_eur": 14100000,
+        "age": 31,
+        "reasons": [
+          "-0.15: large fall from peak current-ability caution",
+          "-0.15: attacker output/value reality check",
+          "+0.18: historic high-level market prestige",
+          "+0.25: form is temporary, class is permanent safeguard"
+        ],
+        "reasons_by_component": {
+          "elite_trajectory_adjustment": [],
+          "class_retention_adjustment": [
+            "+0.25: form is temporary, class is permanent safeguard"
+          ],
+          "prestige_adjustment": [
+            "+0.18: historic high-level market prestige"
+          ],
+          "current_ability_caution": [
+            "-0.15: large fall from peak current-ability caution",
+            "-0.15: attacker output/value reality check"
+          ],
+          "other_adjustment": []
+        }
+      }
+    },
+    "current_state": {
+      "form_modifier": 0,
+      "fitness_modifier": 0,
+      "match_sharpness_modifier": 0,
+      "morale_modifier": 0,
+      "fatigue_modifier": 0,
+      "tactical_fit_modifier": 0,
+      "availability_modifier": 0,
+      "total_modifier": 0,
+      "note": "Neutral default. Match engine owns fluid state before each fixture."
+    },
+    "engine": {
+      "underlying_ability_rating": 91,
+      "current_state": {
+        "form_modifier": 0,
+        "fitness_modifier": 0,
+        "match_sharpness_modifier": 0,
+        "morale_modifier": 0,
+        "fatigue_modifier": 0,
+        "tactical_fit_modifier": 0,
+        "availability_modifier": 0,
+        "total_modifier": 0,
+        "note": "Neutral default. Match engine owns fluid state before each fixture."
+      },
+      "effective_match_rating": 91,
+      "engine_note": "Data repo supplies neutral state. Match engine should replace current_state per fixture."
+    }
+  },
+  {
     "tbg_player_id": "tbg-tm-00321528",
     "transfermarkt_id": "321528",
     "player_name": "Denzel Dumfries",
@@ -11976,83 +12055,6 @@
           ],
           "current_ability_caution": [
             "-0.15: large fall from peak current-ability caution"
-          ],
-          "other_adjustment": []
-        }
-      }
-    },
-    "current_state": {
-      "form_modifier": 0,
-      "fitness_modifier": 0,
-      "match_sharpness_modifier": 0,
-      "morale_modifier": 0,
-      "fatigue_modifier": 0,
-      "tactical_fit_modifier": 0,
-      "availability_modifier": 0,
-      "total_modifier": 0,
-      "note": "Neutral default. Match engine owns fluid state before each fixture."
-    },
-    "engine": {
-      "underlying_ability_rating": 91,
-      "current_state": {
-        "form_modifier": 0,
-        "fitness_modifier": 0,
-        "match_sharpness_modifier": 0,
-        "morale_modifier": 0,
-        "fatigue_modifier": 0,
-        "tactical_fit_modifier": 0,
-        "availability_modifier": 0,
-        "total_modifier": 0,
-        "note": "Neutral default. Match engine owns fluid state before each fixture."
-      },
-      "effective_match_rating": 91,
-      "engine_note": "Data repo supplies neutral state. Match engine should replace current_state per fixture."
-    }
-  },
-  {
-    "tbg_player_id": "tbg-tm-00159471",
-    "transfermarkt_id": "159471",
-    "player_name": "Serge Gnabry",
-    "transfermarkt_name": "Serge Gnabry",
-    "club_name": "Bayern Munich",
-    "current_competition_code": "L1",
-    "position": "Second Striker",
-    "position_group": "ATT",
-    "age": 30,
-    "ability": {
-      "model_version": "tbg-v3-sticky-ability-fluid-form",
-      "philosophy": "Ability is sticky; form, fitness, sharpness, morale, fatigue and tactical fit are fluid match-engine state.",
-      "base_smw_equivalent_raw": 90.57,
-      "base_smw_equivalent_rating": 91,
-      "ability_component": -0.15,
-      "prestige_component": 0.43,
-      "elite_trajectory_component": 0,
-      "total_sticky_adjustment": 0.28,
-      "underlying_ability_raw": 90.85,
-      "underlying_ability_rating": 91,
-      "explanation": {
-        "market_value_eur": 18000000,
-        "highest_market_value_eur": 90000000,
-        "previous_market_value_eur": 20000000,
-        "international_caps": 0,
-        "international_goals": 0,
-        "total_transfer_fees_eur": 14100000,
-        "age": 30,
-        "reasons": [
-          "-0.15: attacker output/value reality check",
-          "+0.18: historic high-level market prestige",
-          "+0.25: form is temporary, class is permanent safeguard"
-        ],
-        "reasons_by_component": {
-          "elite_trajectory_adjustment": [],
-          "class_retention_adjustment": [
-            "+0.25: form is temporary, class is permanent safeguard"
-          ],
-          "prestige_adjustment": [
-            "+0.18: historic high-level market prestige"
-          ],
-          "current_ability_caution": [
-            "-0.15: attacker output/value reality check"
           ],
           "other_adjustment": []
         }

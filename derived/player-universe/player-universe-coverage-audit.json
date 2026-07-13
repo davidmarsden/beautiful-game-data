@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T21:21:59.525Z",
+  "generated_at": "2026-07-13T22:34:18.179Z",
   "paths": {
     "raw": "calibration/apify-transfermarkt-universe-dataset.json",
     "master": "data/transfermarkt/players-master.json",
@@ -28,13 +28,13 @@
     },
     {
       "name": "rated_global_pool",
-      "players": 8090,
-      "unique_transfermarkt_ids": 8090
+      "players": 8082,
+      "unique_transfermarkt_ids": 8082
     },
     {
       "name": "published_database",
-      "players": 8090,
-      "unique_transfermarkt_ids": 8090
+      "players": 8082,
+      "unique_transfermarkt_ids": 8082
     }
   ],
   "stage_dropouts": [
@@ -51,7 +51,7 @@
     {
       "from": "player_registry",
       "to": "rated_global_pool",
-      "missing_ids": 1
+      "missing_ids": 9
     },
     {
       "from": "rated_global_pool",
@@ -949,14 +949,14 @@
   ],
   "high_priority_external_missing_count": 0,
   "high_priority_external_missing": [],
-  "dropout_count": 113,
+  "dropout_count": 121,
   "dropout_categories": {
     "below_value_threshold": 9,
     "amateur_or_unvalued": 96,
+    "retired": 10,
     "reserve_team": 4,
     "free_agent": 1,
-    "zero_value_prospect": 1,
-    "retired": 2
+    "zero_value_prospect": 1
   },
   "unexpected_dropout_count": 0,
   "unexpected_dropouts": [],
@@ -1106,6 +1106,18 @@
       "reason": "Outside core world and has no market value"
     },
     {
+      "transfermarkt_player_id": "74810",
+      "player_name": "Ben Mee",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
+    },
+    {
       "transfermarkt_player_id": "1165039",
       "player_name": "Calvin Obin",
       "current_club": "Amiens SC",
@@ -1128,6 +1140,18 @@
       "category": "reserve_team",
       "expected_dropout": true,
       "reason": "Player belongs to a reserve/B team"
+    },
+    {
+      "transfermarkt_player_id": "57500",
+      "player_name": "César Azpilicueta",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
     },
     {
       "transfermarkt_player_id": "406778",
@@ -1188,6 +1212,18 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
+    },
+    {
+      "transfermarkt_player_id": "173489",
+      "player_name": "Darlington Nagbe",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
     },
     {
       "transfermarkt_player_id": "1152081",
@@ -1358,6 +1394,18 @@
       "reason": "Outside core world and has no market value"
     },
     {
+      "transfermarkt_player_id": "72736",
+      "player_name": "Guillaume François",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
+    },
+    {
       "transfermarkt_player_id": "1071298",
       "player_name": "Harrison Uchenna",
       "current_club": "SpVgg Erkenschwick",
@@ -1476,6 +1524,18 @@
       "category": "reserve_team",
       "expected_dropout": true,
       "reason": "Player belongs to a reserve/B team"
+    },
+    {
+      "transfermarkt_player_id": "255501",
+      "player_name": "Iñigo Lekue",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
     },
     {
       "transfermarkt_player_id": "1165854",
@@ -2042,6 +2102,18 @@
       "reason": "Outside core world and has no market value"
     },
     {
+      "transfermarkt_player_id": "30321",
+      "player_name": "Óscar Trejo",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
+    },
+    {
       "transfermarkt_player_id": "544451",
       "player_name": "Patrick Deiß",
       "current_club": "SG Warnow Papendorf",
@@ -2114,6 +2186,18 @@
       "reason": "Outside core world and has no market value"
     },
     {
+      "transfermarkt_player_id": "564620",
+      "player_name": "Samir Lagsir",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
+    },
+    {
       "transfermarkt_player_id": "1556354",
       "player_name": "Sekou Maiga",
       "current_club": "Binga FC",
@@ -2128,6 +2212,18 @@
     {
       "transfermarkt_player_id": "65230",
       "player_name": "Sergio Busquets",
+      "current_club": "Retired",
+      "current_club_id": "",
+      "age": null,
+      "market_value_eur": 0,
+      "first_missing_stage": "rated_global_pool",
+      "category": "retired",
+      "expected_dropout": true,
+      "reason": "Player is retired"
+    },
+    {
+      "transfermarkt_player_id": "50219",
+      "player_name": "Simon Mignolet",
       "current_club": "Retired",
       "current_club_id": "",
       "age": null,
