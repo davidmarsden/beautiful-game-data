@@ -1,0 +1,169 @@
+name: Refresh Transfermarkt and Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      maxItems:
+        description: "Maximum Apify items per refresh scope"
+        required: false
+        default: "10000"
+        type: string
+      includeWideCompetitions:
+        description: "Refresh the selected wider competitions as well as all playable clubs"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-transfermarkt-and-publish
+  cancel-in-progress: false
+
+env:
+  APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+
+jobs:
+  refresh-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Preserve pre-refresh player master
+        run: cp data/transfermarkt/players-master.json calibration/players-master-before-refresh.json
+
+      - name: Export playable-club Transfermarkt scope
+        id: universe
+        run: npm run export:club-universe-scope
+
+      - name: Scrape all playable clubs
+        run: |
+          node scripts/fetch-apify-transfermarkt-values.js \
+            --scope=universe \
+            --clubIds="${{ steps.universe.outputs.club_ids }}" \
+            --includeGoldStandardRescue=false \
+            --includeSearchQueries=false \
+            --maxItems="${{ inputs.maxItems }}" \
+            --output=calibration/apify-transfermarkt-refresh-playable-clubs.json
+
+      - name: Scrape selected wider competitions
+        if: ${{ inputs.includeWideCompetitions }}
+        run: |
+          node scripts/fetch-apify-transfermarkt-values.js \
+            --scope=wide \
+            --includeGoldStandardRescue=false \
+            --includeSearchQueries=false \
+            --maxItems="${{ inputs.maxItems }}" \
+            --output=calibration/apify-transfermarkt-refresh-wide.json
+
+      - name: Apply discovery policy to playable-club results
+        run: |
+          node scripts/filter-transfermarkt-refresh.js \
+            --input=calibration/apify-transfermarkt-refresh-playable-clubs.json \
+            --output=calibration/apify-transfermarkt-refresh-playable-clubs-accepted.json \
+            --report=calibration/transfermarkt-refresh-playable-clubs-report.json \
+            --zeroIds=calibration/transfermarkt-refresh-playable-clubs-zero-ids.json \
+            --bridgeZeroValues=true
+
+      - name: Apply discovery policy to wider-competition results
+        if: ${{ inputs.includeWideCompetitions }}
+        run: |
+          node scripts/filter-transfermarkt-refresh.js \
+            --input=calibration/apify-transfermarkt-refresh-wide.json \
+            --output=calibration/apify-transfermarkt-refresh-wide-accepted.json \
+            --report=calibration/transfermarkt-refresh-wide-report.json \
+            --zeroIds=calibration/transfermarkt-refresh-wide-zero-ids.json \
+            --bridgeZeroValues=true
+
+      - name: Merge playable-club refresh into master
+        run: |
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/apify-transfermarkt-refresh-playable-clubs-accepted.json \
+            --mergeExisting=true
+
+      - name: Merge wider-competition refresh into master
+        if: ${{ inputs.includeWideCompetitions }}
+        run: |
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/apify-transfermarkt-refresh-wide-accepted.json \
+            --mergeExisting=true
+
+      - name: Restore true zero market values
+        run: |
+          ZERO_FILES="calibration/transfermarkt-refresh-playable-clubs-zero-ids.json"
+          if [ "${{ inputs.includeWideCompetitions }}" = "true" ]; then
+            ZERO_FILES="$ZERO_FILES,calibration/transfermarkt-refresh-wide-zero-ids.json"
+          fi
+          node scripts/restore-zero-market-values.js --zeroIds="$ZERO_FILES"
+          echo '[]' > calibration/empty-transfermarkt-refresh.json
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/empty-transfermarkt-refresh.json \
+            --mergeExisting=true
+
+      - name: Report newly discovered players
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile, writeFile } from 'node:fs/promises';
+          const before = JSON.parse(await readFile('calibration/players-master-before-refresh.json', 'utf8'));
+          const after = JSON.parse(await readFile('data/transfermarkt/players-master.json', 'utf8'));
+          const beforeIds = new Set(before.map(p => String(p.transfermarkt_id || p.player_id || '')));
+          const newPlayers = after.filter(p => !beforeIds.has(String(p.transfermarkt_id || p.player_id || '')));
+          const report = {
+            generated_at: new Date().toISOString(),
+            policy: 'data/config/transfermarkt-refresh-policy.json',
+            before_players: before.length,
+            after_players: after.length,
+            newly_discovered_players: newPlayers.length,
+            players: newPlayers.map(p => ({
+              transfermarkt_id: p.transfermarkt_id,
+              player_name: p.display_name,
+              age: p.age,
+              club: p.current_club,
+              competition: p.current_competition_code,
+              market_value_eur: p.market_value_eur,
+              status: p.status
+            }))
+          };
+          await writeFile('calibration/transfermarkt-refresh-new-players.json', JSON.stringify(report, null, 2) + '\n');
+          console.log(JSON.stringify({ before: before.length, after: after.length, newly_discovered: newPlayers.length }, null, 2));
+          NODE
+
+      - name: Rebuild and publish TBG player database
+        run: npm run rebuild:published-player-database
+
+      - name: Upload refresh and release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: transfermarkt-refresh-and-tbg-release
+          path: |
+            calibration/transfermarkt-refresh-*.json
+            calibration/veteran-reality-check.json
+            calibration/veteran-reality-check.md
+            derived/player-database/**
+            derived/player-changes/**
+            derived/scouting-site/**
+          if-no-files-found: warn
+
+      - name: Commit refreshed data and published outputs
+        run: |
+          if [ -z "$(git status --porcelain data calibration derived)" ]; then
+            echo "No refreshed or generated changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data calibration derived
+          git commit -m "Refresh Transfermarkt and publish TBG database"
+          git push
