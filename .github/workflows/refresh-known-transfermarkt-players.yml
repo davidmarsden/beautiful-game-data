@@ -3,10 +3,19 @@ name: Refresh Known Transfermarkt Players
 on:
   workflow_dispatch:
     inputs:
-      maxItems:
-        description: "Maximum known players to return from Apify"
+      edition:
+        description: "Refresh edition: daily (500), weekend (1,500), or monthly (5,000 rotating known players)"
+        required: true
+        default: daily
+        type: choice
+        options:
+          - daily
+          - weekend
+          - monthly
+      customLimit:
+        description: "Optional override for number of players (leave blank to use edition policy)"
         required: false
-        default: "10000"
+        default: ""
         type: string
 
 permissions:
@@ -39,34 +48,53 @@ jobs:
       - name: Preserve pre-refresh player master
         run: cp data/transfermarkt/players-master.json calibration/players-master-before-known-refresh.json
 
-      - name: Export known Transfermarkt player IDs
-        run: npm run export:known-transfermarkt-ids
+      - name: Quarantine known retired players
+        run: node scripts/quarantine-retired-players.js
 
-      - name: Refresh known players only
+      - name: Build priority refresh batch
+        id: batch
+        run: |
+          LIMIT_ARG=""
+          if [ -n "${{ inputs.customLimit }}" ]; then
+            LIMIT_ARG="--limit=${{ inputs.customLimit }}"
+          fi
+          node scripts/export-priority-transfermarkt-refresh-batch.js \
+            --mode="${{ inputs.edition }}" \
+            $LIMIT_ARG \
+            --output="calibration/transfermarkt-refresh-${{ inputs.edition }}-ids.json" \
+            --report="calibration/transfermarkt-refresh-${{ inputs.edition }}-batch-report.json"
+          COUNT=$(node -e "console.log(require('./calibration/transfermarkt-refresh-${{ inputs.edition }}-ids.json').length)")
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Refresh priority known players only
         run: |
           node scripts/fetch-apify-transfermarkt-values.js \
             --scope=known \
-            --playerIdsFile=calibration/known-transfermarkt-player-ids.json \
+            --playerIdsFile="calibration/transfermarkt-refresh-${{ inputs.edition }}-ids.json" \
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
-            --maxItems="${{ inputs.maxItems }}" \
-            --datasetLimit="${{ inputs.maxItems }}" \
-            --output=calibration/apify-transfermarkt-known-player-refresh.json
+            --maxItems="${{ steps.batch.outputs.count }}" \
+            --datasetLimit="${{ steps.batch.outputs.count }}" \
+            --output="calibration/apify-transfermarkt-${{ inputs.edition }}-refresh.json"
 
       - name: Merge refreshed records into player master
         run: |
           node scripts/import-transfermarkt-master.js \
-            --input=calibration/apify-transfermarkt-known-player-refresh.json \
+            --input="calibration/apify-transfermarkt-${{ inputs.edition }}-refresh.json" \
             --mergeExisting=true
+
+      - name: Quarantine newly detected retired players
+        run: node scripts/quarantine-retired-players.js
 
       - name: Report refresh coverage and changes
         run: |
           node --input-type=module <<'NODE'
           import { readFile, writeFile } from 'node:fs/promises';
+          const edition = process.env.EDITION;
           const before = JSON.parse(await readFile('calibration/players-master-before-known-refresh.json', 'utf8'));
           const after = JSON.parse(await readFile('data/transfermarkt/players-master.json', 'utf8'));
-          const requested = JSON.parse(await readFile('calibration/known-transfermarkt-player-ids.json', 'utf8'));
-          const returned = JSON.parse(await readFile('calibration/apify-transfermarkt-known-player-refresh.json', 'utf8'));
+          const requested = JSON.parse(await readFile(`calibration/transfermarkt-refresh-${edition}-ids.json`, 'utf8'));
+          const returned = JSON.parse(await readFile(`calibration/apify-transfermarkt-${edition}-refresh.json`, 'utf8'));
           const id = p => String(p.transfermarkt_id || p.player_id || '');
           const beforeById = new Map(before.map(p => [id(p), p]));
           const returnedIds = new Set(returned.map(id).filter(Boolean));
@@ -82,7 +110,7 @@ jobs:
           }
           const report = {
             generated_at: new Date().toISOString(),
-            mode: 'known_players_only',
+            mode: `${edition}_priority_known_players`,
             requested_players: requested.length,
             returned_players: returned.length,
             missing_from_refresh: requested.filter(value => !returnedIds.has(String(value))).length,
@@ -92,26 +120,25 @@ jobs:
             changed_players: changes.length,
             changes
           };
-          await writeFile('calibration/known-player-refresh-report.json', JSON.stringify(report, null, 2) + '\n');
-          console.log(JSON.stringify({
-            requested: report.requested_players,
-            returned: report.returned_players,
-            missing: report.missing_from_refresh,
-            newly_added: report.newly_added_players,
-            changed: report.changed_players
-          }, null, 2));
+          await writeFile(`calibration/${edition}-known-player-refresh-report.json`, JSON.stringify(report, null, 2) + '\n');
+          console.log(JSON.stringify({ requested: report.requested_players, returned: report.returned_players, missing: report.missing_from_refresh, newly_added: report.newly_added_players, changed: report.changed_players }, null, 2));
           NODE
+        env:
+          EDITION: ${{ inputs.edition }}
 
       - name: Verify no discovery occurred
         run: |
           node --input-type=module <<'NODE'
           import { readFile } from 'node:fs/promises';
-          const report = JSON.parse(await readFile('calibration/known-player-refresh-report.json', 'utf8'));
+          const edition = process.env.EDITION;
+          const report = JSON.parse(await readFile(`calibration/${edition}-known-player-refresh-report.json`, 'utf8'));
           if (report.newly_added_players !== 0) {
-            console.error(`Known-player refresh unexpectedly added ${report.newly_added_players} player(s).`);
+            console.error(`Priority known-player refresh unexpectedly added ${report.newly_added_players} player(s).`);
             process.exit(1);
           }
           NODE
+        env:
+          EDITION: ${{ inputs.edition }}
 
       - name: Rebuild and publish TBG player database
         run: npm run rebuild:published-player-database
@@ -119,10 +146,11 @@ jobs:
       - name: Upload refresh and release artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: known-player-transfermarkt-refresh
+          name: ${{ inputs.edition }}-known-player-transfermarkt-refresh
           path: |
-            calibration/known-transfermarkt-player-ids-report.json
-            calibration/known-player-refresh-report.json
+            calibration/transfermarkt-refresh-${{ inputs.edition }}-batch-report.json
+            calibration/${{ inputs.edition }}-known-player-refresh-report.json
+            calibration/retired-player-quarantine-report.json
             calibration/veteran-reality-check.json
             calibration/veteran-reality-check.md
             derived/player-database/**
@@ -139,5 +167,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data calibration derived
-          git commit -m "Refresh known Transfermarkt players and publish TBG database"
+          git commit -m "Publish ${{ inputs.edition }} Transfermarkt refresh"
           git push
