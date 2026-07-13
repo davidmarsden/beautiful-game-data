@@ -1,0 +1,45 @@
+{
+  "version": "tbg-transfermarkt-refresh-tiers-v1.0",
+  "daily": {
+    "limit": 500,
+    "description": "Assigned squads, elite players, wonderkids and the stalest high-priority records.",
+    "assigned_weight": 1000,
+    "elite_rating_floor": 90,
+    "elite_weight": 500,
+    "young_age_max": 23,
+    "young_weight": 250,
+    "market_value_floor_eur": 10000000,
+    "valuable_weight": 150,
+    "rotation_weight": 100
+  },
+  "weekend": {
+    "limit": 1500,
+    "description": "Daily priorities plus a larger rotating slice of the known player universe.",
+    "assigned_weight": 1000,
+    "elite_rating_floor": 88,
+    "elite_weight": 400,
+    "young_age_max": 23,
+    "young_weight": 220,
+    "market_value_floor_eur": 5000000,
+    "valuable_weight": 120,
+    "rotation_weight": 150
+  },
+  "monthly": {
+    "limit": 5000,
+    "description": "Broad rotating audit of known players without running a discovery census.",
+    "assigned_weight": 1000,
+    "elite_rating_floor": 86,
+    "elite_weight": 300,
+    "young_age_max": 23,
+    "young_weight": 180,
+    "market_value_floor_eur": 1000000,
+    "valuable_weight": 80,
+    "rotation_weight": 250
+  },
+  "retired_policy": {
+    "exclude_from_refresh": true,
+    "quarantine_when_status_or_club_is_retired": true,
+    "remove_from_published_database": true,
+    "preserve_in_master_for_history": true
+  }
+}
