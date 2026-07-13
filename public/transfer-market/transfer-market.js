@@ -11,7 +11,7 @@ let players = [];
 let preset = "all";
 let tableSort = null;
 
-const unsigned = (player) => player.assignment_status === "unsigned" || player.status === "without_club" || !text(player.tbg_club_id);
+const unsigned = (player) => player.assignment_status === "unsigned" || player.status === "without_club";
 const marketScore = (player) => Math.round(
   num(player.tbg_rating) * 1.8
   - Math.log10(Math.max(1, num(player.market_value_eur))) * 8
@@ -41,7 +41,7 @@ const columns = [
 function valueFor(player, key) {
   if (key === "name") return playerName(player);
   if (key === "position") return position(player);
-  if (key === "club") return unsigned(player) ? "Unsigned" : text(player.current_club);
+  if (key === "club") return unsigned(player) ? "Unsigned" : text(player.tbg_club || player.current_club);
   if (key === "nation") return nationality(player);
   if (key === "market_score") return marketScore(player);
   return player[key];
@@ -120,7 +120,7 @@ function render() {
   $("marketTitle").textContent = presets[preset].title;
   $("resultCount").textContent = `${shown.length} shown from ${rows.length.toLocaleString()} matches`;
   renderHeaders();
-  $("marketTable").querySelector("tbody").innerHTML = shown.map((player) => `<tr><td><a href="${profile(player)}">${playerName(player)}</a></td><td>${player.age ?? "—"}</td><td>${position(player) || "—"}</td><td class="${unsigned(player) ? "unsigned" : ""}">${unsigned(player) ? "Unsigned" : text(player.current_club) || "—"}</td><td>${nationality(player) || "—"}</td><td class="numeric">${money(player.market_value_eur)}</td><td class="numeric"><span class="rating-pill">${player.tbg_rating ?? "—"}</span></td><td class="numeric"><span class="score-pill">${marketScore(player)}</span></td></tr>`).join("");
+  $("marketTable").querySelector("tbody").innerHTML = shown.map((player) => `<tr><td><a href="${profile(player)}">${playerName(player)}</a></td><td>${player.age ?? "—"}</td><td>${position(player) || "—"}</td><td class="${unsigned(player) ? "unsigned" : ""}">${unsigned(player) ? "Unsigned" : text(player.tbg_club || player.current_club) || "—"}</td><td>${nationality(player) || "—"}</td><td class="numeric">${money(player.market_value_eur)}</td><td class="numeric"><span class="rating-pill">${player.tbg_rating ?? "—"}</span></td><td class="numeric"><span class="score-pill">${marketScore(player)}</span></td></tr>`).join("");
 }
 
 function clearPresetFilters() {
