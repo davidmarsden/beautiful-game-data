@@ -8,7 +8,9 @@ on:
     paths:
       - public/**
       - derived/player-database/player-database.json
+      - derived/player-changes/player-change-ledger.json
       - data/config/tbg-club-universe.json
+      - scripts/build-scouting-site.js
       - scripts/promote-global-clubs-to-top80.js
       - .github/workflows/publish-scouting-pages.yml
 
@@ -31,25 +33,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Apply canonical Top 80 club promotions
         run: node scripts/promote-global-clubs-to-top80.js
 
-      - name: Prepare Pink Final data files
+      - name: Verify required Pink Final data
         run: |
-          mkdir -p public/scouting public/clubs
+          test -f derived/player-database/player-database.json || { echo "Missing player database"; exit 1; }
+          test -f derived/player-changes/player-change-ledger.json || { echo "Missing player change ledger. Run Publish TBG Player Database first."; exit 1; }
+          test -f data/config/tbg-club-universe.json || { echo "Missing club universe"; exit 1; }
 
-          if [ ! -f derived/player-database/player-database.json ]; then
-            echo "Missing derived/player-database/player-database.json"
-            exit 1
-          fi
-
-          if [ ! -f data/config/tbg-club-universe.json ]; then
-            echo "Missing data/config/tbg-club-universe.json"
-            exit 1
-          fi
-
-          cp derived/player-database/player-database.json public/scouting/player-database.json
-          cp data/config/tbg-club-universe.json public/clubs/club-universe.json
+      - name: Build canonical Pink Final site
+        run: npm run build:scouting-site
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -57,7 +59,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: derived/scouting-site
 
       - name: Deploy to GitHub Pages
         id: deployment
