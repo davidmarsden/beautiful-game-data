@@ -1,9 +1,16 @@
-import { copyFile, mkdir, rm } from "node:fs/promises";
+import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
 async function copy(source, target) {
   await mkdir(dirname(target), { recursive: true });
   await copyFile(source, target);
+}
+
+async function applySharedNavigation(path, rootPrefix) {
+  const html = await readFile(path, "utf8");
+  const nav = `<nav class="nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a></nav>`;
+  const updated = html.replace(/<nav class="nav"[^>]*>[\s\S]*?<\/nav>/, nav);
+  await writeFile(path, updated, "utf8");
 }
 
 const outputDir = "derived/scouting-site";
@@ -43,5 +50,10 @@ await copy("public/rankings/rankings.js", join(outputDir, "rankings", "rankings.
 await copy("public/transfer-market/index.html", join(outputDir, "transfer-market", "index.html"));
 await copy("public/transfer-market/transfer-market.css", join(outputDir, "transfer-market", "transfer-market.css"));
 await copy("public/transfer-market/transfer-market.js", join(outputDir, "transfer-market", "transfer-market.js"));
+
+await applySharedNavigation(join(outputDir, "index.html"), "./");
+for (const section of ["scouting", "clubs", "players", "wonderkids", "rankings", "transfer-market"]) {
+  await applySharedNavigation(join(outputDir, section, "index.html"), "../");
+}
 
 console.log(`Built Pink Final portal at ${outputDir}`);
