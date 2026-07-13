@@ -1,0 +1,23 @@
+{
+  "version": "tbg-veteran-reality-check-v1.0",
+  "minimum_age": 34,
+  "review_rating_floor": 87,
+  "elite_league_codes": ["GB1", "ES1", "L1", "IT1", "FR1", "CL", "EL"],
+  "maximum_positive_gap_over_soccerwiki": {
+    "age_34_36": { "GK": 4, "outfield": 3 },
+    "age_37_39": { "GK": 4, "outfield": 3 },
+    "age_40_plus": { "GK": 4, "outfield": 3 }
+  },
+  "unlinked_penalties": {
+    "age_34_36_non_elite_low_value": 1,
+    "age_37_39_elite": 1,
+    "age_37_39_non_elite": 2,
+    "age_40_plus_elite_gk": 2,
+    "age_40_plus_elite_outfield": 3,
+    "age_40_plus_non_elite_gk": 3,
+    "age_40_plus_non_elite_outfield": 4
+  },
+  "low_market_value_eur": 5000000,
+  "protected_transfermarkt_ids": [],
+  "principle": "TBG may rate proven veterans above SoccerWiki/SMW, but extreme age, smaller-league level and weak current market signal must constrain historic reputation and goalkeeper longevity."
+}
