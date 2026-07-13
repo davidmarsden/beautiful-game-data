@@ -47,7 +47,7 @@ for (const row of rows) {
   if (rules.require_transfermarkt_id && !id) reasons.push("missing_transfermarkt_id");
   if (rules.require_name && !name) reasons.push("missing_name");
   if (age === null || age < rules.minimum_age || age > rules.maximum_age) reasons.push("age_outside_policy");
-  if (rules.exclude_retired && status.includes("retired")) reasons.push("retired");
+  if (rules.exclude_retired && (status.includes("retired") || club === "retired")) reasons.push("retired");
   if (!rules.include_without_club && (/without club|free agent|unattached/.test(status) || club === "without club")) reasons.push("without_club_excluded");
   if (!rules.include_zero_market_value && !(marketValue > 0)) reasons.push("zero_value_excluded");
   if (reasons.length) {
