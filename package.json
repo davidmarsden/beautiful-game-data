@@ -22,6 +22,7 @@
     "apply:veteran-reality-check": "node scripts/apply-veteran-reality-check.js",
     "snapshot:player-database": "node scripts/snapshot-player-database.js",
     "generate:player-change-ledger": "node scripts/generate-player-change-ledger.js",
+    "export:known-transfermarkt-ids": "node scripts/export-known-transfermarkt-player-ids.js",
     "gold-standard:inputs": "node scripts/export-gold-standard-inputs.js",
     "gold-standard:review": "node scripts/review-gold-standard-ratings.js",
     "gold-standard:coverage": "node scripts/audit-transfermarkt-gold-standard-coverage.js",
