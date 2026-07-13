@@ -20,6 +20,7 @@ const policyPath = args.policy || "data/config/player-publication-policy.json";
 const ledgerPath = args.ledger || "derived/player-eligibility/player-exclusion-ledger.json";
 const markdownPath = args.markdown || "derived/player-eligibility/player-exclusion-ledger.md";
 const activeRegistryPath = args.activeRegistry || "derived/player-eligibility/active-player-registry.json";
+const eligibleMasterPath = args.eligibleMaster || "derived/player-eligibility/eligible-player-master.json";
 
 const [masterRaw, registryRaw, policy] = await Promise.all([
   readFile(masterPath, "utf8").then(JSON.parse),
@@ -37,9 +38,7 @@ const idCounts = master.reduce((memo, row) => {
 }, new Map());
 
 function isStaff(row) {
-  const haystack = [row.position, row.position_category, row.role, row.occupation, row.status]
-    .map(lower)
-    .join(" ");
+  const haystack = [row.position, row.position_category, row.role, row.occupation, row.status].map(lower).join(" ");
   return /\b(coach|manager|assistant manager|sporting director|director|president|staff|scout|physio|analyst)\b/.test(haystack);
 }
 
@@ -98,6 +97,7 @@ for (const row of master) {
 }
 
 const activeRegistry = registry.filter((row) => row.tbg_publish_eligible !== false);
+const eligibleMaster = master.filter((row) => row.tbg_publish_eligible !== false);
 const reasonCounts = exclusions.flatMap((row) => row.exclusion_reasons).reduce((memo, reason) => {
   memo[reason] = (memo[reason] || 0) + 1;
   return memo;
@@ -108,6 +108,7 @@ const ledger = {
   master_players: master.length,
   registry_players: registry.length,
   active_registry_players: activeRegistry.length,
+  eligible_master_players: eligibleMaster.length,
   excluded_players: exclusions.length,
   exclusion_reason_counts: reasonCounts,
   exclusion_codes: policy.exclusion_codes,
@@ -115,15 +116,16 @@ const ledger = {
 };
 const lines = [
   "# Player Exclusion Ledger", "", `Generated: ${ledger.generated_at}`, "", `Policy: ${policy.version}`, "",
-  `- Master players: ${master.length}`, `- Registry players: ${registry.length}`, `- Active registry players: ${activeRegistry.length}`, `- Excluded players: ${exclusions.length}`, "",
+  `- Master players: ${master.length}`, `- Registry players: ${registry.length}`, `- Active registry players: ${activeRegistry.length}`, `- Eligible master players: ${eligibleMaster.length}`, `- Excluded players: ${exclusions.length}`, "",
   "## Reasons", "", ...Object.entries(reasonCounts).map(([reason, count]) => `- ${reason}: ${count}`), "", "## Excluded Players", "",
   ...exclusions.map((row) => `- ${row.player_name || row.transfermarkt_id} (${row.current_club || "No club"}): ${row.exclusion_reasons.join(", ")}`)
 ];
 
-for (const path of [masterPath, registryPath, ledgerPath, markdownPath, activeRegistryPath]) await mkdir(dirname(path), { recursive: true });
+for (const path of [masterPath, registryPath, ledgerPath, markdownPath, activeRegistryPath, eligibleMasterPath]) await mkdir(dirname(path), { recursive: true });
 await writeFile(masterPath, JSON.stringify(masterRaw, null, 2) + "\n", "utf8");
 await writeFile(registryPath, JSON.stringify(registryRaw, null, 2) + "\n", "utf8");
 await writeFile(ledgerPath, JSON.stringify(ledger, null, 2) + "\n", "utf8");
 await writeFile(markdownPath, lines.join("\n") + "\n", "utf8");
 await writeFile(activeRegistryPath, JSON.stringify(activeRegistry, null, 2) + "\n", "utf8");
-console.log(JSON.stringify({ master_players: master.length, active_registry_players: activeRegistry.length, excluded_players: exclusions.length, exclusion_reason_counts: reasonCounts }, null, 2));
+await writeFile(eligibleMasterPath, JSON.stringify(eligibleMaster, null, 2) + "\n", "utf8");
+console.log(JSON.stringify({ master_players: master.length, eligible_master_players: eligibleMaster.length, active_registry_players: activeRegistry.length, excluded_players: exclusions.length, exclusion_reason_counts: reasonCounts }, null, 2));
