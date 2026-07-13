@@ -1,0 +1,296 @@
+# Veteran Reality Check
+
+Generated: 2026-07-13T13:53:57.080Z
+
+- Adjusted players: 285
+- SoccerWiki-linked adjustments: 0
+- Unlinked adjustments: 285
+- Maximum reduction: -4
+
+## Adjustments
+
+- Cristiano Ronaldo dos Santos Aveiro (41, Al-Nassr FC): 95 → 91 — unlinked veteran caution: age 41, non-elite league, outfield
+- Luka Modrić (40, Without Club): 93 → 89 — unlinked veteran caution: age 40, non-elite league, outfield
+- Edin Dzeko (40, Without Club): 91 → 87 — unlinked veteran caution: age 40, non-elite league, outfield
+- Thiago Silva (41, Fluminense Football Club): 91 → 87 — unlinked veteran caution: age 41, non-elite league, outfield
+- Diego Chará (40, Portland Timbers): 89 → 85 — unlinked veteran caution: age 40, non-elite league, outfield
+- Fábio Deivson Lopes Maciel (45, Fluminense Football Club): 93 → 90 — unlinked veteran caution: age 45, non-elite league, GK
+- Lukasz Fabianski (41, Without Club): 90 → 87 — unlinked veteran caution: age 41, non-elite league, GK
+- Stefan Frei (40, Seattle Sounders FC): 90 → 87 — unlinked veteran caution: age 40, non-elite league, GK
+- Evan Bush (40, Columbus Crew): 89 → 86 — unlinked veteran caution: age 40, non-elite league, GK
+- Waleed Abdullah (40, Al-Diriyah FC): 89 → 86 — unlinked veteran caution: age 40, non-elite league, GK
+- Lionel Messi (39, Inter Miami CF): 96 → 94 — unlinked veteran caution: age 39, non-elite league, outfield
+- Manuel Neuer (40, Bayern Munich): 93 → 91 — unlinked veteran caution: age 40, elite league, GK
+- Robert Lewandowski (37, Without Club): 93 → 91 — unlinked veteran caution: age 37, non-elite league, outfield
+- Karim Benzema (38, Al-Hilal SFC): 91 → 89 — unlinked veteran caution: age 38, non-elite league, outfield
+- Luis Suárez (39, Inter Miami CF): 91 → 89 — unlinked veteran caution: age 39, non-elite league, outfield
+- Nicolás Otamendi (38, CA River Plate): 91 → 89 — unlinked veteran caution: age 38, non-elite league, outfield
+- Alexis Sánchez (37, Without Club): 90 → 88 — unlinked veteran caution: age 37, non-elite league, outfield
+- Daniele Padelli (40, Udinese Calcio): 90 → 88 — unlinked veteran caution: age 40, elite league, GK
+- Givanildo Vieira de Souza (39, Fluminense Football Club): 90 → 88 — unlinked veteran caution: age 39, non-elite league, outfield
+- Hugo Lloris (39, Los Angeles FC): 90 → 88 — unlinked veteran caution: age 39, non-elite league, GK
+- Marco Reus (37, Los Angeles Galaxy): 90 → 88 — unlinked veteran caution: age 37, non-elite league, outfield
+- Tom Heaton (40, Manchester United): 90 → 88 — unlinked veteran caution: age 40, elite league, GK
+- Agustín Marchesín (38, CA Boca Juniors): 89 → 87 — unlinked veteran caution: age 38, non-elite league, GK
+- Alejandro Bedoya (39, Philadelphia Union): 89 → 87 — unlinked veteran caution: age 39, non-elite league, outfield
+- Dani Parejo (37, Without Club): 89 → 87 — unlinked veteran caution: age 37, non-elite league, outfield
+- Francesco Acerbi (38, Without Club): 89 → 87 — unlinked veteran caution: age 38, non-elite league, outfield
+- Franco Armani (39, CA River Plate): 89 → 87 — unlinked veteran caution: age 39, non-elite league, GK
+- Gabriel Mercado (39, Sport Club Internacional): 89 → 87 — unlinked veteran caution: age 39, non-elite league, outfield
+- Henry Bonello (37, Without Club): 89 → 87 — unlinked veteran caution: age 37, non-elite league, GK
+- Javier García (39, CA Boca Juniors): 89 → 87 — unlinked veteran caution: age 39, non-elite league, GK
+- John Ruddy (39, Without Club): 89 → 87 — unlinked veteran caution: age 39, non-elite league, GK
+- Marcelo Grohe (39, Without Club): 89 → 87 — unlinked veteran caution: age 39, non-elite league, GK
+- Marcelo Lomba do Nascimento (39, Sociedade Esportiva Palmeiras): 89 → 87 — unlinked veteran caution: age 39, non-elite league, GK
+- Maxi Moralez (39, New York City FC): 89 → 87 — unlinked veteran caution: age 39, non-elite league, outfield
+- Mert Günok (37, Fenerbahce): 89 → 87 — unlinked veteran caution: age 37, non-elite league, GK
+- Michael Boxall (37, Minnesota United FC): 89 → 87 — unlinked veteran caution: age 37, non-elite league, outfield
+- Milan Borjan (38, Al-Riyadh SC): 89 → 87 — unlinked veteran caution: age 38, non-elite league, GK
+- Mohamed El Shenawy (37, Al Ahly FC): 89 → 87 — unlinked veteran caution: age 37, non-elite league, GK
+- Paulo Victor Mileo Vidotti (39, Alanyaspor): 89 → 87 — unlinked veteran caution: age 39, non-elite league, GK
+- Pedro Eliezer Rodríguez Ledesma (38, Without Club): 89 → 87 — unlinked veteran caution: age 38, non-elite league, outfield
+- Raúl Fernández (38, Without Club): 89 → 87 — unlinked veteran caution: age 38, non-elite league, GK
+- Séamus Coleman (37, Without Club): 89 → 87 — unlinked veteran caution: age 37, non-elite league, outfield
+- Tim Ream (38, Charlotte FC): 89 → 87 — unlinked veteran caution: age 38, non-elite league, outfield
+- Abdulrahman Al-Khaibary (38, Al-Hazem SC): 88 → 86 — unlinked veteran caution: age 38, non-elite league, outfield
+- Ben Hamer (38, Without Club): 88 → 86 — unlinked veteran caution: age 38, non-elite league, GK
+- Christian Brüls (37, SK Beveren): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Craig Forsyth (37, Derby County): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Eric-Maxim Choupo-Moting (37, Red Bull New York): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Germán Cano (38, Fluminense Football Club): 88 → 86 — unlinked veteran caution: age 38, non-elite league, outfield
+- Gökhan Değirmenci (37, Without Club): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Ibrahim Sehic (37, Corum FK): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Jaime Mata (37, Without Club): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Jimmy Maurer (37, Houston Dynamo FC): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Joe Willis (37, Nashville SC): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- José Luis Morales (38, Without Club): 88 → 86 — unlinked veteran caution: age 38, non-elite league, outfield
+- Leonardo Pavoletti (37, Without Club): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Lucas Hoyos (37, Atlanta United FC): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Maya Yoshida (37, Los Angeles Galaxy): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Mohammed Al-Hasawi (37, Al-Faisaly FC): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Mustafa Yumlu (38, Erzurumspor FK): 88 → 86 — unlinked veteran caution: age 38, non-elite league, outfield
+- Nicolás Lodeiro (37, Club Nacional): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Omar Al-Somah (37, Without Club): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Orhan Ovacıklı (37, Erzurumspor FK): 88 → 86 — unlinked veteran caution: age 37, non-elite league, outfield
+- Richard O'Donnell (37, Derby County): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Sean Johnson (37, D.C. United): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Volkan Babacan (37, Basaksehir FK): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- William Yarbrough (37, Toronto FC): 88 → 86 — unlinked veteran caution: age 37, non-elite league, GK
+- Ralf Seuntjens (37, Lommel SK): 87 → 85 — unlinked veteran caution: age 37, non-elite league, outfield
+- N'Golo Kanté (35, Fenerbahce): 92 → 91 — unlinked veteran caution: age 35, non-elite league, outfield
+- Kalidou Koulibaly (35, Al-Hilal SFC): 91 → 90 — unlinked veteran caution: age 35, non-elite league, outfield
+- Pierre-Emerick Aubameyang (37, Olympique Marseille): 91 → 90 — unlinked veteran caution: age 37, elite league, outfield
+- Alexandre Lacazette (35, NEOM SC): 90 → 89 — unlinked veteran caution: age 35, non-elite league, outfield
+- David Alaba (34, Without Club): 90 → 89 — unlinked veteran caution: age 34, non-elite league, outfield
+- Henrikh Mkhitaryan (37, Inter Milan): 90 → 89 — unlinked veteran caution: age 37, elite league, outfield
+- Idrissa Gueye (36, Without Club): 90 → 89 — unlinked veteran caution: age 36, non-elite league, outfield
+- Ivan Perišić (37, PSV Eindhoven): 90 → 89 — unlinked veteran caution: age 37, elite league, outfield
+- James Rodríguez (34, Without Club): 90 → 89 — unlinked veteran caution: age 34, non-elite league, outfield
+- Nemanja Matić (37, US Sassuolo): 90 → 89 — unlinked veteran caution: age 37, elite league, outfield
+- Olivier Giroud (39, LOSC Lille): 90 → 89 — unlinked veteran caution: age 39, elite league, outfield
+- Raúl Jiménez (35, Wolverhampton Wanderers): 90 → 89 — unlinked veteran caution: age 35, non-elite league, outfield
+- Thomas Müller (36, Vancouver Whitecaps FC): 90 → 89 — unlinked veteran caution: age 36, non-elite league, outfield
+- Yassine Bounou (35, Al-Hilal SFC): 90 → 89 — unlinked veteran caution: age 35, non-elite league, GK
+- Aïssa Mandi (34, Without Club): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Alex Sandro Lobo Silva (35, CR Flamengo): 89 → 88 — unlinked veteran caution: age 35, non-elite league, outfield
+- André Carrillo (35, Sport Club Corinthians Paulista): 89 → 88 — unlinked veteran caution: age 35, non-elite league, outfield
+- Andriy Yarmolenko (36, Dynamo Kyiv): 89 → 88 — unlinked veteran caution: age 36, non-elite league, outfield
+- Aníbal Godoy (36, San Diego FC): 89 → 88 — unlinked veteran caution: age 36, non-elite league, outfield
+- Christopher Trimmel (39, 1.FC Union Berlin): 89 → 88 — unlinked veteran caution: age 39, elite league, outfield
+- Daniel Carvajal (34, Without Club): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Danilo Luiz da Silva (34, CR Flamengo): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Edouard Mendy (34, Al-Ahli SFC): 89 → 88 — unlinked veteran caution: age 34, non-elite league, GK
+- Fraser Forster (38, AFC Bournemouth): 89 → 88 — unlinked veteran caution: age 38, elite league, GK
+- Georginio Wijnaldum (35, Without Club): 89 → 88 — unlinked veteran caution: age 35, non-elite league, outfield
+- Iago Aspas (38, Celta de Vigo): 89 → 88 — unlinked veteran caution: age 38, elite league, outfield
+- İlkay Gündoğan (35, Galatasaray): 89 → 88 — unlinked veteran caution: age 35, non-elite league, outfield
+- Iñigo Martínez (35, Without Club): 89 → 88 — unlinked veteran caution: age 35, non-elite league, outfield
+- Jorge Luiz Frello Filho (34, CR Flamengo): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Kyle Walker (36, Burnley FC): 89 → 88 — unlinked veteran caution: age 36, non-elite league, outfield
+- Lorenzo De Silvestri (38, Bologna FC 1909): 89 → 88 — unlinked veteran caution: age 38, elite league, outfield
+- Lorenzo Insigne (35, Without Club): 89 → 88 — unlinked veteran caution: age 35, non-elite league, outfield
+- Martin Dúbravka (37, Tottenham Hotspur): 89 → 88 — unlinked veteran caution: age 37, elite league, GK
+- Mathew Ryan (34, Without Club): 89 → 88 — unlinked veteran caution: age 34, non-elite league, GK
+- Matías Dituro (39, Elche CF): 89 → 88 — unlinked veteran caution: age 39, elite league, GK
+- Nacho Fernández (36, Al-Qadsiah FC): 89 → 88 — unlinked veteran caution: age 36, non-elite league, outfield
+- Remo Freuler (34, Without Club): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Ron-Robert Zieler (37, 1.FC Köln): 89 → 88 — unlinked veteran caution: age 37, elite league, GK
+- Stefan de Vrij (34, Panathinaikos): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Thomas Meunier (34, Without Club): 89 → 88 — unlinked veteran caution: age 34, non-elite league, outfield
+- Tobias Sippel (38, Borussia Mönchengladbach): 89 → 88 — unlinked veteran caution: age 38, elite league, GK
+- Ahmed Hegazy (35, Without Club): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Alan Patrick Lourenço (35, Sport Club Internacional): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Alfredo Kulembe Ribeiro (36, Corum FK): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Anthony Moris (36, Al-Khaleej FC): 88 → 87 — unlinked veteran caution: age 36, non-elite league, GK
+- Ashley Westwood (36, Charlotte FC): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Barry Bannan (36, Millwall FC): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Benjamin Leroy (37, FC Lorient): 88 → 87 — unlinked veteran caution: age 37, elite league, GK
+- Bruno Henrique Corsini (36, Sport Club Internacional): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Callum Wilson (34, West Ham United): 88 → 87 — unlinked veteran caution: age 34, non-elite league, outfield
+- Cédric Bakambu (35, Without Club): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Chris Smalling (36, Without Club): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Christian Benteke (35, Al-Wahda FC): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Dani García (36, Olympiacos Piraeus): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Danilo Pereira (34, Al-Ittihad Club): 88 → 87 — unlinked veteran caution: age 34, non-elite league, outfield
+- David Button (37, Ipswich Town): 88 → 87 — unlinked veteran caution: age 37, elite league, GK
+- Emil Forsberg (34, Red Bull New York): 88 → 87 — unlinked veteran caution: age 34, non-elite league, outfield
+- Enrico Pepe (36, Marsaxlokk FC): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Ertuğrul Taşkıran (36, Without Club): 88 → 87 — unlinked veteran caution: age 36, non-elite league, GK
+- Everson Felipe Marques Pires (35, Clube Atlético Mineiro): 88 → 87 — unlinked veteran caution: age 35, non-elite league, GK
+- Fernando Pacheco (34, Al-Fateh SC): 88 → 87 — unlinked veteran caution: age 34, non-elite league, GK
+- Francis Coquelin (35, Stade Lavallois): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Frank Lehmann (37, SV 07 Elversberg): 88 → 87 — unlinked veteran caution: age 37, elite league, GK
+- Gabriel Armando de Abreu (35, Sport Club Corinthians Paulista): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Germán Pezzella (35, CA River Plate): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Héctor Herrera (36, Houston Dynamo FC): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Jens Grahl (37, Eintracht Frankfurt): 88 → 87 — unlinked veteran caution: age 37, elite league, GK
+- Joel Ward (36, Swansea City): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Jonathan Osorio (34, Toronto FC): 88 → 87 — unlinked veteran caution: age 34, non-elite league, outfield
+- Juan Guilherme Nunes Jesus (35, Without Club): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Karl-Johan Johnsson (36, Without Club): 88 → 87 — unlinked veteran caution: age 36, non-elite league, GK
+- Kieran Trippier (35, Wolverhampton Wanderers): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Koen Casteels (34, Al-Qadsiah FC): 88 → 87 — unlinked veteran caution: age 34, non-elite league, GK
+- Luis Mejía (35, Club Nacional): 88 → 87 — unlinked veteran caution: age 35, non-elite league, GK
+- Mamadou Samassa (36, Stade Lavallois): 88 → 87 — unlinked veteran caution: age 36, non-elite league, GK
+- Mathias Jørgensen (36, Without Club): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Moussa Marega (35, Without Club): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Moussa Sissoko (36, Panathinaikos): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Nicolas Höfler (36, SC Freiburg II): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Ørjan Nyland (35, Without Club): 88 → 87 — unlinked veteran caution: age 35, non-elite league, GK
+- Paulo Henrique Chagas de Lima (36, Fluminense Football Club): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Rafael Cabral Barbosa (36, Real Salt Lake City): 88 → 87 — unlinked veteran caution: age 36, non-elite league, GK
+- Rémy Cabella (36, Olympiacos Piraeus): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Roman Bürki (35, St. Louis CITY SC): 88 → 87 — unlinked veteran caution: age 35, non-elite league, GK
+- Salem Al-Dawsari (34, Al-Hilal SFC): 88 → 87 — unlinked veteran caution: age 34, non-elite league, outfield
+- Sergi Roberto (34, Without Club): 88 → 87 — unlinked veteran caution: age 34, non-elite league, outfield
+- Sergio Escudero (36, Real Zaragoza): 88 → 87 — unlinked veteran caution: age 36, non-elite league, outfield
+- Stefan Savic (35, Trabzonspor): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Sven Ulreich (37, Bayern Munich): 88 → 87 — unlinked veteran caution: age 37, elite league, GK
+- Willy Boly (35, Without Club): 88 → 87 — unlinked veteran caution: age 35, non-elite league, outfield
+- Abderrazak Hamdallah (35, Al-Taawoun FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Abdullah Al-Jadani (35, Abha Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Abdulrahman Dagriri (36, NEOM SC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, GK
+- Adam Forshaw (34, Blackburn Rovers): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Afonso Taira (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Ahmed Al-Kassar (35, Al-Qadsiah FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Alberto Moreno (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Alexandru Maxim (35, Gaziantep FK): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Alexis Martín Arias (34, Club Nacional): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Alfonso Espino (34, Racing Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Ali Al-Bulayhi (36, Al-Hilal SFC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Amahl Pellegrino (36, San Diego FC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Amir Sayoud (35, Al-Hazem SC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Andre Blake (35, Philadelphia Union): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- André Ramalho Silva (34, Sport Club Corinthians Paulista): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Andreas Weimann (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Andrei Girotto (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Andrew Farrell (34, New England Revolution): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Andrew Hughes (34, Preston North End): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Ángel Romero (34, CA Boca Juniors): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Ashley Barnes (36, Burnley FC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Bandar Nasser (36, Al-Khaleej FC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Bart Schenkeveld (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Brad Stuver (35, Austin FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Brecht Dejaegere (35, KV Kortrijk): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Bruno Godeau (34, SK Beveren): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Bruno Henrique Pinto (35, CR Flamengo): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Cenk Tosun (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Christian Burgess (34, KAA Gent): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Christian Ramirez (35, Austin FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Cláudio Ramos (34, FC Porto): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Cristian Herrera (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Daniel Lovitz (34, Nashville SC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Danijel Aleksic (35, Corum FK): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Danny Batth (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- David Cornell (35, Preston North End): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Earl Edwards Jr. (34, San Jose Earthquakes): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Edin Visca (36, Basaksehir FK): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Eduardo Pereira Rodrigues (34, Clube Atlético Mineiro): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Efecan Karaca (36, Sariyerspor): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Eren Tozlu (35, Erzurumspor FK): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Erik Sviatchenko (34, Houston Dynamo FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Erkan Kaş (34, Corum FK): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Fafà Picault (35, Atlanta United FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Filip Djuricic (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Florent Hanin (36, Without Club): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Francisco Calvo (34, Club Nacional): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Gernot Trauner (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Günay Güvenç (35, Galatasaray): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Ilie Sánchez (35, Austin FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- James Collins (35, Lincoln City): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- James Forrest (35, Celtic FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- James Tavernier (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Jay Rodríguez (36, Without Club): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Jo Coppens (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Joël Veltman (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- John McCarthy (34, Red Bull New York): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Joshua King (34, Al-Khaleej FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Kamil Ahmet Çörekçi (34, Kasimpasa): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Kee-hee Kim (36, Seattle Sounders FC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Kenny McLean (34, Norwich City): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Kyle Smith (34, FC Cincinnati): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Luke Ayling (34, Middlesbrough FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Luuk de Jong (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Luvannor Henrique de Sousa Silva (36, Al-Faisaly FC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Majed Kanabah (34, Al-Khaleej FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Mamadou Fall (34, Kasimpasa): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Marco Sangalli (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Marcos Acuña (34, CA River Plate): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Marlon Pack (35, Portsmouth FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Marwane Saadane (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Matt Doherty (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Matteo Pisseri (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Matty James (34, Wrexham AFC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Maximiliano Urruti (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Mbaye Diagne (34, Amed SK): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Mohammed Al-Fuhaid (36, Al-Faisaly FC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Mohammed Jahfali (35, Al-Faisaly FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Mourad Batna (36, Al-Fateh SC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Nampalys Mendy (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Nathan Byrne (34, Charlotte FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Nemanja Gudelj (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Nicolás Rodríguez (34, Club Nacional): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Noë Dussenne (34, Oud-Heverlee Leuven): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Norbert Gyömbér (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Nuno da Costa (35, Basaksehir FK): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Oleksandr Karavaev (34, Shakhtar Donetsk): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Ömer Ali Şahiner (34, Basaksehir FK): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Paul Farman (36, Swansea City): 87 → 86 — unlinked veteran caution: age 36, non-elite league, GK
+- Rachid Ghezzal (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Raphael da Silva Arruda (34, Al-Faisaly FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Robbie Brady (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Robin Jansson (34, Orlando City SC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Rodinei Marcelo de Almeida (34, Olympiacos Piraeus): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Rodrigo Battaglia (34, CA Boca Juniors): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Romell Quioto (34, Al-Faisaly FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Rudy Camacho (35, Columbus Crew): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Ryan Allsop (34, Birmingham City): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Ryan Hollingshead (35, Los Angeles FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Ryan Leonard (34, Millwall FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Salman Al-Faraj (36, Without Club): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Sam Morsy (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Samuel Xavier Brito (36, Fluminense Football Club): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Sebastián Coates (35, Club Nacional): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Sebastien Ibeagha (34, FC Dallas): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Serdar Dursun (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Sergio González (34, Al-Riyadh SC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Sergiy Sydorchuk (35, KVC Westerlo): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Shane Duffy (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Shogo Taniguchi (34, Sint-Truidense VV): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Sinan Osmanoğlu (36, Corum FK): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Sonny Bradley (34, Lincoln City): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Steve Cook (35, Wycombe Wanderers): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Tendayi Darikwa (34, Lincoln City): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Théo Defourny (34, Royal Charleroi SC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, GK
+- Thomas Delaney (34, FC Copenhagen): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Thomas Monconduit (35, Amiens SC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Timothée Kolodziejczak (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Václav Hladký (35, Without Club): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Viktor Claesson (34, IFK Värnamo): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Vitor Hugo Franchescoli de Souza (35, Clube Atlético Mineiro): 87 → 86 — unlinked veteran caution: age 35, non-elite league, outfield
+- Willian Arão (34, Santos FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Yahya Al-Shehri (36, Al-Riyadh SC): 87 → 86 — unlinked veteran caution: age 36, non-elite league, outfield
+- Yannick Thoelen (35, Royal Antwerp FC): 87 → 86 — unlinked veteran caution: age 35, non-elite league, GK
+- Yasser Al-Shahrani (34, Al-Qadsiah FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Yeimar Gómez Andrade (34, Seattle Sounders FC): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield
+- Zeki Yavru (34, Without Club): 87 → 86 — unlinked veteran caution: age 34, non-elite league, outfield

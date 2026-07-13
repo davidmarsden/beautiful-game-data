@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T21:42:49.913Z",
+  "generated_at": "2026-07-13T13:54:02.435Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -1312,8 +1312,8 @@
       "senior_players": 17,
       "development_players_u21": 12,
       "depth": {
-        "ATT": 12,
         "MID": 6,
+        "ATT": 12,
         "DEF": 8,
         "GK": 3
       },
@@ -2059,9 +2059,9 @@
       "senior_players": 27,
       "development_players_u21": 4,
       "depth": {
-        "ATT": 7,
         "MID": 10,
         "DEF": 11,
+        "ATT": 7,
         "GK": 3
       },
       "senior_candidates_missing": 0,
@@ -2985,9 +2985,9 @@
       "development_players_u21": 7,
       "depth": {
         "ATT": 8,
-        "MID": 6,
         "DEF": 9,
-        "GK": 2
+        "GK": 2,
+        "MID": 6
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3169,8 +3169,8 @@
       "depth": {
         "MID": 6,
         "DEF": 11,
-        "GK": 3,
-        "ATT": 8
+        "ATT": 8,
+        "GK": 3
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3221,8 +3221,8 @@
       "development_players_u21": 8,
       "depth": {
         "DEF": 13,
-        "GK": 3,
         "MID": 11,
+        "GK": 3,
         "ATT": 8
       },
       "senior_candidates_missing": 0,
@@ -3342,8 +3342,8 @@
       "depth": {
         "ATT": 8,
         "MID": 11,
-        "DEF": 9,
-        "GK": 4
+        "GK": 4,
+        "DEF": 9
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3410,18 +3410,18 @@
       "elite_youth_missing": [],
       "suspicious_ratings": [
         {
-          "player_name": "Cristiano Ronaldo dos Santos Aveiro",
-          "rating": 95,
-          "expected_rating": 85,
-          "gap": 10,
-          "market_value_eur": 10000000
-        },
-        {
           "player_name": "João Félix",
           "rating": 91,
           "expected_rating": 87,
           "gap": 4,
           "market_value_eur": 28000000
+        },
+        {
+          "player_name": "Cristiano Ronaldo dos Santos Aveiro",
+          "rating": 91,
+          "expected_rating": 85,
+          "gap": 6,
+          "market_value_eur": 10000000
         }
       ],
       "health_score": 79,
@@ -3461,9 +3461,9 @@
       "development_players_u21": 2,
       "depth": {
         "GK": 3,
-        "DEF": 12,
         "ATT": 8,
-        "MID": 9
+        "MID": 9,
+        "DEF": 12
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3491,9 +3491,9 @@
       "development_players_u21": 6,
       "depth": {
         "DEF": 11,
-        "GK": 3,
         "ATT": 6,
-        "MID": 10
+        "MID": 10,
+        "GK": 3
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3525,9 +3525,9 @@
       "senior_players": 24,
       "development_players_u21": 3,
       "depth": {
-        "DEF": 9,
-        "MID": 9,
         "GK": 3,
+        "MID": 9,
+        "DEF": 9,
         "ATT": 6
       },
       "senior_candidates_missing": 0,
@@ -3571,9 +3571,9 @@
       "suspicious_ratings": [
         {
           "player_name": "Lionel Messi",
-          "rating": 96,
+          "rating": 94,
           "expected_rating": 87,
-          "gap": 9,
+          "gap": 7,
           "market_value_eur": 15000000
         },
         {
@@ -3615,8 +3615,8 @@
       "senior_players": 36,
       "development_players_u21": 4,
       "depth": {
-        "GK": 5,
         "ATT": 13,
+        "GK": 5,
         "MID": 9,
         "DEF": 13
       },
@@ -3645,10 +3645,10 @@
       "senior_players": 22,
       "development_players_u21": 10,
       "depth": {
-        "GK": 3,
         "MID": 8,
-        "DEF": 11,
-        "ATT": 10
+        "GK": 3,
+        "ATT": 10,
+        "DEF": 11
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -4199,9 +4199,9 @@
       "player": "Lionel Messi",
       "age": 39,
       "market_value_eur": 15000000,
-      "tbg_rating": 96,
+      "tbg_rating": 94,
       "expected_rating": 87,
-      "gap": 9,
+      "gap": 7,
       "transfermarkt_player_id": "28003"
     },
     {
@@ -4641,9 +4641,9 @@
       "player": "Cristiano Ronaldo dos Santos Aveiro",
       "age": 41,
       "market_value_eur": 10000000,
-      "tbg_rating": 95,
+      "tbg_rating": 91,
       "expected_rating": 85,
-      "gap": 10,
+      "gap": 6,
       "transfermarkt_player_id": "8198"
     }
   ]

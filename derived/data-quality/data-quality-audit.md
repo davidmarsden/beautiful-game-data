@@ -1,6 +1,6 @@
 # TBG Data Quality Audit
 
-Generated: 2026-07-12T21:42:49.913Z
+Generated: 2026-07-13T13:54:02.435Z
 
 ## Summary
 - Healthy clubs: 0/80
@@ -136,7 +136,7 @@ Generated: 2026-07-12T21:42:49.913Z
 - [medium] Atlético de Madrid: Jan Oblak (33) — rating_sanity — €15m — TBG 93
 - [medium] Olympique Marseille: Pierre-Emile Højbjerg (30) — rating_sanity — €15m — TBG 91
 - [medium] Fenerbahce: Marco Asensio (30) — rating_sanity — €15m — TBG 91
-- [medium] Inter Miami CF: Lionel Messi (39) — rating_sanity — €15m — TBG 96
+- [medium] Inter Miami CF: Lionel Messi (39) — rating_sanity — €15m — TBG 94
 - [medium] Juventus FC: Teun Koopmeiners (28) — rating_sanity — €14m — TBG 89
 - [medium] Galatasaray: Roland Sallai (29) — rating_sanity — €14m — TBG 89
 - [medium] CR Flamengo: Giorgian de Arrascaeta (32) — rating_sanity — €14m — TBG 90
@@ -170,4 +170,4 @@ Generated: 2026-07-12T21:42:49.913Z
 - [medium] Fenerbahce: Sofyan Amrabat (29) — rating_sanity — €10m — TBG 89
 - [medium] Galatasaray: Lucas Torreira (30) — rating_sanity — €10m — TBG 89
 - [medium] Trabzonspor: André Onana (30) — rating_sanity — €10m — TBG 89
-- [medium] Al-Nassr FC: Cristiano Ronaldo dos Santos Aveiro (41) — rating_sanity — €10m — TBG 95
+- [medium] Al-Nassr FC: Cristiano Ronaldo dos Santos Aveiro (41) — rating_sanity — €10m — TBG 91
