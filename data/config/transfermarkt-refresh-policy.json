@@ -1,0 +1,24 @@
+{
+  "version": "tbg-transfermarkt-refresh-policy-v1.0",
+  "scope": {
+    "playable_clubs": true,
+    "wide_competitions": true,
+    "wide_competition_codes": ["GB1", "ES1", "IT1", "L1", "FR1", "GB2", "PO1", "NL1", "TR1", "BE1", "SA1", "MLS1"]
+  },
+  "new_player_inclusion": {
+    "minimum_age": 15,
+    "maximum_age": 50,
+    "require_transfermarkt_id": true,
+    "require_name": true,
+    "include_zero_market_value": true,
+    "include_without_club": true,
+    "exclude_retired": true
+  },
+  "update_existing_players": {
+    "update_market_value": true,
+    "update_real_world_club": true,
+    "update_contract_and_status": true,
+    "preserve_when_absent_from_refresh": true
+  },
+  "principle": "A newly discovered player enters the global TBG database when they are aged 15-50, have a valid Transfermarkt identity, are not retired, and are found at a playable club or in the selected wider competition scope. Zero-value prospects and free agents are permitted. Absence from a refresh never deletes an existing TBG player automatically."
+}
