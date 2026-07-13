@@ -1,27 +1,28 @@
 # TBG Data Quality Audit
 
-Generated: 2026-07-13T18:46:57.357Z
+Generated: 2026-07-13T21:22:00.481Z
 
 ## Summary
 - Healthy clubs: 0/80
 - Review: 80
 - Critical: 0
-- First-team target met: 38/80
+- First-team target met: 36/80
 - Development target met: 3/80
-- Review queue: 76
+- Review queue: 77
 
 ## Tracked prospects
 - Kees Smit: ok — AZ Alkmaar, age 20, €25m, TBG ?
 
 ## Clubs needing attention
+- SL Benfica (Liga Portugal) — health 70; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players; GK: 2/3; DEF: 7/8; MID: 7/8
 - Inter Milan (Serie A) — health 73; 25 total, 22 senior, 3 U21 — 22/25 senior players; 3/15 U21 players; DEF: 6/8; ATT: 4/5; 4 ratings differ materially from value benchmark
 - Newcastle United (Premier League) — health 73; 25 total, 19 senior, 6 U21 — 19/25 senior players; 6/15 U21 players; DEF: 7/8; MID: 7/8; 1 ratings differ materially from value benchmark
 - West Ham United (Premier League) — health 73; 24 total, 19 senior, 5 U21 — 19/25 senior players; 5/15 U21 players; GK: 2/3; MID: 6/8; 2 ratings differ materially from value benchmark
 - Everton FC (Premier League) — health 73; 23 total, 19 senior, 4 U21 — 19/25 senior players; 4/15 U21 players; DEF: 7/8; MID: 7/8; 1 ratings differ materially from value benchmark
 - Nottingham Forest (Premier League) — health 76; 27 total, 23 senior, 4 U21 — 23/25 senior players; 4/15 U21 players; GK: 2/3; MID: 6/8
 - Fulham FC (Premier League) — health 76; 22 total, 19 senior, 3 U21 — 19/25 senior players; 3/15 U21 players; GK: 2/3; MID: 7/8
-- Ajax Amsterdam (Eredivisie) — health 76; 26 total, 18 senior, 8 U21 — 18/25 senior players; 8/15 U21 players; GK: 2/3; MID: 7/8
-- SL Benfica (Liga Portugal) — health 76; 28 total, 24 senior, 4 U21 — 24/25 senior players; 4/15 U21 players; GK: 2/3; DEF: 7/8
+- Valencia CF (LaLiga) — health 76; 26 total, 24 senior, 2 U21 — 24/25 senior players; 2/15 U21 players; GK: 2/3; MID: 6/8
+- Ajax Amsterdam (Eredivisie) — health 76; 25 total, 17 senior, 8 U21 — 17/25 senior players; 8/15 U21 players; GK: 2/3; MID: 6/8
 - Atlético de Madrid (LaLiga) — health 79; 25 total, 23 senior, 2 U21 — 23/25 senior players; 2/15 U21 players; MID: 7/8; 3 ratings differ materially from value benchmark
 - Olympique Marseille (Ligue 1) — health 79; 25 total, 25 senior, 0 U21 — 0/15 U21 players; GK: 2/3; MID: 7/8; 1 ratings differ materially from value benchmark
 - Real Sociedad (LaLiga) — health 79; 27 total, 24 senior, 3 U21 — 24/25 senior players; 3/15 U21 players; GK: 2/3; 1 ratings differ materially from value benchmark
@@ -37,14 +38,13 @@ Generated: 2026-07-13T18:46:57.357Z
 - Villarreal CF (LaLiga) — health 82; 25 total, 22 senior, 3 U21 — 22/25 senior players; 3/15 U21 players; MID: 3/8
 - Real Betis Balompié (LaLiga) — health 82; 26 total, 23 senior, 3 U21 — 23/25 senior players; 3/15 U21 players; MID: 7/8
 - Sevilla FC (LaLiga) — health 82; 27 total, 26 senior, 1 U21 — 1/15 U21 players; GK: 1/3; MID: 6/8
-- Valencia CF (LaLiga) — health 82; 27 total, 25 senior, 2 U21 — 2/15 U21 players; GK: 2/3; MID: 7/8
 - Club Brugge KV (Belgian Pro League) — health 82; 27 total, 16 senior, 11 U21 — 16/25 senior players; 11/15 U21 players; GK: 2/3
 - Celtic FC (Scottish Premiership) — health 82; 29 total, 27 senior, 2 U21 — 2/15 U21 players; GK: 2/3; MID: 7/8
 - FC Copenhagen (Superliga) — health 82; 29 total, 18 senior, 11 U21 — 18/25 senior players; 11/15 U21 players; MID: 7/8
 - Real Madrid (LaLiga) — health 85; 30 total, 23 senior, 7 U21 — 23/25 senior players; 7/15 U21 players; 4 ratings differ materially from value benchmark
 - FC Barcelona (LaLiga) — health 85; 28 total, 17 senior, 11 U21 — 17/25 senior players; 11/15 U21 players; 1 ratings differ materially from value benchmark
 - Liverpool FC (Premier League) — health 85; 29 total, 24 senior, 5 U21 — 24/25 senior players; 5/15 U21 players; 4 ratings differ materially from value benchmark
-- Bayern Munich (Bundesliga) — health 85; 29 total, 23 senior, 6 U21 — 23/25 senior players; 6/15 U21 players; 5 ratings differ materially from value benchmark
+- Bayern Munich (Bundesliga) — health 85; 29 total, 23 senior, 6 U21 — 23/25 senior players; 6/15 U21 players; 6 ratings differ materially from value benchmark
 - Paris Saint-Germain (Ligue 1) — health 85; 27 total, 17 senior, 10 U21 — 17/25 senior players; 10/15 U21 players; 2 ratings differ materially from value benchmark
 - Manchester United (Premier League) — health 85; 33 total, 21 senior, 12 U21 — 21/25 senior players; 12/15 U21 players; 2 ratings differ materially from value benchmark
 - AC Milan (Serie A) — health 85; 32 total, 24 senior, 8 U21 — 24/25 senior players; 8/15 U21 players; 4 ratings differ materially from value benchmark
@@ -53,6 +53,7 @@ Generated: 2026-07-13T18:46:57.357Z
 - Brighton & Hove Albion (Premier League) — health 85; 37 total, 23 senior, 14 U21 — 23/25 senior players; 14/15 U21 players; 1 ratings differ materially from value benchmark
 - AFC Bournemouth (Premier League) — health 85; 29 total, 21 senior, 8 U21 — 21/25 senior players; 8/15 U21 players; 1 ratings differ materially from value benchmark
 - Brentford FC (Premier League) — health 85; 34 total, 24 senior, 10 U21 — 24/25 senior players; 10/15 U21 players; 2 ratings differ materially from value benchmark
+- Trabzonspor (Süper Lig) — health 85; 33 total, 24 senior, 9 U21 — 24/25 senior players; 9/15 U21 players; 1 ratings differ materially from value benchmark
 - FC Porto (Liga Portugal) — health 85; 29 total, 23 senior, 6 U21 — 23/25 senior players; 6/15 U21 players; 1 ratings differ materially from value benchmark
 - Al-Hilal SFC (Saudi Pro League) — health 85; 28 total, 25 senior, 3 U21 — 3/15 U21 players; MID: 6/8; 2 ratings differ materially from value benchmark
 - Inter Miami CF (MLS) — health 85; 27 total, 19 senior, 8 U21 — 19/25 senior players; 8/15 U21 players; 2 ratings differ materially from value benchmark
@@ -61,9 +62,10 @@ Generated: 2026-07-13T18:46:57.357Z
 - Bologna FC 1909 (Serie A) — health 88; 29 total, 25 senior, 4 U21 — 4/15 U21 players; MID: 6/8
 - Stade Rennais FC (Ligue 1) — health 88; 34 total, 23 senior, 11 U21 — 23/25 senior players; 11/15 U21 players
 - PSV Eindhoven (Eredivisie) — health 88; 27 total, 18 senior, 9 U21 — 18/25 senior players; 9/15 U21 players
-- Feyenoord Rotterdam (Eredivisie) — health 88; 35 total, 29 senior, 6 U21 — 6/15 U21 players; GK: 2/3
+- Feyenoord Rotterdam (Eredivisie) — health 88; 34 total, 28 senior, 6 U21 — 6/15 U21 players; GK: 2/3
 - Sporting CP (Liga Portugal) — health 88; 30 total, 25 senior, 5 U21 — 5/15 U21 players; GK: 2/3
 - Red Bull Salzburg (Austrian Bundesliga) — health 88; 39 total, 18 senior, 21 U21 — 18/25 senior players; GK: 2/3
+- River Plate (Argentina Primera División) — health 88; 34 total, 25 senior, 9 U21 — 9/15 U21 players; GK: 2/3
 - Atlético Mineiro (Brasileirão) — health 88; 32 total, 23 senior, 9 U21 — 23/25 senior players; 9/15 U21 players
 - Club Nacional (Uruguay Primera División) — health 88; 33 total, 22 senior, 11 U21 — 22/25 senior players; 11/15 U21 players
 - Manchester City (Premier League) — health 91; 32 total, 25 senior, 7 U21 — 7/15 U21 players; 3 ratings differ materially from value benchmark
@@ -75,19 +77,17 @@ Generated: 2026-07-13T18:46:57.357Z
 - Crystal Palace (Premier League) — health 91; 31 total, 26 senior, 5 U21 — 5/15 U21 players; 2 ratings differ materially from value benchmark
 - Athletic Bilbao (LaLiga) — health 91; 31 total, 29 senior, 2 U21 — 2/15 U21 players; 1 ratings differ materially from value benchmark
 - Fenerbahce (Süper Lig) — health 91; 39 total, 32 senior, 7 U21 — 7/15 U21 players; 5 ratings differ materially from value benchmark
-- Trabzonspor (Süper Lig) — health 91; 34 total, 25 senior, 9 U21 — 9/15 U21 players; 1 ratings differ materially from value benchmark
 - Shakhtar Donetsk (Ukrainian Premier League) — health 91; 41 total, 31 senior, 10 U21 — 10/15 U21 players; 1 ratings differ materially from value benchmark
 - CR Flamengo (Brasileirão) — health 91; 27 total, 25 senior, 2 U21 — 2/15 U21 players; 1 ratings differ materially from value benchmark
 - Bayer 04 Leverkusen (Bundesliga) — health 94; 37 total, 20 senior, 17 U21 — 20/25 senior players
 - RB Leipzig (Bundesliga) — health 94; 34 total, 18 senior, 16 U21 — 18/25 senior players
-- ACF Fiorentina (Serie A) — health 94; 41 total, 27 senior, 14 U21 — 14/15 U21 players
+- ACF Fiorentina (Serie A) — health 94; 40 total, 26 senior, 14 U21 — 14/15 U21 players
 - Wolverhampton Wanderers (Premier League) — health 94; 32 total, 28 senior, 4 U21 — 4/15 U21 players
 - Besiktas JK (Süper Lig) — health 94; 36 total, 25 senior, 11 U21 — 11/15 U21 players
 - Rangers FC (Scottish Premiership) — health 94; 29 total, 28 senior, 1 U21 — 1/15 U21 players
 - Dynamo Kyiv (Ukrainian Premier League) — health 94; 43 total, 29 senior, 14 U21 — 14/15 U21 players
 - Olympiacos Piraeus (Super League Greece) — health 94; 34 total, 28 senior, 6 U21 — 6/15 U21 players
 - Panathinaikos (Super League Greece) — health 94; 40 total, 30 senior, 10 U21 — 10/15 U21 players
-- River Plate (Argentina Primera División) — health 94; 35 total, 26 senior, 9 U21 — 9/15 U21 players
 - Boca Juniors (Argentina Primera División) — health 94; 36 total, 31 senior, 5 U21 — 5/15 U21 players
 - Corinthians (Brasileirão) — health 94; 33 total, 27 senior, 6 U21 — 6/15 U21 players
 - Santos FC (Brasileirão) — health 94; 37 total, 27 senior, 10 U21 — 10/15 U21 players
@@ -133,6 +133,7 @@ Generated: 2026-07-13T18:46:57.357Z
 - [medium] Real Madrid: Thibaut Courtois (34) — rating_sanity — €15m — TBG 93
 - [medium] Liverpool FC: Virgil van Dijk (35) — rating_sanity — €15m — TBG 94
 - [medium] Liverpool FC: Alisson Ramses Becker (33) — rating_sanity — €15m — TBG 93
+- [medium] Bayern Munich: João Palhinha (31) — rating_sanity — €15m — TBG 91
 - [medium] Atlético de Madrid: Jan Oblak (33) — rating_sanity — €15m — TBG 93
 - [medium] Olympique Marseille: Pierre-Emile Højbjerg (30) — rating_sanity — €15m — TBG 91
 - [medium] Fenerbahce: Marco Asensio (30) — rating_sanity — €15m — TBG 91
