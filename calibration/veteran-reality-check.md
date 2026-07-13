@@ -1,6 +1,6 @@
 # Veteran Reality Check
 
-Generated: 2026-07-13T13:53:57.080Z
+Generated: 2026-07-13T16:11:30.062Z
 
 - Adjusted players: 285
 - SoccerWiki-linked adjustments: 0
