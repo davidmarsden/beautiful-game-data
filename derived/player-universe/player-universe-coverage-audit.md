@@ -1,13 +1,13 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-07-13T16:11:35.955Z
+Generated: 2026-07-13T18:46:56.331Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
-- players_master: 7002 rows / 7002 unique TM IDs
-- player_registry: 7002 rows / 7002 unique TM IDs
-- rated_global_pool: 7002 rows / 7002 unique TM IDs
-- published_database: 7002 rows / 7002 unique TM IDs
+- players_master: 8091 rows / 8091 unique TM IDs
+- player_registry: 8091 rows / 8091 unique TM IDs
+- rated_global_pool: 8090 rows / 8090 unique TM IDs
+- published_database: 8090 rows / 8090 unique TM IDs
 
 ## Top 80 squad completeness
 - Complete: 80
@@ -20,18 +20,18 @@ Count: 0
 
 
 ## Dropout categories
-- amateur_or_unvalued: 98
-- below_value_threshold: 41
-- reserve_team: 6
-- retired: 5
-- zero_value_prospect: 4
+- amateur_or_unvalued: 96
+- below_value_threshold: 9
+- reserve_team: 4
+- retired: 2
 - free_agent: 1
+- zero_value_prospect: 1
 
 ## Unexpected dropouts
 Count: 0
 
 ## Stage dropouts
-- raw_import → players_master: 155
+- raw_import → players_master: 112
 - players_master → player_registry: 0
-- player_registry → rated_global_pool: 0
+- player_registry → rated_global_pool: 1
 - rated_global_pool → published_database: 0

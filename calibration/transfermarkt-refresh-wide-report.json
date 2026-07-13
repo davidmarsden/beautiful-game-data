@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-07-13T18:46:44.406Z",
+  "policy_version": "tbg-transfermarkt-refresh-policy-v1.0",
+  "input": "calibration/apify-transfermarkt-refresh-wide.json",
+  "scanned": 3715,
+  "accepted": 3713,
+  "rejected": 2,
+  "zero_value_players": 117,
+  "rejection_counts": {
+    "age_outside_policy": 2
+  },
+  "rejected_players": [
+    {
+      "transfermarkt_id": "1354013",
+      "player_name": "Michael Ani",
+      "age": 0,
+      "reasons": [
+        "age_outside_policy"
+      ]
+    },
+    {
+      "transfermarkt_id": "1354009",
+      "player_name": "Nathaniel Chioma",
+      "age": 0,
+      "reasons": [
+        "age_outside_policy"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T16:11:35.955Z",
+  "generated_at": "2026-07-13T18:46:56.331Z",
   "paths": {
     "raw": "calibration/apify-transfermarkt-universe-dataset.json",
     "master": "data/transfermarkt/players-master.json",
@@ -18,30 +18,30 @@
     },
     {
       "name": "players_master",
-      "players": 7002,
-      "unique_transfermarkt_ids": 7002
+      "players": 8091,
+      "unique_transfermarkt_ids": 8091
     },
     {
       "name": "player_registry",
-      "players": 7002,
-      "unique_transfermarkt_ids": 7002
+      "players": 8091,
+      "unique_transfermarkt_ids": 8091
     },
     {
       "name": "rated_global_pool",
-      "players": 7002,
-      "unique_transfermarkt_ids": 7002
+      "players": 8090,
+      "unique_transfermarkt_ids": 8090
     },
     {
       "name": "published_database",
-      "players": 7002,
-      "unique_transfermarkt_ids": 7002
+      "players": 8090,
+      "unique_transfermarkt_ids": 8090
     }
   ],
   "stage_dropouts": [
     {
       "from": "raw_import",
       "to": "players_master",
-      "missing_ids": 155
+      "missing_ids": 112
     },
     {
       "from": "players_master",
@@ -51,7 +51,7 @@
     {
       "from": "player_registry",
       "to": "rated_global_pool",
-      "missing_ids": 0
+      "missing_ids": 1
     },
     {
       "from": "rated_global_pool",
@@ -72,8 +72,8 @@
       "transfermarkt_club_id": "418",
       "country": "Spain",
       "continent": "Europe",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 30,
+      "rated_players": 30,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -96,7 +96,7 @@
       "continent": "Europe",
       "published_players": 32,
       "rated_players": 32,
-      "youngest_age": 19,
+      "youngest_age": 17,
       "status": "complete"
     },
     {
@@ -116,8 +116,8 @@
       "transfermarkt_club_id": "27",
       "country": "Germany",
       "continent": "Europe",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -127,8 +127,8 @@
       "transfermarkt_club_id": "583",
       "country": "France",
       "continent": "Europe",
-      "published_players": 28,
-      "rated_players": 28,
+      "published_players": 27,
+      "rated_players": 27,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -149,8 +149,8 @@
       "transfermarkt_club_id": "985",
       "country": "England",
       "continent": "Europe",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 33,
+      "rated_players": 33,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -160,9 +160,9 @@
       "transfermarkt_club_id": "631",
       "country": "England",
       "continent": "Europe",
-      "published_players": 36,
-      "rated_players": 36,
-      "youngest_age": 19,
+      "published_players": 37,
+      "rated_players": 37,
+      "youngest_age": 18,
       "status": "complete"
     },
     {
@@ -182,8 +182,8 @@
       "transfermarkt_club_id": "5",
       "country": "Italy",
       "continent": "Europe",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 32,
+      "rated_players": 32,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -193,8 +193,8 @@
       "transfermarkt_club_id": "46",
       "country": "Italy",
       "continent": "Europe",
-      "published_players": 24,
-      "rated_players": 24,
+      "published_players": 25,
+      "rated_players": 25,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -215,8 +215,8 @@
       "transfermarkt_club_id": "16",
       "country": "Germany",
       "continent": "Europe",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 28,
+      "rated_players": 28,
       "youngest_age": 17,
       "status": "complete"
     },
@@ -226,8 +226,8 @@
       "transfermarkt_club_id": "148",
       "country": "England",
       "continent": "Europe",
-      "published_players": 38,
-      "rated_players": 38,
+      "published_players": 37,
+      "rated_players": 37,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -237,8 +237,8 @@
       "transfermarkt_club_id": "15",
       "country": "Germany",
       "continent": "Europe",
-      "published_players": 35,
-      "rated_players": 35,
+      "published_players": 37,
+      "rated_players": 37,
       "youngest_age": 16,
       "status": "complete"
     },
@@ -248,8 +248,8 @@
       "transfermarkt_club_id": "23826",
       "country": "Germany",
       "continent": "Europe",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 34,
+      "rated_players": 34,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -270,8 +270,8 @@
       "transfermarkt_club_id": "12",
       "country": "Italy",
       "continent": "Europe",
-      "published_players": 26,
-      "rated_players": 26,
+      "published_players": 28,
+      "rated_players": 28,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -303,8 +303,8 @@
       "transfermarkt_club_id": "430",
       "country": "Italy",
       "continent": "Europe",
-      "published_players": 39,
-      "rated_players": 39,
+      "published_players": 41,
+      "rated_players": 41,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -347,8 +347,8 @@
       "transfermarkt_club_id": "1082",
       "country": "France",
       "continent": "Europe",
-      "published_players": 29,
-      "rated_players": 29,
+      "published_players": 30,
+      "rated_players": 30,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -358,8 +358,8 @@
       "transfermarkt_club_id": "162",
       "country": "Monaco",
       "continent": "Europe",
-      "published_players": 27,
-      "rated_players": 27,
+      "published_players": 28,
+      "rated_players": 28,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -369,8 +369,8 @@
       "transfermarkt_club_id": "273",
       "country": "France",
       "continent": "Europe",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 34,
+      "rated_players": 34,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -380,9 +380,9 @@
       "transfermarkt_club_id": "826",
       "country": "France",
       "continent": "Europe",
-      "published_players": 28,
-      "rated_players": 28,
-      "youngest_age": 18,
+      "published_players": 31,
+      "rated_players": 31,
+      "youngest_age": 17,
       "status": "complete"
     },
     {
@@ -404,7 +404,7 @@
       "continent": "Europe",
       "published_players": 25,
       "rated_players": 25,
-      "youngest_age": 19,
+      "youngest_age": 18,
       "status": "complete"
     },
     {
@@ -413,8 +413,8 @@
       "transfermarkt_club_id": "379",
       "country": "England",
       "continent": "Europe",
-      "published_players": 25,
-      "rated_players": 25,
+      "published_players": 24,
+      "rated_players": 24,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -435,8 +435,8 @@
       "transfermarkt_club_id": "703",
       "country": "England",
       "continent": "Europe",
-      "published_players": 28,
-      "rated_players": 28,
+      "published_players": 27,
+      "rated_players": 27,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -446,8 +446,8 @@
       "transfermarkt_club_id": "1237",
       "country": "England",
       "continent": "Europe",
-      "published_players": 38,
-      "rated_players": 38,
+      "published_players": 37,
+      "rated_players": 37,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -457,8 +457,8 @@
       "transfermarkt_club_id": "873",
       "country": "England",
       "continent": "Europe",
-      "published_players": 29,
-      "rated_players": 29,
+      "published_players": 31,
+      "rated_players": 31,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -468,8 +468,8 @@
       "transfermarkt_club_id": "989",
       "country": "England",
       "continent": "Europe",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -490,8 +490,8 @@
       "transfermarkt_club_id": "1148",
       "country": "England",
       "continent": "Europe",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 34,
+      "rated_players": 34,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -501,8 +501,8 @@
       "transfermarkt_club_id": "399",
       "country": "England",
       "continent": "Europe",
-      "published_players": 28,
-      "rated_players": 28,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -512,8 +512,8 @@
       "transfermarkt_club_id": "543",
       "country": "England",
       "continent": "Europe",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 32,
+      "rated_players": 32,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -523,8 +523,8 @@
       "transfermarkt_club_id": "621",
       "country": "Spain",
       "continent": "Europe",
-      "published_players": 33,
-      "rated_players": 33,
+      "published_players": 31,
+      "rated_players": 31,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -534,8 +534,8 @@
       "transfermarkt_club_id": "681",
       "country": "Spain",
       "continent": "Europe",
-      "published_players": 28,
-      "rated_players": 28,
+      "published_players": 27,
+      "rated_players": 27,
       "youngest_age": 20,
       "status": "complete"
     },
@@ -545,8 +545,8 @@
       "transfermarkt_club_id": "1050",
       "country": "Spain",
       "continent": "Europe",
-      "published_players": 26,
-      "rated_players": 26,
+      "published_players": 25,
+      "rated_players": 25,
       "youngest_age": 21,
       "status": "complete"
     },
@@ -556,8 +556,8 @@
       "transfermarkt_club_id": "150",
       "country": "Spain",
       "continent": "Europe",
-      "published_players": 25,
-      "rated_players": 25,
+      "published_players": 26,
+      "rated_players": 26,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -600,8 +600,8 @@
       "transfermarkt_club_id": "141",
       "country": "Turkey",
       "continent": "Europe",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 33,
+      "rated_players": 33,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -611,8 +611,8 @@
       "transfermarkt_club_id": "114",
       "country": "Turkey",
       "continent": "Europe",
-      "published_players": 34,
-      "rated_players": 34,
+      "published_players": 36,
+      "rated_players": 36,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -633,8 +633,8 @@
       "transfermarkt_club_id": "2282",
       "country": "Belgium",
       "continent": "Europe",
-      "published_players": 26,
-      "rated_players": 26,
+      "published_players": 27,
+      "rated_players": 27,
       "youngest_age": 16,
       "status": "complete"
     },
@@ -688,8 +688,8 @@
       "transfermarkt_club_id": "720",
       "country": "Portugal",
       "continent": "Europe",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -699,8 +699,8 @@
       "transfermarkt_club_id": "336",
       "country": "Portugal",
       "continent": "Europe",
-      "published_players": 31,
-      "rated_players": 31,
+      "published_players": 30,
+      "rated_players": 30,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -732,9 +732,9 @@
       "transfermarkt_club_id": "660",
       "country": "Ukraine",
       "continent": "Europe",
-      "published_players": 40,
-      "rated_players": 40,
-      "youngest_age": 19,
+      "published_players": 41,
+      "rated_players": 41,
+      "youngest_age": 18,
       "status": "complete"
     },
     {
@@ -754,8 +754,8 @@
       "transfermarkt_club_id": "190",
       "country": "Denmark",
       "continent": "Europe",
-      "published_players": 25,
-      "rated_players": 25,
+      "published_players": 29,
+      "rated_players": 29,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -776,8 +776,8 @@
       "transfermarkt_club_id": "683",
       "country": "Greece",
       "continent": "Europe",
-      "published_players": 33,
-      "rated_players": 33,
+      "published_players": 34,
+      "rated_players": 34,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -787,8 +787,8 @@
       "transfermarkt_club_id": "265",
       "country": "Greece",
       "continent": "Europe",
-      "published_players": 38,
-      "rated_players": 38,
+      "published_players": 40,
+      "rated_players": 40,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -853,8 +853,8 @@
       "transfermarkt_club_id": "199",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 33,
+      "rated_players": 33,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -864,8 +864,8 @@
       "transfermarkt_club_id": "221",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 33,
-      "rated_players": 33,
+      "published_players": 37,
+      "rated_players": 37,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -875,8 +875,8 @@
       "transfermarkt_club_id": "18544",
       "country": "Saudi Arabia",
       "continent": "Asia",
-      "published_players": 29,
-      "rated_players": 29,
+      "published_players": 30,
+      "rated_players": 30,
       "youngest_age": 21,
       "status": "complete"
     },
@@ -886,8 +886,8 @@
       "transfermarkt_club_id": "2462",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 33,
+      "rated_players": 33,
       "youngest_age": 19,
       "status": "complete"
     },
@@ -897,8 +897,8 @@
       "transfermarkt_club_id": "330",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 30,
-      "rated_players": 30,
+      "published_players": 32,
+      "rated_players": 32,
       "youngest_age": 18,
       "status": "complete"
     },
@@ -908,9 +908,9 @@
       "transfermarkt_club_id": "6600",
       "country": "Brazil",
       "continent": "South America",
-      "published_players": 27,
-      "rated_players": 27,
-      "youngest_age": 17,
+      "published_players": 30,
+      "rated_players": 30,
+      "youngest_age": 18,
       "status": "complete"
     },
     {
@@ -941,22 +941,22 @@
       "transfermarkt_club_id": "866",
       "country": "Uruguay",
       "continent": "South America",
-      "published_players": 32,
-      "rated_players": 32,
+      "published_players": 33,
+      "rated_players": 33,
       "youngest_age": 18,
       "status": "complete"
     }
   ],
   "high_priority_external_missing_count": 0,
   "high_priority_external_missing": [],
-  "dropout_count": 155,
+  "dropout_count": 113,
   "dropout_categories": {
-    "below_value_threshold": 41,
-    "amateur_or_unvalued": 98,
-    "zero_value_prospect": 4,
-    "reserve_team": 6,
-    "retired": 5,
-    "free_agent": 1
+    "below_value_threshold": 9,
+    "amateur_or_unvalued": 96,
+    "reserve_team": 4,
+    "free_agent": 1,
+    "zero_value_prospect": 1,
+    "retired": 2
   },
   "unexpected_dropout_count": 0,
   "unexpected_dropouts": [],
@@ -986,18 +986,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1349275",
-      "player_name": "Aidon Shehu",
-      "current_club": "Panathinaikos",
-      "current_club_id": "265",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "1282470",
       "player_name": "Alexander Friedrich",
       "current_club": "SpVgg Erkenschwick",
@@ -1020,30 +1008,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "942939",
-      "player_name": "Ali Yeşilyurt",
-      "current_club": "Galatasaray",
-      "current_club_id": "141",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1047099",
-      "player_name": "Alpha Diallo",
-      "current_club": "RC Lens",
-      "current_club_id": "826",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "1069919",
@@ -1142,30 +1106,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1312046",
-      "player_name": "Benjamin Arhin",
-      "current_club": "SC Internacional U20",
-      "current_club_id": "15083",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
-    },
-    {
-      "transfermarkt_player_id": "1279157",
-      "player_name": "Benno Kaltefleiter",
-      "current_club": "RB Leipzig",
-      "current_club_id": "23826",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "1165039",
       "player_name": "Calvin Obin",
       "current_club": "Amiens SC",
@@ -1190,35 +1130,11 @@
       "reason": "Player belongs to a reserve/B team"
     },
     {
-      "transfermarkt_player_id": "57500",
-      "player_name": "César Azpilicueta",
-      "current_club": "Retired",
-      "current_club_id": "123",
-      "age": 36,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "retired",
-      "expected_dropout": true,
-      "reason": "Player is retired"
-    },
-    {
       "transfermarkt_player_id": "406778",
       "player_name": "Charlie Frenzel",
       "current_club": "SG Warnow Papendorf",
       "current_club_id": "3675",
       "age": 31,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1008508",
-      "player_name": "Christian Díaz",
-      "current_club": "Los Angeles FC",
-      "current_club_id": "51828",
-      "age": 20,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
       "category": "amateur_or_unvalued",
@@ -1286,42 +1202,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1261640",
-      "player_name": "Denner Alves Evangelista Pereira",
-      "current_club": "Chelsea FC",
-      "current_club_id": "631",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "620362",
-      "player_name": "Dermot Mee",
-      "current_club": "Manchester United",
-      "current_club_id": "985",
-      "age": 23,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1116612",
-      "player_name": "Diego Esser Pereira",
-      "current_club": "Sport Club Internacional",
-      "current_club_id": "6600",
-      "age": 21,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "545267",
       "player_name": "Dzenan Pilica",
       "current_club": "SV Schermbeck",
@@ -1370,18 +1250,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1105505",
-      "player_name": "Enes Emre Büyük",
-      "current_club": "Galatasaray",
-      "current_club_id": "141",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "1193441",
       "player_name": "Engin Can Biterge",
       "current_club": "Fenerbahce",
@@ -1416,18 +1284,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1088816",
-      "player_name": "Enzo Duscov Boer",
-      "current_club": "Santos FC",
-      "current_club_id": "221",
-      "age": 21,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "881761",
@@ -1562,18 +1418,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1339551",
-      "player_name": "Hendel dos Santos Nascimento",
-      "current_club": "Clube Atlético Mineiro",
-      "current_club_id": "330",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "424421",
       "player_name": "Henning-Ole Steindorf-Sabath",
       "current_club": "SG Warnow Papendorf",
@@ -1632,30 +1476,6 @@
       "category": "reserve_team",
       "expected_dropout": true,
       "reason": "Player belongs to a reserve/B team"
-    },
-    {
-      "transfermarkt_player_id": "1200424",
-      "player_name": "Ilan Jourdren",
-      "current_club": "RC Lens",
-      "current_club_id": "826",
-      "age": 17,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "255501",
-      "player_name": "Iñigo Lekue",
-      "current_club": "Retired",
-      "current_club_id": "123",
-      "age": 33,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "retired",
-      "expected_dropout": true,
-      "reason": "Player is retired"
     },
     {
       "transfermarkt_player_id": "1165854",
@@ -1742,30 +1562,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "727086",
-      "player_name": "Jelle Van Neck",
-      "current_club": "Olympique de Marseille B",
-      "current_club_id": "8524",
-      "age": 22,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "reserve_team",
-      "expected_dropout": true,
-      "reason": "Player belongs to a reserve/B team"
-    },
-    {
-      "transfermarkt_player_id": "1117807",
-      "player_name": "João Alencar Santos Paes da Costa",
-      "current_club": "Santos FC",
-      "current_club_id": "221",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "1481710",
       "player_name": "Jonas Ohde",
       "current_club": "SG Warnow Papendorf",
@@ -1776,30 +1572,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1042887",
-      "player_name": "Jonathan Moalem",
-      "current_club": "FC Copenhagen",
-      "current_club_id": "190",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1008553",
-      "player_name": "Julian Eyestone",
-      "current_club": "Brentford FC",
-      "current_club_id": "1148",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "996529",
@@ -1850,18 +1622,6 @@
       "reason": "Player is retired"
     },
     {
-      "transfermarkt_player_id": "1094530",
-      "player_name": "Kauan Jesus Santos Oliveira",
-      "current_club": "Sport Club Internacional",
-      "current_club_id": "6600",
-      "age": 23,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "894580",
       "player_name": "Keny Mbala",
       "current_club": "Amiens SC",
@@ -1898,30 +1658,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1169721",
-      "player_name": "Kilian Belazzoug",
-      "current_club": "Stade Rennais FC",
-      "current_club_id": "273",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1071430",
-      "player_name": "Lassine Diarra",
-      "current_club": "Olympique Lyon B",
-      "current_club_id": "12764",
-      "age": 23,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "reserve_team",
-      "expected_dropout": true,
-      "reason": "Player belongs to a reserve/B team"
-    },
-    {
       "transfermarkt_player_id": "964021",
       "player_name": "Leonardo Twumasi",
       "current_club": "TuS Ennepetal",
@@ -1932,18 +1668,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1068117",
-      "player_name": "Liam West",
-      "current_club": "FC Copenhagen",
-      "current_club_id": "190",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "1119457",
@@ -1992,18 +1716,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1004739",
-      "player_name": "Luiz Gustavo Lemos Carvalho",
-      "current_club": "SC Corinthians U20",
-      "current_club_id": "14876",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
     },
     {
       "transfermarkt_player_id": "1189971",
@@ -2114,18 +1826,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1124296",
-      "player_name": "Matheus Reis",
-      "current_club": "Fluminense Football Club",
-      "current_club_id": "2462",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "947946",
       "player_name": "Mathis Colin",
       "current_club": "Amiens SC",
@@ -2174,18 +1874,6 @@
       "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
-      "transfermarkt_player_id": "618869",
-      "player_name": "Metehan Baltacı",
-      "current_club": "Galatasaray",
-      "current_club_id": "141",
-      "age": 23,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "452228",
       "player_name": "Michael Marvin West",
       "current_club": "SpVgg Erkenschwick",
@@ -2210,18 +1898,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "537860",
-      "player_name": "Mykhaylo Mudryk",
-      "current_club": "Chelsea FC",
-      "current_club_id": "631",
-      "age": 25,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "961967",
       "player_name": "N'Golo Traoré",
       "current_club": "Stade Malien",
@@ -2232,30 +1908,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "991480",
-      "player_name": "Naba Mensah",
-      "current_club": "Bayer 04 Leverkusen",
-      "current_club_id": "15",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1392804",
-      "player_name": "Ndjicoura Bomba",
-      "current_club": "Bayer 04 Leverkusen",
-      "current_club_id": "15",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "444475",
@@ -2390,18 +2042,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1059483",
-      "player_name": "Oscar Buur",
-      "current_club": "FC Copenhagen",
-      "current_club_id": "190",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "544451",
       "player_name": "Patrick Deiß",
       "current_club": "SG Warnow Papendorf",
@@ -2426,18 +2066,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1005585",
-      "player_name": "Pedro Paulo Manoel Fermino",
-      "current_club": "Santos FC",
-      "current_club_id": "221",
-      "age": 19,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "544454",
       "player_name": "Pit Wilhelm",
       "current_club": "SG Warnow Papendorf",
@@ -2448,30 +2076,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1135428",
-      "player_name": "Rayan Al-Dossary",
-      "current_club": "Al-Hilal SFC",
-      "current_club_id": "1114",
-      "age": 22,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "743831",
-      "player_name": "Renato Santos da Cruz",
-      "current_club": "Sport Club Corinthians Paulista",
-      "current_club_id": "199",
-      "age": 21,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "398214",
@@ -2486,30 +2090,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1124553",
-      "player_name": "Robert Pinto Alves Assunção",
-      "current_club": "Clube Atlético Mineiro",
-      "current_club_id": "330",
-      "age": 21,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
-      "transfermarkt_player_id": "1089956",
-      "player_name": "Rodrigo Plazezwski Falcão",
-      "current_club": "Santos FC",
-      "current_club_id": "221",
-      "age": 21,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "1467363",
       "player_name": "Rostislav Kostenski",
       "current_club": "Chernomorets 1919 Burgas",
@@ -2522,18 +2102,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1186332",
-      "player_name": "Rostyslav Baglay",
-      "current_club": "Shakhtar Donetsk U19",
-      "current_club_id": "14300",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "zero_value_prospect",
-      "expected_dropout": true,
-      "reason": "Youth player has no assigned market value"
-    },
-    {
       "transfermarkt_player_id": "544446",
       "player_name": "Roy Prawitz",
       "current_club": "SG Warnow Papendorf",
@@ -2544,18 +2112,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1275528",
-      "player_name": "Ryan Roberto de Oliveira Dantas",
-      "current_club": "Shakhtar Donetsk",
-      "current_club_id": "660",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "1556354",
@@ -2573,22 +2129,10 @@
       "transfermarkt_player_id": "65230",
       "player_name": "Sergio Busquets",
       "current_club": "Retired",
-      "current_club_id": "123",
-      "age": 37,
+      "current_club_id": "",
+      "age": null,
       "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "retired",
-      "expected_dropout": true,
-      "reason": "Player is retired"
-    },
-    {
-      "transfermarkt_player_id": "50219",
-      "player_name": "Simon Mignolet",
-      "current_club": "Retired",
-      "current_club_id": "123",
-      "age": 38,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
+      "first_missing_stage": "rated_global_pool",
       "category": "retired",
       "expected_dropout": true,
       "reason": "Player is retired"
@@ -2678,18 +2222,6 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1042870",
-      "player_name": "Tobias Breum-Harild",
-      "current_club": "FC Copenhagen",
-      "current_club_id": "190",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "544449",
       "player_name": "Tony Steinert",
       "current_club": "SG Warnow Papendorf",
@@ -2700,18 +2232,6 @@
       "category": "amateur_or_unvalued",
       "expected_dropout": true,
       "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "1005802",
-      "player_name": "Ulises Giménez",
-      "current_club": "CA River Plate",
-      "current_club_id": "209",
-      "age": 20,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
     },
     {
       "transfermarkt_player_id": "1031282",
@@ -2762,35 +2282,11 @@
       "reason": "Outside core world and has no market value"
     },
     {
-      "transfermarkt_player_id": "1355486",
-      "player_name": "Vitor Fernandes Chaves Teixeira",
-      "current_club": "Clube Atlético Mineiro",
-      "current_club_id": "330",
-      "age": 18,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "below_value_threshold",
-      "expected_dropout": true,
-      "reason": "Market value €0 is below the €100,000 pool threshold"
-    },
-    {
       "transfermarkt_player_id": "1332091",
       "player_name": "Wilhelm Koschinski",
       "current_club": "SG Warnow Papendorf",
       "current_club_id": "3675",
       "age": null,
-      "market_value_eur": 0,
-      "first_missing_stage": "players_master",
-      "category": "amateur_or_unvalued",
-      "expected_dropout": true,
-      "reason": "Outside core world and has no market value"
-    },
-    {
-      "transfermarkt_player_id": "895609",
-      "player_name": "Yu Tsukanome",
-      "current_club": "Seattle Sounders FC",
-      "current_club_id": "9636",
-      "age": 25,
       "market_value_eur": 0,
       "first_missing_stage": "players_master",
       "category": "amateur_or_unvalued",
