@@ -1,0 +1,78 @@
+name: Run TBG Player Quality Gates
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tbg-player-quality-gates
+  cancel-in-progress: false
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Rebuild canonical player registry
+        run: npm run build:player-registry
+
+      - name: Apply player status overrides
+        run: npm run apply:player-status-overrides
+
+      - name: Score TBG ratings
+        run: npm run score:tbg-ratings
+
+      - name: Apply veteran reality check
+        run: npm run apply:veteran-reality-check
+
+      - name: Classify publication eligibility
+        run: npm run classify:player-publication
+
+      - name: Run player universe audit
+        run: npm run audit:player-universe
+
+      - name: Run league coverage audit
+        run: npm run audit:league-coverage
+
+      - name: Run data quality audit
+        run: npm run audit:data-quality
+
+      - name: Upload quality reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbg-player-quality-gates
+          path: |
+            derived/player-eligibility/player-exclusion-ledger.json
+            derived/player-eligibility/player-exclusion-ledger.md
+            derived/player-eligibility/active-player-registry.json
+            calibration/veteran-reality-check.json
+            calibration/veteran-reality-check.md
+            derived/player-universe/**
+            derived/data-quality/**
+          if-no-files-found: warn
+
+      - name: Commit quality metadata and reports
+        run: |
+          if [ -z "$(git status --porcelain data/players data/transfermarkt calibration derived/player-eligibility derived/player-universe derived/data-quality)" ]; then
+            echo "No quality-gate changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/players data/transfermarkt calibration derived/player-eligibility derived/player-universe derived/data-quality
+          git commit -m "Run TBG player quality gates"
+          git push

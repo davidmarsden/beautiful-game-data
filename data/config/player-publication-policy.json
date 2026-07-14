@@ -1,0 +1,27 @@
+{
+  "version": "tbg-player-publication-policy-v1.0",
+  "active_database": {
+    "minimum_age": 15,
+    "maximum_age": 50,
+    "require_transfermarkt_id": true,
+    "require_player_name": true,
+    "exclude_retired": true,
+    "exclude_staff_records": true,
+    "exclude_duplicate_transfermarkt_ids": true,
+    "exclude_under_review": true,
+    "without_club_max_days": null
+  },
+  "exclusion_codes": {
+    "RETIRED": "Player is recorded as retired and remains only in the historical master.",
+    "WITHOUT_CLUB_TOO_LONG": "Player has been without a club longer than the configured active-database limit.",
+    "DUPLICATE": "Another master record uses the same Transfermarkt identity.",
+    "INVALID_TRANSFERMARKT_RECORD": "Required identity, name or age data is invalid or missing.",
+    "UNDER_REVIEW": "Player has been explicitly held for human review.",
+    "STAFF_NOT_PLAYER": "Record appears to represent coaching, executive or other non-playing staff."
+  },
+  "layers": {
+    "transfermarkt_master": "Historical source layer. Records are preserved even when retired or excluded.",
+    "tbg_registry": "Canonical identity layer annotated with publication eligibility and exclusion reasons.",
+    "published_database": "Active, valid and eligible players available to the live TBG world and Pink Final."
+  }
+}
