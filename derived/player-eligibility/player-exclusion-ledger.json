@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-07-14T06:58:58.547Z",
+  "policy_version": "tbg-player-publication-policy-v1.0",
+  "master_players": 8091,
+  "registry_players": 8091,
+  "active_registry_players": 8082,
+  "eligible_master_players": 8082,
+  "excluded_players": 9,
+  "exclusion_reason_counts": {
+    "RETIRED": 9
+  },
+  "exclusion_codes": {
+    "RETIRED": "Player is recorded as retired and remains only in the historical master.",
+    "WITHOUT_CLUB_TOO_LONG": "Player has been without a club longer than the configured active-database limit.",
+    "DUPLICATE": "Another master record uses the same Transfermarkt identity.",
+    "INVALID_TRANSFERMARKT_RECORD": "Required identity, name or age data is invalid or missing.",
+    "UNDER_REVIEW": "Player has been explicitly held for human review.",
+    "STAFF_NOT_PLAYER": "Record appears to represent coaching, executive or other non-playing staff."
+  },
+  "players": [
+    {
+      "transfermarkt_id": "74810",
+      "tbg_player_id": "tbg-tm-00074810",
+      "player_name": "Ben Mee",
+      "age": 36,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "57500",
+      "tbg_player_id": "tbg-tm-00057500",
+      "player_name": "César Azpilicueta",
+      "age": 36,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "173489",
+      "tbg_player_id": "tbg-tm-00173489",
+      "player_name": "Darlington Nagbe",
+      "age": 35,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "72736",
+      "tbg_player_id": "tbg-tm-00072736",
+      "player_name": "Guillaume François",
+      "age": 36,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "255501",
+      "tbg_player_id": "tbg-tm-00255501",
+      "player_name": "Iñigo Lekue",
+      "age": 33,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "30321",
+      "tbg_player_id": "tbg-tm-00030321",
+      "player_name": "Óscar Trejo",
+      "age": 38,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "564620",
+      "tbg_player_id": "tbg-tm-00564620",
+      "player_name": "Samir Lagsir",
+      "age": 23,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "65230",
+      "tbg_player_id": "tbg-tm-00065230",
+      "player_name": "Sergio Busquets",
+      "age": 37,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    },
+    {
+      "transfermarkt_id": "50219",
+      "tbg_player_id": "tbg-tm-00050219",
+      "player_name": "Simon Mignolet",
+      "age": 38,
+      "current_club": "Retired",
+      "status": "retired",
+      "exclusion_reasons": [
+        "RETIRED"
+      ]
+    }
+  ]
+}
