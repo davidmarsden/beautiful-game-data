@@ -38,22 +38,16 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const round = (value, digits = 2) => Number(Number(value).toFixed(digits));
 const text = (value) => String(value ?? "").trim();
 
-function ageBand(age) {
-  if (age >= 40) return "age_40_plus";
-  if (age >= 37) return "age_37_39";
-  return "age_34_36";
-}
-
 function isEliteLeague(code, policy) {
   return policy.elite_league_codes.some((item) => text(code).toUpperCase().includes(text(item).toUpperCase()));
 }
 
-function unlinkedPenalty(row, policy) {
+function veteranPenalty(row, policy) {
   const age = number(row.age);
   const elite = isEliteLeague(row.currentCompetitionCode, policy);
   const goalkeeper = row.positionGroup === "GK";
   const value = number(row.marketValueEur);
-  const rules = policy.unlinked_penalties;
+  const rules = policy.penalties;
   if (age >= 40) {
     if (elite) return goalkeeper ? rules.age_40_plus_elite_gk : rules.age_40_plus_elite_outfield;
     return goalkeeper ? rules.age_40_plus_non_elite_gk : rules.age_40_plus_non_elite_outfield;
@@ -69,31 +63,16 @@ function applyRealityCheck(row, policy) {
   if (age < policy.minimum_age || before < policy.review_rating_floor) return null;
   if (policy.protected_transfermarkt_ids.includes(text(row.transfermarktId))) return null;
 
-  const smw = number(row.smwRating, 0);
   const goalkeeper = row.positionGroup === "GK";
   const elite = isEliteLeague(row.currentCompetitionCode, policy);
-  let after = before;
-  let reason = "";
+  const penalty = veteranPenalty(row, policy);
+  if (penalty <= 0) return null;
 
-  if (smw > 0) {
-    const allowance = policy.maximum_positive_gap_over_soccerwiki[ageBand(age)][goalkeeper ? "GK" : "outfield"];
-    const maximum = smw + allowance;
-    if (before > maximum) {
-      const midpoint = Math.round((before + smw) / 2);
-      after = Math.min(maximum, midpoint);
-      reason = `linked veteran cap: TBG ${before}, SoccerWiki ${smw}, permitted gap +${allowance}`;
-    }
-  } else {
-    const penalty = unlinkedPenalty(row, policy);
-    if (penalty > 0) {
-      after = before - penalty;
-      reason = `unlinked veteran caution: age ${age}, ${elite ? "elite" : "non-elite"} league, ${goalkeeper ? "GK" : "outfield"}`;
-    }
-  }
-
-  after = clamp(Math.round(after), 60, 99);
+  const after = clamp(Math.round(before - penalty), 60, 99);
   if (after >= before) return null;
-  return { before, after, adjustment: after - before, reason, soccerwiki_rating: smw || null, elite_league: elite };
+  const valueSignal = number(row.marketValueEur) < policy.low_market_value_eur ? "low current value" : "current value retained";
+  const reason = `veteran reality adjustment: age ${age}, ${elite ? "elite" : "non-elite"} league, ${goalkeeper ? "GK" : "outfield"}, ${valueSignal}`;
+  return { before, after, adjustment: after - before, reason, elite_league: elite };
 }
 
 const configPath = process.argv[2] || "data/config/veteran-rating-policy.json";
@@ -125,7 +104,7 @@ for (const row of records) {
   row.tbgRatingRaw = round(number(row.tbgRatingRaw, oldRaw) + delta);
   row.effectiveMatchRatingRaw = round(number(row.effectiveMatchRatingRaw, oldRaw) + delta);
   row.tbgRatingBand = result.after >= 94 ? "world_elite" : result.after >= 91 ? "elite" : result.after >= 89 ? "top_tier" : result.after >= 87 ? "first_team" : result.after >= 84 ? "senior_squad" : "development";
-  row.tbgDeltaRounded = row.smwRating ? result.after - number(row.smwRating) : "";
+  row.tbgDeltaRounded = "";
   adjustedById.set(id, result.after);
   adjustments.push({
     transfermarkt_id: id,
@@ -160,8 +139,10 @@ const report = {
   summary: {
     veteran_rows_reviewed: records.filter((row) => number(row.age) >= policy.minimum_age && number(row.tbgRating) >= policy.review_rating_floor).length,
     adjusted_players: adjustments.length,
-    linked_to_soccerwiki: adjustments.filter((row) => row.soccerwiki_rating).length,
-    unlinked: adjustments.filter((row) => !row.soccerwiki_rating).length,
+    elite_league_adjustments: adjustments.filter((row) => row.elite_league).length,
+    non_elite_league_adjustments: adjustments.filter((row) => !row.elite_league).length,
+    goalkeeper_adjustments: adjustments.filter((row) => row.position_group === "GK").length,
+    outfield_adjustments: adjustments.filter((row) => row.position_group !== "GK").length,
     maximum_reduction: adjustments.length ? Math.min(...adjustments.map((row) => row.adjustment)) : 0
   },
   adjustments
@@ -173,13 +154,15 @@ const markdown = [
   `Generated: ${report.generated_at}`,
   "",
   `- Adjusted players: ${report.summary.adjusted_players}`,
-  `- SoccerWiki-linked adjustments: ${report.summary.linked_to_soccerwiki}`,
-  `- Unlinked adjustments: ${report.summary.unlinked}`,
+  `- Elite-league adjustments: ${report.summary.elite_league_adjustments}`,
+  `- Non-elite-league adjustments: ${report.summary.non_elite_league_adjustments}`,
+  `- Goalkeeper adjustments: ${report.summary.goalkeeper_adjustments}`,
+  `- Outfield adjustments: ${report.summary.outfield_adjustments}`,
   `- Maximum reduction: ${report.summary.maximum_reduction}`,
   "",
   "## Adjustments",
   "",
-  ...adjustments.map((row) => `- ${row.player_name} (${row.age}, ${row.club || "Without Club"}): ${row.before} → ${row.after}${row.soccerwiki_rating ? `; SW ${row.soccerwiki_rating}` : ""} — ${row.reason}`)
+  ...adjustments.map((row) => `- ${row.player_name} (${row.age}, ${row.club || "Without Club"}): ${row.before} → ${row.after} — ${row.reason}`)
 ].join("\n") + "\n";
 
 for (const path of [scoresPath, profilesPath, reportJsonPath, reportMarkdownPath]) await mkdir(dirname(path), { recursive: true });
