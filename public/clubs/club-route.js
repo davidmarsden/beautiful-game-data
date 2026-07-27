@@ -5,17 +5,20 @@ function requestedClubRoute() {
   return SAFE_CLUB_ID.test(id) ? id : null;
 }
 
-function tbgSlotFromRoute(id) {
-  const match = String(id || '').match(/^tbg-club-(\d{1,3})$/i);
-  return match ? Number(match[1]) : null;
+function transfermarktIdFromTbgRoute(id) {
+  const match = String(id || '').match(/^tbg-club-(\d+)$/i);
+  return match ? match[1] : null;
 }
 
 function matchingClub(id) {
-  const slot = tbgSlotFromRoute(id);
+  const transfermarktId = transfermarktIdFromTbgRoute(id);
   return state.clubs.find((club) =>
     club.club_id === id
     || String(club.transfermarkt_club_id || '') === id
-    || (slot !== null && Number(club.universe_slot) === slot)
+    || (transfermarktId !== null && (
+      String(club.club_id || '') === transfermarktId
+      || String(club.transfermarkt_club_id || '') === transfermarktId
+    ))
   ) || null;
 }
 
