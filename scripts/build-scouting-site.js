@@ -34,6 +34,7 @@ for (const section of ["clubs", "players", "wonderkids", "rankings", "transfer-m
 await copy("public/clubs/clubs.css", join(outputDir, "clubs", "clubs.css"));
 await copy("public/clubs/clubs.js", join(outputDir, "clubs", "clubs.js"));
 await copy("public/clubs/club-enhancements.js", join(outputDir, "clubs", "club-enhancements.js"));
+await copy("public/clubs/club-route.js", join(outputDir, "clubs", "club-route.js"));
 await copy("public/clubs/club-enhancements.css", join(outputDir, "clubs", "club-enhancements.css"));
 await copy("data/config/tbg-club-universe.json", join(outputDir, "clubs", "club-universe.json"));
 await copy("public/players/players.css", join(outputDir, "players", "players.css"));
