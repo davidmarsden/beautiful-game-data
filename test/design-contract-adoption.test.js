@@ -28,6 +28,14 @@ test('site build publishes the contract and Pink Final mapping on every page', a
   }
 });
 
+test('contract-only changes trigger and verify Pink Final publishing', async () => {
+  const workflow = (await read('.github/workflows/publish-scouting-pages.yml')).toString('utf8');
+  assert.match(workflow, /- site\/\*\*/);
+  assert.match(workflow, /- design-contract\/\*\*/);
+  assert.match(workflow, /- scripts\/verify-design-contract\.js/);
+  assert.match(workflow, /run: npm run design-contract:verify/);
+});
+
 test('product theme maps legacy Pink Final surfaces onto governed tokens', async () => {
   const theme = (await read('public/pink-final-theme.css')).toString('utf8');
   for (const token of ['--tbg-colour-paper', '--tbg-colour-ink', '--tbg-colour-rule', '--tbg-font-editorial', '--tbg-colour-action']) {
@@ -35,6 +43,13 @@ test('product theme maps legacy Pink Final surfaces onto governed tokens', async
   }
   assert.match(theme, /\.nav\.tbg-nav/);
   assert.match(theme, /prefers-reduced-motion|tbg-design-contract v1\.0\.1/);
+});
+
+test('club squad headers map foreground and background together', async () => {
+  const theme = (await read('public/pink-final-theme.css')).toString('utf8');
+  assert.match(theme, /\.squad-table thead th,[\s\S]*\.squad-table th/);
+  assert.match(theme, /\.squad-table[\s\S]*color: var\(--tbg-colour-cream\)/);
+  assert.match(theme, /\.squad-table[\s\S]*background: var\(--tbg-colour-ink\)/);
 });
 
 test('consumer keeps editorial overrides separate from immutable contract', async () => {
