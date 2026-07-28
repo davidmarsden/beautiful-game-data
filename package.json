@@ -4,7 +4,8 @@
   "description": "Canonical data and import pipelines for The Beautiful Game.",
   "type": "module",
   "scripts": {
-    "test": "node --test",
+    "test": "node scripts/verify-design-contract.js && node --test",
+    "design-contract:verify": "node scripts/verify-design-contract.js",
     "diagnose:api-football": "node scripts/diagnose-api-football-coverage.js",
     "diagnose:player-registry": "node scripts/diagnose-player-registry-exclusions.js",
     "import:api-football:players": "node scripts/import-api-football-players.js",

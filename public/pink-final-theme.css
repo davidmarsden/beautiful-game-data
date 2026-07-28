@@ -1,0 +1,98 @@
+/* Pink Final product mapping for tbg-design-contract v1.0.1.
+ * Keep editorial layout here; the copied contract remains byte-identical.
+ */
+:root {
+  --paper: var(--tbg-colour-paper);
+  --paper-light: var(--tbg-colour-paper-light);
+  --ink: var(--tbg-colour-ink);
+  --muted: var(--tbg-colour-muted);
+  --rule: var(--tbg-colour-rule);
+  --cream: var(--tbg-colour-cream);
+  --shadow: rgba(45, 19, 19, .22);
+}
+
+body {
+  color: var(--tbg-colour-ink);
+  background-color: var(--tbg-surface-page);
+  font-family: var(--tbg-font-editorial);
+}
+
+.nav.tbg-nav {
+  width: min(1220px, calc(100vw - 24px));
+  min-height: auto;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: visible;
+  border-block: 0 var(--tbg-rule-heavy) solid var(--tbg-colour-rule);
+}
+
+.nav.tbg-nav a {
+  border: 0;
+  border-inline-end: var(--tbg-rule-thin) solid rgba(255, 242, 217, .28);
+}
+
+.nav.tbg-nav a:last-child { border-inline-end: 0; }
+
+.label,
+.kicker {
+  color: var(--tbg-colour-cream);
+  background: var(--tbg-colour-ink);
+  font-family: var(--tbg-font-ui);
+  letter-spacing: var(--tbg-tracking-label);
+}
+
+.card,
+.panel,
+.profile-card,
+.summary-card,
+.filter-panel,
+.table-wrap {
+  border-color: var(--tbg-colour-rule);
+}
+
+.card,
+.panel,
+.profile-card,
+.summary-card,
+.filter-panel {
+  color: var(--tbg-colour-ink);
+  box-shadow: var(--tbg-shadow-panel);
+}
+
+table { border-color: var(--tbg-colour-rule); }
+
+thead th {
+  color: var(--tbg-colour-cream);
+  background: var(--tbg-colour-ink);
+  font-family: var(--tbg-font-ui);
+  letter-spacing: var(--tbg-tracking-label);
+}
+
+tbody tr:hover { background: rgba(255, 242, 217, .65); }
+
+.player-link,
+.club-link,
+a[href*="/players/?id="],
+a[href*="/clubs/?id="] {
+  color: var(--tbg-colour-action);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.player-link:hover,
+.club-link:hover,
+a[href*="/players/?id="]:hover,
+a[href*="/clubs/?id="]:hover {
+  color: var(--tbg-colour-action-hover);
+}
+
+@media (max-width: 560px) {
+  .nav.tbg-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+}
