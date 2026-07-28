@@ -71,6 +71,15 @@ thead th {
   letter-spacing: var(--tbg-tracking-label);
 }
 
+/* Club pages already give squad headers a more specific selector. Map both
+ * foreground and background together so the shared cream text never lands on
+ * the legacy light-pink header surface. */
+.squad-table thead th,
+.squad-table th {
+  color: var(--tbg-colour-cream);
+  background: var(--tbg-colour-ink);
+}
+
 tbody tr:hover { background: rgba(255, 242, 217, .65); }
 
 .player-link,
