@@ -8,15 +8,24 @@ async function copy(source, target) {
 
 async function applySharedNavigation(path, rootPrefix) {
   const html = await readFile(path, "utf8");
-  const nav = `<nav class="nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a><a href="${rootPrefix}new-this-week/">New This Week</a></nav>`;
-  const updated = html.replace(/<nav class="nav"[^>]*>[\s\S]*?<\/nav>/, nav);
+  const nav = `<nav class="nav tbg-nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a><a href="${rootPrefix}new-this-week/">New This Week</a></nav>`;
+  const updated = html.replace(/<nav class="nav(?: tbg-nav)?"[^>]*>[\s\S]*?<\/nav>/, nav);
   await writeFile(path, updated, "utf8");
+}
+
+async function applyDesignContract(path, rootPrefix) {
+  const html = await readFile(path, "utf8");
+  if (html.includes('tbg-design-contract.css')) return;
+  const styles = `<link rel="stylesheet" href="${rootPrefix}tbg-design-contract.css"/><link rel="stylesheet" href="${rootPrefix}pink-final-theme.css"/>`;
+  await writeFile(path, html.replace('</head>', `${styles}</head>`), "utf8");
 }
 
 const outputDir = "derived/scouting-site";
 await rm(outputDir, { recursive: true, force: true });
 await mkdir(outputDir, { recursive: true });
 
+await copy("site/tbg-design-contract.css", join(outputDir, "tbg-design-contract.css"));
+await copy("public/pink-final-theme.css", join(outputDir, "pink-final-theme.css"));
 await copy("public/index.html", join(outputDir, "index.html"));
 await copy("public/portal.css", join(outputDir, "portal.css"));
 await copy("public/portal.js", join(outputDir, "portal.js"));
@@ -50,7 +59,9 @@ await copy("public/new-this-week/new-this-week.js", join(outputDir, "new-this-we
 await copy("derived/player-changes/player-change-ledger.json", join(outputDir, "new-this-week", "player-change-ledger.json"));
 
 await applySharedNavigation(join(outputDir, "index.html"), "./");
+await applyDesignContract(join(outputDir, "index.html"), "./");
 for (const section of ["scouting", "clubs", "players", "wonderkids", "rankings", "transfer-market", "new-this-week"]) {
   await applySharedNavigation(join(outputDir, section, "index.html"), "../");
+  await applyDesignContract(join(outputDir, section, "index.html"), "../");
 }
 console.log(`Built Pink Final portal at ${outputDir}`);

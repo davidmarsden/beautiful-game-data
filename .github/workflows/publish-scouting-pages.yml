@@ -7,11 +7,14 @@ on:
       - main
     paths:
       - public/**
+      - site/**
+      - design-contract/**
       - derived/player-database/player-database.json
       - derived/player-changes/player-change-ledger.json
       - data/config/tbg-club-universe.json
       - scripts/build-scouting-site.js
       - scripts/promote-global-clubs-to-top80.js
+      - scripts/verify-design-contract.js
       - .github/workflows/publish-scouting-pages.yml
 
 permissions:
@@ -40,6 +43,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Verify governed TBG design contract
+        run: npm run design-contract:verify
 
       - name: Apply canonical Top 80 club promotions
         run: node scripts/promote-global-clubs-to-top80.js
