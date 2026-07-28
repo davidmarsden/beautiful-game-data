@@ -10,23 +10,31 @@ function tbgRouteIdentity(id) {
   if (!match) return { transfermarktId: null, universeSlot: null };
   const suffix = match[1];
   // Canonical publication builds historically emitted zero-padded universe IDs
-  // such as tbg-club-048. Newer imports may emit tbg-club-${tmId}.
-  return /^0\d{2}$/.test(suffix)
-    ? { transfermarktId: null, universeSlot: Number(suffix) }
-    : { transfermarktId: suffix, universeSlot: null };
+  // such as tbg-club-048, plus the unpadded boundary value tbg-club-100.
+  // Newer imports may emit tbg-club-${tmId}; provider identity therefore wins,
+  // with slot 100 retained only as a compatibility fallback.
+  if (/^0\d{2}$/.test(suffix)) return { transfermarktId: null, universeSlot: Number(suffix) };
+  if (suffix === '100') return { transfermarktId: suffix, universeSlot: 100 };
+  return { transfermarktId: suffix, universeSlot: null };
 }
 
 function matchingClub(id) {
   const { transfermarktId, universeSlot } = tbgRouteIdentity(id);
-  return state.clubs.find((club) =>
-    club.club_id === id
-    || String(club.transfermarkt_club_id || '') === id
-    || (transfermarktId !== null && (
+  const direct = state.clubs.find((club) => club.club_id === id || String(club.transfermarkt_club_id || '') === id);
+  if (direct) return direct;
+
+  if (transfermarktId !== null) {
+    const provider = state.clubs.find((club) =>
       String(club.club_id || '') === transfermarktId
       || String(club.transfermarkt_club_id || '') === transfermarktId
-    ))
-    || (universeSlot !== null && Number(club.universe_slot) === universeSlot)
-  ) || null;
+    );
+    if (provider) return provider;
+  }
+
+  if (universeSlot !== null) {
+    return state.clubs.find((club) => Number(club.universe_slot) === universeSlot) || null;
+  }
+  return null;
 }
 
 function openRequestedClub() {
