@@ -8,6 +8,9 @@ test('Pink Final club pages resolve both legacy world and Transfermarkt identiti
   const build = await readFile(new URL('../scripts/build-scouting-site.js', import.meta.url), 'utf8');
   assert.match(route, /tbgRouteIdentity/);
   assert.match(route, /\^0\\d\{2\}\$/);
+  assert.match(route, /suffix === '100'/);
+  assert.match(route, /universeSlot: 100/);
+  assert.match(route, /if \(provider\) return provider/);
   assert.match(route, /Number\(club\.universe_slot\) === universeSlot/);
   assert.match(route, /String\(club\.transfermarkt_club_id \|\| ''\) === transfermarktId/);
   assert.match(route, /state\.selectedClubId = club\.club_id/);
