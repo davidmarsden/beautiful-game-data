@@ -11,8 +11,77 @@ function parseArgs(argv) {
 }
 
 function csvEscape(value) {
-  const text = String(value ?? "");
+  const text = Array.isArray(value) ? value.join("; ") : String(value ?? "");
   return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+}
+
+function normalise(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function addAliasValues(target, value) {
+  if (Array.isArray(value)) {
+    value.forEach((entry) => addAliasValues(target, entry));
+    return;
+  }
+  if (value == null) return;
+  String(value)
+    .split(/[;,|]/)
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+    .forEach((entry) => target.push(entry));
+}
+
+function profileAlias(player = {}) {
+  const profileUrl = String(player.profile_url || player.transfermarkt_url || "").trim();
+  if (!profileUrl) return "";
+
+  let slug = "";
+  try {
+    const pathname = new URL(profileUrl).pathname;
+    slug = pathname.match(/^\/([^/]+)\/profil\/spieler\/\d+/i)?.[1] || "";
+  } catch {
+    slug = profileUrl.match(/transfermarkt\.[^/]+\/([^/]+)\/profil\/spieler\/\d+/i)?.[1] || "";
+  }
+  if (!slug) return "";
+
+  try {
+    return decodeURIComponent(slug).replace(/[-_]+/g, " ").trim();
+  } catch {
+    return "";
+  }
+}
+
+function aliases(player = {}, canonicalName = "") {
+  const values = [];
+  [
+    player.aliases,
+    player.nicknames,
+    player.nickname,
+    player.nick_name,
+    player.known_as,
+    player.knownAs,
+    player.common_name,
+    player.commonName,
+    player.search_aliases,
+    player.full_name,
+    player.short_name,
+    profileAlias(player)
+  ].forEach((entry) => addAliasValues(values, entry));
+
+  const canonical = normalise(canonicalName);
+  const seen = new Set();
+  return values.filter((entry) => {
+    const key = normalise(entry);
+    if (!key || key === canonical || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function rating(player) {
@@ -86,11 +155,14 @@ const rows = source
   .map((player) => {
     const score = rating(player);
     const tmId = transfermarktId(player);
+    const playerName = player.display_name || player.name || "";
     return {
       tbg_player_id: player.tbg_player_id || "",
       transfermarkt_player_id: tmId,
       transfermarkt_id: tmId,
-      player_name: player.display_name || player.name || "",
+      player_name: playerName,
+      aliases: aliases(player, playerName),
+      profile_url: player.profile_url || player.transfermarkt_url || "",
       age: player.age ?? "",
       date_of_birth: player.date_of_birth || "",
       nationality: Array.isArray(player.nationalities) ? player.nationalities.join("; ") : (player.nationality || ""),
@@ -117,6 +189,8 @@ const columns = [
   "transfermarkt_player_id",
   "transfermarkt_id",
   "player_name",
+  "aliases",
+  "profile_url",
   "age",
   "date_of_birth",
   "nationality",
@@ -140,6 +214,7 @@ const summary = {
   players: rows.length,
   transfermarkt_linked: rows.filter((row) => row.transfermarkt_player_id).length,
   missing_transfermarkt_id: rows.filter((row) => !row.transfermarkt_player_id).length,
+  players_with_aliases: rows.filter((row) => row.aliases.length).length,
   assigned_players: rows.filter((row) => row.assignment_status === "assigned").length,
   without_club: rows.filter((row) => row.status === "without_club" || row.current_club === "Without Club").length,
   new_players: rows.filter((row) => row.is_new_player).length,

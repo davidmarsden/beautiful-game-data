@@ -68,6 +68,23 @@ function number(value, fallback = 0) {
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
+function aliasValues(...sources) {
+  const values = [];
+  for (const source of sources) {
+    if (Array.isArray(source)) values.push(...source);
+    else if (source != null && String(source).trim()) values.push(...String(source).split(/[;,|]/));
+  }
+  const seen = new Set();
+  return values
+    .map((value) => String(value).trim())
+    .filter((value) => {
+      const key = value.toLocaleLowerCase("en");
+      if (!value || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 function normaliseStatus(row) {
   const raw = String(row.status || row.player_status || row.transfermarkt_status || "").trim().toLowerCase();
   const club = String(row.current_club || "").trim().toLowerCase();
@@ -153,11 +170,32 @@ function canonicalPlayer(tmRow, ratingRow, profileRow, assignment) {
   const status = normaliseStatus(tmRow);
   const underlyingAbilityRating = number(ratingRow?.underlyingAbilityRating || ratingRow?.tbgRating, null);
   const effectiveMatchRating = number(ratingRow?.effectiveMatchRating || ratingRow?.tbgRating, null);
+  const aliases = aliasValues(
+    tmRow.aliases,
+    tmRow.nicknames,
+    tmRow.nickname,
+    tmRow.nick_name,
+    tmRow.known_as,
+    tmRow.knownAs,
+    tmRow.common_name,
+    tmRow.commonName,
+    tmRow.short_name,
+    tmRow.search_aliases,
+    profileRow?.aliases,
+    profileRow?.nickname,
+    profileRow?.short_name,
+    ratingRow?.aliases,
+    ratingRow?.nickname,
+    ratingRow?.shortName
+  );
   return {
     tbg_player_id: ratingRow?.tbgPlayerId || profileRow?.tbg_player_id || `tbg-tm-${id.padStart(8, "0")}`,
     transfermarkt_id: id,
     display_name: tmRow.display_name || tmRow.full_name || ratingRow?.playerName || "",
     full_name: tmRow.full_name || tmRow.display_name || "",
+    short_name: tmRow.short_name || profileRow?.short_name || ratingRow?.shortName || "",
+    aliases,
+    nickname: tmRow.nickname || profileRow?.nickname || ratingRow?.nickname || "",
     name_key: tmRow.name_key || "",
     date_of_birth: tmRow.date_of_birth || "",
     age: number(tmRow.age, null),
@@ -291,7 +329,7 @@ const summary = {
   }, {}),
   rating_counts: globalPlayers.reduce((memo, player) => {
     const band = player.rating_band || "unrated";
-    memo[band] = (memo[band] ?? 0) + 1;
+    memo[band] = (memo[band] || 0) + 1;
     return memo;
   }, {}),
   policy
@@ -315,6 +353,10 @@ const csvHeaders = [
   "tbg_player_id",
   "transfermarkt_id",
   "display_name",
+  "full_name",
+  "short_name",
+  "aliases",
+  "nickname",
   "age",
   "status",
   "nationality",
