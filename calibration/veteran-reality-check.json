@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T06:58:57.992Z",
+  "generated_at": "2026-08-20T20:29:54.721Z",
   "policy": {
-    "version": "tbg-veteran-reality-check-v1.0",
+    "version": "tbg-veteran-reality-check-v2.0",
     "minimum_age": 34,
     "review_rating_floor": 87,
     "elite_league_codes": [
@@ -13,21 +13,7 @@
       "CL",
       "EL"
     ],
-    "maximum_positive_gap_over_soccerwiki": {
-      "age_34_36": {
-        "GK": 4,
-        "outfield": 3
-      },
-      "age_37_39": {
-        "GK": 4,
-        "outfield": 3
-      },
-      "age_40_plus": {
-        "GK": 4,
-        "outfield": 3
-      }
-    },
-    "unlinked_penalties": {
+    "penalties": {
       "age_34_36_non_elite_low_value": 1,
       "age_37_39_elite": 1,
       "age_37_39_non_elite": 2,
@@ -38,13 +24,15 @@
     },
     "low_market_value_eur": 5000000,
     "protected_transfermarkt_ids": [],
-    "principle": "TBG may rate proven veterans above SoccerWiki/SMW, but extreme age, smaller-league level and weak current market signal must constrain historic reputation and goalkeeper longevity."
+    "principle": "TBG veteran ratings are moderated using age, position, league strength and current Transfermarkt market signal. Historic reputation may inform the core model, but extreme age, weaker current competition and low current value must constrain the final published rating."
   },
   "summary": {
     "veteran_rows_reviewed": 253,
     "adjusted_players": 343,
-    "linked_to_soccerwiki": 0,
-    "unlinked": 343,
+    "elite_league_adjustments": 22,
+    "non_elite_league_adjustments": 321,
+    "goalkeeper_adjustments": 87,
+    "outfield_adjustments": 256,
     "maximum_reduction": -4
   },
   "adjustments": [
@@ -59,8 +47,7 @@
       "before": 95,
       "after": 91,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 41, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 41, non-elite league, outfield, current value retained",
       "elite_league": false
     },
     {
@@ -74,8 +61,7 @@
       "before": 93,
       "after": 89,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 40, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -89,8 +75,7 @@
       "before": 91,
       "after": 87,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 40, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -104,8 +89,7 @@
       "before": 91,
       "after": 87,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 41, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 41, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -119,8 +103,7 @@
       "before": 90,
       "after": 86,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 41, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 41, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -134,8 +117,7 @@
       "before": 90,
       "after": 86,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 40, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -149,8 +131,7 @@
       "before": 89,
       "after": 85,
       "adjustment": -4,
-      "reason": "unlinked veteran caution: age 40, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -164,8 +145,7 @@
       "before": 93,
       "after": 90,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 45, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 45, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -179,8 +159,7 @@
       "before": 91,
       "after": 88,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 41, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 41, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -194,8 +173,7 @@
       "before": 90,
       "after": 87,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 41, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 41, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -209,8 +187,7 @@
       "before": 90,
       "after": 87,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 40, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -224,8 +201,7 @@
       "before": 90,
       "after": 87,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 40, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -239,8 +215,7 @@
       "before": 90,
       "after": 87,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 40, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -254,8 +229,7 @@
       "before": 89,
       "after": 86,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 40, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -269,8 +243,7 @@
       "before": 89,
       "after": 86,
       "adjustment": -3,
-      "reason": "unlinked veteran caution: age 40, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -284,8 +257,7 @@
       "before": 96,
       "after": 94,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, current value retained",
       "elite_league": false
     },
     {
@@ -299,8 +271,7 @@
       "before": 93,
       "after": 91,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 40, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -314,8 +285,7 @@
       "before": 92,
       "after": 90,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, current value retained",
       "elite_league": false
     },
     {
@@ -329,8 +299,7 @@
       "before": 91,
       "after": 89,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, current value retained",
       "elite_league": false
     },
     {
@@ -344,8 +313,7 @@
       "before": 91,
       "after": 89,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -359,8 +327,7 @@
       "before": 91,
       "after": 89,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -374,8 +341,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -389,8 +355,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 40, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -404,8 +369,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -419,8 +383,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -434,8 +397,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -449,8 +411,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -464,8 +425,7 @@
       "before": 90,
       "after": 88,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 40, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 40, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -479,8 +439,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -494,8 +453,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -509,8 +467,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -524,8 +481,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -539,8 +495,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -554,8 +509,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -569,8 +523,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -584,8 +537,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -599,8 +551,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -614,8 +565,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -629,8 +579,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -644,8 +593,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -659,8 +607,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -674,8 +621,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -689,8 +635,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -704,8 +649,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -719,8 +663,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -734,8 +677,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -749,8 +691,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -764,8 +705,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -779,8 +719,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 39, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -794,8 +733,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -809,8 +747,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -824,8 +761,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -839,8 +775,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -854,8 +789,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -869,8 +803,7 @@
       "before": 89,
       "after": 87,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -884,8 +817,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -899,8 +831,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -914,8 +845,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -929,8 +859,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -944,8 +873,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -959,8 +887,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -974,8 +901,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -989,8 +915,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1004,8 +929,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1019,8 +943,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1034,8 +957,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1049,8 +971,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1064,8 +985,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1079,8 +999,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1094,8 +1013,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1109,8 +1027,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1124,8 +1041,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1139,8 +1055,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1154,8 +1069,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1169,8 +1083,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1184,8 +1097,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1199,8 +1111,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1214,8 +1125,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1229,8 +1139,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1244,8 +1153,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1259,8 +1167,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1274,8 +1181,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1289,8 +1195,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1304,8 +1209,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1319,8 +1223,7 @@
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1334,8 +1237,7 @@
       "before": 87,
       "after": 85,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 38, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1349,8 +1251,7 @@
       "before": 87,
       "after": 85,
       "adjustment": -2,
-      "reason": "unlinked veteran caution: age 37, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1364,8 +1265,7 @@
       "before": 92,
       "after": 91,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1379,8 +1279,7 @@
       "before": 91,
       "after": 90,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1394,8 +1293,7 @@
       "before": 91,
       "after": 90,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1409,8 +1307,7 @@
       "before": 91,
       "after": 90,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1424,8 +1321,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1439,8 +1335,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1454,8 +1349,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1469,8 +1363,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1484,8 +1377,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1499,8 +1391,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1514,8 +1405,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 39, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1529,8 +1419,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1544,8 +1433,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1559,8 +1447,7 @@
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1574,8 +1461,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1589,8 +1475,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1604,8 +1489,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1619,8 +1503,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1634,8 +1517,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1649,8 +1531,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1664,8 +1545,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 39, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1679,8 +1559,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1694,8 +1573,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1709,8 +1587,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1724,8 +1601,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 38, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -1739,8 +1615,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1754,8 +1629,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 38, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1769,8 +1643,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1784,8 +1657,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1799,8 +1671,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1814,8 +1685,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1829,8 +1699,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 38, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1844,8 +1713,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1859,8 +1727,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -1874,8 +1741,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1889,8 +1755,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 39, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 39, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -1904,8 +1769,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1919,8 +1783,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1934,8 +1797,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -1949,8 +1811,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1964,8 +1825,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1979,8 +1839,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 38, elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1994,8 +1853,7 @@
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 38, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 38, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -2009,8 +1867,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2024,8 +1881,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2039,8 +1895,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2054,8 +1909,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2069,8 +1923,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2084,8 +1937,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2099,8 +1951,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2114,8 +1965,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2129,8 +1979,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -2144,8 +1993,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2159,8 +2007,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2174,8 +2021,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2189,8 +2035,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2204,8 +2049,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2219,8 +2063,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2234,8 +2077,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -2249,8 +2091,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2264,8 +2105,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2279,8 +2119,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2294,8 +2133,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2309,8 +2147,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2324,8 +2161,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2339,8 +2175,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2354,8 +2189,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -2369,8 +2203,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2384,8 +2217,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2399,8 +2231,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2414,8 +2245,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2429,8 +2259,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -2444,8 +2273,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2459,8 +2287,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2474,8 +2301,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2489,8 +2315,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2504,8 +2329,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2519,8 +2343,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2534,8 +2357,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2549,8 +2371,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2564,8 +2385,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2579,8 +2399,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2594,8 +2413,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2609,8 +2427,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2624,8 +2441,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2639,8 +2455,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2654,8 +2469,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2669,8 +2483,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2684,8 +2497,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2699,8 +2511,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2714,8 +2525,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2729,8 +2539,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2744,8 +2553,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2759,8 +2567,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2774,8 +2581,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2789,8 +2595,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2804,8 +2609,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2819,8 +2623,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 37, elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
     },
     {
@@ -2834,8 +2637,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2849,8 +2651,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2864,8 +2665,7 @@
       "before": 88,
       "after": 87,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2879,8 +2679,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2894,8 +2693,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2909,8 +2707,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2924,8 +2721,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2939,8 +2735,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2954,8 +2749,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2969,8 +2763,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2984,8 +2777,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2999,8 +2791,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3014,8 +2805,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3029,8 +2819,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3044,8 +2833,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3059,8 +2847,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3074,8 +2861,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3089,8 +2875,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3104,8 +2889,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3119,8 +2903,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3134,8 +2917,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3149,8 +2931,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3164,8 +2945,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3179,8 +2959,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3194,8 +2973,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3209,8 +2987,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3224,8 +3001,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3239,8 +3015,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3254,8 +3029,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3269,8 +3043,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3284,8 +3057,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3299,8 +3071,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3314,8 +3085,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3329,8 +3099,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3344,8 +3113,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3359,8 +3127,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3374,8 +3141,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3389,8 +3155,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3404,8 +3169,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3419,8 +3183,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3434,8 +3197,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3449,8 +3211,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3464,8 +3225,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3479,8 +3239,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3494,8 +3253,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3509,8 +3267,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3524,8 +3281,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3539,8 +3295,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3554,8 +3309,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3569,8 +3323,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3584,8 +3337,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3599,8 +3351,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3614,8 +3365,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3629,8 +3379,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3644,8 +3393,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3659,8 +3407,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3674,8 +3421,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3689,8 +3435,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3704,8 +3449,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3719,8 +3463,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3734,8 +3477,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3749,8 +3491,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3764,8 +3505,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3779,8 +3519,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3794,8 +3533,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3809,8 +3547,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3824,8 +3561,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3839,8 +3575,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3854,8 +3589,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3869,8 +3603,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3884,8 +3617,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3899,8 +3631,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3914,8 +3645,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3929,8 +3659,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3944,8 +3673,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3959,8 +3687,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3974,8 +3701,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3989,8 +3715,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4004,8 +3729,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4019,8 +3743,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4034,8 +3757,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4049,8 +3771,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4064,8 +3785,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4079,8 +3799,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4094,8 +3813,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4109,8 +3827,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4124,8 +3841,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4139,8 +3855,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4154,8 +3869,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4169,8 +3883,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4184,8 +3897,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4199,8 +3911,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4214,8 +3925,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4229,8 +3939,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4244,8 +3953,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -4259,8 +3967,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4274,8 +3981,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4289,8 +3995,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4304,8 +4009,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4319,8 +4023,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4334,8 +4037,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4349,8 +4051,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4364,8 +4065,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4379,8 +4079,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4394,8 +4093,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4409,8 +4107,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4424,8 +4121,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4439,8 +4135,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4454,8 +4149,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4469,8 +4163,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4484,8 +4177,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -4499,8 +4191,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4514,8 +4205,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4529,8 +4219,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4544,8 +4233,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -4559,8 +4247,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4574,8 +4261,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4589,8 +4275,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4604,8 +4289,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4619,8 +4303,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4634,8 +4317,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4649,8 +4331,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4664,8 +4345,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4679,8 +4359,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -4694,8 +4373,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4709,8 +4387,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4724,8 +4401,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4739,8 +4415,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4754,8 +4429,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4769,8 +4443,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4784,8 +4457,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4799,8 +4471,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4814,8 +4485,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4829,8 +4499,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4844,8 +4513,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4859,8 +4527,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4874,8 +4541,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4889,8 +4555,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4904,8 +4569,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4919,8 +4583,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4934,8 +4597,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4949,8 +4611,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4964,8 +4625,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -4979,8 +4639,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4994,8 +4653,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5009,8 +4667,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5024,8 +4681,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -5039,8 +4695,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5054,8 +4709,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5069,8 +4723,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5084,8 +4737,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 36, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5099,8 +4751,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -5114,8 +4765,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5129,8 +4779,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5144,8 +4793,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5159,8 +4807,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 35, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -5174,8 +4821,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, GK",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -5189,8 +4835,7 @@
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "unlinked veteran caution: age 34, non-elite league, outfield",
-      "soccerwiki_rating": null,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     }
   ]

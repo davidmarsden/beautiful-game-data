@@ -6,6 +6,20 @@ const avg = (rows, key) => rows.length ? rows.reduce((sum, row) => sum + num(row
 const playerName = (player) => text(player.display_name || player.player_name || player.full_name);
 const nation = (player) => Array.isArray(player.nationality) ? text(player.nationality[0]) : text(player.nationality);
 const profile = (player) => `../players/?id=${encodeURIComponent(player.tbg_player_id || player.transfermarkt_id)}`;
+const pseudoClubNames = new Set([
+  "without club",
+  "no club",
+  "free agent",
+  "free agents",
+  "unattached",
+  "unsigned",
+  "retired",
+  "unknown"
+]);
+const isRealClubName = (value) => {
+  const name = text(value).toLowerCase();
+  return Boolean(name) && !pseudoClubNames.has(name);
+};
 
 let players = [];
 let universe = [];
@@ -90,7 +104,10 @@ function groupRows(keyFn, label) {
 }
 
 function clubRows() {
-  return groupRows((player) => text(player.current_club), "club").map((row) => {
+  return groupRows((player) => {
+    const club = text(player.current_club);
+    return isRealClubName(club) ? club : "";
+  }, "club").map((row) => {
     const sorted = [...row.player_rows].sort((a, b) => num(b.tbg_rating) - num(a.tbg_rating));
     return { ...row, top_xi: avg(sorted.slice(0, 11), "tbg_rating") };
   });
