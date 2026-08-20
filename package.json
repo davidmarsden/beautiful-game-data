@@ -25,6 +25,7 @@
     "snapshot:player-database": "node scripts/snapshot-player-database.js",
     "generate:player-change-ledger": "node scripts/generate-player-change-ledger.js",
     "generate:player-change-queue": "node scripts/generate-player-change-queue.js",
+    "publish:player-updates": "node scripts/publish-player-change-release.js",
     "export:known-transfermarkt-ids": "node scripts/export-known-transfermarkt-player-ids.js",
     "gold-standard:inputs": "node scripts/export-gold-standard-inputs.js",
     "gold-standard:review": "node scripts/review-gold-standard-ratings.js",
