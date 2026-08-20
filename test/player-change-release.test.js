@@ -65,11 +65,11 @@ test("rolling release publishes eligible events deterministically and spills ove
   const firstHistory = await readJson(paths.releases);
   const firstLatest = await readJson(paths.latest);
   assert.equal(firstHistory.releases.length, 1);
-  assert.deepEqual(firstHistory.releases[0].event_ids, ["e2", "e3"]);
-  assert.equal(firstHistory.releases[0].counts.rating_changes, 1);
-  assert.equal(firstHistory.releases[0].counts.new_players, 1);
-  assert.equal(firstLatest.ratings_updates.length, 1);
-  assert.equal(firstLatest.new_players.length, 1);
+  assert.deepEqual(firstHistory.releases[0].event_ids, ["e2", "e1"]);
+  assert.equal(firstHistory.releases[0].counts.rating_changes, 2);
+  assert.equal(firstHistory.releases[0].counts.new_players, 0);
+  assert.equal(firstLatest.ratings_updates.length, 2);
+  assert.equal(firstLatest.new_players.length, 0);
   assert.equal(firstLatest.pending_eligible, 2);
   assert.equal(firstQueue.entries.find((row) => row.event_id === "e4").status, "pending");
 
@@ -82,9 +82,22 @@ test("rolling release publishes eligible events deterministically and spills ove
 
   await runRelease(paths, ["--slot=2026-08-21", "--target=2", "--max=2", "--publishedAt=2026-08-21T12:00:00.000Z"]);
   const secondHistory = await readJson(paths.releases);
+  const secondReleaseId = secondHistory.releases[1].release_id;
   assert.equal(secondHistory.releases.length, 2);
-  assert.deepEqual(secondHistory.releases[1].event_ids, ["e1", "e5"]);
+  assert.deepEqual(secondHistory.releases[1].event_ids, ["e3", "e5"]);
   assert.equal((await readJson(paths.latest)).pending_eligible, 0);
+  assert.equal((await readJson(paths.latest)).release.release_id, secondReleaseId);
+
+  await runRelease(paths, ["--slot=2026-08-20", "--target=2", "--max=3", "--publishedAt=2026-08-21T13:00:00.000Z"]);
+  assert.equal((await readJson(paths.latest)).release.release_id, secondReleaseId);
+  assert.equal((await readJson(paths.summary)).idempotent_replay, true);
+
+  await runRelease(paths, ["--slot=2026-08-22", "--publishedAt=2026-08-22T12:00:00.000Z"]);
+  const emptyLatest = await readJson(paths.latest);
+  const emptySummary = await readJson(paths.summary);
+  assert.equal(emptySummary.published_events, 0);
+  assert.equal(emptyLatest.release.release_id, secondReleaseId);
+  assert.equal(emptyLatest.pending_eligible, 0);
 });
 
 test("state-only events publish only when explicitly enabled", async () => {
