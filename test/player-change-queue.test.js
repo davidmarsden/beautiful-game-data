@@ -95,6 +95,28 @@ test("player change queue appends deterministic provenance-rich events exactly o
   assert.equal(secondBatch.duplicate_events_skipped, 2);
 });
 
+test("removed player with no surviving rating profile preserves unknown model provenance as null", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "tbg-change-queue-removed-"));
+  const paths = Object.fromEntries(["ledger", "queue", "batch", "summary", "master", "ratings"].map((name) => [name, join(dir, `${name}.json`)]));
+  await writeJson(paths.ledger, {
+    summary: { generated_at: "2026-08-20T21:00:00.000Z", first_edition: false },
+    changes: [{
+      type: "removed_player",
+      player_id: "tbg-tm-00099999",
+      player_name: "Departed Player",
+      previous: { tbg_player_id: "tbg-tm-00099999", transfermarkt_id: "99999", tbg_rating: 84, current_club: "Old Club" }
+    }]
+  });
+  await writeJson(paths.master, []);
+  await writeJson(paths.ratings, []);
+
+  await runQueue(paths);
+  const queue = await readJson(paths.queue);
+  assert.equal(queue.entries.length, 1);
+  assert.equal(queue.entries[0].event_type, "removed_player");
+  assert.equal(queue.entries[0].provenance.rating_model_version, null);
+});
+
 test("first published edition establishes a baseline without flooding the queue", async () => {
   const dir = await mkdtemp(join(tmpdir(), "tbg-change-queue-baseline-"));
   const paths = Object.fromEntries(["ledger", "queue", "batch", "summary", "master", "ratings"].map((name) => [name, join(dir, `${name}.json`)]));
