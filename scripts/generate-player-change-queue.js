@@ -99,8 +99,9 @@ if (!firstEdition) {
       ratingProfile.ability?.model_version
       || current.rating_model_version
       || current.ability_profile?.model_version
-      || "tbg-v3-sticky-ability-fluid-form"
-    );
+      || previous.rating_model_version
+      || previous.ability_profile?.model_version
+    ) || null;
     const changeProjection = projection(change);
     const identity = {
       type: change.type,
@@ -128,7 +129,7 @@ if (!firstEdition) {
       after: changeProjection.after ?? null,
       delta: changeProjection.delta ?? null,
       provenance: {
-        source: text(masterRow.source || current.source || "transfermarkt"),
+        source: text(masterRow.source || current.source || previous.source || "transfermarkt"),
         source_scraped_at: text(masterRow.scraped_at) || null,
         market_value_determined: masterRow.market_value_determined || null,
         rating_model_version: modelVersion,
