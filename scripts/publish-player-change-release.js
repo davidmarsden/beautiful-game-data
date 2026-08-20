@@ -51,10 +51,18 @@ function eventImportance(event) {
   return 0;
 }
 
+function eventTypeRank(event) {
+  if (event.event_type === "rating_change") return 0;
+  if (event.event_type === "new_player") return 1;
+  return 2;
+}
+
 function compareEvents(a, b) {
   const aDetected = Date.parse(a.detected_at || "") || 0;
   const bDetected = Date.parse(b.detected_at || "") || 0;
   if (aDetected !== bDetected) return aDetected - bDetected;
+  const typeRank = eventTypeRank(a) - eventTypeRank(b);
+  if (typeRank) return typeRank;
   const importance = eventImportance(b) - eventImportance(a);
   if (importance) return importance;
   const type = String(a.event_type).localeCompare(String(b.event_type));
@@ -125,13 +133,14 @@ const historyRaw = await readJson(releasesPath, { version: "tbg-player-release-h
 const entries = Array.isArray(queueRaw) ? queueRaw : queueRaw.entries || [];
 const releases = Array.isArray(historyRaw) ? historyRaw : historyRaw.releases || [];
 const existingRelease = releases.find((release) => release.slot === slot);
+const latestHistoricalRelease = releases.length ? releases[releases.length - 1] : null;
 const eligibleTypes = includeStateChanges
   ? new Set(["rating_change", "new_player", "club_change", "newly_unsigned", "removed_player"])
   : new Set(["rating_change", "new_player"]);
 const pendingEligibleBefore = entries.filter((entry) => entry.status === "pending" && eligibleTypes.has(entry.event_type));
 
 if (existingRelease) {
-  await writeJson(latestPath, latestProjection(existingRelease, pendingEligibleBefore.length));
+  await writeJson(latestPath, latestProjection(latestHistoricalRelease, pendingEligibleBefore.length));
   const summary = {
     generated_at: publishedAt,
     release_slot: slot,
@@ -148,7 +157,7 @@ if (existingRelease) {
 
 const selected = [...pendingEligibleBefore].sort(compareEvents).slice(0, limit);
 if (!selected.length) {
-  await writeJson(latestPath, latestProjection(null, 0));
+  await writeJson(latestPath, latestProjection(latestHistoricalRelease, 0));
   const summary = {
     generated_at: publishedAt,
     release_slot: slot,
@@ -182,7 +191,7 @@ const release = {
     max,
     selected_limit: limit,
     include_state_changes: includeStateChanges,
-    selection: "oldest-detection-batch-first; significance within batch; deterministic event-id tiebreak"
+    selection: "oldest-detection-batch-first; ratings before new players; significance within type; deterministic event-id tiebreak"
   },
   event_count: publishedEvents.length,
   counts: {
