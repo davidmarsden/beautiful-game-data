@@ -75,3 +75,17 @@ test("profile slug alone supplies a search alias and malformed slugs are ignored
   assert.deepEqual(huguinho.aliases, ["huguinho"]);
   assert.deepEqual(broken.aliases, []);
 });
+
+test("normal rebuild carries governed alias fields through the player-pool export", async () => {
+  const pools = await readFile("scripts/export-tbg-player-pools.js", "utf8");
+  assert.match(pools, /function aliasValues/);
+  assert.match(pools, /tmRow\.aliases/);
+  assert.match(pools, /tmRow\.nickname/);
+  assert.match(pools, /tmRow\.short_name/);
+  assert.match(pools, /profileRow\?\.aliases/);
+  assert.match(pools, /ratingRow\?\.aliases/);
+  assert.match(pools, /short_name:/);
+  assert.match(pools, /aliases,/);
+  assert.match(pools, /nickname:/);
+  assert.match(pools, /"aliases"/);
+});
