@@ -1,29 +1,21 @@
 {
-  "generated_at": "2026-07-13T18:46:44.406Z",
+  "generated_at": "2026-08-21T08:29:04.225Z",
   "policy_version": "tbg-transfermarkt-refresh-policy-v1.0",
   "input": "calibration/apify-transfermarkt-refresh-wide.json",
-  "scanned": 3715,
-  "accepted": 3713,
-  "rejected": 2,
-  "zero_value_players": 117,
+  "scanned": 772,
+  "accepted": 771,
+  "rejected": 1,
+  "zero_value_players": 5,
   "rejection_counts": {
-    "age_outside_policy": 2
+    "retired": 1
   },
   "rejected_players": [
     {
-      "transfermarkt_id": "1354013",
-      "player_name": "Michael Ani",
-      "age": 0,
+      "transfermarkt_id": "255501",
+      "player_name": "Iñigo Lekue",
+      "age": 33,
       "reasons": [
-        "age_outside_policy"
-      ]
-    },
-    {
-      "transfermarkt_id": "1354009",
-      "player_name": "Nathaniel Chioma",
-      "age": 0,
-      "reasons": [
-        "age_outside_policy"
+        "retired"
       ]
     }
   ]

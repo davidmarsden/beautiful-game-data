@@ -1,13 +1,13 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-08-20T20:30:01.777Z
+Generated: 2026-08-21T08:29:15.560Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
-- players_master: 8091 rows / 8091 unique TM IDs
-- player_registry: 8091 rows / 8091 unique TM IDs
-- rated_global_pool: 8082 rows / 8082 unique TM IDs
-- published_database: 8082 rows / 8082 unique TM IDs
+- players_master: 8125 rows / 8125 unique TM IDs
+- player_registry: 8125 rows / 8125 unique TM IDs
+- rated_global_pool: 8116 rows / 8116 unique TM IDs
+- published_database: 8116 rows / 8116 unique TM IDs
 
 ## Top 80 squad completeness
 - Complete: 80

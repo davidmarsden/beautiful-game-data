@@ -1,15 +1,168 @@
 # Player Change Ledger
 
-Generated: 2026-08-20T20:30:00.554Z
+Generated: 2026-08-21T08:29:14.247Z
 
 - previous players: 8082
-- current players: 8082
-- new players: 0
-- rating increases: 0
-- rating decreases: 0
-- club changes: 0
-- newly unsigned: 0
+- current players: 8116
+- new players: 34
+- rating increases: 53
+- rating decreases: 6
+- club changes: 59
+- newly unsigned: 1
 - removed players: 0
 
 ## Changes
 
+- Abdul Fatawu: new player — added at Ipswich Town
+- Aidan Harris: new player — added at Newcastle United
+- Andrej Kostić: new player — added at Sparta Rotterdam
+- Ármin Pécsi: new player — added at TSV Hartberg
+- Arnau Ortiz: new player — added at Atlético de Madrid
+- Bara Sapoko Ndiaye: new player — added at Bayern Munich
+- Brian Fariñas: new player — added at FC Barcelona
+- Brian Madjo: new player — added at Aston Villa
+- Caleb Yirenkyi: new player — added at Coventry City
+- Dani Martinez: new player — added at Atlético Madrileño
+- Danny Imray: new player — added at Wrexham AFC
+- Elliot Stroud: new player — added at Hull City
+- Enzo dos Santos: new player — added at Borussia Dortmund
+- Felipe Chávez: new player — added at Bayern Munich
+- George Hemmings: new player — added at Aston Villa
+- Giannis Konstantelias: new player — added at Borussia Dortmund
+- Guille Fernández: new player — added at FC Barcelona
+- Gustavo Sá: new player — added at Olympiacos Piraeus
+- Jens Hjertø-Dahl: new player — added at Hull City
+- Jesse Bisiwu: new player — added at FC Barcelona
+- Jorge Domínguez: new player — added at Atlético Madrid U19
+- Karl Darlow: new player — added at Manchester United
+- Kayne van Oevelen: new player — added at Ipswich Town
+- Khalil Ayari: new player — added at USL Dunkerque
+- Leo Shahar: new player — added at Newcastle United
+- Luc De Fougerolles: new player — added at Fulham FC
+- Mikel Amondarain: new player — added at Bologna FC 1909
+- Óscar Zambrano: new player — added at Hull City
+- Radek Vítek: new player — added at Middlesbrough FC
+- Rahim Alhassane: new player — added at Bologna FC 1909
+- Ryan McAidoo: new player — added at Manchester City
+- Shea Lacey: new player — added at Manchester United
+- Troy Parrott: new player — added at Real Betis Balompié
+- Ukko Happonen: new player — added at Bologna FC 1909
+- Kylian Mbappé: rating change — 99 → 97 (-2)
+- Aleksandar Stanković: rating change — 87 → 88 (+1)
+- Alex Palmer: rating change — 85 → 86 (+1)
+- Amadou Onana: rating change — 90 → 91 (+1)
+- Amar Dedic: rating change — 87 → 88 (+1)
+- Ardon Jashari: rating change — 88 → 89 (+1)
+- Arijon Ibrahimovic: rating change — 85 → 84 (-1)
+- Aurèle Amenda: rating change — 85 → 86 (+1)
+- Bazoumana Touré: rating change — 88 → 89 (+1)
+- Brian Brobbey: rating change — 88 → 89 (+1)
+- Bruno Guimarães: rating change — 93 → 94 (+1)
+- Bryan Mbeumo: rating change — 92 → 93 (+1)
+- Chadi Riad: rating change — 86 → 87 (+1)
+- Diego Llorente: rating change — 87 → 88 (+1)
+- Diego Moreira: rating change — 87 → 88 (+1)
+- Djed Spence: rating change — 89 → 90 (+1)
+- Elliot Anderson: rating change — 91 → 92 (+1)
+- Emile Smith Rowe: rating change — 88 → 89 (+1)
+- Erling Haaland: rating change — 97 → 98 (+1)
+- Fabio Miretti: rating change — 86 → 87 (+1)
+- Fábio Silva: rating change — 87 → 88 (+1)
+- Facundo Bernal: rating change — 84 → 85 (+1)
+- Federico Valverde: rating change — 96 → 97 (+1)
+- Franco Mastantuono: rating change — 88 → 89 (+1)
+- Ibrahima Konaté: rating change — 91 → 92 (+1)
+- Iker Losada: rating change — 83 → 84 (+1)
+- Ismael Saibari: rating change — 89 → 90 (+1)
+- Jan Paul van Hecke: rating change — 90 → 91 (+1)
+- João Pedro Ferreira da Silva: rating change — 86 → 87 (+1)
+- Joelinton Cassio Apolinário de Lira: rating change — 90 → 91 (+1)
+- Joey Veerman: rating change — 90 → 89 (-1)
+- Johan Manzambi: rating change — 89 → 90 (+1)
+- Jude Bellingham: rating change — 96 → 95 (-1)
+- Julián Alvarez: rating change — 93 → 94 (+1)
+- Kauã Prates: rating change — 84 → 85 (+1)
+- Leon Bailey: rating change — 88 → 89 (+1)
+- Lucas Digne: rating change — 89 → 90 (+1)
+- Lucas Herrington: rating change — 83 → 84 (+1)
+- Luís Semedo: rating change — 82 → 83 (+1)
+- Luka Modrić: rating change — 89 → 90 (+1)
+- Marc Cucurella: rating change — 91 → 92 (+1)
+- Marcus Thuram: rating change — 92 → 93 (+1)
+- Matheus França: rating change — 85 → 84 (-1)
+- Mikey Moore: rating change — 85 → 86 (+1)
+- Mohammed Kudus: rating change — 90 → 91 (+1)
+- Morgan Rogers: rating change — 92 → 93 (+1)
+- Pascal Struijk: rating change — 88 → 89 (+1)
+- Petar Sučić: rating change — 88 → 89 (+1)
+- Robert Lewandowski: rating change — 90 → 91 (+1)
+- Rodrigo Hernández Cascante: rating change — 96 → 95 (-1)
+- Sven Ulreich: rating change — 87 → 88 (+1)
+- Thiago Almada: rating change — 87 → 88 (+1)
+- Thomas Meunier: rating change — 88 → 89 (+1)
+- Tijjani Reijnders: rating change — 92 → 93 (+1)
+- Tommaso Pobega: rating change — 86 → 87 (+1)
+- Toni Fernández: rating change — 82 → 83 (+1)
+- Yankuba Minteh: rating change — 88 → 89 (+1)
+- Yasin Ayari: rating change — 88 → 89 (+1)
+- Zion Suzuki: rating change — 88 → 89 (+1)
+- Abdoul Ouattara: club change — RC Strasbourg Alsace → Ipswich Town
+- Abu Kamara: club change — Hull City → Portsmouth FC
+- Álvaro Rodríguez: club change — Elche CF → AFC Bournemouth
+- Anan Khalaili: club change — Union Saint-Gilloise → Crystal Palace
+- Anthony Patterson: club change — Sunderland AFC → Wrexham AFC
+- Aurèle Amenda: club change — Eintracht Frankfurt → Coventry City
+- Carlos Espí: club change — Levante UD → Real Madrid
+- Carlos Henrique Casimiro: club change — Without Club → Inter Miami CF
+- Christian Nørgaard: club change — Arsenal FC → Everton FC
+- Conor Chaplin: club change — Without Club → Leicester City
+- Dennis Cirkin: club change — Without Club → Queens Park Rangers
+- Diego Moreira: club change — RC Strasbourg Alsace → AC Milan
+- Dušan Vlahović: club change — Without Club → Besiktas JK
+- Emersonn Correia da Silva: club change — FC Toulouse → Ipswich Town
+- Enis Destan: club change — Hull City → Konyaspor
+- Florentino Ibrain Morris Luís: club change — Burnley FC → Ipswich Town
+- George Hirst: club change — Ipswich Town → Stoke City
+- Gustavo Hamer: club change — Sheffield United → Coventry City
+- Harry Clarke: club change — Ipswich Town → Preston North End
+- Hidemasa Morita: club change — Without Club → Hull City
+- Idrissa Gueye: club change — Without Club → Al-Diriyah FC
+- Jahnoah Markelo: club change — Coventry City → Shabab Al-Ahli Club
+- James Trafford: club change — Manchester City → Leeds United
+- João Mário Neto Lopes: club change — Juventus FC → ACF Fiorentina
+- Johan Manzambi: club change — SC Freiburg → Aston Villa
+- John Stones: club change — Without Club → Inter Milan
+- Julian Brandt: club change — Without Club → Ajax Amsterdam
+- Julio Enciso: club change — RC Strasbourg Alsace → Ipswich Town
+- Kauã Prates: club change — Cruzeiro Esporte Clube → Borussia Dortmund
+- Kjell Scherpen: club change — Union Saint-Gilloise → Ipswich Town
+- Konstantinos Karetsas: club change — KRC Genk → Borussia Dortmund
+- Lewis Dobbin: club change — Aston Villa → Southampton FC
+- Lucas Herrington: club change — Colorado Rapids → Hull City
+- Luka Modrić: club change — Without Club → AC Milan
+- Lukas Hornicek: club change — SC Braga → Newcastle United
+- Mason Burstow: club change — Hull City → Sheffield Wednesday
+- Matt Targett: club change — Without Club → Hull City
+- Matthew Cox: club change — Brentford FC → Barnet FC
+- Mohamed Salah: club change — Without Club → Trabzonspor
+- Nico Elvedi: club change — Borussia Mönchengladbach → Leeds United
+- Nobel Mendy: club change — Rayo Vallecano → Hull City
+- Norman Bassette: club change — Coventry City → KVC Westerlo
+- Owen Goodman: club change — Crystal Palace → Dundee FC
+- Pep Chavarría: club change — Rayo Vallecano → Chelsea FC
+- Promise David: club change — Union Saint-Gilloise → Brighton & Hove Albion
+- Sankhoun Diawara: club change — ESTAC Troyes → AC Milan
+- Sebastiaan Bornauw: club change — Leeds United → Hamburger SV
+- Shea Charles: club change — Southampton FC → Fulham FC
+- Steven Benda: club change — Without Club → Nottingham Forest
+- Takehiro Tomiyasu: club change — Without Club → Crystal Palace
+- Tarik Muharemović: club change — US Sassuolo → Leeds United
+- Thomas Meunier: club change — Without Club → Sunderland AFC
+- Tyler Onyango: club change — Without Club → Sheffield Wednesday
+- Valentín Barco: club change — RC Strasbourg Alsace → Chelsea FC
+- Wes Burns: club change — Ipswich Town → Leicester City
+- Xaver Schlager: club change — Without Club → Nottingham Forest
+- Zavier Gozo: club change — Real Salt Lake City → Crystal Palace
+- Zeki Çelik: club change — Without Club → Juventus FC
+- Zion Suzuki: club change — Parma Calcio 1913 → Aston Villa
+- Nathaniel Clyne: newly unsigned — Crystal Palace → Unsigned

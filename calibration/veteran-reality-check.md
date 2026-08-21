@@ -1,24 +1,24 @@
 # Veteran Reality Check
 
-Generated: 2026-08-20T20:29:54.721Z
+Generated: 2026-08-21T08:29:09.049Z
 
-- Adjusted players: 343
-- Elite-league adjustments: 22
-- Non-elite-league adjustments: 321
+- Adjusted players: 342
+- Elite-league adjustments: 23
+- Non-elite-league adjustments: 319
 - Goalkeeper adjustments: 87
-- Outfield adjustments: 256
+- Outfield adjustments: 255
 - Maximum reduction: -4
 
 ## Adjustments
 
 - Cristiano Ronaldo dos Santos Aveiro (41, Al-Nassr FC): 95 → 91 — veteran reality adjustment: age 41, non-elite league, outfield, current value retained
-- Luka Modrić (40, Without Club): 93 → 89 — veteran reality adjustment: age 40, non-elite league, outfield, low current value
 - Edin Dzeko (40, Without Club): 91 → 87 — veteran reality adjustment: age 40, non-elite league, outfield, low current value
 - Thiago Silva (41, Fluminense Football Club): 91 → 87 — veteran reality adjustment: age 41, non-elite league, outfield, low current value
 - Abdallah Mahmoud Said (41, Zamalek SC): 90 → 86 — veteran reality adjustment: age 41, non-elite league, outfield, low current value
 - André-Pierre Gignac (40, Tigres UANL): 90 → 86 — veteran reality adjustment: age 40, non-elite league, outfield, low current value
 - Diego Chará (40, Portland Timbers): 89 → 85 — veteran reality adjustment: age 40, non-elite league, outfield, low current value
 - Fábio Deivson Lopes Maciel (45, Fluminense Football Club): 93 → 90 — veteran reality adjustment: age 45, non-elite league, GK, low current value
+- Luka Modrić (40, AC Milan): 93 → 90 — veteran reality adjustment: age 40, elite league, outfield, low current value
 - Denis Onyango (41, Mamelodi Sundowns FC): 91 → 88 — veteran reality adjustment: age 41, non-elite league, GK, low current value
 - Lukasz Fabianski (41, Without Club): 90 → 87 — veteran reality adjustment: age 41, non-elite league, GK, low current value
 - Nahuel Guzmán (40, Tigres UANL): 90 → 87 — veteran reality adjustment: age 40, non-elite league, GK, low current value
@@ -28,7 +28,7 @@ Generated: 2026-08-20T20:29:54.721Z
 - Waleed Abdullah (40, Al-Diriyah FC): 89 → 86 — veteran reality adjustment: age 40, non-elite league, GK, low current value
 - Lionel Messi (39, Inter Miami CF): 96 → 94 — veteran reality adjustment: age 39, non-elite league, outfield, current value retained
 - Manuel Neuer (40, Bayern Munich): 93 → 91 — veteran reality adjustment: age 40, elite league, GK, low current value
-- Robert Lewandowski (37, Chicago Fire FC): 92 → 90 — veteran reality adjustment: age 37, non-elite league, outfield, current value retained
+- Robert Lewandowski (38, Chicago Fire FC): 93 → 91 — veteran reality adjustment: age 38, non-elite league, outfield, current value retained
 - Karim Benzema (38, Al-Hilal SFC): 91 → 89 — veteran reality adjustment: age 38, non-elite league, outfield, current value retained
 - Luis Suárez (39, Inter Miami CF): 91 → 89 — veteran reality adjustment: age 39, non-elite league, outfield, low current value
 - Nicolás Otamendi (38, CA River Plate): 91 → 89 — veteran reality adjustment: age 38, non-elite league, outfield, low current value
@@ -105,7 +105,7 @@ Generated: 2026-08-20T20:29:54.721Z
 - Alexandre Lacazette (35, NEOM SC): 90 → 89 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - David Alaba (34, Without Club): 90 → 89 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
 - Henrikh Mkhitaryan (37, Inter Milan): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value
-- Idrissa Gueye (36, Without Club): 90 → 89 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
+- Idrissa Gueye (36, Al-Diriyah FC): 90 → 89 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Ivan Perišić (37, PSV Eindhoven): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value
 - Nemanja Matić (37, US Sassuolo): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value
 - Olivier Giroud (39, LOSC Lille): 90 → 89 — veteran reality adjustment: age 39, elite league, outfield, low current value
@@ -138,7 +138,7 @@ Generated: 2026-08-20T20:29:54.721Z
 - Remo Freuler (34, Without Club): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
 - Ron-Robert Zieler (37, 1.FC Köln): 89 → 88 — veteran reality adjustment: age 37, elite league, GK, low current value
 - Stefan de Vrij (34, Panathinaikos): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
-- Thomas Meunier (34, Without Club): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
+- Sven Ulreich (38, Bayern Munich): 89 → 88 — veteran reality adjustment: age 38, elite league, GK, low current value
 - Tjaronn Chery (38, NEC Nijmegen): 89 → 88 — veteran reality adjustment: age 38, elite league, outfield, low current value
 - Tobias Sippel (38, Borussia Mönchengladbach): 89 → 88 — veteran reality adjustment: age 38, elite league, GK, low current value
 - Aaron Cresswell (36, Stoke City): 88 → 87 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
@@ -195,7 +195,6 @@ Generated: 2026-08-20T20:29:54.721Z
 - Sergi Roberto (34, Without Club): 88 → 87 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
 - Sergio Escudero (36, Real Zaragoza): 88 → 87 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Stefan Savic (35, Trabzonspor): 88 → 87 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
-- Sven Ulreich (37, Bayern Munich): 88 → 87 — veteran reality adjustment: age 37, elite league, GK, low current value
 - Themba Zwane (36, Mamelodi Sundowns FC): 88 → 87 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Willy Boly (35, Without Club): 88 → 87 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Wissam Ben Yedder (35, Without Club): 88 → 87 — veteran reality adjustment: age 35, non-elite league, outfield, low current value

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T20:29:54.721Z",
+  "generated_at": "2026-08-21T08:29:09.049Z",
   "policy": {
     "version": "tbg-veteran-reality-check-v2.0",
     "minimum_age": 34,
@@ -27,12 +27,12 @@
     "principle": "TBG veteran ratings are moderated using age, position, league strength and current Transfermarkt market signal. Historic reputation may inform the core model, but extreme age, weaker current competition and low current value must constrain the final published rating."
   },
   "summary": {
-    "veteran_rows_reviewed": 253,
-    "adjusted_players": 343,
-    "elite_league_adjustments": 22,
-    "non_elite_league_adjustments": 321,
+    "veteran_rows_reviewed": 255,
+    "adjusted_players": 342,
+    "elite_league_adjustments": 23,
+    "non_elite_league_adjustments": 319,
     "goalkeeper_adjustments": 87,
-    "outfield_adjustments": 256,
+    "outfield_adjustments": 255,
     "maximum_reduction": -4
   },
   "adjustments": [
@@ -48,20 +48,6 @@
       "after": 91,
       "adjustment": -4,
       "reason": "veteran reality adjustment: age 41, non-elite league, outfield, current value retained",
-      "elite_league": false
-    },
-    {
-      "transfermarkt_id": "27992",
-      "player_name": "Luka Modrić",
-      "club": "Without Club",
-      "competition": "",
-      "position_group": "MID",
-      "age": 40,
-      "market_value_eur": 3500000,
-      "before": 93,
-      "after": 89,
-      "adjustment": -4,
-      "reason": "veteran reality adjustment: age 40, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -147,6 +133,20 @@
       "adjustment": -3,
       "reason": "veteran reality adjustment: age 45, non-elite league, GK, low current value",
       "elite_league": false
+    },
+    {
+      "transfermarkt_id": "27992",
+      "player_name": "Luka Modrić",
+      "club": "AC Milan",
+      "competition": "IT1",
+      "position_group": "MID",
+      "age": 40,
+      "market_value_eur": 3500000,
+      "before": 93,
+      "after": 90,
+      "adjustment": -3,
+      "reason": "veteran reality adjustment: age 40, elite league, outfield, low current value",
+      "elite_league": true
     },
     {
       "transfermarkt_id": "68096",
@@ -280,12 +280,12 @@
       "club": "Chicago Fire FC",
       "competition": "MLS1",
       "position_group": "ATT",
-      "age": 37,
+      "age": 38,
       "market_value_eur": 7000000,
-      "before": 92,
-      "after": 90,
+      "before": 93,
+      "after": 91,
       "adjustment": -2,
-      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, current value retained",
+      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, current value retained",
       "elite_league": false
     },
     {
@@ -1355,8 +1355,8 @@
     {
       "transfermarkt_id": "126665",
       "player_name": "Idrissa Gueye",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Al-Diriyah FC",
+      "competition": "SA1",
       "position_group": "DEF",
       "age": 36,
       "market_value_eur": 500000,
@@ -1815,18 +1815,18 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "100986",
-      "player_name": "Thomas Meunier",
-      "club": "Without Club",
-      "competition": "",
-      "position_group": "DEF",
-      "age": 34,
-      "market_value_eur": 1500000,
+      "transfermarkt_id": "40680",
+      "player_name": "Sven Ulreich",
+      "club": "Bayern Munich",
+      "competition": "L1",
+      "position_group": "GK",
+      "age": 38,
+      "market_value_eur": 500000,
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
-      "elite_league": false
+      "reason": "veteran reality adjustment: age 38, elite league, GK, low current value",
+      "elite_league": true
     },
     {
       "transfermarkt_id": "76326",
@@ -2611,20 +2611,6 @@
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
-    },
-    {
-      "transfermarkt_id": "40680",
-      "player_name": "Sven Ulreich",
-      "club": "Bayern Munich",
-      "competition": "L1",
-      "position_group": "GK",
-      "age": 37,
-      "market_value_eur": 500000,
-      "before": 88,
-      "after": 87,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
-      "elite_league": true
     },
     {
       "transfermarkt_id": "176578",
