@@ -11,34 +11,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - run: npm install
-
       - name: Export player database if needed
         run: npm run export:player-database
-
+      - name: Generate player rating history
+        run: npm run generate:player-rating-history
       - name: Build scouting site
         run: npm run build:scouting-site
-
       - name: Upload scouting site artifact
         uses: actions/upload-artifact@v4
         with:
           name: pink-final-scouting-site
           path: derived/scouting-site/**
           if-no-files-found: error
-
       - name: Commit scouting site output
         run: |
-          if [ -z "$(git status --porcelain derived/player-database derived/scouting-site)" ]; then
+          if [ -z "$(git status --porcelain derived/player-database derived/player-changes/player-rating-history.json derived/scouting-site)" ]; then
             echo "No scouting-site changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add derived/player-database derived/scouting-site
+          git add derived/player-database derived/player-changes/player-rating-history.json derived/scouting-site
           git commit -m "Build Pink Final scouting site"
           git push
