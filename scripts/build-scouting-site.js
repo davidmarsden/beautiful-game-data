@@ -8,7 +8,7 @@ async function copy(source, target) {
 
 async function applySharedNavigation(path, rootPrefix) {
   const html = await readFile(path, "utf8");
-  const nav = `<nav class="nav tbg-nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a><a href="${rootPrefix}new-this-week/">New This Week</a></nav>`;
+  const nav = `<nav class="nav tbg-nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a><a href="${rootPrefix}new-this-week/">New This Week</a><a href="${rootPrefix}player-updates/">Player Updates</a></nav>`;
   const updated = html.replace(/<nav class="nav(?: tbg-nav)?"[^>]*>[\s\S]*?<\/nav>/, nav);
   await writeFile(path, updated, "utf8");
 }
@@ -30,11 +30,10 @@ await copy("public/index.html", join(outputDir, "index.html"));
 await copy("public/portal.css", join(outputDir, "portal.css"));
 await copy("public/portal.js", join(outputDir, "portal.js"));
 
-// Publish the governed database at its canonical path inside the Pages artifact.
-// Section-specific copies remain for backwards compatibility, but profile/scouting
-// consumers can now resolve the same source-of-truth path in production.
 await copy("derived/player-database/player-database.json", join(outputDir, "derived", "player-database", "player-database.json"));
 await copy("derived/player-database/player-database.csv", join(outputDir, "derived", "player-database", "player-database.csv"));
+await copy("derived/player-changes/player-release-history.json", join(outputDir, "derived", "player-changes", "player-release-history.json"));
+await copy("derived/player-changes/player-rating-history.json", join(outputDir, "derived", "player-changes", "player-rating-history.json"));
 
 await copy("public/scouting/index.html", join(outputDir, "scouting", "index.html"));
 await copy("public/scouting/styles.css", join(outputDir, "scouting", "styles.css"));
@@ -43,9 +42,8 @@ await copy("public/scouting/player-links.js", join(outputDir, "scouting", "playe
 await copy("derived/player-database/player-database.json", join(outputDir, "scouting", "player-database.json"));
 await copy("derived/player-database/player-database.csv", join(outputDir, "scouting", "player-database.csv"));
 
-for (const section of ["clubs", "players", "wonderkids", "rankings", "transfer-market", "new-this-week"]) {
-  await copy(`public/${section}/index.html`, join(outputDir, section, "index.html"));
-}
+const sections = ["clubs", "players", "wonderkids", "rankings", "transfer-market", "new-this-week", "player-updates"];
+for (const section of sections) await copy(`public/${section}/index.html`, join(outputDir, section, "index.html"));
 await copy("public/clubs/clubs.css", join(outputDir, "clubs", "clubs.css"));
 await copy("public/clubs/clubs.js", join(outputDir, "clubs", "clubs.js"));
 await copy("public/clubs/club-enhancements.js", join(outputDir, "clubs", "club-enhancements.js"));
@@ -63,10 +61,12 @@ await copy("public/transfer-market/transfer-market.js", join(outputDir, "transfe
 await copy("public/new-this-week/new-this-week.css", join(outputDir, "new-this-week", "new-this-week.css"));
 await copy("public/new-this-week/new-this-week.js", join(outputDir, "new-this-week", "new-this-week.js"));
 await copy("derived/player-changes/player-change-ledger.json", join(outputDir, "new-this-week", "player-change-ledger.json"));
+await copy("public/player-updates/player-updates.css", join(outputDir, "player-updates", "player-updates.css"));
+await copy("public/player-updates/player-updates.js", join(outputDir, "player-updates", "player-updates.js"));
 
 await applySharedNavigation(join(outputDir, "index.html"), "./");
 await applyDesignContract(join(outputDir, "index.html"), "./");
-for (const section of ["scouting", "clubs", "players", "wonderkids", "rankings", "transfer-market", "new-this-week"]) {
+for (const section of ["scouting", ...sections]) {
   await applySharedNavigation(join(outputDir, section, "index.html"), "../");
   await applyDesignContract(join(outputDir, section, "index.html"), "../");
 }
