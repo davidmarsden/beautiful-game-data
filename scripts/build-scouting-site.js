@@ -30,6 +30,12 @@ await copy("public/index.html", join(outputDir, "index.html"));
 await copy("public/portal.css", join(outputDir, "portal.css"));
 await copy("public/portal.js", join(outputDir, "portal.js"));
 
+// Publish the governed database at its canonical path inside the Pages artifact.
+// Section-specific copies remain for backwards compatibility, but profile/scouting
+// consumers can now resolve the same source-of-truth path in production.
+await copy("derived/player-database/player-database.json", join(outputDir, "derived", "player-database", "player-database.json"));
+await copy("derived/player-database/player-database.csv", join(outputDir, "derived", "player-database", "player-database.csv"));
+
 await copy("public/scouting/index.html", join(outputDir, "scouting", "index.html"));
 await copy("public/scouting/styles.css", join(outputDir, "scouting", "styles.css"));
 await copy("public/scouting/app.js", join(outputDir, "scouting", "app.js"));

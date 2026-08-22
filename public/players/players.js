@@ -1,4 +1,4 @@
-const DATA_URLS=["../scouting/player-database.json","/beautiful-game-data/scouting/player-database.json"];
+const DATA_URLS=["../../derived/player-database/player-database.json","../derived/player-database/player-database.json","/beautiful-game-data/derived/player-database/player-database.json","/derived/player-database/player-database.json","../scouting/player-database.json","/beautiful-game-data/scouting/player-database.json"];
 const num=v=>Number.isFinite(Number(v))?Number(v):0;
 const text=v=>String(v??"").trim();
 function money(v){const n=num(v);if(n>=1e9)return`€${(n/1e9).toFixed(2)}bn`;if(n>=1e6)return`€${(n/1e6).toFixed(1)}m`;if(n>=1e3)return`€${Math.round(n/1e3)}k`;return"—"}
