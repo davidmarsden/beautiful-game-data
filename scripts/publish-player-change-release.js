@@ -92,14 +92,21 @@ function selectReleaseEvents(pending, limit) {
   const newPlayers = sorted.filter((event) => event.event_type === "new_player");
   if (limit < 2 || !ratings.length || !newPlayers.length) return sorted.slice(0, limit);
 
-  // Keep ratings as the majority of a mixed release while guaranteeing that newly
-  // discovered players cannot be indefinitely hidden behind a busy ratings batch.
-  const newPlayerReserve = Math.min(newPlayers.length, Math.max(1, Math.floor(limit / 3)));
-  const selectedIds = new Set(newPlayers.slice(0, newPlayerReserve).map((event) => event.event_id));
-  const selected = newPlayers.slice(0, newPlayerReserve);
+  // In a mixed release, new players get a guaranteed but bounded share. Do not let
+  // older discovery events consume the rating allocation when filling remaining slots.
+  const newPlayerCap = Math.min(newPlayers.length, Math.max(1, Math.floor(limit / 3)));
+  const ratingCap = Math.max(1, limit - newPlayerCap);
+  const selected = [
+    ...ratings.slice(0, ratingCap),
+    ...newPlayers.slice(0, newPlayerCap)
+  ];
+  const selectedIds = new Set(selected.map((event) => event.event_id));
+
+  // State-change events may use otherwise-unused capacity when explicitly eligible,
+  // but the mixed-release new-player cap remains absolute.
   for (const event of sorted) {
     if (selected.length >= limit) break;
-    if (selectedIds.has(event.event_id)) continue;
+    if (selectedIds.has(event.event_id) || event.event_type === "new_player") continue;
     selected.push(event);
     selectedIds.add(event.event_id);
   }
@@ -249,7 +256,7 @@ const release = {
     max,
     selected_limit: limit,
     include_state_changes: includeStateChanges,
-    selection: "oldest detection first; mixed releases reserve up to one-third for new players; significance within type; deterministic event-id tiebreak"
+    selection: "oldest detection first within type; mixed releases cap new players at one-third; significance within type; deterministic event-id tiebreak"
   },
   event_count: publishedEvents.length,
   counts: {
