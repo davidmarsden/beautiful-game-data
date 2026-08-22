@@ -46,33 +46,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Install dependencies
         run: npm install
-
       - name: Run tests
         run: npm test
-
       - name: Verify governed queue exists
         run: test -f derived/player-changes/player-change-queue.json
-
       - name: Publish deterministic rolling release
         run: |
           SLOT_ARG=""
-          if [ -n "$RELEASE_SLOT" ]; then
-            SLOT_ARG="--slot=$RELEASE_SLOT"
-          fi
-          npm run publish:player-updates -- \
-            $SLOT_ARG \
-            --target="$RELEASE_TARGET" \
-            --max="$RELEASE_MAX" \
-            --includeStateChanges="$INCLUDE_STATE_CHANGES"
-
+          if [ -n "$RELEASE_SLOT" ]; then SLOT_ARG="--slot=$RELEASE_SLOT"; fi
+          npm run publish:player-updates -- $SLOT_ARG --target="$RELEASE_TARGET" --max="$RELEASE_MAX" --includeStateChanges="$INCLUDE_STATE_CHANGES"
+      - name: Refresh player-indexed rating history
+        run: npm run generate:player-rating-history
+      - name: Rebuild Pink Final public archive
+        run: npm run build:scouting-site
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -82,16 +74,17 @@ jobs:
             derived/player-changes/player-release-history.json
             derived/player-changes/player-release-latest.json
             derived/player-changes/player-release-summary.json
+            derived/player-changes/player-rating-history.json
+            derived/scouting-site/**
           if-no-files-found: error
-
       - name: Commit published release
         run: |
-          if [ -z "$(git status --porcelain derived/player-changes)" ]; then
+          if [ -z "$(git status --porcelain derived/player-changes derived/scouting-site)" ]; then
             echo "No player update release changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add derived/player-changes
+          git add derived/player-changes derived/scouting-site
           git commit -m "Publish TBG player updates"
           git push
