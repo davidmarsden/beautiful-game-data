@@ -20,6 +20,22 @@ async function readJson(path, fallback) {
   return JSON.parse(await readFile(path, "utf8"));
 }
 
+async function readRequiredQueue(path) {
+  if (!(await exists(path))) {
+    throw new Error(`Governed player-change queue is missing: ${path}`);
+  }
+  let value;
+  try {
+    value = JSON.parse(await readFile(path, "utf8"));
+  } catch (error) {
+    throw new Error(`Governed player-change queue is not valid JSON: ${path}: ${error.message}`);
+  }
+  if (!value || Array.isArray(value) || typeof value !== "object" || value.version !== "tbg-player-change-queue-v1" || !Array.isArray(value.entries)) {
+    throw new Error(`Governed player-change queue has an invalid structure: ${path}`);
+  }
+  return value;
+}
+
 async function writeJson(path, value) {
   await mkdir(dirname(path), { recursive: true });
   await writeFile(path, JSON.stringify(value, null, 2) + "\n", "utf8");
@@ -70,6 +86,43 @@ function compareEvents(a, b) {
   return String(a.event_id).localeCompare(String(b.event_id));
 }
 
+function selectReleaseEvents(pending, limit) {
+  const sorted = [...pending].sort(compareEvents);
+  const ratings = sorted.filter((event) => event.event_type === "rating_change");
+  const newPlayers = sorted.filter((event) => event.event_type === "new_player");
+  if (limit < 2 || !ratings.length || !newPlayers.length) return sorted.slice(0, limit);
+
+  // In a mixed release, new players get a guaranteed but bounded share. Do not let
+  // older discovery events consume the rating allocation when filling remaining slots.
+  const newPlayerCap = Math.min(newPlayers.length, Math.max(1, Math.floor(limit / 3)));
+  const ratingCap = Math.max(1, limit - newPlayerCap);
+  const selected = [
+    ...ratings.slice(0, ratingCap),
+    ...newPlayers.slice(0, newPlayerCap)
+  ];
+  const selectedIds = new Set(selected.map((event) => event.event_id));
+
+  // State-change events may use otherwise-unused capacity when explicitly eligible,
+  // but the mixed-release new-player cap remains absolute.
+  for (const event of sorted) {
+    if (selected.length >= limit) break;
+    if (selectedIds.has(event.event_id) || event.event_type === "new_player") continue;
+    selected.push(event);
+    selectedIds.add(event.event_id);
+  }
+  return selected.sort(compareEvents);
+}
+
+function pendingCounts(entries, eligibleTypes) {
+  const pending = entries.filter((entry) => entry.status === "pending" && eligibleTypes.has(entry.event_type));
+  return {
+    total: pending.length,
+    rating_changes: pending.filter((event) => event.event_type === "rating_change").length,
+    new_players: pending.filter((event) => event.event_type === "new_player").length,
+    other_updates: pending.filter((event) => !["rating_change", "new_player"].includes(event.event_type)).length
+  };
+}
+
 function managerProjection(event) {
   return {
     event_id: event.event_id,
@@ -85,7 +138,7 @@ function managerProjection(event) {
   };
 }
 
-function latestProjection(release, pendingEligible) {
+function latestProjection(release, pending) {
   if (!release) {
     return {
       version: "tbg-player-release-latest-v1",
@@ -93,7 +146,8 @@ function latestProjection(release, pendingEligible) {
       ratings_updates: [],
       new_players: [],
       other_updates: [],
-      pending_eligible: pendingEligible
+      pending_eligible: pending.total,
+      pending
     };
   }
   const projected = release.events.map(managerProjection);
@@ -108,7 +162,17 @@ function latestProjection(release, pendingEligible) {
     ratings_updates: projected.filter((event) => event.event_type === "rating_change"),
     new_players: projected.filter((event) => event.event_type === "new_player"),
     other_updates: projected.filter((event) => !["rating_change", "new_player"].includes(event.event_type)),
-    pending_eligible: pendingEligible
+    pending_eligible: pending.total,
+    pending
+  };
+}
+
+function summaryPending(pending) {
+  return {
+    pending_eligible: pending.total,
+    pending_rating_changes: pending.rating_changes,
+    pending_new_players: pending.new_players,
+    pending_other_updates: pending.other_updates
   };
 }
 
@@ -128,9 +192,9 @@ if (!/^\d{4}-\d{2}-\d{2}(?:[a-z0-9._-]+)?$/i.test(slot)) {
   throw new Error(`Invalid release slot: ${slot}`);
 }
 
-const queueRaw = await readJson(queuePath, { version: "tbg-player-change-queue-v1", entries: [] });
+const queueRaw = await readRequiredQueue(queuePath);
 const historyRaw = await readJson(releasesPath, { version: "tbg-player-release-history-v1", releases: [] });
-const entries = Array.isArray(queueRaw) ? queueRaw : queueRaw.entries || [];
+const entries = queueRaw.entries;
 const releases = Array.isArray(historyRaw) ? historyRaw : historyRaw.releases || [];
 const existingRelease = releases.find((release) => release.slot === slot);
 const latestHistoricalRelease = releases.length ? releases[releases.length - 1] : null;
@@ -138,16 +202,17 @@ const eligibleTypes = includeStateChanges
   ? new Set(["rating_change", "new_player", "club_change", "newly_unsigned", "removed_player"])
   : new Set(["rating_change", "new_player"]);
 const pendingEligibleBefore = entries.filter((entry) => entry.status === "pending" && eligibleTypes.has(entry.event_type));
+const pendingBefore = pendingCounts(entries, eligibleTypes);
 
 if (existingRelease) {
-  await writeJson(latestPath, latestProjection(latestHistoricalRelease, pendingEligibleBefore.length));
+  await writeJson(latestPath, latestProjection(latestHistoricalRelease, pendingBefore));
   const summary = {
     generated_at: publishedAt,
     release_slot: slot,
     release_id: existingRelease.release_id,
     idempotent_replay: true,
     published_events: existingRelease.event_count,
-    pending_eligible: pendingEligibleBefore.length,
+    ...summaryPending(pendingBefore),
     total_releases: releases.length
   };
   await writeJson(summaryPath, summary);
@@ -155,16 +220,16 @@ if (existingRelease) {
   process.exit(0);
 }
 
-const selected = [...pendingEligibleBefore].sort(compareEvents).slice(0, limit);
+const selected = selectReleaseEvents(pendingEligibleBefore, limit);
 if (!selected.length) {
-  await writeJson(latestPath, latestProjection(latestHistoricalRelease, 0));
+  await writeJson(latestPath, latestProjection(latestHistoricalRelease, pendingBefore));
   const summary = {
     generated_at: publishedAt,
     release_slot: slot,
     release_id: null,
     idempotent_replay: false,
     published_events: 0,
-    pending_eligible: 0,
+    ...summaryPending(pendingBefore),
     total_releases: releases.length
   };
   await writeJson(summaryPath, summary);
@@ -191,7 +256,7 @@ const release = {
     max,
     selected_limit: limit,
     include_state_changes: includeStateChanges,
-    selection: "oldest-detection-batch-first; ratings before new players; significance within type; deterministic event-id tiebreak"
+    selection: "oldest detection first within type; mixed releases cap new players at one-third; significance within type; deterministic event-id tiebreak"
   },
   event_count: publishedEvents.length,
   counts: {
@@ -208,15 +273,15 @@ const nextHistory = {
   releases: [...releases, release]
 };
 const nextQueue = {
-  ...(Array.isArray(queueRaw) ? { version: "tbg-player-change-queue-v1" } : queueRaw),
+  ...queueRaw,
   updated_at: publishedAt,
   entries: nextEntries
 };
-const pendingEligibleAfter = nextEntries.filter((entry) => entry.status === "pending" && eligibleTypes.has(entry.event_type)).length;
+const pendingAfter = pendingCounts(nextEntries, eligibleTypes);
 
 await writeJson(queuePath, nextQueue);
 await writeJson(releasesPath, nextHistory);
-await writeJson(latestPath, latestProjection(release, pendingEligibleAfter));
+await writeJson(latestPath, latestProjection(release, pendingAfter));
 const summary = {
   generated_at: publishedAt,
   release_slot: slot,
@@ -226,7 +291,7 @@ const summary = {
   rating_changes: release.counts.rating_changes,
   new_players: release.counts.new_players,
   other_updates: release.counts.other_updates,
-  pending_eligible: pendingEligibleAfter,
+  ...summaryPending(pendingAfter),
   total_releases: nextHistory.releases.length
 };
 await writeJson(summaryPath, summary);

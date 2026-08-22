@@ -1,6 +1,8 @@
 name: Publish Player Updates
 
 on:
+  schedule:
+    - cron: "15 9 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -34,6 +36,11 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      RELEASE_SLOT: ${{ github.event.inputs.slot || '' }}
+      RELEASE_TARGET: ${{ github.event.inputs.target || '30' }}
+      RELEASE_MAX: ${{ github.event.inputs.max || '40' }}
+      INCLUDE_STATE_CHANGES: ${{ github.event.inputs.includeStateChanges || 'false' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -51,17 +58,20 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Verify governed queue exists
+        run: test -f derived/player-changes/player-change-queue.json
+
       - name: Publish deterministic rolling release
         run: |
           SLOT_ARG=""
-          if [ -n "${{ inputs.slot }}" ]; then
-            SLOT_ARG="--slot=${{ inputs.slot }}"
+          if [ -n "$RELEASE_SLOT" ]; then
+            SLOT_ARG="--slot=$RELEASE_SLOT"
           fi
           npm run publish:player-updates -- \
             $SLOT_ARG \
-            --target="${{ inputs.target }}" \
-            --max="${{ inputs.max }}" \
-            --includeStateChanges="${{ inputs.includeStateChanges }}"
+            --target="$RELEASE_TARGET" \
+            --max="$RELEASE_MAX" \
+            --includeStateChanges="$INCLUDE_STATE_CHANGES"
 
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
@@ -72,7 +82,7 @@ jobs:
             derived/player-changes/player-release-history.json
             derived/player-changes/player-release-latest.json
             derived/player-changes/player-release-summary.json
-          if-no-files-found: warn
+          if-no-files-found: error
 
       - name: Commit published release
         run: |
