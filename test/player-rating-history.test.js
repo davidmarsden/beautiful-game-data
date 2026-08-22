@@ -47,6 +47,6 @@ test('Pink Final build publishes public update archive and rating-history projec
   assert.match(build, /player-rating-history\.json/);
   assert.match(profile, /Rating History/);
   assert.match(profile, /TBG Ability changes/);
-  assert.match(archive, /immutable governed release|governed releases/i);
+  assert.match(archive, /governed release history|governed updates/i);
   assert.match(pages, /generate:player-rating-history/);
 });
