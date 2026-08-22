@@ -11,8 +11,11 @@ on:
       - design-contract/**
       - derived/player-database/player-database.json
       - derived/player-changes/player-change-ledger.json
+      - derived/player-changes/player-release-history.json
+      - derived/player-changes/player-rating-history.json
       - data/config/tbg-club-universe.json
       - scripts/build-scouting-site.js
+      - scripts/generate-player-rating-history.js
       - scripts/promote-global-clubs-to-top80.js
       - scripts/verify-design-contract.js
       - .github/workflows/publish-scouting-pages.yml
@@ -35,38 +38,32 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Install dependencies
         run: npm install
-
       - name: Verify governed TBG design contract
         run: npm run design-contract:verify
-
       - name: Apply canonical Top 80 club promotions
         run: node scripts/promote-global-clubs-to-top80.js
-
       - name: Verify required Pink Final data
         run: |
           test -f derived/player-database/player-database.json || { echo "Missing player database"; exit 1; }
           test -f derived/player-changes/player-change-ledger.json || { echo "Missing player change ledger. Run Publish TBG Player Database first."; exit 1; }
+          test -f derived/player-changes/player-release-history.json || { echo "Missing governed player release history."; exit 1; }
           test -f data/config/tbg-club-universe.json || { echo "Missing club universe"; exit 1; }
-
+      - name: Generate player-indexed rating history
+        run: npm run generate:player-rating-history
       - name: Build canonical Pink Final site
         run: npm run build:scouting-site
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: derived/scouting-site
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
