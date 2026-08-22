@@ -126,7 +126,7 @@ test("mixed release reserves a bounded share for new players without making them
   assert.equal(release.event_count, 30);
   assert.equal(release.counts.new_players, 10);
   assert.equal(release.counts.rating_changes, 20);
-  assert.match(release.policy.selection, /one-third for new players/);
+  assert.match(release.policy.selection, /cap new players at one-third/);
 });
 
 test("publisher fails loudly when the governed queue is missing or malformed", async () => {
