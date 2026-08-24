@@ -8,7 +8,7 @@ async function copy(source, target) {
 
 async function applySharedNavigation(path, rootPrefix) {
   const html = await readFile(path, "utf8");
-  const nav = `<nav class="nav tbg-nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a><a href="${rootPrefix}new-this-week/">New This Week</a><a href="${rootPrefix}player-updates/">Player Updates</a></nav>`;
+  const nav = `<nav class="nav tbg-nav" aria-label="Pink Final sections"><a href="${rootPrefix}">Front Page</a><a href="${rootPrefix}scouting/">Scouting Database</a><a href="${rootPrefix}clubs/">Clubs</a><a href="${rootPrefix}wonderkids/">Wonderkids</a><a href="${rootPrefix}rankings/">Rankings</a><a href="${rootPrefix}transfer-market/">Transfer Market</a><a href="${rootPrefix}new-this-week/">New This Week</a><a href="${rootPrefix}player-updates/">Player Updates</a><a href="https://thebeautifulgame.online/">Play The Beautiful Game</a></nav>`;
   const updated = html.replace(/<nav class="nav(?: tbg-nav)?"[^>]*>[\s\S]*?<\/nav>/, nav);
   await writeFile(path, updated, "utf8");
 }
