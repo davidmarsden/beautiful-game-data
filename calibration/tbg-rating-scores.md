@@ -24,11 +24,11 @@ Mohamed Salah | Trabzonspor | TR1 | ATT | 34 | 94 | 95 | 95 | world_elite | 0.3 
 Alexander Isak | Liverpool FC | GB1 | ATT | 26 | 94 | 95 | 95 | world_elite | 0.75 | +0.3: historic elite-market prestige; +0.2: major international experience; +0.25: elite lifetime transfer-fee signal
 Joshua Kimmich | Bayern Munich | L1 | DEF | 31 | 94 | 94 | 94 | world_elite | 0.73 | +0.18: historic high-level market prestige; +0.3: centurion international prestige; +0.25: form is temporary, class is permanent safeguard
 Florian Wirtz | Liverpool FC | GB1 | MID | 23 | 93 | 94 | 94 | world_elite | 0.9 | +0.3: historic elite-market prestige; +0.1: established international experience; +0.15: major lifetime transfer-fee signal; +0.2: elite current market signal; +0.15: early-prime high-ceiling trajectory
+Lautaro Martínez | Inter Milan | IT1 | ATT | 29 | 94 | 94 | 94 | world_elite | 0.5 | +0.3: historic elite-market prestige; +0.2: major international experience
 Moisés Caicedo | Chelsea FC | GB1 | DEF | 24 | 93 | 94 | 94 | world_elite | 1 | +0.3: historic elite-market prestige; +0.2: major international experience; +0.15: major lifetime transfer-fee signal; +0.2: elite current market signal; +0.15: early-prime high-ceiling trajectory
 Phil Foden | Manchester City | GB1 | MID | 26 | 94 | 94 | 94 | world_elite | 0.45 | +0.45: historic world-superstar prestige
 Vítor Machado Ferreira | Paris Saint-Germain | FR1 | DEF | 26 | 94 | 94 | 94 | world_elite | 0.6 | +0.3: historic elite-market prestige; +0.1: established international experience; +0.2: elite current market signal
 Cole Palmer | Chelsea FC | GB1 | MID | 24 | 93 | 94 | 94 | world_elite | 0.65 | +0.3: historic elite-market prestige; +0.2: elite current market signal; +0.15: early-prime high-ceiling trajectory
-Lautaro Martínez | Inter Milan | IT1 | ATT | 28 | 94 | 94 | 94 | world_elite | 0.5 | +0.3: historic elite-market prestige; +0.2: major international experience
 Bruno Fernandes | Manchester United | GB1 | MID | 31 | 93 | 94 | 94 | world_elite | 0.78 | +0.18: historic high-level market prestige; +0.2: major international experience; +0.15: major lifetime transfer-fee signal; +0.25: form is temporary, class is permanent safeguard
 Bernardo Silva | Real Madrid | ES1 | MID | 32 | 93 | 94 | 94 | world_elite | 0.6 | +0.3: historic elite-market prestige; +0.3: centurion international prestige; +0.25: form is temporary, class is permanent safeguard; -0.25: diminishing-returns prestige taper
 Alexis Mac Allister | Liverpool FC | GB1 | MID | 27 | 93 | 94 | 94 | world_elite | 0.4 | +0.3: historic elite-market prestige; +0.1: established international experience
@@ -56,10 +56,10 @@ Enzo Fernández | Chelsea FC | GB1 | MID | 25 | 92 | 93 | 93 | elite | 0.85 | +0
 Alisson Ramses Becker | Liverpool FC | GB1 | GK | 33 | 93 | 93 | 93 | elite | 0.55 | -0.15: large fall from peak current-ability caution; +0.1: goalkeeper longevity stability; +0.18: historic high-level market prestige; +0.2: major international experience; +0.15: major lifetime transfer-fee signal; +0.25: form is temporary, class is permanent safeguard; -0.18: diminishing-returns prestige taper
 Neymar da Silva Santos Júnior | Santos FC | BRA1 | MID | 34 | 93 | 93 | 93 | elite | 0.45 | -0.15: large fall from peak current-ability caution; +0.45: historic world-superstar prestige; +0.3: centurion international prestige; +0.25: elite lifetime transfer-fee signal; +0.25: form is temporary, class is permanent safeguard; +0.15: late-career elite class inertia; -0.8: diminishing-returns prestige taper
 Gabriel Magalhães | Arsenal FC | GB1 | DEF | 28 | 93 | 93 | 93 | elite | 0.18 | +0.18: historic high-level market prestige
+Rafael Leão | Galatasaray | TR1 | ATT | 27 | 92 | 93 | 93 | elite | 0.43 | +0.18: historic high-level market prestige; +0.1: established international experience; +0.15: major lifetime transfer-fee signal
 João Neves | Paris Saint-Germain | FR1 | MID | 21 | 92 | 93 | 93 | elite | 0.8 | +0.3: historic elite-market prestige; +0.2: elite current market signal; +0.3: young elite-trajectory adjustment
 Martín Zubimendi | Arsenal FC | GB1 | DEF | 27 | 93 | 93 | 93 | elite | 0.18 | +0.18: historic high-level market prestige
 Ryan Gravenberch | Liverpool FC | GB1 | DEF | 24 | 92 | 93 | 93 | elite | 0.43 | +0.18: historic high-level market prestige; +0.1: established international experience; +0.15: early-prime high-ceiling trajectory
-Rafael Leão | AC Milan | IT1 | ATT | 27 | 93 | 93 | 93 | elite | 0.28 | +0.18: historic high-level market prestige; +0.1: established international experience
 Fermín López | FC Barcelona | ES1 | MID | 23 | 92 | 93 | 93 | elite | 0.65 | +0.3: historic elite-market prestige; +0.2: elite current market signal; +0.15: early-prime high-ceiling trajectory
 Bryan Mbeumo | Manchester United | GB1 | ATT | 27 | 92 | 93 | 93 | elite | 0.43 | +0.18: historic high-level market prestige; +0.1: established international experience; +0.15: major lifetime transfer-fee signal
 Heung-min Son | Los Angeles FC | MLS1 | ATT | 34 | 92 | 93 | 93 | elite | 0.3 | -0.15: large fall from peak current-ability caution; -0.15: attacker output/value reality check; +0.18: historic high-level market prestige; +0.3: centurion international prestige; +0.25: form is temporary, class is permanent safeguard; +0.15: late-career elite class inertia; -0.28: diminishing-returns prestige taper
@@ -79,7 +79,7 @@ Fabián Ruiz | Paris Saint-Germain | FR1 | MID | 30 | 92 | 92 | 92 | elite | 0.3
 Dani Olmo | FC Barcelona | ES1 | MID | 28 | 92 | 92 | 92 | elite | 0.25 | +0.1: established international experience; +0.15: major lifetime transfer-fee signal
 Gianluigi Donnarumma | Manchester City | GB1 | GK | 27 | 92 | 92 | 92 | elite | 0.3 | +0.1: goalkeeper longevity stability; +0.2: major international experience
 Leroy Sané | Galatasaray | TR1 | ATT | 30 | 91 | 92 | 92 | elite | 0.85 | +0.3: historic elite-market prestige; +0.2: major international experience; +0.15: major lifetime transfer-fee signal; +0.25: form is temporary, class is permanent safeguard; -0.05: diminishing-returns prestige taper
-Omar Marmoush | Manchester City | GB1 | ATT | 27 | 92 | 92 | 92 | elite | 0.28 | +0.18: historic high-level market prestige; +0.1: established international experience
+Omar Marmoush | Tottenham Hotspur | GB1 | ATT | 27 | 92 | 92 | 92 | elite | 0.28 | +0.18: historic high-level market prestige; +0.1: established international experience
 Sandro Tonali | Tottenham Hotspur | GB1 | DEF | 26 | 92 | 92 | 92 | elite | 0.43 | +0.18: historic high-level market prestige; +0.25: elite lifetime transfer-fee signal
 Antoine Semenyo | Manchester City | GB1 | ATT | 26 | 92 | 92 | 92 | elite | 0.43 | +0.18: historic high-level market prestige; +0.1: established international experience; +0.15: major lifetime transfer-fee signal
 Hugo Ekitiké | Liverpool FC | GB1 | ATT | 24 | 92 | 92 | 92 | elite | 0.58 | +0.18: historic high-level market prestige; +0.25: elite lifetime transfer-fee signal; +0.15: early-prime high-ceiling trajectory
@@ -92,8 +92,8 @@ Scott McTominay | SSC Napoli | IT1 | MID | 29 | 92 | 92 | 92 | elite | 0.2 | +0.
 Eberechi Eze | Arsenal FC | GB1 | MID | 28 | 92 | 92 | 92 | elite | 0.15 | +0.15: major lifetime transfer-fee signal
 Matheus Cunha | Manchester United | GB1 | ATT | 27 | 92 | 92 | 92 | elite | 0.43 | +0.18: historic high-level market prestige; +0.25: elite lifetime transfer-fee signal
 Marc Guéhi | Manchester City | GB1 | DEF | 26 | 92 | 92 | 92 | elite | 0.28 | +0.18: historic high-level market prestige; +0.1: established international experience
-Marcos Llorente | Atlético de Madrid | ES1 | DEF | 31 | 92 | 92 | 92 | elite | 0.43 | +0.18: historic high-level market prestige; +0.25: form is temporary, class is permanent safeguard
 Cristian Romero | Atlético de Madrid | ES1 | DEF | 28 | 92 | 92 | 92 | elite | 0.25 | +0.1: established international experience; +0.15: major lifetime transfer-fee signal
+Marcos Llorente | Atlético de Madrid | ES1 | DEF | 31 | 92 | 92 | 92 | elite | 0.43 | +0.18: historic high-level market prestige; +0.25: form is temporary, class is permanent safeguard
 Arda Güler | Real Madrid | ES1 | MID | 21 | 91 | 92 | 92 | elite | 0.58 | +0.18: historic high-level market prestige; +0.1: established international experience; +0.3: young elite-trajectory adjustment
 Josko Gvardiol | Manchester City | GB1 | DEF | 24 | 91 | 92 | 92 | elite | 0.43 | +0.18: historic high-level market prestige; +0.1: established international experience; +0.15: major lifetime transfer-fee signal
 Reece James | Chelsea FC | GB1 | DEF | 26 | 92 | 92 | 92 | elite | 0.18 | +0.18: historic high-level market prestige

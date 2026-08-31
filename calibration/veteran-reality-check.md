@@ -1,12 +1,12 @@
 # Veteran Reality Check
 
-Generated: 2026-08-21T08:29:09.049Z
+Generated: 2026-08-31T19:36:40.091Z
 
-- Adjusted players: 342
+- Adjusted players: 339
 - Elite-league adjustments: 23
-- Non-elite-league adjustments: 319
-- Goalkeeper adjustments: 87
-- Outfield adjustments: 255
+- Non-elite-league adjustments: 316
+- Goalkeeper adjustments: 85
+- Outfield adjustments: 254
 - Maximum reduction: -4
 
 ## Adjustments
@@ -105,6 +105,7 @@ Generated: 2026-08-21T08:29:09.049Z
 - Alexandre Lacazette (35, NEOM SC): 90 → 89 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - David Alaba (34, Without Club): 90 → 89 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
 - Henrikh Mkhitaryan (37, Inter Milan): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value
+- Iago Aspas (39, Celta de Vigo): 90 → 89 — veteran reality adjustment: age 39, elite league, outfield, low current value
 - Idrissa Gueye (36, Al-Diriyah FC): 90 → 89 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Ivan Perišić (37, PSV Eindhoven): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value
 - Nemanja Matić (37, US Sassuolo): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value
@@ -112,7 +113,6 @@ Generated: 2026-08-21T08:29:09.049Z
 - Raúl Jiménez (35, Wolverhampton Wanderers): 90 → 89 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Thomas Müller (36, Vancouver Whitecaps FC): 90 → 89 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Yassine Bounou (35, Al-Hilal SFC): 90 → 89 — veteran reality adjustment: age 35, non-elite league, GK, low current value
-- Aïssa Mandi (34, Without Club): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
 - Alex Sandro Lobo Silva (35, CR Flamengo): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Allan Marques Loureiro (35, Botafogo de Futebol e Regatas): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - André Carrillo (35, Sport Club Corinthians Paulista): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
@@ -124,7 +124,6 @@ Generated: 2026-08-21T08:29:09.049Z
 - Edouard Mendy (34, Al-Ahli SFC): 89 → 88 — veteran reality adjustment: age 34, non-elite league, GK, low current value
 - Fraser Forster (38, AFC Bournemouth): 89 → 88 — veteran reality adjustment: age 38, elite league, GK, low current value
 - Georginio Wijnaldum (35, Without Club): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
-- Iago Aspas (38, Celta de Vigo): 89 → 88 — veteran reality adjustment: age 38, elite league, outfield, low current value
 - İlkay Gündoğan (35, Galatasaray): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Iñigo Martínez (35, Al-Nassr FC): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Jorge Luiz Frello Filho (34, CR Flamengo): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
@@ -132,7 +131,6 @@ Generated: 2026-08-21T08:29:09.049Z
 - Lorenzo De Silvestri (38, Bologna FC 1909): 89 → 88 — veteran reality adjustment: age 38, elite league, outfield, low current value
 - Lorenzo Insigne (35, UC Sampdoria): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Martin Dúbravka (37, Tottenham Hotspur): 89 → 88 — veteran reality adjustment: age 37, elite league, GK, low current value
-- Mathew Ryan (34, Without Club): 89 → 88 — veteran reality adjustment: age 34, non-elite league, GK, low current value
 - Matías Dituro (39, Elche CF): 89 → 88 — veteran reality adjustment: age 39, elite league, GK, low current value
 - Nacho Fernández (36, Al-Qadsiah FC): 89 → 88 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Remo Freuler (34, Without Club): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
@@ -182,7 +180,6 @@ Generated: 2026-08-21T08:29:09.049Z
 - Moussa Marega (35, Without Club): 88 → 87 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Moussa Sissoko (36, Panathinaikos): 88 → 87 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Nicolas Höfler (36, SC Freiburg II): 88 → 87 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
-- Ørjan Nyland (35, Without Club): 88 → 87 — veteran reality adjustment: age 35, non-elite league, GK, low current value
 - Paulo Henrique Chagas de Lima (36, Fluminense Football Club): 88 → 87 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Rafael Cabral Barbosa (36, Real Salt Lake City): 88 → 87 — veteran reality adjustment: age 36, non-elite league, GK, low current value
 - Rafael Tolói (35, São Paulo Futebol Clube): 88 → 87 — veteran reality adjustment: age 35, non-elite league, outfield, low current value

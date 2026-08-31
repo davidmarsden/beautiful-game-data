@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T08:29:09.049Z",
+  "generated_at": "2026-08-31T19:36:40.091Z",
   "policy": {
     "version": "tbg-veteran-reality-check-v2.0",
     "minimum_age": 34,
@@ -27,12 +27,12 @@
     "principle": "TBG veteran ratings are moderated using age, position, league strength and current Transfermarkt market signal. Historic reputation may inform the core model, but extreme age, weaker current competition and low current value must constrain the final published rating."
   },
   "summary": {
-    "veteran_rows_reviewed": 255,
-    "adjusted_players": 342,
+    "veteran_rows_reviewed": 256,
+    "adjusted_players": 339,
     "elite_league_adjustments": 23,
-    "non_elite_league_adjustments": 319,
-    "goalkeeper_adjustments": 87,
-    "outfield_adjustments": 255,
+    "non_elite_league_adjustments": 316,
+    "goalkeeper_adjustments": 85,
+    "outfield_adjustments": 254,
     "maximum_reduction": -4
   },
   "adjustments": [
@@ -1353,6 +1353,20 @@
       "elite_league": true
     },
     {
+      "transfermarkt_id": "72047",
+      "player_name": "Iago Aspas",
+      "club": "Celta de Vigo",
+      "competition": "ES1",
+      "position_group": "ATT",
+      "age": 39,
+      "market_value_eur": 1600000,
+      "before": 90,
+      "after": 89,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 39, elite league, outfield, low current value",
+      "elite_league": true
+    },
+    {
       "transfermarkt_id": "126665",
       "player_name": "Idrissa Gueye",
       "club": "Al-Diriyah FC",
@@ -1448,20 +1462,6 @@
       "after": 89,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
-      "elite_league": false
-    },
-    {
-      "transfermarkt_id": "80293",
-      "player_name": "Aïssa Mandi",
-      "club": "Without Club",
-      "competition": "",
-      "position_group": "DEF",
-      "age": 34,
-      "market_value_eur": 1000000,
-      "before": 89,
-      "after": 88,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1619,20 +1619,6 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "72047",
-      "player_name": "Iago Aspas",
-      "club": "Celta de Vigo",
-      "competition": "ES1",
-      "position_group": "ATT",
-      "age": 38,
-      "market_value_eur": 1600000,
-      "before": 89,
-      "after": 88,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 38, elite league, outfield, low current value",
-      "elite_league": true
-    },
-    {
       "transfermarkt_id": "53622",
       "player_name": "İlkay Gündoğan",
       "club": "Galatasaray",
@@ -1729,20 +1715,6 @@
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 37, elite league, GK, low current value",
       "elite_league": true
-    },
-    {
-      "transfermarkt_id": "128969",
-      "player_name": "Mathew Ryan",
-      "club": "Without Club",
-      "competition": "",
-      "position_group": "GK",
-      "age": 34,
-      "market_value_eur": 1800000,
-      "before": 89,
-      "after": 88,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
-      "elite_league": false
     },
     {
       "transfermarkt_id": "144128",
@@ -2428,20 +2400,6 @@
       "after": 87,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
-      "elite_league": false
-    },
-    {
-      "transfermarkt_id": "73517",
-      "player_name": "Ørjan Nyland",
-      "club": "Without Club",
-      "competition": "",
-      "position_group": "GK",
-      "age": 35,
-      "market_value_eur": 800000,
-      "before": 88,
-      "after": 87,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
