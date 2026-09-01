@@ -23,6 +23,7 @@ async function readJson(path, fallback = null) {
 const text = (value) => String(value ?? "").trim();
 const tmIdOf = (row = {}) => text(row.transfermarkt_id || row.transfermarkt_player_id || row.transfermarktId);
 const playerIdOf = (row = {}) => text(row.tbg_player_id || row.player_id);
+const TBG_RELEASE_EVENT_TYPES = new Set(["rating_change", "new_player"]);
 
 function stable(value) {
   if (Array.isArray(value)) return value.map(stable);
@@ -38,9 +39,6 @@ function projection(change) {
   switch (change.type) {
     case "rating_change":
       return { before: change.before, after: change.after, delta: change.delta };
-    case "club_change":
-    case "newly_unsigned":
-      return { before: change.before ?? null, after: change.after ?? null };
     case "new_player":
       return {
         before: null,
@@ -49,15 +47,6 @@ function projection(change) {
           current_club: change.current?.current_club || change.current?.tbg_club || "Without Club",
           market_value_eur: change.current?.market_value_eur ?? null
         }
-      };
-    case "removed_player":
-      return {
-        before: {
-          tbg_rating: change.previous?.tbg_rating ?? null,
-          current_club: change.previous?.current_club || change.previous?.tbg_club || "Without Club",
-          market_value_eur: change.previous?.market_value_eur ?? null
-        },
-        after: null
       };
     default:
       return { before: change.before ?? null, after: change.after ?? null };
@@ -78,7 +67,9 @@ const masterRaw = await readJson(masterPath, []);
 const ratingProfilesRaw = await readJson(ratingProfilesPath, []);
 const master = Array.isArray(masterRaw) ? masterRaw : masterRaw?.players || [];
 const ratingProfiles = Array.isArray(ratingProfilesRaw) ? ratingProfilesRaw : ratingProfilesRaw?.players || [];
-const existingEntries = Array.isArray(existingQueueRaw) ? existingQueueRaw : existingQueueRaw?.entries || [];
+const allExistingEntries = Array.isArray(existingQueueRaw) ? existingQueueRaw : existingQueueRaw?.entries || [];
+const existingEntries = allExistingEntries.filter((entry) => TBG_RELEASE_EVENT_TYPES.has(entry.event_type));
+const purgedLegacyStateEvents = allExistingEntries.length - existingEntries.length;
 const existingIds = new Set(existingEntries.map((entry) => entry.event_id).filter(Boolean));
 const masterByTmId = new Map(master.map((row) => [tmIdOf(row), row]).filter(([id]) => id));
 const ratingsByTmId = new Map(ratingProfiles.map((row) => [tmIdOf(row), row]).filter(([id]) => id));
@@ -86,9 +77,15 @@ const detectedAt = ledger.summary?.generated_at || new Date().toISOString();
 const firstEdition = Boolean(ledger.summary?.first_edition);
 const appended = [];
 const duplicateEventIds = [];
+const excludedStateChanges = [];
 
 if (!firstEdition) {
   for (const change of ledger.changes || []) {
+    if (!TBG_RELEASE_EVENT_TYPES.has(change.type)) {
+      excludedStateChanges.push(change);
+      continue;
+    }
+
     const current = change.current || {};
     const previous = change.previous || {};
     const playerId = text(change.player_id || playerIdOf(current) || playerIdOf(previous));
@@ -150,6 +147,7 @@ const entries = [...existingEntries, ...appended];
 const queue = {
   version: "tbg-player-change-queue-v1",
   updated_at: detectedAt,
+  scope: "tbg_release_events_only",
   entries
 };
 const batch = {
@@ -157,8 +155,11 @@ const batch = {
   generated_at: detectedAt,
   first_edition: firstEdition,
   detected_changes: (ledger.changes || []).length,
+  tbg_release_changes: (ledger.changes || []).filter((change) => TBG_RELEASE_EVENT_TYPES.has(change.type)).length,
+  excluded_state_changes: excludedStateChanges.length,
   appended_events: appended.length,
   duplicate_events_skipped: duplicateEventIds.length,
+  purged_legacy_state_events: purgedLegacyStateEvents,
   event_ids: appended.map((event) => event.event_id),
   events: appended
 };
@@ -173,9 +174,12 @@ const byStatus = entries.reduce((memo, entry) => {
 const summary = {
   generated_at: detectedAt,
   queue_version: queue.version,
+  queue_scope: queue.scope,
   total_events: entries.length,
   appended_events: appended.length,
   duplicate_events_skipped: duplicateEventIds.length,
+  excluded_state_changes: excludedStateChanges.length,
+  purged_legacy_state_events: purgedLegacyStateEvents,
   first_edition_baseline_only: firstEdition,
   by_status: byStatus,
   by_type: byType
