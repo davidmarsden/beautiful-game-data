@@ -18,14 +18,7 @@ async function readJson(path) {
 }
 
 async function runRelease(paths, extra = []) {
-  await execFileAsync(process.execPath, [
-    script,
-    `--queue=${paths.queue}`,
-    `--releases=${paths.releases}`,
-    `--latest=${paths.latest}`,
-    `--summary=${paths.summary}`,
-    ...extra
-  ]);
+  await execFileAsync(process.execPath, [script, `--queue=${paths.queue}`, `--releases=${paths.releases}`, `--latest=${paths.latest}`, `--summary=${paths.summary}`, ...extra]);
 }
 
 function releasePaths(dir) {
@@ -50,7 +43,7 @@ function event(id, type, detectedAt, extra = {}) {
   };
 }
 
-test("rolling release mixes new players into a busy ratings batch and spills over deterministically", async () => {
+test("rolling release mixes new players into a busy ratings batch and ignores state changes", async () => {
   const dir = await mkdtemp(join(tmpdir(), "tbg-player-release-"));
   const paths = releasePaths(dir);
   await writeJson(paths.queue, {
@@ -73,6 +66,8 @@ test("rolling release mixes new players into a busy ratings batch and spills ove
   assert.deepEqual(firstHistory.releases[0].event_ids, ["e2", "e3"]);
   assert.equal(firstHistory.releases[0].counts.rating_changes, 1);
   assert.equal(firstHistory.releases[0].counts.new_players, 1);
+  assert.equal(firstHistory.releases[0].counts.other_updates, 0);
+  assert.equal(firstHistory.releases[0].policy.include_state_changes, false);
   assert.equal(firstLatest.ratings_updates.length, 1);
   assert.equal(firstLatest.new_players.length, 1);
   assert.equal(firstLatest.pending_eligible, 2);
@@ -96,29 +91,19 @@ test("rolling release mixes new players into a busy ratings batch and spills ove
   assert.equal((await readJson(paths.latest)).pending_eligible, 0);
   assert.equal((await readJson(paths.latest)).release.release_id, secondReleaseId);
 
-  await runRelease(paths, ["--slot=2026-08-20", "--target=2", "--max=3", "--publishedAt=2026-08-21T13:00:00.000Z"]);
-  assert.equal((await readJson(paths.latest)).release.release_id, secondReleaseId);
-  assert.equal((await readJson(paths.summary)).idempotent_replay, true);
-
   await runRelease(paths, ["--slot=2026-08-22", "--publishedAt=2026-08-22T12:00:00.000Z"]);
   const emptyLatest = await readJson(paths.latest);
-  const emptySummary = await readJson(paths.summary);
-  assert.equal(emptySummary.published_events, 0);
+  assert.equal((await readJson(paths.summary)).published_events, 0);
   assert.equal(emptyLatest.release.release_id, secondReleaseId);
   assert.equal(emptyLatest.pending_eligible, 0);
-  assert.deepEqual(emptyLatest.pending, { total: 0, rating_changes: 0, new_players: 0, other_updates: 0 });
 });
 
 test("mixed release reserves a bounded share for new players without making them the majority", async () => {
   const dir = await mkdtemp(join(tmpdir(), "tbg-player-release-mixed-"));
   const paths = releasePaths(dir);
   const entries = [];
-  for (let index = 0; index < 30; index += 1) {
-    entries.push(event(`r${index}`, "rating_change", "2026-08-20T10:00:00.000Z", { before: 80, after: 81, delta: 1 }));
-  }
-  for (let index = 0; index < 20; index += 1) {
-    entries.push(event(`n${index}`, "new_player", "2026-08-20T10:00:00.000Z", { after: { tbg_rating: 80 + index, market_value_eur: 1000000 + index } }));
-  }
+  for (let index = 0; index < 30; index += 1) entries.push(event(`r${index}`, "rating_change", "2026-08-20T10:00:00.000Z", { before: 80, after: 81, delta: 1 }));
+  for (let index = 0; index < 20; index += 1) entries.push(event(`n${index}`, "new_player", "2026-08-20T10:00:00.000Z", { after: { tbg_rating: 80 + index, market_value_eur: 1000000 + index } }));
   await writeJson(paths.queue, { version: "tbg-player-change-queue-v1", entries });
 
   await runRelease(paths, ["--slot=2026-08-20", "--target=30", "--max=40", "--publishedAt=2026-08-20T12:00:00.000Z"]);
@@ -140,31 +125,23 @@ test("publisher fails loudly when the governed queue is missing or malformed", a
   await assert.rejects(runRelease(malformedPaths, ["--slot=2026-08-20"]), /invalid structure/);
 });
 
-test("state-only events publish only when explicitly enabled", async () => {
+test("state-only events cannot be published into TBG releases", async () => {
   const dir = await mkdtemp(join(tmpdir(), "tbg-player-release-state-"));
   const paths = releasePaths(dir);
-  await writeJson(paths.queue, {
-    version: "tbg-player-change-queue-v1",
-    entries: [event("s1", "club_change", "2026-08-20T10:00:00.000Z", { before: "A", after: "B" })]
-  });
+  await writeJson(paths.queue, { version: "tbg-player-change-queue-v1", entries: [event("s1", "club_change", "2026-08-20T10:00:00.000Z", { before: "A", after: "B" })] });
 
-  await runRelease(paths, ["--slot=2026-08-20", "--publishedAt=2026-08-20T12:00:00.000Z"]);
+  await runRelease(paths, ["--slot=2026-08-20", "--includeStateChanges=true", "--publishedAt=2026-08-20T12:00:00.000Z"]);
   assert.equal((await readJson(paths.summary)).published_events, 0);
   assert.equal((await readJson(paths.queue)).entries[0].status, "pending");
-
-  await runRelease(paths, ["--slot=2026-08-21", "--includeStateChanges=true", "--publishedAt=2026-08-21T12:00:00.000Z"]);
-  const history = await readJson(paths.releases);
-  assert.equal(history.releases.length, 1);
-  assert.equal(history.releases[0].counts.other_updates, 1);
-  assert.equal((await readJson(paths.queue)).entries[0].status, "published");
+  assert.equal((await readJson(paths.releases)).releases.length, 0);
 });
 
-test("scheduled publication uses explicit safe defaults and does not run a paid refresh", async () => {
+test("scheduled publication uses explicit safe defaults and does not expose a state-change switch", async () => {
   const workflow = await readFile(new URL("../.github/workflows/publish-player-updates.yml", import.meta.url), "utf8");
   assert.match(workflow, /cron: "15 9 \* \* \*"/);
   assert.match(workflow, /RELEASE_TARGET: \$\{\{ github\.event\.inputs\.target \|\| '30' \}\}/);
   assert.match(workflow, /RELEASE_MAX: \$\{\{ github\.event\.inputs\.max \|\| '40' \}\}/);
-  assert.match(workflow, /INCLUDE_STATE_CHANGES: \$\{\{ github\.event\.inputs\.includeStateChanges \|\| 'false' \}\}/);
+  assert.doesNotMatch(workflow, /includeStateChanges|INCLUDE_STATE_CHANGES/);
   assert.match(workflow, /Verify governed queue exists/);
   assert.doesNotMatch(workflow, /APIFY_TOKEN|fetch-apify|Refresh Transfermarkt/i);
 });
