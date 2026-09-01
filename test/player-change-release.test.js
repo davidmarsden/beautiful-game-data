@@ -129,6 +129,7 @@ test("state-only events cannot be published into TBG releases", async () => {
   const dir = await mkdtemp(join(tmpdir(), "tbg-player-release-state-"));
   const paths = releasePaths(dir);
   await writeJson(paths.queue, { version: "tbg-player-change-queue-v1", entries: [event("s1", "club_change", "2026-08-20T10:00:00.000Z", { before: "A", after: "B" })] });
+  await writeJson(paths.releases, { version: "tbg-player-release-history-v1", releases: [] });
 
   await runRelease(paths, ["--slot=2026-08-20", "--includeStateChanges=true", "--publishedAt=2026-08-20T12:00:00.000Z"]);
   assert.equal((await readJson(paths.summary)).published_events, 0);
