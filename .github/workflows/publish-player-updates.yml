@@ -20,11 +20,6 @@ on:
         required: true
         default: "40"
         type: string
-      includeStateChanges:
-        description: "Also publish club/status/removal events (normally false for manager-facing Ratings Updates/New Players)"
-        required: true
-        default: false
-        type: boolean
 
 permissions:
   contents: write
@@ -40,7 +35,6 @@ jobs:
       RELEASE_SLOT: ${{ github.event.inputs.slot || '' }}
       RELEASE_TARGET: ${{ github.event.inputs.target || '30' }}
       RELEASE_MAX: ${{ github.event.inputs.max || '40' }}
-      INCLUDE_STATE_CHANGES: ${{ github.event.inputs.includeStateChanges || 'false' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -60,7 +54,7 @@ jobs:
         run: |
           SLOT_ARG=""
           if [ -n "$RELEASE_SLOT" ]; then SLOT_ARG="--slot=$RELEASE_SLOT"; fi
-          npm run publish:player-updates -- $SLOT_ARG --target="$RELEASE_TARGET" --max="$RELEASE_MAX" --includeStateChanges="$INCLUDE_STATE_CHANGES"
+          npm run publish:player-updates -- $SLOT_ARG --target="$RELEASE_TARGET" --max="$RELEASE_MAX"
       - name: Refresh player-indexed rating history
         run: npm run generate:player-rating-history
       - name: Rebuild Pink Final public archive
