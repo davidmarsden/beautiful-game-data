@@ -29,7 +29,7 @@ async function runQueue(paths) {
   ]);
 }
 
-test("player change queue appends deterministic provenance-rich events exactly once", async () => {
+test("player change queue appends only deterministic TBG release events exactly once", async () => {
   const dir = await mkdtemp(join(tmpdir(), "tbg-change-queue-"));
   const paths = Object.fromEntries(["ledger", "queue", "batch", "summary", "master", "ratings"].map((name) => [name, join(dir, `${name}.json`)]));
 
@@ -50,12 +50,21 @@ test("player change queue appends deterministic provenance-rich events exactly o
         player_id: "tbg-tm-00012345",
         player_name: "New Prospect",
         current: { tbg_player_id: "tbg-tm-00012345", transfermarkt_id: "12345", tbg_rating: 76, current_club: "Example FC", market_value_eur: 1200000 }
+      },
+      {
+        type: "club_change",
+        player_id: "tbg-tm-00067890",
+        player_name: "Transfer Player",
+        before: "Old FC",
+        after: "New FC",
+        current: { tbg_player_id: "tbg-tm-00067890", transfermarkt_id: "67890", current_club: "New FC" }
       }
     ]
   });
   await writeJson(paths.master, [
     { transfermarkt_id: "1364573", display_name: "Huguinho", scraped_at: "2026-08-20T19:50:00.000Z", market_value_determined: "2026-05-26", source: "apify-transfermarkt-global-player-scraper" },
-    { transfermarkt_id: "12345", display_name: "New Prospect", scraped_at: "2026-08-20T19:51:00.000Z", source: "apify-transfermarkt-global-player-scraper" }
+    { transfermarkt_id: "12345", display_name: "New Prospect", scraped_at: "2026-08-20T19:51:00.000Z", source: "apify-transfermarkt-global-player-scraper" },
+    { transfermarkt_id: "67890", display_name: "Transfer Player", scraped_at: "2026-08-20T19:52:00.000Z", source: "apify-transfermarkt-global-player-scraper" }
   ]);
   await writeJson(paths.ratings, [
     {
@@ -78,12 +87,20 @@ test("player change queue appends deterministic provenance-rich events exactly o
 
   await runQueue(paths);
   const first = await readJson(paths.queue);
+  const firstBatch = await readJson(paths.batch);
+  const firstSummary = await readJson(paths.summary);
+  assert.equal(first.scope, "tbg_release_events_only");
   assert.equal(first.entries.length, 2);
+  assert.deepEqual(first.entries.map((entry) => entry.event_type), ["rating_change", "new_player"]);
   assert.equal(first.entries[0].status, "pending");
   assert.match(first.entries[0].event_id, /^pchg_[a-f0-9]{24}$/);
   assert.equal(first.entries[0].provenance.source_scraped_at, "2026-08-20T19:50:00.000Z");
   assert.equal(first.entries[0].provenance.rating_model_version, "tbg-v3-sticky-ability-fluid-form");
   assert.deepEqual(first.entries[0].provenance.rating_inputs, { market_value_eur: 300000, age: 19 });
+  assert.equal(firstBatch.detected_changes, 3);
+  assert.equal(firstBatch.tbg_release_changes, 2);
+  assert.equal(firstBatch.excluded_state_changes, 1);
+  assert.equal(firstSummary.excluded_state_changes, 1);
 
   const firstSerialised = JSON.stringify(first.entries);
   await runQueue(paths);
@@ -93,28 +110,68 @@ test("player change queue appends deterministic provenance-rich events exactly o
   assert.equal(JSON.stringify(second.entries), firstSerialised);
   assert.equal(secondBatch.appended_events, 0);
   assert.equal(secondBatch.duplicate_events_skipped, 2);
+  assert.equal(secondBatch.excluded_state_changes, 1);
 });
 
-test("removed player with no surviving rating profile preserves unknown model provenance as null", async () => {
-  const dir = await mkdtemp(join(tmpdir(), "tbg-change-queue-removed-"));
+test("real-world state changes stay in the ledger and never enter the governed TBG release queue", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "tbg-change-queue-state-"));
   const paths = Object.fromEntries(["ledger", "queue", "batch", "summary", "master", "ratings"].map((name) => [name, join(dir, `${name}.json`)]));
   await writeJson(paths.ledger, {
     summary: { generated_at: "2026-08-20T21:00:00.000Z", first_edition: false },
-    changes: [{
-      type: "removed_player",
-      player_id: "tbg-tm-00099999",
-      player_name: "Departed Player",
-      previous: { tbg_player_id: "tbg-tm-00099999", transfermarkt_id: "99999", tbg_rating: 84, current_club: "Old Club" }
-    }]
+    changes: [
+      {
+        type: "club_change",
+        player_id: "tbg-tm-00099998",
+        player_name: "Moved Player",
+        before: "Old Club",
+        after: "New Club",
+        current: { tbg_player_id: "tbg-tm-00099998", transfermarkt_id: "99998", current_club: "New Club" }
+      },
+      {
+        type: "removed_player",
+        player_id: "tbg-tm-00099999",
+        player_name: "Departed Player",
+        previous: { tbg_player_id: "tbg-tm-00099999", transfermarkt_id: "99999", tbg_rating: 84, current_club: "Old Club" }
+      }
+    ]
   });
   await writeJson(paths.master, []);
   await writeJson(paths.ratings, []);
 
   await runQueue(paths);
   const queue = await readJson(paths.queue);
-  assert.equal(queue.entries.length, 1);
-  assert.equal(queue.entries[0].event_type, "removed_player");
-  assert.equal(queue.entries[0].provenance.rating_model_version, null);
+  const batch = await readJson(paths.batch);
+  const summary = await readJson(paths.summary);
+  assert.equal(queue.entries.length, 0);
+  assert.equal(batch.excluded_state_changes, 2);
+  assert.equal(summary.excluded_state_changes, 2);
+});
+
+test("legacy state-change backlog is purged from the governed TBG release queue", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "tbg-change-queue-migrate-"));
+  const paths = Object.fromEntries(["ledger", "queue", "batch", "summary", "master", "ratings"].map((name) => [name, join(dir, `${name}.json`)]));
+  await writeJson(paths.ledger, {
+    summary: { generated_at: "2026-08-20T22:00:00.000Z", first_edition: false },
+    changes: []
+  });
+  await writeJson(paths.queue, {
+    version: "tbg-player-change-queue-v1",
+    entries: [
+      { event_id: "rating-1", status: "published", event_type: "rating_change" },
+      { event_id: "club-1", status: "pending", event_type: "club_change" },
+      { event_id: "unsigned-1", status: "pending", event_type: "newly_unsigned" }
+    ]
+  });
+  await writeJson(paths.master, []);
+  await writeJson(paths.ratings, []);
+
+  await runQueue(paths);
+  const queue = await readJson(paths.queue);
+  const batch = await readJson(paths.batch);
+  const summary = await readJson(paths.summary);
+  assert.deepEqual(queue.entries.map((entry) => entry.event_id), ["rating-1"]);
+  assert.equal(batch.purged_legacy_state_events, 2);
+  assert.equal(summary.purged_legacy_state_events, 2);
 });
 
 test("first published edition establishes a baseline without flooding the queue", async () => {
