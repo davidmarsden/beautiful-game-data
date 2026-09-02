@@ -1,6 +1,9 @@
 name: Refresh Transfermarkt and Publish
 
 on:
+  schedule:
+    - cron: "45 4 * * 0"
+    - cron: "45 4 * 1,6,7,8,9 3"
   workflow_dispatch:
     inputs:
       maxItems:
@@ -23,6 +26,8 @@ concurrency:
 
 env:
   APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+  MAX_ITEMS: ${{ github.event_name == 'workflow_dispatch' && inputs.maxItems || '10000' }}
+  INCLUDE_WIDE_COMPETITIONS: ${{ github.event_name == 'workflow_dispatch' && inputs.includeWideCompetitions || 'true' }}
 
 jobs:
   refresh-and-publish:
@@ -55,17 +60,17 @@ jobs:
             --clubIds="${{ steps.universe.outputs.club_ids }}" \
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
-            --maxItems="${{ inputs.maxItems }}" \
+            --maxItems="$MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-refresh-playable-clubs.json
 
       - name: Scrape selected wider competitions
-        if: ${{ inputs.includeWideCompetitions }}
+        if: ${{ env.INCLUDE_WIDE_COMPETITIONS == 'true' }}
         run: |
           node scripts/fetch-apify-transfermarkt-values.js \
             --scope=wide \
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
-            --maxItems="${{ inputs.maxItems }}" \
+            --maxItems="$MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-refresh-wide.json
 
       - name: Apply discovery policy to playable-club results
@@ -78,7 +83,7 @@ jobs:
             --bridgeZeroValues=true
 
       - name: Apply discovery policy to wider-competition results
-        if: ${{ inputs.includeWideCompetitions }}
+        if: ${{ env.INCLUDE_WIDE_COMPETITIONS == 'true' }}
         run: |
           node scripts/filter-transfermarkt-refresh.js \
             --input=calibration/apify-transfermarkt-refresh-wide.json \
@@ -94,7 +99,7 @@ jobs:
             --mergeExisting=true
 
       - name: Merge wider-competition refresh into master
-        if: ${{ inputs.includeWideCompetitions }}
+        if: ${{ env.INCLUDE_WIDE_COMPETITIONS == 'true' }}
         run: |
           node scripts/import-transfermarkt-master.js \
             --input=calibration/apify-transfermarkt-refresh-wide-accepted.json \
@@ -103,7 +108,7 @@ jobs:
       - name: Restore true zero market values
         run: |
           ZERO_FILES="calibration/transfermarkt-refresh-playable-clubs-zero-ids.json"
-          if [ "${{ inputs.includeWideCompetitions }}" = "true" ]; then
+          if [ "$INCLUDE_WIDE_COMPETITIONS" = "true" ]; then
             ZERO_FILES="$ZERO_FILES,calibration/transfermarkt-refresh-wide-zero-ids.json"
           fi
           node scripts/restore-zero-market-values.js --zeroIds="$ZERO_FILES"
