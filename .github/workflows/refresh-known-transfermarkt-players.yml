@@ -1,6 +1,8 @@
 name: Refresh Known Transfermarkt Players
 
 on:
+  schedule:
+    - cron: "15 5 * * *"
   workflow_dispatch:
     inputs:
       edition:
@@ -27,6 +29,8 @@ concurrency:
 
 env:
   APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+  REFRESH_EDITION: ${{ github.event_name == 'workflow_dispatch' && inputs.edition || 'daily' }}
+  CUSTOM_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.customLimit || '' }}
 
 jobs:
   refresh-known-and-publish:
@@ -55,32 +59,32 @@ jobs:
         id: batch
         run: |
           LIMIT_ARG=""
-          if [ -n "${{ inputs.customLimit }}" ]; then
-            LIMIT_ARG="--limit=${{ inputs.customLimit }}"
+          if [ -n "$CUSTOM_LIMIT" ]; then
+            LIMIT_ARG="--limit=$CUSTOM_LIMIT"
           fi
           node scripts/export-priority-transfermarkt-refresh-batch.js \
-            --mode="${{ inputs.edition }}" \
+            --mode="$REFRESH_EDITION" \
             $LIMIT_ARG \
-            --output="calibration/transfermarkt-refresh-${{ inputs.edition }}-ids.json" \
-            --report="calibration/transfermarkt-refresh-${{ inputs.edition }}-batch-report.json"
-          COUNT=$(node -e "console.log(require('./calibration/transfermarkt-refresh-${{ inputs.edition }}-ids.json').length)")
+            --output="calibration/transfermarkt-refresh-$REFRESH_EDITION-ids.json" \
+            --report="calibration/transfermarkt-refresh-$REFRESH_EDITION-batch-report.json"
+          COUNT=$(node -e "console.log(require('./calibration/transfermarkt-refresh-$REFRESH_EDITION-ids.json').length)")
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
 
       - name: Refresh priority known players only
         run: |
           node scripts/fetch-apify-transfermarkt-values.js \
             --scope=known \
-            --playerIdsFile="calibration/transfermarkt-refresh-${{ inputs.edition }}-ids.json" \
+            --playerIdsFile="calibration/transfermarkt-refresh-$REFRESH_EDITION-ids.json" \
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
             --maxItems="${{ steps.batch.outputs.count }}" \
             --datasetLimit="${{ steps.batch.outputs.count }}" \
-            --output="calibration/apify-transfermarkt-${{ inputs.edition }}-refresh.json"
+            --output="calibration/apify-transfermarkt-$REFRESH_EDITION-refresh.json"
 
       - name: Merge refreshed records into player master
         run: |
           node scripts/import-transfermarkt-master.js \
-            --input="calibration/apify-transfermarkt-${{ inputs.edition }}-refresh.json" \
+            --input="calibration/apify-transfermarkt-$REFRESH_EDITION-refresh.json" \
             --mergeExisting=true
 
       - name: Quarantine newly detected retired players
@@ -90,7 +94,7 @@ jobs:
         run: |
           node --input-type=module <<'NODE'
           import { readFile, writeFile } from 'node:fs/promises';
-          const edition = process.env.EDITION;
+          const edition = process.env.REFRESH_EDITION;
           const before = JSON.parse(await readFile('calibration/players-master-before-known-refresh.json', 'utf8'));
           const after = JSON.parse(await readFile('data/transfermarkt/players-master.json', 'utf8'));
           const requested = JSON.parse(await readFile(`calibration/transfermarkt-refresh-${edition}-ids.json`, 'utf8'));
@@ -123,22 +127,18 @@ jobs:
           await writeFile(`calibration/${edition}-known-player-refresh-report.json`, JSON.stringify(report, null, 2) + '\n');
           console.log(JSON.stringify({ requested: report.requested_players, returned: report.returned_players, missing: report.missing_from_refresh, newly_added: report.newly_added_players, changed: report.changed_players }, null, 2));
           NODE
-        env:
-          EDITION: ${{ inputs.edition }}
 
       - name: Verify no discovery occurred
         run: |
           node --input-type=module <<'NODE'
           import { readFile } from 'node:fs/promises';
-          const edition = process.env.EDITION;
+          const edition = process.env.REFRESH_EDITION;
           const report = JSON.parse(await readFile(`calibration/${edition}-known-player-refresh-report.json`, 'utf8'));
           if (report.newly_added_players !== 0) {
             console.error(`Priority known-player refresh unexpectedly added ${report.newly_added_players} player(s).`);
             process.exit(1);
           }
           NODE
-        env:
-          EDITION: ${{ inputs.edition }}
 
       - name: Rebuild and publish TBG player database
         run: npm run rebuild:published-player-database
@@ -146,10 +146,10 @@ jobs:
       - name: Upload refresh and release artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ inputs.edition }}-known-player-transfermarkt-refresh
+          name: ${{ env.REFRESH_EDITION }}-known-player-transfermarkt-refresh
           path: |
-            calibration/transfermarkt-refresh-${{ inputs.edition }}-batch-report.json
-            calibration/${{ inputs.edition }}-known-player-refresh-report.json
+            calibration/transfermarkt-refresh-${{ env.REFRESH_EDITION }}-batch-report.json
+            calibration/${{ env.REFRESH_EDITION }}-known-player-refresh-report.json
             calibration/retired-player-quarantine-report.json
             calibration/veteran-reality-check.json
             calibration/veteran-reality-check.md
@@ -167,5 +167,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data calibration derived
-          git commit -m "Publish ${{ inputs.edition }} Transfermarkt refresh"
+          git commit -m "Publish $REFRESH_EDITION Transfermarkt refresh"
           git push
