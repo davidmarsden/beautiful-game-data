@@ -28,6 +28,8 @@ await copy("site/tbg-design-contract.css", join(outputDir, "tbg-design-contract.
 await copy("public/pink-final-theme.css", join(outputDir, "pink-final-theme.css"));
 await copy("public/index.html", join(outputDir, "index.html"));
 await copy("public/portal.css", join(outputDir, "portal.css"));
+await copy("public/brand.css", join(outputDir, "brand.css"));
+await copy("public/tpf-mark.svg", join(outputDir, "tpf-mark.svg"));
 await copy("public/portal.js", join(outputDir, "portal.js"));
 
 await copy("derived/player-database/player-database.json", join(outputDir, "derived", "player-database", "player-database.json"));
