@@ -14,10 +14,22 @@ async function applySharedNavigation(path, rootPrefix) {
 }
 
 async function applyDesignContract(path, rootPrefix) {
-  const html = await readFile(path, "utf8");
-  if (html.includes('tbg-design-contract.css')) return;
-  const styles = `<link rel="stylesheet" href="${rootPrefix}tbg-design-contract.css"/><link rel="stylesheet" href="${rootPrefix}pink-final-theme.css"/>`;
-  await writeFile(path, html.replace('</head>', `${styles}</head>`), "utf8");
+  let html = await readFile(path, "utf8");
+  const additions = [];
+  if (!html.includes('tbg-design-contract.css')) additions.push(`<link rel="stylesheet" href="${rootPrefix}tbg-design-contract.css"/>`);
+  if (!html.includes('pink-final-theme.css')) additions.push(`<link rel="stylesheet" href="${rootPrefix}pink-final-theme.css"/>`);
+  if (!html.includes('brand.css')) additions.push(`<link rel="stylesheet" href="${rootPrefix}brand.css"/>`);
+  if (!html.includes('rel="icon"')) additions.push(`<link rel="icon" href="${rootPrefix}tpf-mark.svg" type="image/svg+xml"/>`);
+  if (additions.length) html = html.replace('</head>', `${additions.join('')}</head>`);
+  await writeFile(path, html, "utf8");
+}
+
+async function applyBrandLockup(path, rootPrefix) {
+  let html = await readFile(path, "utf8");
+  if (!html.includes('class="tpf-lockup"')) {
+    html = html.replace(/<h1>\s*The Pink Final\s*<\/h1>/i, `<div class="tpf-lockup"><img src="${rootPrefix}tpf-mark.svg" alt=""/><h1>The Pink Final</h1></div>`);
+  }
+  await writeFile(path, html, "utf8");
 }
 
 const outputDir = "derived/scouting-site";
@@ -66,10 +78,10 @@ await copy("derived/player-changes/player-change-ledger.json", join(outputDir, "
 await copy("public/player-updates/player-updates.css", join(outputDir, "player-updates", "player-updates.css"));
 await copy("public/player-updates/player-updates.js", join(outputDir, "player-updates", "player-updates.js"));
 
-await applySharedNavigation(join(outputDir, "index.html"), "./");
-await applyDesignContract(join(outputDir, "index.html"), "./");
-for (const section of ["scouting", ...sections]) {
-  await applySharedNavigation(join(outputDir, section, "index.html"), "../");
-  await applyDesignContract(join(outputDir, section, "index.html"), "../");
+for (const [section, rootPrefix] of [["", "./"], ["scouting", "../"], ...sections.map((section) => [section, "../"])]) {
+  const page = join(outputDir, section, "index.html");
+  await applySharedNavigation(page, rootPrefix);
+  await applyDesignContract(page, rootPrefix);
+  await applyBrandLockup(page, rootPrefix);
 }
 console.log(`Built Pink Final portal at ${outputDir}`);
