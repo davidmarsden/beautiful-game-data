@@ -1,18 +1,19 @@
 {
-  "generated_at": "2026-08-31T19:36:45.886Z",
+  "generated_at": "2026-09-03T09:50:17.154Z",
   "queue_version": "tbg-player-change-queue-v1",
-  "total_events": 231,
-  "appended_events": 78,
+  "queue_scope": "tbg_release_events_only",
+  "total_events": 142,
+  "appended_events": 9,
   "duplicate_events_skipped": 0,
+  "excluded_state_changes": 1,
+  "purged_legacy_state_events": 98,
   "first_edition_baseline_only": false,
   "by_status": {
-    "published": 93,
-    "pending": 138
+    "published": 133,
+    "pending": 9
   },
   "by_type": {
     "new_player": 59,
-    "rating_change": 74,
-    "club_change": 97,
-    "newly_unsigned": 1
+    "rating_change": 83
   }
 }

@@ -1,6 +1,6 @@
 # Veteran Reality Check
 
-Generated: 2026-08-31T19:36:40.091Z
+Generated: 2026-09-03T09:50:11.283Z
 
 - Adjusted players: 339
 - Elite-league adjustments: 23
@@ -101,7 +101,7 @@ Generated: 2026-08-31T19:36:40.091Z
 - N'Golo Kanté (35, Fenerbahce): 92 → 91 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - James Rodríguez (35, Without Club): 91 → 90 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Kalidou Koulibaly (35, Al-Hilal SFC): 91 → 90 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
-- Pierre-Emerick Aubameyang (37, Olympique Marseille): 91 → 90 — veteran reality adjustment: age 37, elite league, outfield, low current value
+- Pierre-Emerick Aubameyang (37, Deportivo A Coruña): 91 → 90 — veteran reality adjustment: age 37, elite league, outfield, low current value
 - Alexandre Lacazette (35, NEOM SC): 90 → 89 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - David Alaba (34, Without Club): 90 → 89 — veteran reality adjustment: age 34, non-elite league, outfield, low current value
 - Henrikh Mkhitaryan (37, Inter Milan): 90 → 89 — veteran reality adjustment: age 37, elite league, outfield, low current value

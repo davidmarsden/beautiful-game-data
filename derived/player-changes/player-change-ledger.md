@@ -1,93 +1,25 @@
 # Player Change Ledger
 
-Generated: 2026-08-31T19:36:45.886Z
+Generated: 2026-09-03T09:50:17.154Z
 
-- previous players: 8116
+- previous players: 8141
 - current players: 8141
-- new players: 25
-- rating increases: 15
-- rating decreases: 0
-- club changes: 38
-- newly unsigned: 0
+- new players: 0
+- rating increases: 7
+- rating decreases: 2
+- club changes: 0
+- newly unsigned: 1
 - removed players: 0
 
 ## Changes
 
-- Alex Borto: new player — added at Fulham FC
-- Álex Primo: new player — added at Levante UD
-- Bradley Burrowes: new player — added at Aston Villa U21
-- Bruno Galassi: new player — added at SS Lazio
-- Christian Garofalo: new player — added at SSC Napoli
-- Costantino Favasuli: new player — added at SSC Napoli
-- Dinis Rodrigues: new player — added at SSC Napoli
-- Emanuele Lulli: new player — added at AS Roma
-- Fer Niño: new player — added at Elche CF
-- Hugo González: new player — added at Celta de Vigo
-- Ifeanyi Ndukwe: new player — added at Levante UD
-- Jaouen Hadjam: new player — added at Brighton & Hove Albion
-- Javi Morcillo: new player — added at Elche CF
-- Jay Enem: new player — added at Bologna FC 1909
-- Kamil Grabara: new player — added at Juventus FC
-- Keyliane Abdallah: new player — added at Olympique Marseille
-- Konstantinos Koulierakis: new player — added at AS Roma
-- Marc Santos: new player — added at Levante UD
-- Matías Orozco: new player — added at Brighton & Hove Albion
-- Samba Konaté: new player — added at RB Leipzig U19
-- Stephen Mfuni: new player — added at Coventry City
-- Tadjidine Mmadi: new player — added at Olympique Marseille
-- Théo Vermot: new player — added at Olympique de Marseille B
-- Tiziano Perrotta: new player — added at Defensa y Justicia
-- Yanis Musuayi: new player — added at Levante UD
-- Jorge Domínguez: rating change — 79 → 83 (+4)
-- Aïssa Mandi: rating change — 88 → 89 (+1)
-- Christoph Baumgartner: rating change — 89 → 90 (+1)
-- Equi Fernández: rating change — 87 → 88 (+1)
-- Iago Aspas: rating change — 88 → 89 (+1)
-- Jeremy Toljan: rating change — 86 → 87 (+1)
-- Luca Marianucci: rating change — 84 → 85 (+1)
-- Lutsharel Geertruida: rating change — 88 → 89 (+1)
-- Manu Sánchez: rating change — 85 → 86 (+1)
-- Mathew Ryan: rating change — 88 → 89 (+1)
-- Montrell Culbreath: rating change — 84 → 85 (+1)
-- Nacho Pérez: rating change — 81 → 82 (+1)
-- Neil El Aynaoui: rating change — 88 → 89 (+1)
-- Ørjan Nyland: rating change — 87 → 88 (+1)
-- Tay Abed: rating change — 82 → 83 (+1)
-- Aïssa Mandi: club change — Without Club → Levante UD
-- Andrea Pinamonti: club change — US Sassuolo → SS Lazio
-- Arthur Theate: club change — Eintracht Frankfurt → Bologna FC 1909
-- Bilal Nadir: club change — Without Club → Hamburger SV
-- Carlos Domínguez: club change — Celta de Vigo → Real Oviedo
-- Cyril Ngonge: club change — SSC Napoli → AC Monza
-- Damián Rodríguez: club change — Celta de Vigo → Cádiz CF
-- Dani Requena: club change — Villarreal CF → Levante UD
-- Daniel Maldini: club change — Atalanta BC → Cagliari Calcio
-- Danilho Doekhi: club change — Without Club → SS Lazio
-- Dayann Méthalie: club change — FC Toulouse → Sunderland AFC
-- Diego Pampín: club change — Without Club → Granada CF
-- El Bilal Touré: club change — Atalanta BC → Parma Calcio 1913
-- Ezequiel Ponce: club change — Houston Dynamo FC → Elche CF
-- Fabio Miretti: club change — Juventus FC → Besiktas JK
-- Franck Kessié: club change — Without Club → Atalanta BC
-- Gabriele Artistico: club change — SS Lazio → Calcio Padova
-- Hamza Abdelkarim: club change — FC Barcelona Atlètic → FC Barcelona
-- Hugo Sotelo: club change — Celta de Vigo → Levante UD
-- Jenson Seelt: club change — Sunderland AFC → Swansea City
-- Jorge Domínguez: club change — Atlético Madrid U19 → Atlético Madrileño
-- José Antonio Ferrández Pomares: club change — Without Club → Elche CF
-- Jules Ahoka: club change — Royal Antwerp FC → Sunderland AFC
-- Kareem Tunde: club change — Levante UD → West Bromwich Albion
-- Kervin Arriaga: club change — Levante UD → AEK Athens
-- Leon Goretzka: club change — Without Club → Aston Villa
-- Lorenzo Pellegrini: club change — Without Club → AS Roma
-- Manu Sánchez: club change — Celta de Vigo → Levante UD
-- Mathew Ryan: club change — Without Club → Levante UD
-- Maxime Estève: club change — Burnley FC → RB Leipzig
-- Michael Zetterer: club change — Eintracht Frankfurt → Leeds United
-- Miguel Ángel Brau: club change — Coventry City → Académico Viseu FC
-- Ørjan Nyland: club change — Without Club → RB Leipzig
-- Pablo Martínez: club change — Without Club → Málaga CF
-- Reiss Nelson: club change — Arsenal FC → Without Club
-- Sebastiano Esposito: club change — Cagliari Calcio → US Sassuolo
-- Thomas Kristensen: club change — Udinese Calcio → Atalanta BC
-- Unai Núñez: club change — Celta de Vigo → RCD Espanyol Barcelona
+- Andreas Schjelderup: rating change — 87 → 88 (+1)
+- Antonio Rüdiger: rating change — 90 → 89 (-1)
+- Antony Matheus dos Santos: rating change — 90 → 91 (+1)
+- Ederson Santana de Moraes: rating change — 91 → 92 (+1)
+- Emiliano Martínez: rating change — 91 → 92 (+1)
+- Enzo Millot: rating change — 88 → 89 (+1)
+- Francisco Trincão: rating change — 90 → 89 (-1)
+- Lucas Paquetá: rating change — 91 → 92 (+1)
+- Yoane Wissa: rating change — 90 → 91 (+1)
+- Paul Pogba: newly unsigned — AS Monaco → Unsigned
