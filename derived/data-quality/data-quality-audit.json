@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T09:50:20.093Z",
+  "generated_at": "2026-09-04T09:47:47.025Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -457,13 +457,13 @@
       "club_id": "11",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 27,
-      "published_players": 27,
-      "senior_players": 24,
+      "imported_players": 26,
+      "published_players": 26,
+      "senior_players": 23,
       "development_players_u21": 3,
       "depth": {
         "MID": 7,
-        "ATT": 7,
+        "ATT": 6,
         "DEF": 9,
         "GK": 4
       },
@@ -485,7 +485,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "24/25 senior players"
+          "detail": "23/25 senior players"
         },
         {
           "severity": "warning",
@@ -956,12 +956,12 @@
       "club_id": "15",
       "league": "Bundesliga",
       "country": "Germany",
-      "imported_players": 35,
-      "published_players": 35,
+      "imported_players": 34,
+      "published_players": 34,
       "senior_players": 21,
-      "development_players_u21": 14,
+      "development_players_u21": 13,
       "depth": {
-        "DEF": 9,
+        "DEF": 8,
         "ATT": 14,
         "MID": 9,
         "GK": 3
@@ -981,7 +981,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "14/15 U21 players"
+          "detail": "13/15 U21 players"
         }
       ]
     },
@@ -3390,12 +3390,12 @@
       "club_id": "1114",
       "league": "Saudi Pro League",
       "country": "Saudi Arabia",
-      "imported_players": 26,
-      "published_players": 26,
-      "senior_players": 23,
+      "imported_players": 27,
+      "published_players": 27,
+      "senior_players": 24,
       "development_players_u21": 3,
       "depth": {
-        "ATT": 8,
+        "ATT": 9,
         "MID": 6,
         "DEF": 8,
         "GK": 4
@@ -3432,7 +3432,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "23/25 senior players"
+          "detail": "24/25 senior players"
         },
         {
           "severity": "warning",
