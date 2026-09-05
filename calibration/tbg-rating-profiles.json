@@ -711,6 +711,82 @@
     }
   },
   {
+    "tbg_player_id": "tbg-tm-00433177",
+    "transfermarkt_id": "433177",
+    "player_name": "Bukayo Saka",
+    "transfermarkt_name": "Bukayo Saka",
+    "club_name": "Arsenal FC",
+    "current_competition_code": "GB1",
+    "position": "Right Winger",
+    "position_group": "ATT",
+    "age": 25,
+    "ability": {
+      "model_version": "tbg-v3-sticky-ability-fluid-form",
+      "philosophy": "Ability is sticky; form, fitness, sharpness, morale, fatigue and tactical fit are fluid match-engine state.",
+      "base_smw_equivalent_raw": 94.45,
+      "base_smw_equivalent_rating": 94,
+      "ability_component": 0,
+      "prestige_component": 0.55,
+      "elite_trajectory_component": 0.2,
+      "total_sticky_adjustment": 0.75,
+      "underlying_ability_raw": 95.2,
+      "underlying_ability_rating": 95,
+      "explanation": {
+        "market_value_eur": 110000000,
+        "highest_market_value_eur": 150000000,
+        "previous_market_value_eur": 120000000,
+        "international_caps": 56,
+        "international_goals": 17,
+        "total_transfer_fees_eur": 0,
+        "age": 25,
+        "reasons": [
+          "+0.45: historic world-superstar prestige",
+          "+0.1: established international experience",
+          "+0.2: elite current market signal"
+        ],
+        "reasons_by_component": {
+          "elite_trajectory_adjustment": [],
+          "class_retention_adjustment": [],
+          "prestige_adjustment": [
+            "+0.45: historic world-superstar prestige",
+            "+0.1: established international experience"
+          ],
+          "current_ability_caution": [],
+          "other_adjustment": [
+            "+0.2: elite current market signal"
+          ]
+        }
+      }
+    },
+    "current_state": {
+      "form_modifier": 0,
+      "fitness_modifier": 0,
+      "match_sharpness_modifier": 0,
+      "morale_modifier": 0,
+      "fatigue_modifier": 0,
+      "tactical_fit_modifier": 0,
+      "availability_modifier": 0,
+      "total_modifier": 0,
+      "note": "Neutral default. Match engine owns fluid state before each fixture."
+    },
+    "engine": {
+      "underlying_ability_rating": 95,
+      "current_state": {
+        "form_modifier": 0,
+        "fitness_modifier": 0,
+        "match_sharpness_modifier": 0,
+        "morale_modifier": 0,
+        "fatigue_modifier": 0,
+        "tactical_fit_modifier": 0,
+        "availability_modifier": 0,
+        "total_modifier": 0,
+        "note": "Neutral default. Match engine owns fluid state before each fixture."
+      },
+      "effective_match_rating": 95,
+      "engine_note": "Data repo supplies neutral state. Match engine should replace current_state per fixture."
+    }
+  },
+  {
     "tbg_player_id": "tbg-tm-00566723",
     "transfermarkt_id": "566723",
     "player_name": "Michael Olise",
@@ -916,85 +992,6 @@
           "other_adjustment": [
             "+0.35: world-superstar current market signal",
             "-0.05: compatibility cap"
-          ]
-        }
-      }
-    },
-    "current_state": {
-      "form_modifier": 0,
-      "fitness_modifier": 0,
-      "match_sharpness_modifier": 0,
-      "morale_modifier": 0,
-      "fatigue_modifier": 0,
-      "tactical_fit_modifier": 0,
-      "availability_modifier": 0,
-      "total_modifier": 0,
-      "note": "Neutral default. Match engine owns fluid state before each fixture."
-    },
-    "engine": {
-      "underlying_ability_rating": 95,
-      "current_state": {
-        "form_modifier": 0,
-        "fitness_modifier": 0,
-        "match_sharpness_modifier": 0,
-        "morale_modifier": 0,
-        "fatigue_modifier": 0,
-        "tactical_fit_modifier": 0,
-        "availability_modifier": 0,
-        "total_modifier": 0,
-        "note": "Neutral default. Match engine owns fluid state before each fixture."
-      },
-      "effective_match_rating": 95,
-      "engine_note": "Data repo supplies neutral state. Match engine should replace current_state per fixture."
-    }
-  },
-  {
-    "tbg_player_id": "tbg-tm-00433177",
-    "transfermarkt_id": "433177",
-    "player_name": "Bukayo Saka",
-    "transfermarkt_name": "Bukayo Saka",
-    "club_name": "Arsenal FC",
-    "current_competition_code": "GB1",
-    "position": "Right Winger",
-    "position_group": "ATT",
-    "age": 24,
-    "ability": {
-      "model_version": "tbg-v3-sticky-ability-fluid-form",
-      "philosophy": "Ability is sticky; form, fitness, sharpness, morale, fatigue and tactical fit are fluid match-engine state.",
-      "base_smw_equivalent_raw": 94.16,
-      "base_smw_equivalent_rating": 94,
-      "ability_component": 0,
-      "prestige_component": 0.55,
-      "elite_trajectory_component": 0.35,
-      "total_sticky_adjustment": 0.9,
-      "underlying_ability_raw": 95.06,
-      "underlying_ability_rating": 95,
-      "explanation": {
-        "market_value_eur": 110000000,
-        "highest_market_value_eur": 150000000,
-        "previous_market_value_eur": 120000000,
-        "international_caps": 56,
-        "international_goals": 17,
-        "total_transfer_fees_eur": 0,
-        "age": 24,
-        "reasons": [
-          "+0.45: historic world-superstar prestige",
-          "+0.1: established international experience",
-          "+0.2: elite current market signal",
-          "+0.15: early-prime high-ceiling trajectory"
-        ],
-        "reasons_by_component": {
-          "elite_trajectory_adjustment": [
-            "+0.15: early-prime high-ceiling trajectory"
-          ],
-          "class_retention_adjustment": [],
-          "prestige_adjustment": [
-            "+0.45: historic world-superstar prestige",
-            "+0.1: established international experience"
-          ],
-          "current_ability_caution": [],
-          "other_adjustment": [
-            "+0.2: elite current market signal"
           ]
         }
       }
