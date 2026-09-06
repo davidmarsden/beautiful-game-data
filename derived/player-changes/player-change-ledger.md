@@ -1,15 +1,1623 @@
 # Player Change Ledger
 
-Generated: 2026-09-05T09:06:54.577Z
+Generated: 2026-09-06T08:56:58.016Z
 
 - previous players: 8141
-- current players: 8141
-- new players: 0
-- rating increases: 0
-- rating decreases: 0
-- club changes: 0
+- current players: 9217
+- new players: 1076
+- rating increases: 163
+- rating decreases: 35
+- club changes: 334
 - newly unsigned: 0
 - removed players: 0
 
 ## Changes
 
+- Abdellah Ouazane: new player — added at Ajax Amsterdam
+- Abderrahmane Soumaré: new player — added at FC Alverca
+- Abdou Diallo: new player — added at Abha Club
+- Abdou-Salam Konate: new player — added at Parma Calcio 1913
+- Abdoulaye Seck: new player — added at Al-Faisaly FC
+- Abdoulie Manneh: new player — added at Cercle Brugge
+- Abdu Conté: new player — added at Casa Pia AC
+- Abdulaziz Al-Hadhood: new player — added at Al-Shabab FC
+- Abdullah Al-Zaid: new player — added at Al-Diriyah FC
+- Abdulrahman Hendi: new player — added at Al-Taawoun FC
+- Abdulrahman Obaid Al-Obaid: new player — added at Al-Kholood Club
+- Abdulrahman Talal Al-Khaibari: new player — added at Al-Fateh SC
+- Abraham Marcus: new player — added at CF Estrela Amadora
+- Abubakar Abdullahi: new player — added at KAA Gent
+- Ackah-Tidiane Zoukrou: new player — added at AJ Auxerre
+- Adama Bojang: new player — added at Royal Charleroi SC
+- Adel Bettaieb: new player — added at Esperance Tunis
+- Adem Yeşilyurt: new player — added at Fenerbahce
+- Adeshina Ayodele: new player — added at KV Mechelen
+- Adrián Fernández: new player — added at Racing Club
+- Adrián Martínez: new player — added at Racing Club
+- Afimico Pululu: new player — added at Al-Hazem SC
+- Afonso Assis: new player — added at Moreirense FC
+- Afonso Duarte: new player — added at CD Santa Clara
+- Ahmet Sami Bircan: new player — added at Besiktas JK
+- Ahmet Taha Dağbaşı: new player — added at Kasimpasa
+- Ákos Markgráf: new player — added at FC Copenhagen
+- Akram Tawfik: new player — added at Al Ahly FC
+- Alan Cervantes: new player — added at CF América
+- Alan Forneris: new player — added at Racing Club
+- Alan Mwamba: new player — added at Charlton Athletic
+- Alassana Jatta: new player — added at Casa Pia AC
+- Alejandro Mestanza: new player — added at Académico Viseu FC
+- Alejandro Tello: new player — added at Racing Club
+- Aleksa Cvetkovic: new player — added at Vancouver Whitecaps FC
+- Alessandro Ciranni: new player — added at Willem II Tilburg
+- Alessandro Di Bitonto: new player — added at US Sassuolo
+- Alex Williams: new player — added at West Bromwich Albion
+- Álex Zendejas: new player — added at CF América
+- Alexander Schwolow: new player — added at 1.FSV Mainz 05
+- Alexandre Mendy: new player — added at Al-Faisaly FC
+- Alexandre Parsemain: new player — added at Moreirense FC
+- Alexandre Penetra: new player — added at Corum FK
+- Alexandros Kyziridis: new player — added at Corum FK
+- Alexandru Mățan: new player — added at St. Louis CITY SC
+- Alexis Gutiérrez: new player — added at CF América
+- Alfonso Trezza: new player — added at FC Arouca
+- Ali Al-Hussain: new player — added at Al-Fayha FC
+- Ali Mevran Ablak: new player — added at Gaziantep FK
+- Ali Tarkan: new player — added at Samsunspor
+- Alireza Jahanbakhsh: new player — added at Excelsior Rotterdam
+- Alisson Souza: new player — added at CF Estrela Amadora
+- Alonso Aceves: new player — added at CF Monterrey
+- Alper Efe Pazar: new player — added at Samsunspor
+- Alpha Fofana: new player — added at Konyaspor
+- Álvaro Martínez: new player — added at Moreirense FC
+- Álvaro Montero: new player — added at CA Boca Juniors
+- Álvaro Zamora: new player — added at Académico Viseu FC
+- Alvin Nordin: new player — added at FC Groningen
+- Alwande Roaldsøy: new player — added at Sparta Rotterdam
+- Alysson Cristian Oliveira Silva: new player — added at CD Santa Clara
+- Amadou Cissé: new player — added at Amed SK
+- Amenallah Hmidhi: new player — added at Esperance Tunis
+- Amin Nabizada: new player — added at Watford FC
+- Amine Et-Taïbi: new player — added at Willem II Tilburg
+- Amine Lachkar: new player — added at Willem II Tilburg
+- Anass Zarrouk: new player — added at Willem II Tilburg
+- André Ceitil: new player — added at Académico Viseu FC
+- André Clóvis Silva Filho: new player — added at Académico Viseu FC
+- André Ferreira: new player — added at Moreirense FC
+- André Geraldes: new player — added at Casa Pia AC
+- André Gomes: new player — added at Casa Pia AC
+- André Lacximicant: new player — added at GD Estoril Praia
+- André Tiago Ramos das Neves: new player — added at GD Estoril Praia
+- André-Jordy Ella: new player — added at Al-Faisaly FC
+- Andrea Luongo: new player — added at Torino FC
+- Andreas Ntoi: new player — added at Rio Ave FC
+- Andrei Borza: new player — added at Corum FK
+- Andrei Coubiș: new player — added at Lincoln City
+- Andrej Vasovic: new player — added at Club Brugge KV
+- Andrew Johnson: new player — added at Charlotte FC
+- Andries Noppert: new player — added at SC Heerenveen
+- Andro Babic: new player — added at Académico Viseu FC
+- Anouar El Azzouzi: new player — added at Frosinone Calcio
+- Antef Tsoungui: new player — added at GD Estoril Praia
+- Anthony Correia: new player — added at Académico Viseu FC
+- Antoine Sekongo: new player — added at Samsunspor
+- Antoine Wenck: new player — added at Rio Ave FC
+- António João Gonçalves Infante: new player — added at CD Santa Clara
+- Antzelo Sina: new player — added at Rio Ave FC
+- Aral Şimşir: new player — added at Trabzonspor
+- Arda Akgül: new player — added at Genclerbirligi Ankara
+- Arda Çağan Çelik: new player — added at Genclerbirligi Ankara
+- Argus Vanden Driessche: new player — added at Club Brugge KV
+- Arif Şimşir: new player — added at Corum FK
+- Arkem Taboubi: new player — added at Esperance Tunis
+- Armin Culum: new player — added at Willem II Tilburg
+- Arno Verschueren: new player — added at FC Twente Enschede
+- Arouna Soro: new player — added at Alanyaspor
+- Ata Yanık: new player — added at Konyaspor
+- Atanas Chernev: new player — added at CF Estrela Amadora
+- Augustin Delbecque: new player — added at Le Mans FC
+- Ayberk Karapo: new player — added at Kasimpasa
+- Ayman Al-Hujaili: new player — added at Al-Hazem SC
+- Aymane El Hassouni: new player — added at Wydad Casablanca
+- Aymen Zouin: new player — added at Parma Calcio 1913
+- Ayoni Santos: new player — added at Sparta Rotterdam
+- Ayoub Oufkir: new player — added at AZ Alkmaar
+- Azem Yortaç: new player — added at Besiktas JK
+- Baran Gezek: new player — added at Alanyaspor
+- Bart van Rooij: new player — added at FC Twente Enschede
+- Bas Kuipers: new player — added at Sparta Rotterdam
+- Basile Vroninks: new player — added at RSC Anderlecht
+- Bassco Soyer: new player — added at Gil Vicente FC
+- Bassem Al-Arini: new player — added at Al-Taawoun FC
+- Bedirhan Yıldız: new player — added at Kocaelispor
+- Ben Amos: new player — added at Burnley FC
+- Bendegúz Kovács: new player — added at AZ Alkmaar
+- Benji Flowers: new player — added at FC Dallas
+- Benji Michel: new player — added at Ulsan HD FC
+- Berat Can Sebat: new player — added at Genclerbirligi Ankara
+- Berat Perçin: new player — added at Amed SK
+- Berhan Kutlay Şatlı: new player — added at Eyüpspor
+- Berk Deniz Çukurcu: new player — added at Genclerbirligi Ankara
+- Berk Kızıldemir: new player — added at Amed SK
+- Berkay Kumlu: new player — added at Eyüpspor
+- Berke Özçelik: new player — added at Konyaspor
+- Bernard Mensah: new player — added at Al-Riyadh SC
+- Bernardo Rhein: new player — added at Orlando City SC
+- Bernardo Schappo: new player — added at CF Estrela Amadora
+- Bernt Klaverboer: new player — added at SC Heerenveen
+- Bersant Celina: new player — added at Al-Ettifaq FC
+- Bilal Demirağ: new player — added at Alanyaspor
+- Billal Brahimi: new player — added at Le Mans FC
+- Billy van Duijl: new player — added at AZ Alkmaar
+- Bonheur Mugisha: new player — added at Al-Hazem SC
+- Boris Popović: new player — added at FC Arouca
+- Boubakar Dembaga: new player — added at Royal Charleroi SC
+- Boyd Reith: new player — added at Sparta Rotterdam
+- Brandan Craig: new player — added at CF Montréal
+- Brandon Aguilera: new player — added at Rio Ave FC
+- Brenner Lucas Gonçalves Santos: new player — added at CD Santa Clara
+- Brian Mansilla: new player — added at FC Arouca
+- Brian Rodríguez: new player — added at CF América
+- Bruno Martins Indi: new player — added at Sparta Rotterdam
+- Bryan Limbombe: new player — added at CS Marítimo
+- Bünyamin Dalkılıç: new player — added at Kocaelispor
+- Byeong-keun Hwang: new player — added at Ulsan HD FC
+- Caike Lourenço Valença: new player — added at Rio Ave FC
+- Calebe Goncalves Ferreira da Silva: new player — added at Sport Club Internacional
+- Calum Scanlon: new player — added at Cardiff City
+- Calum Ward: new player — added at Queens Park Rangers
+- Camilo Durán: new player — added at Celtic FC
+- Cammy Devlin: new player — added at Rangers FC
+- Carlos Mejia: new player — added at Royal Antwerp FC
+- Carlos Salcedo: new player — added at club_2407
+- Casper Widell: new player — added at Excelsior Rotterdam
+- Cassiano Dias Moreira: new player — added at Casa Pia AC
+- Celton Biai: new player — added at Excelsior Rotterdam
+- Cemilhan Aslan: new player — added at Gaziantep FK
+- César Bustos: new player — added at CF Monterrey
+- César Garza: new player — added at CF Monterrey
+- César Lugo: new player — added at CF América
+- César Ramos: new player — added at CF Monterrey
+- Cezary Miszta: new player — added at Rio Ave FC
+- Chandrel Massanga: new player — added at Eyüpspor
+- Charlie Warren: new player — added at Bolton Wanderers
+- Cheick Tidiane Diabate: new player — added at Samsunspor
+- Chemseddine Knaidil: new player — added at Raja Club Athletic
+- Chike Van De Ven: new player — added at Oud-Heverlee Leuven
+- Christ Makosso: new player — added at AJ Auxerre
+- Christ Tapé: new player — added at FC Toulouse
+- Christian Bassogog: new player — added at Al-Faisaly FC
+- Christos Gitonas: new player — added at Panathinaikos
+- Cihan Kahraman: new player — added at Académico Viseu FC
+- Cıvan Süer: new player — added at Amed SK
+- Clau Mendes: new player — added at Casa Pia AC
+- Clayton Diandy: new player — added at Al-Diriyah FC
+- Clovis Archange: new player — added at Orlando City SC
+- Cristián Borja: new player — added at CF América
+- Cristian de Lima: new player — added at CD Santa Clara
+- Cristian Ferreira: new player — added at Académico Viseu FC
+- Cumali Gürsel: new player — added at Besiktas JK
+- Daan Rots: new player — added at FC Twente Enschede
+- Dagoberto Espinoza: new player — added at CF América
+- Dai Baldé: new player — added at Rio Ave FC
+- Daiki Hashioka: new player — added at Borussia Mönchengladbach
+- Dani Borges: new player — added at CD Santa Clara
+- Daniel Azevedo: new player — added at Casa Pia AC
+- Daniel Bielica: new player — added at Portsmouth FC
+- Daniel Ríos: new player — added at CF Montréal
+- Daniel van Vianen: new player — added at Excelsior Rotterdam
+- Daniele Sommariva: new player — added at Genoa CFC
+- Danyello Look: new player — added at SC Cambuur Leeuwarden
+- Darijan Bojanic: new player — added at Ulsan HD FC
+- Dario Špikić: new player — added at Rio Ave FC
+- Darwin Soylu: new player — added at SV Werder Bremen
+- Dave Kwakman: new player — added at AZ Alkmaar
+- David Costa: new player — added at Eyüpspor
+- David Grilo: new player — added at CF Estrela Amadora
+- David Romero: new player — added at Parma Calcio 1913
+- David Sousa: new player — added at Casa Pia AC
+- Denso Kasius: new player — added at AZ Alkmaar
+- Devin Haen: new player — added at Willem II Tilburg
+- Dhari Al-Anazi: new player — added at Al-Shabab FC
+- Diabel Ndoye: new player — added at Eyüpspor
+- Diego Callai: new player — added at Sporting CP
+- Dinis Pinto: new player — added at Moreirense FC
+- Diogo Bezerra de Oliveira: new player — added at Rio Ave FC
+- Diogo Brasido: new player — added at GD Estoril Praia
+- Diogo Dias: new player — added at GD Estoril Praia
+- Diogo dos Santos Cabral: new player — added at CD Santa Clara
+- Diogo Filipe Costa Rocha: new player — added at Casa Pia AC
+- Diogo Monteiro: new player — added at FC Arouca
+- Diogo Pinto: new player — added at CF Estrela Amadora
+- Dion Lopy: new player — added at Al-Ittihad Club
+- Divin Mubama: new player — added at Southampton FC
+- Dom Ballard: new player — added at Bristol City
+- Domingos Andrade: new player — added at Botafogo de Futebol e Regatas
+- Domingos José Gabriel Bandeira: new player — added at Casa Pia AC
+- Dominic Thompson: new player — added at SK Beveren
+- Dominik Drobnic: new player — added at Parma Calcio 1913
+- Donát Bárány: new player — added at ADO Den Haag
+- Donavan Phillip: new player — added at Colorado Rapids
+- Dong-gyeong Lee: new player — added at Ulsan HD FC
+- Dusan Tadic: new player — added at NEC Nijmegen
+- Duván Vergara: new player — added at Racing Club
+- Dylan Nandín: new player — added at FC Arouca
+- Dylan Vente: new player — added at SC Heerenveen
+- Dzenan Pejcinovic: new player — added at VfB Stuttgart
+- Ebrima Colley: new player — added at Konyaspor
+- Eddy Doué: new player — added at CF Estrela Amadora
+- Edouard Michut: new player — added at Fortuna Sittard
+- Efe Arda Koyuncu: new player — added at Basaksehir FK
+- Efe Berat Töruz: new player — added at Samsunspor
+- Efe Yiğit Üstün: new player — added at Samsunspor
+- Efraín Morales: new player — added at CF Montréal
+- Ege Albayrak: new player — added at Kasimpasa
+- Ege Bilim: new player — added at Kocaelispor
+- Ege Öztürk: new player — added at Basaksehir FK
+- El Hadji Seck: new player — added at KAA Gent
+- Elias Etringer: new player — added at SV 07 Elversberg
+- Elías Torres: new player — added at Racing Club
+- Elie Mbavu: new player — added at KRC Genk
+- Elijah Dijkstra: new player — added at AZ Alkmaar
+- Elijah Just: new player — added at Swansea City
+- Elliot Myles: new player — added at Norwich City
+- Elliot Watt: new player — added at Samsunspor
+- Elohim Kaboré: new player — added at SK Beveren
+- Emanuel Moreira: new player — added at CD Santa Clara
+- Emerson Vanga: new player — added at CF Estrela Amadora
+- Emil Gazdov: new player — added at CF Montréal
+- Emilio Lara: new player — added at CF América
+- Emir Gündoğdu: new player — added at Konyaspor
+- Emirhan Çavuş: new player — added at Alanyaspor
+- Emirhan Ünal: new player — added at Genclerbirligi Ankara
+- Emirhan Yılmaz: new player — added at Caykur Rizespor
+- Emmanuel Addai: new player — added at Oud-Heverlee Leuven
+- Emmanuel Mbemba: new player — added at Paris FC
+- Emmanuel Tsimba: new player — added at KVC Westerlo
+- Emre Köroğlu: new player — added at Samsunspor
+- Enes Karakaş: new player — added at Erzurumspor FK
+- Enes Yiğit: new player — added at Erzurumspor FK
+- Enner Valencia: new player — added at CA Boca Juniors
+- Ensar Çavuşoğlu: new player — added at Genclerbirligi Ankara
+- Enzo Faty: new player — added at FC Toulouse
+- Erdem Çalık: new player — added at Eyüpspor
+- Eren Emre Aydın: new player — added at Caykur Rizespor
+- Eren Yağmur: new player — added at Konyaspor
+- Eric Bailly: new player — added at Columbus Crew
+- Eric Konaté: new player — added at Konyaspor
+- Érick Aguirre: new player — added at CF Monterrey
+- Erick Samuel Correa Farias: new player — added at Ulsan HD FC
+- Érick Sánchez: new player — added at CF América
+- Erol Can Çolak: new player — added at Trabzonspor
+- Ertugrul Yigit: new player — added at VfB Stuttgart
+- Eser Gürbüz: new player — added at Willem II Tilburg
+- Espen van Ee: new player — added at FC Arouca
+- Esteban Andrada: new player — added at CF Monterrey
+- Esteban Lozano: new player — added at CF América
+- Ewerton Ferreira da Silva: new player — added at Académico Viseu FC
+- Eyüp Değirmenci: new player — added at Samsunspor
+- Ezequiel Cannavo: new player — added at Racing Club
+- Ezra Mayers: new player — added at West Ham United
+- Fabian Herbers: new player — added at CF Montréal
+- Fabiano Rust: new player — added at SC Telstar
+- Fabio Ferraro: new player — added at KVC Westerlo
+- Fabrício Garcia: new player — added at GD Estoril Praia
+- Facundo González: new player — added at CA River Plate
+- Fally Mayulu: new player — added at FC Arouca
+- Farhan Al-Aazmi: new player — added at Al-Hazem SC
+- Federico Croci: new player — added at ACF Fiorentina
+- Felix Bacher: new player — added at Olympique Lyon
+- Felix Horn Myhre: new player — added at West Bromwich Albion
+- Fernando Medrano: new player — added at GD Estoril Praia
+- Fernando Nava: new player — added at CD Nacional
+- Fernando Tapia: new player — added at CF América
+- Fidel Ambríz: new player — added at CF Monterrey
+- Filip Bednarek: new player — added at Sparta Rotterdam
+- Finlay Herrick: new player — added at West Ham United
+- Finn Barkowsky: new player — added at Hamburger SV
+- Finn Mulder: new player — added at SC Telstar
+- Finn Stam: new player — added at Willem II Tilburg
+- Flávio Gonçalves: new player — added at Sporting CP
+- Florin Ștefan: new player — added at Gaziantep FK
+- Fofin Turay: new player — added at SC Telstar
+- Fran Vieites: new player — added at CS Marítimo
+- Francesco Montali: new player — added at San Jose Earthquakes
+- Francisco Gómez: new player — added at Racing Club
+- Francisco Miguel Teixeira Domingues: new player — added at Moreirense FC
+- Francisco Reis Ferreira: new player — added at GD Estoril Praia
+- Francisco Reyes: new player — added at Tigres UANL
+- Franco Calderón: new player — added at CA Independiente
+- Franco Rossano: new player — added at CF América
+- Frankie Amaya: new player — added at CF Montréal
+- Frederico Medeiros Silva: new player — added at CD Santa Clara
+- Frederico Venâncio: new player — added at CD Santa Clara
+- Freek Entius: new player — added at NEC Nijmegen
+- Fricio Caicedo: new player — added at Inter Miami CF
+- Fritz Fleck: new player — added at Borussia Mönchengladbach
+- Fuat Bavuk: new player — added at Gaziantep FK
+- Furkan Çetinkaya: new player — added at Corum FK
+- Furkan Özhan: new player — added at Erzurumspor FK
+- Furkan Soyalp: new player — added at Amed SK
+- Gabi Caschili: new player — added at SC Telstar
+- Gábor Szalai: new player — added at CS Marítimo
+- Gabriel Batista: new player — added at Botafogo de Futebol e Regatas
+- Gabriel Brás: new player — added at NEC Nijmegen
+- Gabriel Cabral da Cruz: new player — added at FC Famalicão
+- Gabriel Pereira Justino: new player — added at Botafogo de Futebol e Regatas
+- Gabriele Guarino: new player — added at Samsunspor
+- Gaizka Larrazabal: new player — added at Bolton Wanderers
+- Gastón Lodico: new player — added at Racing Club
+- Gastón Martirena: new player — added at Racing Club
+- Genesis Antwi: new player — added at RC Strasbourg Alsace
+- Gennadiy Synchuk: new player — added at CF Montréal
+- George Earthy: new player — added at West Ham United
+- Georgios Liavas: new player — added at Rio Ave FC
+- Gerardo Arteaga: new player — added at CF Monterrey
+- Gianluca Okon-Engstler: new player — added at Club Brugge KV
+- Giannino Vianello: new player — added at Sparta Rotterdam
+- Gijs Besselink: new player — added at FC Twente Enschede
+- Gil Dias: new player — added at FC Famalicão
+- Gil Neves: new player — added at 1.FC Köln
+- Gilberto Batista: new player — added at Moreirense FC
+- Giorgio Vezzosi: new player — added at US Sassuolo
+- Giulio Vinciati: new player — added at Udinese Calcio
+- Giuseppe Aurelio: new player — added at Cagliari Calcio
+- Göktuğ Erdem: new player — added at Genclerbirligi Ankara
+- Gonçalo Costa: new player — added at GD Estoril Praia
+- Gonçalo Paciência: new player — added at CD Santa Clara
+- Gonzalo Escudero: new player — added at Racing Club
+- Gu Costa: new player — added at Académico Viseu FC
+- Guilherme Liberato: new player — added at Moreirense FC
+- Guilherme Romão: new player — added at CD Santa Clara
+- Guilliano Cairo: new player — added at Excelsior Rotterdam
+- Gustavo Garcia dos Santos: new player — added at FC Famalicão
+- Gustavo Mancha: new player — added at Rio Ave FC
+- Gustavo Varela: new player — added at AC Monza
+- Guust Lamerand: new player — added at KV Kortrijk
+- Guy-Noël Zohouri: new player — added at Le Havre AC
+- Gyan de Regt: new player — added at Excelsior Rotterdam
+- Gyu-sung Lee: new player — added at Ulsan HD FC
+- Habil Özbakır: new player — added at Caykur Rizespor
+- Haissem Hassan: new player — added at Celtic FC
+- Hamza Aydar: new player — added at Genclerbirligi Ankara
+- Hamza Jananallah: new player — added at Wydad Casablanca
+- Han-beom Lee: new player — added at Club Brugge KV
+- Harrie Kuster: new player — added at SC Telstar
+- Harry Whitwell: new player — added at West Bromwich Albion
+- Harry Winks: new player — added at Cagliari Calcio
+- Hasan Abdulkareem: new player — added at Corum FK
+- Hasan Bulut: new player — added at Oud-Heverlee Leuven
+- Hasan Yağız Döne: new player — added at Caykur Rizespor
+- Haydar Karataş: new player — added at Kocaelispor
+- Hélio Miguel Júnior: new player — added at CD Santa Clara
+- Henrique Pereira: new player — added at CD Santa Clara
+- Henrique Silva: new player — added at CD Santa Clara
+- Henrique Simeone: new player — added at Tigres UANL
+- Henry Martin: new player — added at CF América
+- Hermann Malonga: new player — added at RC Strasbourg Alsace
+- Hidde ter Avest: new player — added at Willem II Tilburg
+- Hjalte Lærke: new player — added at US Lecce
+- Hobie Verhulst: new player — added at AZ Alkmaar
+- Hristiyan Petrov: new player — added at SC Heerenveen
+- Hugo Moura: new player — added at Al-Fayha FC
+- Hui-gyun Lee: new player — added at Ulsan HD FC
+- Hüseyincan Kırıkcı: new player — added at Caykur Rizespor
+- Hyeon-woo Jo: new player — added at Ulsan HD FC
+- Hyun-ju Lee: new player — added at FC Arouca
+- Hyun-taek Cho: new player — added at Ulsan HD FC
+- Iago Amaral Borduchi: new player — added at São Paulo Futebol Clube
+- Iaia Manco Danfa: new player — added at Borussia Mönchengladbach
+- Ian Luccas Baroni Boetto: new player — added at FC Alverca
+- Ianis Stoica: new player — added at CF Estrela Amadora
+- Iason Nebis: new player — added at Panathinaikos
+- Ibrahim Alani: new player — added at CS Marítimo
+- İbrahim Kağan Alkış: new player — added at Gaziantep FK
+- Ibrahim Mohamed El Asyuti: new player — added at Al Ahly FC
+- Ibrahim Sadiq: new player — added at AZ Alkmaar
+- Ibrahim Zaied: new player — added at Al-Hazem SC
+- Ibrahima Ba: new player — added at Sporting CP
+- Ícaro da Conceição: new player — added at CF América
+- Ignacio de Arruabarrena: new player — added at FC Arouca
+- Ignacio Rodríguez: new player — added at Racing Club
+- Igor Drapiński: new player — added at Samsunspor
+- Igor Milioransa: new player — added at Académico Viseu FC
+- Iker Fimbres: new player — added at CF Monterrey
+- Ikker Julian: new player — added at FC Alverca
+- Imanol Machuca: new player — added at CA Independiente
+- In-woo Back: new player — added at Ulsan HD FC
+- Iron Gomis: new player — added at ESTAC Troyes
+- Isaac Cissé: new player — added at Royal Charleroi SC
+- Isaac Walker: new player — added at Charlotte FC
+- Isaiah Ahmed: new player — added at SC Telstar
+- Isaiah Dada-Mascoll: new player — added at Lommel SK
+- Isaías Violante: new player — added at CF América
+- Isak Alemayehu: new player — added at Queens Park Rangers
+- Isak Jensen: new player — added at AZ Alkmaar
+- Ishak Zidani: new player — added at Raja Club Athletic
+- Ismael Sierra: new player — added at GD Estoril Praia
+- Israel Isaac Ayuma: new player — added at CS Marítimo
+- Israel Reyes: new player — added at CF América
+- Israel Salazar: new player — added at GD Estoril Praia
+- Issam El Maach: new player — added at FC Twente Enschede
+- Iván Barbero: new player — added at FC Arouca
+- Ivan Losenko: new player — added at CF Montréal
+- Ivan Mandić: new player — added at Casa Pia AC
+- Iván Márquez: new player — added at Fortuna Sittard
+- Ivan Zlobin: new player — added at FC Famalicão
+- Ivo Pinto: new player — added at Fortuna Sittard
+- Jack Grieves: new player — added at Watford FC
+- Jacob Trenskow: new player — added at SC Heerenveen
+- Jacobo Ortega: new player — added at RC Strasbourg Alsace
+- Jaden Slory: new player — added at Willem II Tilburg
+- Jae-ik Lee: new player — added at Ulsan HD FC
+- Jae-sang Jeong: new player — added at Ulsan HD FC
+- Jaime Seoane: new player — added at Al-Faisaly FC
+- Jakob Jessen: new player — added at Kasimpasa
+- Jakub Brabec: new player — added at Rio Ave FC
+- Jakub Vinarčík: new player — added at FC Arouca
+- Jalen Blesa: new player — added at Rio Ave FC
+- Jalen Neal: new player — added at CF Montréal
+- James Penrice: new player — added at Rangers FC
+- Jamie Lawrence: new player — added at Oud-Heverlee Leuven
+- Jan Bürger: new player — added at PEC Zwolle
+- Jan Virgili: new player — added at Club Brugge KV
+- Jan Zamburek: new player — added at ADO Den Haag
+- Jandro Orellana: new player — added at GD Estoril Praia
+- Jari Schuurman: new player — added at Willem II Tilburg
+- Jarzinho Malanga: new player — added at VfB Stuttgart
+- Jasper Dahlhaus: new player — added at Fortuna Sittard
+- Javi Sánchez: new player — added at FC Arouca
+- Javier Casillas: new player — added at CF Monterrey
+- Jawad El Yamiq: new player — added at Eyüpspor
+- Jayden Fevrier: new player — added at Blackburn Rovers
+- Jayden Onia Seke: new player — added at RSC Anderlecht
+- Jeff Godelaine: new player — added at Royal Antwerp FC
+- Jefferson Encada: new player — added at CF Estrela Amadora
+- Jens Mathijsen: new player — added at Willem II Tilburg
+- Jens Toornstra: new player — added at Sparta Rotterdam
+- Jérémy Livolant: new player — added at Casa Pia AC
+- Jeroen Zoet: new player — added at AZ Alkmaar
+- Jesse Derry: new player — added at Sporting CP
+- Jesús Castillo: new player — added at Esperance Tunis
+- Jesús Corona: new player — added at CF Monterrey
+- Jhonatan Luiz da Siqueira: new player — added at FC Alverca
+- Jhonny Cardinoti Pedro: new player — added at Without Club
+- Jimi Gower: new player — added at Moreirense FC
+- Jin-hyun Lee: new player — added at Ulsan HD FC
+- Jizz Hornkamp: new player — added at AZ Alkmaar
+- Joan Tincrès: new player — added at Le Havre AC
+- João Carvalho: new player — added at GD Estoril Praia
+- João Costa: new player — added at CD Santa Clara
+- João de Vasconcelos Faria Gonçalves: new player — added at CD Santa Clara
+- João Goulart: new player — added at Casa Pia AC
+- João Pedro do Nascimento da Mata: new player — added at Konyaspor
+- João Pedro Murilo de Paula Morais: new player — added at Casa Pia AC
+- João Tomé Esteves Baptista: new player — added at Rio Ave FC
+- João Victor Oliveira dos Santos: new player — added at Al-Fateh SC
+- Job Ochieng: new player — added at Real Sociedad
+- Jóbson de Brito Gonzaga: new player — added at Moreirense FC
+- Joel Ideho: new player — added at Sparta Rotterdam
+- Joel Ndala: new player — added at Cercle Brugge
+- Joel Robles: new player — added at GD Estoril Praia
+- Joel Roca: new player — added at Olympiacos Piraeus
+- Jofre Torrents: new player — added at Ajax Amsterdam
+- Johan Mojica: new player — added at Getafe CF
+- Joi Nuredini: new player — added at Genoa CFC
+- Jon McLaughlin: new player — added at Middlesbrough FC
+- Jonathan Asp Jensen: new player — added at Deportivo A Coruña
+- Jonathan Dubasin: new player — added at CA Osasuna
+- Jong-gyu Yoon: new player — added at Ulsan HD FC
+- Jordan Holsgrove: new player — added at GD Estoril Praia
+- Jordy Clasie: new player — added at AZ Alkmaar
+- Jorge Rodríguez: new player — added at CF Monterrey
+- Joris van Overeem: new player — added at FC Utrecht
+- José Fontán: new player — added at FC Arouca
+- José Janderson da Silva Marques: new player — added at Moreirense FC
+- José Luís Rocha Tavares: new player — added at CD Santa Clara
+- José Raúl Zúñiga: new player — added at CF América
+- Josh Nteziryayo: new player — added at CF Montréal
+- Joshua Nga Kana: new player — added at RSC Anderlecht
+- Ju-ho Choi: new player — added at Ulsan HD FC
+- Juan Cruz: new player — added at Málaga CF
+- Julian Baas: new player — added at Sparta Rotterdam
+- Julien Lomboto: new player — added at Rio Ave FC
+- Juliën Mesbahi: new player — added at FC Twente Enschede
+- Julio Díaz: new player — added at Sevilla FC
+- Jung-in Moon: new player — added at Ulsan HD FC
+- Justin Hoogma: new player — added at Willem II Tilburg
+- Justin Hubner: new player — added at Fortuna Sittard
+- Kacper Pasiek: new player — added at Preston North End
+- Kacper Tobiasz: new player — added at Gaziantep FK
+- Kadir Gümüş: new player — added at Gaziantep FK
+- Kaedren Spivey: new player — added at San Jose Earthquakes
+- Kaiden Moore: new player — added at Philadelphia Union
+- Kaique Rocha: new player — added at Casa Pia AC
+- Kaïs Barry: new player — added at RSC Anderlecht
+- Kaito Mizuta: new player — added at Le Havre AC
+- Kamil Castillo: new player — added at D.C. United
+- Karst de Leeuw: new player — added at Willem II Tilburg
+- Kasey Bos: new player — added at Excelsior Rotterdam
+- Kasper Høgh: new player — added at Celtic FC
+- Kawan Thomaz Reis de Moraes: new player — added at Botafogo de Futebol e Regatas
+- Kaylen Lage de Santana Reitmaier: new player — added at Fortuna Sittard
+- Kelian Nsona: new player — added at Casa Pia AC
+- Kenan Haroun: new player — added at KRC Genk
+- Kennedy Boateng: new player — added at Al-Fateh SC
+- Keo Boets: new player — added at Union Saint-Gilloise
+- Kerem Erener: new player — added at Erzurumspor FK
+- Kerem Fidan: new player — added at Samsunspor
+- Kerim Calhanoglu: new player — added at Gaziantep FK
+- Kevin Akpoguma: new player — added at Frosinone Calcio
+- Kevin Álvarez: new player — added at CF América
+- Kevin Amaro: new player — added at KRC Genk
+- Kevin Chamorro: new player — added at Rio Ave FC
+- Kevin Höög Jansson: new player — added at CF Estrela Amadora
+- Kevin Müller: new player — added at FC Schalke 04
+- Kevin Prieto: new player — added at Casa Pia AC
+- Kevyn Monteiro: new player — added at Moreirense FC
+- Khaireddine Meddaoui: new player — added at Esperance Tunis
+- Khaled Al-Rammah: new player — added at NEOM SC
+- Khayon Edwards: new player — added at GD Estoril Praia
+- Kieron Bowie: new player — added at US Sassuolo
+- Kiko Bondoso: new player — added at Moreirense FC
+- Kings Kangwa: new player — added at Panathinaikos
+- Koby Mottoh: new player — added at Moreirense FC
+- Konan N’Dri: new player — added at US Lecce
+- Korede Osundina: new player — added at Casa Pia AC
+- Kristian Hlynsson: new player — added at FC Twente Enschede
+- Kristoffer Lund: new player — added at Birmingham City
+- Kristoffer Peterson: new player — added at Fortuna Sittard
+- Krzysztof Kurowski: new player — added at FC Twente Enschede
+- Kwasi Poku: new player — added at Vancouver Whitecaps FC
+- Kyrell Lisbie: new player — added at Millwall FC
+- Kyrell Wilson: new player — added at KAA Gent
+- Lameck Banda: new player — added at US Lecce
+- Landerson Costa Araújo: new player — added at Moreirense FC
+- Lars Unnerstall: new player — added at FC Twente Enschede
+- Lasse Abildgaard: new player — added at Willem II Tilburg
+- Lasse Flø: new player — added at KVC Westerlo
+- Lasse Wilhelm: new player — added at ADO Den Haag
+- Laurin Ulrich: new player — added at SC Paderborn 07
+- Lautaro Pereyra: new player — added at CA River Plate
+- Lawrence Ofori: new player — added at Casa Pia AC
+- Lazar Stojanovic: new player — added at Al-Shabab FC
+- Lázaro Vinicius Marques: new player — added at Al-Fayha FC
+- Leandro Antonetti: new player — added at CF Estrela Amadora
+- Leandro Santos: new player — added at Moreirense FC
+- Lennard Hartjes: new player — added at Excelsior Rotterdam
+- Leny Meyer: new player — added at FC Famalicão
+- Léo Leroy: new player — added at Preston North End
+- Léo Realpe: new player — added at FC Famalicão
+- Leonardo Gomes da Silva Jacó: new player — added at CD Santa Clara
+- Leonardo Mana Hernandes: new player — added at Sport Club Corinthians Paulista
+- Leonel Pérez: new player — added at Racing Club
+- Lequincio Zeefuik: new player — added at Fortuna Sittard
+- Levi García: new player — added at Panathinaikos
+- Levi Smans: new player — added at SC Heerenveen
+- Lewis Orford: new player — added at West Ham United
+- Lewis Schouten: new player — added at AZ Alkmaar
+- Lineker Rodrigues: new player — added at Real Salt Lake City
+- Lluc Castell: new player — added at Burnley FC
+- Loïc Williams: new player — added at Colorado Rapids
+- Lorent Tolaj: new player — added at Bristol City
+- Lorenzo Nyarko: new player — added at US Sassuolo
+- Lorougnon Gohi: new player — added at Académico Viseu FC
+- Louie Van Gelder: new player — added at Royal Antwerp FC
+- Louis Mafouta: new player — added at Le Mans FC
+- Luan Patrick Wiedthäuper: new player — added at CF Estrela Amadora
+- Luc Marijnissen: new player — added at KV Mechelen
+- Luca Oyen: new player — added at SC Heerenveen
+- Luca Petrasso: new player — added at CF Montréal
+- Luca Schelfhout: new player — added at Royal Antwerp FC
+- Luca Sirch: new player — added at SV 07 Elversberg
+- Luca Vozar: new player — added at FC Schalke 04
+- Lucas Furtado: new player — added at Vitória Guimarães SC
+- Lucas Monzón: new player — added at Botafogo de Futebol e Regatas
+- Lucas Ocampos: new player — added at CF Monterrey
+- Lucas Ribeiro: new player — added at Esperance Tunis
+- Lucas Soares: new player — added at CD Santa Clara
+- Luis Cárdenas: new player — added at CF Monterrey
+- Luis Felipe Silva dos Anjos: new player — added at Raja Club Athletic
+- Luis Fernando Santos Oliveira: new player — added at CD Santa Clara
+- Luís Gomes: new player — added at GD Estoril Praia
+- Luis Malagón: new player — added at CF América
+- Luis Narh: new player — added at Royal Antwerp FC
+- Luis Reyes: new player — added at CF Monterrey
+- Luís Silva: new player — added at Académico Viseu FC
+- Luiz Fernando Salles de Castro: new player — added at CD Santa Clara
+- Luka Gugeshashvili: new player — added at Göztepe
+- Luka Jovanović: new player — added at San Jose Earthquakes
+- Lukas Haraslin: new player — added at Al-Fateh SC
+- Lukas Mondele: new player — added at Cercle Brugge
+- Luke Brooke-Smith: new player — added at Portsmouth FC
+- Luke Hutchinson: new player — added at Bolton Wanderers
+- Lumbardh Dellova: new player — added at Amed SK
+- Lushendry Martes: new player — added at Sparta Rotterdam
+- Luuk Brouwers: new player — added at SC Heerenveen
+- Luuk Koopmans: new player — added at Fortuna Sittard
+- Maël Fernandez Monyebe: new player — added at Esperance Tunis
+- Mahmoud Salah: new player — added at Al Ahly FC
+- Mahmut Can Kara: new player — added at Alanyaspor
+- Malcolm Jeng: new player — added at FC Groningen
+- Malcolm Lohunanu-Mbasi: new player — added at KV Mechelen
+- Malik Pimpong: new player — added at Eintracht Frankfurt
+- Maliq Musa: new player — added at Zulte Waregem
+- Mamadou Diallo: new player — added at KAA Gent
+- Mamedi Doucouré: new player — added at Genoa CFC
+- Manolis Saliakas: new player — added at Without Club
+- Manuel Luís Da Silva Cafumana: new player — added at Kocaelispor
+- Márcio Gabriel Ferreira Pereira: new player — added at Casa Pia AC
+- Marco Di Césare: new player — added at Racing Club
+- Marcos Lavín: new player — added at Académico Viseu FC
+- Marcos Peña: new player — added at FC Famalicão
+- Marcos Rojo: new player — added at Racing Club
+- Marcos Vinicios Lopes Moura: new player — added at FC Famalicão
+- Marcos Vinicius Amaral Alves: new player — added at club_3535
+- Marcus Alstrup: new player — added at San Diego FC
+- Marcus Linday: new player — added at SC Heerenveen
+- Mario Climent: new player — added at FC Arouca
+- Mario Domínguez: new player — added at Excelsior Rotterdam
+- Marios Vrousai: new player — added at Rio Ave FC
+- Marko Milovanović: new player — added at Portsmouth FC
+- Marko Pjaca: new player — added at FC Twente Enschede
+- Markus Jensen: new player — added at CD Nacional
+- Markus Karlsbakk: new player — added at Corum FK
+- Marlon van de Wetering: new player — added at Excelsior Rotterdam
+- Martim Duarte: new player — added at FC Arouca
+- Martin James: new player — added at 1.FC Köln
+- Martin Ponsot: new player — added at OGC Nice
+- Marvin Young: new player — added at Sparta Rotterdam
+- Mason Melia: new player — added at Lincoln City
+- Matej Sin: new player — added at AZ Alkmaar
+- Mateja Stjepanović: new player — added at Moreirense FC
+- Mateo Chávez: new player — added at AZ Alkmaar
+- Matheus Cunha: new player — added at Sport Club Internacional
+- Matheus Sampaio: new player — added at Académico Viseu FC
+- Mathias de Amorim: new player — added at FC Famalicão
+- Mathias Kjølø: new player — added at FC Twente Enschede
+- Mathieu Gorgelin: new player — added at RC Lens
+- Mathieu Nguefack: new player — added at Borussia Mönchengladbach
+- Mathijs Tielemans: new player — added at Excelsior Rotterdam
+- Mathis Jangéal: new player — added at FC Famalicão
+- Mathis Mout: new player — added at AC Monza
+- Matías Kranevitter: new player — added at Racing Club
+- Matías Tagliamonte: new player — added at Racing Club
+- Matías Zaracho: new player — added at Racing Club
+- Matko Miljevic: new player — added at Racing Club
+- Mats Egbring: new player — added at SC Heerenveen
+- Mats Heitmann: new player — added at SV Werder Bremen
+- Matteo Barbini: new player — added at Genoa CFC
+- Matteo Heremans: new player — added at Oud-Heverlee Leuven
+- Mattia Liberali: new player — added at Como 1907
+- Mattijs Branderhorst: new player — added at Fortuna Sittard
+- Mattis Seghers: new player — added at RSC Anderlecht
+- Mauricio Amaro: new player — added at Atlanta United FC
+- Mauro Laínez: new player — added at Tigres UANL
+- Max Bruns: new player — added at FC Twente Enschede
+- Max Scholze: new player — added at CF Estrela Amadora
+- Max Wilson: new player — added at Preston North End
+- Maxence Rivera: new player — added at SC Heerenveen
+- Maxim Dekker: new player — added at AZ Alkmaar
+- Maxime Busi: new player — added at Royal Antwerp FC
+- Mayckel Lahdo: new player — added at AZ Alkmaar
+- Medon Berisha: new player — added at US Lecce
+- Mees de Wit: new player — added at AZ Alkmaar
+- Mees Eppink: new player — added at FC Utrecht
+- Mees Hilgers: new player — added at FC Twente Enschede
+- Mekhi Gray: new player — added at 1.FC Union Berlin
+- Mert Hakan Yandaş: new player — added at Fenerbahce
+- Mert Önal: new player — added at Erzurumspor FK
+- Mete Demir: new player — added at Eyüpspor
+- Mexx Meerdink: new player — added at AZ Alkmaar
+- Mezian Mesloub: new player — added at RC Lens
+- Michael Ani: new player — added at Portsmouth FC
+- Michael Dacosta: new player — added at Moreirense FC
+- Michael Frey: new player — added at Royal Antwerp FC
+- Miguel Ângelo da Silva Rocha: new player — added at GD Estoril Praia
+- Miguel Patricío: new player — added at Rio Ave FC
+- Miguel Puche: new player — added at FC Arouca
+- Miguel Ramírez: new player — added at CF América
+- Miguel Sierra: new player — added at Sevilla FC
+- Miguel Vázquez: new player — added at CF América
+- Mihai Lixandru: new player — added at Al-Fateh SC
+- Mijahir Jiménez: new player — added at Red Bull New York
+- Mikah Thomas: new player — added at Charlotte FC
+- Mikel Rodriguez: new player — added at Deportivo Alavés
+- Milan De Schutter: new player — added at SK Beveren
+- Milan Zonneveld: new player — added at Sparta Rotterdam
+- Millenic Alli: new player — added at Charlton Athletic
+- Milos Jovic: new player — added at US Lecce
+- Milosz Trojak: new player — added at Ulsan HD FC
+- Min-hyuk Lee: new player — added at Ulsan HD FC
+- Mirza Cihan: new player — added at Gaziantep FK
+- Mitchell van Bergen: new player — added at Sparta Rotterdam
+- Modibo Fofana: new player — added at Royal Antwerp FC
+- Modibo Sagnan: new player — added at Caykur Rizespor
+- Mohamed Belhadj Mahmoud: new player — added at Esperance Tunis
+- Mohamed Fofana: new player — added at Konyaspor
+- Mohamed Hassan Fofana: new player — added at Basaksehir FK
+- Mohamed Ihattaren: new player — added at Fortuna Sittard
+- Mohamed Kaba: new player — added at US Lecce
+- Mohamed Kaba: new player — added at Gil Vicente FC
+- Mohamed Khalil: new player — added at Amed SK
+- Mohamed Raafat: new player — added at Al Ahly FC
+- Mohammed Al-Dawsari: new player — added at Abha Club
+- Mohammed Al-Hamdani: new player — added at Al-Hazem SC
+- Mohammed Al-Ibrahim: new player — added at Al-Khaleej FC
+- Mohammed Al-Owais: new player — added at Al-Hilal SFC
+- Mohammed Al-Yami: new player — added at Al-Hazem SC
+- Mohammed Al-Zaid: new player — added at Abha Club
+- Mohammed Dakhilallah Al-Dawsari: new player — added at NEOM SC
+- Mohannad Abu Taha: new player — added at NEOM SC
+- Mounsef Bakrar: new player — added at Al Ahly FC
+- Moussa Gbemou: new player — added at Fortuna Sittard
+- Mücahit Ibrahimoglu: new player — added at Konyaspor
+- Muhammed Bah: new player — added at AS Roma
+- Muhammed Baltacı: new player — added at Caykur Rizespor
+- Muhammed Emin Bektaş: new player — added at Kasimpasa
+- Musa Eren Karakaş: new player — added at Eyüpspor
+- Mustafa Coşkun Tosun: new player — added at Caykur Rizespor
+- Mustafa Malayekah: new player — added at Abha Club
+- Mustapha Isah: new player — added at RAAL La Louvière
+- Myeong-kwan Seo: new player — added at Ulsan HD FC
+- Nabil Fekir: new player — added at Abha Club
+- Naci Ünüvar: new player — added at FC Twente Enschede
+- Naïs Djouahra: new player — added at FC Arouca
+- Nate Crockford: new player — added at San Jose Earthquakes
+- Nathaniel Chioma: new player — added at Portsmouth FC
+- Nawaf Al-Harthi: new player — added at Al-Fayha FC
+- Nazareno Colombo: new player — added at Racing Club
+- Nazım Sangaré: new player — added at Gaziantep FK
+- Nelson Abbey: new player — added at Rio Ave FC
+- Nelson Ishiwatari: new player — added at Sint-Truidense VV
+- Nesto Groen: new player — added at Excelsior Rotterdam
+- Nevzat Üzel: new player — added at Göztepe
+- Nick de Groot: new player — added at Fortuna Sittard
+- Nick Verschuren: new player — added at Sparta Rotterdam
+- Niclas Thiede: new player — added at ADO Den Haag
+- Nico Guillén: new player — added at Sevilla FC
+- Nico Mantl: new player — added at FC Arouca
+- Niek Corthouts: new player — added at Lommel SK
+- Nihad Mujakic: new player — added at Erzurumspor FK
+- Niko Kovač: new player — added at US Lecce
+- Nikola Stulic: new player — added at US Lecce
+- Nikola Vasilj: new player — added at Al-Diriyah FC
+- Nikolai Hopland: new player — added at SC Heerenveen
+- Nikolaos Michelis: new player — added at Académico Viseu FC
+- Nikolas Brandis: new player — added at FC Groningen
+- Nikolas Polster: new player — added at NEC Nijmegen
+- Nikoloz Chikovani: new player — added at Watford FC
+- Nile John: new player — added at Moreirense FC
+- Nils Mortimer: new player — added at Académico Viseu FC
+- Nizar Al-Rashdan: new player — added at Wydad Casablanca
+- Noa Ojea: new player — added at RSC Anderlecht
+- Noah Naujoks: new player — added at Excelsior Rotterdam
+- Noah Streit: new player — added at CF Montréal
+- Noah Sy: new player — added at Standard Liège
+- Nökkvi Thórisson: new player — added at Sparta Rotterdam
+- Nolan Galves: new player — added at West Bromwich Albion
+- Nolan Martens: new player — added at Excelsior Rotterdam
+- Nolhan Courtens: new player — added at SC Heerenveen
+- Olaf Gorter: new player — added at US Lecce
+- Ole Romeny: new player — added at Fortuna Sittard
+- Oleksiy Sych: new player — added at Dynamo Kyiv
+- Olger Escobar: new player — added at CF Montréal
+- Oliver Braude: new player — added at SC Heerenveen
+- Óliver Torres: new player — added at CF Monterrey
+- Omar Aqzdaou: new player — added at Wydad Casablanca
+- Omar Ben Ali: new player — added at Alanyaspor
+- Ömer Çobanoğlu: new player — added at Konyaspor
+- Omri Gandelman: new player — added at US Lecce
+- Orbelín Pineda: new player — added at CF Monterrey
+- Oriola Sunday: new player — added at Sydney FC
+- Óscar Aranda: new player — added at FC Famalicão
+- Osman Turay: new player — added at Excelsior Rotterdam
+- Otávio Manoel Galdino Fernandes: new player — added at Eintracht Frankfurt
+- Ousmane Diallo: new player — added at Parma Calcio 1913
+- Owen Graham-Roache: new player — added at CF Montréal
+- Ozan Sevim: new player — added at Besiktas JK
+- Pablo Gozálbez: new player — added at FC Arouca
+- Paco Esteban: new player — added at US Lecce
+- Palmer Ault: new player — added at St. Louis CITY SC
+- Panagiotis Biniaris: new player — added at Panathinaikos
+- Pape Cabral: new player — added at AS Monaco
+- Pascal Kuiper: new player — added at Sparta Rotterdam
+- Patricio Salas: new player — added at CF América
+- Patrick Beach: new player — added at ESTAC Troyes
+- Patrick Ouotro: new player — added at Vitória Guimarães SC
+- Patrick Sequeira: new player — added at Casa Pia AC
+- Patson Daka: new player — added at Hamburger SV
+- Paul Erevbenagie: new player — added at SV Werder Bremen
+- Paulo Moreira: new player — added at FC Famalicão
+- Paulo Victor da Silva: new player — added at Botafogo de Futebol e Regatas
+- Pedro Antonio Pimentel Ferreira: new player — added at Ulsan HD FC
+- Pedro Barcelos: new player — added at Académico Viseu FC
+- Pedro Bondo: new player — added at FC Famalicão
+- Pedro Carvalho: new player — added at GD Estoril Praia
+- Pedro Felipe de Jesus Gomes: new player — added at Racing Santander
+- Pedro Ferreira: new player — added at CD Santa Clara
+- Pedro Jesus: new player — added at CD Santa Clara
+- Pedro Jesus: new player — added at Moreirense FC
+- Pedro Pacheco: new player — added at CD Santa Clara
+- Pedro Rosas: new player — added at Casa Pia AC
+- Pedro Santos: new player — added at FC Arouca
+- Pedro Santos: new player — added at FC Famalicão
+- Peer Koopmeiners: new player — added at AZ Alkmaar
+- Per van Loon: new player — added at Willem II Tilburg
+- Philip Brittijn: new player — added at Fortuna Sittard
+- Philippe Bibout: new player — added at KVC Westerlo
+- Plamen Penev: new player — added at US Lecce
+- Prince Aning: new player — added at SC Telstar
+- Prince Owusu: new player — added at CF Montréal
+- Rachid Ghanimi: new player — added at Wydad Casablanca
+- Raed Chikhaoui: new player — added at Esperance Tunis
+- Rafa Soares: new player — added at CF Estrela Amadora
+- Rafael Haller: new player — added at Club Nacional
+- Rafael Lobato: new player — added at Rio Ave FC
+- Rafik Guitane: new player — added at GD Estoril Praia
+- Rafiu Durosinmi: new player — added at KRC Genk
+- Rajmund Tóth: new player — added at Konyaspor
+- Ramazan Özkanlı: new player — added at Kasimpasa
+- Ramón Juárez: new player — added at CF América
+- Raphael Kofler: new player — added at Cagliari Calcio
+- Rayan Lucas Marques de Souza: new player — added at FC Alverca
+- Rayan Mandengue: new player — added at AJ Auxerre
+- Rayan Touzghar: new player — added at Standard Liège
+- Régis Gurtner: new player — added at RC Lens
+- Remko Pasveer: new player — added at FC Twente Enschede
+- Ricard Sánchez: new player — added at GD Estoril Praia
+- Ricardo Alexandre Ribeiro Vieira: new player — added at Académico Viseu FC
+- Ricardo Batista: new player — added at Casa Pia AC
+- Richard Chukwu: new player — added at Toronto FC
+- Rick Meissen: new player — added at Excelsior Rotterdam
+- Rik Suur: new player — added at Sparta Rotterdam
+- Rikuto Hirose: new player — added at Kashima Antlers
+- Rildo Gonçalves de Amorim Filho: new player — added at CD Santa Clara
+- Ringo Meerveld: new player — added at SC Heerenveen
+- Ro-Zangelo Daal: new player — added at AZ Alkmaar
+- Robbie Ure: new player — added at Sevilla FC
+- Robert Taylor: new player — added at Los Angeles Galaxy
+- Roberto de la Rosa: new player — added at CF Monterrey
+- Robin Pröpper: new player — added at FC Twente Enschede
+- Robin van Cruijsen: new player — added at Sparta Rotterdam
+- Robson Lucas Oliveira Botelho: new player — added at CF Estrela Amadora
+- Rocco Shein: new player — added at Portsmouth FC
+- Rockson Yeboah: new player — added at CA Osasuna
+- Rodolfo Cota: new player — added at CF América
+- Rodri Alonso: new player — added at Moreirense FC
+- Rodrigo Dias: new player — added at Sporting CP
+- Rodrigo Márquez: new player — added at CA Independiente
+- Rodrigo Pinheiro: new player — added at FC Famalicão
+- Rohan Rajagopal: new player — added at San Jose Earthquakes
+- Roland Galcik: new player — added at Rio Ave FC
+- Rome-Jayden Owusu-Oduro: new player — added at AZ Alkmaar
+- Romualdas Jansonas: new player — added at FC Arouca
+- Rubén Botta: new player — added at Club Nacional
+- Rubén Gómez: new player — added at Villarreal CF
+- Rúben Pereira: new player — added at Académico Viseu FC
+- Rudi Almeida: new player — added at FC Famalicão
+- Rui Mendes: new player — added at SC Telstar
+- Rune Verheyden: new player — added at Sint-Truidense VV
+- Ruud Nijstad: new player — added at FC Twente Enschede
+- Ryan Fosso: new player — added at Standard Liège
+- Ryan Guilherme da Silva Pae: new player — added at Rio Ave FC
+- Ryan Kavuma-McQueen: new player — added at Portsmouth FC
+- Saba Sazonov: new player — added at Getafe CF
+- Sabahattin Destici: new player — added at Gaziantep FK
+- Sadik Fofana: new player — added at US Lecce
+- Saeed Al-Rubaie: new player — added at Al-Diriyah FC
+- Safwan Al-Johani: new player — added at Abha Club
+- Şahin Dik: new player — added at Alanyaspor
+- Saikuba Jarju: new player — added at Samsunspor
+- Salaheddine Cofi: new player — added at Wydad Casablanca
+- Salieu Drammeh: new player — added at Standard Liège
+- Salih Arıcı: new player — added at Kasimpasa
+- Salim Diakité: new player — added at Zulte Waregem
+- Sam Kersten: new player — added at SC Heerenveen
+- Sam Lammers: new player — added at FC Twente Enschede
+- Samed Bazdar: new player — added at Sint-Truidense VV
+- Samsy Keita: new player — added at CF Montréal
+- Samú Costa: new player — added at Al-Nassr FC
+- Samuel Alves: new player — added at Rio Ave FC
+- Samuel Ballet: new player — added at Amed SK
+- Samuel Bamba: new player — added at CS Marítimo
+- Samuel Nibombe: new player — added at Without Club
+- Samuel Piette: new player — added at CF Montréal
+- Samy Jr. Merheg: new player — added at FC Alverca
+- Sang-min Sim: new player — added at Ulsan HD FC
+- Sang-woo Kang: new player — added at Ulsan HD FC
+- Santiago Mele: new player — added at CA Independiente
+- Santiago Pierotti: new player — added at US Lecce
+- Santiago Serra: new player — added at CF Estrela Amadora
+- Santiago Silva: new player — added at Club Nacional
+- Santiago Solari: new player — added at Racing Club
+- Santiago Verdi Oliveira Silva: new player — added at Vitória Guimarães SC
+- Sayfallah Ltaief: new player — added at FC Twente Enschede
+- Seba Pérez: new player — added at Casa Pia AC
+- Sébastian Breza: new player — added at CF Montréal
+- Sebastián Cáceres: new player — added at CF América
+- Sebastian Murru: new player — added at Oud-Heverlee Leuven
+- Sebastián Rodríguez: new player — added at CF Monterrey
+- Sebastián Villa: new player — added at CA Boca Juniors
+- Sebastiano Desplanches: new player — added at Frosinone Calcio
+- Seiya Maikuma: new player — added at AZ Alkmaar
+- Selvi Clua: new player — added at Casa Pia AC
+- Seok-hyeon Choi: new player — added at Ulsan HD FC
+- Seong-bin Jung: new player — added at Ulsan HD FC
+- Seong-min Ryu: new player — added at Ulsan HD FC
+- Sercan Deniz: new player — added at Kasimpasa
+- Şerefhan Sağlık: new player — added at Erzurumspor FK
+- Seung-hyun Jung: new player — added at Ulsan HD FC
+- Shawn Adewoye: new player — added at Lommel SK
+- Shunsuke Mito: new player — added at Sparta Rotterdam
+- Si-hoo Park: new player — added at FC Arouca
+- Sidney Lima: new player — added at CD Santa Clara
+- Siebe Wylin: new player — added at Fortuna Sittard
+- Sima Suso: new player — added at FC Augsburg
+- Simão Silva: new player — added at Académico Viseu FC
+- Simon Janssen: new player — added at Excelsior Rotterdam
+- Sinan Alkaş: new player — added at Kasimpasa
+- Sion Oppong: new player — added at FC Toulouse
+- Snayder Porozo: new player — added at Royal Antwerp FC
+- Sondre Ørjasæter: new player — added at FC Twente Enschede
+- Sota Nakamura: new player — added at Le Havre AC
+- Soufiane Benjdida: new player — added at Al Ahly FC
+- Soufiane Messeguem: new player — added at Académico Viseu FC
+- Stan Henderikx: new player — added at Excelsior Rotterdam
+- Stav Lemkin: new player — added at FC Twente Enschede
+- Stefan Lekovic: new player — added at CF Estrela Amadora
+- Stefan Medina: new player — added at CF Monterrey
+- Stelios Andreou: new player — added at GD Estoril Praia
+- Stijn van Gassel: new player — added at Excelsior Rotterdam
+- Stredair Appuah: new player — added at Lommel SK
+- Sven Simons: new player — added at Fortuna Sittard
+- Syb van Ottele: new player — added at Fortuna Sittard
+- Sydney van Hooijdonk: new player — added at CF Estrela Amadora
+- Sydney Wathuta: new player — added at Colorado Rapids
+- Sylvester Jasper: new player — added at Standard Liège
+- Taichi Fukui: new player — added at FC Arouca
+- Talha Polat: new player — added at Kocaelispor
+- Tamás Nikitscher: new player — added at Rio Ave FC
+- Tamás Szűcs: new player — added at FC Famalicão
+- Tamble Ulisses Folgado Monteiro: new player — added at Rio Ave FC
+- Tanguy Zoukrou: new player — added at Kocaelispor
+- Tariq Lamptey: new player — added at Queens Park Rangers
+- Tarun Karumanchi: new player — added at Columbus Crew
+- Tawfik Mohamed: new player — added at Al Ahly FC
+- Taylor Booth: new player — added at FC Twente Enschede
+- Tayo Adaramola: new player — added at Cercle Brugge
+- Teo Quintero: new player — added at Sparta Rotterdam
+- Théo Bongonda: new player — added at Al-Faisaly FC
+- Theo Carroll: new player — added at Preston North End
+- Thiago Nicolás Borbas Silva: new player — added at Clube Atlético Mineiro
+- Thomás De Martis: new player — added at Parma Calcio 1913
+- Thomas Didillon-Hödl: new player — added at Willem II Tilburg
+- Thomas Gillier: new player — added at CF Montréal
+- Thomas van den Belt: new player — added at FC Twente Enschede
+- Thomas Verheydt: new player — added at Willem II Tilburg
+- Tiago Esgaio: new player — added at FC Arouca
+- Tiago Octávio: new player — added at FC Alverca
+- Tiago Parente: new player — added at GD Estoril Praia
+- Tiago Parente: new player — added at Swansea City
+- Tiago Ribeiro: new player — added at CD Santa Clara
+- Tijmen Holla: new player — added at Excelsior Rotterdam
+- Tim Blaszczak: new player — added at 1.FC Union Berlin
+- Tim Schnitzer: new player — added at FC Augsburg
+- Timéo Kerckhofs: new player — added at RAAL La Louvière
+- Timothy Ouma: new player — added at Charlton Athletic
+- Tjark Ernst: new player — added at Hertha BSC
+- Tobías Andrada: new player — added at CA River Plate
+- Tobías Medina: new player — added at Rio Ave FC
+- Tobías Rubio: new player — added at Racing Club
+- Tom Akpakoun: new player — added at ESTAC Troyes
+- Tom Moustier: new player — added at CF Estrela Amadora
+- Tom van de Looi: new player — added at FC Famalicão
+- Tom Wisbereit: new player — added at FC Augsburg
+- Tomás Conechny: new player — added at Racing Club
+- Tomás Domingos: new player — added at Académico Viseu FC
+- Tomás Silva: new player — added at Académico Viseu FC
+- Tomás Tavares: new player — added at CS Marítimo
+- Tommaso Macchioni: new player — added at US Sassuolo
+- Tristan Himes: new player — added at Orlando City SC
+- Trivante Stewart: new player — added at Gaziantep FK
+- Tuğra Turhan: new player — added at Basaksehir FK
+- Turki Ba Al-Jawsh: new player — added at Al-Ettifaq FC
+- Tylon Smith: new player — added at New England Revolution
+- Ulises Ortegoza: new player — added at Racing Club
+- Ulrich Meleke: new player — added at Gaziantep FK
+- Umar Abubakar: new player — added at FC Famalicão
+- Umut Erdem: new player — added at Caykur Rizespor
+- Uriël van Aalst: new player — added at Willem II Tilburg
+- Uros Djurdjevic: new player — added at CF Monterrey
+- Valentín Carboni: new player — added at Racing Club
+- Vanja Dragojevic: new player — added at Rangers FC
+- Vanja Drkusic: new player — added at RCD Espanyol Barcelona
+- Vasilios Lavdas: new player — added at Panathinaikos
+- Vasilios Zagaritis: new player — added at SC Heerenveen
+- Víctor Dávila: new player — added at CF América
+- Víctor Guzmán: new player — added at CF Monterrey
+- Victor Loturi: new player — added at CF Montréal
+- Víctor Valdepeñas: new player — added at ACF Fiorentina
+- Vincent Sasso: new player — added at Le Havre AC
+- Vinícius Lopes da Silva: new player — added at CD Santa Clara
+- Vinícius Moreira de Lima: new player — added at CF América
+- Vítor Hugo Amorim de Assis: new player — added at CD Santa Clara
+- Vitor Hugo Ferreira Oliveira: new player — added at CD Santa Clara
+- Vladislav Morozov: new player — added at FC Arouca
+- Vojin Serafimovic: new player — added at FC Famalicão
+- Waleed Al-Shanqiti: new player — added at Al-Hazem SC
+- Walid Al-Enezi: new player — added at Al-Fateh SC
+- Wanderson Carlos Ferreira dos Santos: new player — added at Moreirense FC
+- Welinton Macedo dos Santos: new player — added at CD Santa Clara
+- Wesley David de Oliveira Andrade: new player — added at CD Nacional
+- Weslley Pinto Batista: new player — added at AZ Alkmaar
+- Wiebe van der Heide: new player — added at SC Cambuur Leeuwarden
+- Will Lankshear: new player — added at Middlesbrough FC
+- Woo-jin Park: new player — added at Without Club
+- Wouter Goes: new player — added at AZ Alkmaar
+- Wouter van der Steen: new player — added at Willem II Tilburg
+- Xavier Mandza: new player — added at OGC Nice
+- Yacqub Finey: new player — added at Excelsior Rotterdam
+- Yago Cariello Ribeiro: new player — added at club_3535
+- Yago de Paula Ferreira: new player — added at Without Club
+- Yahia Attiyat Allah: new player — added at Wydad Casablanca
+- Yahya Jabrane: new player — added at Wydad Casablanca
+- Yakup Ayan: new player — added at Caykur Rizespor
+- Yan Lincon Farias de Sousa: new player — added at Moreirense FC
+- Yan Matheus Santos Souza: new player — added at Kashima Antlers
+- Yanis Begraoui: new player — added at GD Estoril Praia
+- Yann Sommer: new player — added at Club Brugge KV
+- Yannick Gerritsen: new player — added at FC Twente Enschede
+- Yasir Al-Shammari: new player — added at Al-Ettifaq FC
+- Yassin Moslih: new player — added at NEC Nijmegen
+- Yassin Oukili: new player — added at Fortuna Sittard
+- Yaya Bojang: new player — added at FC Alverca
+- Yazan Al-Ruwaili: new player — added at Al-Hazem SC
+- Yeimar Mosquera: new player — added at Vitória Guimarães SC
+- Yellu Santiago: new player — added at CS Marítimo
+- Yiğit Baran Karaoğlan: new player — added at Erzurumspor FK
+- Younes Jaber el Meftahi: new player — added at Sparta Rotterdam
+- Younes Taha: new player — added at FC Twente Enschede
+- Youness Dahmani: new player — added at Raja Club Athletic
+- Youssef Maleh: new player — added at US Lecce
+- Youssoupha Mbodji: new player — added at Zulte Waregem
+- Yusuf Özdemir: new player — added at Alanyaspor
+- Zak Jules: new player — added at Eyüpspor
+- Zakaria Hawsawi: new player — added at Al-Ahli SFC
+- Zakaria Kassary: new player — added at FC Alverca
+- Zalán Átrok: new player — added at Zulte Waregem
+- Zidane Iqbal: new player — added at FC Utrecht
+- Zidane Yáñez: new player — added at Nashville SC
+- Zineddine Belaid: new player — added at Al-Taawoun FC
+- Zsombor Gruber: new player — added at RAAL La Louvière
+- Gustavo Puerta: rating change — 85 → 87 (+2)
+- Abde Rebbach: rating change — 84 → 85 (+1)
+- Abdulaziz Al-Harbi: rating change — 82 → 83 (+1)
+- Adam Davies: rating change — 87 → 86 (-1)
+- Adrian Barisic: rating change — 84 → 85 (+1)
+- Adrian Blake: rating change — 82 → 83 (+1)
+- Adriano Bertaccini: rating change — 84 → 85 (+1)
+- Ahmed Abdu: rating change — 84 → 85 (+1)
+- Aihen Muñoz: rating change — 85 → 86 (+1)
+- Alejandro Alvarado: rating change — 82 → 83 (+1)
+- Alex Freeman: rating change — 84 → 85 (+1)
+- Alvas Powell: rating change — 85 → 86 (+1)
+- Amar Dedić: rating change — 88 → 87 (-1)
+- Anastasios Douvikas: rating change — 88 → 89 (+1)
+- André Trindade da Costa Neto: rating change — 88 → 89 (+1)
+- Andrei Chirilă: rating change — 81 → 82 (+1)
+- Anthony Descotte: rating change — 82 → 83 (+1)
+- Antoine Makoumbou: rating change — 85 → 86 (+1)
+- Antonio Blanco: rating change — 86 → 87 (+1)
+- Antonio Rüdiger: rating change — 89 → 90 (+1)
+- Aubrey Modiba: rating change — 86 → 87 (+1)
+- AZ Jackson: rating change — 83 → 84 (+1)
+- Baltasar Barcia: rating change — 84 → 83 (-1)
+- Ben Davies: rating change — 85 → 86 (+1)
+- Benjamin André: rating change — 88 → 89 (+1)
+- Benjamin Brantlind: rating change — 81 → 82 (+1)
+- Bilal Ould-Chikh: rating change — 84 → 85 (+1)
+- Braian Aguirre: rating change — 84 → 85 (+1)
+- Branco van den Boomen: rating change — 86 → 87 (+1)
+- Brynjólfur Willumsson: rating change — 83 → 84 (+1)
+- Carlos Jiménez: rating change — 81 → 82 (+1)
+- Carlos Palacios: rating change — 84 → 85 (+1)
+- Cayman Togashi: rating change — 85 → 86 (+1)
+- Chibuike Nwaiwu: rating change — 85 → 86 (+1)
+- Christian Gomis: rating change — 83 → 84 (+1)
+- Chukwubuikem Ikwuemesi: rating change — 83 → 84 (+1)
+- Colin Coosemans: rating change — 87 → 86 (-1)
+- Corentin Tolisso: rating change — 89 → 90 (+1)
+- Cristian Cásseres Jr.: rating change — 87 → 86 (-1)
+- Crysencio Summerville: rating change — 88 → 89 (+1)
+- Damián Bobadilla: rating change — 85 → 86 (+1)
+- Daniel Pereira: rating change — 84 → 85 (+1)
+- Dániel Sallói: rating change — 85 → 86 (+1)
+- Dejan Joveljić: rating change — 85 → 86 (+1)
+- Deniz Undav: rating change — 89 → 90 (+1)
+- Derry Murkin: rating change — 84 → 85 (+1)
+- Ederson Santana de Moraes: rating change — 92 → 91 (-1)
+- Edin Dzeko: rating change — 87 → 88 (+1)
+- Edu Expósito: rating change — 86 → 87 (+1)
+- Emiliano Martínez: rating change — 92 → 91 (-1)
+- Emre Mor: rating change — 84 → 85 (+1)
+- Eric-Junior Bocat: rating change — 84 → 85 (+1)
+- Etienne Eto'o: rating change — 82 → 83 (+1)
+- Etienne Vaessen: rating change — 86 → 87 (+1)
+- Facundo Bernal: rating change — 85 → 84 (-1)
+- Faisal Al-Ghamdi: rating change — 83 → 84 (+1)
+- Farouck Adekami: rating change — 82 → 83 (+1)
+- Félix Torres: rating change — 86 → 85 (-1)
+- Fisnik Asllani: rating change — 88 → 89 (+1)
+- Flávio Basilua Jacinto Dos Nazinho: rating change — 84 → 85 (+1)
+- Florian Grillitsch: rating change — 87 → 88 (+1)
+- Folarin Balogun: rating change — 89 → 90 (+1)
+- Frederik Rönnow: rating change — 87 → 88 (+1)
+- Gabriel Osho: rating change — 84 → 85 (+1)
+- Geovane de Jesus Rocha: rating change — 83 → 84 (+1)
+- Givanildo Vieira de Souza: rating change — 88 → 87 (-1)
+- Hamza Alaa Abdallah Hussein: rating change — 84 → 83 (-1)
+- Hiiro Komori: rating change — 83 → 84 (+1)
+- Ibrahim Sangaré: rating change — 90 → 89 (-1)
+- Idan Toklomati: rating change — 83 → 84 (+1)
+- İrfan Can Kahveci: rating change — 86 → 87 (+1)
+- Ismail Mokadem: rating change — 85 → 86 (+1)
+- Ivan Smolcic: rating change — 84 → 85 (+1)
+- James Beadle: rating change — 84 → 85 (+1)
+- Jamie Pardington: rating change — 83 → 84 (+1)
+- Jamiro Monteiro: rating change — 87 → 86 (-1)
+- Jan Ziolkowski: rating change — 85 → 86 (+1)
+- Jean-Baptiste Gorby: rating change — 85 → 86 (+1)
+- Jean-Philippe Krasso: rating change — 85 → 86 (+1)
+- Jeff Hardeveld: rating change — 85 → 86 (+1)
+- Jehad Thakri: rating change — 83 → 84 (+1)
+- Jens Castrop: rating change — 85 → 86 (+1)
+- Jessic Ngankam: rating change — 83 → 84 (+1)
+- João Simões: rating change — 86 → 85 (-1)
+- Joe Willis: rating change — 86 → 87 (+1)
+- Joël Schingtienne: rating change — 84 → 85 (+1)
+- Joey Veerman: rating change — 89 → 90 (+1)
+- John McAtee: rating change — 83 → 84 (+1)
+- Jonathan Osorio: rating change — 87 → 86 (-1)
+- Jordan Lefort: rating change — 86 → 87 (+1)
+- Joris Kramer: rating change — 85 → 86 (+1)
+- Juan Mina: rating change — 82 → 83 (+1)
+- Juninho Bacuna: rating change — 85 → 86 (+1)
+- Junior Diaz: rating change — 84 → 85 (+1)
+- Junior Diouf: rating change — 79 → 80 (+1)
+- Kaishu Sano: rating change — 89 → 90 (+1)
+- Kareem Tunde: rating change — 82 → 83 (+1)
+- Keaton Parks: rating change — 85 → 86 (+1)
+- Kenny Quetant: rating change — 82 → 83 (+1)
+- Kevin Kelsy: rating change — 83 → 84 (+1)
+- Kieffer Moore: rating change — 87 → 86 (-1)
+- Kristijan Kahlina: rating change — 87 → 86 (-1)
+- Laurent Jans: rating change — 88 → 87 (-1)
+- Lenny Pintor: rating change — 83 → 84 (+1)
+- Liberato Cacace: rating change — 85 → 84 (-1)
+- Lionel Mpasi-Nzau: rating change — 86 → 87 (+1)
+- Loreintz Rosier: rating change — 84 → 85 (+1)
+- Lucas Paquetá: rating change — 92 → 91 (-1)
+- Lucas Torró: rating change — 86 → 87 (+1)
+- Majed Abdullah: rating change — 81 → 82 (+1)
+- Majed Dawran: rating change — 82 → 83 (+1)
+- Mansour Camara: rating change — 81 → 82 (+1)
+- Manu Hernando: rating change — 84 → 85 (+1)
+- Manu Sánchez: rating change — 86 → 85 (-1)
+- Marcelo Vaz: rating change — 81 → 82 (+1)
+- Marco Ilaimaharitra: rating change — 85 → 86 (+1)
+- Mariano Díaz: rating change — 86 → 87 (+1)
+- Martin Baturina: rating change — 88 → 89 (+1)
+- Maryan Shved: rating change — 84 → 85 (+1)
+- Mateo Biondic: rating change — 82 → 83 (+1)
+- Matheus Bueno Batista: rating change — 84 → 85 (+1)
+- Matheus França: rating change — 84 → 85 (+1)
+- Matheus Gonçalves Martins: rating change — 84 → 85 (+1)
+- Max Alleyne: rating change — 84 → 85 (+1)
+- Max Anchor: rating change — 82 → 83 (+1)
+- Maxi Araújo: rating change — 89 → 90 (+1)
+- Maycon de Andrade Barberan: rating change — 85 → 86 (+1)
+- Mbekezeli Mbokazi: rating change — 83 → 84 (+1)
+- Mehdi Taremi: rating change — 88 → 87 (-1)
+- Mert Kömür: rating change — 85 → 86 (+1)
+- Meschack Elia: rating change — 85 → 86 (+1)
+- Metehan Baltacı: rating change — 82 → 83 (+1)
+- Michel Adopo: rating change — 85 → 86 (+1)
+- Milton Giménez: rating change — 85 → 86 (+1)
+- Miraç Acer: rating change — 84 → 85 (+1)
+- Mobarak Al-Rajeh: rating change — 82 → 83 (+1)
+- Mohammed Abu Al-Shamat: rating change — 83 → 84 (+1)
+- Mohammed Al-Qahtani: rating change — 82 → 83 (+1)
+- Montrell Culbreath: rating change — 85 → 84 (-1)
+- Mostafa Ahmed Shobeir: rating change — 84 → 85 (+1)
+- N'Golo Kanté: rating change — 91 → 90 (-1)
+- Nacho Pérez: rating change — 82 → 81 (-1)
+- Navin Malysh: rating change — 82 → 83 (+1)
+- Nestory Irankunda: rating change — 84 → 85 (+1)
+- Nicholas Hagen: rating change — 85 → 86 (+1)
+- Nicholas Pierini: rating change — 84 → 85 (+1)
+- Nick Olij: rating change — 86 → 87 (+1)
+- Nick Viergever: rating change — 88 → 87 (-1)
+- Nils Rossen: rating change — 82 → 83 (+1)
+- Noah Cobb: rating change — 82 → 83 (+1)
+- Nolan Miller: rating change — 82 → 83 (+1)
+- Nyamekye Awortwie-Grant: rating change — 83 → 84 (+1)
+- Ognjen Mimović: rating change — 83 → 84 (+1)
+- Oliver Antman: rating change — 84 → 85 (+1)
+- Olivier Aertssen: rating change — 82 → 83 (+1)
+- Olivier Kemen: rating change — 85 → 86 (+1)
+- Ollie Bostock: rating change — 82 → 81 (-1)
+- Omari Forson: rating change — 82 → 83 (+1)
+- Pelle Mattsson: rating change — 84 → 85 (+1)
+- Puso Dithejane: rating change — 82 → 83 (+1)
+- Ragnar Ache: rating change — 86 → 87 (+1)
+- Raheem Edwards: rating change — 85 → 86 (+1)
+- Rayane Messi: rating change — 83 → 82 (-1)
+- Richard Kone: rating change — 84 → 85 (+1)
+- Rigoberto Rivas: rating change — 84 → 85 (+1)
+- Rik Mulders: rating change — 83 → 84 (+1)
+- Robert Lewandowski: rating change — 91 → 90 (-1)
+- Rodrigo Castillo: rating change — 85 → 86 (+1)
+- Rubén García: rating change — 86 → 87 (+1)
+- Satoshi Tanaka: rating change — 83 → 84 (+1)
+- Scott Wright: rating change — 84 → 85 (+1)
+- Shogo Taniguchi: rating change — 86 → 87 (+1)
+- Sidny Lopes Cabral: rating change — 84 → 85 (+1)
+- Siebe Schrijvers: rating change — 85 → 86 (+1)
+- Steven Moreira: rating change — 86 → 87 (+1)
+- Sverrir Ingi Ingason: rating change — 87 → 88 (+1)
+- Takuro Kaneko: rating change — 84 → 85 (+1)
+- Thapelo Morena: rating change — 86 → 87 (+1)
+- Themba Zwane: rating change — 87 → 86 (-1)
+- Théo Mununga: rating change — 81 → 82 (+1)
+- Thierry Small: rating change — 84 → 85 (+1)
+- Thom van Bergen: rating change — 83 → 84 (+1)
+- Tian Nai Koren: rating change — 81 → 82 (+1)
+- Tom Vandenberghe: rating change — 87 → 86 (-1)
+- Tyson Pearce: rating change — 81 → 82 (+1)
+- Utku Eriş: rating change — 81 → 82 (+1)
+- Victor Alexander da Silva: rating change — 86 → 87 (+1)
+- Volkan Babacan: rating change — 86 → 87 (+1)
+- Warren Madrigal: rating change — 82 → 83 (+1)
+- Wiebe Kooistra: rating change — 81 → 82 (+1)
+- Willem Geubbels: rating change — 84 → 85 (+1)
+- Yannick Thoelen: rating change — 86 → 87 (+1)
+- Yassine Khalifi: rating change — 82 → 83 (+1)
+- Yoane Wissa: rating change — 91 → 90 (-1)
+- Yoann Cathline: rating change — 84 → 85 (+1)
+- Youri Tielemans: rating change — 92 → 91 (-1)
+- Zeki Çelik: rating change — 89 → 88 (-1)
+- Zion Suzuki: rating change — 89 → 88 (-1)
+- Abdelhamid Sabiri: club change — Without Club → Eyüpspor
+- Abdulaziz Al-Othman: club change — Al-Qadsiah FC → NEOM SC
+- Abdulkarim Darisi: club change — Al-Hilal SFC → Abha Club
+- Abdullah Al-Anazi: club change — Without Club → Al-Hilal SFC
+- Abdullah Al-Fahad: club change — Without Club → Abha Club
+- Abdullah Al-Jadani: club change — Abha Club → Al-Taawoun FC
+- Abdullah Al-Qahtani: club change — Damac FC → Al-Fayha FC
+- Abdullah Al-Shanqiti: club change — Without Club → Al-Hazem SC
+- Abdullah Khateeb: club change — Without Club → Al-Ettifaq FC
+- Abdullah Matuq: club change — Without Club → Al-Shabab FC
+- Abdullah Radif: club change — Without Club → Al-Ahli SFC
+- Abdulrahman Al-Shereaf: club change — Without Club → Al-Faisaly FC
+- Adam Ennaffati: club change — Raja Club Athletic → club_2068
+- Adrian Benedyczak: club change — Parma Calcio 1913 → Kasimpasa
+- Ahmad Abu Rasen: club change — Without Club → Sint-Truidense VV
+- Ahmed Abdu: club change — Without Club → Al-Faisaly FC
+- Ahmed Abdullahi: club change — Sunderland AFC → Eyüpspor
+- Ahmed Al-Siyahi: club change — Al-Riyadh SC → Al-Qadsiah FC
+- Alan Franco: club change — São Paulo Futebol Clube → Tigres UANL
+- Alban Lafont: club change — FC Nantes → Amed SK
+- Alex Král: club change — Without Club → FC Copenhagen
+- Alex Mowatt: club change — West Bromwich Albion → Derby County
+- Alexis Sánchez: club change — Without Club → CF Montréal
+- Ali Al-Asmari: club change — NEOM SC → Al-Shabab FC
+- Amin Al-Bukhari: club change — Without Club → Al-Diriyah FC
+- Amine El Ouazzani: club change — SC Braga → Angers SCO
+- Amir Richardson: club change — ACF Fiorentina → Le Havre AC
+- Anan Khalaili: club change — Crystal Palace → Without Club
+- Anas Tajaouart: club change — RSC Anderlecht → RAAL La Louvière
+- Andrea Pinamonti: club change — SS Lazio → US Sassuolo
+- Andrei Girotto: club change — Without Club → Al-Faisaly FC
+- Andrej Kostić: club change — Sparta Rotterdam → Without Club
+- Andrés García: club change — Aston Villa → Getafe CF
+- Anıl Yaşar: club change — Caykur Rizespor → Eyüpspor
+- Anthony Descotte: club change — Without Club → Fortuna Sittard
+- Antonio Vergara: club change — SSC Napoli → Without Club
+- Arbnor Muja: club change — Samsunspor → Sint-Truidense VV
+- Armindo Sieb: club change — Bayern Munich → Los Angeles FC
+- Arthur Masuaku: club change — Sunderland AFC → Konyaspor
+- Arthur Theate: club change — Bologna FC 1909 → Eintracht Frankfurt
+- Ashley Barnes: club change — Without Club → Burnley FC
+- Aurélio Buta: club change — Without Club → club_190
+- Awad Al-Nashri: club change — Without Club → Al-Shabab FC
+- Ayman Fallatah: club change — Al-Ahli SFC → Al-Faisaly FC
+- AZ Jackson: club change — Jagiellonia Bialystok → Minnesota United FC
+- Basil Al-Sayyali: club change — Al-Shabab FC → Abha Club
+- Benjamin Fredrick: club change — Brentford FC → FCV Dender EH
+- Berat Özdemir: club change — Basaksehir FK → Corum FK
+- Berkan Kutlu: club change — Without Club → Kocaelispor
+- Brayan Ceballos: club change — New England Revolution → CF Montréal
+- Bruno Braga Ramos: club change — Club Athletico Paranaense → Shakhtar Donetsk
+- Cabral Carter: club change — Los Angeles FC → Without Club
+- Cameron Congreve: club change — Swansea City → KVC Westerlo
+- Carlos Dotor: club change — Celta de Vigo → Málaga CF
+- Carlos Macià: club change — Villarreal CF B → Villarreal CF
+- Cassius Mailula: club change — Without Club → Mamelodi Sundowns FC
+- Chancel Mbemba: club change — Without Club → Al-Diriyah FC
+- Charlie Cresswell: club change — FC Toulouse → Stade Rennais FC
+- Charlie Taylor: club change — Without Club → Derby County
+- Cheick Condé: club change — Venezia FC → SK Beveren
+- Chidozie Awaziem: club change — FC Nantes → Konyaspor
+- Christian Früchtl: club change — US Lecce → Red Bull Salzburg
+- Coba da Costa: club change — Getafe CF → Al-Kholood Club
+- Cody Baker: club change — Seattle Sounders FC → New England Revolution
+- Conor Townsend: club change — Without Club → West Bromwich Albion
+- Cyril Ngonge: club change — AC Monza → SSC Napoli
+- Dagur Dan Thórhallsson: club change — CF Montréal → San Diego FC
+- Daniel Pereira: club change — Austin FC → CF Montréal
+- Danilo Pereira da Silva: club change — Rangers FC → Botafogo de Futebol e Regatas
+- Danny McNamara: club change — Without Club → Charlton Athletic
+- Darlin Yongwa: club change — Without Club → Norwich City
+- Daryl Dike: club change — Without Club → Orlando City SC
+- Dastan Satpaev: club change — Kairat Almaty → Burnley FC
+- Dayann Méthalie: club change — Sunderland AFC → FC Toulouse
+- Deniz Gül: club change — FC Porto → Without Club
+- Deniz Zeitler: club change — TSG 1899 Hoffenheim → SC Paderborn 07
+- Diego Moreira: club change — AC Milan → RC Strasbourg Alsace
+- Diego Rico: club change — Without Club → CA Osasuna
+- Diogo Nascimento: club change — Olympiacos Piraeus → Rio Ave FC
+- Dirk Proper: club change — NEC Nijmegen → SC Heerenveen
+- Domingos Duarte: club change — Without Club → club_3709
+- Donovan Léon: club change — AJ Auxerre → Abha Club
+- Edin Dzeko: club change — Without Club → FC Schalke 04
+- Eduard Spertsyan: club change — FC Krasnodar → Al-Ahli SFC
+- Edwin Cerrillo: club change — Los Angeles Galaxy → CF América
+- Elias Saad: club change — FC Augsburg → Nashville SC
+- Elkan Baggott: club change — Ipswich Town → Millwall FC
+- Emirhan Demircan: club change — FC Utrecht → SC Telstar
+- Emmanuel Latte Lath: club change — Atlanta United FC → 1.FC Union Berlin
+- Emre Bilgin: club change — Besiktas JK → Eyüpspor
+- Emre Mor: club change — Without Club → NEC Nijmegen
+- Enrique Aguilar: club change — Red Bull Salzburg → Without Club
+- Eran Tuypens: club change — Young Reds → Royal Antwerp FC
+- Eray Cömert: club change — Without Club → Torino FC
+- Eren Dinkçi: club change — SC Freiburg → SV Werder Bremen
+- Ertuğrul Taşkıran: club change — Without Club → Erzurumspor FK
+- Fábio Baldé: club change — Hamburger SV → RC Strasbourg Alsace
+- Fabio Miretti: club change — Besiktas JK → Juventus FC
+- Faisal Al-Subiani: club change — Al-Shabab FC → Abha Club
+- Faris Abdi: club change — NEOM SC → Al-Ittihad Club
+- Faris Al-Ghamdi: club change — Without Club → Al-Ettifaq FC
+- Fawaz Rabie: club change — Al-Orobah FC → Al-Faisaly FC
+- Federico Ravaglia: club change — Bologna FC 1909 → Watford FC
+- Fernando Calero: club change — Without Club → Málaga CF
+- Fernando Pacheco: club change — Al-Fateh SC → Al-Faisaly FC
+- Festy Ebosele: club change — Basaksehir FK → Erzurumspor FK
+- Filip Jørgensen: club change — Chelsea FC → RC Strasbourg Alsace
+- Filip Kostic: club change — Without Club → PSV Eindhoven
+- Florian Grillitsch: club change — Without Club → Frosinone Calcio
+- Francisco Edgar Chissumba Rodrigues: club change — SC Braga → FC Alverca
+- Freddie Woodman: club change — Liverpool FC → Without Club
+- Gabriel dos Santos Queiroz: club change — Athletic Club → SL Benfica
+- George Hirst: club change — Stoke City → Ipswich Town
+- Georgios Koutsias: club change — FC Lugano → FC Famalicão
+- Giacomo Satalino: club change — Without Club → US Sassuolo
+- Gift Orban: club change — TSG 1899 Hoffenheim → Amed SK
+- Giorgi Tsitaishvili: club change — Without Club → Rayo Vallecano
+- Giovanni Reyna: club change — Borussia Mönchengladbach → RC Strasbourg Alsace
+- Gonzalo Tapia: club change — São Paulo Futebol Clube → Columbus Crew
+- Guillermo Maripán: club change — Without Club → Sport Club Internacional
+- Güven Yalçın: club change — Alanyaspor → Kasimpasa
+- Gyrano Kerk: club change — Without Club → Erzurumspor FK
+- Harry Wilson: club change — Leeds United → Fulham FC
+- Hassan Al-Ali: club change — NEOM SC → Al-Riyadh SC
+- Hattan Bahebri: club change — Without Club → Al-Diriyah FC
+- Hennes Behrens: club change — TSG 1899 Hoffenheim → FC Augsburg
+- Henrique Araújo: club change — SL Benfica → Casa Pia AC
+- Hirving Lozano: club change — San Diego FC → Los Angeles Galaxy
+- Horațiu Moldovan: club change — Atlético de Madrid → Eyüpspor
+- Hugo Cuypers: club change — Chicago Fire FC → CF Monterrey
+- Hugo Picard: club change — Columbus Crew → ESTAC Troyes
+- Ibrahim Cissoko: club change — FC Toulouse → PEC Zwolle
+- Ibrahim Fofana: club change — Amiens SC → KVC Westerlo
+- Ibrahim Sulemana: club change — Atalanta BC → club_1390
+- Ibrahima Cissé: club change — Jong KAA Gent → KAA Gent
+- Iker Bravo: club change — Udinese Calcio → Watford FC
+- İrfan Can Eğribayat: club change — Fenerbahce → Genclerbirligi Ankara
+- Jack Moylan: club change — Lincoln City → Cardiff City
+- Jacob Ondrejka: club change — Parma Calcio 1913 → FC Groningen
+- Jay Robinson: club change — Southampton FC → AC Monza
+- Jefté Vital da Silva Dias: club change — Sociedade Esportiva Palmeiras → club_1023
+- Jenson Seelt: club change — Swansea City → Sunderland AFC
+- Jerry Afriyie: club change — Al-Qadsiah FC → KRC Genk
+- Jesús Ramírez: club change — CD Nacional → Corum FK
+- Joe Gauci: club change — Aston Villa → Lincoln City
+- Joël Veltman: club change — Without Club → West Ham United
+- Johan Manzambi: club change — Aston Villa → Without Club
+- Jordan Zemura: club change — Udinese Calcio → Watford FC
+- José Salinas: club change — RCD Espanyol Barcelona → Málaga CF
+- Josef Martínez: club change — Club Tijuana → Columbus Crew
+- Joseph Nonge: club change — Kocaelispor → Stade Brestois 29
+- Joseph Opoku: club change — Zulte Waregem → Swansea City
+- Josh Maja: club change — West Bromwich Albion → Le Havre AC
+- Joyeux Masanka Bungi: club change — RB Leipzig → Without Club
+- Juan Brunetta: club change — Tigres UANL → club_7055
+- Juan Fedorco: club change — CA Independiente → club_1234
+- Jules Ahoka: club change — Sunderland AFC → Royal Antwerp FC
+- Junior Dina Ebimbe: club change — Eintracht Frankfurt → FC Schalke 04
+- Junior Mwanga: club change — RC Strasbourg Alsace → Le Havre AC
+- Jusef Erabi: club change — KRC Genk → Preston North End
+- Kai Wagner: club change — Birmingham City → Philadelphia Union
+- Kalvin Phillips: club change — Manchester City → Sheffield United
+- Kareem Tunde: club change — West Bromwich Albion → Levante UD
+- Karlan Grant: club change — West Bromwich Albion → Charlton Athletic
+- Kervin Arriaga: club change — AEK Athens → Levante UD
+- Keshim Al-Qahtani: club change — Al-Taawoun FC → Abha Club
+- Kevin Carlos Omoruyi Benjamin: club change — OGC Nice → Cagliari Calcio
+- Khalid Al-Harbi: club change — Jeddah SC → Al-Faisaly FC
+- Khalil Al-Absi: club change — Al-Riyadh SC → NEOM SC
+- Kimito Nono: club change — Kashima Antlers → D.C. United
+- Kodai Sano: club change — NEC Nijmegen → PSV Eindhoven
+- Konstantinos Karetsas: club change — Borussia Dortmund → Without Club
+- Kyliane Dong: club change — FC Augsburg → Bolton Wanderers
+- Kyogo Furuhashi: club change — Birmingham City → Los Angeles Galaxy
+- Lanroy Machine: club change — Angers SCO → SC Heerenveen
+- Lassine Sinayoko: club change — AJ Auxerre → Paris FC
+- Lautaro Díaz: club change — Santos FC → Racing Club
+- Léandre Kuavita: club change — Without Club → SK Beveren
+- Leandro Brey: club change — CA Boca Juniors → Without Club
+- Leo Hjelde: club change — Sunderland AFC → KV Mechelen
+- Leonardo Matias Baiersdorf Linck: club change — Botafogo de Futebol e Regatas → CF Estrela Amadora
+- Lesley Ugochukwu: club change — Burnley FC → Galatasaray
+- Levent Mercan: club change — Fenerbahce → club_36
+- Lewis Brunt: club change — Wrexham AFC → Bolton Wanderers
+- Lohann Doucet: club change — Paris FC → Vitória Guimarães SC
+- Loreintz Rosier: club change — Al-Hazem SC → Abha Club
+- Luca Kjerrumgaard: club change — Udinese Calcio → Watford FC
+- Luca Koleosho: club change — Burnley FC → Paris FC
+- Lucas França: club change — Without Club → CD Santa Clara
+- Lucas Silva: club change — CA River Plate II → CA River Plate
+- Luis Hasa: club change — SSC Napoli → Frosinone Calcio
+- Luis Vázquez: club change — RSC Anderlecht → Birmingham City
+- Mahmoud Bentayg: club change — Zamalek SC → club_664
+- Maik Nawrocki: club change — Celtic FC → RC Lens
+- Majed Dawran: club change — Al-Ettifaq FC → Abha Club
+- Manor Solomon: club change — Tottenham Hotspur → ACF Fiorentina
+- Mario Lemina: club change — Without Club → Galatasaray
+- Marius Courcoul: club change — Angers SCO → RAAL La Louvière
+- Marko Jevtovic: club change — Without Club → Konyaspor
+- Martin Adeline: club change — ESTAC Troyes → Hamburger SV
+- Martín Payero: club change — Udinese Calcio → Watford FC
+- Marwane Saadane: club change — Without Club → Al-Fateh SC
+- Massimo Luongo: club change — Without Club → Millwall FC
+- Matchoi Djaló: club change — Basaksehir FK → CD Nacional
+- Mateo Pellegrino: club change — Parma Calcio 1913 → ACF Fiorentina
+- Matheus José Belém de Souza: club change — São Paulo Futebol Clube → Without Club
+- Matías Abaldo: club change — CA Independiente → club_1234
+- Matías Moreno: club change — ACF Fiorentina → Venezia FC
+- Matt Doherty: club change — Without Club → Sheffield United
+- Matthis Abline: club change — FC Nantes → AS Monaco
+- Mauricio Benítez: club change — CA Boca Juniors → Without Club
+- Max Arfsten: club change — Columbus Crew → Middlesbrough FC
+- Max Bird: club change — Bristol City → Birmingham City
+- Maximilian Wöber: club change — Leeds United → FC Schalke 04
+- Mehdi Mchakhchekh: club change — Raja Club Athletic → Without Club
+- Mërgim Vojvoda: club change — Como 1907 → Udinese Calcio
+- Meshal Al-Mutairi: club change — Without Club → Al-Ahli SFC
+- Metehan Altunbaş: club change — Eyüpspor → Kocaelispor
+- Michael Zetterer: club change — Leeds United → Eintracht Frankfurt
+- Michal Skoras: club change — KAA Gent → RC Lens
+- Miguel Ángel Brau: club change — Académico Viseu FC → Coventry City
+- Miguel Crespo: club change — Basaksehir FK → Al-Khaleej FC
+- Miguel Rodríguez: club change — FC Utrecht → Deportivo Alavés
+- Mika Baur: club change — SC Paderborn 07 → Celtic FC
+- Min-hyeok Yang: club change — Tottenham Hotspur → KVC Westerlo
+- Mohamed Al-Sarnukh: club change — Al-Fateh SC → Al-Hilal SFC
+- Mohamed Amine Ben Hamida: club change — Esperance Tunis → Al-Hazem SC
+- Mohamed Bouldini: club change — Deportivo A Coruña → Académico Viseu FC
+- Mohamed Sobhi: club change — Zamalek SC → club_664
+- Mohammed Al-Qahtani: club change — Al-Hilal SFC → Al-Qadsiah FC
+- Mohammed Al-Saedi: club change — Al-Hazem SC → Al-Taawoun FC
+- Mohammed Mahzari: club change — Al-Taawoun FC → Al-Hilal SFC
+- Mory Konaté: club change — Without Club → Al-Hazem SC
+- Mostafa El Zenary: club change — Zamalek SC → club_62448
+- Moussa Diakité: club change — Cádiz CF → Caykur Rizespor
+- Muhanad Al-Saad: club change — Without Club → NEOM SC
+- Mukhtar Ali: club change — Al-Ettifaq FC → Al-Ittihad Club
+- Musa Barrow: club change — Without Club → Al-Khaleej FC
+- Nabil Bentaleb: club change — Without Club → LOSC Lille
+- Naif Masoud: club change — Al-Fateh SC → Al-Ahli SFC
+- Nariman Akhundzada: club change — Columbus Crew → Erzurumspor FK
+- Nawaf Al-Habashi: club change — Al-Hazem SC → Al-Hilal SFC
+- Nawaf Al-Saadi: club change — Al-Shabab FC → Al-Khaleej FC
+- Nayel Mehssatou: club change — Standard Liège → KV Kortrijk
+- Nestory Irankunda: club change — Watford FC → Sporting CP
+- Newton Araujo da Costa Júnior: club change — Botafogo de Futebol e Regatas → São Paulo Futebol Clube
+- Nico Elvedi: club change — Leeds United → Borussia Mönchengladbach
+- Nicolás Valentini: club change — ACF Fiorentina → Deportivo Alavés
+- Noah Mbamba: club change — Bayer 04 Leverkusen → FC Lorient
+- Noel Futkeu: club change — Eintracht Frankfurt → SV 07 Elversberg
+- Oliwier Zych: club change — Aston Villa → Vitória Guimarães SC
+- Ollie Bostock: club change — West Bromwich Albion U21 → West Bromwich Albion
+- Olwethu Makhanya: club change — Philadelphia Union → Rangers FC
+- Omar Mascarell: club change — RCD Mallorca → Al-Khaleej FC
+- Omar Traoré: club change — Udinese Calcio → Watford FC
+- Orest Lebedenko: club change — Vitória Guimarães SC → FC Arouca
+- Óscar Perea: club change — RC Strasbourg Alsace → CF América
+- Oualid Agougil: club change — FC Utrecht U21 → FC Utrecht
+- Pablo Pagis: club change — FC Lorient → Paris FC
+- Pablo Ramón: club change — RCD Espanyol Barcelona → Racing Santander
+- Patrizio Masini: club change — Genoa CFC → Frosinone Calcio
+- Paul Nardi: club change — Without Club → AJ Auxerre
+- Paul Okon-Engstler: club change — Sydney FC → 1.FC Köln
+- Paulo Oliveira: club change — SC Braga → Al-Fayha FC
+- Pedro Lima: club change — Sporting CP → Avs Futebol
+- Promise David: club change — Brighton & Hove Albion → Union Saint-Gilloise
+- Qasem Lajami: club change — Without Club → Al-Diriyah FC
+- Rafa Obrador: club change — SL Benfica → US Sassuolo
+- Rafik El Arguioui: club change — FC Utrecht → SC Cambuur Leeuwarden
+- Rahim Alhassane: club change — Bologna FC 1909 → Without Club
+- Rayan Bamba: club change — Stade Rennais FC → Le Mans FC
+- Rayan Lutin: club change — Amiens SC → Amed SK
+- Rayane Messi: club change — RC Strasbourg Alsace → Al-Ettifaq FC
+- Reda Belahyane: club change — SS Lazio → Without Club
+- Redouane Halhal: club change — KV Mechelen → Venezia FC
+- Reiss Nelson: club change — Without Club → Arsenal FC
+- René Mitongo: club change — Standard Liège → Trabzonspor
+- Rick van Drongelen: club change — Samsunspor → Panathinaikos
+- Robin Kelder: club change — FC Groningen U21 → Al-Fateh SC
+- Rodrigo Abascal: club change — Vitória Guimarães SC → Al-Riyadh SC
+- Rodrigo Castillo: club change — Fluminense Football Club → Without Club
+- Romano Schmid: club change — SV Werder Bremen → Frosinone Calcio
+- Ross Stewart: club change — Without Club → Swansea City
+- Ryan Hardie: club change — Wrexham AFC → Bolton Wanderers
+- Ryotaro Araki: club change — Kashima Antlers → Sint-Truidense VV
+- Sacha Boey: club change — Bayern Munich → Galatasaray
+- Salih Uçan: club change — Without Club → Genclerbirligi Ankara
+- Sam Byram: club change — Leeds United → club_399
+- Sam de Grand: club change — Lommel SK → AZ Alkmaar
+- Sammie Szmodics: club change — Ipswich Town → Derby County
+- Sebastiaan Bornauw: club change — Hamburger SV → Leeds United
+- Sebastian Berhalter: club change — Vancouver Whitecaps FC → Middlesbrough FC
+- Sebastiano Esposito: club change — US Sassuolo → Cagliari Calcio
+- Serdar Dursun: club change — Without Club → Gaziantep FK
+- Sergi Roberto: club change — Without Club → Los Angeles Galaxy
+- Serkan Köse: club change — Without Club → Erzurumspor FK
+- Shiloh 't Zand: club change — Feyenoord U21 → Fortuna Sittard
+- Shin Yamada: club change — Celtic FC → Oud-Heverlee Leuven
+- Sofiane Bendebka: club change — Without Club → Al-Hazem SC
+- Souleymane Faye: club change — Sporting CP → FC Lorient
+- Stefan Ortega: club change — Without Club → Olympiacos Piraeus
+- Stefan Posch: club change — Como 1907 → 1.FSV Mainz 05
+- Steven Benda: club change — Nottingham Forest → Without Club
+- Sultan Harun: club change — Al-Riyadh SC → Al-Qadsiah FC
+- Tahir Reid-Brown: club change — Orlando City SC → St. Louis CITY SC
+- Takeshi Wada: club change — Urawa Red Diamonds → Without Club
+- Takuya Ogiwara: club change — Urawa Red Diamonds → Oud-Heverlee Leuven
+- Tanguy Nianzou: club change — Sevilla FC → LOSC Lille
+- Tanto Olaofe: club change — Charlton Athletic → Lincoln City
+- Tatsuki Seko: club change — Stoke City → Urawa Red Diamonds
+- Thapelo Maseko: club change — Mamelodi Sundowns FC → Without Club
+- Timothée Pembélé: club change — Sunderland AFC → Le Havre AC
+- Troy Parrott: club change — Real Betis Balompié → AZ Alkmaar
+- Umut Bozok: club change — Without Club → Basaksehir FK
+- Umut Meraş: club change — Without Club → Amed SK
+- Umut Tohumcu: club change — TSG 1899 Hoffenheim → Red Bull Salzburg
+- Valentin Sulzbacher: club change — Red Bull Salzburg → Excelsior Rotterdam
+- Vincent Janssen: club change — Without Club → Portland Timbers
+- Vivaldo Semedo: club change — Watford FC → FC Alverca
+- Warleson Steillon Lisboa Oliveira: club change — Cercle Brugge → Botafogo de Futebol e Regatas
+- Wilfried Kanga: club change — KAA Gent → Al-Fateh SC
+- Willem Geubbels: club change — Paris FC → US Lecce
+- Xaver Schlager: club change — Nottingham Forest → RB Leipzig
+- Yacine Titraoui: club change — Royal Charleroi SC → RC Lens
+- Yannik Engelhardt: club change — Como 1907 → SC Freiburg
+- Yaseen Al-Zubaidi: club change — Al-Ahli SFC → Al-Kholood Club
+- Yasser Larouci: club change — Without Club → Le Mans FC
+- Yira Sor: club change — KRC Genk → Amed SK
+- Younes El Bahraoui: club change — Renaissance de Berkane → Al-Taawoun FC
+- Yousef Al-Shammari: club change — Without Club → Al-Faisaly FC
+- Youssef Maziz: club change — Without Club → Colorado Rapids
+- Yusuf Barası: club change — Kasimpasa → Eyüpspor
+- Zavier Gozo: club change — Crystal Palace → Real Salt Lake City
+- Zion Suzuki: club change — Aston Villa → Parma Calcio 1913

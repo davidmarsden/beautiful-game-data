@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T09:06:48.692Z",
+  "generated_at": "2026-09-06T08:56:53.154Z",
   "policy": {
     "version": "tbg-veteran-reality-check-v2.0",
     "minimum_age": 34,
@@ -27,12 +27,12 @@
     "principle": "TBG veteran ratings are moderated using age, position, league strength and current Transfermarkt market signal. Historic reputation may inform the core model, but extreme age, weaker current competition and low current value must constrain the final published rating."
   },
   "summary": {
-    "veteran_rows_reviewed": 257,
-    "adjusted_players": 339,
-    "elite_league_adjustments": 23,
-    "non_elite_league_adjustments": 316,
-    "goalkeeper_adjustments": 85,
-    "outfield_adjustments": 254,
+    "veteran_rows_reviewed": 289,
+    "adjusted_players": 379,
+    "elite_league_adjustments": 29,
+    "non_elite_league_adjustments": 350,
+    "goalkeeper_adjustments": 103,
+    "outfield_adjustments": 276,
     "maximum_reduction": -4
   },
   "adjustments": [
@@ -51,10 +51,10 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "28396",
-      "player_name": "Edin Dzeko",
-      "club": "Without Club",
-      "competition": "",
+      "transfermarkt_id": "80562",
+      "player_name": "Givanildo Vieira de Souza",
+      "club": "Fluminense Football Club",
+      "competition": "BRA1",
       "position_group": "ATT",
       "age": 40,
       "market_value_eur": 1000000,
@@ -163,6 +163,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "28396",
+      "player_name": "Edin Dzeko",
+      "club": "FC Schalke 04",
+      "competition": "L1",
+      "position_group": "ATT",
+      "age": 40,
+      "market_value_eur": 1000000,
+      "before": 91,
+      "after": 88,
+      "adjustment": -3,
+      "reason": "veteran reality adjustment: age 40, elite league, outfield, low current value",
+      "elite_league": true
+    },
+    {
       "transfermarkt_id": "29692",
       "player_name": "Lukasz Fabianski",
       "club": "Without Club",
@@ -233,6 +247,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "172678",
+      "player_name": "Mustafa Malayekah",
+      "club": "Abha Club",
+      "competition": "SA1",
+      "position_group": "GK",
+      "age": 40,
+      "market_value_eur": 50000,
+      "before": 89,
+      "after": 86,
+      "adjustment": -3,
+      "reason": "veteran reality adjustment: age 40, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "86282",
       "player_name": "Waleed Abdullah",
       "club": "Al-Diriyah FC",
@@ -280,12 +308,12 @@
       "club": "Chicago Fire FC",
       "competition": "MLS1",
       "position_group": "ATT",
-      "age": 38,
+      "age": 37,
       "market_value_eur": 7000000,
-      "before": 93,
-      "after": 91,
+      "before": 92,
+      "after": 90,
       "adjustment": -2,
-      "reason": "veteran reality adjustment: age 38, non-elite league, outfield, current value retained",
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, current value retained",
       "elite_league": false
     },
     {
@@ -331,10 +359,24 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "25520",
+      "player_name": "Remko Pasveer",
+      "club": "FC Twente Enschede",
+      "competition": "NL1",
+      "position_group": "GK",
+      "age": 42,
+      "market_value_eur": 100000,
+      "before": 91,
+      "after": 89,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 42, elite league, GK, low current value",
+      "elite_league": true
+    },
+    {
       "transfermarkt_id": "40433",
       "player_name": "Alexis Sánchez",
-      "club": "Without Club",
-      "competition": "",
+      "club": "CF Montréal",
+      "competition": "MLS1",
       "position_group": "ATT",
       "age": 37,
       "market_value_eur": 1200000,
@@ -357,20 +399,6 @@
       "adjustment": -2,
       "reason": "veteran reality adjustment: age 40, elite league, GK, low current value",
       "elite_league": true
-    },
-    {
-      "transfermarkt_id": "80562",
-      "player_name": "Givanildo Vieira de Souza",
-      "club": "Fluminense Football Club",
-      "competition": "BRA1",
-      "position_group": "ATT",
-      "age": 39,
-      "market_value_eur": 1000000,
-      "before": 90,
-      "after": 88,
-      "adjustment": -2,
-      "reason": "veteran reality adjustment: age 39, non-elite league, outfield, low current value",
-      "elite_league": false
     },
     {
       "transfermarkt_id": "17965",
@@ -583,6 +611,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "175615",
+      "player_name": "Joe Willis",
+      "club": "Nashville SC",
+      "competition": "MLS1",
+      "position_group": "GK",
+      "age": 38,
+      "market_value_eur": 125000,
+      "before": 89,
+      "after": 87,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "29712",
       "player_name": "John Ruddy",
       "club": "Without Club",
@@ -751,6 +793,34 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "24846",
+      "player_name": "Ricardo Batista",
+      "club": "Casa Pia AC",
+      "competition": "PO1",
+      "position_group": "GK",
+      "age": 39,
+      "market_value_eur": 100000,
+      "before": 89,
+      "after": 87,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "71401",
+      "player_name": "Rodolfo Cota",
+      "club": "CF América",
+      "competition": "MEXA",
+      "position_group": "GK",
+      "age": 39,
+      "market_value_eur": 200000,
+      "before": 89,
+      "after": 87,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 39, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "68390",
       "player_name": "Séamus Coleman",
       "club": "Without Club",
@@ -804,6 +874,34 @@
       "after": 87,
       "adjustment": -2,
       "reason": "veteran reality adjustment: age 38, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "52261",
+      "player_name": "Volkan Babacan",
+      "club": "Basaksehir FK",
+      "competition": "TR1",
+      "position_group": "GK",
+      "age": 38,
+      "market_value_eur": 50000,
+      "before": 89,
+      "after": 87,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "42205",
+      "player_name": "Yann Sommer",
+      "club": "Club Brugge KV",
+      "competition": "BE1",
+      "position_group": "GK",
+      "age": 37,
+      "market_value_eur": 2000000,
+      "before": 89,
+      "after": 87,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -989,17 +1087,17 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "175615",
-      "player_name": "Joe Willis",
-      "club": "Nashville SC",
-      "competition": "MLS1",
+      "transfermarkt_id": "92983",
+      "player_name": "Jon McLaughlin",
+      "club": "Middlesbrough FC",
+      "competition": "GB2",
       "position_group": "GK",
-      "age": 37,
-      "market_value_eur": 125000,
+      "age": 38,
+      "market_value_eur": 50000,
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
+      "reason": "veteran reality adjustment: age 38, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -1199,17 +1297,17 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "52261",
-      "player_name": "Volkan Babacan",
-      "club": "Basaksehir FK",
-      "competition": "TR1",
-      "position_group": "GK",
+      "transfermarkt_id": "176578",
+      "player_name": "Themba Zwane",
+      "club": "Mamelodi Sundowns FC",
+      "competition": "SFA1",
+      "position_group": "MID",
       "age": 37,
-      "market_value_eur": 50000,
+      "market_value_eur": 250000,
       "before": 88,
       "after": 86,
       "adjustment": -2,
-      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1224,6 +1322,20 @@
       "after": 86,
       "adjustment": -2,
       "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "238367",
+      "player_name": "Cassiano Dias Moreira",
+      "club": "Casa Pia AC",
+      "competition": "PO1",
+      "position_group": "ATT",
+      "age": 37,
+      "market_value_eur": 150000,
+      "before": 87,
+      "after": 85,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -1255,20 +1367,6 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "225083",
-      "player_name": "N'Golo Kanté",
-      "club": "Fenerbahce",
-      "competition": "TR1",
-      "position_group": "DEF",
-      "age": 35,
-      "market_value_eur": 4000000,
-      "before": 92,
-      "after": 91,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
-      "elite_league": false
-    },
-    {
       "transfermarkt_id": "88103",
       "player_name": "James Rodríguez",
       "club": "Without Club",
@@ -1290,6 +1388,20 @@
       "position_group": "DEF",
       "age": 35,
       "market_value_eur": 4500000,
+      "before": 91,
+      "after": 90,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "225083",
+      "player_name": "N'Golo Kanté",
+      "club": "Fenerbahce",
+      "competition": "TR1",
+      "position_group": "DEF",
+      "age": 35,
+      "market_value_eur": 4000000,
       "before": 91,
       "after": 90,
       "adjustment": -1,
@@ -1400,12 +1512,12 @@
       "club": "US Sassuolo",
       "competition": "IT1",
       "position_group": "DEF",
-      "age": 37,
+      "age": 38,
       "market_value_eur": 1600000,
       "before": 90,
       "after": 89,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
+      "reason": "veteran reality adjustment: age 38, elite league, outfield, low current value",
       "elite_league": true
     },
     {
@@ -1568,13 +1680,27 @@
       "club": "CR Flamengo",
       "competition": "BRA1",
       "position_group": "DEF",
-      "age": 34,
+      "age": 35,
       "market_value_eur": 2000000,
       "before": 89,
       "after": 88,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
+    },
+    {
+      "transfermarkt_id": "36139",
+      "player_name": "Dusan Tadic",
+      "club": "NEC Nijmegen",
+      "competition": "NL1",
+      "position_group": "MID",
+      "age": 37,
+      "market_value_eur": 1500000,
+      "before": 89,
+      "after": 88,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
+      "elite_league": true
     },
     {
       "transfermarkt_id": "442531",
@@ -1743,6 +1869,20 @@
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
+    },
+    {
+      "transfermarkt_id": "39918",
+      "player_name": "Régis Gurtner",
+      "club": "RC Lens",
+      "competition": "FR1",
+      "position_group": "GK",
+      "age": 39,
+      "market_value_eur": 100000,
+      "before": 89,
+      "after": 88,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 39, elite league, GK, low current value",
+      "elite_league": true
     },
     {
       "transfermarkt_id": "148252",
@@ -1941,6 +2081,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "73472",
+      "player_name": "Ben Amos",
+      "club": "Burnley FC",
+      "competition": "GB2",
+      "position_group": "GK",
+      "age": 36,
+      "market_value_eur": 50000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "124901",
       "player_name": "Benjamin Leroy",
       "club": "FC Lorient",
@@ -2081,6 +2235,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "139503",
+      "player_name": "Enner Valencia",
+      "club": "CA Boca Juniors",
+      "competition": "ARGC",
+      "position_group": "ATT",
+      "age": 36,
+      "market_value_eur": 1000000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "98853",
       "player_name": "Enrico Pepe",
       "club": "Marsaxlokk FC",
@@ -2097,8 +2265,8 @@
     {
       "transfermarkt_id": "91945",
       "player_name": "Ertuğrul Taşkıran",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Erzurumspor FK",
+      "competition": "TR1",
       "position_group": "GK",
       "age": 36,
       "market_value_eur": 100000,
@@ -2109,13 +2277,13 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "106032",
-      "player_name": "Everson Felipe Marques Pires",
-      "club": "Clube Atlético Mineiro",
-      "competition": "BRA1",
+      "transfermarkt_id": "105888",
+      "player_name": "Esteban Andrada",
+      "club": "CF Monterrey",
+      "competition": "MEXA",
       "position_group": "GK",
       "age": 35,
-      "market_value_eur": 900000,
+      "market_value_eur": 200000,
       "before": 88,
       "after": 87,
       "adjustment": -1,
@@ -2123,9 +2291,23 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "106032",
+      "player_name": "Everson Felipe Marques Pires",
+      "club": "Clube Atlético Mineiro",
+      "competition": "BRA1",
+      "position_group": "GK",
+      "age": 36,
+      "market_value_eur": 900000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "172015",
       "player_name": "Fernando Pacheco",
-      "club": "Al-Fateh SC",
+      "club": "Al-Faisaly FC",
       "competition": "SA1",
       "position_group": "GK",
       "age": 34,
@@ -2207,6 +2389,34 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "260171",
+      "player_name": "Hyeon-woo Jo",
+      "club": "Ulsan HD FC",
+      "competition": "RSK1",
+      "position_group": "GK",
+      "age": 34,
+      "market_value_eur": 650000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "210127",
+      "player_name": "Ibrahim Zaied",
+      "club": "Al-Hazem SC",
+      "competition": "SA1",
+      "position_group": "GK",
+      "age": 36,
+      "market_value_eur": 150000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "90451",
       "player_name": "Iván Marcone",
       "club": "CA Independiente",
@@ -2235,6 +2445,34 @@
       "elite_league": true
     },
     {
+      "transfermarkt_id": "134999",
+      "player_name": "Jens Toornstra",
+      "club": "Sparta Rotterdam",
+      "competition": "NL1",
+      "position_group": "MID",
+      "age": 37,
+      "market_value_eur": 200000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
+      "elite_league": true
+    },
+    {
+      "transfermarkt_id": "101118",
+      "player_name": "Joel Robles",
+      "club": "GD Estoril Praia",
+      "competition": "PO1",
+      "position_group": "GK",
+      "age": 36,
+      "market_value_eur": 350000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "92572",
       "player_name": "Joel Ward",
       "club": "Without Club",
@@ -2246,20 +2484,6 @@
       "after": 87,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
-      "elite_league": false
-    },
-    {
-      "transfermarkt_id": "260807",
-      "player_name": "Jonathan Osorio",
-      "club": "Toronto FC",
-      "competition": "MLS1",
-      "position_group": "MID",
-      "age": 34,
-      "market_value_eur": 1000000,
-      "before": 88,
-      "after": 87,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2319,10 +2543,38 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "163724",
+      "player_name": "Laurent Jans",
+      "club": "SK Beveren",
+      "competition": "BE1",
+      "position_group": "DEF",
+      "age": 34,
+      "market_value_eur": 250000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "77100",
+      "player_name": "Lucas Rodrigues Moura da Silva",
+      "club": "São Paulo Futebol Clube",
+      "competition": "BRA1",
+      "position_group": "ATT",
+      "age": 34,
+      "market_value_eur": 2000000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "76715",
       "player_name": "Luis Mejía",
       "club": "Club Nacional",
-      "competition": "URUI",
+      "competition": "URUC",
       "position_group": "GK",
       "age": 35,
       "market_value_eur": 150000,
@@ -2347,6 +2599,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "93176",
+      "player_name": "Marcos Rojo",
+      "club": "Racing Club",
+      "competition": "ARGC",
+      "position_group": "DEF",
+      "age": 36,
+      "market_value_eur": 125000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "52059",
       "player_name": "Mathias Jørgensen",
       "club": "Without Club",
@@ -2358,6 +2624,34 @@
       "after": 87,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "307058",
+      "player_name": "Mehdi Taremi",
+      "club": "Olympiacos Piraeus",
+      "competition": "GR1",
+      "position_group": "ATT",
+      "age": 34,
+      "market_value_eur": 2000000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "262845",
+      "player_name": "Mohammed Al-Owais",
+      "club": "Al-Hilal SFC",
+      "competition": "SA1",
+      "position_group": "GK",
+      "age": 34,
+      "market_value_eur": 275000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -2387,6 +2681,20 @@
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
+    },
+    {
+      "transfermarkt_id": "93081",
+      "player_name": "Nick Viergever",
+      "club": "PEC Zwolle",
+      "competition": "NL1",
+      "position_group": "DEF",
+      "age": 37,
+      "market_value_eur": 300000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 37, elite league, outfield, low current value",
+      "elite_league": true
     },
     {
       "transfermarkt_id": "55099",
@@ -2501,6 +2809,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "88542",
+      "player_name": "Rubén Botta",
+      "club": "Club Nacional",
+      "competition": "URUC",
+      "position_group": "MID",
+      "age": 36,
+      "market_value_eur": 275000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "195332",
       "player_name": "Salem Al-Dawsari",
       "club": "Al-Hilal SFC",
@@ -2531,8 +2853,8 @@
     {
       "transfermarkt_id": "85370",
       "player_name": "Sergi Roberto",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Los Angeles Galaxy",
+      "competition": "MLS1",
       "position_group": "MID",
       "age": 34,
       "market_value_eur": 1400000,
@@ -2557,6 +2879,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "307870",
+      "player_name": "Shogo Taniguchi",
+      "club": "Sint-Truidense VV",
+      "competition": "BE1",
+      "position_group": "DEF",
+      "age": 35,
+      "market_value_eur": 750000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "107010",
       "player_name": "Stefan Savic",
       "club": "Trabzonspor",
@@ -2568,20 +2904,6 @@
       "after": 87,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
-      "elite_league": false
-    },
-    {
-      "transfermarkt_id": "176578",
-      "player_name": "Themba Zwane",
-      "club": "Mamelodi Sundowns FC",
-      "competition": "SFA1",
-      "position_group": "MID",
-      "age": 36,
-      "market_value_eur": 250000,
-      "before": 88,
-      "after": 87,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2613,6 +2935,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "64246",
+      "player_name": "Yannick Thoelen",
+      "club": "Royal Antwerp FC",
+      "competition": "BE1",
+      "position_group": "GK",
+      "age": 36,
+      "market_value_eur": 200000,
+      "before": 88,
+      "after": 87,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 36, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "353476",
       "player_name": "Abdelali Mhamdi",
       "club": "Wydad Casablanca",
@@ -2641,9 +2977,23 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "265383",
+      "player_name": "Abdoulaye Seck",
+      "club": "Al-Faisaly FC",
+      "competition": "SA1",
+      "position_group": "DEF",
+      "age": 34,
+      "market_value_eur": 400000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "250825",
       "player_name": "Abdullah Al-Jadani",
-      "club": "Abha Club",
+      "club": "Al-Taawoun FC",
       "competition": "SA1",
       "position_group": "GK",
       "age": 35,
@@ -2652,6 +3002,20 @@
       "after": 86,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "193159",
+      "player_name": "Abdullah Otayf",
+      "club": "Al-Ahli SFC",
+      "competition": "SA1",
+      "position_group": "DEF",
+      "age": 34,
+      "market_value_eur": 125000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -2669,6 +3033,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "121254",
+      "player_name": "Adam Davies",
+      "club": "Sheffield United",
+      "competition": "GB2",
+      "position_group": "GK",
+      "age": 34,
+      "market_value_eur": 200000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "121257",
       "player_name": "Adam Forshaw",
       "club": "Blackburn Rovers",
@@ -2676,6 +3054,20 @@
       "position_group": "MID",
       "age": 34,
       "market_value_eur": 150000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "598769",
+      "player_name": "Adrián Martínez",
+      "club": "Racing Club",
+      "competition": "ARGC",
+      "position_group": "ATT",
+      "age": 34,
+      "market_value_eur": 2800000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
@@ -2728,7 +3120,7 @@
       "transfermarkt_id": "360521",
       "player_name": "Alexis Martín Arias",
       "club": "Club Nacional",
-      "competition": "URUI",
+      "competition": "URUC",
       "position_group": "GK",
       "age": 34,
       "market_value_eur": 225000,
@@ -2809,6 +3201,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "154319",
+      "player_name": "André Geraldes",
+      "club": "Casa Pia AC",
+      "competition": "PO1",
+      "position_group": "DEF",
+      "age": 35,
+      "market_value_eur": 150000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "175792",
       "player_name": "André Ramalho Silva",
       "club": "Sport Club Corinthians Paulista",
@@ -2839,8 +3245,8 @@
     {
       "transfermarkt_id": "270051",
       "player_name": "Andrei Girotto",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Al-Faisaly FC",
+      "competition": "SA1",
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 2000000,
@@ -2895,7 +3301,7 @@
     {
       "transfermarkt_id": "63200",
       "player_name": "Ashley Barnes",
-      "club": "Without Club",
+      "club": "Burnley FC",
       "competition": "GB2",
       "position_group": "ATT",
       "age": 36,
@@ -3096,6 +3502,20 @@
       "position_group": "GK",
       "age": 34,
       "market_value_eur": 800000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "154351",
+      "player_name": "Colin Coosemans",
+      "club": "RSC Anderlecht",
+      "competition": "BE1",
+      "position_group": "GK",
+      "age": 34,
+      "market_value_eur": 1200000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
@@ -3344,7 +3764,7 @@
       "transfermarkt_id": "188470",
       "player_name": "Francisco Calvo",
       "club": "Club Nacional",
-      "competition": "URUI",
+      "competition": "URUC",
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 600000,
@@ -3467,6 +3887,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "112948",
+      "player_name": "Jakub Brabec",
+      "club": "Rio Ave FC",
+      "competition": "PO1",
+      "position_group": "DEF",
+      "age": 34,
+      "market_value_eur": 400000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "62640",
       "player_name": "James Collins",
       "club": "Lincoln City",
@@ -3509,6 +3943,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "235412",
+      "player_name": "Jawad El Yamiq",
+      "club": "Eyüpspor",
+      "competition": "TR1",
+      "position_group": "DEF",
+      "age": 34,
+      "market_value_eur": 300000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "53360",
       "player_name": "Jay Rodríguez",
       "club": "Without Club",
@@ -3520,6 +3968,20 @@
       "after": 86,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "212216",
+      "player_name": "Jhonatan Luiz da Siqueira",
+      "club": "FC Alverca",
+      "competition": "PO1",
+      "position_group": "GK",
+      "age": 35,
+      "market_value_eur": 150000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3539,8 +4001,8 @@
     {
       "transfermarkt_id": "111195",
       "player_name": "Joël Veltman",
-      "club": "Without Club",
-      "competition": "",
+      "club": "West Ham United",
+      "competition": "GB2",
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 1500000,
@@ -3562,6 +4024,20 @@
       "after": 86,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "260807",
+      "player_name": "Jonathan Osorio",
+      "club": "Toronto FC",
+      "competition": "MLS1",
+      "position_group": "MID",
+      "age": 34,
+      "market_value_eur": 1000000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3598,12 +4074,12 @@
       "club": "Tigres UANL",
       "competition": "MEXA",
       "position_group": "MID",
-      "age": 34,
+      "age": 35,
       "market_value_eur": 450000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -3635,6 +4111,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "275590",
+      "player_name": "Kieffer Moore",
+      "club": "Wrexham AFC",
+      "competition": "GB2",
+      "position_group": "ATT",
+      "age": 34,
+      "market_value_eur": 1300000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "79419",
       "player_name": "Kota Mizunuma",
       "club": "Urawa Red Diamonds",
@@ -3646,6 +4136,20 @@
       "after": 86,
       "adjustment": -1,
       "reason": "veteran reality adjustment: age 36, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "133831",
+      "player_name": "Kristijan Kahlina",
+      "club": "Charlotte FC",
+      "competition": "MLS1",
+      "position_group": "GK",
+      "age": 34,
+      "market_value_eur": 1200000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
       "elite_league": false
     },
     {
@@ -3670,6 +4174,20 @@
       "position_group": "DEF",
       "age": 35,
       "market_value_eur": 500000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "264133",
+      "player_name": "Luis Reyes",
+      "club": "CF Monterrey",
+      "competition": "MEXA",
+      "position_group": "DEF",
+      "age": 35,
+      "market_value_eur": 450000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
@@ -3805,8 +4323,8 @@
     {
       "transfermarkt_id": "210009",
       "player_name": "Marwane Saadane",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Al-Fateh SC",
+      "competition": "SA1",
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 400000,
@@ -3833,8 +4351,8 @@
     {
       "transfermarkt_id": "171679",
       "player_name": "Matt Doherty",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Sheffield United",
+      "competition": "GB2",
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 1000000,
@@ -3845,17 +4363,31 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "145553",
+      "player_name": "Matty Godden",
+      "club": "Charlton Athletic",
+      "competition": "GB2",
+      "position_group": "ATT",
+      "age": 35,
+      "market_value_eur": 100000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "73522",
       "player_name": "Matty James",
       "club": "Wrexham AFC",
       "competition": "GB2",
       "position_group": "MID",
-      "age": 34,
+      "age": 35,
       "market_value_eur": 200000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4002,14 +4534,14 @@
       "transfermarkt_id": "196187",
       "player_name": "Nicolás Rodríguez",
       "club": "Club Nacional",
-      "competition": "URUI",
+      "competition": "URUC",
       "position_group": "DEF",
-      "age": 34,
+      "age": 35,
       "market_value_eur": 150000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4127,8 +4659,8 @@
     {
       "transfermarkt_id": "139336",
       "player_name": "Paulo Oliveira",
-      "club": "SC Braga",
-      "competition": "PO1",
+      "club": "Al-Fayha FC",
+      "competition": "SA1",
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 400000,
@@ -4394,7 +4926,7 @@
       "transfermarkt_id": "102427",
       "player_name": "Sebastián Coates",
       "club": "Club Nacional",
-      "competition": "URUI",
+      "competition": "URUC",
       "position_group": "DEF",
       "age": 35,
       "market_value_eur": 250000,
@@ -4421,8 +4953,8 @@
     {
       "transfermarkt_id": "80059",
       "player_name": "Serdar Dursun",
-      "club": "Without Club",
-      "competition": "",
+      "club": "Gaziantep FK",
+      "competition": "TR1",
       "position_group": "ATT",
       "age": 34,
       "market_value_eur": 250000,
@@ -4489,20 +5021,6 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "307870",
-      "player_name": "Shogo Taniguchi",
-      "club": "Sint-Truidense VV",
-      "competition": "BE1",
-      "position_group": "DEF",
-      "age": 34,
-      "market_value_eur": 750000,
-      "before": 87,
-      "after": 86,
-      "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
-      "elite_league": false
-    },
-    {
       "transfermarkt_id": "74040",
       "player_name": "Sinan Osmanoğlu",
       "club": "Corum FK",
@@ -4517,6 +5035,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "248250",
+      "player_name": "Sofiane Bendebka",
+      "club": "Al-Hazem SC",
+      "competition": "SA1",
+      "position_group": "MID",
+      "age": 34,
+      "market_value_eur": 700000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "127794",
       "player_name": "Sonny Bradley",
       "club": "Lincoln City",
@@ -4524,6 +5056,20 @@
       "position_group": "DEF",
       "age": 34,
       "market_value_eur": 175000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "131093",
+      "player_name": "Stefan Medina",
+      "club": "CF Monterrey",
+      "competition": "MEXA",
+      "position_group": "DEF",
+      "age": 34,
+      "market_value_eur": 1000000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
@@ -4615,6 +5161,20 @@
       "elite_league": false
     },
     {
+      "transfermarkt_id": "387990",
+      "player_name": "Tom Vandenberghe",
+      "club": "KAA Gent",
+      "competition": "BE1",
+      "position_group": "GK",
+      "age": 34,
+      "market_value_eur": 250000,
+      "before": 87,
+      "after": 86,
+      "adjustment": -1,
+      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
+      "elite_league": false
+    },
+    {
       "transfermarkt_id": "95795",
       "player_name": "Václav Hladký",
       "club": "Without Club",
@@ -4685,17 +5245,17 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "64246",
-      "player_name": "Yannick Thoelen",
-      "club": "Royal Antwerp FC",
-      "competition": "BE1",
-      "position_group": "GK",
+      "transfermarkt_id": "255749",
+      "player_name": "Yahya Jabrane",
+      "club": "Wydad Casablanca",
+      "competition": "MAR1",
+      "position_group": "DEF",
       "age": 35,
-      "market_value_eur": 200000,
+      "market_value_eur": 800000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
+      "reason": "veteran reality adjustment: age 35, non-elite league, outfield, low current value",
       "elite_league": false
     },
     {
@@ -4760,12 +5320,12 @@
       "club": "Kashima Antlers",
       "competition": "JAP1",
       "position_group": "GK",
-      "age": 34,
+      "age": 35,
       "market_value_eur": 75000,
       "before": 87,
       "after": 86,
       "adjustment": -1,
-      "reason": "veteran reality adjustment: age 34, non-elite league, GK, low current value",
+      "reason": "veteran reality adjustment: age 35, non-elite league, GK, low current value",
       "elite_league": false
     },
     {

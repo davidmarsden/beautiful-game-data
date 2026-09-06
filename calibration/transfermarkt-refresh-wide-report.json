@@ -1,11 +1,22 @@
 {
-  "generated_at": "2026-08-31T19:36:34.788Z",
+  "generated_at": "2026-09-06T08:56:48.736Z",
   "policy_version": "tbg-transfermarkt-refresh-policy-v1.0",
   "input": "calibration/apify-transfermarkt-refresh-wide.json",
-  "scanned": 718,
-  "accepted": 718,
-  "rejected": 0,
-  "zero_value_players": 7,
-  "rejection_counts": {},
-  "rejected_players": []
+  "scanned": 6228,
+  "accepted": 6227,
+  "rejected": 1,
+  "zero_value_players": 276,
+  "rejection_counts": {
+    "age_outside_policy": 1
+  },
+  "rejected_players": [
+    {
+      "transfermarkt_id": "1581184",
+      "player_name": "Ibrahima Bah",
+      "age": 0,
+      "reasons": [
+        "age_outside_policy"
+      ]
+    }
+  ]
 }
