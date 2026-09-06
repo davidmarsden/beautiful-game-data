@@ -6,15 +6,21 @@ const knownWorkflow = new URL("../.github/workflows/refresh-known-transfermarkt-
 const discoveryWorkflow = new URL("../.github/workflows/refresh-transfermarkt-and-publish.yml", import.meta.url);
 const monthlyWideWorkflow = new URL("../.github/workflows/refresh-wide-transfermarkt-monthly.yml", import.meta.url);
 
-test("known-player refresh runs the 500-player weekday tier automatically", async () => {
+test("weekday refresh mixes priority known players with rotating playable-club discovery", async () => {
   const workflow = await readFile(knownWorkflow, "utf8");
   const crons = [...workflow.matchAll(/cron: "([^"]+)"/g)].map((match) => match[1]);
 
   assert.deepEqual(crons, ["15 5 * * 1-5"]);
   assert.match(workflow, /REFRESH_EDITION: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.edition \|\| 'daily' \}\}/);
   assert.match(workflow, /CUSTOM_LIMIT: \$\{\{ github\.event_name == 'workflow_dispatch' && inputs\.customLimit \|\| '' \}\}/);
+  assert.match(workflow, /--limit=300/);
   assert.match(workflow, /--mode="\$REFRESH_EDITION"/);
   assert.match(workflow, /--scope=known/);
+  assert.match(workflow, /export-daily-transfermarkt-discovery-scope\.js/);
+  assert.match(workflow, /--batchSize=10/);
+  assert.match(workflow, /--scope=universe/);
+  assert.match(workflow, /--maxItems=500/);
+  assert.match(workflow, /daily-transfermarkt-new-players-report\.json/);
 });
 
 test("playable-club discovery refresh runs weekly without scheduled wide scraping", async () => {
