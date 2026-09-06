@@ -2,7 +2,8 @@ name: Refresh Known Transfermarkt Players
 
 on:
   schedule:
-    - cron: "15 5 * * *"
+    # Lightweight 500-player refresh every weekday morning.
+    - cron: "15 5 * * 1-5"
   workflow_dispatch:
     inputs:
       edition:
