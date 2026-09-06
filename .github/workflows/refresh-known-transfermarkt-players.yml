@@ -182,6 +182,10 @@ jobs:
             --mergeExisting=true
           node scripts/restore-zero-market-values.js \
             --zeroIds=calibration/daily-transfermarkt-discovery-zero-ids.json
+          echo '[]' > calibration/empty-transfermarkt-refresh.json
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/empty-transfermarkt-refresh.json \
+            --mergeExisting=true
 
       - name: Report newly discovered daily players
         if: ${{ env.REFRESH_EDITION == 'daily' }}
