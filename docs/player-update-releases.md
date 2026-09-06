@@ -42,12 +42,31 @@ A release slot can be published at most once. Re-running the same slot returns t
 
 The release ID is derived from the slot plus the selected governed event IDs. Queue event IDs remain unchanged.
 
-## Operations
+## Current automated source-refresh cadence
 
-Use the manual **Publish Player Updates** workflow while the cadence is being calibrated. It runs tests first, publishes a release, uploads the release artifacts and commits changed player-release data.
+As of 6 September 2026, the Transfermarkt/Apify source-refresh layer is automated on a cost-aware cadence:
 
-No automatic paid Apify schedule is enabled by this slice. Source refresh cadence and manager-facing release cadence remain separate decisions.
+- Monday–Friday: a mixed refresh of 300 priority known players plus a rotating slice of 10 playable clubs for new-player discovery;
+- Sunday: a full reconciliation of all playable clubs;
+- monthly: a wider-competition reconciliation beyond the playable-club universe;
+- manual full refresh remains available when justified.
 
-## Next consumer
+The weekday job deliberately combines two product goals: existing-player evidence can generate governed Ratings Updates, while the rotating club slice can discover genuinely new players for New Players.
 
-The Manager can consume `player-release-latest.json` to build **Ratings Updates** and **New Players** views without needing to understand queue internals or reproduce rating calculations.
+New scrape results never publish directly. They pass the existing discovery policy, are merged into the Transfermarkt master, and then the deterministic TBG rebuild/publication pipeline decides which manager-facing events exist.
+
+The current operational acceptance and cost-calibration work is tracked in GitHub issue `beautiful-game-data#43`.
+
+## Release operations
+
+Source-refresh cadence and manager-facing release cadence remain separate responsibilities. A successful source refresh may produce no eligible manager-facing events, and that is an honest outcome rather than a reason to fabricate churn.
+
+The **Publish Player Updates** workflow remains available for explicit release control while cadence behaviour is being observed in alpha. Re-running the same release slot is idempotent.
+
+If an upstream refresh fails, TBG must keep the last successfully published player edition rather than publishing partial or inconsistent change data.
+
+## Manager consumer
+
+The Manager consumes `player-release-latest.json` to present **Ratings Updates** and **New Players** without needing to understand queue internals or reproduce rating calculations.
+
+The intended alpha experience is that managers usually see recent player-world activity on ordinary weekdays, while every visible change remains governed, reproducible and explainable.
