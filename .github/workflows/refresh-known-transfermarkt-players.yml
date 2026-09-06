@@ -2,7 +2,7 @@ name: Refresh Known Transfermarkt Players
 
 on:
   schedule:
-    # Lightweight 500-player refresh every weekday morning.
+    # Weekday mixed refresh: priority known players plus a rotating discovery slice.
     - cron: "15 5 * * 1-5"
   workflow_dispatch:
     inputs:
@@ -16,7 +16,7 @@ on:
           - weekend
           - monthly
       customLimit:
-        description: "Optional override for number of players (leave blank to use edition policy)"
+        description: "Optional override for number of known players (leave blank to use edition policy)"
         required: false
         default: ""
         type: string
@@ -62,6 +62,9 @@ jobs:
           LIMIT_ARG=""
           if [ -n "$CUSTOM_LIMIT" ]; then
             LIMIT_ARG="--limit=$CUSTOM_LIMIT"
+          elif [ "$GITHUB_EVENT_NAME" = "schedule" ] && [ "$REFRESH_EDITION" = "daily" ]; then
+            # Reserve part of the weekday Apify budget for new-player discovery.
+            LIMIT_ARG="--limit=300"
           fi
           node scripts/export-priority-transfermarkt-refresh-batch.js \
             --mode="$REFRESH_EDITION" \
@@ -129,7 +132,7 @@ jobs:
           console.log(JSON.stringify({ requested: report.requested_players, returned: report.returned_players, missing: report.missing_from_refresh, newly_added: report.newly_added_players, changed: report.changed_players }, null, 2));
           NODE
 
-      - name: Verify no discovery occurred
+      - name: Verify known-player stage did not discover players
         run: |
           node --input-type=module <<'NODE'
           import { readFile } from 'node:fs/promises';
@@ -139,6 +142,79 @@ jobs:
             console.error(`Priority known-player refresh unexpectedly added ${report.newly_added_players} player(s).`);
             process.exit(1);
           }
+          NODE
+
+      - name: Build rotating playable-club discovery slice
+        if: ${{ env.REFRESH_EDITION == 'daily' }}
+        id: discovery
+        run: |
+          node scripts/export-daily-transfermarkt-discovery-scope.js \
+            --batchSize=10 \
+            --output=calibration/daily-transfermarkt-discovery-scope.json
+
+      - name: Scrape rotating playable-club discovery slice
+        if: ${{ env.REFRESH_EDITION == 'daily' }}
+        run: |
+          node scripts/fetch-apify-transfermarkt-values.js \
+            --scope=universe \
+            --clubIds="${{ steps.discovery.outputs.club_ids }}" \
+            --includeGoldStandardRescue=false \
+            --includeSearchQueries=false \
+            --maxItems=500 \
+            --datasetLimit=500 \
+            --output=calibration/apify-transfermarkt-daily-discovery.json
+
+      - name: Apply discovery policy to daily slice
+        if: ${{ env.REFRESH_EDITION == 'daily' }}
+        run: |
+          node scripts/filter-transfermarkt-refresh.js \
+            --input=calibration/apify-transfermarkt-daily-discovery.json \
+            --output=calibration/apify-transfermarkt-daily-discovery-accepted.json \
+            --report=calibration/daily-transfermarkt-discovery-policy-report.json \
+            --zeroIds=calibration/daily-transfermarkt-discovery-zero-ids.json \
+            --bridgeZeroValues=true
+
+      - name: Merge accepted daily discoveries into player master
+        if: ${{ env.REFRESH_EDITION == 'daily' }}
+        run: |
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/apify-transfermarkt-daily-discovery-accepted.json \
+            --mergeExisting=true
+          node scripts/restore-zero-market-values.js \
+            --zeroIds=calibration/daily-transfermarkt-discovery-zero-ids.json
+          echo '[]' > calibration/empty-transfermarkt-refresh.json
+          node scripts/import-transfermarkt-master.js \
+            --input=calibration/empty-transfermarkt-refresh.json \
+            --mergeExisting=true
+
+      - name: Report newly discovered daily players
+        if: ${{ env.REFRESH_EDITION == 'daily' }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile, writeFile } from 'node:fs/promises';
+          const before = JSON.parse(await readFile('calibration/players-master-before-known-refresh.json', 'utf8'));
+          const after = JSON.parse(await readFile('data/transfermarkt/players-master.json', 'utf8'));
+          const scope = JSON.parse(await readFile('calibration/daily-transfermarkt-discovery-scope.json', 'utf8'));
+          const id = p => String(p.transfermarkt_id || p.player_id || '');
+          const beforeIds = new Set(before.map(p => id(p)));
+          const newPlayers = after.filter(p => !beforeIds.has(id(p)));
+          const report = {
+            generated_at: new Date().toISOString(),
+            mode: 'daily_rotating_playable_club_discovery',
+            clubs_scanned: scope.clubs,
+            newly_discovered_players: newPlayers.length,
+            players: newPlayers.map(p => ({
+              transfermarkt_id: p.transfermarkt_id,
+              player_name: p.display_name,
+              age: p.age,
+              club: p.current_club,
+              competition: p.current_competition_code,
+              market_value_eur: p.market_value_eur,
+              status: p.status
+            }))
+          };
+          await writeFile('calibration/daily-transfermarkt-new-players-report.json', JSON.stringify(report, null, 2) + '\n');
+          console.log(JSON.stringify({ clubs_scanned: scope.clubs.length, newly_discovered_players: newPlayers.length }, null, 2));
           NODE
 
       - name: Rebuild and publish TBG player database
@@ -151,6 +227,8 @@ jobs:
           path: |
             calibration/transfermarkt-refresh-${{ env.REFRESH_EDITION }}-batch-report.json
             calibration/${{ env.REFRESH_EDITION }}-known-player-refresh-report.json
+            calibration/daily-transfermarkt-discovery-*.json
+            calibration/daily-transfermarkt-new-players-report.json
             calibration/retired-player-quarantine-report.json
             calibration/veteran-reality-check.json
             calibration/veteran-reality-check.md
