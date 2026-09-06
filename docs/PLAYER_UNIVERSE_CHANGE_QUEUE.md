@@ -2,12 +2,13 @@
 
 This is the durable contract for the TBG Player Universe & Ratings Lifecycle.
 
-The pipeline separates four responsibilities:
+The pipeline separates five responsibilities:
 
 1. Transfermarkt/Apify refreshes update `data/transfermarkt/players-master.json`.
 2. The deterministic TBG rating/publication pipeline rebuilds `derived/player-database/player-database.json`.
-3. `generate-player-change-ledger.js` compares the previous and current published editions and detects governed events.
-4. The rolling publisher consumes eligible pending events into immutable manager-facing release batches.
+3. `generate-player-change-ledger.js` compares the previous and current published editions and writes the raw human-readable edition diff.
+4. `generate-player-change-queue.js` selects governed event types, creates deterministic event identities/provenance, de-duplicates them and appends new queue entries.
+5. The rolling publisher consumes eligible pending queue events into immutable manager-facing release batches.
 
 Those responsibilities stay separate even as the source-refresh cadence becomes more frequent.
 
@@ -17,14 +18,14 @@ Those responsibilities stay separate even as the source-refresh cadence becomes 
 : Append-only durable queue. Ordinary rebuilds may append new events but must not alter or delete existing events. New events begin with `status: pending`.
 
 `derived/player-changes/player-change-batch.json`
-: The events detected and appended by the latest rebuild only.
+: The governed events detected and appended by the latest queue-generation pass only.
 
 `derived/player-changes/player-change-queue-summary.json`
 : Compact queue counts by status and event type.
 
 The existing `player-change-ledger.json` / `.md` remain the human-readable latest-edition diagnostic diff.
 
-The rolling release layer additionally writes immutable release history and the latest Manager-facing projection used by **Ratings Updates** and **New Players**.
+The rolling release layer additionally writes immutable release history and a latest-release projection.
 
 ## Event identity and idempotency
 
@@ -72,7 +73,11 @@ Operational acceptance, discovery coverage, retry behaviour and Apify cost are t
 
 ## Reliability boundary
 
-A failed or partial upstream scrape must not result in a partially published player edition. TBG should retain the last successfully published edition until a complete governed rebuild is available.
+The intended reliability boundary is that a failed or materially incomplete upstream refresh should leave the last successfully published edition in place rather than produce a hybrid edition.
+
+That boundary is **not yet fully enforced for partial-success scrapes**. The weekday known-player workflow reports `missing_from_refresh`, but currently does not fail the run on missing returns; the Sunday and monthly reconciliation workflows also do not yet have a completeness gate. Until that is hardened, a partial Apify response can still produce a mixed refreshed/stale source snapshot.
+
+Treat this as an open operational acceptance item under `beautiful-game-data#43`: add completeness criteria and a fail-before-publish/rollback boundary appropriate to each refresh mode, then prove it in production.
 
 Temporary market-value bridging used during import must be fully reconciled before companion artifacts are committed, so JSON, CSV and summary outputs remain consistent.
 
