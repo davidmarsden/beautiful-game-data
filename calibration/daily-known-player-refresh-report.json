@@ -1,12 +1,31 @@
 {
-  "generated_at": "2026-09-05T09:06:45.981Z",
+  "generated_at": "2026-09-06T09:24:57.196Z",
   "mode": "daily_priority_known_players",
   "requested_players": 500,
-  "returned_players": 500,
-  "missing_from_refresh": 0,
-  "master_before": 8150,
-  "master_after": 8150,
+  "returned_players": 480,
+  "missing_from_refresh": 20,
+  "master_before": 9226,
+  "master_after": 9226,
   "newly_added_players": 0,
-  "changed_players": 0,
-  "changes": []
+  "changed_players": 1,
+  "changes": [
+    {
+      "transfermarkt_id": "167850",
+      "player_name": "Memphis Depay",
+      "fields": {
+        "current_club": {
+          "before": "Sport Club Corinthians Paulista",
+          "after": "Without Club"
+        },
+        "current_competition_code": {
+          "before": "BRA1",
+          "after": ""
+        },
+        "status": {
+          "before": "active",
+          "after": "without_club"
+        }
+      }
+    }
+  ]
 }

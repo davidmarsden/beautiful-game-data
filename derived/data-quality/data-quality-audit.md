@@ -1,6 +1,6 @@
 # TBG Data Quality Audit
 
-Generated: 2026-09-06T08:57:00.025Z
+Generated: 2026-09-06T09:25:09.585Z
 
 ## Summary
 - Healthy clubs: 1/80
@@ -87,7 +87,7 @@ Generated: 2026-09-06T08:57:00.025Z
 - Olympiacos Piraeus (Super League Greece) — health 94; 34 total, 26 senior, 8 U21 — 8/15 U21 players
 - Panathinaikos (Super League Greece) — health 94; 46 total, 32 senior, 14 U21 — 14/15 U21 players
 - Boca Juniors (Argentina Primera División) — health 94; 38 total, 33 senior, 5 U21 — 5/15 U21 players
-- Corinthians (Brasileirão) — health 94; 34 total, 28 senior, 6 U21 — 6/15 U21 players
+- Corinthians (Brasileirão) — health 94; 33 total, 27 senior, 6 U21 — 6/15 U21 players
 - Santos FC (Brasileirão) — health 94; 36 total, 26 senior, 10 U21 — 10/15 U21 players
 - Fluminense FC (Brasileirão) — health 94; 35 total, 32 senior, 3 U21 — 3/15 U21 players
 - Atlético Mineiro (Brasileirão) — health 94; 35 total, 26 senior, 9 U21 — 9/15 U21 players
