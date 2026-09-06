@@ -51,6 +51,7 @@ jobs:
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
             --maxItems="$MAX_ITEMS" \
+            --datasetLimit="$MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-refresh-wide.json
 
       - name: Apply discovery policy
