@@ -20,6 +20,9 @@ test("weekday refresh mixes priority known players with rotating playable-club d
   assert.match(workflow, /--batchSize=10/);
   assert.match(workflow, /--scope=universe/);
   assert.match(workflow, /--maxItems=500/);
+  assert.match(workflow, /restore-zero-market-values\.js/);
+  assert.match(workflow, /echo '\[\]' > calibration\/empty-transfermarkt-refresh\.json/);
+  assert.match(workflow, /--input=calibration\/empty-transfermarkt-refresh\.json/);
   assert.match(workflow, /daily-transfermarkt-new-players-report\.json/);
 });
 
