@@ -2,8 +2,9 @@ name: Refresh Transfermarkt and Publish
 
 on:
   schedule:
+    # Weekly reconciliation of every playable club. Wider competitions are
+    # handled by the separate monthly workflow to keep Apify usage bounded.
     - cron: "45 4 * * 0"
-    - cron: "45 4 * 1,6,7,8,9 3"
   workflow_dispatch:
     inputs:
       maxItems:
@@ -27,7 +28,7 @@ concurrency:
 env:
   APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
   MAX_ITEMS: ${{ github.event_name == 'workflow_dispatch' && inputs.maxItems || '10000' }}
-  INCLUDE_WIDE_COMPETITIONS: ${{ github.event_name == 'workflow_dispatch' && inputs.includeWideCompetitions || 'true' }}
+  INCLUDE_WIDE_COMPETITIONS: ${{ github.event_name == 'workflow_dispatch' && inputs.includeWideCompetitions || 'false' }}
 
 jobs:
   refresh-and-publish:
