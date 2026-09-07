@@ -1,6 +1,6 @@
 # Veteran Reality Check
 
-Generated: 2026-09-06T09:25:00.065Z
+Generated: 2026-09-07T10:22:29.192Z
 
 - Adjusted players: 379
 - Elite-league adjustments: 29

@@ -1,6 +1,6 @@
 # TBG Data Quality Audit
 
-Generated: 2026-09-06T09:25:09.585Z
+Generated: 2026-09-07T10:22:38.760Z
 
 ## Summary
 - Healthy clubs: 1/80
