@@ -1,21 +1,18 @@
 name: Refresh Transfermarkt and Publish
 
 on:
-  schedule:
-    # Weekly reconciliation of every playable club. Wider competitions are
-    # handled by the separate monthly workflow to keep Apify usage bounded.
-    - cron: "45 4 * * 0"
+  # Full playable-club reconciliation is deliberately manual while Apify spend is constrained.
   workflow_dispatch:
     inputs:
       maxItems:
-        description: "Maximum Apify items per refresh scope"
+        description: "Maximum Apify items per refresh scope; increase only for an intentional paid reconciliation"
         required: false
-        default: "10000"
+        default: "500"
         type: string
       includeWideCompetitions:
         description: "Refresh the selected wider competitions as well as all playable clubs"
         required: false
-        default: true
+        default: false
         type: boolean
 
 permissions:
@@ -27,8 +24,8 @@ concurrency:
 
 env:
   APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-  MAX_ITEMS: ${{ github.event_name == 'workflow_dispatch' && inputs.maxItems || '10000' }}
-  INCLUDE_WIDE_COMPETITIONS: ${{ github.event_name == 'workflow_dispatch' && inputs.includeWideCompetitions || 'false' }}
+  MAX_ITEMS: ${{ inputs.maxItems || '500' }}
+  INCLUDE_WIDE_COMPETITIONS: ${{ inputs.includeWideCompetitions || 'false' }}
 
 jobs:
   refresh-and-publish:
@@ -62,6 +59,8 @@ jobs:
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
             --maxItems="$MAX_ITEMS" \
+            --datasetLimit="$MAX_ITEMS" \
+            --budgetMaxItems="$MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-refresh-playable-clubs.json
 
       - name: Scrape selected wider competitions
@@ -72,6 +71,8 @@ jobs:
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
             --maxItems="$MAX_ITEMS" \
+            --datasetLimit="$MAX_ITEMS" \
+            --budgetMaxItems="$MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-refresh-wide.json
 
       - name: Apply discovery policy to playable-club results

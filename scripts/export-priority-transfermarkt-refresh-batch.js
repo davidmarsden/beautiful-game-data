@@ -10,6 +10,13 @@ function parseArgs(argv) {
   return args;
 }
 
+function ageDays(value, now = Date.now()) {
+  if (!value) return Number.POSITIVE_INFINITY;
+  const stamp = Date.parse(value);
+  if (!Number.isFinite(stamp)) return Number.POSITIVE_INFINITY;
+  return Math.max(0, (now - stamp) / 86_400_000);
+}
+
 const args = parseArgs(process.argv.slice(2));
 const mode = String(args.mode || "daily");
 const masterPath = args.master || "data/transfermarkt/players-master.json";
@@ -18,6 +25,7 @@ const policyPath = args.policy || "data/config/transfermarkt-refresh-tiers.json"
 const statePath = args.state || "calibration/transfermarkt-refresh-rotation-state.json";
 const outputPath = args.output || `calibration/transfermarkt-refresh-${mode}-ids.json`;
 const reportPath = args.report || `calibration/transfermarkt-refresh-${mode}-batch-report.json`;
+const minAgeDays = Math.max(0, Number(args.minAgeDays || 0));
 
 const [masterRaw, publishedRaw, policy] = await Promise.all([
   readFile(masterPath, "utf8").then(JSON.parse),
@@ -33,7 +41,10 @@ let state = { offsets: {} };
 try { state = JSON.parse(await readFile(statePath, "utf8")); } catch {}
 const publishedById = new Map(published.map((row) => [String(row.transfermarkt_id || row.transfermarkt_player_id || ""), row]));
 const retired = (row) => /retired/i.test(String(row.status || row.player_status || row.current_club || ""));
-const eligible = master.filter((row) => !retired(row) && /^\d+$/.test(String(row.transfermarkt_id || row.player_id || "")));
+const known = master.filter((row) => !retired(row) && /^\d+$/.test(String(row.transfermarkt_id || row.player_id || "")));
+const fresh = known.filter((row) => ageDays(row.scraped_at || row.updated_at || row.last_scraped_at) < minAgeDays);
+const freshIds = new Set(fresh.map((row) => String(row.transfermarkt_id || row.player_id)));
+const eligible = known.filter((row) => !freshIds.has(String(row.transfermarkt_id || row.player_id)));
 const sortedIds = eligible.map((row) => String(row.transfermarkt_id || row.player_id)).sort((a, b) => Number(a) - Number(b));
 const offset = Number(state.offsets?.[mode] || 0) % Math.max(1, sortedIds.length);
 const rotationRank = new Map(sortedIds.map((id, index) => [id, (index - offset + sortedIds.length) % sortedIds.length]));
@@ -53,7 +64,21 @@ const scored = eligible.map((row) => {
   if (value >= rules.market_value_floor_eur) { score += rules.valuable_weight + Math.log10(Math.max(1, value)); reasons.push("valuable"); }
   const rank = rotationRank.get(id) ?? sortedIds.length;
   score += rules.rotation_weight * (1 - rank / Math.max(1, sortedIds.length));
-  return { id, score, reasons, player_name: row.display_name || row.full_name || "", age, value, rating, assigned, rotation_rank: rank };
+  return {
+    id,
+    score,
+    reasons,
+    player_name: row.display_name || row.full_name || "",
+    age,
+    value,
+    rating,
+    assigned,
+    scraped_at: row.scraped_at || row.updated_at || row.last_scraped_at || null,
+    source_age_days: Number.isFinite(ageDays(row.scraped_at || row.updated_at || row.last_scraped_at))
+      ? Number(ageDays(row.scraped_at || row.updated_at || row.last_scraped_at).toFixed(1))
+      : null,
+    rotation_rank: rank
+  };
 });
 
 scored.sort((a, b) => b.score - a.score || a.rotation_rank - b.rotation_rank || Number(a.id) - Number(b.id));
@@ -69,8 +94,11 @@ const report = {
   mode,
   description: rules.description,
   master_players: master.length,
+  known_non_retired_players: known.length,
   eligible_known_players: eligible.length,
-  retired_excluded: master.length - eligible.length,
+  fresh_cache_excluded: fresh.length,
+  min_source_age_days: minAgeDays,
+  retired_excluded: master.length - known.length,
   requested_players: ids.length,
   rotation_offset_before: offset,
   rotation_offset_after: state.offsets[mode],
@@ -87,4 +115,12 @@ for (const path of [outputPath, reportPath, statePath]) await mkdir(dirname(path
 await writeFile(outputPath, JSON.stringify(ids, null, 2) + "\n", "utf8");
 await writeFile(reportPath, JSON.stringify(report, null, 2) + "\n", "utf8");
 await writeFile(statePath, JSON.stringify(state, null, 2) + "\n", "utf8");
-console.log(JSON.stringify({ mode, requested: ids.length, eligible: eligible.length, retired_excluded: report.retired_excluded, composition: report.composition }, null, 2));
+console.log(JSON.stringify({
+  mode,
+  requested: ids.length,
+  eligible: eligible.length,
+  fresh_cache_excluded: report.fresh_cache_excluded,
+  retired_excluded: report.retired_excluded,
+  min_source_age_days: minAgeDays,
+  composition: report.composition
+}, null, 2));

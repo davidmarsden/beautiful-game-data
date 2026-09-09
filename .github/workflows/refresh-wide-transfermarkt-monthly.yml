@@ -1,16 +1,13 @@
 name: Refresh Wider Transfermarkt Universe Monthly
 
 on:
-  schedule:
-    # Monthly discovery/reconciliation pass. Run before the weekday refresh
-    # window so the two publishing jobs do not normally overlap.
-    - cron: "45 2 1 * *"
+  # Wider-competition reconciliation is manual during Apify cost-control mode.
   workflow_dispatch:
     inputs:
       maxItems:
-        description: "Maximum Apify items for the wider-competition refresh"
+        description: "Maximum Apify items for the wider-competition refresh; increase only for an intentional paid reconciliation"
         required: false
-        default: "10000"
+        default: "1000"
         type: string
 
 permissions:
@@ -22,7 +19,7 @@ concurrency:
 
 env:
   APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-  MAX_ITEMS: ${{ github.event_name == 'workflow_dispatch' && inputs.maxItems || '10000' }}
+  MAX_ITEMS: ${{ inputs.maxItems || '1000' }}
 
 jobs:
   refresh-wide-and-publish:
@@ -52,6 +49,7 @@ jobs:
             --includeSearchQueries=false \
             --maxItems="$MAX_ITEMS" \
             --datasetLimit="$MAX_ITEMS" \
+            --budgetMaxItems="$MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-refresh-wide.json
 
       - name: Apply discovery policy
@@ -89,7 +87,7 @@ jobs:
           const report = {
             generated_at: new Date().toISOString(),
             policy: 'data/config/transfermarkt-refresh-policy.json',
-            mode: 'monthly_wider_competitions',
+            mode: 'manual_wider_competitions',
             before_players: before.length,
             after_players: after.length,
             newly_discovered_players: newPlayers.length,
@@ -113,7 +111,7 @@ jobs:
       - name: Upload refresh and release artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: monthly-wide-transfermarkt-refresh
+          name: manual-wide-transfermarkt-refresh
           path: |
             calibration/transfermarkt-refresh-wide*.json
             calibration/veteran-reality-check.json
@@ -132,5 +130,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data calibration derived
-          git commit -m "Publish monthly wider Transfermarkt refresh"
+          git commit -m "Publish manual wider Transfermarkt refresh"
           git push
