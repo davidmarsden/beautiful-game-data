@@ -2,12 +2,13 @@ name: Refresh Known Transfermarkt Players
 
 on:
   schedule:
-    # Weekday mixed refresh: priority known players plus a rotating discovery slice.
-    - cron: "15 5 * * 1-5"
+    # Cost-control cadence: one small incremental refresh each Monday.
+    # Manager-facing release publishing remains a separate workflow and does not need Apify.
+    - cron: "15 5 * * 1"
   workflow_dispatch:
     inputs:
       edition:
-        description: "Refresh edition: daily (500), weekend (1,500), or monthly (5,000 rotating known players)"
+        description: "Refresh edition: daily, weekend, or monthly priority policy"
         required: true
         default: daily
         type: choice
@@ -19,6 +20,16 @@ on:
         description: "Optional override for number of known players (leave blank to use edition policy)"
         required: false
         default: ""
+        type: string
+      minAgeDays:
+        description: "Skip known players scraped more recently than this many days ago"
+        required: false
+        default: "21"
+        type: string
+      budgetMaxItems:
+        description: "Hard Apify maxItems ceiling per actor run; raise only for an intentional paid refresh"
+        required: false
+        default: "75"
         type: string
 
 permissions:
@@ -32,6 +43,8 @@ env:
   APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
   REFRESH_EDITION: ${{ github.event_name == 'workflow_dispatch' && inputs.edition || 'daily' }}
   CUSTOM_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.customLimit || '' }}
+  MIN_AGE_DAYS: ${{ github.event_name == 'workflow_dispatch' && inputs.minAgeDays || '21' }}
+  APIFY_BUDGET_MAX_ITEMS: ${{ github.event_name == 'workflow_dispatch' && inputs.budgetMaxItems || '75' }}
 
 jobs:
   refresh-known-and-publish:
@@ -62,19 +75,22 @@ jobs:
           LIMIT_ARG=""
           if [ -n "$CUSTOM_LIMIT" ]; then
             LIMIT_ARG="--limit=$CUSTOM_LIMIT"
-          elif [ "$GITHUB_EVENT_NAME" = "schedule" ] && [ "$REFRESH_EDITION" = "daily" ]; then
-            # Reserve part of the weekday Apify budget for new-player discovery.
-            LIMIT_ARG="--limit=300"
+          elif [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            # Scheduled source refreshes are deliberately tiny while the existing
+            # governed ratings-update backlog is being released from cached data.
+            LIMIT_ARG="--limit=50"
           fi
           node scripts/export-priority-transfermarkt-refresh-batch.js \
             --mode="$REFRESH_EDITION" \
+            --minAgeDays="$MIN_AGE_DAYS" \
             $LIMIT_ARG \
             --output="calibration/transfermarkt-refresh-$REFRESH_EDITION-ids.json" \
             --report="calibration/transfermarkt-refresh-$REFRESH_EDITION-batch-report.json"
           COUNT=$(node -e "console.log(require('./calibration/transfermarkt-refresh-$REFRESH_EDITION-ids.json').length)")
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
 
-      - name: Refresh priority known players only
+      - name: Refresh stale priority known players only
+        if: ${{ steps.batch.outputs.count != '0' }}
         run: |
           node scripts/fetch-apify-transfermarkt-values.js \
             --scope=known \
@@ -83,7 +99,12 @@ jobs:
             --includeSearchQueries=false \
             --maxItems="${{ steps.batch.outputs.count }}" \
             --datasetLimit="${{ steps.batch.outputs.count }}" \
+            --budgetMaxItems="$APIFY_BUDGET_MAX_ITEMS" \
             --output="calibration/apify-transfermarkt-$REFRESH_EDITION-refresh.json"
+
+      - name: Create empty known-player refresh when cache satisfies the batch
+        if: ${{ steps.batch.outputs.count == '0' }}
+        run: echo '[]' > "calibration/apify-transfermarkt-$REFRESH_EDITION-refresh.json"
 
       - name: Merge refreshed records into player master
         run: |
@@ -144,12 +165,12 @@ jobs:
           }
           NODE
 
-      - name: Build rotating playable-club discovery slice
+      - name: Build small rotating playable-club discovery slice
         if: ${{ env.REFRESH_EDITION == 'daily' }}
         id: discovery
         run: |
           node scripts/export-daily-transfermarkt-discovery-scope.js \
-            --batchSize=10 \
+            --batchSize=2 \
             --output=calibration/daily-transfermarkt-discovery-scope.json
 
       - name: Scrape rotating playable-club discovery slice
@@ -160,8 +181,9 @@ jobs:
             --clubIds="${{ steps.discovery.outputs.club_ids }}" \
             --includeGoldStandardRescue=false \
             --includeSearchQueries=false \
-            --maxItems=500 \
-            --datasetLimit=500 \
+            --maxItems=75 \
+            --datasetLimit=75 \
+            --budgetMaxItems="$APIFY_BUDGET_MAX_ITEMS" \
             --output=calibration/apify-transfermarkt-daily-discovery.json
 
       - name: Apply discovery policy to daily slice
@@ -200,7 +222,7 @@ jobs:
           const newPlayers = after.filter(p => !beforeIds.has(id(p)));
           const report = {
             generated_at: new Date().toISOString(),
-            mode: 'daily_rotating_playable_club_discovery',
+            mode: 'weekly_small_playable_club_discovery',
             clubs_scanned: scope.clubs,
             newly_discovered_players: newPlayers.length,
             players: newPlayers.map(p => ({
