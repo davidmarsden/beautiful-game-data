@@ -44,14 +44,20 @@ The release ID is derived from the slot plus the selected governed event IDs. Qu
 
 ## Current automated source-refresh cadence
 
-As of 6 September 2026, the Transfermarkt/Apify source-refresh layer is automated on a cost-aware cadence:
+As of 9 September 2026, Transfermarkt/Apify source refreshes run in **cost-control mode**. A pending manager-facing rating update is not treated as a pending scrape: the governed release queue can continue to publish already-derived changes without spending anything on Apify.
 
-- Monday–Friday: a mixed refresh of 300 priority known players plus a rotating slice of 10 playable clubs for new-player discovery;
-- Sunday: a full reconciliation of all playable clubs;
-- monthly: a wider-competition reconciliation beyond the playable-club universe;
-- manual full refresh remains available when justified.
+The automatic source-refresh layer is deliberately small:
 
-The weekday job deliberately combines two product goals: existing-player evidence can generate governed Ratings Updates, while the rotating club slice can discover genuinely new players for New Players.
+- Monday only: up to 50 priority known players, excluding records scraped within the previous 21 days;
+- the same Monday job checks a rotating slice of only 2 playable clubs for new-player discovery, capped at 75 returned items;
+- the former weekly all-playable-club reconciliation is now manual-only;
+- the former scheduled wider-competition reconciliation is now manual-only.
+
+Every scheduled actor call carries an explicit `budgetMaxItems` ceiling. `fetch-apify-transfermarkt-values.js` refuses to start an actor when the requested `maxItems` exceeds that ceiling. The script also supports `--dryRun=true`, which prints the actor input and budget without requiring an Apify token or starting a paid run.
+
+Priority known-player selection is cache-aware. `export-priority-transfermarkt-refresh-batch.js` accepts `--minAgeDays` and excludes recently scraped source records before scoring and rotating the remaining candidates. Its report records the number satisfied by the fresh cache separately from the number actually selected for scraping.
+
+Manual reconciliations remain available for deliberate maintenance work, with conservative default item ceilings that must be raised explicitly when a larger paid scrape is justified.
 
 New scrape results never publish directly. They pass the existing discovery policy, are merged into the Transfermarkt master, and then the deterministic TBG rebuild/queue/release pipeline decides which manager-facing events exist.
 
