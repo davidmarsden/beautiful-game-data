@@ -54,13 +54,6 @@ async function idsFromFile(path) {
 }
 
 const args = parseArgs(process.argv.slice(2));
-
-const token = process.env.APIFY_TOKEN;
-if (!token) {
-  console.error("Missing APIFY_TOKEN environment variable.");
-  process.exit(1);
-}
-
 const actor = args.actor ?? "jungle_synthesizer/transfermarkt-global-football-player-scraper";
 const output = args.output ?? "calibration/apify-transfermarkt-dataset.json";
 const scope = String(args.scope ?? "wide");
@@ -68,14 +61,11 @@ const includeGoldStandardRescue = booleanArg(args.includeGoldStandardRescue, tru
 const includeSearchQueries = booleanArg(args.includeSearchQueries, includeGoldStandardRescue);
 const allowSearchWithTargetedIds = booleanArg(args.allowSearchWithTargetedIds, false);
 const existingDatasetId = usableDatasetId(args.datasetId || args.apifyDatasetId);
+const dryRun = booleanArg(args.dryRun, false);
+const budgetMaxItems = Number(args.budgetMaxItems ?? 0);
 
-const client = new ApifyClient({ token });
-let datasetId = existingDatasetId;
-
-if (datasetId) {
-  console.log(`Reusing existing Apify dataset: ${datasetId}`);
-} else {
-  let input;
+let input;
+if (!existingDatasetId) {
   if (String(args.mode ?? "players") === "generic") {
     const defaultStartUrls = scope === "wide" ? TRANSFERMARKT_GENERIC_START_URLS : ["https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1"];
     const startUrls = csvList(args.startUrls || defaultStartUrls.join(",")).map((url) => ({ url }));
@@ -107,10 +97,36 @@ if (datasetId) {
     if (!input.playerIds && !input.clubIds && !input.competitionCodes && !input.searchQueries) input.competitionCodes = ["GB1"];
   }
 
+  const requestedItems = Number(input.maxItems || 0);
+  if (budgetMaxItems > 0 && requestedItems > budgetMaxItems) {
+    console.error(`Apify budget guard blocked this run: requested maxItems=${requestedItems}, budgetMaxItems=${budgetMaxItems}.`);
+    console.error("Raise --budgetMaxItems explicitly only when the extra paid scrape is intentional.");
+    process.exit(2);
+  }
+
   console.log(`Actor: ${actor}`);
   console.log("Input:");
   console.log(JSON.stringify(input, null, 2));
+  if (budgetMaxItems > 0) console.log(`Budget guard: at most ${budgetMaxItems} item(s)`);
 
+  if (dryRun) {
+    console.log("Dry run: no Apify actor was started and no paid scrape was requested.");
+    process.exit(0);
+  }
+}
+
+const token = process.env.APIFY_TOKEN;
+if (!token) {
+  console.error("Missing APIFY_TOKEN environment variable.");
+  process.exit(1);
+}
+
+const client = new ApifyClient({ token });
+let datasetId = existingDatasetId;
+
+if (datasetId) {
+  console.log(`Reusing existing Apify dataset: ${datasetId}`);
+} else {
   const run = await client.actor(actor).call(input);
   datasetId = run.defaultDatasetId;
   console.log(`Apify run finished: ${run.id}`);
