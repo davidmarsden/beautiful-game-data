@@ -62,7 +62,14 @@ const includeSearchQueries = booleanArg(args.includeSearchQueries, includeGoldSt
 const allowSearchWithTargetedIds = booleanArg(args.allowSearchWithTargetedIds, false);
 const existingDatasetId = usableDatasetId(args.datasetId || args.apifyDatasetId);
 const dryRun = booleanArg(args.dryRun, false);
-const budgetMaxItems = Number(args.budgetMaxItems ?? 0);
+const hasBudgetMaxItems = args.budgetMaxItems !== undefined;
+const budgetMaxItems = hasBudgetMaxItems ? Number(args.budgetMaxItems) : 0;
+
+if (hasBudgetMaxItems && (!Number.isFinite(budgetMaxItems) || budgetMaxItems <= 0)) {
+  console.error(`Invalid --budgetMaxItems value: ${String(args.budgetMaxItems)}.`);
+  console.error("The Apify budget ceiling must be a finite positive number. Refusing to start an actor without a valid ceiling.");
+  process.exit(2);
+}
 
 let input;
 if (!existingDatasetId) {
