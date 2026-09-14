@@ -1,13 +1,56 @@
 {
   "version": "tbg-player-change-batch-v1",
-  "generated_at": "2026-09-09T09:49:47.919Z",
+  "generated_at": "2026-09-14T10:35:53.046Z",
   "first_edition": false,
-  "detected_changes": 0,
-  "tbg_release_changes": 0,
+  "detected_changes": 1,
+  "tbg_release_changes": 1,
   "excluded_state_changes": 0,
-  "appended_events": 0,
+  "appended_events": 1,
   "duplicate_events_skipped": 0,
   "purged_legacy_state_events": 0,
-  "event_ids": [],
-  "events": []
+  "event_ids": [
+    "pchg_1ffb1cd429595a7ba94a81da"
+  ],
+  "events": [
+    {
+      "event_id": "pchg_1ffb1cd429595a7ba94a81da",
+      "status": "pending",
+      "detected_at": "2026-09-14T10:35:53.046Z",
+      "event_type": "rating_change",
+      "player_id": "tbg-tm-01304031",
+      "transfermarkt_id": "1304031",
+      "player_name": "Taha Emre İnce",
+      "before": 81,
+      "after": 82,
+      "delta": 1,
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-14T10:35:32.632Z",
+        "market_value_determined": "2026-05-21",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 100000,
+          "highest_market_value_eur": 100000,
+          "previous_market_value_eur": 100000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 19,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-14T10:35:53.046Z"
+      },
+      "publication": {
+        "published_at": null,
+        "release_id": null
+      }
+    }
+  ]
 }
