@@ -1,788 +1,40 @@
 {
   "version": "tbg-player-release-latest-v1",
   "release": {
-    "release_id": "prls_647a461f42f09bfb207c",
-    "slot": "2026-09-15",
-    "published_at": "2026-09-15T14:18:42.406Z",
-    "event_count": 29
+    "release_id": "prls_32743492dbd5dadad821",
+    "slot": "2026-09-16",
+    "published_at": "2026-09-16T14:10:49.710Z",
+    "event_count": 30
   },
-  "ratings_updates": [
-    {
-      "event_id": "pchg_eed0eb5928f41c5ad263b904",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01063340",
-      "transfermarkt_id": "1063340",
-      "player_name": "Kareem Tunde",
-      "before": 82,
-      "after": 83,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:34.378Z",
-        "market_value_determined": "2026-06-05",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 2000000,
-          "highest_market_value_eur": 2000000,
-          "previous_market_value_eur": 1000000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 21,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_f76b95e472a7385a915b92ea",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01234622",
-      "transfermarkt_id": "1234622",
-      "player_name": "Majed Dawran",
-      "before": 82,
-      "after": 83,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:40.778Z",
-        "market_value_determined": "2026-06-04",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 175000,
-          "highest_market_value_eur": 200000,
-          "previous_market_value_eur": 200000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 23,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_fbf9067bd850cb651337d0b9",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-00670845",
-      "transfermarkt_id": "670845",
-      "player_name": "Omari Forson",
-      "before": 82,
-      "after": 83,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:16.778Z",
-        "market_value_determined": "2026-06-04",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 1000000,
-          "highest_market_value_eur": 2000000,
-          "previous_market_value_eur": 1800000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 22,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_03ad8c126aed6548c9a28d69",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01191293",
-      "transfermarkt_id": "1191293",
-      "player_name": "Tian Nai Koren",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:39.778Z",
-        "market_value_determined": "2026-04-30",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 1200000,
-          "highest_market_value_eur": 1200000,
-          "previous_market_value_eur": 500000,
-          "international_caps": 1,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 1200000,
-          "age": 17,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_1e2075a3fcb5e5cb57d2fe76",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01063334",
-      "transfermarkt_id": "1063334",
-      "player_name": "Carlos Jiménez",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:34.378Z",
-        "market_value_determined": "2026-06-08",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 25000,
-          "highest_market_value_eur": 25000,
-          "previous_market_value_eur": 25000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 20,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_394e5ef22d70754b682b0d45",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01172441",
-      "transfermarkt_id": "1172441",
-      "player_name": "Benjamin Brantlind",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:38.578Z",
-        "market_value_determined": "2026-06-29",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 500000,
-          "highest_market_value_eur": 500000,
-          "previous_market_value_eur": 200000,
-          "international_caps": 4,
-          "international_goals": 5,
-          "total_transfer_fees_eur": 1900000,
-          "age": 18,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_4c9d894408e209fa058ca0f0",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01192402",
-      "transfermarkt_id": "1192402",
-      "player_name": "Théo Mununga",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:39.778Z",
-        "market_value_determined": "2026-04-30",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 100000,
-          "highest_market_value_eur": 100000,
-          "previous_market_value_eur": 100000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_4d8faa45c51f6c7777099a30",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01149884",
-      "transfermarkt_id": "1149884",
-      "player_name": "Wiebe Kooistra",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:38.077Z",
-        "market_value_determined": "2026-05-21",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 200000,
-          "highest_market_value_eur": 300000,
-          "previous_market_value_eur": 200000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 20,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_7b5e9f2b401550a53430d453",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01501794",
-      "transfermarkt_id": "1501794",
-      "player_name": "Mansour Camara",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:43.768Z",
-        "market_value_determined": "2026-06-04",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 300000,
-          "highest_market_value_eur": 300000,
-          "previous_market_value_eur": 300000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_8476707d833edcc611bdee39",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01073380",
-      "transfermarkt_id": "1073380",
-      "player_name": "Andrei Chirilă",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:34.780Z",
-        "market_value_determined": "2026-06-02",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 500000,
-          "highest_market_value_eur": 500000,
-          "previous_market_value_eur": 200000,
-          "international_caps": 1,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 18,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_962bd3c5b0c1225cf5a707ed",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01185812",
-      "transfermarkt_id": "1185812",
-      "player_name": "Utku Eriş",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:39.378Z",
-        "market_value_determined": "2026-06-05",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 50000,
-          "highest_market_value_eur": 50000,
-          "previous_market_value_eur": 50000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 20,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_980047201fb8e8bbf7a4f61a",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01094202",
-      "transfermarkt_id": "1094202",
-      "player_name": "Tyson Pearce",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:35.979Z",
-        "market_value_determined": "2026-06-02",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 100000,
-          "highest_market_value_eur": 100000,
-          "previous_market_value_eur": 100000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_b3a593403b973b3420107988",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01245677",
-      "transfermarkt_id": "1245677",
-      "player_name": "Majed Abdullah",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:41.179Z",
-        "market_value_determined": "2026-06-04",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 150000,
-          "highest_market_value_eur": 150000,
-          "previous_market_value_eur": 150000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 20,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_c686f1a97f85671e96362614",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01075590",
-      "transfermarkt_id": "1075590",
-      "player_name": "Rayane Messi",
-      "before": 83,
-      "after": 82,
-      "delta": -1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:34.978Z",
-        "market_value_determined": "2026-06-04",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 2800000,
-          "highest_market_value_eur": 3000000,
-          "previous_market_value_eur": 3000000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 1500000,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_d63c1fb082e2e8b2e1a46a23",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01438038",
-      "transfermarkt_id": "1438038",
-      "player_name": "Marcelo Vaz",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:43.166Z",
-        "market_value_determined": "2026-05-26",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 400000,
-          "highest_market_value_eur": 400000,
-          "previous_market_value_eur": 100000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 300000,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_4125b204f7c93d43e9b504c3",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01123098",
-      "transfermarkt_id": "1123098",
-      "player_name": "Ollie Bostock",
-      "before": 82,
-      "after": 81,
-      "delta": -1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:37.572Z",
-        "market_value_determined": "2026-05-28",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 200000,
-          "highest_market_value_eur": 200000,
-          "previous_market_value_eur": 0,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_efe7eeb35357960e768a264f",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01371830",
-      "transfermarkt_id": "1371830",
-      "player_name": "Nacho Pérez",
-      "before": 82,
-      "after": 81,
-      "delta": -1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:42.788Z",
-        "market_value_determined": "2026-06-05",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 300000,
-          "highest_market_value_eur": 300000,
-          "previous_market_value_eur": 0,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 17,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_886d425c20e72b21ef3659ea",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01492856",
-      "transfermarkt_id": "1492856",
-      "player_name": "Junior Diouf",
-      "before": 79,
-      "after": 80,
-      "delta": 1,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:56:43.570Z",
-        "market_value_determined": null,
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 0,
-          "highest_market_value_eur": 0,
-          "previous_market_value_eur": 0,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_1ffb1cd429595a7ba94a81da",
-      "event_type": "rating_change",
-      "player_id": "tbg-tm-01304031",
-      "transfermarkt_id": "1304031",
-      "player_name": "Taha Emre İnce",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
-      "detected_at": "2026-09-14T10:35:53.046Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-14T10:35:32.632Z",
-        "market_value_determined": "2026-05-21",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 100000,
-          "highest_market_value_eur": 100000,
-          "previous_market_value_eur": 100000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 0,
-          "age": 19,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-14T10:35:53.046Z"
-      }
-    }
-  ],
+  "ratings_updates": [],
   "new_players": [
     {
-      "event_id": "pchg_b09e103b1bcfda76fdc277a7",
+      "event_id": "pchg_c38af408e474510c23751b44",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00256866",
-      "transfermarkt_id": "256866",
-      "player_name": "Carlos Salcedo",
+      "player_id": "tbg-tm-00373187",
+      "transfermarkt_id": "373187",
+      "player_name": "Jóbson de Brito Gonzaga",
       "before": null,
       "after": {
         "tbg_rating": 86,
-        "current_club": "club_2407",
-        "market_value_eur": 900000
+        "current_club": "Moreirense FC",
+        "market_value_eur": 700000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:03.894Z",
-        "market_value_determined": "2026-05-20",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 900000,
-          "highest_market_value_eur": 10000000,
-          "previous_market_value_eur": 1000000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 20470000,
-          "age": 32,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_1e907205a94e219660473a08",
-      "event_type": "new_player",
-      "player_id": "tbg-tm-00205128",
-      "transfermarkt_id": "205128",
-      "player_name": "Mattijs Branderhorst",
-      "before": null,
-      "after": {
-        "tbg_rating": 86,
-        "current_club": "Fortuna Sittard",
-        "market_value_eur": 800000
-      },
-      "delta": null,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:46.978Z",
+        "source_scraped_at": "2026-09-06T08:55:56.778Z",
         "market_value_determined": "2026-05-28",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 800000,
-          "highest_market_value_eur": 900000,
-          "previous_market_value_eur": 850000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 250000,
-          "age": 32,
-          "reasons": [
-            "+0.1: goalkeeper longevity stability"
-          ],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": [
-              "+0.1: goalkeeper longevity stability"
-            ]
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_47f8170a9331512b9bccdbee",
-      "event_type": "new_player",
-      "player_id": "tbg-tm-00187188",
-      "transfermarkt_id": "187188",
-      "player_name": "Bas Kuipers",
-      "before": null,
-      "after": {
-        "tbg_rating": 86,
-        "current_club": "Sparta Rotterdam",
-        "market_value_eur": 800000
-      },
-      "delta": null,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:45.981Z",
-        "market_value_determined": "2026-05-28",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 800000,
-          "highest_market_value_eur": 1300000,
+          "market_value_eur": 700000,
+          "highest_market_value_eur": 1000000,
           "previous_market_value_eur": 800000,
           "international_caps": 0,
           "international_goals": 0,
-          "total_transfer_fees_eur": 1300000,
-          "age": 31,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
           "reasons": [],
           "reasons_by_component": {
             "elite_trajectory_adjustment": [],
@@ -796,31 +48,70 @@
       }
     },
     {
-      "event_id": "pchg_5a52dd58df3c809e8a216769",
+      "event_id": "pchg_18e7c09da008f4ceb0ebca8b",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00290256",
-      "transfermarkt_id": "290256",
-      "player_name": "Miguel Ângelo da Silva Rocha",
+      "player_id": "tbg-tm-00261394",
+      "transfermarkt_id": "261394",
+      "player_name": "Sang-woo Kang",
       "before": null,
       "after": {
         "tbg_rating": 86,
-        "current_club": "GD Estoril Praia",
-        "market_value_eur": 800000
+        "current_club": "Ulsan HD FC",
+        "market_value_eur": 600000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:50.978Z",
-        "market_value_determined": "2026-05-28",
+        "source_scraped_at": "2026-09-06T08:55:04.038Z",
+        "market_value_determined": "2026-05-21",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 800000,
-          "highest_market_value_eur": 10000000,
-          "previous_market_value_eur": 1000000,
+          "market_value_eur": 600000,
+          "highest_market_value_eur": 1000000,
+          "previous_market_value_eur": 650000,
           "international_caps": 0,
           "international_goals": 0,
-          "total_transfer_fees_eur": 5200000,
+          "total_transfer_fees_eur": 750000,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_d1db4ac46d74aaf1f1f42c0d",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00189019",
+      "transfermarkt_id": "189019",
+      "player_name": "Samuel Piette",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "CF Montréal",
+        "market_value_eur": 600000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:46.179Z",
+        "market_value_determined": "2026-06-02",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 600000,
+          "highest_market_value_eur": 2500000,
+          "previous_market_value_eur": 800000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 88000,
           "age": 31,
           "reasons": [],
           "reasons_by_component": {
@@ -835,31 +126,148 @@
       }
     },
     {
-      "event_id": "pchg_d2b6e7c7eafe5f856fd55005",
+      "event_id": "pchg_8991c5086a93c5afc914c315",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00255749",
-      "transfermarkt_id": "255749",
-      "player_name": "Yahya Jabrane",
+      "player_id": "tbg-tm-00362287",
+      "transfermarkt_id": "362287",
+      "player_name": "Aymane El Hassouni",
       "before": null,
       "after": {
         "tbg_rating": 86,
         "current_club": "Wydad Casablanca",
-        "market_value_eur": 800000
+        "market_value_eur": 500000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:03.761Z",
-        "market_value_determined": "2026-05-26",
+        "source_scraped_at": "2026-09-06T08:55:07.124Z",
+        "market_value_determined": "2026-06-23",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 800000,
-          "highest_market_value_eur": 1900000,
-          "previous_market_value_eur": 1000000,
+          "market_value_eur": 500000,
+          "highest_market_value_eur": 1500000,
+          "previous_market_value_eur": 700000,
           "international_caps": 0,
           "international_goals": 0,
-          "total_transfer_fees_eur": 184000,
+          "total_transfer_fees_eur": 0,
+          "age": 31,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_f473e73774a03330136b0022",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00182108",
+      "transfermarkt_id": "182108",
+      "player_name": "Seba Pérez",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Casa Pia AC",
+        "market_value_eur": 500000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:45.578Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 500000,
+          "highest_market_value_eur": 2000000,
+          "previous_market_value_eur": 800000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 4000000,
+          "age": 33,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_1a54e93f0182b00284282806",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00296227",
+      "transfermarkt_id": "296227",
+      "player_name": "Iván Márquez",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Fortuna Sittard",
+        "market_value_eur": 450000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:51.578Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 450000,
+          "highest_market_value_eur": 850000,
+          "previous_market_value_eur": 550000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_2b6600ddd685912691a105a7",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00264133",
+      "transfermarkt_id": "264133",
+      "player_name": "Luis Reyes",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "CF Monterrey",
+        "market_value_eur": 450000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:04.038Z",
+        "market_value_determined": "2026-05-20",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 450000,
+          "highest_market_value_eur": 2500000,
+          "previous_market_value_eur": 500000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 1720000,
           "age": 35,
           "reasons": [
             "-0.15: late-career low-market ability caution"
@@ -878,28 +286,106 @@
       }
     },
     {
-      "event_id": "pchg_d9b547a6a5555f3e725e7b2e",
+      "event_id": "pchg_5a1bdd18252f2f9fb268dad1",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00366746",
-      "transfermarkt_id": "366746",
-      "player_name": "Yahia Attiyat Allah",
+      "player_id": "tbg-tm-00389181",
+      "transfermarkt_id": "389181",
+      "player_name": "Gyu-sung Lee",
       "before": null,
       "after": {
         "tbg_rating": 86,
-        "current_club": "Wydad Casablanca",
-        "market_value_eur": 800000
+        "current_club": "Ulsan HD FC",
+        "market_value_eur": 450000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:07.314Z",
-        "market_value_determined": "2026-05-26",
+        "source_scraped_at": "2026-09-06T08:55:08.134Z",
+        "market_value_determined": "2026-05-21",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 800000,
-          "highest_market_value_eur": 2500000,
-          "previous_market_value_eur": 1200000,
+          "market_value_eur": 450000,
+          "highest_market_value_eur": 850000,
+          "previous_market_value_eur": 500000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_0b4fbbc97566a4ac17f2d741",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00196077",
+      "transfermarkt_id": "196077",
+      "player_name": "Fabian Herbers",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "CF Montréal",
+        "market_value_eur": 400000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:46.578Z",
+        "market_value_determined": "2026-06-02",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 400000,
+          "highest_market_value_eur": 1000000,
+          "previous_market_value_eur": 500000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_2a05e34d34b0afb32dcc8d81",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00520492",
+      "transfermarkt_id": "520492",
+      "player_name": "Paulo Victor da Silva",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Botafogo de Futebol e Regatas",
+        "market_value_eur": 400000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:12.112Z",
+        "market_value_determined": "2026-05-25",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 400000,
+          "highest_market_value_eur": 1500000,
+          "previous_market_value_eur": 500000,
           "international_caps": 0,
           "international_goals": 0,
           "total_transfer_fees_eur": 700000,
@@ -917,70 +403,31 @@
       }
     },
     {
-      "event_id": "pchg_664873fe186cf7454d42490a",
+      "event_id": "pchg_7287e58a23a6e4474c1b9a71",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00184526",
-      "transfermarkt_id": "184526",
-      "player_name": "Darijan Bojanic",
+      "player_id": "tbg-tm-00147043",
+      "transfermarkt_id": "147043",
+      "player_name": "Michael Frey",
       "before": null,
       "after": {
         "tbg_rating": 86,
-        "current_club": "Ulsan HD FC",
-        "market_value_eur": 750000
+        "current_club": "Royal Antwerp FC",
+        "market_value_eur": 400000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:02.268Z",
-        "market_value_determined": "2026-05-21",
+        "source_scraped_at": "2026-09-06T08:55:44.378Z",
+        "market_value_determined": "2026-06-02",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 750000,
-          "highest_market_value_eur": 2000000,
-          "previous_market_value_eur": 800000,
+          "market_value_eur": 400000,
+          "highest_market_value_eur": 5000000,
+          "previous_market_value_eur": 500000,
           "international_caps": 0,
           "international_goals": 0,
-          "total_transfer_fees_eur": 465000,
-          "age": 31,
-          "reasons": [],
-          "reasons_by_component": {
-            "elite_trajectory_adjustment": [],
-            "class_retention_adjustment": [],
-            "prestige_adjustment": [],
-            "current_ability_caution": [],
-            "other_adjustment": []
-          }
-        },
-        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
-      }
-    },
-    {
-      "event_id": "pchg_7d03da67b2006eafcc64759c",
-      "event_type": "new_player",
-      "player_id": "tbg-tm-00476102",
-      "transfermarkt_id": "476102",
-      "player_name": "Marcos Vinicius Amaral Alves",
-      "before": null,
-      "after": {
-        "tbg_rating": 86,
-        "current_club": "club_3535",
-        "market_value_eur": 750000
-      },
-      "delta": null,
-      "detected_at": "2026-09-06T08:56:58.016Z",
-      "provenance": {
-        "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:10.713Z",
-        "market_value_determined": "2026-05-21",
-        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
-        "rating_inputs": {
-          "market_value_eur": 750000,
-          "highest_market_value_eur": 4500000,
-          "previous_market_value_eur": 800000,
-          "international_caps": 0,
-          "international_goals": 0,
-          "total_transfer_fees_eur": 10670000,
+          "total_transfer_fees_eur": 8640000,
           "age": 32,
           "reasons": [],
           "reasons_by_component": {
@@ -995,32 +442,231 @@
       }
     },
     {
-      "event_id": "pchg_396872ef3aa243bd97dbece3",
+      "event_id": "pchg_9702ad7af8edd7d4db63b6c6",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00182891",
-      "transfermarkt_id": "182891",
-      "player_name": "Thomas Didillon-Hödl",
+      "player_id": "tbg-tm-00265383",
+      "transfermarkt_id": "265383",
+      "player_name": "Abdoulaye Seck",
       "before": null,
       "after": {
         "tbg_rating": 86,
-        "current_club": "Willem II Tilburg",
-        "market_value_eur": 700000
+        "current_club": "Al-Faisaly FC",
+        "market_value_eur": 400000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:45.782Z",
+        "source_scraped_at": "2026-09-06T08:55:49.778Z",
+        "market_value_determined": "2026-06-05",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 400000,
+          "highest_market_value_eur": 3000000,
+          "previous_market_value_eur": 500000,
+          "international_caps": 23,
+          "international_goals": 4,
+          "total_transfer_fees_eur": 415000,
+          "age": 34,
+          "reasons": [
+            "-0.15: late-career low-market ability caution"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [
+              "-0.15: late-career low-market ability caution"
+            ],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_a9a2cf8688dd9c71b9dc0799",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00112948",
+      "transfermarkt_id": "112948",
+      "player_name": "Jakub Brabec",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Rio Ave FC",
+        "market_value_eur": 400000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:43.727Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 400000,
+          "highest_market_value_eur": 3000000,
+          "previous_market_value_eur": 600000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 2500000,
+          "age": 34,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_b77a936d5c135f0b2fa59f58",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00221285",
+      "transfermarkt_id": "221285",
+      "player_name": "Furkan Soyalp",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Amed SK",
+        "market_value_eur": 400000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:47.578Z",
         "market_value_determined": "2026-05-21",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 700000,
-          "highest_market_value_eur": 5000000,
-          "previous_market_value_eur": 700000,
+          "market_value_eur": 400000,
+          "highest_market_value_eur": 1400000,
+          "previous_market_value_eur": 400000,
           "international_caps": 0,
           "international_goals": 0,
-          "total_transfer_fees_eur": 4375000,
-          "age": 30,
+          "total_transfer_fees_eur": 0,
+          "age": 31,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_55cf7482698b22e28465c5de",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00292130",
+      "transfermarkt_id": "292130",
+      "player_name": "Milosz Trojak",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Ulsan HD FC",
+        "market_value_eur": 325000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:04.837Z",
+        "market_value_determined": "2026-05-21",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 325000,
+          "highest_market_value_eur": 500000,
+          "previous_market_value_eur": 350000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_0a29d849c18a2e20c3bb45e3",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00261407",
+      "transfermarkt_id": "261407",
+      "player_name": "Sang-min Sim",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Ulsan HD FC",
+        "market_value_eur": 300000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:04.038Z",
+        "market_value_determined": "2026-05-21",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 300000,
+          "highest_market_value_eur": 650000,
+          "previous_market_value_eur": 325000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 33,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_1c33b209dfb9ea1f705ca255",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00276853",
+      "transfermarkt_id": "276853",
+      "player_name": "Andries Noppert",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "SC Heerenveen",
+        "market_value_eur": 300000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:50.179Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 300000,
+          "highest_market_value_eur": 5000000,
+          "previous_market_value_eur": 350000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
           "reasons": [
             "+0.1: goalkeeper longevity stability"
           ],
@@ -1038,32 +684,531 @@
       }
     },
     {
-      "event_id": "pchg_94f4366816dfe8907ce11bab",
+      "event_id": "pchg_289f0c4aed0143fd7b72e5b5",
       "event_type": "new_player",
-      "player_id": "tbg-tm-00181547",
-      "transfermarkt_id": "181547",
-      "player_name": "Gonçalo Paciência",
+      "player_id": "tbg-tm-00235412",
+      "transfermarkt_id": "235412",
+      "player_name": "Jawad El Yamiq",
       "before": null,
       "after": {
         "tbg_rating": 86,
-        "current_club": "CD Santa Clara",
-        "market_value_eur": 700000
+        "current_club": "Eyüpspor",
+        "market_value_eur": 300000
       },
       "delta": null,
       "detected_at": "2026-09-06T08:56:58.016Z",
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-06T08:55:45.578Z",
+        "source_scraped_at": "2026-09-06T08:55:48.178Z",
+        "market_value_determined": "2026-06-22",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 300000,
+          "highest_market_value_eur": 2000000,
+          "previous_market_value_eur": 600000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 2423000,
+          "age": 34,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_706e88de20b6df6c07d55aad",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00169681",
+      "transfermarkt_id": "169681",
+      "player_name": "Frederico Venâncio",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "CD Santa Clara",
+        "market_value_eur": 300000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:45.179Z",
         "market_value_determined": "2026-05-28",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 700000,
-          "highest_market_value_eur": 15000000,
-          "previous_market_value_eur": 700000,
+          "market_value_eur": 300000,
+          "highest_market_value_eur": 2000000,
+          "previous_market_value_eur": 500000,
           "international_caps": 0,
           "international_goals": 0,
-          "total_transfer_fees_eur": 5790000,
+          "total_transfer_fees_eur": 0,
+          "age": 33,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_4dfea8fe5017cd6c234874d3",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00235108",
+      "transfermarkt_id": "235108",
+      "player_name": "Luuk Koopmans",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Fortuna Sittard",
+        "market_value_eur": 200000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:48.033Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 200000,
+          "highest_market_value_eur": 600000,
+          "previous_market_value_eur": 150000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 100000,
           "age": 32,
+          "reasons": [
+            "+0.1: goalkeeper longevity stability"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": [
+              "+0.1: goalkeeper longevity stability"
+            ]
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_79b4501aa01f0085d6d33036",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00157113",
+      "transfermarkt_id": "157113",
+      "player_name": "Nazım Sangaré",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Gaziantep FK",
+        "market_value_eur": 200000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:44.580Z",
+        "market_value_determined": "2026-05-21",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 200000,
+          "highest_market_value_eur": 2700000,
+          "previous_market_value_eur": 200000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 2000000,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_bec754c82de7c09fe4624bf6",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00280379",
+      "transfermarkt_id": "280379",
+      "player_name": "Luis Cárdenas",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "CF Monterrey",
+        "market_value_eur": 200000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:04.533Z",
+        "market_value_determined": "2026-05-20",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 200000,
+          "highest_market_value_eur": 600000,
+          "previous_market_value_eur": 250000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
+          "reasons": [
+            "+0.1: goalkeeper longevity stability"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": [
+              "+0.1: goalkeeper longevity stability"
+            ]
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_ec3e2b85abd14b56e2d01ada",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00155158",
+      "transfermarkt_id": "155158",
+      "player_name": "Filip Bednarek",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Sparta Rotterdam",
+        "market_value_eur": 200000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:44.580Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 200000,
+          "highest_market_value_eur": 1000000,
+          "previous_market_value_eur": 200000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 33,
+          "reasons": [
+            "+0.1: goalkeeper longevity stability"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": [
+              "+0.1: goalkeeper longevity stability"
+            ]
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_fa6585564f94eb5114efedc3",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00213257",
+      "transfermarkt_id": "213257",
+      "player_name": "Saeed Al-Rubaie",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Al-Diriyah FC",
+        "market_value_eur": 175000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:47.379Z",
+        "market_value_determined": "2026-06-04",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 175000,
+          "highest_market_value_eur": 750000,
+          "previous_market_value_eur": 200000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 32,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_448b7301a470e9b94f94b0c7",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00212216",
+      "transfermarkt_id": "212216",
+      "player_name": "Jhonatan Luiz da Siqueira",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "FC Alverca",
+        "market_value_eur": 150000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:47.379Z",
+        "market_value_determined": "2026-05-19",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 150000,
+          "highest_market_value_eur": 1000000,
+          "previous_market_value_eur": 200000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 600000,
+          "age": 35,
+          "reasons": [
+            "-0.15: late-career low-market ability caution",
+            "+0.1: goalkeeper longevity stability"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [
+              "-0.15: late-career low-market ability caution"
+            ],
+            "other_adjustment": [
+              "+0.1: goalkeeper longevity stability"
+            ]
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_ca07f0c9ffbf006ac734b9e7",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00154319",
+      "transfermarkt_id": "154319",
+      "player_name": "André Geraldes",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Casa Pia AC",
+        "market_value_eur": 150000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:44.580Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 150000,
+          "highest_market_value_eur": 1250000,
+          "previous_market_value_eur": 200000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 1850000,
+          "age": 35,
+          "reasons": [
+            "-0.15: late-career low-market ability caution"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [
+              "-0.15: late-career low-market ability caution"
+            ],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_ec58a50dcdc29df10e384713",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00116471",
+      "transfermarkt_id": "116471",
+      "player_name": "Hobie Verhulst",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "AZ Alkmaar",
+        "market_value_eur": 150000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:43.727Z",
+        "market_value_determined": "2026-05-28",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 150000,
+          "highest_market_value_eur": 650000,
+          "previous_market_value_eur": 200000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 33,
+          "reasons": [
+            "+0.1: goalkeeper longevity stability"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": [
+              "+0.1: goalkeeper longevity stability"
+            ]
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_3f1816dc88c3e232d33228ac",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00297365",
+      "transfermarkt_id": "297365",
+      "player_name": "Thomas Verheydt",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Willem II Tilburg",
+        "market_value_eur": 125000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:51.578Z",
+        "market_value_determined": "2026-05-21",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 125000,
+          "highest_market_value_eur": 575000,
+          "previous_market_value_eur": 150000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 75000,
+          "age": 34,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_8805f0de36d3401e38c02228",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00426129",
+      "transfermarkt_id": "426129",
+      "player_name": "Byeong-keun Hwang",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Ulsan HD FC",
+        "market_value_eur": 100000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:09.513Z",
+        "market_value_determined": "2026-05-21",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 100000,
+          "highest_market_value_eur": 300000,
+          "previous_market_value_eur": 100000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 47962,
+          "age": 32,
+          "reasons": [
+            "+0.1: goalkeeper longevity stability"
+          ],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": [
+              "+0.1: goalkeeper longevity stability"
+            ]
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+      }
+    },
+    {
+      "event_id": "pchg_55bf93df91a6d9ebe2f8331e",
+      "event_type": "new_player",
+      "player_id": "tbg-tm-00193319",
+      "transfermarkt_id": "193319",
+      "player_name": "Luís Silva",
+      "before": null,
+      "after": {
+        "tbg_rating": 86,
+        "current_club": "Académico Viseu FC",
+        "market_value_eur": 75000
+      },
+      "delta": null,
+      "detected_at": "2026-09-06T08:56:58.016Z",
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-06T08:55:46.378Z",
+        "market_value_determined": "2026-06-24",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 75000,
+          "highest_market_value_eur": 1500000,
+          "previous_market_value_eur": 75000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 33,
           "reasons": [],
           "reasons_by_component": {
             "elite_trajectory_adjustment": [],
@@ -1078,11 +1223,11 @@
     }
   ],
   "other_updates": [],
-  "pending_eligible": 976,
+  "pending_eligible": 946,
   "pending": {
-    "total": 976,
+    "total": 946,
     "rating_changes": 0,
-    "new_players": 976,
+    "new_players": 946,
     "other_updates": 0
   }
 }
