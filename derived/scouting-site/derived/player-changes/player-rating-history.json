@@ -1,8 +1,8 @@
 {
   "version": "tbg-player-rating-history-v1",
-  "generated_at": "2026-09-21T10:39:54.746Z",
+  "generated_at": "2026-09-21T15:52:23.523Z",
   "source": "derived/player-changes/player-release-history.json",
-  "player_count": 268,
+  "player_count": 269,
   "players": {
     "tbg-tm-00342229": {
       "player_id": "tbg-tm-00342229",
@@ -22520,6 +22520,84 @@
             }
           },
           "player_database_edition_generated_at": "2026-09-14T10:35:53.046Z"
+        }
+      }
+    },
+    "tbg-tm-01228248": {
+      "player_id": "tbg-tm-01228248",
+      "history": [
+        {
+          "release_id": "prls_b0c316f2028140a805fd",
+          "slot": "2026-09-21",
+          "published_at": "2026-09-21T15:52:23.215Z",
+          "event_id": "pchg_58ce795c99fe1479b71c3cb7",
+          "before": 82,
+          "after": 81,
+          "delta": -1,
+          "player_name": "Bruno Arady",
+          "transfermarkt_id": "1228248",
+          "provenance": {
+            "source": "apify-transfermarkt-global-player-scraper",
+            "source_scraped_at": "2026-09-21T10:39:33.338Z",
+            "market_value_determined": "2026-06-01",
+            "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+            "rating_inputs": {
+              "market_value_eur": 200000,
+              "highest_market_value_eur": 500000,
+              "previous_market_value_eur": 400000,
+              "international_caps": 0,
+              "international_goals": 0,
+              "total_transfer_fees_eur": 0,
+              "age": 19,
+              "reasons": [],
+              "reasons_by_component": {
+                "elite_trajectory_adjustment": [],
+                "class_retention_adjustment": [],
+                "prestige_adjustment": [],
+                "current_ability_caution": [],
+                "other_adjustment": []
+              }
+            },
+            "player_database_edition_generated_at": "2026-09-21T10:39:53.943Z"
+          }
+        }
+      ],
+      "player_name": "Bruno Arady",
+      "transfermarkt_id": "1228248",
+      "current_rating": 81,
+      "latest_change": {
+        "release_id": "prls_b0c316f2028140a805fd",
+        "slot": "2026-09-21",
+        "published_at": "2026-09-21T15:52:23.215Z",
+        "event_id": "pchg_58ce795c99fe1479b71c3cb7",
+        "before": 82,
+        "after": 81,
+        "delta": -1,
+        "player_name": "Bruno Arady",
+        "transfermarkt_id": "1228248",
+        "provenance": {
+          "source": "apify-transfermarkt-global-player-scraper",
+          "source_scraped_at": "2026-09-21T10:39:33.338Z",
+          "market_value_determined": "2026-06-01",
+          "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+          "rating_inputs": {
+            "market_value_eur": 200000,
+            "highest_market_value_eur": 500000,
+            "previous_market_value_eur": 400000,
+            "international_caps": 0,
+            "international_goals": 0,
+            "total_transfer_fees_eur": 0,
+            "age": 19,
+            "reasons": [],
+            "reasons_by_component": {
+              "elite_trajectory_adjustment": [],
+              "class_retention_adjustment": [],
+              "prestige_adjustment": [],
+              "current_ability_caution": [],
+              "other_adjustment": []
+            }
+          },
+          "player_database_edition_generated_at": "2026-09-21T10:39:53.943Z"
         }
       }
     }
