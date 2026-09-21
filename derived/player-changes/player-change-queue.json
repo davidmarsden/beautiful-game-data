@@ -1,6 +1,6 @@
 {
   "version": "tbg-player-change-queue-v1",
-  "updated_at": "2026-09-20T13:34:42.053Z",
+  "updated_at": "2026-09-21T10:39:53.943Z",
   "scope": "tbg_release_events_only",
   "entries": [
     {
@@ -62640,6 +62640,46 @@
       "publication": {
         "published_at": "2026-09-15T14:18:42.406Z",
         "release_id": "prls_647a461f42f09bfb207c"
+      }
+    },
+    {
+      "event_id": "pchg_58ce795c99fe1479b71c3cb7",
+      "status": "pending",
+      "detected_at": "2026-09-21T10:39:53.943Z",
+      "event_type": "rating_change",
+      "player_id": "tbg-tm-01228248",
+      "transfermarkt_id": "1228248",
+      "player_name": "Bruno Arady",
+      "before": 82,
+      "after": 81,
+      "delta": -1,
+      "provenance": {
+        "source": "apify-transfermarkt-global-player-scraper",
+        "source_scraped_at": "2026-09-21T10:39:33.338Z",
+        "market_value_determined": "2026-06-01",
+        "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+        "rating_inputs": {
+          "market_value_eur": 200000,
+          "highest_market_value_eur": 500000,
+          "previous_market_value_eur": 400000,
+          "international_caps": 0,
+          "international_goals": 0,
+          "total_transfer_fees_eur": 0,
+          "age": 19,
+          "reasons": [],
+          "reasons_by_component": {
+            "elite_trajectory_adjustment": [],
+            "class_retention_adjustment": [],
+            "prestige_adjustment": [],
+            "current_ability_caution": [],
+            "other_adjustment": []
+          }
+        },
+        "player_database_edition_generated_at": "2026-09-21T10:39:53.943Z"
+      },
+      "publication": {
+        "published_at": null,
+        "release_id": null
       }
     }
   ]

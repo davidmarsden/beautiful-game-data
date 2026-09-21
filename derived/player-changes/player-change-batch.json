@@ -1,6 +1,6 @@
 {
   "version": "tbg-player-change-batch-v1",
-  "generated_at": "2026-09-14T10:35:53.046Z",
+  "generated_at": "2026-09-21T10:39:53.943Z",
   "first_edition": false,
   "detected_changes": 1,
   "tbg_release_changes": 1,
@@ -9,29 +9,29 @@
   "duplicate_events_skipped": 0,
   "purged_legacy_state_events": 0,
   "event_ids": [
-    "pchg_1ffb1cd429595a7ba94a81da"
+    "pchg_58ce795c99fe1479b71c3cb7"
   ],
   "events": [
     {
-      "event_id": "pchg_1ffb1cd429595a7ba94a81da",
+      "event_id": "pchg_58ce795c99fe1479b71c3cb7",
       "status": "pending",
-      "detected_at": "2026-09-14T10:35:53.046Z",
+      "detected_at": "2026-09-21T10:39:53.943Z",
       "event_type": "rating_change",
-      "player_id": "tbg-tm-01304031",
-      "transfermarkt_id": "1304031",
-      "player_name": "Taha Emre İnce",
-      "before": 81,
-      "after": 82,
-      "delta": 1,
+      "player_id": "tbg-tm-01228248",
+      "transfermarkt_id": "1228248",
+      "player_name": "Bruno Arady",
+      "before": 82,
+      "after": 81,
+      "delta": -1,
       "provenance": {
         "source": "apify-transfermarkt-global-player-scraper",
-        "source_scraped_at": "2026-09-14T10:35:32.632Z",
-        "market_value_determined": "2026-05-21",
+        "source_scraped_at": "2026-09-21T10:39:33.338Z",
+        "market_value_determined": "2026-06-01",
         "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
         "rating_inputs": {
-          "market_value_eur": 100000,
-          "highest_market_value_eur": 100000,
-          "previous_market_value_eur": 100000,
+          "market_value_eur": 200000,
+          "highest_market_value_eur": 500000,
+          "previous_market_value_eur": 400000,
           "international_caps": 0,
           "international_goals": 0,
           "total_transfer_fees_eur": 0,
@@ -45,7 +45,7 @@
             "other_adjustment": []
           }
         },
-        "player_database_edition_generated_at": "2026-09-14T10:35:53.046Z"
+        "player_database_edition_generated_at": "2026-09-21T10:39:53.943Z"
       },
       "publication": {
         "published_at": null,
