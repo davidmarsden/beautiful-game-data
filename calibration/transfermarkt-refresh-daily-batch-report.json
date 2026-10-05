@@ -1,27 +1,135 @@
 {
-  "generated_at": "2026-09-28T11:39:26.649Z",
+  "generated_at": "2026-10-05T12:14:07.695Z",
   "policy_version": "tbg-transfermarkt-refresh-tiers-v1.0",
   "mode": "daily",
   "description": "Assigned squads, elite players, wonderkids and the stalest high-priority records.",
   "master_players": 9226,
   "known_non_retired_players": 9217,
-  "eligible_known_players": 8220,
-  "fresh_cache_excluded": 997,
+  "eligible_known_players": 9027,
+  "fresh_cache_excluded": 190,
   "min_source_age_days": 21,
   "retired_excluded": 9,
   "requested_players": 50,
-  "rotation_offset_before": 50,
-  "rotation_offset_after": 100,
+  "rotation_offset_before": 100,
+  "rotation_offset_after": 150,
   "composition": {
     "assigned": 50,
-    "high_rating": 36,
-    "young": 17,
-    "valuable": 29
+    "high_rating": 50,
+    "young": 35,
+    "valuable": 50
   },
   "players": [
     {
+      "id": "580195",
+      "score": 2059.378309515897,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Jamal Musiala",
+      "age": 23,
+      "value": 100000000,
+      "rating": 95,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.381Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4028
+    },
+    {
+      "id": "581678",
+      "score": 2059.360871948979,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Jude Bellingham",
+      "age": 23,
+      "value": 160000000,
+      "rating": 95,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.381Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4048
+    },
+    {
+      "id": "567576",
+      "score": 2057.793359008411,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Elliot Anderson",
+      "age": 23,
+      "value": 110000000,
+      "rating": 92,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.381Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 3904
+    },
+    {
+      "id": "598577",
+      "score": 2056.6833942616595,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Florian Wirtz",
+      "age": 23,
+      "value": 100000000,
+      "rating": 94,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.381Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4181
+    },
+    {
+      "id": "566931",
+      "score": 2056.4869608443246,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Xavi Simons",
+      "age": 23,
+      "value": 40000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.381Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 3892
+    },
+    {
+      "id": "607223",
+      "score": 2052.9729641223785,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Rayan Cherki",
+      "age": 23,
+      "value": 90000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.381Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4241
+    },
+    {
       "id": "636703",
-      "score": 2052.5596107055962,
+      "score": 2051.806137144123,
       "reasons": [
         "assigned",
         "high_rating",
@@ -34,12 +142,120 @@
       "rating": 93,
       "assigned": true,
       "scraped_at": "2026-09-05T09:02:40.642Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 4064
+      "source_age_days": 30.1,
+      "rotation_rank": 4531
+    },
+    {
+      "id": "610442",
+      "score": 2051.508848048877,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Rasmus Højlund",
+      "age": 23,
+      "value": 60000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4267
+    },
+    {
+      "id": "614258",
+      "score": 2051.1084083559476,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Levi Colwill",
+      "age": 23,
+      "value": 50000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4296
+    },
+    {
+      "id": "627442",
+      "score": 2050.6782073805957,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Benjamin Sesko",
+      "age": 23,
+      "value": 75000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4441
+    },
+    {
+      "id": "618472",
+      "score": 2050.654215379322,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Castello Lukeba",
+      "age": 23,
+      "value": 50000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4337
+    },
+    {
+      "id": "670681",
+      "score": 2050.0417744298293,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "João Neves",
+      "age": 21,
+      "value": 140000000,
+      "rating": 93,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4884
+    },
+    {
+      "id": "683840",
+      "score": 2049.764548110723,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Pedro González López",
+      "age": 23,
+      "value": 150000000,
+      "rating": 96,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5002
     },
     {
       "id": "636688",
-      "score": 2050.2829116101752,
+      "score": 2049.5272629034166,
       "reasons": [
         "assigned",
         "high_rating",
@@ -52,12 +268,372 @@
       "rating": 90,
       "assigned": true,
       "scraped_at": "2026-09-05T09:02:40.642Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 4062
+      "source_age_days": 30.1,
+      "rotation_rank": 4529
+    },
+    {
+      "id": "640428",
+      "score": 2049.1506150691416,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Eduardo Camavinga",
+      "age": 23,
+      "value": 50000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4563
+    },
+    {
+      "id": "646740",
+      "score": 2048.4745733428995,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Pablo Martín Páez Gavira",
+      "age": 22,
+      "value": 30000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4604
+    },
+    {
+      "id": "659089",
+      "score": 2046.1039986198866,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Ilya Zabarnyi",
+      "age": 23,
+      "value": 40000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.581Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 4739
+    },
+    {
+      "id": "708265",
+      "score": 2042.1055663157981,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Bradley Barcola",
+      "age": 23,
+      "value": 90000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5222
+    },
+    {
+      "id": "743413",
+      "score": 2039.650902847813,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Nico O'Reilly",
+      "age": 21,
+      "value": 70000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5524
+    },
+    {
+      "id": "792380",
+      "score": 2037.7438736161193,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Aleksandar Pavlovic",
+      "age": 22,
+      "value": 90000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5706
+    },
+    {
+      "id": "810092",
+      "score": 2037.296908531359,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Warren Zaïre-Emery",
+      "age": 20,
+      "value": 80000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5832
+    },
+    {
+      "id": "775605",
+      "score": 2036.1060434250653,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Pablo Barrios",
+      "age": 23,
+      "value": 55000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5654
+    },
+    {
+      "id": "937958",
+      "score": 2036.0763320637845,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Lamine Yamal Nasraoui Ebana",
+      "age": 19,
+      "value": 220000000,
+      "rating": 97,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.852Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6704
+    },
+    {
+      "id": "820374",
+      "score": 2035.4080757734807,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Kobbie Mainoo",
+      "age": 21,
+      "value": 70000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5907
+    },
+    {
+      "id": "845654",
+      "score": 2035.1973167192464,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Kenan Yıldız",
+      "age": 21,
+      "value": 75000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6019
+    },
+    {
+      "id": "861410",
+      "score": 2035.1908659723838,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Arda Güler",
+      "age": 21,
+      "value": 90000000,
+      "rating": 92,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6117
+    },
+    {
+      "id": "811778",
+      "score": 2033.9598540189588,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Álvaro Carreras",
+      "age": 23,
+      "value": 50000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 5844
+    },
+    {
+      "id": "890290",
+      "score": 2031.9542895022946,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Dean Huijsen",
+      "age": 21,
+      "value": 60000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6303
+    },
+    {
+      "id": "914562",
+      "score": 2031.1505227770103,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Désiré Doué",
+      "age": 21,
+      "value": 120000000,
+      "rating": 92,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6493
+    },
+    {
+      "id": "923831",
+      "score": 2028.9283928469192,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Leny Yoro",
+      "age": 20,
+      "value": 50000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.781Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6569
+    },
+    {
+      "id": "962110",
+      "score": 2027.8395923341088,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Pau Cubarsí",
+      "age": 19,
+      "value": 100000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.852Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 6875
+    },
+    {
+      "id": "1004301",
+      "score": 2021.378448432266,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Jérémy Jacquet",
+      "age": 21,
+      "value": 55000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.852Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 7164
+    },
+    {
+      "id": "1056993",
+      "score": 2020.9630213041517,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Estêvão Willian Almeida de Oliveira Gonçalves",
+      "age": 19,
+      "value": 80000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.852Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 7487
+    },
+    {
+      "id": "1075147",
+      "score": 2019.1542451907846,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "young",
+        "valuable"
+      ],
+      "player_name": "Lennart Karl",
+      "age": 18,
+      "value": 60000000,
+      "rating": 90,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:25.852Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 7639
     },
     {
       "id": "1390649",
-      "score": 2005.0710308306072,
+      "score": 2005.4689206970986,
       "reasons": [
         "assigned",
         "high_rating",
@@ -70,12 +646,182 @@
       "rating": 90,
       "assigned": true,
       "scraped_at": "2026-09-05T09:02:51.321Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 8046
+      "source_age_days": 30.1,
+      "rotation_rank": 8800
+    },
+    {
+      "id": "132098",
+      "score": 1850.488021639217,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Harry Kane",
+      "age": 33,
+      "value": 60000000,
+      "rating": 96,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 297
+    },
+    {
+      "id": "91845",
+      "score": 1849.1015371436242,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Heung-min Son",
+      "age": 34,
+      "value": 15000000,
+      "rating": 93,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 97
+    },
+    {
+      "id": "105470",
+      "score": 1848.5033317597758,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Alisson Ramses Becker",
+      "age": 33,
+      "value": 15000000,
+      "rating": 93,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 151
+    },
+    {
+      "id": "108390",
+      "score": 1848.4036308624677,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Thibaut Courtois",
+      "age": 34,
+      "value": 15000000,
+      "rating": 93,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 160
+    },
+    {
+      "id": "121483",
+      "score": 1847.7500360912259,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Jan Oblak",
+      "age": 33,
+      "value": 15000000,
+      "rating": 93,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 219
+    },
+    {
+      "id": "139208",
+      "score": 1847.5979368334438,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Virgil van Dijk",
+      "age": 35,
+      "value": 15000000,
+      "rating": 94,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 323
+    },
+    {
+      "id": "161056",
+      "score": 1846.9024373807854,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Joshua Kimmich",
+      "age": 31,
+      "value": 35000000,
+      "rating": 94,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 419
+    },
+    {
+      "id": "126414",
+      "score": 1846.4568063679444,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Hakan Çalhanoğlu",
+      "age": 32,
+      "value": 16000000,
+      "rating": 92,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 248
+    },
+    {
+      "id": "111873",
+      "score": 1846.0851632998863,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Emiliano Martínez",
+      "age": 33,
+      "value": 12000000,
+      "rating": 91,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 180
+    },
+    {
+      "id": "181767",
+      "score": 1845.586960845123,
+      "reasons": [
+        "assigned",
+        "high_rating",
+        "valuable"
+      ],
+      "player_name": "Marcos Aoás Corrêa",
+      "age": 32,
+      "value": 28000000,
+      "rating": 94,
+      "assigned": true,
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 529
     },
     {
       "id": "130164",
-      "score": 1844.160172062769,
+      "score": 1844.9235146384485,
       "reasons": [
         "assigned",
         "high_rating",
@@ -87,769 +833,76 @@
       "rating": 91,
       "assigned": true,
       "scraped_at": "2026-09-05T09:04:49.200Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 325
+      "source_age_days": 30.1,
+      "rotation_rank": 288
     },
     {
-      "id": "344695",
-      "score": 1829.7315089519561,
+      "id": "159471",
+      "score": 1843.76873212624,
       "reasons": [
         "assigned",
         "high_rating",
         "valuable"
       ],
-      "player_name": "Dayot Upamecano",
-      "age": 27,
-      "value": 75000000,
-      "rating": 93,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:11.083Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 1738
-    },
-    {
-      "id": "344381",
-      "score": 1827.3395458480882,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Christopher Nkunku",
-      "age": 28,
-      "value": 25000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:21.785Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 1731
-    },
-    {
-      "id": "346483",
-      "score": 1826.9745823444384,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Mason Mount",
-      "age": 27,
-      "value": 25000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:21.785Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 1761
-    },
-    {
-      "id": "346314",
-      "score": 1826.2516950278243,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Trevoh Chalobah",
-      "age": 27,
-      "value": 40000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:21.785Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 1755
-    },
-    {
-      "id": "433177",
-      "score": 1822.83458003309,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Bukayo Saka",
-      "age": 25,
-      "value": 110000000,
-      "rating": 95,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:38.865Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 2483
-    },
-    {
-      "id": "435338",
-      "score": 1820.3762778084038,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Gabriel Magalhães",
-      "age": 28,
-      "value": 75000000,
-      "rating": 93,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:50.280Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 2507
-    },
-    {
-      "id": "434675",
-      "score": 1819.3645259462473,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Cody Gakpo",
-      "age": 27,
-      "value": 60000000,
-      "rating": 92,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:50.280Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 2500
-    },
-    {
-      "id": "434224",
-      "score": 1817.3340065006862,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Maxence Lacroix",
-      "age": 26,
-      "value": 50000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:59.324Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 2496
-    },
-    {
-      "id": "433188",
-      "score": 1817.2885935917955,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Curtis Jones",
-      "age": 25,
-      "value": 35000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:03:59.324Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 2487
-    },
-    {
-      "id": "601883",
-      "score": 1802.8108921454552,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Matheus Nunes",
-      "age": 28,
-      "value": 50000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:04:29.805Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 3772
-    },
-    {
-      "id": "602105",
-      "score": 1802.7018166823254,
-      "reasons": [
-        "assigned",
-        "high_rating",
-        "valuable"
-      ],
-      "player_name": "Antony Matheus dos Santos",
-      "age": 26,
-      "value": 40000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:04:38.446Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 3773
-    },
-    {
-      "id": "88755",
-      "score": 1692.345498783455,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Kevin De Bruyne",
-      "age": 35,
-      "value": 8000000,
-      "rating": 94,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 136
-    },
-    {
-      "id": "68290",
-      "score": 1692.294403892944,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Neymar da Silva Santos Júnior",
-      "age": 34,
-      "value": 8000000,
-      "rating": 93,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 58
-    },
-    {
-      "id": "58864",
-      "score": 1689.6958637469586,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Pierre-Emerick Aubameyang",
-      "age": 37,
-      "value": 2500000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 25
-    },
-    {
-      "id": "61651",
-      "score": 1689.5498783454989,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Jordan Henderson",
-      "age": 36,
-      "value": 1200000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 37
-    },
-    {
-      "id": "72476",
-      "score": 1689.1605839416059,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Bernd Leno",
-      "age": 34,
-      "value": 6000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-07T10:22:21.255Z",
-      "source_age_days": 21.1,
-      "rotation_rank": 69
-    },
-    {
-      "id": "74229",
-      "score": 1689.0389294403892,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Jorge Resurrección Merodio",
-      "age": 34,
-      "value": 5000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 79
-    },
-    {
-      "id": "125781",
-      "score": 1688.5571776155718,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Antoine Griezmann",
-      "age": 35,
-      "value": 8000000,
-      "rating": 92,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:05:29.142Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 283
-    },
-    {
-      "id": "86202",
-      "score": 1688.45498783455,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Antonio Rüdiger",
-      "age": 33,
-      "value": 6000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 127
-    },
-    {
-      "id": "93128",
-      "score": 1688.1630170316303,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Kalidou Koulibaly",
-      "age": 35,
-      "value": 4500000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 151
-    },
-    {
-      "id": "106987",
-      "score": 1687.5790754257907,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Marcel Sabitzer",
-      "age": 32,
-      "value": 6000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.857Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 199
-    },
-    {
-      "id": "122153",
-      "score": 1686.8248175182482,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Paul Pogba",
-      "age": 33,
-      "value": 2500000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.857Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 261
-    },
-    {
-      "id": "126664",
-      "score": 1686.4598540145985,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Lucas Digne",
-      "age": 33,
-      "value": 6000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-05T09:05:29.142Z",
-      "source_age_days": 23.1,
-      "rotation_rank": 291
-    },
-    {
-      "id": "182712",
-      "score": 1684.2725060827252,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "João Cancelo",
-      "age": 32,
-      "value": 8000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.857Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 553
-    },
-    {
-      "id": "167850",
-      "score": 1684.2457420924575,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Memphis Depay",
-      "age": 32,
-      "value": 7000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.857Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 473
-    },
-    {
-      "id": "177907",
-      "score": 1683.5766423357663,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Harry Maguire",
-      "age": 33,
-      "value": 8000000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.857Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 528
-    },
-    {
-      "id": "200512",
-      "score": 1683.508515815085,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Sadio Mané",
-      "age": 34,
-      "value": 6000000,
-      "rating": 92,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.910Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 698
-    },
-    {
-      "id": "234803",
-      "score": 1680.0632603406325,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Andrew Robertson",
-      "age": 32,
-      "value": 7000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.910Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 899
-    },
-    {
-      "id": "250845",
-      "score": 1678.676399026764,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "José María Giménez",
+      "player_name": "Serge Gnabry",
       "age": 31,
-      "value": 9000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:51.001Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 1013
-    },
-    {
-      "id": "17259",
-      "score": 1591.5717761557178,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Manuel Neuer",
-      "age": 40,
-      "value": 4000000,
-      "rating": 91,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 8173
-    },
-    {
-      "id": "22415",
-      "score": 1590.5231143552312,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Fábio Deivson Lopes Maciel",
-      "age": 45,
-      "value": 75000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 8177
-    },
-    {
-      "id": "48015",
-      "score": 1590.0243309002433,
-      "reasons": [
-        "assigned",
-        "high_rating"
-      ],
-      "player_name": "Lukas Hradecky",
-      "age": 36,
-      "value": 1500000,
-      "rating": 90,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:50.743Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 8218
-    },
-    {
-      "id": "466810",
-      "score": 1474.9157506264523,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Ansu Fati",
-      "age": 23,
-      "value": 15000000,
-      "rating": 88,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:51.941Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 2734
-    },
-    {
-      "id": "487474",
-      "score": 1473.391963103868,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Francisco Conceição",
-      "age": 23,
-      "value": 30000000,
-      "rating": 88,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.141Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 2884
-    },
-    {
-      "id": "503981",
-      "score": 1471.9257185965005,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Tino Livramento",
-      "age": 23,
-      "value": 45000000,
-      "rating": 89,
-      "assigned": true,
-      "scraped_at": "2026-09-07T10:22:21.806Z",
-      "source_age_days": 21.1,
-      "rotation_rank": 3019
-    },
-    {
-      "id": "548028",
-      "score": 1468.4704951519998,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Franjo Ivanović",
-      "age": 22,
-      "value": 15000000,
-      "rating": 86,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.341Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3346
-    },
-    {
-      "id": "540664",
-      "score": 1468.4106616809772,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Dilane Bakwa",
-      "age": 23,
-      "value": 28000000,
-      "rating": 88,
-      "assigned": true,
-      "scraped_at": "2026-09-07T10:22:21.887Z",
-      "source_age_days": 21.1,
-      "rotation_rank": 3291
-    },
-    {
-      "id": "548254",
-      "score": 1467.655847551251,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Nathan Ngoy",
-      "age": 23,
-      "value": 25000000,
-      "rating": 88,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3349
-    },
-    {
-      "id": "556385",
-      "score": 1467.0051017899993,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Destiny Udogie",
-      "age": 23,
-      "value": 30000000,
-      "rating": 89,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3409
-    },
-    {
-      "id": "565435",
-      "score": 1466.9409326720631,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Arne Engels",
-      "age": 22,
-      "value": 20000000,
-      "rating": 87,
-      "assigned": true,
-      "scraped_at": "2026-09-07T10:22:21.887Z",
-      "source_age_days": 21.1,
-      "rotation_rank": 3482
-    },
-    {
-      "id": "554389",
-      "score": 1466.8684111912346,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Konstantinos Tzolakis",
-      "age": 23,
       "value": 18000000,
-      "rating": 87,
+      "rating": 91,
       "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3402
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 405
     },
     {
-      "id": "559328",
-      "score": 1466.6826115415188,
+      "id": "182906",
+      "score": 1843.2525088923076,
       "reasons": [
         "assigned",
-        "young",
+        "high_rating",
         "valuable"
       ],
-      "player_name": "Emmanuel Emegha",
-      "age": 23,
-      "value": 25000000,
-      "rating": 88,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3429
-    },
-    {
-      "id": "565424",
-      "score": 1466.0017599226715,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Johan Bakayoko",
-      "age": 23,
+      "player_name": "Mike Maignan",
+      "age": 31,
       "value": 20000000,
-      "rating": 88,
+      "rating": 92,
       "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3477
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 546
     },
     {
-      "id": "565822",
-      "score": 1465.904436321698,
+      "id": "167799",
+      "score": 1843.1467348837373,
       "reasons": [
         "assigned",
-        "young",
+        "high_rating",
         "valuable"
       ],
-      "player_name": "Harvey Elliott",
-      "age": 23,
-      "value": 20000000,
-      "rating": 88,
-      "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3485
-    },
-    {
-      "id": "565821",
-      "score": 1465.7916630352115,
-      "reasons": [
-        "assigned",
-        "young",
-        "valuable"
-      ],
-      "player_name": "Mika Biereth",
-      "age": 23,
+      "player_name": "Pierre-Emile Højbjerg",
+      "age": 31,
       "value": 15000000,
-      "rating": 87,
+      "rating": 91,
       "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.541Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3484
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 454
     },
     {
-      "id": "568693",
-      "score": 1465.6304059262525,
+      "id": "181136",
+      "score": 1842.2173479561316,
       "reasons": [
         "assigned",
-        "young",
+        "high_rating",
         "valuable"
       ],
-      "player_name": "Pape Matar Sarr",
-      "age": 23,
-      "value": 30000000,
-      "rating": 89,
+      "player_name": "Piotr Zielinski",
+      "age": 32,
+      "value": 10000000,
+      "rating": 91,
       "assigned": true,
-      "scraped_at": "2026-09-06T09:24:52.741Z",
-      "source_age_days": 22.1,
-      "rotation_rank": 3522
+      "scraped_at": "2026-09-09T09:49:23.983Z",
+      "source_age_days": 26.1,
+      "rotation_rank": 522
     }
   ]
 }

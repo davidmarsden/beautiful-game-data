@@ -1,6 +1,6 @@
 # Player Exclusion Ledger
 
-Generated: 2026-09-28T11:39:47.561Z
+Generated: 2026-10-05T12:14:28.425Z
 
 Policy: tbg-player-publication-policy-v1.0
 
