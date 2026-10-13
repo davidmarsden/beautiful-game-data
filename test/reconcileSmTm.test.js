@@ -109,3 +109,77 @@ test("output records the algorithm version and snapshot", () => {
   const r = reconcilePlayerIdentities([], [], [], { snapshotId: "sm-2026-10-12" });
   assert.deepEqual(r.meta, { algorithm_version: ALGORITHM_VERSION, snapshot_id: "sm-2026-10-12" });
 });
+
+// --- Codex review regressions (PR #47) ---
+
+test("conflicting confirmations for one SM player force review regardless of order", () => {
+  const sms = [sm(1, "Alex Smith", "2000-01-02")];
+  const tms = [tm(10, "Alex Smith", "2000-01-02"), tm(11, "Alex Smith", "2000-01-02")];
+  const a = { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed", reviewer: "A" };
+  const b = { sm_player_data_id: "1", transfermarkt_id: "11", status: "confirmed", reviewer: "B" };
+  for (const decisions of [[a, b], [b, a]]) {
+    const p = reconcilePlayerIdentities(sms, tms, decisions).proposals[0];
+    assert.equal(p.status, "review");
+    assert.equal(p.conflict, "conflicting_confirmations");
+    assert.equal(p.reviewed_transfermarkt_id, undefined);
+    assert.equal(p.conflicting_decisions.length, 2);
+    assert.deepEqual(p.conflicting_decisions.map(d => d.reviewer).sort(), ["A", "B"]);
+  }
+});
+
+test("repeating the same confirmation is not a conflict", () => {
+  const d = { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" };
+  const p = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02")], [tm(10, "Alex Smith", "2000-01-02")], [d, { ...d }]).proposals[0];
+  assert.equal(p.status, "reviewed");
+});
+
+test("a confirmation contradicted by a rejection of the same pair forces review", () => {
+  const p = reconcilePlayerIdentities(
+    [sm(1, "Alex Smith", "2000-01-02")],
+    [tm(10, "Alex Smith", "2000-01-02")],
+    [
+      { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" },
+      { sm_player_data_id: "1", transfermarkt_id: "10", status: "rejected" }
+    ]
+  ).proposals[0];
+  assert.equal(p.status, "review");
+  assert.equal(p.conflict, "confirmed_and_rejected");
+});
+
+test("a confirmation contradicted by a no-match rejection forces review", () => {
+  const p = reconcilePlayerIdentities(
+    [sm(1, "Alex Smith", "2000-01-02")],
+    [tm(10, "Alex Smith", "2000-01-02")],
+    [
+      { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" },
+      { sm_player_data_id: "1", status: "rejected" }
+    ]
+  ).proposals[0];
+  assert.equal(p.status, "review");
+  assert.equal(p.conflict, "confirmed_and_no_match");
+});
+
+test("an exact display-name alias is found when the formal full name differs (no DOB)", () => {
+  const formal = { transfermarkt_id: 10, full_name: "Thibaut Nicolas Marc Courtois", display_name: "Thibaut Courtois", date_of_birth: "1992-05-11" };
+  const p = reconcilePlayerIdentities([sm(1, "Thibaut Courtois", null, { current_club: "" })], [formal]).proposals[0];
+  assert.deepEqual(candidateIds(p), ["10"]);
+  assert.ok(p.candidates[0].evidence.includes("name_exact"));
+  assert.deepEqual(p.candidates[0].matched_name, { sm: "Thibaut Courtois", tm: "Thibaut Courtois" });
+  assert.equal(p.status, "review");
+});
+
+test("an exact display-name alias earns full name points when DOB matches", () => {
+  const formal = { transfermarkt_id: 10, full_name: "Thibaut Nicolas Marc Courtois", display_name: "Thibaut Courtois", date_of_birth: "1992-05-11" };
+  const p = reconcilePlayerIdentities([sm(1, "Thibaut Courtois", "1992-05-11", { current_club: "" })], [formal]).proposals[0];
+  assert.equal(p.candidates[0].score, 85);
+  assert.equal(p.status, "proposed_auto");
+});
+
+test("alias arrays on either side are indexed and compared", () => {
+  const p = reconcilePlayerIdentities(
+    [sm(1, "Rodrigo Hernández Cascante", null, { aliases: ["Rodri"], current_club: "" })],
+    [{ transfermarkt_id: 10, name: "Rodri", date_of_birth: "1996-06-22" }]
+  ).proposals[0];
+  assert.deepEqual(candidateIds(p), ["10"]);
+  assert.deepEqual(p.candidates[0].matched_name, { sm: "Rodri", tm: "Rodri" });
+});

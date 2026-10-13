@@ -5,7 +5,7 @@ import { normaliseName } from "./playerIdentityResolver.js";
 // is written, and no match is treated as confirmed without an unambiguous
 // one-to-one assignment or a recorded human decision.
 
-export const ALGORITHM_VERSION = "sm-tm-reconcile/0.2";
+export const ALGORITHM_VERSION = "sm-tm-reconcile/0.3";
 
 // Scoring weights. These are heuristics, not calibrated probabilities.
 const POINTS = {
@@ -40,12 +40,23 @@ function dateOfBirth(row) {
   return isoDate(row.date_of_birth || row.dob || row.birth_date);
 }
 
-function displayName(row) {
-  return text(row.full_name || row.canonical_name || row.display_name || row.player_name || row.name);
-}
+// Footballers carry several names (formal full name, common display name,
+// short name, aliases). Every supplied variant is indexed and compared.
+const NAME_FIELDS = ["full_name", "canonical_name", "display_name", "player_name", "name", "short_name", "known_as"];
+const ALIAS_FIELDS = ["aliases", "name_aliases", "alternative_names"];
 
-function nameKey(row) {
-  return normaliseName(displayName(row));
+function nameVariants(row) {
+  const values = [
+    ...NAME_FIELDS.map(field => row[field]),
+    ...ALIAS_FIELDS.flatMap(field => [row[field]].flat())
+  ];
+  const variants = new Map(); // normalised key -> original text
+  for (const value of values) {
+    const original = text(value);
+    const key = normaliseName(original);
+    if (key && !variants.has(key)) variants.set(key, original);
+  }
+  return variants;
 }
 
 function smId(row) {
@@ -119,15 +130,24 @@ function scorePair(sm, tm) {
     }
   }
 
-  const smName = nameKey(sm);
-  const tmName = nameKey(tm);
-  if (smName && smName === tmName) {
+  // Compare every SM name variant with every TM variant and keep the best pair,
+  // recording which variants produced it.
+  let bestName = null;
+  for (const [smKey, smText] of nameVariants(sm)) {
+    for (const [tmKey, tmText] of nameVariants(tm)) {
+      const similarity = smKey === tmKey ? 1 : tokenSimilarity(smKey, tmKey);
+      if (!bestName || similarity > bestName.similarity) bestName = { similarity, sm: smText, tm: tmText };
+    }
+  }
+  let matchedName = null;
+  if (bestName && bestName.similarity === 1) {
     evidence.push("name_exact");
     score += POINTS.nameExact;
-  } else {
-    const similarity = tokenSimilarity(smName, tmName);
-    if (similarity >= 0.65) evidence.push("name_tokens");
-    score += Math.round(similarity * POINTS.nameTokensMax);
+    matchedName = { sm: bestName.sm, tm: bestName.tm };
+  } else if (bestName) {
+    if (bestName.similarity >= 0.65) evidence.push("name_tokens");
+    score += Math.round(bestName.similarity * POINTS.nameTokensMax);
+    if (bestName.similarity > 0) matchedName = { sm: bestName.sm, tm: bestName.tm };
   }
 
   const smClub = clubKey(sm);
@@ -151,7 +171,7 @@ function scorePair(sm, tm) {
     score += POINTS.positionCompatible;
   }
 
-  return { score, evidence, conflicts };
+  return { score, evidence, conflicts, matched_name: matchedName };
 }
 
 // --- decisions --------------------------------------------------------------
@@ -162,23 +182,36 @@ function scorePair(sm, tm) {
 //   { sm_player_data_id, status: "rejected" }                     this SM player has no TM identity
 //   { sm_player_data_id, status: "unresolved" }                   parked; do not propose
 // Audit fields (reviewer, decided_at, snapshot_id, algorithm_version) belong in the
-// decisions registry; they are not interpreted here.
+// decisions registry; they are not interpreted here, but are returned as evidence
+// whenever decisions contradict each other.
 function indexDecisions(decisions) {
   const bySm = new Map();
   for (const decision of decisions) {
     const sid = text(decision.sm_player_data_id);
     if (!sid) continue;
     if (!bySm.has(sid)) {
-      bySm.set(sid, { confirmed: "", noMatch: false, unresolved: false, rejectedPairs: new Set() });
+      bySm.set(sid, { confirmed: new Set(), noMatch: false, unresolved: false, rejectedPairs: new Set(), records: [] });
     }
     const entry = bySm.get(sid);
+    entry.records.push(decision);
     const tid = text(decision.transfermarkt_id);
-    if (decision.status === "confirmed" && tid) entry.confirmed = tid;
+    if (decision.status === "confirmed" && tid) entry.confirmed.add(tid);
     else if (decision.status === "rejected" && tid) entry.rejectedPairs.add(tid);
     else if (decision.status === "rejected") entry.noMatch = true;
     else if (decision.status === "unresolved") entry.unresolved = true;
   }
   return bySm;
+}
+
+// Decisions that cannot all be true are never resolved by order or precedence:
+// the player goes to review with every decision preserved.
+function decisionConflict(entry) {
+  if (!entry) return "";
+  if (entry.confirmed.size > 1) return "conflicting_confirmations";
+  const [confirmed] = entry.confirmed;
+  if (confirmed && entry.rejectedPairs.has(confirmed)) return "confirmed_and_rejected";
+  if (confirmed && entry.noMatch) return "confirmed_and_no_match";
+  return "";
 }
 
 // --- main -------------------------------------------------------------------
@@ -199,7 +232,7 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
     if (!tid) continue;
     tmById.set(tid, tm);
     addToIndex(tmByDob, dateOfBirth(tm), tm);
-    addToIndex(tmByName, nameKey(tm), tm);
+    for (const key of nameVariants(tm).keys()) addToIndex(tmByName, key, tm);
   }
 
   const decisionsBySm = indexDecisions(decisions);
@@ -209,8 +242,9 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
     const sid = smId(sm);
     if (!sid) continue;
     const decision = decisionsBySm.get(sid);
+    const conflict = decisionConflict(decision);
 
-    if (decision?.unresolved || decision?.noMatch) {
+    if (!conflict && (decision?.unresolved || decision?.noMatch)) {
       proposals.push({
         sm_player_data_id: sid,
         status: decision.unresolved ? "unresolved" : "rejected",
@@ -220,7 +254,10 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
     }
 
     const pool = new Map();
-    const blocked = [...(tmByDob.get(dateOfBirth(sm)) || []), ...(tmByName.get(nameKey(sm)) || [])];
+    const blocked = [
+      ...(tmByDob.get(dateOfBirth(sm)) || []),
+      ...[...nameVariants(sm).keys()].flatMap(key => tmByName.get(key) || [])
+    ];
     for (const tm of blocked) pool.set(tmId(tm), tm);
 
     const candidates = [...pool.values()]
@@ -230,9 +267,21 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
       .sort((a, b) => b.score - a.score || a.transfermarkt_id.localeCompare(b.transfermarkt_id))
       .slice(0, MAX_CANDIDATES);
 
-    if (decision?.confirmed) {
-      if (tmById.has(decision.confirmed)) {
-        proposals.push({ sm_player_data_id: sid, status: "reviewed", reviewed_transfermarkt_id: decision.confirmed, candidates });
+    if (conflict) {
+      proposals.push({
+        sm_player_data_id: sid,
+        status: "review",
+        conflict,
+        conflicting_decisions: decision.records,
+        candidates
+      });
+      continue;
+    }
+
+    const [confirmed] = decision?.confirmed ?? [];
+    if (confirmed) {
+      if (tmById.has(confirmed)) {
+        proposals.push({ sm_player_data_id: sid, status: "reviewed", reviewed_transfermarkt_id: confirmed, candidates });
       } else {
         proposals.push({ sm_player_data_id: sid, status: "review", conflict: "confirmed_tm_missing", candidates });
       }
