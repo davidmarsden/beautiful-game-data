@@ -23,19 +23,25 @@ function rate(hit, total) {
   return { hit, total, pct: total ? Math.round((hit / total) * 1000) / 10 : null };
 }
 
+const TM_STATUSES = new Set(["found", "not_in_sm", "unsure"]);
+
 export function evaluateTmGold(rows) {
   const byStratum = {};
   let pending = 0;
   let unsure = 0;
+  // Unknown statuses and "found" without an SM id are reported, never scored,
+  // so a typo or an incomplete row cannot quietly inflate recall.
+  const invalid = [];
   for (const row of rows) {
     const status = text(row.truth_status);
     if (!status) { pending += 1; continue; }
+    const truth = text(row.truth_sm_player_data_id);
+    if (!TM_STATUSES.has(status)) { invalid.push({ transfermarkt_id: text(row.transfermarkt_id), reason: `unknown_status:${status}` }); continue; }
+    if (status === "found" && !truth) { invalid.push({ transfermarkt_id: text(row.transfermarkt_id), reason: "found_without_sm_id" }); continue; }
     if (status === "unsure") { unsure += 1; continue; }
     const s = (byStratum[row.stratum] ??= { adjudicated: 0, not_in_sm: 0, found: 0, strict: 0, wide: 0, either: 0 });
     s.adjudicated += 1;
     if (status === "not_in_sm") { s.not_in_sm += 1; continue; }
-    const truth = text(row.truth_sm_player_data_id);
-    if (status !== "found" || !truth) continue;
     s.found += 1;
     const inStrict = ids(row.strict_sm_ids).has(truth);
     const inWide = ids(row.wide_sm_ids).has(truth);
@@ -50,7 +56,7 @@ export function evaluateTmGold(rows) {
     wide_recall: rate(s.wide, s.found),
     either_recall: rate(s.either, s.found)
   }]));
-  return { pending, unsure, discovery };
+  return { pending, unsure, invalid, discovery };
 }
 
 // Each rule returns the TM id it would link, or "" when it does not fire.

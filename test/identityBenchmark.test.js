@@ -202,3 +202,17 @@ test("wide-only counts only TM players the strict search did not find at all", (
   assert.equal(g.wide_found, 1);
   assert.equal(g.wide_only, 0);
 });
+
+test("malformed TM adjudications are reported as invalid and excluded from recall", () => {
+  const r = evaluateTmGold([
+    { stratum: "general", transfermarkt_id: "10", truth_status: "found", truth_sm_player_data_id: "1", strict_sm_ids: "1", wide_sm_ids: "" },
+    { stratum: "general", transfermarkt_id: "11", truth_status: "fonud", truth_sm_player_data_id: "2", strict_sm_ids: "", wide_sm_ids: "" },
+    { stratum: "general", transfermarkt_id: "12", truth_status: "found", truth_sm_player_data_id: "", strict_sm_ids: "", wide_sm_ids: "" }
+  ]);
+  assert.deepEqual(r.invalid, [
+    { transfermarkt_id: "11", reason: "unknown_status:fonud" },
+    { transfermarkt_id: "12", reason: "found_without_sm_id" }
+  ]);
+  assert.equal(r.discovery.general.adjudicated, 1);
+  assert.deepEqual(r.discovery.general.strict_recall, { hit: 1, total: 1, pct: 100 });
+});
