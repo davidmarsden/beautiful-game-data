@@ -207,12 +207,17 @@ test("malformed TM adjudications are reported as invalid and excluded from recal
   const r = evaluateTmGold([
     { stratum: "general", transfermarkt_id: "10", truth_status: "found", truth_sm_player_data_id: "1", strict_sm_ids: "1", wide_sm_ids: "" },
     { stratum: "general", transfermarkt_id: "11", truth_status: "fonud", truth_sm_player_data_id: "2", strict_sm_ids: "", wide_sm_ids: "" },
-    { stratum: "general", transfermarkt_id: "12", truth_status: "found", truth_sm_player_data_id: "", strict_sm_ids: "", wide_sm_ids: "" }
+    { stratum: "general", transfermarkt_id: "12", truth_status: "found", truth_sm_player_data_id: "", strict_sm_ids: "", wide_sm_ids: "" },
+    { stratum: "general", transfermarkt_id: "13", truth_status: "not_in_sm", truth_sm_player_data_id: "3", strict_sm_ids: "", wide_sm_ids: "" },
+    { stratum: "general", transfermarkt_id: "14", truth_status: "unsure", truth_sm_player_data_id: "4", strict_sm_ids: "", wide_sm_ids: "" }
   ]);
   assert.deepEqual(r.invalid, [
     { transfermarkt_id: "11", reason: "unknown_status:fonud" },
-    { transfermarkt_id: "12", reason: "found_without_sm_id" }
+    { transfermarkt_id: "12", reason: "found_without_sm_id" },
+    { transfermarkt_id: "13", reason: "not_in_sm_with_sm_id" },
+    { transfermarkt_id: "14", reason: "unsure_with_sm_id" }
   ]);
+  assert.equal(r.unsure, 0);
   assert.equal(r.discovery.general.adjudicated, 1);
   assert.deepEqual(r.discovery.general.strict_recall, { hit: 1, total: 1, pct: 100 });
 });

@@ -29,7 +29,8 @@ export function evaluateTmGold(rows) {
   const byStratum = {};
   let pending = 0;
   let unsure = 0;
-  // Unknown statuses and "found" without an SM id are reported, never scored,
+  // Unknown statuses, "found" without an SM id, and any other status that still
+  // carries an SM id (e.g. a stale field) are reported, never scored,
   // so a typo or an incomplete row cannot quietly inflate recall.
   const invalid = [];
   for (const row of rows) {
@@ -38,6 +39,7 @@ export function evaluateTmGold(rows) {
     const truth = text(row.truth_sm_player_data_id);
     if (!TM_STATUSES.has(status)) { invalid.push({ transfermarkt_id: text(row.transfermarkt_id), reason: `unknown_status:${status}` }); continue; }
     if (status === "found" && !truth) { invalid.push({ transfermarkt_id: text(row.transfermarkt_id), reason: "found_without_sm_id" }); continue; }
+    if (status !== "found" && truth) { invalid.push({ transfermarkt_id: text(row.transfermarkt_id), reason: `${status}_with_sm_id` }); continue; }
     if (status === "unsure") { unsure += 1; continue; }
     const s = (byStratum[row.stratum] ??= { adjudicated: 0, not_in_sm: 0, found: 0, strict: 0, wide: 0, either: 0 });
     s.adjudicated += 1;

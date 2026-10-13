@@ -54,7 +54,7 @@ Then run:
 node scripts/identity-benchmark.js evaluate --dir <out-dir>
 ```
 
-This writes `gold-evaluation.private.json`: strict, wide and combined discovery recall per stratum, and per-rule precision. A rule is scored against its own target. A pair rejection of that target counts as a false positive, and rows that cannot be decided are counted rather than dropped. TM-anchored rows with an unknown `truth_status`, or `found` without an SM id, are listed as invalid and never scored. Adjudications are run through `validateIdentityDecisions`, so contradictory decisions are reported instead of scored.
+This writes `gold-evaluation.private.json`: strict, wide and combined discovery recall per stratum, and per-rule precision. A rule is scored against its own target. A pair rejection of that target counts as a false positive, and rows that cannot be decided are counted rather than dropped. TM-anchored rows with an unknown `truth_status`, `found` without an SM id, or any other status that still carries an SM id are listed as invalid and never scored. Adjudications are run through `validateIdentityDecisions`, so contradictory decisions are reported instead of scored.
 
 Thresholds are not tuned until the gold samples are adjudicated.
 
