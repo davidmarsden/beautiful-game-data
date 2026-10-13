@@ -119,8 +119,8 @@ test("TM gold evaluation separates strict and wide discovery recall", () => {
 
 test("SM gold evaluation scores rule precision and excludes contradictory adjudications", () => {
   const rows = [
-    { stratum: "unique_age_consistent", sm_player_data_id: "1", proposed_transfermarkt_id: "10", h_age1_fires: "true", transfermarkt_id: "10", status: "confirmed" },
-    { stratum: "unique_age_consistent", sm_player_data_id: "2", proposed_transfermarkt_id: "11", h_age1_fires: "true", transfermarkt_id: "", status: "rejected" },
+    { stratum: "unique_age_consistent", sm_player_data_id: "1", proposed_transfermarkt_id: "10", h_age1_fires: "true", h_age1_target_transfermarkt_id: "10", transfermarkt_id: "10", status: "confirmed" },
+    { stratum: "unique_age_consistent", sm_player_data_id: "2", proposed_transfermarkt_id: "11", h_age1_fires: "true", h_age1_target_transfermarkt_id: "11", transfermarkt_id: "", status: "rejected" },
     { stratum: "multiple_candidates", sm_player_data_id: "3", proposed_transfermarkt_id: "12", h_age1_fires: "false", transfermarkt_id: "13", status: "confirmed" },
     { stratum: "multiple_candidates", sm_player_data_id: "4", proposed_transfermarkt_id: "13", h_age1_fires: "false", transfermarkt_id: "13", status: "confirmed" },
     { stratum: "multiple_candidates", sm_player_data_id: "5", proposed_transfermarkt_id: "14", h_age1_fires: "false", transfermarkt_id: "", status: "" }
@@ -154,4 +154,51 @@ test("H-age1 collisions and accent-insensitive country checks are reported", () 
   assert.equal(summary.sm_side.hypothetical_rule_h_age1_distinct_tm_targets, 1);
   assert.equal(summary.sm_side.hypothetical_rule_h_age1_colliding_tm_targets, 1);
   assert.deepEqual(summary.countries_without_tm_label, {});
+});
+
+// --- Codex review regressions (PR #48) ---
+
+test("H-age1 is scored against its own age-consistent target, not the top candidate", () => {
+  const sm = [smRow(1, "Alex", "SMITH", 25, "England", '<acronym title="Goalkeeper">GK</acronym>')];
+  const tm = [
+    { ...tmRow(10, "Alex Smith", "1990-01-01", "England"), position: "Goalkeeper" }, // ranks first, wrong age
+    tmRow(11, "Alex Smith", "2001-01-01", "England") // the only age-consistent candidate
+  ];
+  const { goldSm } = runIdentityBenchmark({ smRows: sm, tmRows: tm, snapshotDate: "2026-10-12", sample: { tm: {}, sm: { multiple_candidates: 5 } } });
+  assert.equal(goldSm[0].proposed_transfermarkt_id, "10");
+  assert.equal(goldSm[0].h_age1_fires, true);
+  assert.equal(goldSm[0].h_age1_target_transfermarkt_id, "11");
+
+  const r = evaluateSmGold([{ ...goldSm[0], h_age1_fires: "true", transfermarkt_id: "11", status: "confirmed" }]);
+  assert.deepEqual(r.precision.h_age1.multiple_candidates, { hit: 1, total: 1, pct: 100 });
+  assert.deepEqual(r.precision.top_candidate.multiple_candidates, { hit: 0, total: 1, pct: 0 });
+});
+
+test("a pair rejection of the proposed link counts as a false positive", () => {
+  const r = evaluateSmGold([
+    { stratum: "s", sm_player_data_id: "1", proposed_transfermarkt_id: "10", h_age1_fires: "true", h_age1_target_transfermarkt_id: "10", transfermarkt_id: "10", status: "rejected" }
+  ]);
+  assert.deepEqual(r.precision.h_age1.s, { hit: 0, total: 1, pct: 0 });
+  assert.deepEqual(r.precision.top_candidate.s, { hit: 0, total: 1, pct: 0 });
+});
+
+test("adjudications that cannot decide a rule's link are counted, not dropped", () => {
+  const r = evaluateSmGold([
+    { stratum: "s", sm_player_data_id: "1", proposed_transfermarkt_id: "10", h_age1_fires: "true", h_age1_target_transfermarkt_id: "10", transfermarkt_id: "", status: "unresolved" },
+    { stratum: "s", sm_player_data_id: "2", proposed_transfermarkt_id: "11", h_age1_fires: "false", h_age1_target_transfermarkt_id: "", transfermarkt_id: "12", status: "rejected" }
+  ]);
+  assert.equal(r.undecidable.h_age1, 1);
+  assert.equal(r.undecidable.top_candidate, 2);
+});
+
+test("wide-only counts only TM players the strict search did not find at all", () => {
+  // Strict finds TM 10 (exact name) but at the wrong age; wide finds it at the right age via another SM row.
+  const sm = [smRow(1, "Alex", "SMITH", 40, "England"), smRow(2, "Alexander", "SMITH", 25, "England")];
+  const tm = [tmRow(10, "Alex Smith", "2001-01-01", "England")];
+  const { summary } = runIdentityBenchmark({ smRows: sm, tmRows: tm, snapshotDate: "2026-10-12", sample: { tm: {}, sm: {} } });
+  const g = summary.tm_side_discovery.general;
+  assert.equal(g.strict_found, 1);
+  assert.equal(g.strict_age_consistent_found, 0);
+  assert.equal(g.wide_found, 1);
+  assert.equal(g.wide_only, 0);
 });

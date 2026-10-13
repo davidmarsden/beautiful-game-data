@@ -122,7 +122,7 @@ function evaluate(opts) {
     discovery: evaluateTmGold(parseCsv(readFileSync(tmFile, "utf8"))),
     automatic: evaluateSmGold(parseCsv(readFileSync(smFile, "utf8")))
   };
-  writeFileSync(join(opts.dir, "gold-evaluation.json"), JSON.stringify(report, null, 2) + "\n");
+  writeFileSync(join(opts.dir, "gold-evaluation.private.json"), JSON.stringify(report, null, 2) + "\n");
   process.stdout.write(JSON.stringify(report, null, 2) + "\n");
 }
 

@@ -149,7 +149,7 @@ export function runIdentityBenchmark({ smRows, tmRows, snapshotDate, snapshotId 
     else if (n === 1 && consistent.length === 1) cls = "unique_age_consistent";
     else if (n === 1) cls = "unique_age_inconsistent";
     else cls = "multiple_candidates";
-    smClass.set(row.player_data_id, { cls, h1 });
+    smClass.set(row.player_data_id, { cls, h1, h1Target: h1 ? consistent[0].transfermarkt_id : "" });
   }
 
   // --- TM-side discovery (recall proxy) ---------------------------------------
@@ -177,7 +177,7 @@ export function runIdentityBenchmark({ smRows, tmRows, snapshotDate, snapshotId 
       if (strictAgeFound) s.strict_age_consistent_found += 1;
       if (wideFound) s.wide_found += 1;
       if (strictFound || wideFound) s.found_by_either += 1;
-      if (wideFound && !strictAgeFound) s.wide_only += 1;
+      if (wideFound && !strictFound) s.wide_only += 1; // wide adds what strict missed
     }
   }
   for (const s of Object.values(tmDiscovery)) {
@@ -359,6 +359,9 @@ function sampleSm({ sm, smClass, strictBySm, wideBySm, sample, seed, tmById, tmA
         sm_rating_band: row.rating_band,
         sm_age_band: ageBand(row.age),
         h_age1_fires: smClass.get(row.player_data_id).h1,
+        // H-age1 links its single age-consistent candidate, which need not be
+        // the top-scoring strict candidate.
+        h_age1_target_transfermarkt_id: smClass.get(row.player_data_id).h1Target,
         proposed_transfermarkt_id: top?.transfermarkt_id ?? "",
         strict_candidates: entry.candidates.map(describe).join(" || "),
         wide_transfermarkt_ids: (wideBySm.get(row.player_data_id) ?? []).join(" "),

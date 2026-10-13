@@ -53,13 +53,27 @@ export function evaluateTmGold(rows) {
   return { pending, unsure, discovery };
 }
 
+// Each rule returns the TM id it would link, or "" when it does not fire.
 const RULES = {
-  // Would fire in a rule that links when exactly one age-consistent exact-name
-  // candidate with matching nationality exists. Hypothetical: not implemented.
-  h_age1: row => text(row.h_age1_fires) === "true",
-  // Baseline: always take the top strict candidate when one exists.
-  top_candidate: row => Boolean(text(row.proposed_transfermarkt_id))
+  // Links when exactly one age-consistent exact-name candidate with matching
+  // nationality exists. Hypothetical: not implemented in the reconciler.
+  h_age1: row => text(row.h_age1_fires) === "true" ? text(row.h_age1_target_transfermarkt_id) : "",
+  // Baseline: always take the top-scoring strict candidate.
+  top_candidate: row => text(row.proposed_transfermarkt_id)
 };
+
+// Verdict on one proposed link, from the validated adjudications:
+//   true  - the reviewer confirmed this pair;
+//   false - the reviewer confirmed another TM player, said the SM player has
+//           no TM identity, or rejected this specific pair;
+//   null  - not decidable (unresolved, conflicting, or nothing about this pair).
+function verdict(player, tid) {
+  if (!player || player.outcome === "conflict") return null;
+  if (player.outcome === "match") return player.transfermarkt_id === tid;
+  if (player.outcome === "no_match") return false;
+  if (player.rejected_pairs.has(tid)) return false;
+  return null;
+}
 
 export function evaluateSmGold(rows) {
   const adjudicated = rows.filter(row => text(row.status));
@@ -73,25 +87,19 @@ export function evaluateSmGold(rows) {
   const validation = validateIdentityDecisions(decisions);
   const conflicted = new Set([...validation.players].filter(([, p]) => p.outcome === "conflict").map(([sid]) => sid));
 
-  // Truth per SM player: a TM id, "none" (no TM identity), or unknown.
-  const truthOf = sid => {
-    const p = validation.players.get(sid);
-    if (!p || conflicted.has(sid)) return null;
-    if (p.outcome === "match") return p.transfermarkt_id;
-    if (p.outcome === "no_match") return "none";
-    return null;
-  };
-
   const precision = {};
-  for (const [name, fires] of Object.entries(RULES)) {
+  const undecidable = {};
+  for (const [name, target] of Object.entries(RULES)) {
     const byStratum = {};
+    undecidable[name] = 0;
     for (const row of adjudicated) {
-      if (!fires(row)) continue;
-      const truth = truthOf(text(row.sm_player_data_id));
-      if (truth === null) continue;
+      const tid = target(row);
+      if (!tid) continue;
+      const v = verdict(validation.players.get(text(row.sm_player_data_id)), tid);
+      if (v === null) { undecidable[name] += 1; continue; }
       const s = (byStratum[row.stratum] ??= { fired: 0, correct: 0 });
       s.fired += 1;
-      if (truth === text(row.proposed_transfermarkt_id)) s.correct += 1;
+      if (v) s.correct += 1;
     }
     precision[name] = Object.fromEntries(Object.entries(byStratum).map(([stratum, s]) => [stratum, rate(s.correct, s.fired)]));
   }
@@ -100,6 +108,9 @@ export function evaluateSmGold(rows) {
     pending: rows.length - adjudicated.length,
     adjudicated: adjudicated.length,
     decision_conflicts: [...conflicted],
+    // Adjudicated rows where a rule fired but the decisions do not say whether
+    // its link is right (e.g. unresolved). Reported so they are not silently lost.
+    undecidable,
     precision
   };
 }
