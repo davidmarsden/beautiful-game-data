@@ -14,7 +14,8 @@
 //
 // Outcome verdicts (mutually exclusive): match(tm), no_match, unresolved.
 // Pair rejections narrow candidates and are compatible with any outcome except
-// a match to the same TM player.
+// a match to the same TM player. Across players, a TM identity confirmed for
+// more than one SM player is a conflict for every one of them.
 
 function text(value) {
   return String(value ?? "").trim();
@@ -63,9 +64,22 @@ export function validateIdentityDecisions(decisions = []) {
     else entry.invalid = true;
   }
 
+  // Cross-player check: one TM identity may be confirmed for only one SM player.
+  // Every confirmation counts, including those of players already in conflict,
+  // so a conflicted player's evidence still blocks another player's claim.
+  const confirmationsByTm = new Map();
+  for (const [sid, entry] of bySm) {
+    for (const tid of entry.matches) {
+      if (!confirmationsByTm.has(tid)) confirmationsByTm.set(tid, new Set());
+      confirmationsByTm.get(tid).add(sid);
+    }
+  }
+
   const players = new Map();
   for (const [sid, entry] of bySm) {
     const reasons = conflictReasons(entry);
+    const shared = [...entry.matches].filter(tid => confirmationsByTm.get(tid).size > 1);
+    if (shared.length) reasons.push("tm_confirmed_for_multiple_sm");
     let outcome = "open"; // only pair rejections, or nothing decisive
     if (reasons.length) outcome = "conflict";
     else if (entry.matches.size) outcome = "match";
@@ -77,12 +91,14 @@ export function validateIdentityDecisions(decisions = []) {
       transfermarkt_id: outcome === "match" ? [...entry.matches][0] : "",
       rejected_pairs: entry.rejectedPairs,
       reasons,
-      records: entry.records
+      records: entry.records,
+      shared_transfermarkt_ids: shared.sort()
     });
   }
 
   return {
     players,
+    confirmations_by_tm: confirmationsByTm,
     unattributed,
     summary: {
       decisions: decisions.length,

@@ -6,7 +6,7 @@ import { validateIdentityDecisions } from "./validateIdentityDecisions.js";
 // is written, and no match is treated as confirmed without an unambiguous
 // one-to-one assignment or a recorded human decision.
 
-export const ALGORITHM_VERSION = "sm-tm-reconcile/0.4";
+export const ALGORITHM_VERSION = "sm-tm-reconcile/0.5";
 
 // Scoring weights. These are heuristics, not calibrated probabilities.
 const POINTS = {
@@ -263,7 +263,7 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
     proposals.push({ sm_player_data_id: sid, status: isAuto ? "proposed_auto" : "review", candidates });
   }
 
-  resolveDuplicateClaims(proposals);
+  resolveDuplicateClaims(proposals, validation.confirmations_by_tm);
 
   const count = status => proposals.filter(p => p.status === status).length;
   return {
@@ -284,39 +284,32 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
 }
 
 // One TM identity can belong to only one SM identity.
-// A single human decision outranks automatic proposals; any other collision
-// goes to review, with conflicting human decisions surfaced rather than dropped.
-function resolveDuplicateClaims(proposals) {
-  const claims = new Map();
+// Collisions between human confirmations are caught by the validator (every
+// confirmation counts, even from players already in conflict). Here, an
+// automatic proposal yields to any human confirmation of that TM identity by
+// another SM player, and automatic proposals that collide with each other all
+// go to review.
+function resolveDuplicateClaims(proposals, confirmationsByTm) {
+  const autoClaims = new Map();
   for (const proposal of proposals) {
-    let tid = "";
-    if (proposal.status === "reviewed") tid = proposal.reviewed_transfermarkt_id;
-    else if (proposal.status === "proposed_auto") tid = proposal.candidates[0]?.transfermarkt_id ?? "";
+    if (proposal.status !== "proposed_auto") continue;
+    const tid = proposal.candidates[0]?.transfermarkt_id;
     if (!tid) continue;
-    if (!claims.has(tid)) claims.set(tid, []);
-    claims.get(tid).push(proposal);
-  }
-
-  for (const claimants of claims.values()) {
-    if (claimants.length < 2) continue;
-    const reviewed = claimants.filter(p => p.status === "reviewed");
-
-    if (reviewed.length === 1) {
-      for (const proposal of claimants) {
-        if (proposal.status !== "proposed_auto") continue;
-        proposal.status = "review";
-        proposal.conflict = "tm_claimed_by_reviewed";
-      }
+    const humanClaimants = confirmationsByTm.get(tid);
+    if (humanClaimants && !humanClaimants.has(proposal.sm_player_data_id)) {
+      proposal.status = "review";
+      proposal.conflict = "tm_claimed_by_human_decision";
       continue;
     }
+    if (!autoClaims.has(tid)) autoClaims.set(tid, []);
+    autoClaims.get(tid).push(proposal);
+  }
 
+  for (const claimants of autoClaims.values()) {
+    if (claimants.length < 2) continue;
     for (const proposal of claimants) {
       proposal.status = "review";
-      proposal.conflict = reviewed.length > 1 ? "duplicate_reviewed_claim" : "duplicate_tm_claim";
-      if (proposal.reviewed_transfermarkt_id) {
-        proposal.conflicting_reviewed_transfermarkt_id = proposal.reviewed_transfermarkt_id;
-        delete proposal.reviewed_transfermarkt_id;
-      }
+      proposal.conflict = "duplicate_tm_claim";
     }
   }
 }

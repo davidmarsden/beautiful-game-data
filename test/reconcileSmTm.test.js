@@ -45,7 +45,7 @@ test("a human confirmation outranks an automatic proposal for the same TM identi
   assert.equal(r.proposals[0].status, "reviewed");
   assert.equal(r.proposals[0].reviewed_transfermarkt_id, "10");
   assert.equal(r.proposals[1].status, "review");
-  assert.equal(r.proposals[1].conflict, "tm_claimed_by_reviewed");
+  assert.equal(r.proposals[1].conflict, "tm_claimed_by_human_decision");
 });
 
 test("two human confirmations of one TM identity are surfaced, not dropped", () => {
@@ -58,7 +58,7 @@ test("two human confirmations of one TM identity are surfaced, not dropped", () 
     ]
   );
   assert.deepEqual(statuses(r), ["review", "review"]);
-  assert.ok(r.proposals.every(p => p.conflict === "duplicate_reviewed_claim" && p.conflicting_reviewed_transfermarkt_id === "10"));
+  assert.ok(r.proposals.every(p => p.conflict === "tm_confirmed_for_multiple_sm" && p.conflicting_decisions.length === 1));
 });
 
 test("pairwise rejection removes only that candidate", () => {
@@ -214,4 +214,37 @@ test("TM nicknames arrays are indexed too", () => {
   const p = reconcilePlayerIdentities([sm(1, "Ederson", "1993-08-17", { current_club: "" })], [tmRow]).proposals[0];
   assert.deepEqual(candidateIds(p), ["10"]);
   assert.equal(p.status, "proposed_auto");
+});
+
+// --- Codex review regression, round 3 ---
+
+test("a conflicted player's confirmation still blocks another player's confirmation of that TM identity", () => {
+  const sms = [sm(1, "Alex Smith", "2000-01-02"), sm(2, "Alex Smith", "2000-01-02")];
+  const tms = [tm(10, "Alex Smith", "2000-01-02"), tm(11, "Alex Smith", "2000-01-02")];
+  const decisions = [
+    { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" },
+    { sm_player_data_id: "1", transfermarkt_id: "11", status: "confirmed" }, // player 1 is self-contradictory
+    { sm_player_data_id: "2", transfermarkt_id: "10", status: "confirmed" }  // player 2 claims TM 10 too
+  ];
+  for (const ordered of [decisions, [...decisions].reverse()]) {
+    const [p1, p2] = reconcilePlayerIdentities(sms, tms, ordered).proposals;
+    assert.equal(p1.status, "review");
+    assert.deepEqual([...p1.conflict_reasons].sort(), ["conflicting_confirmations", "tm_confirmed_for_multiple_sm"]);
+    assert.equal(p2.status, "review");
+    assert.deepEqual(p2.conflict_reasons, ["tm_confirmed_for_multiple_sm"]);
+    assert.equal(p2.reviewed_transfermarkt_id, undefined);
+  }
+});
+
+test("a conflicted player's confirmation still blocks an automatic proposal for that TM identity", () => {
+  const sms = [sm(1, "Alex Smith", "2000-01-02"), sm(2, "Jamie Brown", "1999-03-04")];
+  const tms = [tm(10, "Jamie Brown", "1999-03-04")];
+  const decisions = [
+    { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" },
+    { sm_player_data_id: "1", status: "unresolved" }
+  ];
+  const [p1, p2] = reconcilePlayerIdentities(sms, tms, decisions).proposals;
+  assert.equal(p1.status, "review");
+  assert.equal(p2.status, "review");
+  assert.equal(p2.conflict, "tm_claimed_by_human_decision");
 });

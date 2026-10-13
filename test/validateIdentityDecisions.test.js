@@ -57,3 +57,20 @@ test("conflicts on one player do not affect another", () => {
   assert.equal(r.players.get("2").outcome, "match");
   assert.equal(r.summary.conflicts, 1);
 });
+
+test("one TM identity confirmed for two SM players is a conflict for both", () => {
+  const r = validateIdentityDecisions([confirm("1", "10"), confirm("2", "10")]);
+  for (const sid of ["1", "2"]) {
+    const p = r.players.get(sid);
+    assert.equal(p.outcome, "conflict");
+    assert.deepEqual(p.reasons, ["tm_confirmed_for_multiple_sm"]);
+    assert.deepEqual(p.shared_transfermarkt_ids, ["10"]);
+  }
+});
+
+test("cross-player collisions count confirmations from players already in conflict", () => {
+  const r = validateIdentityDecisions([confirm("1", "10"), park("1"), confirm("2", "10")]);
+  assert.ok(r.players.get("1").reasons.includes("tm_confirmed_for_multiple_sm"));
+  assert.equal(r.players.get("2").outcome, "conflict");
+  assert.deepEqual([...r.confirmations_by_tm.get("10")].sort(), ["1", "2"]);
+});

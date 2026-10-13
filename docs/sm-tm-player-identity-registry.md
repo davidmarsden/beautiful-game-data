@@ -9,7 +9,7 @@ Link the complete 96,693-player Soccer Manager universe (source snapshot 2026-10
 ### Names and aliases
 Every supplied name variant is indexed and compared: `full_name`, `canonical_name`, `display_name`, `player_name`, `name`, `short_name`, `known_as`, `nickname`, plus `aliases` / `name_aliases` / `alternative_names` / `nicknames` arrays. Nicknames matter for Brazilian and Portuguese players, whose football names often differ from their registered names. The best-scoring pair wins, and each candidate records it in `matched_name` (`{ sm, tm }`), so a formal full name such as "Thibaut Nicolas Marc Courtois" no longer hides an exact display-name match.
 
-### Decisions (algorithm `sm-tm-reconcile/0.4`)
+### Decisions (algorithm `sm-tm-reconcile/0.5`)
 - `confirmed` + `transfermarkt_id`: this pair is the same player. Must reference a TM identity present in the input, otherwise it is returned for review (`confirmed_tm_missing`).
 - `rejected` + `transfermarkt_id`: this pair is **not** the same player. Only that candidate is removed; other candidates remain.
 - `rejected` without `transfermarkt_id`: the SM player has no TM identity.
@@ -26,10 +26,11 @@ Every supplied name variant is indexed and compared: `full_name`, `canonical_nam
 | `confirmed_and_unresolved` | confirmed, and parked as unresolved |
 | `no_match_and_unresolved` | marked as no TM identity, and parked as unresolved |
 | `invalid_decision` | unknown status, or a confirmation without a TM id |
+| `tm_confirmed_for_multiple_sm` | the same TM player is confirmed for more than one SM player (applies to every one of them, including players already in conflict) |
 
 A conflicted player goes to review with `conflict_reasons` and every record in `conflicting_decisions`. The result never depends on input order, timestamps or reviewer. Decisions without an SM id are counted in `summary.unattributed_decisions`, not dropped. There is no supersession rule: adding one would need an explicit field (such as `supersedes`) and must be implemented in the validator.
 
-A single human confirmation outranks automatic proposals for the same TM identity (`tm_claimed_by_reviewed`). Two conflicting human confirmations are both returned for review with `conflicting_reviewed_transfermarkt_id`, never silently dropped.
+Any human confirmation of a TM identity, including one held by a player already in conflict, blocks an automatic proposal of that TM identity for another SM player (`tm_claimed_by_human_decision`). Automatic proposals that collide with each other all go to review (`duplicate_tm_claim`).
 
 Candidates scoring 30+ are kept for reviewers, so players without a date of birth still get candidates; automatic proposals still require an exact DOB, a score of 85+ and a 15-point lead. Positions are compared by broad group (GK/DEF/MID/FWD) using whole-word matching. Output carries `meta.algorithm_version` and `meta.snapshot_id`.
 
