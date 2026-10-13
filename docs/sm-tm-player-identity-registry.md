@@ -7,15 +7,27 @@ Link the complete 96,693-player Soccer Manager universe (source snapshot 2026-10
 `src/identity/reconcileSmTm.js` generates reproducible, explainable candidate proposals. Inputs are arrays of SM and TM/registry rows. SM IDs accept `playerDataId`/`player_data_id`; TM IDs accept `transfermarkt_id`. Full ISO date of birth, name, real-world club, nationality and position contribute to scoring. Exact contradictory DOBs disqualify candidates. Candidates are blocked by DOB or normalized name to avoid a quadratic comparison. Strong unambiguous candidates are **proposals**, not writes. Multiple source players claiming one TM identity are forced to review. Human-reviewed decisions can be supplied separately.
 
 ### Names and aliases
-Every supplied name variant is indexed and compared: `full_name`, `canonical_name`, `display_name`, `player_name`, `name`, `short_name`, `known_as`, plus `aliases` / `name_aliases` / `alternative_names` arrays. The best-scoring pair wins, and each candidate records it in `matched_name` (`{ sm, tm }`), so a formal full name such as "Thibaut Nicolas Marc Courtois" no longer hides an exact display-name match.
+Every supplied name variant is indexed and compared: `full_name`, `canonical_name`, `display_name`, `player_name`, `name`, `short_name`, `known_as`, `nickname`, plus `aliases` / `name_aliases` / `alternative_names` / `nicknames` arrays. Nicknames matter for Brazilian and Portuguese players, whose football names often differ from their registered names. The best-scoring pair wins, and each candidate records it in `matched_name` (`{ sm, tm }`), so a formal full name such as "Thibaut Nicolas Marc Courtois" no longer hides an exact display-name match.
 
-### Decisions (algorithm `sm-tm-reconcile/0.3`)
+### Decisions (algorithm `sm-tm-reconcile/0.4`)
 - `confirmed` + `transfermarkt_id`: this pair is the same player. Must reference a TM identity present in the input, otherwise it is returned for review (`confirmed_tm_missing`).
 - `rejected` + `transfermarkt_id`: this pair is **not** the same player. Only that candidate is removed; other candidates remain.
 - `rejected` without `transfermarkt_id`: the SM player has no TM identity.
 - `unresolved`: parked; no proposal is made.
 
-Decisions about one SM player that cannot all be true are never resolved by order or precedence. Confirmations of two different TM players (`conflicting_confirmations`), a confirmation plus a rejection of the same pair (`confirmed_and_rejected`), or a confirmation plus a no-match rejection (`confirmed_and_no_match`) send the player to review, with every decision returned in `conflicting_decisions`.
+### Decision consistency validator
+`src/identity/validateIdentityDecisions.js` checks all human decisions before matching. Each decision is reduced to a verdict: an outcome (`match(tm)`, `no_match` or `unresolved`, which are mutually exclusive) or a pair rejection, which narrows candidates and conflicts only with a match to the same TM player. Any set of decisions about one SM player that cannot all be true is a conflict:
+
+| Reason | Decisions |
+| --- | --- |
+| `conflicting_confirmations` | confirmed against two different TM players |
+| `confirmed_and_rejected` | confirmed and rejected for the same pair |
+| `confirmed_and_no_match` | confirmed, and marked as having no TM identity |
+| `confirmed_and_unresolved` | confirmed, and parked as unresolved |
+| `no_match_and_unresolved` | marked as no TM identity, and parked as unresolved |
+| `invalid_decision` | unknown status, or a confirmation without a TM id |
+
+A conflicted player goes to review with `conflict_reasons` and every record in `conflicting_decisions`. The result never depends on input order, timestamps or reviewer. Decisions without an SM id are counted in `summary.unattributed_decisions`, not dropped. There is no supersession rule: adding one would need an explicit field (such as `supersedes`) and must be implemented in the validator.
 
 A single human confirmation outranks automatic proposals for the same TM identity (`tm_claimed_by_reviewed`). Two conflicting human confirmations are both returned for review with `conflicting_reviewed_transfermarkt_id`, never silently dropped.
 

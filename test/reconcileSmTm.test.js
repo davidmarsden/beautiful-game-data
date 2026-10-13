@@ -183,3 +183,35 @@ test("alias arrays on either side are indexed and compared", () => {
   assert.deepEqual(candidateIds(p), ["10"]);
   assert.deepEqual(p.candidates[0].matched_name, { sm: "Rodri", tm: "Rodri" });
 });
+
+// --- Codex review regressions, round 2 ---
+
+test("confirmed plus unresolved forces review regardless of order", () => {
+  const sms = [sm(1, "Alex Smith", "2000-01-02")];
+  const tms = [tm(10, "Alex Smith", "2000-01-02")];
+  const confirmed = { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed", reviewer: "A" };
+  const parked = { sm_player_data_id: "1", status: "unresolved", reviewer: "B" };
+  for (const decisions of [[confirmed, parked], [parked, confirmed]]) {
+    const p = reconcilePlayerIdentities(sms, tms, decisions).proposals[0];
+    assert.equal(p.status, "review");
+    assert.equal(p.conflict, "confirmed_and_unresolved");
+    assert.equal(p.reviewed_transfermarkt_id, undefined);
+    assert.deepEqual(p.conflicting_decisions.map(d => d.reviewer).sort(), ["A", "B"]);
+  }
+});
+
+test("a nickname-only match is discoverable without a DOB", () => {
+  const tmRow = { transfermarkt_id: 10, full_name: "Vinícius José Paixão de Oliveira Júnior", nickname: "Vinícius Júnior", date_of_birth: "2000-07-12" };
+  const p = reconcilePlayerIdentities([sm(1, "Vinicius Junior", null, { current_club: "" })], [tmRow]).proposals[0];
+  assert.deepEqual(candidateIds(p), ["10"]);
+  assert.ok(p.candidates[0].evidence.includes("name_exact"));
+  assert.equal(p.candidates[0].matched_name.tm, "Vinícius Júnior");
+  assert.equal(p.status, "review");
+});
+
+test("TM nicknames arrays are indexed too", () => {
+  const tmRow = { transfermarkt_id: 10, full_name: "Ederson Santana de Moraes", nicknames: ["Ederson"], date_of_birth: "1993-08-17" };
+  const p = reconcilePlayerIdentities([sm(1, "Ederson", "1993-08-17", { current_club: "" })], [tmRow]).proposals[0];
+  assert.deepEqual(candidateIds(p), ["10"]);
+  assert.equal(p.status, "proposed_auto");
+});

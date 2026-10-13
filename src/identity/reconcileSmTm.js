@@ -1,11 +1,12 @@
 import { normaliseName } from "./playerIdentityResolver.js";
+import { validateIdentityDecisions } from "./validateIdentityDecisions.js";
 
 // Conservative cross-provider reconciliation between Soccer Manager (SM) and
 // Transfermarkt (TM) player identities. Output is a set of *proposals*: nothing
 // is written, and no match is treated as confirmed without an unambiguous
 // one-to-one assignment or a recorded human decision.
 
-export const ALGORITHM_VERSION = "sm-tm-reconcile/0.3";
+export const ALGORITHM_VERSION = "sm-tm-reconcile/0.4";
 
 // Scoring weights. These are heuristics, not calibrated probabilities.
 const POINTS = {
@@ -42,8 +43,8 @@ function dateOfBirth(row) {
 
 // Footballers carry several names (formal full name, common display name,
 // short name, aliases). Every supplied variant is indexed and compared.
-const NAME_FIELDS = ["full_name", "canonical_name", "display_name", "player_name", "name", "short_name", "known_as"];
-const ALIAS_FIELDS = ["aliases", "name_aliases", "alternative_names"];
+const NAME_FIELDS = ["full_name", "canonical_name", "display_name", "player_name", "name", "short_name", "known_as", "nickname"];
+const ALIAS_FIELDS = ["aliases", "name_aliases", "alternative_names", "nicknames"];
 
 function nameVariants(row) {
   const values = [
@@ -175,44 +176,8 @@ function scorePair(sm, tm) {
 }
 
 // --- decisions --------------------------------------------------------------
-
-// Decisions are human adjudications. Supported shapes:
-//   { sm_player_data_id, transfermarkt_id, status: "confirmed" }  this pair is the same player
-//   { sm_player_data_id, transfermarkt_id, status: "rejected" }   this pair is NOT the same player
-//   { sm_player_data_id, status: "rejected" }                     this SM player has no TM identity
-//   { sm_player_data_id, status: "unresolved" }                   parked; do not propose
-// Audit fields (reviewer, decided_at, snapshot_id, algorithm_version) belong in the
-// decisions registry; they are not interpreted here, but are returned as evidence
-// whenever decisions contradict each other.
-function indexDecisions(decisions) {
-  const bySm = new Map();
-  for (const decision of decisions) {
-    const sid = text(decision.sm_player_data_id);
-    if (!sid) continue;
-    if (!bySm.has(sid)) {
-      bySm.set(sid, { confirmed: new Set(), noMatch: false, unresolved: false, rejectedPairs: new Set(), records: [] });
-    }
-    const entry = bySm.get(sid);
-    entry.records.push(decision);
-    const tid = text(decision.transfermarkt_id);
-    if (decision.status === "confirmed" && tid) entry.confirmed.add(tid);
-    else if (decision.status === "rejected" && tid) entry.rejectedPairs.add(tid);
-    else if (decision.status === "rejected") entry.noMatch = true;
-    else if (decision.status === "unresolved") entry.unresolved = true;
-  }
-  return bySm;
-}
-
-// Decisions that cannot all be true are never resolved by order or precedence:
-// the player goes to review with every decision preserved.
-function decisionConflict(entry) {
-  if (!entry) return "";
-  if (entry.confirmed.size > 1) return "conflicting_confirmations";
-  const [confirmed] = entry.confirmed;
-  if (confirmed && entry.rejectedPairs.has(confirmed)) return "confirmed_and_rejected";
-  if (confirmed && entry.noMatch) return "confirmed_and_no_match";
-  return "";
-}
+// Human decisions are checked for consistency by validateIdentityDecisions
+// before any matching; see that module for the decision shapes and rules.
 
 // --- main -------------------------------------------------------------------
 
@@ -235,19 +200,18 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
     for (const key of nameVariants(tm).keys()) addToIndex(tmByName, key, tm);
   }
 
-  const decisionsBySm = indexDecisions(decisions);
+  const validation = validateIdentityDecisions(decisions);
   const proposals = [];
 
   for (const sm of smRows) {
     const sid = smId(sm);
     if (!sid) continue;
-    const decision = decisionsBySm.get(sid);
-    const conflict = decisionConflict(decision);
+    const decision = validation.players.get(sid);
 
-    if (!conflict && (decision?.unresolved || decision?.noMatch)) {
+    if (decision?.outcome === "unresolved" || decision?.outcome === "no_match") {
       proposals.push({
         sm_player_data_id: sid,
-        status: decision.unresolved ? "unresolved" : "rejected",
+        status: decision.outcome === "unresolved" ? "unresolved" : "rejected",
         candidates: []
       });
       continue;
@@ -261,25 +225,26 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
     for (const tm of blocked) pool.set(tmId(tm), tm);
 
     const candidates = [...pool.values()]
-      .filter(tm => !decision?.rejectedPairs.has(tmId(tm)))
+      .filter(tm => !decision?.rejected_pairs.has(tmId(tm)))
       .map(tm => ({ transfermarkt_id: tmId(tm), tbg_player_id: text(tm.tbg_player_id), ...scorePair(sm, tm) }))
       .filter(candidate => candidate.conflicts.length === 0 && candidate.score >= REVIEW_MIN_SCORE)
       .sort((a, b) => b.score - a.score || a.transfermarkt_id.localeCompare(b.transfermarkt_id))
       .slice(0, MAX_CANDIDATES);
 
-    if (conflict) {
+    if (decision?.outcome === "conflict") {
       proposals.push({
         sm_player_data_id: sid,
         status: "review",
-        conflict,
+        conflict: decision.reasons[0],
+        conflict_reasons: decision.reasons,
         conflicting_decisions: decision.records,
         candidates
       });
       continue;
     }
 
-    const [confirmed] = decision?.confirmed ?? [];
-    if (confirmed) {
+    if (decision?.outcome === "match") {
+      const confirmed = decision.transfermarkt_id;
       if (tmById.has(confirmed)) {
         proposals.push({ sm_player_data_id: sid, status: "reviewed", reviewed_transfermarkt_id: confirmed, candidates });
       } else {
@@ -310,7 +275,9 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
       reviewed: count("reviewed"),
       review: count("review"),
       unresolved: count("unresolved"),
-      rejected: count("rejected")
+      rejected: count("rejected"),
+      decision_conflicts: validation.summary.conflicts,
+      unattributed_decisions: validation.summary.unattributed
     },
     proposals
   };
