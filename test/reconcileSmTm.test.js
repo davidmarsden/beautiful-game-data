@@ -248,3 +248,34 @@ test("a conflicted player's confirmation still blocks an automatic proposal for 
   assert.equal(p2.status, "review");
   assert.equal(p2.conflict, "tm_claimed_by_human_decision");
 });
+
+// --- Codex review regressions, round 4 ---
+
+test("an empty earlier ID field does not hide a populated later one", () => {
+  const smRow = { player_data_id: "", playerDataId: 123, name: "Alex Smith", date_of_birth: "2000-01-02", current_club: "Club A" };
+  const tmRow = { transfermarkt_id: "", tm_id: 10, name: "Alex Smith", date_of_birth: "2000-01-02", current_club: "Club A" };
+  const p = reconcilePlayerIdentities([smRow], [tmRow]).proposals[0];
+  assert.equal(p.sm_player_data_id, "123");
+  assert.deepEqual(candidateIds(p), ["10"]);
+  assert.equal(p.status, "proposed_auto");
+});
+
+test("the same SM identity repeated across rows is not a duplicate claim", () => {
+  const rows = [sm(1, "Alex Smith", "2000-01-02"), sm(1, "Alex Smith", "2000-01-02")];
+  const r = reconcilePlayerIdentities(rows, [tm(10, "Alex Smith", "2000-01-02")]);
+  assert.deepEqual(statuses(r), ["proposed_auto", "proposed_auto"]);
+});
+
+test("repeated rows for one SM identity that disagree go to review", () => {
+  const rows = [sm(1, "Alex Smith", "2000-01-02"), sm(1, "Jamie Brown", "1999-03-04")];
+  const tms = [tm(10, "Alex Smith", "2000-01-02"), tm(11, "Jamie Brown", "1999-03-04")];
+  const r = reconcilePlayerIdentities(rows, tms);
+  assert.deepEqual(statuses(r), ["review", "review"]);
+  assert.ok(r.proposals.every(p => p.conflict === "inconsistent_sm_rows"));
+});
+
+test("distinct SM identities colliding on one TM player still go to review", () => {
+  const rows = [sm(1, "Alex Smith", "2000-01-02"), sm(1, "Alex Smith", "2000-01-02"), sm(2, "Alex Smith", "2000-01-02")];
+  const r = reconcilePlayerIdentities(rows, [tm(10, "Alex Smith", "2000-01-02")]);
+  assert.ok(r.proposals.every(p => p.status === "review" && p.conflict === "duplicate_tm_claim"));
+});

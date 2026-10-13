@@ -6,7 +6,7 @@ import { validateIdentityDecisions } from "./validateIdentityDecisions.js";
 // is written, and no match is treated as confirmed without an unambiguous
 // one-to-one assignment or a recorded human decision.
 
-export const ALGORITHM_VERSION = "sm-tm-reconcile/0.5";
+export const ALGORITHM_VERSION = "sm-tm-reconcile/0.6";
 
 // Scoring weights. These are heuristics, not calibrated probabilities.
 const POINTS = {
@@ -60,13 +60,23 @@ function nameVariants(row) {
   return variants;
 }
 
+// First non-empty value among alternative ID fields, so an empty earlier
+// field never hides a populated later one.
+function firstId(...values) {
+  for (const value of values) {
+    const id = text(value);
+    if (id) return id;
+  }
+  return "";
+}
+
 function smId(row) {
   // Stable cross-world identity only. Never the world-specific playerId.
-  return text(row.player_data_id ?? row.playerDataId ?? row.sm_player_data_id);
+  return firstId(row.player_data_id, row.playerDataId, row.sm_player_data_id);
 }
 
 function tmId(row) {
-  return text(row.transfermarkt_id ?? row.tm_id ?? row.player_id);
+  return firstId(row.transfermarkt_id, row.tm_id, row.player_id);
 }
 
 function clubKey(row) {
@@ -290,26 +300,44 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
 // another SM player, and automatic proposals that collide with each other all
 // go to review.
 function resolveDuplicateClaims(proposals, confirmationsByTm) {
-  const autoClaims = new Map();
+  // Collisions are counted between distinct SM identities, so the same
+  // playerDataId appearing in several rows (e.g. concatenated snapshots) is not
+  // mistaken for two players.
+  const autoClaims = new Map(); // tid -> proposals
+  const autoTargetsBySm = new Map(); // sid -> Set<tid>
   for (const proposal of proposals) {
     if (proposal.status !== "proposed_auto") continue;
+    const sid = proposal.sm_player_data_id;
     const tid = proposal.candidates[0]?.transfermarkt_id;
     if (!tid) continue;
     const humanClaimants = confirmationsByTm.get(tid);
-    if (humanClaimants && !humanClaimants.has(proposal.sm_player_data_id)) {
+    if (humanClaimants && !humanClaimants.has(sid)) {
       proposal.status = "review";
       proposal.conflict = "tm_claimed_by_human_decision";
       continue;
     }
     if (!autoClaims.has(tid)) autoClaims.set(tid, []);
     autoClaims.get(tid).push(proposal);
+    if (!autoTargetsBySm.has(sid)) autoTargetsBySm.set(sid, new Set());
+    autoTargetsBySm.get(sid).add(tid);
   }
 
   for (const claimants of autoClaims.values()) {
-    if (claimants.length < 2) continue;
+    const distinctSm = new Set(claimants.map(p => p.sm_player_data_id));
+    if (distinctSm.size < 2) continue;
     for (const proposal of claimants) {
       proposal.status = "review";
       proposal.conflict = "duplicate_tm_claim";
+    }
+  }
+
+  // Repeated rows for one SM identity that auto-propose different TM players
+  // disagree with each other, so none of them is trusted.
+  for (const proposal of proposals) {
+    if (proposal.status !== "proposed_auto") continue;
+    if (autoTargetsBySm.get(proposal.sm_player_data_id).size > 1) {
+      proposal.status = "review";
+      proposal.conflict = "inconsistent_sm_rows";
     }
   }
 }
