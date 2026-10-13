@@ -6,6 +6,16 @@ Link the complete 96,693-player Soccer Manager universe (source snapshot 2026-10
 ## Initial implementation
 `src/identity/reconcileSmTm.js` generates reproducible, explainable candidate proposals. Inputs are arrays of SM and TM/registry rows. SM IDs accept `playerDataId`/`player_data_id`; TM IDs accept `transfermarkt_id`. Full ISO date of birth, name, real-world club, nationality and position contribute to scoring. Exact contradictory DOBs disqualify candidates. Candidates are blocked by DOB or normalized name to avoid a quadratic comparison. Strong unambiguous candidates are **proposals**, not writes. Multiple source players claiming one TM identity are forced to review. Human-reviewed decisions can be supplied separately.
 
+### Decisions (algorithm `sm-tm-reconcile/0.2`)
+- `confirmed` + `transfermarkt_id`: this pair is the same player. Must reference a TM identity present in the input, otherwise it is returned for review (`confirmed_tm_missing`).
+- `rejected` + `transfermarkt_id`: this pair is **not** the same player. Only that candidate is removed; other candidates remain.
+- `rejected` without `transfermarkt_id`: the SM player has no TM identity.
+- `unresolved`: parked; no proposal is made.
+
+A single human confirmation outranks automatic proposals for the same TM identity (`tm_claimed_by_reviewed`). Two conflicting human confirmations are both returned for review with `conflicting_reviewed_transfermarkt_id`, never silently dropped.
+
+Candidates scoring 30+ are kept for reviewers, so players without a date of birth still get candidates; automatic proposals still require an exact DOB, a score of 85+ and a 15-point lead. Positions are compared by broad group (GK/DEF/MID/FWD) using whole-word matching. Output carries `meta.algorithm_version` and `meta.snapshot_id`.
+
 ## Non-negotiable safeguards
 - Never use the SM world-specific `playerId` as the stable SM identity.
 - Do not overwrite `tbg_player_id`, gameplay clubs, contracts, history, ratings or match records.

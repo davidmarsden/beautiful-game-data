@@ -1,27 +1,111 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { reconcilePlayerIdentities } from "../src/identity/reconcileSmTm.js";
-const sm=(id,name,dob,club="Club A")=>({playerDataId:id,name,date_of_birth:dob,current_club:club});
-const tm=(id,name,dob,club="Club A")=>({transfermarkt_id:id,name,date_of_birth:dob,current_club:club});
-test("strong DOB, name and club produces an unambiguous proposal",()=>{
- const r=reconcilePlayerIdentities([sm(1,"José García","2000-01-02")],[tm(10,"Jose Garcia","2000-01-02")]);
- assert.equal(r.proposals[0].status,"proposed_auto");
- assert.equal(r.proposals[0].candidates[0].transfermarkt_id,"10");
+import { reconcilePlayerIdentities, ALGORITHM_VERSION } from "../src/identity/reconcileSmTm.js";
+
+const sm = (id, name, dob, extra = {}) => ({ playerDataId: id, name, date_of_birth: dob, current_club: "Club A", ...extra });
+const tm = (id, name, dob, extra = {}) => ({ transfermarkt_id: id, name, date_of_birth: dob, current_club: "Club A", ...extra });
+const statuses = result => result.proposals.map(p => p.status);
+const candidateIds = proposal => proposal.candidates.map(c => c.transfermarkt_id);
+
+test("strong DOB, name and club produces an unambiguous proposal", () => {
+  const r = reconcilePlayerIdentities([sm(1, "José García", "2000-01-02")], [tm(10, "Jose Garcia", "2000-01-02")]);
+  assert.equal(r.proposals[0].status, "proposed_auto");
+  assert.equal(r.proposals[0].candidates[0].transfermarkt_id, "10");
 });
-test("contradictory birth dates cannot link",()=>{
- const r=reconcilePlayerIdentities([sm(1,"Alex Smith","2000-01-02")],[tm(10,"Alex Smith","2001-01-02")]);
- assert.equal(r.proposals[0].status,"review");
- assert.equal(r.proposals[0].candidates.length,0);
+
+test("contradictory birth dates cannot link", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02")], [tm(10, "Alex Smith", "2001-01-02")]);
+  assert.equal(r.proposals[0].status, "review");
+  assert.equal(r.proposals[0].candidates.length, 0);
 });
-test("same name and birth date across multiple identities requires review",()=>{
- const r=reconcilePlayerIdentities([sm(1,"Alex Smith","2000-01-02")],[tm(10,"Alex Smith","2000-01-02"),tm(11,"Alex Smith","2000-01-02")]);
- assert.equal(r.proposals[0].status,"review");
+
+test("same name and birth date across multiple identities requires review", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02")], [tm(10, "Alex Smith", "2000-01-02"), tm(11, "Alex Smith", "2000-01-02")]);
+  assert.equal(r.proposals[0].status, "review");
 });
-test("two SM identities cannot automatically claim the same TM identity",()=>{
- const r=reconcilePlayerIdentities([sm(1,"Alex Smith","2000-01-02"),sm(2,"Alex Smith","2000-01-02")],[tm(10,"Alex Smith","2000-01-02")]);
- assert.deepEqual(r.proposals.map(x=>x.status),["review","review"]);
+
+test("two SM identities cannot automatically claim the same TM identity", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02"), sm(2, "Alex Smith", "2000-01-02")], [tm(10, "Alex Smith", "2000-01-02")]);
+  assert.deepEqual(statuses(r), ["review", "review"]);
+  assert.ok(r.proposals.every(p => p.conflict === "duplicate_tm_claim"));
 });
-test("explicit rejection is retained",()=>{
- const r=reconcilePlayerIdentities([sm(1,"Alex Smith","2000-01-02")],[tm(10,"Alex Smith","2000-01-02")],[{sm_player_data_id:"1",status:"rejected"}]);
- assert.equal(r.proposals[0].status,"rejected");
+
+test("player-level rejection means no TM identity", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02")], [tm(10, "Alex Smith", "2000-01-02")], [{ sm_player_data_id: "1", status: "rejected" }]);
+  assert.equal(r.proposals[0].status, "rejected");
+  assert.equal(r.summary.rejected, 1);
+});
+
+test("a human confirmation outranks an automatic proposal for the same TM identity", () => {
+  const r = reconcilePlayerIdentities(
+    [sm(1, "Alex Smith", "2000-01-02"), sm(2, "Alex Smith", "2000-01-02")],
+    [tm(10, "Alex Smith", "2000-01-02")],
+    [{ sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" }]
+  );
+  assert.equal(r.proposals[0].status, "reviewed");
+  assert.equal(r.proposals[0].reviewed_transfermarkt_id, "10");
+  assert.equal(r.proposals[1].status, "review");
+  assert.equal(r.proposals[1].conflict, "tm_claimed_by_reviewed");
+});
+
+test("two human confirmations of one TM identity are surfaced, not dropped", () => {
+  const r = reconcilePlayerIdentities(
+    [sm(1, "Alex Smith", "2000-01-02"), sm(2, "Alex Smith", "2000-01-02")],
+    [tm(10, "Alex Smith", "2000-01-02")],
+    [
+      { sm_player_data_id: "1", transfermarkt_id: "10", status: "confirmed" },
+      { sm_player_data_id: "2", transfermarkt_id: "10", status: "confirmed" }
+    ]
+  );
+  assert.deepEqual(statuses(r), ["review", "review"]);
+  assert.ok(r.proposals.every(p => p.conflict === "duplicate_reviewed_claim" && p.conflicting_reviewed_transfermarkt_id === "10"));
+});
+
+test("pairwise rejection removes only that candidate", () => {
+  const r = reconcilePlayerIdentities(
+    [sm(1, "Alex Smith", "2000-01-02")],
+    [tm(10, "Alex Smith", "2000-01-02"), tm(11, "Alex Smith", "2000-01-02", { current_club: "Club B" })],
+    [{ sm_player_data_id: "1", transfermarkt_id: "10", status: "rejected" }]
+  );
+  assert.deepEqual(candidateIds(r.proposals[0]), ["11"]);
+  assert.equal(r.proposals[0].status, "proposed_auto");
+});
+
+test("a missing DOB still gives reviewers candidates but never auto-proposes", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Erling Haaland", null)], [tm(10, "Erling Haaland", "2000-07-21")]);
+  assert.equal(r.proposals[0].status, "review");
+  assert.deepEqual(candidateIds(r.proposals[0]), ["10"]);
+});
+
+test("a confirmation pointing at an unknown TM identity is not accepted", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02")], [], [{ sm_player_data_id: "1", transfermarkt_id: "999", status: "confirmed" }]);
+  assert.equal(r.proposals[0].status, "review");
+  assert.equal(r.proposals[0].conflict, "confirmed_tm_missing");
+});
+
+test("unresolved decisions park the player", () => {
+  const r = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02")], [tm(10, "Alex Smith", "2000-01-02")], [{ sm_player_data_id: "1", status: "unresolved" }]);
+  assert.equal(r.proposals[0].status, "unresolved");
+});
+
+test("auto threshold boundary: DOB and exact name alone reach 85; weaker evidence does not", () => {
+  const exact = reconcilePlayerIdentities([sm(1, "Danny Ward", "1993-06-22", { current_club: "" })], [tm(10, "Danny Ward", "1993-06-22", { current_club: "" })]);
+  assert.equal(exact.proposals[0].candidates[0].score, 85);
+  assert.equal(exact.proposals[0].status, "proposed_auto");
+
+  const partial = reconcilePlayerIdentities([sm(1, "Fabio Da Silva", "1990-07-09", { current_club: "" })], [tm(10, "Rafael Da Silva", "1990-07-09", { current_club: "" })]);
+  assert.equal(partial.proposals[0].status, "review");
+});
+
+test("single-letter SM position codes match whole position groups only", () => {
+  const defender = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02", { position: "D" })], [tm(10, "Alex Smith", "2000-01-02", { position: "Centre-Back" })]);
+  assert.ok(defender.proposals[0].candidates[0].evidence.includes("position_compatible"));
+
+  const midfielder = reconcilePlayerIdentities([sm(1, "Alex Smith", "2000-01-02", { position: "D" })], [tm(10, "Alex Smith", "2000-01-02", { position: "Defensive Midfield" })]);
+  assert.ok(!midfielder.proposals[0].candidates[0].evidence.includes("position_compatible"));
+});
+
+test("output records the algorithm version and snapshot", () => {
+  const r = reconcilePlayerIdentities([], [], [], { snapshotId: "sm-2026-10-12" });
+  assert.deepEqual(r.meta, { algorithm_version: ALGORITHM_VERSION, snapshot_id: "sm-2026-10-12" });
 });
