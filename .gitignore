@@ -1,3 +1,8 @@
 node_modules/
 .env
 .DS_Store
+
+# Private identity-benchmark outputs (contain SM data)
+.private/
+*.private.csv
+*.private.jsonl
