@@ -57,3 +57,14 @@ node scripts/identity-benchmark.js evaluate --dir <out-dir>
 This reports strict, wide and combined discovery recall per stratum, and per-rule precision. Adjudications are run through `validateIdentityDecisions`, so contradictory decisions are reported instead of scored.
 
 Thresholds are not tuned until the gold samples are adjudicated.
+
+## First run (13 Oct 2026)
+
+Snapshot `universe-2026-10-12T20:10:39.722Z`, with 96,693 SM rows against 9,226 TM rows, code `1c00f25`, Manager Lab run 38465300099. The figures below are aggregate counts only.
+
+- **Age is reliable.** On 6,871 unverified one-to-one probes, SM age equals TM age on the snapshot date for 98.3% and is within one year for 99.8%.
+- **Discovery (proxy):** 97.7% of TM players appear among some SM row's strict candidates, and 99.2% with the wide search added. Gaps are largest for TM nicknames (strict 94.0%; age-consistent 86.4%) and Brazil/Portugal (age-consistent 92.6%). These are upper bounds, because a TM player counts as found if any SM row lists it.
+- **Automatic linking:** 33 proposals, all from the 50-player DOB control group. A hypothetical age-based rule (`h_age1`) would fire for 9,091 SM rows across 8,734 TM players, and 274 of those TM players would be claimed by more than one SM row. Its precision is unknown until the SM-anchored sample is adjudicated.
+- **Top candidates by SM name variant:** forename + surname 9,117; initial + surname 3,697; surname only 1,174. Initial + surname is expected to be the noisiest.
+- **SM players rated 85+:** 3,128, of whom 539 have no strict candidate. They are sampled as likely discovery misses.
+- **Countries:** every SM country without a TM label is a nation absent from the TM master (51, e.g. Kyrgyzstan, Qatar); no labelling gaps remain.

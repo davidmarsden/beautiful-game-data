@@ -14,7 +14,7 @@ const tmRow = (id, display, dob, nationality, extra = {}) => ({
 });
 
 test("SM adapter keeps names, maps countries and never passes a club", () => {
-  const row = smToMatcherRow({ ...smRow(1, "Ferreira", "VITINHA", 26, "Turkey"), club_name: "Hellas Verona" });
+  const row = smToMatcherRow({ ...smRow(1, "Ferreira", "VITINHA", 26, "Turkey"), club_name: "Game World FC" });
   assert.equal(row.name, "Ferreira VITINHA");
   assert.deepEqual(row.aliases, ["VITINHA"]);
   assert.equal(row.short_name, "F VITINHA");
