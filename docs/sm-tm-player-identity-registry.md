@@ -9,7 +9,7 @@ Link the complete 96,693-player Soccer Manager universe (source snapshot 2026-10
 ### Names and aliases
 Every supplied name variant is indexed and compared: `full_name`, `canonical_name`, `display_name`, `player_name`, `name`, `short_name`, `known_as`, `nickname`, plus `aliases` / `name_aliases` / `alternative_names` / `nicknames` arrays. Nicknames matter for Brazilian and Portuguese players, whose football names often differ from their registered names. The best-scoring pair wins, and each candidate records it in `matched_name` (`{ sm, tm }`), so a formal full name such as "Thibaut Nicolas Marc Courtois" no longer hides an exact display-name match.
 
-### Decisions (algorithm `sm-tm-reconcile/0.6`)
+### Decisions (algorithm `sm-tm-reconcile/0.7`)
 - `confirmed` + `transfermarkt_id`: this pair is the same player. Must reference a TM identity present in the input, otherwise it is returned for review (`confirmed_tm_missing`).
 - `rejected` + `transfermarkt_id`: this pair is **not** the same player. Only that candidate is removed; other candidates remain.
 - `rejected` without `transfermarkt_id`: the SM player has no TM identity.
@@ -30,7 +30,7 @@ Every supplied name variant is indexed and compared: `full_name`, `canonical_nam
 
 A conflicted player goes to review with `conflict_reasons` and every record in `conflicting_decisions`. The result never depends on input order, timestamps or reviewer. Decisions without an SM id are counted in `summary.unattributed_decisions`, not dropped. There is no supersession rule: adding one would need an explicit field (such as `supersedes`) and must be implemented in the validator.
 
-Any human confirmation of a TM identity, including one held by a player already in conflict, blocks an automatic proposal of that TM identity for another SM player (`tm_claimed_by_human_decision`). Automatic proposals from distinct SM identities that collide on one TM player all go to review (`duplicate_tm_claim`). The same `playerDataId` repeated across rows (for example, concatenated snapshots) is one identity, not a collision; if its repeated rows auto-propose different TM players, they go to review (`inconsistent_sm_rows`). ID fields fall through to the first non-empty value, so an empty `player_data_id` or `transfermarkt_id` never hides a populated alternative.
+Any human confirmation of a TM identity, including one held by a player already in conflict, blocks an automatic proposal of that TM identity for another SM player (`tm_claimed_by_human_decision`). Automatic proposals from distinct SM identities that collide on one TM player all go to review (`duplicate_tm_claim`). The same `playerDataId` repeated across rows (for example, concatenated snapshots) is one identity, not a collision; if its repeated rows auto-propose different TM players, they all go to review (`inconsistent_sm_rows`), even when one of those targets is also claimed by another player's human decision. ID fields fall through to the first non-empty value, so an empty `player_data_id` or `transfermarkt_id` never hides a populated alternative.
 
 Candidates scoring 30+ are kept for reviewers, so players without a date of birth still get candidates; automatic proposals still require an exact DOB, a score of 85+ and a 15-point lead. Positions are compared by broad group (GK/DEF/MID/FWD) using whole-word matching. Output carries `meta.algorithm_version` and `meta.snapshot_id`.
 

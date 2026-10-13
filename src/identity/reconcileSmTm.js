@@ -6,7 +6,7 @@ import { validateIdentityDecisions } from "./validateIdentityDecisions.js";
 // is written, and no match is treated as confirmed without an unambiguous
 // one-to-one assignment or a recorded human decision.
 
-export const ALGORITHM_VERSION = "sm-tm-reconcile/0.6";
+export const ALGORITHM_VERSION = "sm-tm-reconcile/0.7";
 
 // Scoring weights. These are heuristics, not calibrated probabilities.
 const POINTS = {
@@ -295,49 +295,39 @@ export function reconcilePlayerIdentities(smRows, tmRows, decisions = [], option
 
 // One TM identity can belong to only one SM identity.
 // Collisions between human confirmations are caught by the validator (every
-// confirmation counts, even from players already in conflict). Here, an
-// automatic proposal yields to any human confirmation of that TM identity by
-// another SM player, and automatic proposals that collide with each other all
-// go to review.
+// confirmation counts, even from players already in conflict). Here, every
+// automatic proposal is first recorded, then checked in three ways:
+//   1. inconsistent_sm_rows: repeated rows for one SM identity auto-propose
+//      different TM players, so none of them is trusted;
+//   2. tm_claimed_by_human_decision: a human confirmed that TM player for
+//      another SM identity;
+//   3. duplicate_tm_claim: distinct SM identities auto-propose the same TM player.
+// Collisions count distinct SM identities, so one playerDataId repeated across
+// rows (e.g. concatenated snapshots) is not mistaken for two players.
 function resolveDuplicateClaims(proposals, confirmationsByTm) {
-  // Collisions are counted between distinct SM identities, so the same
-  // playerDataId appearing in several rows (e.g. concatenated snapshots) is not
-  // mistaken for two players.
-  const autoClaims = new Map(); // tid -> proposals
-  const autoTargetsBySm = new Map(); // sid -> Set<tid>
-  for (const proposal of proposals) {
-    if (proposal.status !== "proposed_auto") continue;
-    const sid = proposal.sm_player_data_id;
-    const tid = proposal.candidates[0]?.transfermarkt_id;
-    if (!tid) continue;
+  const autos = proposals
+    .filter(p => p.status === "proposed_auto" && p.candidates[0]?.transfermarkt_id)
+    .map(p => ({ proposal: p, sid: p.sm_player_data_id, tid: p.candidates[0].transfermarkt_id }));
+
+  // Record every auto-qualified target before any proposal is demoted.
+  const targetsBySm = new Map();
+  const claimantsByTm = new Map();
+  for (const { sid, tid } of autos) {
+    if (!targetsBySm.has(sid)) targetsBySm.set(sid, new Set());
+    targetsBySm.get(sid).add(tid);
+    if (!claimantsByTm.has(tid)) claimantsByTm.set(tid, new Set());
+    claimantsByTm.get(tid).add(sid);
+  }
+
+  for (const { proposal, sid, tid } of autos) {
     const humanClaimants = confirmationsByTm.get(tid);
-    if (humanClaimants && !humanClaimants.has(sid)) {
+    let conflict = "";
+    if (targetsBySm.get(sid).size > 1) conflict = "inconsistent_sm_rows";
+    else if (humanClaimants && !humanClaimants.has(sid)) conflict = "tm_claimed_by_human_decision";
+    else if (claimantsByTm.get(tid).size > 1) conflict = "duplicate_tm_claim";
+    if (conflict) {
       proposal.status = "review";
-      proposal.conflict = "tm_claimed_by_human_decision";
-      continue;
-    }
-    if (!autoClaims.has(tid)) autoClaims.set(tid, []);
-    autoClaims.get(tid).push(proposal);
-    if (!autoTargetsBySm.has(sid)) autoTargetsBySm.set(sid, new Set());
-    autoTargetsBySm.get(sid).add(tid);
-  }
-
-  for (const claimants of autoClaims.values()) {
-    const distinctSm = new Set(claimants.map(p => p.sm_player_data_id));
-    if (distinctSm.size < 2) continue;
-    for (const proposal of claimants) {
-      proposal.status = "review";
-      proposal.conflict = "duplicate_tm_claim";
-    }
-  }
-
-  // Repeated rows for one SM identity that auto-propose different TM players
-  // disagree with each other, so none of them is trusted.
-  for (const proposal of proposals) {
-    if (proposal.status !== "proposed_auto") continue;
-    if (autoTargetsBySm.get(proposal.sm_player_data_id).size > 1) {
-      proposal.status = "review";
-      proposal.conflict = "inconsistent_sm_rows";
+      proposal.conflict = conflict;
     }
   }
 }

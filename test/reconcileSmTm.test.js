@@ -279,3 +279,18 @@ test("distinct SM identities colliding on one TM player still go to review", () 
   const r = reconcilePlayerIdentities(rows, [tm(10, "Alex Smith", "2000-01-02")]);
   assert.ok(r.proposals.every(p => p.status === "review" && p.conflict === "duplicate_tm_claim"));
 });
+
+// --- Codex review regression, round 5 ---
+
+test("inconsistent repeated rows go to review even when one target is human-claimed elsewhere", () => {
+  const rows = [sm(1, "Alex Smith", "2000-01-02"), sm(1, "Jamie Brown", "1999-03-04"), sm(2, "Chris Green", "1998-05-06")];
+  const tms = [tm(10, "Alex Smith", "2000-01-02"), tm(11, "Jamie Brown", "1999-03-04")];
+  const decisions = [{ sm_player_data_id: "2", transfermarkt_id: "10", status: "confirmed" }];
+  for (const ordered of [rows, [...rows].reverse()]) {
+    const r = reconcilePlayerIdentities(ordered, tms, decisions);
+    const sm1 = r.proposals.filter(p => p.sm_player_data_id === "1");
+    assert.equal(sm1.length, 2);
+    assert.ok(sm1.every(p => p.status === "review" && p.conflict === "inconsistent_sm_rows"));
+    assert.equal(r.summary.proposed_auto, 0);
+  }
+});
