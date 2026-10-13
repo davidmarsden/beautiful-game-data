@@ -145,3 +145,13 @@ test("age is compared on each SM row's own observation date", () => {
   const { candidates } = runIdentityBenchmark({ smRows: sm, tmRows: [tmRow(10, "Erling Haaland", "2000-07-21", "Norway")], snapshotDate: "2026-10-12", sample: { tm: {}, sm: {} } });
   assert.equal(candidates[0].strict[0].age_delta, 0);
 });
+
+test("H-age1 collisions and accent-insensitive country checks are reported", () => {
+  const sm = [smRow(1, "Alex", "SMITH", 25, "Curaçao"), smRow(2, "Alex", "SMITH", 25, "Curaçao")];
+  const tm = [tmRow(10, "Alex Smith", "2001-01-01", "Curacao")];
+  const { summary } = runIdentityBenchmark({ smRows: sm, tmRows: tm, snapshotDate: "2026-10-12", sample: { tm: {}, sm: {} } });
+  assert.equal(summary.sm_side.hypothetical_rule_h_age1_fires, 2);
+  assert.equal(summary.sm_side.hypothetical_rule_h_age1_distinct_tm_targets, 1);
+  assert.equal(summary.sm_side.hypothetical_rule_h_age1_colliding_tm_targets, 1);
+  assert.deepEqual(summary.countries_without_tm_label, {});
+});

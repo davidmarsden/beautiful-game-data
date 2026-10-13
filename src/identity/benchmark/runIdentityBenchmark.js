@@ -118,6 +118,7 @@ export function runIdentityBenchmark({ smRows, tmRows, snapshotDate, snapshotId 
   const bestVariant = {};
   const byRating = {};
   let hypotheticalAge1 = 0;
+  const h1Targets = new Map(); // tid -> SM ids for which H-age1 would fire
   for (const row of sm) {
     const entry = strictBySm.get(row.player_data_id) ?? { candidates: [] };
     const n = entry.candidates.length;
@@ -138,7 +139,10 @@ export function runIdentityBenchmark({ smRows, tmRows, snapshotDate, snapshotId 
     // Hypothetical rule H-age1 (not implemented in the reconciler): exactly one
     // age-consistent candidate, matched on an exact name, with nationality overlap.
     const h1 = consistent.length === 1 && consistent[0].evidence.includes("name_exact") && consistent[0].evidence.includes("nationality_overlap");
-    if (h1) hypotheticalAge1 += 1;
+    if (h1) {
+      hypotheticalAge1 += 1;
+      push(h1Targets, consistent[0].transfermarkt_id, row.player_data_id);
+    }
 
     let cls = "";
     if (!n) cls = band === "85+" ? "rated_85plus_no_candidate" : "no_candidate";
@@ -202,13 +206,17 @@ export function runIdentityBenchmark({ smRows, tmRows, snapshotDate, snapshotId 
   }
 
   // --- country label agreement --------------------------------------------------
-  const tmNations = new Set(tm.flatMap(row => row.nationality));
+  // Compared after normalisation, as the reconciler compares them.
+  const tmNations = new Set(tm.flatMap(row => row.nationality).map(normaliseName));
   const unmatchedCountries = {};
   for (const row of sm) {
     for (const nation of row.nationality) {
-      if (!tmNations.has(nation)) unmatchedCountries[nation] = (unmatchedCountries[nation] ?? 0) + 1;
+      if (!tmNations.has(normaliseName(nation))) unmatchedCountries[nation] = (unmatchedCountries[nation] ?? 0) + 1;
     }
   }
+
+  // H-age1 collisions: TM players it would link to more than one SM player.
+  const h1Collisions = [...h1Targets.values()].filter(sids => sids.length > 1);
 
   // --- gold-standard samples ----------------------------------------------------
   const goldTm = sampleTm({ tm, tmStrata, sample: sample.tm, seed, strictByTm, wideByTm, smById, ageDelta, tmAge, tmDiscovery });
@@ -245,6 +253,9 @@ export function runIdentityBenchmark({ smRows, tmRows, snapshotDate, snapshotId 
       best_candidate_name_variant: bestVariant,
       by_rating_band: byRating,
       hypothetical_rule_h_age1_fires: hypotheticalAge1,
+      hypothetical_rule_h_age1_distinct_tm_targets: h1Targets.size,
+      hypothetical_rule_h_age1_colliding_tm_targets: h1Collisions.length,
+      hypothetical_rule_h_age1_sm_rows_in_collisions: h1Collisions.reduce((n, sids) => n + sids.length, 0),
       max_linkable_note: "At most tm_rows SM players can have a TM identity; SM-side rates are not recall."
     },
     tm_side_discovery: tmDiscovery,

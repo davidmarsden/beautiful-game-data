@@ -63,7 +63,7 @@ function summaryMarkdown(summary) {
   lines.push(`- With a strict candidate: ${s.with_strict_candidate} (${s.with_strict_candidate_pct}%); age-consistent: ${s.with_age_consistent_candidate}; wide only: ${s.wide_only}.`);
   lines.push(`- Candidate counts: ${Object.entries(s.candidate_count_buckets).map(([k, v]) => `${k}: ${v}`).join(", ")}.`);
   lines.push(`- Name variant behind the top candidate: ${Object.entries(s.best_candidate_name_variant).map(([k, v]) => `${k} ${v}`).join(", ")}.`);
-  lines.push(`- Hypothetical rule H-age1 would fire for ${s.hypothetical_rule_h_age1_fires} players (precision unknown until adjudicated).`);
+  lines.push(`- Hypothetical rule H-age1 would fire for ${s.hypothetical_rule_h_age1_fires} players across ${s.hypothetical_rule_h_age1_distinct_tm_targets} TM players; ${s.hypothetical_rule_h_age1_colliding_tm_targets} TM players would be claimed by more than one SM row (${s.hypothetical_rule_h_age1_sm_rows_in_collisions} rows). Precision unknown until adjudicated.`);
   lines.push("");
   lines.push("| SM rating band | Players | With strict candidate | With wide candidate |");
   lines.push("| --- | --- | --- | --- |");
