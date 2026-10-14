@@ -105,8 +105,8 @@ function run(opts) {
   // Content fingerprints ignore export metadata (e.g. exported_at) and row
   // order, so two exports of the same data always match. File hashes are kept
   // to identify the exact files used.
-  result.summary.inputs.sm_rows_sha256 = rowsFingerprint(smExport.rows, "player_data_id");
-  result.summary.inputs.tm_rows_sha256 = rowsFingerprint(Array.isArray(tmRows) ? tmRows : tmRows.players, "transfermarkt_id");
+  result.summary.inputs.sm_rows_sha256 = rowsFingerprint(smExport.rows);
+  result.summary.inputs.tm_rows_sha256 = rowsFingerprint(Array.isArray(tmRows) ? tmRows : tmRows.players);
   result.summary.inputs.sm_file_sha256 = sha256(smBuffer);
   result.summary.inputs.tm_file_sha256 = sha256(tmBuffer);
   result.summary.inputs.code_commit = gitCommit();

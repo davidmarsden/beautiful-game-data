@@ -43,7 +43,7 @@ Outputs:
 
 The same inputs and seed always give the same output. Change `--seed` to draw a fresh sample.
 
-Inputs are identified by content fingerprints (`sm_rows_sha256`, `tm_rows_sha256`): SHA-256 over rows sorted by ID, with keys in sorted order. Two exports of the same data match even when their export timestamps or row order differ. File hashes (`*_file_sha256`) are kept as well, to identify the exact files used.
+Inputs are identified by content fingerprints (`sm_rows_sha256`, `tm_rows_sha256`): each row serialised with its keys in sorted order, the serialised rows sorted, then SHA-256 over the result. Two exports of the same data match even when their export timestamps or row order differ. File hashes (`*_file_sha256`) are kept as well, to identify the exact files used.
 
 ## Adjudicating and scoring the gold samples
 

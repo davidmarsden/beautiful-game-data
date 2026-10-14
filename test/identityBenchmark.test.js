@@ -226,7 +226,16 @@ test("row fingerprints ignore order and key order but detect content changes", a
   const { rowsFingerprint } = await import("../src/identity/benchmark/fingerprint.js");
   const a = [{ player_data_id: "2", age: "25", name: "B" }, { player_data_id: "10", name: "A", age: "30" }];
   const b = [{ age: "30", name: "A", player_data_id: "10" }, { name: "B", player_data_id: "2", age: "25" }];
-  assert.equal(rowsFingerprint(a, "player_data_id"), rowsFingerprint(b, "player_data_id"));
+  assert.equal(rowsFingerprint(a), rowsFingerprint(b));
   const c = [{ ...b[0], age: "31" }, b[1]];
-  assert.notEqual(rowsFingerprint(a, "player_data_id"), rowsFingerprint(c, "player_data_id"));
+  assert.notEqual(rowsFingerprint(a), rowsFingerprint(c));
+});
+
+test("row fingerprints ignore the order of duplicate and equal-looking IDs", async () => {
+  const { rowsFingerprint } = await import("../src/identity/benchmark/fingerprint.js");
+  const x = { player_data_id: "1", name: "A" };
+  const y = { player_data_id: "1", name: "B" };
+  const z = { player_data_id: "01", name: "C" };
+  assert.equal(rowsFingerprint([x, y, z]), rowsFingerprint([z, y, x]));
+  assert.equal(rowsFingerprint([x, y, z]), rowsFingerprint([y, z, x]));
 });
