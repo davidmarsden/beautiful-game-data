@@ -36,12 +36,14 @@ Outputs:
 
 | File | Contents | Privacy |
 | --- | --- | --- |
-| `summary.json`, `summary.md` | Counts and rates, input SHA-256s, code commit, seed | Aggregate only |
+| `summary.json`, `summary.md` | Counts and rates, input fingerprints, code commit, seed | Aggregate only |
 | `candidates.private.jsonl` | Per SM player: strict candidates (score, evidence, name variant, age delta) and wide candidates | Private |
 | `gold-tm-anchored.private.csv` | Stratified TM players for reviewers to find in SM (assist candidates included) | Private |
 | `gold-sm-anchored.private.csv` | Stratified SM players with candidates, in decision-registry shape | Private |
 
 The same inputs and seed always give the same output. Change `--seed` to draw a fresh sample.
+
+Inputs are identified by content fingerprints (`sm_rows_sha256`, `tm_rows_sha256`): each row serialised with its keys in sorted order, the serialised rows sorted, then SHA-256 over the result. Two exports of the same data match even when their export timestamps or row order differ. File hashes (`*_file_sha256`) are kept as well, to identify the exact files used.
 
 ## Adjudicating and scoring the gold samples
 
