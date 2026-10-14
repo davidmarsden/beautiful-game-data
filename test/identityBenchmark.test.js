@@ -221,3 +221,12 @@ test("malformed TM adjudications are reported as invalid and excluded from recal
   assert.equal(r.discovery.general.adjudicated, 1);
   assert.deepEqual(r.discovery.general.strict_recall, { hit: 1, total: 1, pct: 100 });
 });
+
+test("row fingerprints ignore order and key order but detect content changes", async () => {
+  const { rowsFingerprint } = await import("../src/identity/benchmark/fingerprint.js");
+  const a = [{ player_data_id: "2", age: "25", name: "B" }, { player_data_id: "10", name: "A", age: "30" }];
+  const b = [{ age: "30", name: "A", player_data_id: "10" }, { name: "B", player_data_id: "2", age: "25" }];
+  assert.equal(rowsFingerprint(a, "player_data_id"), rowsFingerprint(b, "player_data_id"));
+  const c = [{ ...b[0], age: "31" }, b[1]];
+  assert.notEqual(rowsFingerprint(a, "player_data_id"), rowsFingerprint(c, "player_data_id"));
+});
