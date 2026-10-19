@@ -1,6 +1,6 @@
 # Player Universe Coverage Audit
 
-Generated: 2026-10-12T13:07:01.368Z
+Generated: 2026-10-19T10:43:11.733Z
 
 ## Pipeline stages
 - raw_import: 3578 rows / 3121 unique TM IDs
