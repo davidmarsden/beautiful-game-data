@@ -1,13 +1,13 @@
 # Player Exclusion Ledger
 
-Generated: 2026-10-26T11:02:58.943Z
+Generated: 2026-11-09T13:50:49.500Z
 
 Policy: tbg-player-publication-policy-v1.0
 
-- Master players: 9226
-- Registry players: 9226
-- Active registry players: 9217
-- Eligible master players: 9217
+- Master players: 9227
+- Registry players: 9227
+- Active registry players: 9218
+- Eligible master players: 9218
 - Excluded players: 9
 
 ## Reasons

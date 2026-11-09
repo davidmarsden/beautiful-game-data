@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T11:03:07.825Z",
+  "generated_at": "2026-11-09T13:50:59.552Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -44,9 +44,9 @@
     "healthy": 0,
     "review": 80,
     "critical": 0,
-    "first_team_target_met": 34,
+    "first_team_target_met": 33,
     "development_target_met": 2,
-    "review_items": 84
+    "review_items": 86
   },
   "tracked_prospects": [
     {
@@ -104,6 +104,13 @@
           "market_value_eur": 15000000
         },
         {
+          "player_name": "Yan Diomande",
+          "rating": 91,
+          "expected_rating": 95,
+          "gap": -4,
+          "market_value_eur": 120000000
+        },
+        {
           "player_name": "Denzel Dumfries",
           "rating": 91,
           "expected_rating": 87,
@@ -132,7 +139,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "4 ratings differ materially from value benchmark"
+          "detail": "5 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -190,12 +197,12 @@
       "club_id": "281",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 31,
-      "published_players": 31,
-      "senior_players": 24,
+      "imported_players": 30,
+      "published_players": 30,
+      "senior_players": 23,
       "development_players_u21": 7,
       "depth": {
-        "ATT": 8,
+        "ATT": 7,
         "MID": 8,
         "DEF": 12,
         "GK": 3
@@ -212,13 +219,6 @@
           "market_value_eur": 55000000
         },
         {
-          "player_name": "Jack Grealish",
-          "rating": 92,
-          "expected_rating": 87,
-          "gap": 5,
-          "market_value_eur": 20000000
-        },
-        {
           "player_name": "Mateo Kovacic",
           "rating": 91,
           "expected_rating": 85,
@@ -232,7 +232,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "24/25 senior players"
+          "detail": "23/25 senior players"
         },
         {
           "severity": "warning",
@@ -242,7 +242,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "3 ratings differ materially from value benchmark"
+          "detail": "2 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -507,12 +507,12 @@
       "club_id": "985",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 32,
-      "published_players": 32,
-      "senior_players": 22,
+      "imported_players": 33,
+      "published_players": 33,
+      "senior_players": 23,
       "development_players_u21": 10,
       "depth": {
-        "MID": 9,
+        "MID": 10,
         "ATT": 8,
         "DEF": 11,
         "GK": 4
@@ -542,7 +542,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "22/25 senior players"
+          "detail": "23/25 senior players"
         },
         {
           "severity": "warning",
@@ -562,14 +562,14 @@
       "club_id": "631",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 40,
-      "published_players": 40,
-      "senior_players": 28,
+      "imported_players": 39,
+      "published_players": 39,
+      "senior_players": 27,
       "development_players_u21": 12,
       "depth": {
         "MID": 8,
         "DEF": 16,
-        "ATT": 12,
+        "ATT": 11,
         "GK": 4
       },
       "senior_candidates_missing": 0,
@@ -717,18 +717,18 @@
       "elite_youth_missing": [],
       "suspicious_ratings": [
         {
-          "player_name": "Hakan Çalhanoğlu",
-          "rating": 92,
-          "expected_rating": 87,
-          "gap": 5,
-          "market_value_eur": 16000000
-        },
-        {
           "player_name": "Manuel Akanji",
           "rating": 91,
           "expected_rating": 87,
           "gap": 4,
           "market_value_eur": 17000000
+        },
+        {
+          "player_name": "Hakan Çalhanoğlu",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 16000000
         },
         {
           "player_name": "John Stones",
@@ -738,7 +738,7 @@
           "market_value_eur": 12000000
         },
         {
-          "player_name": "Piotr Zielinski",
+          "player_name": "Piotr Zieliński",
           "rating": 91,
           "expected_rating": 85,
           "gap": 6,
@@ -1312,14 +1312,14 @@
       "club_id": "1041",
       "league": "Ligue 1",
       "country": "France",
-      "imported_players": 33,
-      "published_players": 33,
-      "senior_players": 19,
+      "imported_players": 32,
+      "published_players": 32,
+      "senior_players": 18,
       "development_players_u21": 14,
       "depth": {
         "ATT": 8,
         "MID": 10,
-        "DEF": 12,
+        "DEF": 11,
         "GK": 3
       },
       "senior_candidates_missing": 0,
@@ -1340,7 +1340,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "19/25 senior players"
+          "detail": "18/25 senior players"
         },
         {
           "severity": "warning",
@@ -1565,6 +1565,13 @@
           "market_value_eur": 25000000
         },
         {
+          "player_name": "John McGinn",
+          "rating": 91,
+          "expected_rating": 85,
+          "gap": 6,
+          "market_value_eur": 13000000
+        },
+        {
           "player_name": "Emiliano Martínez",
           "rating": 91,
           "expected_rating": 85,
@@ -1577,13 +1584,6 @@
           "expected_rating": 85,
           "gap": 6,
           "market_value_eur": 12000000
-        },
-        {
-          "player_name": "John McGinn",
-          "rating": 90,
-          "expected_rating": 85,
-          "gap": 5,
-          "market_value_eur": 13000000
         },
         {
           "player_name": "Leon Bailey",
@@ -1744,20 +1744,27 @@
       "club_id": "29",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 24,
-      "published_players": 24,
-      "senior_players": 20,
-      "development_players_u21": 4,
+      "imported_players": 27,
+      "published_players": 27,
+      "senior_players": 22,
+      "development_players_u21": 5,
       "depth": {
-        "ATT": 6,
+        "ATT": 8,
         "GK": 3,
         "MID": 8,
-        "DEF": 7
+        "DEF": 8
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [
+        {
+          "player_name": "Jack Grealish",
+          "rating": 92,
+          "expected_rating": 87,
+          "gap": 5,
+          "market_value_eur": 20000000
+        },
         {
           "player_name": "Jordan Pickford",
           "rating": 91,
@@ -1766,13 +1773,169 @@
           "market_value_eur": 13000000
         }
       ],
+      "health_score": 85,
+      "status": "review",
+      "issues": [
+        {
+          "severity": "warning",
+          "type": "senior_depth",
+          "detail": "22/25 senior players"
+        },
+        {
+          "severity": "warning",
+          "type": "development_depth",
+          "detail": "5/15 U21 players"
+        },
+        {
+          "severity": "review",
+          "type": "rating_sanity",
+          "detail": "2 ratings differ materially from value benchmark"
+        }
+      ]
+    },
+    {
+      "slot": 34,
+      "club_name": "Nottingham Forest",
+      "club_id": "703",
+      "league": "Premier League",
+      "country": "England",
+      "imported_players": 32,
+      "published_players": 32,
+      "senior_players": 28,
+      "development_players_u21": 4,
+      "depth": {
+        "MID": 6,
+        "DEF": 14,
+        "ATT": 9,
+        "GK": 3
+      },
+      "senior_candidates_missing": 0,
+      "development_candidates_missing": 0,
+      "elite_youth_missing": [],
+      "suspicious_ratings": [
+        {
+          "player_name": "Nikola Milenković",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 28000000
+        },
+        {
+          "player_name": "Daniel Muñoz",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 22000000
+        }
+      ],
+      "health_score": 85,
+      "status": "review",
+      "issues": [
+        {
+          "severity": "warning",
+          "type": "development_depth",
+          "detail": "4/15 U21 players"
+        },
+        {
+          "severity": "warning",
+          "type": "position_depth",
+          "detail": "MID: 6/8"
+        },
+        {
+          "severity": "review",
+          "type": "rating_sanity",
+          "detail": "2 ratings differ materially from value benchmark"
+        }
+      ]
+    },
+    {
+      "slot": 35,
+      "club_name": "Brighton & Hove Albion",
+      "club_id": "1237",
+      "league": "Premier League",
+      "country": "England",
+      "imported_players": 33,
+      "published_players": 33,
+      "senior_players": 21,
+      "development_players_u21": 12,
+      "depth": {
+        "DEF": 12,
+        "GK": 3,
+        "ATT": 11,
+        "MID": 7
+      },
+      "senior_candidates_missing": 0,
+      "development_candidates_missing": 0,
+      "elite_youth_missing": [],
+      "suspicious_ratings": [
+        {
+          "player_name": "Zadok Yohanna",
+          "rating": 82,
+          "expected_rating": 87,
+          "gap": -5,
+          "market_value_eur": 18000000
+        }
+      ],
       "health_score": 79,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "20/25 senior players"
+          "detail": "21/25 senior players"
+        },
+        {
+          "severity": "warning",
+          "type": "development_depth",
+          "detail": "12/15 U21 players"
+        },
+        {
+          "severity": "warning",
+          "type": "position_depth",
+          "detail": "MID: 7/8"
+        },
+        {
+          "severity": "review",
+          "type": "rating_sanity",
+          "detail": "1 ratings differ materially from value benchmark"
+        }
+      ]
+    },
+    {
+      "slot": 36,
+      "club_name": "Crystal Palace",
+      "club_id": "873",
+      "league": "Premier League",
+      "country": "England",
+      "imported_players": 28,
+      "published_players": 28,
+      "senior_players": 24,
+      "development_players_u21": 4,
+      "depth": {
+        "MID": 9,
+        "ATT": 9,
+        "GK": 3,
+        "DEF": 7
+      },
+      "senior_candidates_missing": 0,
+      "development_candidates_missing": 0,
+      "elite_youth_missing": [],
+      "suspicious_ratings": [
+        {
+          "player_name": "Daichi Kamada",
+          "rating": 89,
+          "expected_rating": 85,
+          "gap": 4,
+          "market_value_eur": 10000000
+        }
+      ],
+      "health_score": 79,
+      "status": "review",
+      "issues": [
+        {
+          "severity": "warning",
+          "type": "senior_depth",
+          "detail": "24/25 senior players"
         },
         {
           "severity": "warning",
@@ -1788,139 +1951,6 @@
           "severity": "review",
           "type": "rating_sanity",
           "detail": "1 ratings differ materially from value benchmark"
-        }
-      ]
-    },
-    {
-      "slot": 34,
-      "club_name": "Nottingham Forest",
-      "club_id": "703",
-      "league": "Premier League",
-      "country": "England",
-      "imported_players": 30,
-      "published_players": 30,
-      "senior_players": 26,
-      "development_players_u21": 4,
-      "depth": {
-        "MID": 6,
-        "DEF": 13,
-        "ATT": 8,
-        "GK": 3
-      },
-      "senior_candidates_missing": 0,
-      "development_candidates_missing": 0,
-      "elite_youth_missing": [],
-      "suspicious_ratings": [],
-      "health_score": 88,
-      "status": "review",
-      "issues": [
-        {
-          "severity": "warning",
-          "type": "development_depth",
-          "detail": "4/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "MID: 6/8"
-        }
-      ]
-    },
-    {
-      "slot": 35,
-      "club_name": "Brighton & Hove Albion",
-      "club_id": "1237",
-      "league": "Premier League",
-      "country": "England",
-      "imported_players": 34,
-      "published_players": 34,
-      "senior_players": 22,
-      "development_players_u21": 12,
-      "depth": {
-        "DEF": 12,
-        "MID": 8,
-        "GK": 3,
-        "ATT": 11
-      },
-      "senior_candidates_missing": 0,
-      "development_candidates_missing": 0,
-      "elite_youth_missing": [],
-      "suspicious_ratings": [
-        {
-          "player_name": "Zadok Yohanna",
-          "rating": 82,
-          "expected_rating": 87,
-          "gap": -5,
-          "market_value_eur": 18000000
-        }
-      ],
-      "health_score": 85,
-      "status": "review",
-      "issues": [
-        {
-          "severity": "warning",
-          "type": "senior_depth",
-          "detail": "22/25 senior players"
-        },
-        {
-          "severity": "warning",
-          "type": "development_depth",
-          "detail": "12/15 U21 players"
-        },
-        {
-          "severity": "review",
-          "type": "rating_sanity",
-          "detail": "1 ratings differ materially from value benchmark"
-        }
-      ]
-    },
-    {
-      "slot": 36,
-      "club_name": "Crystal Palace",
-      "club_id": "873",
-      "league": "Premier League",
-      "country": "England",
-      "imported_players": 29,
-      "published_players": 29,
-      "senior_players": 25,
-      "development_players_u21": 4,
-      "depth": {
-        "MID": 9,
-        "ATT": 9,
-        "DEF": 8,
-        "GK": 3
-      },
-      "senior_candidates_missing": 0,
-      "development_candidates_missing": 0,
-      "elite_youth_missing": [],
-      "suspicious_ratings": [
-        {
-          "player_name": "Daniel Muñoz",
-          "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 22000000
-        },
-        {
-          "player_name": "Daichi Kamada",
-          "rating": 89,
-          "expected_rating": 85,
-          "gap": 4,
-          "market_value_eur": 10000000
-        }
-      ],
-      "health_score": 91,
-      "status": "review",
-      "issues": [
-        {
-          "severity": "warning",
-          "type": "development_depth",
-          "detail": "4/15 U21 players"
-        },
-        {
-          "severity": "review",
-          "type": "rating_sanity",
-          "detail": "2 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -2433,14 +2463,14 @@
           "market_value_eur": 10000000
         },
         {
-          "player_name": "Nathan Aké",
+          "player_name": "Milan Škriniar",
           "rating": 90,
           "expected_rating": 85,
           "gap": 5,
-          "market_value_eur": 12000000
+          "market_value_eur": 10000000
         },
         {
-          "player_name": "Milan Škriniar",
+          "player_name": "Nathan Aké",
           "rating": 90,
           "expected_rating": 85,
           "gap": 5,
@@ -3722,6 +3752,19 @@
       "club": "Real Madrid",
       "league": "LaLiga",
       "issue": "rating_sanity",
+      "player": "Yan Diomande",
+      "age": 19,
+      "market_value_eur": 120000000,
+      "tbg_rating": 91,
+      "expected_rating": 95,
+      "gap": -4,
+      "transfermarkt_player_id": "1390649"
+    },
+    {
+      "priority": "medium",
+      "club": "Real Madrid",
+      "league": "LaLiga",
+      "issue": "rating_sanity",
       "player": "Federico Valverde",
       "age": 28,
       "market_value_eur": 90000000,
@@ -3801,7 +3844,7 @@
       "league": "Premier League",
       "issue": "rating_sanity",
       "player": "Bruno Fernandes",
-      "age": 31,
+      "age": 32,
       "market_value_eur": 35000000,
       "tbg_rating": 94,
       "expected_rating": 89,
@@ -3833,6 +3876,19 @@
       "expected_rating": 87,
       "gap": 7,
       "transfermarkt_player_id": "181767"
+    },
+    {
+      "priority": "medium",
+      "club": "Nottingham Forest",
+      "league": "Premier League",
+      "issue": "rating_sanity",
+      "player": "Nikola Milenković",
+      "age": 29,
+      "market_value_eur": 28000000,
+      "tbg_rating": 91,
+      "expected_rating": 87,
+      "gap": 4,
+      "transfermarkt_player_id": "413507"
     },
     {
       "priority": "medium",
@@ -3979,7 +4035,7 @@
     },
     {
       "priority": "medium",
-      "club": "Crystal Palace",
+      "club": "Nottingham Forest",
       "league": "Premier League",
       "issue": "rating_sanity",
       "player": "Daniel Muñoz",
@@ -4015,19 +4071,6 @@
       "expected_rating": 87,
       "gap": 8,
       "transfermarkt_player_id": "148455"
-    },
-    {
-      "priority": "medium",
-      "club": "Manchester City",
-      "league": "Premier League",
-      "issue": "rating_sanity",
-      "player": "Jack Grealish",
-      "age": 30,
-      "market_value_eur": 20000000,
-      "tbg_rating": 92,
-      "expected_rating": 87,
-      "gap": 5,
-      "transfermarkt_player_id": "203460"
     },
     {
       "priority": "medium",
@@ -4074,7 +4117,7 @@
       "league": "LaLiga",
       "issue": "rating_sanity",
       "player": "Alejandro Grimaldo",
-      "age": 30,
+      "age": 31,
       "market_value_eur": 20000000,
       "tbg_rating": 91,
       "expected_rating": 87,
@@ -4093,6 +4136,19 @@
       "expected_rating": 87,
       "gap": 4,
       "transfermarkt_player_id": "354362"
+    },
+    {
+      "priority": "medium",
+      "club": "Everton FC",
+      "league": "Premier League",
+      "issue": "rating_sanity",
+      "player": "Jack Grealish",
+      "age": 31,
+      "market_value_eur": 20000000,
+      "tbg_rating": 92,
+      "expected_rating": 87,
+      "gap": 5,
+      "transfermarkt_player_id": "203460"
     },
     {
       "priority": "medium",
@@ -4180,9 +4236,9 @@
       "player": "Hakan Çalhanoğlu",
       "age": 32,
       "market_value_eur": 16000000,
-      "tbg_rating": 92,
+      "tbg_rating": 91,
       "expected_rating": 87,
-      "gap": 5,
+      "gap": 4,
       "transfermarkt_player_id": "126414"
     },
     {
@@ -4412,11 +4468,11 @@
       "league": "Premier League",
       "issue": "rating_sanity",
       "player": "John McGinn",
-      "age": 31,
+      "age": 32,
       "market_value_eur": 13000000,
-      "tbg_rating": 90,
+      "tbg_rating": 91,
       "expected_rating": 85,
-      "gap": 5,
+      "gap": 6,
       "transfermarkt_player_id": "193116"
     },
     {
@@ -4577,19 +4633,6 @@
     },
     {
       "priority": "medium",
-      "club": "Fenerbahce",
-      "league": "Süper Lig",
-      "issue": "rating_sanity",
-      "player": "Nathan Aké",
-      "age": 31,
-      "market_value_eur": 12000000,
-      "tbg_rating": 90,
-      "expected_rating": 85,
-      "gap": 5,
-      "transfermarkt_player_id": "177476"
-    },
-    {
-      "priority": "medium",
       "club": "Shakhtar Donetsk",
       "league": "Ukrainian Premier League",
       "issue": "rating_sanity",
@@ -4645,7 +4688,7 @@
       "club": "Inter Milan",
       "league": "Serie A",
       "issue": "rating_sanity",
-      "player": "Piotr Zielinski",
+      "player": "Piotr Zieliński",
       "age": 32,
       "market_value_eur": 10000000,
       "tbg_rating": 91,
@@ -4756,6 +4799,19 @@
       "expected_rating": 85,
       "gap": 5,
       "transfermarkt_player_id": "204069"
+    },
+    {
+      "priority": "medium",
+      "club": "Fenerbahce",
+      "league": "Süper Lig",
+      "issue": "rating_sanity",
+      "player": "Nathan Aké",
+      "age": 31,
+      "market_value_eur": 10000000,
+      "tbg_rating": 90,
+      "expected_rating": 85,
+      "gap": 5,
+      "transfermarkt_player_id": "177476"
     },
     {
       "priority": "medium",
