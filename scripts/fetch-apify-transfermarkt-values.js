@@ -90,14 +90,18 @@ if (!existingDatasetId) {
       maxItems: Number(args.maxItems ?? (scope === "wide" ? 5000 : 1000))
     };
 
-    const defaultCompetitionCodes = scope === "wide" ? TRANSFERMARKT_WIDE_COMPETITION_CODES : ["GB1"];
-    const competitionCodes = csvList(args.competitionCodes ?? defaultCompetitionCodes.join(","));
     const clubIds = parseNumberList(args.clubIds);
     const playerIds = mergeUnique(parseNumberList(args.playerIds), await idsFromFile(args.playerIdsFile)).map(Number);
     const searchQueries = mergeUnique(
       csvList(args.searchQueries),
       includeSearchQueries ? GOLD_STANDARD_RESCUE_PLAYERS : []
     );
+    // Explicit --competitionCodes are always honoured; the scope default only applies when nothing
+    // else was asked for, so a search-only request never pays for an implicit league scrape.
+    const defaultCompetitionCodes = scope === "wide" ? TRANSFERMARKT_WIDE_COMPETITION_CODES : ["GB1"];
+    const competitionCodes = args.competitionCodes !== undefined
+      ? csvList(args.competitionCodes)
+      : searchQueries.length ? [] : defaultCompetitionCodes;
 
     if (playerIds.length) input.playerIds = playerIds.map(String);
     if (clubIds.length) input.clubIds = clubIds.map(String);
