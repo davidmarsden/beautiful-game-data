@@ -121,6 +121,7 @@ jobs:
             --clubIds="${{ github.event.inputs.clubIds }}" \
             --playerIds="${{ github.event.inputs.playerIds }}" \
             --searchQueries="${{ github.event.inputs.searchQueries }}" \
+            --includeGoldStandardRescue=false \
             --startUrls="${{ github.event.inputs.startUrls }}" \
             --maxItems="${{ github.event.inputs.maxItems }}" \
             --crawlDepth="${{ github.event.inputs.crawlDepth }}" \

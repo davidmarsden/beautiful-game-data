@@ -64,6 +64,8 @@ const existingDatasetId = usableDatasetId(args.datasetId || args.apifyDatasetId)
 const dryRun = booleanArg(args.dryRun, false);
 const hasBudgetMaxItems = args.budgetMaxItems !== undefined;
 const budgetMaxItems = hasBudgetMaxItems ? Number(args.budgetMaxItems) : 0;
+const searchMaxItems = Math.max(1, Number(args.searchMaxItems ?? 1) || 1);
+const maxSearchRuns = Number(args.maxSearchRuns ?? 100);
 
 if (hasBudgetMaxItems && (!Number.isFinite(budgetMaxItems) || budgetMaxItems <= 0)) {
   console.error(`Invalid --budgetMaxItems value: ${String(args.budgetMaxItems)}.`);
@@ -72,6 +74,7 @@ if (hasBudgetMaxItems && (!Number.isFinite(budgetMaxItems) || budgetMaxItems <= 
 }
 
 let input;
+let searchInputs = [];
 if (!existingDatasetId) {
   if (String(args.mode ?? "players") === "generic") {
     const defaultStartUrls = scope === "wide" ? TRANSFERMARKT_GENERIC_START_URLS : ["https://www.transfermarkt.com/premier-league/startseite/wettbewerb/GB1"];
@@ -84,8 +87,7 @@ if (!existingDatasetId) {
     };
   } else {
     input = {
-      maxItems: Number(args.maxItems ?? (scope === "wide" ? 5000 : 1000)),
-      proxyConfiguration: { useApifyProxy: true }
+      maxItems: Number(args.maxItems ?? (scope === "wide" ? 5000 : 1000))
     };
 
     const defaultCompetitionCodes = scope === "wide" ? TRANSFERMARKT_WIDE_COMPETITION_CODES : ["GB1"];
@@ -99,12 +101,25 @@ if (!existingDatasetId) {
 
     if (playerIds.length) input.playerIds = playerIds.map(String);
     if (clubIds.length) input.clubIds = clubIds.map(String);
-    if (competitionCodes.length && !playerIds.length && !clubIds.length && !searchQueries.length) input.competitionCodes = competitionCodes;
-    if (searchQueries.length && (!playerIds.length && !clubIds.length || allowSearchWithTargetedIds)) input.searchQueries = searchQueries;
-    if (!input.playerIds && !input.clubIds && !input.competitionCodes && !input.searchQueries) input.competitionCodes = ["GB1"];
+    if (competitionCodes.length && !playerIds.length && !clubIds.length) input.competitionCodes = competitionCodes;
+
+    // The actor takes a single free-text `searchQuery` per run, so each query becomes its own small run.
+    if (searchQueries.length && (!playerIds.length && !clubIds.length || allowSearchWithTargetedIds)) {
+      searchInputs = searchQueries.map((searchQuery) => ({ searchQuery, maxItems: searchMaxItems }));
+    }
+
+    // With only search queries requested, skip the bulk run rather than falling back to a competition scrape.
+    if (!input.playerIds && !input.clubIds && !input.competitionCodes) {
+      input = searchInputs.length ? null : { ...input, competitionCodes: ["GB1"] };
+    }
   }
 
-  const requestedItems = Number(input.maxItems || 0);
+  if (searchInputs.length > maxSearchRuns) {
+    console.error(`Refusing to start ${searchInputs.length} search runs (limit ${maxSearchRuns}). Pass --maxSearchRuns to raise it.`);
+    process.exit(2);
+  }
+
+  const requestedItems = Number(input?.maxItems || 0) + searchInputs.length * searchMaxItems;
   if (budgetMaxItems > 0 && requestedItems > budgetMaxItems) {
     console.error(`Apify budget guard blocked this run: requested maxItems=${requestedItems}, budgetMaxItems=${budgetMaxItems}.`);
     console.error("Raise --budgetMaxItems explicitly only when the extra paid scrape is intentional.");
@@ -112,8 +127,13 @@ if (!existingDatasetId) {
   }
 
   console.log(`Actor: ${actor}`);
-  console.log("Input:");
-  console.log(JSON.stringify(input, null, 2));
+  if (input) {
+    console.log("Input:");
+    console.log(JSON.stringify(input, null, 2));
+  }
+  if (searchInputs.length) {
+    console.log(`Search runs: ${searchInputs.length} (up to ${searchMaxItems} item(s) each): ${searchInputs.map((item) => item.searchQuery).join(", ")}`);
+  }
   if (budgetMaxItems > 0) console.log(`Budget guard: at most ${budgetMaxItems} item(s)`);
 
   if (dryRun) {
@@ -129,19 +149,33 @@ if (!token) {
 }
 
 const client = new ApifyClient({ token });
-let datasetId = existingDatasetId;
+const datasetLimit = Number(args.datasetLimit ?? 10000);
+const datasetIds = [];
 
-if (datasetId) {
-  console.log(`Reusing existing Apify dataset: ${datasetId}`);
-} else {
-  const run = await client.actor(actor).call(input);
-  datasetId = run.defaultDatasetId;
-  console.log(`Apify run finished: ${run.id}`);
-  console.log(`Dataset: ${datasetId}`);
+async function runActor(runInput, label) {
+  const run = await client.actor(actor).call(runInput);
+  console.log(`Apify run finished (${label}): ${run.id} status=${run.status}`);
+  if (run.status !== "SUCCEEDED") {
+    throw new Error(`Apify run ${run.id} (${label}) ended with status ${run.status}`);
+  }
+  console.log(`Dataset: ${run.defaultDatasetId}`);
+  datasetIds.push(run.defaultDatasetId);
 }
 
-const { items } = await client.dataset(datasetId).listItems({ limit: Number(args.datasetLimit ?? 10000) });
+if (existingDatasetId) {
+  console.log(`Reusing existing Apify dataset: ${existingDatasetId}`);
+  datasetIds.push(existingDatasetId);
+} else {
+  if (input) await runActor(input, "bulk");
+  for (const searchInput of searchInputs) await runActor(searchInput, `search "${searchInput.searchQuery}"`);
+}
+
+const items = [];
+for (const datasetId of datasetIds) {
+  const page = await client.dataset(datasetId).listItems({ limit: datasetLimit });
+  items.push(...page.items);
+}
 
 await mkdir(dirname(output), { recursive: true });
 await writeFile(output, `${JSON.stringify(items, null, 2)}\n`, "utf8");
-console.log(`Wrote ${items.length} Apify item(s) from dataset ${datasetId} to ${output}`);
+console.log(`Wrote ${items.length} Apify item(s) from ${datasetIds.length} dataset(s) to ${output}`);
