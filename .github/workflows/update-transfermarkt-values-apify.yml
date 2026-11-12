@@ -135,7 +135,8 @@ jobs:
             --masterJson="${{ github.event.inputs.masterJson }}" \
             --masterCsv="${{ github.event.inputs.masterCsv }}" \
             --valuesCsv="${{ github.event.inputs.output }}" \
-            --summary="${{ github.event.inputs.masterSummary }}"
+            --summary="${{ github.event.inputs.masterSummary }}" \
+            --mergeExisting=true
 
       - name: Build permanent player registry
         run: |
