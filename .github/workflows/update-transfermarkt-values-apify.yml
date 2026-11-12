@@ -121,6 +121,7 @@ jobs:
             --clubIds="${{ github.event.inputs.clubIds }}" \
             --playerIds="${{ github.event.inputs.playerIds }}" \
             --searchQueries="${{ github.event.inputs.searchQueries }}" \
+            --includeGoldStandardRescue=false \
             --startUrls="${{ github.event.inputs.startUrls }}" \
             --maxItems="${{ github.event.inputs.maxItems }}" \
             --crawlDepth="${{ github.event.inputs.crawlDepth }}" \
@@ -134,7 +135,8 @@ jobs:
             --masterJson="${{ github.event.inputs.masterJson }}" \
             --masterCsv="${{ github.event.inputs.masterCsv }}" \
             --valuesCsv="${{ github.event.inputs.output }}" \
-            --summary="${{ github.event.inputs.masterSummary }}"
+            --summary="${{ github.event.inputs.masterSummary }}" \
+            --mergeExisting=true
 
       - name: Build permanent player registry
         run: |
