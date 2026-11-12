@@ -18,12 +18,6 @@ function csvList(value) {
     .filter(Boolean);
 }
 
-function chunk(items, size) {
-  const chunks = [];
-  for (let index = 0; index < items.length; index += size) chunks.push(items.slice(index, index + size));
-  return chunks;
-}
-
 function mergeByTransfermarktIdentity(existingItems, newItems) {
   const byKey = new Map();
   for (const item of [...existingItems, ...newItems]) {
@@ -45,7 +39,6 @@ if (!token) {
 const actor = args.actor ?? "jungle_synthesizer/transfermarkt-global-football-player-scraper";
 const missingQueriesPath = args.missingQueries ?? "calibration/transfermarkt-gold-standard-missing-queries.json";
 const output = args.output ?? "calibration/apify-transfermarkt-rescue-dataset.json";
-const batchSize = Number(args.batchSize ?? 5);
 const maxItemsPerQuery = Number(args.maxItemsPerQuery ?? 5);
 const datasetLimit = Number(args.datasetLimit ?? 500);
 const explicitQueries = csvList(args.searchQueries);
@@ -62,22 +55,19 @@ if (!queries.length) {
 
 const client = new ApifyClient({ token });
 let rescuedItems = [];
-let batchNumber = 0;
 
-for (const batch of chunk(queries, batchSize)) {
-  batchNumber += 1;
-  const input = {
-    maxItems: Math.max(batch.length * maxItemsPerQuery, batch.length),
-    proxyConfiguration: { useApifyProxy: true },
-    searchQueries: batch
-  };
+// The actor takes a single free-text `searchQuery` per run, so each query is its own run.
+// --batchSize is still accepted by callers but no longer groups queries.
+for (const [index, searchQuery] of queries.entries()) {
+  const input = { searchQuery, maxItems: Math.max(1, maxItemsPerQuery) };
 
-  console.log(`Rescue batch ${batchNumber}: ${batch.join(", ")}`);
-  console.log(JSON.stringify(input, null, 2));
-
+  console.log(`Rescue query ${index + 1}/${queries.length}: ${searchQuery}`);
   const run = await client.actor(actor).call(input);
+  if (run.status !== "SUCCEEDED") {
+    throw new Error(`Apify run ${run.id} for "${searchQuery}" ended with status ${run.status}`);
+  }
   const { items } = await client.dataset(run.defaultDatasetId).listItems({ limit: datasetLimit });
-  console.log(`Batch ${batchNumber} returned ${items.length} item(s).`);
+  console.log(`Query "${searchQuery}" returned ${items.length} item(s).`);
   rescuedItems = mergeByTransfermarktIdentity(rescuedItems, items);
 }
 
