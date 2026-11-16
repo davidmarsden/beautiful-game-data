@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T13:50:48.621Z",
+  "generated_at": "2026-11-16T13:35:00.969Z",
   "policy": {
     "version": "tbg-veteran-reality-check-v2.0",
     "minimum_age": 34,
@@ -27,7 +27,7 @@
     "principle": "TBG veteran ratings are moderated using age, position, league strength and current Transfermarkt market signal. Historic reputation may inform the core model, but extreme age, weaker current competition and low current value must constrain the final published rating."
   },
   "summary": {
-    "veteran_rows_reviewed": 289,
+    "veteran_rows_reviewed": 288,
     "adjusted_players": 379,
     "elite_league_adjustments": 29,
     "non_elite_league_adjustments": 350,
@@ -681,20 +681,6 @@
       "elite_league": false
     },
     {
-      "transfermarkt_id": "51894",
-      "player_name": "Mert Günok",
-      "club": "Fenerbahce",
-      "competition": "TR1",
-      "position_group": "GK",
-      "age": 37,
-      "market_value_eur": 500000,
-      "before": 89,
-      "after": 87,
-      "adjustment": -2,
-      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
-      "elite_league": false
-    },
-    {
       "transfermarkt_id": "81723",
       "player_name": "Michael Boxall",
       "club": "Minnesota United FC",
@@ -1168,6 +1154,20 @@
       "after": 86,
       "adjustment": -2,
       "reason": "veteran reality adjustment: age 37, non-elite league, outfield, low current value",
+      "elite_league": false
+    },
+    {
+      "transfermarkt_id": "51894",
+      "player_name": "Mert Günok",
+      "club": "Fenerbahce",
+      "competition": "TR1",
+      "position_group": "GK",
+      "age": 37,
+      "market_value_eur": 300000,
+      "before": 88,
+      "after": 86,
+      "adjustment": -2,
+      "reason": "veteran reality adjustment: age 37, non-elite league, GK, low current value",
       "elite_league": false
     },
     {

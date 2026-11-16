@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T13:50:59.552Z",
+  "generated_at": "2026-11-16T13:35:09.186Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -44,9 +44,9 @@
     "healthy": 0,
     "review": 80,
     "critical": 0,
-    "first_team_target_met": 33,
+    "first_team_target_met": 34,
     "development_target_met": 2,
-    "review_items": 86
+    "review_items": 85
   },
   "tracked_prospects": [
     {
@@ -257,8 +257,8 @@
       "senior_players": 24,
       "development_players_u21": 5,
       "depth": {
-        "ATT": 6,
-        "MID": 8,
+        "ATT": 7,
+        "MID": 7,
         "DEF": 10,
         "GK": 5
       },
@@ -295,7 +295,7 @@
           "market_value_eur": 13000000
         }
       ],
-      "health_score": 85,
+      "health_score": 79,
       "status": "review",
       "issues": [
         {
@@ -307,6 +307,11 @@
           "severity": "warning",
           "type": "development_depth",
           "detail": "5/15 U21 players"
+        },
+        {
+          "severity": "warning",
+          "type": "position_depth",
+          "detail": "MID: 7/8"
         },
         {
           "severity": "review",
@@ -321,13 +326,13 @@
       "club_id": "27",
       "league": "Bundesliga",
       "country": "Germany",
-      "imported_players": 27,
-      "published_players": 27,
-      "senior_players": 22,
+      "imported_players": 26,
+      "published_players": 26,
+      "senior_players": 21,
       "development_players_u21": 5,
       "depth": {
         "ATT": 6,
-        "MID": 9,
+        "MID": 8,
         "DEF": 9,
         "GK": 3
       },
@@ -357,25 +362,18 @@
           "market_value_eur": 28000000
         },
         {
+          "player_name": "Serge Gnabry",
+          "rating": 92,
+          "expected_rating": 87,
+          "gap": 5,
+          "market_value_eur": 18000000
+        },
+        {
           "player_name": "Min-jae Kim",
           "rating": 91,
           "expected_rating": 87,
           "gap": 4,
           "market_value_eur": 20000000
-        },
-        {
-          "player_name": "Serge Gnabry",
-          "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 18000000
-        },
-        {
-          "player_name": "João Palhinha",
-          "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 15000000
         }
       ],
       "health_score": 85,
@@ -384,7 +382,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "22/25 senior players"
+          "detail": "21/25 senior players"
         },
         {
           "severity": "warning",
@@ -394,7 +392,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "6 ratings differ materially from value benchmark"
+          "detail": "5 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -404,12 +402,12 @@
       "club_id": "583",
       "league": "Ligue 1",
       "country": "France",
-      "imported_players": 27,
-      "published_players": 27,
+      "imported_players": 26,
+      "published_players": 26,
       "senior_players": 18,
-      "development_players_u21": 9,
+      "development_players_u21": 8,
       "depth": {
-        "ATT": 9,
+        "ATT": 8,
         "MID": 7,
         "DEF": 8,
         "GK": 3
@@ -420,9 +418,9 @@
       "suspicious_ratings": [
         {
           "player_name": "Marcos Aoás Corrêa",
-          "rating": 94,
+          "rating": 93,
           "expected_rating": 87,
-          "gap": 7,
+          "gap": 6,
           "market_value_eur": 28000000
         },
         {
@@ -444,7 +442,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "9/15 U21 players"
+          "detail": "8/15 U21 players"
         },
         {
           "severity": "warning",
@@ -708,8 +706,8 @@
       "development_players_u21": 2,
       "depth": {
         "ATT": 4,
-        "DEF": 8,
         "MID": 11,
+        "DEF": 8,
         "GK": 3
       },
       "senior_candidates_missing": 0,
@@ -2013,16 +2011,24 @@
       "senior_players": 20,
       "development_players_u21": 4,
       "depth": {
-        "MID": 7,
+        "MID": 8,
         "DEF": 8,
-        "ATT": 6,
-        "GK": 3
+        "GK": 3,
+        "ATT": 5
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
-      "suspicious_ratings": [],
-      "health_score": 82,
+      "suspicious_ratings": [
+        {
+          "player_name": "Alex Iwobi",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 20000000
+        }
+      ],
+      "health_score": 85,
       "status": "review",
       "issues": [
         {
@@ -2036,9 +2042,9 @@
           "detail": "4/15 U21 players"
         },
         {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "MID: 7/8"
+          "severity": "review",
+          "type": "rating_sanity",
+          "detail": "1 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -2389,42 +2395,27 @@
       "club_id": "1049",
       "league": "LaLiga",
       "country": "Spain",
-      "imported_players": 25,
-      "published_players": 25,
-      "senior_players": 23,
-      "development_players_u21": 2,
+      "imported_players": 31,
+      "published_players": 31,
+      "senior_players": 27,
+      "development_players_u21": 4,
       "depth": {
-        "MID": 6,
-        "DEF": 8,
-        "GK": 2,
-        "ATT": 9
+        "MID": 8,
+        "DEF": 10,
+        "GK": 3,
+        "ATT": 10
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [],
-      "health_score": 76,
+      "health_score": 94,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
-          "type": "senior_depth",
-          "detail": "23/25 senior players"
-        },
-        {
-          "severity": "warning",
           "type": "development_depth",
-          "detail": "2/15 U21 players"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "GK: 2/3"
-        },
-        {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "MID: 6/8"
+          "detail": "4/15 U21 players"
         }
       ]
     },
@@ -2434,15 +2425,15 @@
       "club_id": "36",
       "league": "Süper Lig",
       "country": "Turkey",
-      "imported_players": 40,
-      "published_players": 40,
-      "senior_players": 35,
-      "development_players_u21": 5,
+      "imported_players": 44,
+      "published_players": 44,
+      "senior_players": 36,
+      "development_players_u21": 8,
       "depth": {
-        "MID": 10,
-        "GK": 4,
-        "ATT": 13,
-        "DEF": 13
+        "MID": 11,
+        "GK": 5,
+        "ATT": 14,
+        "DEF": 14
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -2451,23 +2442,9 @@
         {
           "player_name": "Marco Asensio",
           "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 15000000
-        },
-        {
-          "player_name": "Ederson Santana de Moraes",
-          "rating": 91,
           "expected_rating": 85,
           "gap": 6,
-          "market_value_eur": 10000000
-        },
-        {
-          "player_name": "Milan Škriniar",
-          "rating": 90,
-          "expected_rating": 85,
-          "gap": 5,
-          "market_value_eur": 10000000
+          "market_value_eur": 12000000
         },
         {
           "player_name": "Nathan Aké",
@@ -2490,12 +2467,12 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "5/15 U21 players"
+          "detail": "8/15 U21 players"
         },
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "5 ratings differ materially from value benchmark"
+          "detail": "3 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -2520,18 +2497,18 @@
       "elite_youth_missing": [],
       "suspicious_ratings": [
         {
-          "player_name": "Leroy Sané",
-          "rating": 92,
-          "expected_rating": 87,
-          "gap": 5,
-          "market_value_eur": 20000000
-        },
-        {
           "player_name": "Davinson Sánchez",
           "rating": 91,
           "expected_rating": 87,
           "gap": 4,
           "market_value_eur": 16000000
+        },
+        {
+          "player_name": "Leroy Sané",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 15000000
         },
         {
           "player_name": "Roland Sallai",
@@ -2804,27 +2781,35 @@
       "club_id": "294",
       "league": "Liga Portugal",
       "country": "Portugal",
-      "imported_players": 25,
-      "published_players": 25,
-      "senior_players": 21,
+      "imported_players": 26,
+      "published_players": 26,
+      "senior_players": 22,
       "development_players_u21": 4,
       "depth": {
+        "MID": 8,
         "ATT": 10,
         "DEF": 6,
-        "GK": 2,
-        "MID": 7
+        "GK": 2
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
-      "suspicious_ratings": [],
-      "health_score": 70,
+      "suspicious_ratings": [
+        {
+          "player_name": "João Palhinha",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 15000000
+        }
+      ],
+      "health_score": 73,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "21/25 senior players"
+          "detail": "22/25 senior players"
         },
         {
           "severity": "warning",
@@ -2842,9 +2827,9 @@
           "detail": "DEF: 6/8"
         },
         {
-          "severity": "warning",
-          "type": "position_depth",
-          "detail": "MID: 7/8"
+          "severity": "review",
+          "type": "rating_sanity",
+          "detail": "1 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -3145,27 +3130,32 @@
       "club_id": "683",
       "league": "Super League Greece",
       "country": "Greece",
-      "imported_players": 31,
-      "published_players": 31,
-      "senior_players": 26,
+      "imported_players": 30,
+      "published_players": 30,
+      "senior_players": 25,
       "development_players_u21": 5,
       "depth": {
         "ATT": 10,
         "GK": 3,
         "MID": 10,
-        "DEF": 8
+        "DEF": 7
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [],
-      "health_score": 94,
+      "health_score": 88,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "5/15 U21 players"
+        },
+        {
+          "severity": "warning",
+          "type": "position_depth",
+          "detail": "DEF: 7/8"
         }
       ]
     },
@@ -3654,9 +3644,9 @@
         },
         {
           "player_name": "Rodrigo De Paul",
-          "rating": 91,
+          "rating": 90,
           "expected_rating": 85,
-          "gap": 6,
+          "gap": 5,
           "market_value_eur": 14000000
         }
       ],
@@ -3872,9 +3862,9 @@
       "player": "Marcos Aoás Corrêa",
       "age": 32,
       "market_value_eur": 28000000,
-      "tbg_rating": 94,
+      "tbg_rating": 93,
       "expected_rating": 87,
-      "gap": 7,
+      "gap": 6,
       "transfermarkt_player_id": "181767"
     },
     {
@@ -4152,16 +4142,16 @@
     },
     {
       "priority": "medium",
-      "club": "Galatasaray",
-      "league": "Süper Lig",
+      "club": "Fulham FC",
+      "league": "Premier League",
       "issue": "rating_sanity",
-      "player": "Leroy Sané",
+      "player": "Alex Iwobi",
       "age": 30,
       "market_value_eur": 20000000,
-      "tbg_rating": 92,
+      "tbg_rating": 91,
       "expected_rating": 87,
-      "gap": 5,
-      "transfermarkt_player_id": "192565"
+      "gap": 4,
+      "transfermarkt_player_id": "242631"
     },
     {
       "priority": "medium",
@@ -4171,9 +4161,9 @@
       "player": "Serge Gnabry",
       "age": 31,
       "market_value_eur": 18000000,
-      "tbg_rating": 91,
+      "tbg_rating": 92,
       "expected_rating": 87,
-      "gap": 4,
+      "gap": 5,
       "transfermarkt_player_id": "159471"
     },
     {
@@ -4295,19 +4285,6 @@
     },
     {
       "priority": "medium",
-      "club": "Bayern Munich",
-      "league": "Bundesliga",
-      "issue": "rating_sanity",
-      "player": "João Palhinha",
-      "age": 31,
-      "market_value_eur": 15000000,
-      "tbg_rating": 91,
-      "expected_rating": 87,
-      "gap": 4,
-      "transfermarkt_player_id": "257455"
-    },
-    {
-      "priority": "medium",
       "club": "Atlético de Madrid",
       "league": "LaLiga",
       "issue": "rating_sanity",
@@ -4334,16 +4311,29 @@
     },
     {
       "priority": "medium",
-      "club": "Fenerbahce",
+      "club": "Galatasaray",
       "league": "Süper Lig",
       "issue": "rating_sanity",
-      "player": "Marco Asensio",
+      "player": "Leroy Sané",
       "age": 30,
       "market_value_eur": 15000000,
       "tbg_rating": 91,
       "expected_rating": 87,
       "gap": 4,
-      "transfermarkt_player_id": "296622"
+      "transfermarkt_player_id": "192565"
+    },
+    {
+      "priority": "medium",
+      "club": "SL Benfica",
+      "league": "Liga Portugal",
+      "issue": "rating_sanity",
+      "player": "João Palhinha",
+      "age": 31,
+      "market_value_eur": 15000000,
+      "tbg_rating": 91,
+      "expected_rating": 87,
+      "gap": 4,
+      "transfermarkt_player_id": "257455"
     },
     {
       "priority": "medium",
@@ -4431,9 +4421,9 @@
       "player": "Rodrigo De Paul",
       "age": 32,
       "market_value_eur": 14000000,
-      "tbg_rating": 91,
+      "tbg_rating": 90,
       "expected_rating": 85,
-      "gap": 6,
+      "gap": 5,
       "transfermarkt_player_id": "255901"
     },
     {
@@ -4633,6 +4623,19 @@
     },
     {
       "priority": "medium",
+      "club": "Fenerbahce",
+      "league": "Süper Lig",
+      "issue": "rating_sanity",
+      "player": "Marco Asensio",
+      "age": 30,
+      "market_value_eur": 12000000,
+      "tbg_rating": 91,
+      "expected_rating": 85,
+      "gap": 6,
+      "transfermarkt_player_id": "296622"
+    },
+    {
+      "priority": "medium",
       "club": "Shakhtar Donetsk",
       "league": "Ukrainian Premier League",
       "issue": "rating_sanity",
@@ -4773,32 +4776,6 @@
       "expected_rating": 85,
       "gap": 4,
       "transfermarkt_player_id": "319859"
-    },
-    {
-      "priority": "medium",
-      "club": "Fenerbahce",
-      "league": "Süper Lig",
-      "issue": "rating_sanity",
-      "player": "Ederson Santana de Moraes",
-      "age": 32,
-      "market_value_eur": 10000000,
-      "tbg_rating": 91,
-      "expected_rating": 85,
-      "gap": 6,
-      "transfermarkt_player_id": "238223"
-    },
-    {
-      "priority": "medium",
-      "club": "Fenerbahce",
-      "league": "Süper Lig",
-      "issue": "rating_sanity",
-      "player": "Milan Škriniar",
-      "age": 31,
-      "market_value_eur": 10000000,
-      "tbg_rating": 90,
-      "expected_rating": 85,
-      "gap": 5,
-      "transfermarkt_player_id": "204069"
     },
     {
       "priority": "medium",

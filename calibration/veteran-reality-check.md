@@ -1,6 +1,6 @@
 # Veteran Reality Check
 
-Generated: 2026-11-09T13:50:48.621Z
+Generated: 2026-11-16T13:35:00.969Z
 
 - Adjusted players: 379
 - Elite-league adjustments: 29
@@ -57,7 +57,6 @@ Generated: 2026-11-09T13:50:48.621Z
 - Marcelo Grohe (39, Without Club): 89 → 87 — veteran reality adjustment: age 39, non-elite league, GK, low current value
 - Marcelo Lomba do Nascimento (39, Sociedade Esportiva Palmeiras): 89 → 87 — veteran reality adjustment: age 39, non-elite league, GK, low current value
 - Maxi Moralez (39, New York City FC): 89 → 87 — veteran reality adjustment: age 39, non-elite league, outfield, low current value
-- Mert Günok (37, Fenerbahce): 89 → 87 — veteran reality adjustment: age 37, non-elite league, GK, low current value
 - Michael Boxall (37, Minnesota United FC): 89 → 87 — veteran reality adjustment: age 37, non-elite league, outfield, low current value
 - Milan Borjan (38, Al-Riyadh SC): 89 → 87 — veteran reality adjustment: age 38, non-elite league, GK, low current value
 - Mohamed El Shenawy (37, Al Ahly FC): 89 → 87 — veteran reality adjustment: age 37, non-elite league, GK, low current value
@@ -92,6 +91,7 @@ Generated: 2026-11-09T13:50:48.621Z
 - Leonardo Pavoletti (37, Without Club): 88 → 86 — veteran reality adjustment: age 37, non-elite league, outfield, low current value
 - Lucas Hoyos (37, Atlanta United FC): 88 → 86 — veteran reality adjustment: age 37, non-elite league, GK, low current value
 - Maya Yoshida (37, Los Angeles Galaxy): 88 → 86 — veteran reality adjustment: age 37, non-elite league, outfield, low current value
+- Mert Günok (37, Fenerbahce): 88 → 86 — veteran reality adjustment: age 37, non-elite league, GK, low current value
 - Mohammed Al-Hasawi (37, Al-Faisaly FC): 88 → 86 — veteran reality adjustment: age 37, non-elite league, GK, low current value
 - Mustafa Yumlu (38, Erzurumspor FK): 88 → 86 — veteran reality adjustment: age 38, non-elite league, outfield, low current value
 - Nicolás Lodeiro (37, Club Nacional): 88 → 86 — veteran reality adjustment: age 37, non-elite league, outfield, low current value
