@@ -1,8 +1,8 @@
 {
   "version": "tbg-player-rating-history-v1",
-  "generated_at": "2026-11-16T19:32:02.736Z",
+  "generated_at": "2026-11-17T18:30:02.315Z",
   "source": "derived/player-changes/player-release-history.json",
-  "player_count": 309,
+  "player_count": 311,
   "players": {
     "tbg-tm-00342229": {
       "player_id": "tbg-tm-00342229",
@@ -17841,6 +17841,41 @@
       "player_id": "tbg-tm-00851551",
       "history": [
         {
+          "release_id": "prls_a9ec0feae7c79f02527f",
+          "slot": "2026-11-17",
+          "published_at": "2026-11-17T18:30:02.037Z",
+          "event_id": "pchg_ae6ae1bd1a334e2cbc1ab329",
+          "before": 84,
+          "after": 83,
+          "delta": -1,
+          "player_name": "Ognjen Mimović",
+          "transfermarkt_id": "851551",
+          "provenance": {
+            "source": "apify-transfermarkt-global-player-scraper",
+            "source_scraped_at": "2026-11-16T13:34:55.871Z",
+            "market_value_determined": "2026-09-30",
+            "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+            "rating_inputs": {
+              "market_value_eur": 2500000,
+              "highest_market_value_eur": 4000000,
+              "previous_market_value_eur": 2700000,
+              "international_caps": 0,
+              "international_goals": 0,
+              "total_transfer_fees_eur": 6700000,
+              "age": 22,
+              "reasons": [],
+              "reasons_by_component": {
+                "elite_trajectory_adjustment": [],
+                "class_retention_adjustment": [],
+                "prestige_adjustment": [],
+                "current_ability_caution": [],
+                "other_adjustment": []
+              }
+            },
+            "player_database_edition_generated_at": "2026-11-16T13:35:06.730Z"
+          }
+        },
+        {
           "release_id": "prls_aa3c65efc755eeb831ae",
           "slot": "2026-09-12",
           "published_at": "2026-09-12T12:49:50.772Z",
@@ -17880,25 +17915,25 @@
       "transfermarkt_id": "851551",
       "current_rating": 83,
       "latest_change": {
-        "release_id": "prls_aa3c65efc755eeb831ae",
-        "slot": "2026-09-12",
-        "published_at": "2026-09-12T12:49:50.772Z",
-        "event_id": "pchg_33f1bdca7fa44165d8c62cc3",
-        "before": 83,
-        "after": 84,
-        "delta": 1,
+        "release_id": "prls_a9ec0feae7c79f02527f",
+        "slot": "2026-11-17",
+        "published_at": "2026-11-17T18:30:02.037Z",
+        "event_id": "pchg_ae6ae1bd1a334e2cbc1ab329",
+        "before": 84,
+        "after": 83,
+        "delta": -1,
         "player_name": "Ognjen Mimović",
         "transfermarkt_id": "851551",
         "provenance": {
           "source": "apify-transfermarkt-global-player-scraper",
-          "source_scraped_at": "2026-09-06T08:56:24.828Z",
-          "market_value_determined": "2026-06-02",
+          "source_scraped_at": "2026-11-16T13:34:55.871Z",
+          "market_value_determined": "2026-09-30",
           "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
           "rating_inputs": {
-            "market_value_eur": 2700000,
+            "market_value_eur": 2500000,
             "highest_market_value_eur": 4000000,
-            "previous_market_value_eur": 3000000,
-            "international_caps": 8,
+            "previous_market_value_eur": 2700000,
+            "international_caps": 0,
             "international_goals": 0,
             "total_transfer_fees_eur": 6700000,
             "age": 22,
@@ -17911,7 +17946,7 @@
               "other_adjustment": []
             }
           },
-          "player_database_edition_generated_at": "2026-09-06T08:56:58.016Z"
+          "player_database_edition_generated_at": "2026-11-16T13:35:06.730Z"
         }
       }
     },
@@ -26240,6 +26275,162 @@
             "international_goals": 0,
             "total_transfer_fees_eur": 7980000,
             "age": 27,
+            "reasons": [],
+            "reasons_by_component": {
+              "elite_trajectory_adjustment": [],
+              "class_retention_adjustment": [],
+              "prestige_adjustment": [],
+              "current_ability_caution": [],
+              "other_adjustment": []
+            }
+          },
+          "player_database_edition_generated_at": "2026-11-16T13:35:06.730Z"
+        }
+      }
+    },
+    "tbg-tm-00655895": {
+      "player_id": "tbg-tm-00655895",
+      "history": [
+        {
+          "release_id": "prls_a9ec0feae7c79f02527f",
+          "slot": "2026-11-17",
+          "published_at": "2026-11-17T18:30:02.037Z",
+          "event_id": "pchg_1655b797a065cb8bd94002cc",
+          "before": 83,
+          "after": 84,
+          "delta": 1,
+          "player_name": "Bartuğ Elmaz",
+          "transfermarkt_id": "655895",
+          "provenance": {
+            "source": "apify-transfermarkt-global-player-scraper",
+            "source_scraped_at": "2026-11-16T13:34:55.871Z",
+            "market_value_determined": "2026-09-30",
+            "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+            "rating_inputs": {
+              "market_value_eur": 3000000,
+              "highest_market_value_eur": 3000000,
+              "previous_market_value_eur": 1500000,
+              "international_caps": 2,
+              "international_goals": 0,
+              "total_transfer_fees_eur": 1400000,
+              "age": 23,
+              "reasons": [],
+              "reasons_by_component": {
+                "elite_trajectory_adjustment": [],
+                "class_retention_adjustment": [],
+                "prestige_adjustment": [],
+                "current_ability_caution": [],
+                "other_adjustment": []
+              }
+            },
+            "player_database_edition_generated_at": "2026-11-16T13:35:06.730Z"
+          }
+        }
+      ],
+      "player_name": "Bartuğ Elmaz",
+      "transfermarkt_id": "655895",
+      "current_rating": 84,
+      "latest_change": {
+        "release_id": "prls_a9ec0feae7c79f02527f",
+        "slot": "2026-11-17",
+        "published_at": "2026-11-17T18:30:02.037Z",
+        "event_id": "pchg_1655b797a065cb8bd94002cc",
+        "before": 83,
+        "after": 84,
+        "delta": 1,
+        "player_name": "Bartuğ Elmaz",
+        "transfermarkt_id": "655895",
+        "provenance": {
+          "source": "apify-transfermarkt-global-player-scraper",
+          "source_scraped_at": "2026-11-16T13:34:55.871Z",
+          "market_value_determined": "2026-09-30",
+          "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+          "rating_inputs": {
+            "market_value_eur": 3000000,
+            "highest_market_value_eur": 3000000,
+            "previous_market_value_eur": 1500000,
+            "international_caps": 2,
+            "international_goals": 0,
+            "total_transfer_fees_eur": 1400000,
+            "age": 23,
+            "reasons": [],
+            "reasons_by_component": {
+              "elite_trajectory_adjustment": [],
+              "class_retention_adjustment": [],
+              "prestige_adjustment": [],
+              "current_ability_caution": [],
+              "other_adjustment": []
+            }
+          },
+          "player_database_edition_generated_at": "2026-11-16T13:35:06.730Z"
+        }
+      }
+    },
+    "tbg-tm-00948169": {
+      "player_id": "tbg-tm-00948169",
+      "history": [
+        {
+          "release_id": "prls_a9ec0feae7c79f02527f",
+          "slot": "2026-11-17",
+          "published_at": "2026-11-17T18:30:02.037Z",
+          "event_id": "pchg_5aff5899258e379c79338b84",
+          "before": 82,
+          "after": 83,
+          "delta": 1,
+          "player_name": "Ryunosuke Sato",
+          "transfermarkt_id": "948169",
+          "provenance": {
+            "source": "apify-transfermarkt-global-player-scraper",
+            "source_scraped_at": "2026-11-16T13:34:55.871Z",
+            "market_value_determined": "2026-10-05",
+            "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+            "rating_inputs": {
+              "market_value_eur": 4000000,
+              "highest_market_value_eur": 4000000,
+              "previous_market_value_eur": 2000000,
+              "international_caps": 7,
+              "international_goals": 4,
+              "total_transfer_fees_eur": 4000000,
+              "age": 20,
+              "reasons": [],
+              "reasons_by_component": {
+                "elite_trajectory_adjustment": [],
+                "class_retention_adjustment": [],
+                "prestige_adjustment": [],
+                "current_ability_caution": [],
+                "other_adjustment": []
+              }
+            },
+            "player_database_edition_generated_at": "2026-11-16T13:35:06.730Z"
+          }
+        }
+      ],
+      "player_name": "Ryunosuke Sato",
+      "transfermarkt_id": "948169",
+      "current_rating": 83,
+      "latest_change": {
+        "release_id": "prls_a9ec0feae7c79f02527f",
+        "slot": "2026-11-17",
+        "published_at": "2026-11-17T18:30:02.037Z",
+        "event_id": "pchg_5aff5899258e379c79338b84",
+        "before": 82,
+        "after": 83,
+        "delta": 1,
+        "player_name": "Ryunosuke Sato",
+        "transfermarkt_id": "948169",
+        "provenance": {
+          "source": "apify-transfermarkt-global-player-scraper",
+          "source_scraped_at": "2026-11-16T13:34:55.871Z",
+          "market_value_determined": "2026-10-05",
+          "rating_model_version": "tbg-v3-sticky-ability-fluid-form",
+          "rating_inputs": {
+            "market_value_eur": 4000000,
+            "highest_market_value_eur": 4000000,
+            "previous_market_value_eur": 2000000,
+            "international_caps": 7,
+            "international_goals": 4,
+            "total_transfer_fees_eur": 4000000,
+            "age": 20,
             "reasons": [],
             "reasons_by_component": {
               "elite_trajectory_adjustment": [],
