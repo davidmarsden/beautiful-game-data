@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-11-16T13:35:08.840Z",
+  "generated_at": "2026-11-23T15:55:16.152Z",
   "benchmarks_version": "2.0",
   "season": "2026-27",
   "methodology": "canonical_club_membership",
   "totals": {
     "expected_players": 2797,
-    "imported_players": 2899,
-    "published_players": 2899,
+    "imported_players": 2896,
+    "published_players": 2896,
     "estimated_not_imported": 0,
     "clubs_complete": 96,
     "clubs_thin": 0,
     "clubs_missing": 0,
     "metadata_false_positive_count": 91,
     "metadata_false_negative_count": 69,
-    "imported_coverage_pct": 103.6,
-    "published_coverage_pct": 103.6
+    "imported_coverage_pct": 103.5,
+    "published_coverage_pct": 103.5
   },
   "leagues": [
     {
@@ -24,11 +24,11 @@
       "season": "2026-27",
       "expected_players": 593,
       "expected_clubs": 20,
-      "imported_players": 596,
-      "published_players": 596,
+      "imported_players": 593,
+      "published_players": 593,
       "estimated_not_imported": 0,
-      "imported_coverage_pct": 100.5,
-      "published_coverage_pct": 100.5,
+      "imported_coverage_pct": 100,
+      "published_coverage_pct": 100,
       "clubs_complete": 20,
       "clubs_thin": 0,
       "clubs_missing": 0,
@@ -52,18 +52,18 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 0,
           "youngest_age": 18,
-          "total_market_value_eur": 566300000,
+          "total_market_value_eur": 561300000,
           "status": "complete"
         },
         {
           "club_id": "405",
           "club_name": "Aston Villa",
-          "imported_players": 27,
-          "published_players": 27,
+          "imported_players": 26,
+          "published_players": 26,
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 2,
           "youngest_age": 17,
-          "total_market_value_eur": 517800000,
+          "total_market_value_eur": 492800000,
           "status": "complete"
         },
         {
@@ -85,7 +85,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 5,
           "youngest_age": 22,
-          "total_market_value_eur": 415150000,
+          "total_market_value_eur": 418150000,
           "status": "complete"
         },
         {
@@ -118,7 +118,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 1,
           "youngest_age": 16,
-          "total_market_value_eur": 1421500000,
+          "total_market_value_eur": 1416500000,
           "status": "complete"
         },
         {
@@ -140,18 +140,18 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 1,
           "youngest_age": 17,
-          "total_market_value_eur": 1039500000,
+          "total_market_value_eur": 1044500000,
           "status": "complete"
         },
         {
           "club_id": "281",
           "club_name": "Manchester City",
-          "imported_players": 30,
-          "published_players": 30,
+          "imported_players": 29,
+          "published_players": 29,
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 4,
           "youngest_age": 17,
-          "total_market_value_eur": 1470800000,
+          "total_market_value_eur": 1415800000,
           "status": "complete"
         },
         {
@@ -162,7 +162,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 0,
           "youngest_age": 19,
-          "total_market_value_eur": 566375000,
+          "total_market_value_eur": 571375000,
           "status": "complete"
         },
         {
@@ -173,7 +173,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 2,
           "youngest_age": 19,
-          "total_market_value_eur": 561800000,
+          "total_market_value_eur": 565800000,
           "status": "complete"
         },
         {
@@ -185,6 +185,17 @@
           "metadata_mismatch_players": 0,
           "youngest_age": 20,
           "total_market_value_eur": 315650000,
+          "status": "complete"
+        },
+        {
+          "club_id": "148",
+          "club_name": "Tottenham Hotspur",
+          "imported_players": 31,
+          "published_players": 31,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 19,
+          "total_market_value_eur": 792500000,
           "status": "complete"
         },
         {
@@ -210,17 +221,6 @@
           "status": "complete"
         },
         {
-          "club_id": "148",
-          "club_name": "Tottenham Hotspur",
-          "imported_players": 32,
-          "published_players": 32,
-          "excluded_from_publication": 0,
-          "metadata_mismatch_players": 0,
-          "youngest_age": 19,
-          "total_market_value_eur": 816500000,
-          "status": "complete"
-        },
-        {
           "club_id": "1237",
           "club_name": "Brighton & Hove Albion",
           "imported_players": 33,
@@ -239,7 +239,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 0,
           "youngest_age": 19,
-          "total_market_value_eur": 938550000,
+          "total_market_value_eur": 933550000,
           "status": "complete"
         },
         {
@@ -256,13 +256,13 @@
       ],
       "under_21": 117,
       "under_23": 210,
-      "value_1m_plus": 542,
-      "value_5m_plus": 460,
-      "value_20m_plus": 266,
-      "rated_84_plus": 546,
-      "rated_87_plus": 410,
-      "rated_90_plus": 141,
-      "total_market_value_eur": 13391300000,
+      "value_1m_plus": 539,
+      "value_5m_plus": 457,
+      "value_20m_plus": 262,
+      "rated_84_plus": 543,
+      "rated_87_plus": 407,
+      "rated_90_plus": 137,
+      "total_market_value_eur": 13289300000,
       "metadata_false_positive_count": 3,
       "metadata_false_negative_count": 24,
       "metadata_false_positives": [
@@ -1684,7 +1684,7 @@
       "value_20m_plus": 86,
       "rated_84_plus": 438,
       "rated_87_plus": 193,
-      "rated_90_plus": 32,
+      "rated_90_plus": 31,
       "total_market_value_eur": 5108900000,
       "metadata_false_positive_count": 36,
       "metadata_false_negative_count": 11,
@@ -2219,11 +2219,11 @@
       "season": "2026-27",
       "expected_players": 516,
       "expected_clubs": 20,
-      "imported_players": 547,
-      "published_players": 547,
+      "imported_players": 548,
+      "published_players": 548,
       "estimated_not_imported": 0,
-      "imported_coverage_pct": 106,
-      "published_coverage_pct": 106,
+      "imported_coverage_pct": 106.2,
+      "published_coverage_pct": 106.2,
       "clubs_complete": 20,
       "clubs_thin": 0,
       "clubs_missing": 0,
@@ -2269,7 +2269,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 0,
           "youngest_age": 21,
-          "total_market_value_eur": 692500000,
+          "total_market_value_eur": 682500000,
           "status": "complete"
         },
         {
@@ -2357,18 +2357,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 1,
           "youngest_age": 19,
-          "total_market_value_eur": 1499000000,
-          "status": "complete"
-        },
-        {
-          "club_id": "131",
-          "club_name": "FC Barcelona",
-          "imported_players": 29,
-          "published_players": 29,
-          "excluded_from_publication": 0,
-          "metadata_mismatch_players": 0,
-          "youngest_age": 18,
-          "total_market_value_eur": 1201600000,
+          "total_market_value_eur": 1489000000,
           "status": "complete"
         },
         {
@@ -2391,6 +2380,17 @@
           "metadata_mismatch_players": 1,
           "youngest_age": 19,
           "total_market_value_eur": 241700000,
+          "status": "complete"
+        },
+        {
+          "club_id": "131",
+          "club_name": "FC Barcelona",
+          "imported_players": 30,
+          "published_players": 30,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 1251600000,
           "status": "complete"
         },
         {
@@ -2451,13 +2451,13 @@
       ],
       "under_21": 86,
       "under_23": 188,
-      "value_1m_plus": 455,
-      "value_5m_plus": 218,
-      "value_20m_plus": 77,
-      "rated_84_plus": 428,
-      "rated_87_plus": 193,
-      "rated_90_plus": 56,
-      "total_market_value_eur": 5759025000,
+      "value_1m_plus": 456,
+      "value_5m_plus": 219,
+      "value_20m_plus": 78,
+      "rated_84_plus": 429,
+      "rated_87_plus": 194,
+      "rated_90_plus": 57,
+      "total_market_value_eur": 5789025000,
       "metadata_false_positive_count": 0,
       "metadata_false_negative_count": 9,
       "metadata_false_positives": [],
@@ -2572,11 +2572,11 @@
       "season": "2026-27",
       "expected_players": 652,
       "expected_clubs": 20,
-      "imported_players": 695,
-      "published_players": 695,
+      "imported_players": 694,
+      "published_players": 694,
       "estimated_not_imported": 0,
-      "imported_coverage_pct": 106.6,
-      "published_coverage_pct": 106.6,
+      "imported_coverage_pct": 106.4,
+      "published_coverage_pct": 106.4,
       "clubs_complete": 20,
       "clubs_thin": 0,
       "clubs_missing": 0,
@@ -2600,7 +2600,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 2,
           "youngest_age": 19,
-          "total_market_value_eur": 490950000,
+          "total_market_value_eur": 500950000,
           "status": "complete"
         },
         {
@@ -2615,14 +2615,14 @@
           "status": "complete"
         },
         {
-          "club_id": "506",
-          "club_name": "Juventus FC",
-          "imported_players": 30,
-          "published_players": 30,
+          "club_id": "5",
+          "club_name": "AC Milan",
+          "imported_players": 31,
+          "published_players": 31,
           "excluded_from_publication": 0,
-          "metadata_mismatch_players": 4,
+          "metadata_mismatch_players": 3,
           "youngest_age": 18,
-          "total_market_value_eur": 556700000,
+          "total_market_value_eur": 495200000,
           "status": "complete"
         },
         {
@@ -2637,14 +2637,14 @@
           "status": "complete"
         },
         {
-          "club_id": "5",
-          "club_name": "AC Milan",
-          "imported_players": 32,
-          "published_players": 32,
+          "club_id": "506",
+          "club_name": "Juventus FC",
+          "imported_players": 31,
+          "published_players": 31,
           "excluded_from_publication": 0,
-          "metadata_mismatch_players": 3,
+          "metadata_mismatch_players": 4,
           "youngest_age": 18,
-          "total_market_value_eur": 550200000,
+          "total_market_value_eur": 568700000,
           "status": "complete"
         },
         {
@@ -2678,6 +2678,17 @@
           "metadata_mismatch_players": 0,
           "youngest_age": 18,
           "total_market_value_eur": 75275000,
+          "status": "complete"
+        },
+        {
+          "club_id": "252",
+          "club_name": "Genoa CFC",
+          "imported_players": 34,
+          "published_players": 34,
+          "excluded_from_publication": 0,
+          "metadata_mismatch_players": 0,
+          "youngest_age": 18,
+          "total_market_value_eur": 179100000,
           "status": "complete"
         },
         {
@@ -2725,17 +2736,6 @@
           "status": "complete"
         },
         {
-          "club_id": "252",
-          "club_name": "Genoa CFC",
-          "imported_players": 35,
-          "published_players": 35,
-          "excluded_from_publication": 0,
-          "metadata_mismatch_players": 0,
-          "youngest_age": 18,
-          "total_market_value_eur": 183100000,
-          "status": "complete"
-        },
-        {
           "club_id": "416",
           "club_name": "Torino FC",
           "imported_players": 35,
@@ -2776,7 +2776,7 @@
           "excluded_from_publication": 0,
           "metadata_mismatch_players": 0,
           "youngest_age": 18,
-          "total_market_value_eur": 503000000,
+          "total_market_value_eur": 498000000,
           "status": "complete"
         },
         {
@@ -2802,15 +2802,15 @@
           "status": "complete"
         }
       ],
-      "under_21": 171,
-      "under_23": 292,
-      "value_1m_plus": 537,
+      "under_21": 170,
+      "under_23": 291,
+      "value_1m_plus": 536,
       "value_5m_plus": 314,
-      "value_20m_plus": 96,
-      "rated_84_plus": 515,
+      "value_20m_plus": 95,
+      "rated_84_plus": 514,
       "rated_87_plus": 238,
-      "rated_90_plus": 47,
-      "total_market_value_eur": 5946425000,
+      "rated_90_plus": 46,
+      "total_market_value_eur": 5904425000,
       "metadata_false_positive_count": 0,
       "metadata_false_negative_count": 17,
       "metadata_false_positives": [],

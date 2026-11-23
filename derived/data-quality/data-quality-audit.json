@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T13:35:09.186Z",
+  "generated_at": "2026-11-23T15:55:16.696Z",
   "policy": {
     "version": "tbg-data-quality-audit-v1.0",
     "top_club_slots": 80,
@@ -44,9 +44,9 @@
     "healthy": 0,
     "review": 80,
     "critical": 0,
-    "first_team_target_met": 34,
+    "first_team_target_met": 35,
     "development_target_met": 2,
-    "review_items": 85
+    "review_items": 84
   },
   "tracked_prospects": [
     {
@@ -82,13 +82,6 @@
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [
-        {
-          "player_name": "Federico Valverde",
-          "rating": 97,
-          "expected_rating": 93,
-          "gap": 4,
-          "market_value_eur": 90000000
-        },
         {
           "player_name": "Bernardo Silva",
           "rating": 94,
@@ -139,7 +132,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "5 ratings differ materially from value benchmark"
+          "detail": "4 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -149,62 +142,14 @@
       "club_id": "131",
       "league": "LaLiga",
       "country": "Spain",
-      "imported_players": 29,
-      "published_players": 29,
-      "senior_players": 15,
+      "imported_players": 30,
+      "published_players": 30,
+      "senior_players": 16,
       "development_players_u21": 14,
       "depth": {
         "ATT": 7,
-        "MID": 10,
+        "MID": 11,
         "DEF": 9,
-        "GK": 3
-      },
-      "senior_candidates_missing": 0,
-      "development_candidates_missing": 0,
-      "elite_youth_missing": [],
-      "suspicious_ratings": [
-        {
-          "player_name": "Frenkie de Jong",
-          "rating": 93,
-          "expected_rating": 89,
-          "gap": 4,
-          "market_value_eur": 35000000
-        }
-      ],
-      "health_score": 85,
-      "status": "review",
-      "issues": [
-        {
-          "severity": "warning",
-          "type": "senior_depth",
-          "detail": "15/25 senior players"
-        },
-        {
-          "severity": "warning",
-          "type": "development_depth",
-          "detail": "14/15 U21 players"
-        },
-        {
-          "severity": "review",
-          "type": "rating_sanity",
-          "detail": "1 ratings differ materially from value benchmark"
-        }
-      ]
-    },
-    {
-      "slot": 3,
-      "club_name": "Manchester City",
-      "club_id": "281",
-      "league": "Premier League",
-      "country": "England",
-      "imported_players": 30,
-      "published_players": 30,
-      "senior_players": 23,
-      "development_players_u21": 7,
-      "depth": {
-        "ATT": 7,
-        "MID": 8,
-        "DEF": 12,
         "GK": 3
       },
       "senior_candidates_missing": 0,
@@ -216,14 +161,14 @@
           "rating": 95,
           "expected_rating": 91,
           "gap": 4,
-          "market_value_eur": 55000000
+          "market_value_eur": 60000000
         },
         {
-          "player_name": "Mateo Kovacic",
-          "rating": 91,
-          "expected_rating": 85,
-          "gap": 6,
-          "market_value_eur": 10000000
+          "player_name": "Frenkie de Jong",
+          "rating": 92,
+          "expected_rating": 87,
+          "gap": 5,
+          "market_value_eur": 25000000
         }
       ],
       "health_score": 85,
@@ -232,7 +177,55 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "23/25 senior players"
+          "detail": "16/25 senior players"
+        },
+        {
+          "severity": "warning",
+          "type": "development_depth",
+          "detail": "14/15 U21 players"
+        },
+        {
+          "severity": "review",
+          "type": "rating_sanity",
+          "detail": "2 ratings differ materially from value benchmark"
+        }
+      ]
+    },
+    {
+      "slot": 3,
+      "club_name": "Manchester City",
+      "club_id": "281",
+      "league": "Premier League",
+      "country": "England",
+      "imported_players": 29,
+      "published_players": 29,
+      "senior_players": 22,
+      "development_players_u21": 7,
+      "depth": {
+        "ATT": 7,
+        "MID": 7,
+        "DEF": 12,
+        "GK": 3
+      },
+      "senior_candidates_missing": 0,
+      "development_candidates_missing": 0,
+      "elite_youth_missing": [],
+      "suspicious_ratings": [
+        {
+          "player_name": "Mateo Kovacic",
+          "rating": 91,
+          "expected_rating": 85,
+          "gap": 6,
+          "market_value_eur": 10000000
+        }
+      ],
+      "health_score": 79,
+      "status": "review",
+      "issues": [
+        {
+          "severity": "warning",
+          "type": "senior_depth",
+          "detail": "22/25 senior players"
         },
         {
           "severity": "warning",
@@ -240,9 +233,14 @@
           "detail": "7/15 U21 players"
         },
         {
+          "severity": "warning",
+          "type": "position_depth",
+          "detail": "MID: 7/8"
+        },
+        {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "2 ratings differ materially from value benchmark"
+          "detail": "1 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -257,8 +255,8 @@
       "senior_players": 24,
       "development_players_u21": 5,
       "depth": {
-        "ATT": 7,
         "MID": 7,
+        "ATT": 7,
         "DEF": 10,
         "GK": 5
       },
@@ -532,6 +530,13 @@
           "expected_rating": 87,
           "gap": 4,
           "market_value_eur": 25000000
+        },
+        {
+          "player_name": "Matthijs de Ligt",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 25000000
         }
       ],
       "health_score": 85,
@@ -550,7 +555,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "2 ratings differ materially from value benchmark"
+          "detail": "3 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -590,15 +595,15 @@
       "club_id": "506",
       "league": "Serie A",
       "country": "Italy",
-      "imported_players": 30,
-      "published_players": 30,
-      "senior_players": 27,
+      "imported_players": 31,
+      "published_players": 31,
+      "senior_players": 28,
       "development_players_u21": 3,
       "depth": {
         "ATT": 10,
         "DEF": 9,
         "MID": 7,
-        "GK": 4
+        "GK": 5
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -610,6 +615,13 @@
           "expected_rating": 85,
           "gap": 4,
           "market_value_eur": 14000000
+        },
+        {
+          "player_name": "Guglielmo Vicario",
+          "rating": 89,
+          "expected_rating": 85,
+          "gap": 4,
+          "market_value_eur": 12000000
         }
       ],
       "health_score": 85,
@@ -628,7 +640,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "1 ratings differ materially from value benchmark"
+          "detail": "2 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -638,13 +650,13 @@
       "club_id": "5",
       "league": "Serie A",
       "country": "Italy",
-      "imported_players": 32,
-      "published_players": 32,
-      "senior_players": 24,
+      "imported_players": 31,
+      "published_players": 31,
+      "senior_players": 23,
       "development_players_u21": 8,
       "depth": {
-        "ATT": 7,
         "GK": 3,
+        "ATT": 6,
         "MID": 12,
         "DEF": 10
       },
@@ -680,7 +692,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "24/25 senior players"
+          "detail": "23/25 senior players"
         },
         {
           "severity": "warning",
@@ -706,8 +718,8 @@
       "development_players_u21": 2,
       "depth": {
         "ATT": 4,
-        "MID": 11,
         "DEF": 8,
+        "MID": 11,
         "GK": 3
       },
       "senior_candidates_missing": 0,
@@ -883,45 +895,32 @@
       "club_id": "148",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 32,
-      "published_players": 32,
-      "senior_players": 24,
+      "imported_players": 31,
+      "published_players": 31,
+      "senior_players": 23,
       "development_players_u21": 8,
       "depth": {
         "MID": 10,
         "DEF": 11,
         "ATT": 7,
-        "GK": 4
+        "GK": 3
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
-      "suspicious_ratings": [
-        {
-          "player_name": "Rodrigo Bentancur",
-          "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 20000000
-        }
-      ],
-      "health_score": 85,
+      "suspicious_ratings": [],
+      "health_score": 88,
       "status": "review",
       "issues": [
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "24/25 senior players"
+          "detail": "23/25 senior players"
         },
         {
           "severity": "warning",
           "type": "development_depth",
           "detail": "8/15 U21 players"
-        },
-        {
-          "severity": "review",
-          "type": "rating_sanity",
-          "detail": "1 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -1064,8 +1063,8 @@
       "senior_players": 20,
       "development_players_u21": 9,
       "depth": {
-        "MID": 6,
         "ATT": 6,
+        "MID": 6,
         "DEF": 13,
         "GK": 4
       },
@@ -1541,27 +1540,20 @@
       "club_id": "405",
       "league": "Premier League",
       "country": "England",
-      "imported_players": 27,
-      "published_players": 27,
-      "senior_players": 21,
+      "imported_players": 26,
+      "published_players": 26,
+      "senior_players": 20,
       "development_players_u21": 6,
       "depth": {
         "MID": 10,
         "DEF": 8,
-        "ATT": 7,
-        "GK": 2
+        "GK": 2,
+        "ATT": 6
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [
-        {
-          "player_name": "Ollie Watkins",
-          "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 25000000
-        },
         {
           "player_name": "John McGinn",
           "rating": 91,
@@ -1597,7 +1589,7 @@
         {
           "severity": "warning",
           "type": "senior_depth",
-          "detail": "21/25 senior players"
+          "detail": "20/25 senior players"
         },
         {
           "severity": "warning",
@@ -1612,7 +1604,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "5 ratings differ materially from value benchmark"
+          "detail": "4 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -1628,21 +1620,14 @@
       "development_players_u21": 8,
       "depth": {
         "ATT": 7,
-        "MID": 6,
         "DEF": 7,
+        "MID": 6,
         "GK": 5
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [
-        {
-          "player_name": "Joelinton Cassio Apolinário de Lira",
-          "rating": 91,
-          "expected_rating": 87,
-          "gap": 4,
-          "market_value_eur": 25000000
-        },
         {
           "player_name": "Jacob Murphy",
           "rating": 89,
@@ -1677,7 +1662,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "2 ratings differ materially from value benchmark"
+          "detail": "1 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -1702,13 +1687,6 @@
       "elite_youth_missing": [],
       "suspicious_ratings": [
         {
-          "player_name": "Tomáš Souček",
-          "rating": 90,
-          "expected_rating": 85,
-          "gap": 5,
-          "market_value_eur": 10000000
-        },
-        {
           "player_name": "Maximilian Kilman",
           "rating": 89,
           "expected_rating": 85,
@@ -1732,7 +1710,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "2 ratings differ materially from value benchmark"
+          "detail": "1 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -2482,15 +2460,15 @@
       "club_id": "141",
       "league": "Süper Lig",
       "country": "Turkey",
-      "imported_players": 31,
-      "published_players": 31,
-      "senior_players": 24,
+      "imported_players": 32,
+      "published_players": 32,
+      "senior_players": 25,
       "development_players_u21": 7,
       "depth": {
-        "ATT": 6,
+        "ATT": 7,
         "DEF": 13,
-        "GK": 4,
-        "MID": 8
+        "MID": 8,
+        "GK": 4
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -2518,6 +2496,13 @@
           "market_value_eur": 14000000
         },
         {
+          "player_name": "Uğurcan Çakır",
+          "rating": 89,
+          "expected_rating": 85,
+          "gap": 4,
+          "market_value_eur": 13000000
+        },
+        {
           "player_name": "Lucas Torreira",
           "rating": 89,
           "expected_rating": 85,
@@ -2525,14 +2510,9 @@
           "market_value_eur": 10000000
         }
       ],
-      "health_score": 85,
+      "health_score": 91,
       "status": "review",
       "issues": [
-        {
-          "severity": "warning",
-          "type": "senior_depth",
-          "detail": "24/25 senior players"
-        },
         {
           "severity": "warning",
           "type": "development_depth",
@@ -2541,7 +2521,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "4 ratings differ materially from value benchmark"
+          "detail": "5 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -2992,13 +2972,13 @@
       "club_id": "660",
       "league": "Ukrainian Premier League",
       "country": "Ukraine",
-      "imported_players": 42,
-      "published_players": 42,
-      "senior_players": 32,
-      "development_players_u21": 10,
+      "imported_players": 44,
+      "published_players": 44,
+      "senior_players": 33,
+      "development_players_u21": 11,
       "depth": {
-        "DEF": 15,
-        "ATT": 14,
+        "DEF": 16,
+        "ATT": 15,
         "GK": 4,
         "MID": 9
       },
@@ -3020,7 +3000,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "10/15 U21 players"
+          "detail": "11/15 U21 players"
         },
         {
           "severity": "review",
@@ -3035,15 +3015,15 @@
       "club_id": "338",
       "league": "Ukrainian Premier League",
       "country": "Ukraine",
-      "imported_players": 42,
-      "published_players": 42,
-      "senior_players": 30,
-      "development_players_u21": 12,
+      "imported_players": 45,
+      "published_players": 45,
+      "senior_players": 31,
+      "development_players_u21": 14,
       "depth": {
-        "ATT": 15,
         "MID": 10,
+        "GK": 4,
         "DEF": 14,
-        "GK": 3
+        "ATT": 17
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
@@ -3055,7 +3035,7 @@
         {
           "severity": "warning",
           "type": "development_depth",
-          "detail": "12/15 U21 players"
+          "detail": "14/15 U21 players"
         }
       ]
     },
@@ -3356,20 +3336,27 @@
       "club_id": "1114",
       "league": "Saudi Pro League",
       "country": "Saudi Arabia",
-      "imported_players": 32,
-      "published_players": 32,
-      "senior_players": 27,
+      "imported_players": 33,
+      "published_players": 33,
+      "senior_players": 28,
       "development_players_u21": 5,
       "depth": {
+        "ATT": 11,
         "MID": 6,
         "DEF": 11,
-        "ATT": 10,
         "GK": 5
       },
       "senior_candidates_missing": 0,
       "development_candidates_missing": 0,
       "elite_youth_missing": [],
       "suspicious_ratings": [
+        {
+          "player_name": "Ollie Watkins",
+          "rating": 91,
+          "expected_rating": 87,
+          "gap": 4,
+          "market_value_eur": 25000000
+        },
         {
           "player_name": "Rúben Neves",
           "rating": 91,
@@ -3401,7 +3388,7 @@
         {
           "severity": "review",
           "type": "rating_sanity",
-          "detail": "2 ratings differ materially from value benchmark"
+          "detail": "3 ratings differ materially from value benchmark"
         }
       ]
     },
@@ -3752,19 +3739,6 @@
     },
     {
       "priority": "medium",
-      "club": "Real Madrid",
-      "league": "LaLiga",
-      "issue": "rating_sanity",
-      "player": "Federico Valverde",
-      "age": 28,
-      "market_value_eur": 90000000,
-      "tbg_rating": 97,
-      "expected_rating": 93,
-      "gap": 4,
-      "transfermarkt_player_id": "369081"
-    },
-    {
-      "priority": "medium",
       "club": "LOSC Lille",
       "league": "Ligue 1",
       "issue": "rating_sanity",
@@ -3778,6 +3752,19 @@
     },
     {
       "priority": "medium",
+      "club": "FC Barcelona",
+      "league": "LaLiga",
+      "issue": "rating_sanity",
+      "player": "Rodrigo Hernández Cascante",
+      "age": 30,
+      "market_value_eur": 60000000,
+      "tbg_rating": 95,
+      "expected_rating": 91,
+      "gap": 4,
+      "transfermarkt_player_id": "357565"
+    },
+    {
+      "priority": "medium",
       "club": "Bayern Munich",
       "league": "Bundesliga",
       "issue": "rating_sanity",
@@ -3788,32 +3775,6 @@
       "expected_rating": 91,
       "gap": 5,
       "transfermarkt_player_id": "132098"
-    },
-    {
-      "priority": "medium",
-      "club": "Manchester City",
-      "league": "Premier League",
-      "issue": "rating_sanity",
-      "player": "Rodrigo Hernández Cascante",
-      "age": 30,
-      "market_value_eur": 55000000,
-      "tbg_rating": 95,
-      "expected_rating": 91,
-      "gap": 4,
-      "transfermarkt_player_id": "357565"
-    },
-    {
-      "priority": "medium",
-      "club": "FC Barcelona",
-      "league": "LaLiga",
-      "issue": "rating_sanity",
-      "player": "Frenkie de Jong",
-      "age": 29,
-      "market_value_eur": 35000000,
-      "tbg_rating": 93,
-      "expected_rating": 89,
-      "gap": 4,
-      "transfermarkt_player_id": "326330"
     },
     {
       "priority": "medium",
@@ -3908,6 +3869,19 @@
     },
     {
       "priority": "medium",
+      "club": "FC Barcelona",
+      "league": "LaLiga",
+      "issue": "rating_sanity",
+      "player": "Frenkie de Jong",
+      "age": 29,
+      "market_value_eur": 25000000,
+      "tbg_rating": 92,
+      "expected_rating": 87,
+      "gap": 5,
+      "transfermarkt_player_id": "326330"
+    },
+    {
+      "priority": "medium",
       "club": "Arsenal FC",
       "league": "Premier League",
       "issue": "rating_sanity",
@@ -3931,6 +3905,19 @@
       "expected_rating": 87,
       "gap": 4,
       "transfermarkt_player_id": "346483"
+    },
+    {
+      "priority": "medium",
+      "club": "Manchester United",
+      "league": "Premier League",
+      "issue": "rating_sanity",
+      "player": "Matthijs de Ligt",
+      "age": 27,
+      "market_value_eur": 25000000,
+      "tbg_rating": 91,
+      "expected_rating": 87,
+      "gap": 4,
+      "transfermarkt_player_id": "326031"
     },
     {
       "priority": "medium",
@@ -3960,32 +3947,6 @@
     },
     {
       "priority": "medium",
-      "club": "Aston Villa",
-      "league": "Premier League",
-      "issue": "rating_sanity",
-      "player": "Ollie Watkins",
-      "age": 30,
-      "market_value_eur": 25000000,
-      "tbg_rating": 91,
-      "expected_rating": 87,
-      "gap": 4,
-      "transfermarkt_player_id": "324358"
-    },
-    {
-      "priority": "medium",
-      "club": "Newcastle United",
-      "league": "Premier League",
-      "issue": "rating_sanity",
-      "player": "Joelinton Cassio Apolinário de Lira",
-      "age": 30,
-      "market_value_eur": 25000000,
-      "tbg_rating": 91,
-      "expected_rating": 87,
-      "gap": 4,
-      "transfermarkt_player_id": "333241"
-    },
-    {
-      "priority": "medium",
       "club": "Real Sociedad",
       "league": "LaLiga",
       "issue": "rating_sanity",
@@ -3996,6 +3957,19 @@
       "expected_rating": 87,
       "gap": 4,
       "transfermarkt_player_id": "351478"
+    },
+    {
+      "priority": "medium",
+      "club": "Al-Hilal SFC",
+      "league": "Saudi Pro League",
+      "issue": "rating_sanity",
+      "player": "Ollie Watkins",
+      "age": 30,
+      "market_value_eur": 25000000,
+      "tbg_rating": 91,
+      "expected_rating": 87,
+      "gap": 4,
+      "transfermarkt_player_id": "324358"
     },
     {
       "priority": "medium",
@@ -4113,19 +4087,6 @@
       "expected_rating": 87,
       "gap": 4,
       "transfermarkt_player_id": "193082"
-    },
-    {
-      "priority": "medium",
-      "club": "Tottenham Hotspur",
-      "league": "Premier League",
-      "issue": "rating_sanity",
-      "player": "Rodrigo Bentancur",
-      "age": 29,
-      "market_value_eur": 20000000,
-      "tbg_rating": 91,
-      "expected_rating": 87,
-      "gap": 4,
-      "transfermarkt_player_id": "354362"
     },
     {
       "priority": "medium",
@@ -4506,6 +4467,32 @@
     },
     {
       "priority": "medium",
+      "club": "Galatasaray",
+      "league": "Süper Lig",
+      "issue": "rating_sanity",
+      "player": "Uğurcan Çakır",
+      "age": 30,
+      "market_value_eur": 13000000,
+      "tbg_rating": 89,
+      "expected_rating": 85,
+      "gap": 4,
+      "transfermarkt_player_id": "292199"
+    },
+    {
+      "priority": "medium",
+      "club": "Juventus FC",
+      "league": "Serie A",
+      "issue": "rating_sanity",
+      "player": "Guglielmo Vicario",
+      "age": 30,
+      "market_value_eur": 12000000,
+      "tbg_rating": 89,
+      "expected_rating": 85,
+      "gap": 4,
+      "transfermarkt_player_id": "286047"
+    },
+    {
+      "priority": "medium",
       "club": "AC Milan",
       "league": "Serie A",
       "issue": "rating_sanity",
@@ -4737,19 +4724,6 @@
       "expected_rating": 85,
       "gap": 5,
       "transfermarkt_player_id": "190393"
-    },
-    {
-      "priority": "medium",
-      "club": "West Ham United",
-      "league": "Premier League",
-      "issue": "rating_sanity",
-      "player": "Tomáš Souček",
-      "age": 31,
-      "market_value_eur": 10000000,
-      "tbg_rating": 90,
-      "expected_rating": 85,
-      "gap": 5,
-      "transfermarkt_player_id": "283628"
     },
     {
       "priority": "medium",

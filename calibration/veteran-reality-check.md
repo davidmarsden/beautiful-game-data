@@ -1,6 +1,6 @@
 # Veteran Reality Check
 
-Generated: 2026-11-16T13:35:00.969Z
+Generated: 2026-11-23T15:55:05.446Z
 
 - Adjusted players: 379
 - Elite-league adjustments: 29
@@ -43,6 +43,7 @@ Generated: 2026-11-16T13:35:00.969Z
 - Tom Heaton (40, Manchester United): 90 → 88 — veteran reality adjustment: age 40, elite league, GK, low current value
 - Agustín Marchesín (38, CA Boca Juniors): 89 → 87 — veteran reality adjustment: age 38, non-elite league, GK, low current value
 - Alejandro Bedoya (39, Philadelphia Union): 89 → 87 — veteran reality adjustment: age 39, non-elite league, outfield, low current value
+- Andriy Yarmolenko (37, Dynamo Kyiv): 89 → 87 — veteran reality adjustment: age 37, non-elite league, outfield, low current value
 - Dani Parejo (37, Without Club): 89 → 87 — veteran reality adjustment: age 37, non-elite league, outfield, low current value
 - El Mahdi Soliman (39, Zamalek SC): 89 → 87 — veteran reality adjustment: age 39, non-elite league, GK, low current value
 - Francesco Acerbi (38, Without Club): 89 → 87 — veteran reality adjustment: age 38, non-elite league, outfield, low current value
@@ -124,7 +125,6 @@ Generated: 2026-11-16T13:35:00.969Z
 - Alex Sandro Lobo Silva (35, CR Flamengo): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - Allan Marques Loureiro (35, Botafogo de Futebol e Regatas): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
 - André Carrillo (35, Sport Club Corinthians Paulista): 89 → 88 — veteran reality adjustment: age 35, non-elite league, outfield, low current value
-- Andriy Yarmolenko (36, Dynamo Kyiv): 89 → 88 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Aníbal Godoy (36, San Diego FC): 89 → 88 — veteran reality adjustment: age 36, non-elite league, outfield, low current value
 - Christopher Trimmel (39, 1.FC Union Berlin): 89 → 88 — veteran reality adjustment: age 39, elite league, outfield, low current value
 - Daniel Carvajal (34, Without Club): 89 → 88 — veteran reality adjustment: age 34, non-elite league, outfield, low current value

@@ -1,51 +1,39 @@
 # Player Change Ledger
 
-Generated: 2026-11-16T13:35:06.730Z
+Generated: 2026-11-23T15:55:13.144Z
 
-- previous players: 9218
-- current players: 9224
-- new players: 6
-- rating increases: 16
-- rating decreases: 11
+- previous players: 9224
+- current players: 9226
+- new players: 2
+- rating increases: 5
+- rating decreases: 14
 - club changes: 3
 - newly unsigned: 0
 - removed players: 0
 
 ## Changes
 
-- Aarón Mayol: new player — added at Valencia CF
-- Alaettin Ekici: new player — added at Fenerbahce
-- Arnau Martínez: new player — added at Valencia CF
-- Çağrı Balta: new player — added at Fenerbahce
-- David Otorbi: new player — added at Valencia CF
-- Kuzey Sapaz: new player — added at Fenerbahce
-- Bradley Barcola: rating change — 91 → 93 (+2)
-- Alex Iwobi: rating change — 90 → 91 (+1)
-- Alexander Sørloth: rating change — 90 → 89 (-1)
-- Archie Brown: rating change — 86 → 87 (+1)
-- Bartuğ Elmaz: rating change — 83 → 84 (+1)
-- Dani Raba: rating change — 85 → 86 (+1)
-- Harvey Elliott: rating change — 88 → 87 (-1)
-- Ilya Zabarnyi: rating change — 90 → 91 (+1)
-- Jamal Musiala: rating change — 95 → 94 (-1)
-- José Copete: rating change — 85 → 86 (+1)
-- Leroy Sané: rating change — 92 → 91 (-1)
-- Luis Rioja: rating change — 86 → 87 (+1)
-- Marcos Aoás Corrêa: rating change — 94 → 93 (-1)
-- Marcus Thuram: rating change — 93 → 92 (-1)
-- Mert Günok: rating change — 87 → 86 (-1)
-- Mert Hakan Yandaş: rating change — 85 → 86 (+1)
-- Mert Müldür: rating change — 87 → 86 (-1)
-- Nélson Semedo: rating change — 89 → 88 (-1)
-- Nicolò Barella: rating change — 92 → 93 (+1)
-- Ognjen Mimović: rating change — 84 → 83 (-1)
-- Oğuz Aydın: rating change — 85 → 86 (+1)
-- Rodrigo De Paul: rating change — 91 → 90 (-1)
-- Ryunosuke Sato: rating change — 82 → 83 (+1)
-- Serge Gnabry: rating change — 91 → 92 (+1)
-- Trent Alexander-Arnold: rating change — 93 → 94 (+1)
-- Vedat Muriqi: rating change — 87 → 88 (+1)
-- Youri Tielemans: rating change — 91 → 92 (+1)
-- Kayne van Oevelen: club change — Ipswich Town → Valencia CF
-- Kojo Oppong: club change — OGC Nice → Fenerbahce
-- Levent Mercan: club change — club_36 → Fenerbahce
+- Gustavo Prado Alves: new player — added at Dynamo Kyiv
+- Keasse Bah: new player — added at Dynamo Kyiv
+- Ryan Roberto de Oliveira Dantas: rating change — 79 → 82 (+3)
+- Tomáš Souček: rating change — 90 → 88 (-2)
+- Alessandro Bastoni: rating change — 92 → 93 (+1)
+- Alexander Isak: rating change — 95 → 94 (-1)
+- Alisson Santana Lopes da Fonseca: rating change — 84 → 85 (+1)
+- Andriy Yarmolenko: rating change — 88 → 87 (-1)
+- Ben White: rating change — 90 → 91 (+1)
+- David Raum: rating change — 90 → 89 (-1)
+- Federico Valverde: rating change — 97 → 96 (-1)
+- Frenkie de Jong: rating change — 93 → 92 (-1)
+- Guglielmo Vicario: rating change — 90 → 89 (-1)
+- Ibrahima Konaté: rating change — 92 → 91 (-1)
+- Joelinton Cassio Apolinário de Lira: rating change — 91 → 90 (-1)
+- Justin Kluivert: rating change — 90 → 89 (-1)
+- Rafael Leão: rating change — 93 → 92 (-1)
+- Rodrigo Bentancur: rating change — 91 → 90 (-1)
+- Scott McTominay: rating change — 92 → 91 (-1)
+- Uğurcan Çakır: rating change — 90 → 89 (-1)
+- Yegor Nazaryna: rating change — 85 → 86 (+1)
+- Alan Matturro: club change — Genoa CFC → Shakhtar Donetsk
+- Gabriel Carvalho Teixeira: club change — Al-Qadsiah FC → Shakhtar Donetsk
+- Georgiy Bushchan: club change — Polissya Zhytomyr → Dynamo Kyiv
